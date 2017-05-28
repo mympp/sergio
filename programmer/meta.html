@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta content="telephone=no" name="format-detection" />
+	<!-- meta标签的format-detection属性是做一些文本格式检查用的.具体作用：禁止将页面中的一连串数字识别为电话号码、并设置为手机可以拨打的一个连接。这个标签的默认值是telephone=yes。-->
+	<meta heep-equiv="X-UA-Compatible" content="IE=edge" />
+	<!--让IE浏览器运行最新的渲染模式-->
+	<meta name="viewport" content="width=device-width,initial-scale=1.0，minimum-scale=1.0,maximum-scale=1.0,user-scalable:no" />
+	<!-- 为了让网站对移动设备友好，确保适当的绘制和触屏缩放。viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。所有主流浏览器都支持这个设置，包括IE9。对于那些老式浏览器（主要是IE6、7、8），需要使用css3-mediaqueries.js。加入user-scalable=no 禁止缩放zooming功能，即可滚动屏幕。 -->
+	<link rel="shortcut icon" href="images/favicon.ico" type="favicon.ico" />
+	<title>meta</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content=" " />
+
+	<link rel="stylesheet" type="text/css" href="css/base.css" />
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+</head>
+<body>
+<code>
+	&lt;meta charset="utf-8" /&gt;
+	&lt;meta content="telephone=no" name="format-detection" /&gt;
+	&lt;meta heep-equiv="X-UA-Compatible" content="IE=edge" /&gt;<!--让IE浏览器运行最新的渲染模式-->
+	&lt;meta name="viewport" content="width=device-width,initial-scale=1.0，minimum-scale=1.0,maximum-scale=1.0,user-scalable:no" /&gt;
+	&lt;link rel="shortcut icon" href="images/favicon.ico" type="favicon.ico" /&gt;
+	&lt;title&gt;&lt;/title&gt;
+	&lt;meta name="keywords" content="" /&gt;
+	&lt;meta name="description" content="" /&gt;
+
+	&lt;meta name="format-detection" content="telephone=no" &gt;
+	具体作用：禁止将页面中的一连串数字识别为电话号码、并设置为手机可以拨打的一个连接。
+	这个标签的默认值是telephone=yes。
+	viewport元标签：
+	&lt;meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。所有主流浏览器都支持这个设置，包括IE9。对于那些老式浏览器（主要是IE6、7、8），需要使用css3-mediaqueries.js。
+
+	meta标签的format-detection属性是做一些格式检查用的，比如题主提到的：
+<meta name="format-detection" content="telephone=no">
+具体作用：禁止将页面中的一连串数字识别为电话号码、并设置为手机可以拨打的一个连接。
+这个标签的默认值是telephone=yes。
+
+	&lt;meta heep-equiv="X-UA-Compatible" content="IE=edge">让IE浏览器运行最新的渲染模式
+
+	 在iPhone的浏览器中页面将以原始大小显示，不允许缩放。 
+	&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+
+	width - viewport的宽度 height - viewport的高度 
+	initial-scale - 初始的缩放比例 
+	minimum-scale - 允许用户缩放到的最小比例 
+	maximum-scale - 允许用户缩放到的最大比例 
+	user-scalable - 用户是否可以手动缩放 
+
+	----------------------------------------------------------------------------------------------------------------------------------------------
+	在iPhone 手机上默认值是（电话号码显示为拨号的超链接）：
+	&lt;meta name="format-detection" content="telephone=yes"/&gt;
+	可将telephone=no，则手机号码不被显示为拨号链接
+	&lt;meta name="format-detection" content="telephone=no"/&gt;
+	------------------------------------------------------------------------------------------------------------------
+
+	ios设备对meta定义的私有属性：（可以添加至主屏幕）
+	&lt;meta name="apple-mobile-web-app-capable" content="yes" /&gt;
+	•网站开启对web app程序的支持。
+	&lt;meta name="apple-mobile-web-app-status-bar-style" content="black" /&gt;
+	•在web app应用下状态条（屏幕顶部条）的颜色；
+	•默认值为default（白色），可以定为black（黑色）和black-translucent（灰色半透明）。
+	•若值为“black-translucent”将会占据页面px位置，浮在页面上方（会覆盖页面20px高度–iphone4和itouch4的Retina屏幕为40px）。
+</code>
+</body>
+</html>

@@ -1,0 +1,3143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML5标签列表</title>
+<link rel="stylesheet" type="text/css" href="../css/base.css">
+<link rel="stylesheet" type="text/css" href="../css/index.css">
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+<!-- nav -->
+<nav><a id="BackTop"></a>
+	<div class="logo">
+		<img src="../images/logo2.gif" alt="Logo" width="250px"><!--logo 为名字签名手写体-->
+	</div>
+	<ul>
+		<li class=""><a href="index.html">首页</a></li>
+		<li><a href="production.html">作品</a></li>
+		<li><a href="">程序猿</a>
+			<ul>
+				<li><a href="">HTML5</a>
+					<ul>
+						<li><a href="programmer/html5.html">HTML5</a></li>
+						<li><a href="programmer/html5new.html">HTML5新标签</a></li>
+						<li><a href="programmer/meta.html">meta</a></li>
+						<li><a href="programmer/viewport.html">viewport</a></li>
+					</ul>
+				</li>
+				<li><a href="">CSS3</a>
+					<ul>
+						<li><a href="programmer/css3search.html">CSS3参考</a></li>
+						<li><a href="programmer/css3.html">CSS3</a></li>
+						<li><a href="programmer/center.html">居中</a></li>
+					</ul>
+				</li>
+				<li><a href="">JavaScript</a>
+					<ul>
+						<li><a href="programmer/javascript">JavaScript</a></li>
+						<li><a href="programmer/ajax.html">Ajax</a></li>
+					</ul>
+				</li>
+				<li><a href="programmer/nodejs.html">Node.js</a></li>
+				<li><a href="">网站可用性</a>
+					<ul>
+						<li><a href="programmer/awdrwd.html">AWDRWD</a></li>
+						<li><a href=""></a></li>
+					</ul>
+				</li>
+				<li><a href="programmer/chart.html">可视化图形</a></li>
+				<li><a href="programmer/st3.html">sublime text 3</a></li>
+				<li><a href=""></a></li>
+			</ul>
+		</li><!--两种模式点击和键盘输入。1，纯键盘输入，页面底下代码输入，背景关键词星系旋转悬停显示“请用键盘输入”。2，鼠标正常点击。-->
+		<li><a href="human.html">人类</a></li><!--未来多条分支虚拟化，并设置投票。-->
+		<li><a href="funny.html">娱乐</a></li><!--包含游戏、音乐、读书-->
+		<li><a href="aboutme.html">找到我</a></li>
+	</ul>
+</nav>
+<!-- nav End -->
+<!-- main -->
+	<div class="main">
+		<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5/HTML5_element_list">原文</a>
+		<a href="http://www.w3school.com.cn/tags/tag_td.asp">原文</a>
+		<h1>HTML5 标签列表</h1>
+		<p>这里列出了所有标准化的 HTML5 元素，使用起始标签描述，按照功能分组。与列出所有标准化的、非标准化的、有效的、废弃的标签的 HTML 元素索引 不同的是，该页只列出有效的 HTML5 元素。新网站应当只使用这里列出的元素。</p>
+		<p>符号 <img src="../images/html5.jpg" width="20px"> 代表该元素是在 HTML5 中新增的。另外注意，这里列出的其他元素可能在 HTML5 标准中得到了扩充或经过修改。</p>
+		<p>属性只显示HTML5支持并且非试验阶段的属性。并不含各属性的兼容性说明。局属性是所有HTML元素共有的属性;它们可以用于所有元素，尽管属性可能对某些元素没有影响。</p>
+	</div>
+	<table class="main-table">
+		<tr>
+			<th width="10%">Element标签</th>
+			<th width="20%">Description描述</th>
+			<th width="70%">Attribute属性</th>
+		</tr>
+		<tr>
+			<td class="trHead" colspan="3">根元素EDIT</td>
+		</tr>
+		<tr>
+			<td>&lt;html&gt;</td>	
+			<td>代表 HTML 或 XHTML文档的根。其他所有元素必须是这个元素的子节点。</td>
+			<td>
+				<p>xmlns,指派文档的 XML 命名空间。默认的值是 "http://www.w3.org/1999/xhtml"。这在 XHTML 中是必要的，而在 HTML 中则是可选的。</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="trHead" colspan="3">文档元数据EDIT</td>
+		</tr>
+		<tr>
+			<td>&lt;head&gt;</td>	
+			<td>代表关于文档元数据的一个集合，包括脚本或样式表的链接或内容。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;title&gt;</td>	
+			<td>定义文档的标题，将显示在浏览器的标题栏或标签页上。该元素只能包含文本，包含的标签不会被解释。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;base&gt;</td>	
+			<td>定义页面上相对 URL 的基准 URL。</td>
+			<td>
+				<!-- <p>href,用于文档中相对 URL 地址的基础 URL。如果指定了该属性，这个元素必须写在其他任何属性值是 URL 的元素之前。允许绝对和相对RUL（但是请查看下面的注意节段）。</p>
+				<p>target,为没有显示target引用属性的元素指定一个名字或关键字，当元素的超链接或导致导航的形式被激活时，指定显示结果的默认位置。在HTML4中，其值是一个框的名字或者在关键字。在HTML5中，其值是一个浏览上下文（例如标签页，窗口或者内联框）的名字或者关键字。以下的关键字指定特殊的意思：_self: 载入结果到当前的HTML4框（或者HTML5的浏览上下文）。如果没有指定该属性，那该值是元素的默认值属性值。_blank: 载入结果到一个新的未命名HTML4窗口，或者一个新的HTML5的浏览上下文。_parent: 对于HTML4，载入结果到当前框的父级框；对于HTML5，载入结果到父级浏览上下文。如果没有父级结构，该选项的行为和_self一样。_top: 在HTML4中，载入结果到全部原始窗口，并且取消其他所有框。在HTML5中，载入结果到顶级浏览上下文（该浏览上下文是当前上下文的最顶级上下文）。如果没有父级，该选项的行为和_self一样。</p> -->
+				<table>
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						
+						<td>href<small>必需的属性</small></td>	
+						<td>URL</td>	
+						<td>规定页面中所有相对链接的基准 URL。</td>
+					<tr>
+
+						<td>target<small>可选的属性</small></td>	
+						<td>
+							<li>_blank	<small>在新窗口中打开被链接文档。</small></li>
+							<li>_self	<small>默认。在相同的框架中打开被链接文档。</small></li>
+							<li>_parent	<small>在父框架集中打开被链接文档。</small></li>
+							<li>_top	<small>在整个窗口中打开被链接文档。</small></li>
+							<li>framename	<small>在指定的框架中打开被链接文档。</small></li>
+						</td>
+						<td>在何处打开页面中所有的链接。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;link&gt;</td>	
+			<td>用于链接外部的 JavaScript 或 CSS 到该文档。</td>
+			<td>
+				<!-- <p>crossorigin,该枚举属性指定在加载相关图片时是否必须使用 CORS. 启用 CORS 的图片 可以在 canvas 元素中使用, 并避免其被污染. 可取的值如下:"anonymous",会发起一个跨域请求(即包含 Origin: HTTP 头). 但不会发送任何认证信息 (即不发送 cookie, X.509 证书和 HTTP 基本认证信息). 如果服务器没有给出源站凭证 (不设置 Access-Control-Allow-Origin: HTTP 头), 这张图片就会被污染并限制使用."use-credentials",会发起一个带有认证信息 (发送 cookie, X.509 证书和 HTTP 基本认证信息) 的跨域请求 (即包含 Origin: HTTP 头). 如果服务器没有给出源站凭证 (不设置 Access-Control-Allow-Origin: HTTP 头), 这张图片就会被污染并限制使用.当不设置该属性时, 资源将会不使用 CORS 加载 (即不发送 Origin: HTTP 头), 这将阻止其在 canvas 元素中进行使用. 若设置了非法的值, 则视为使用 anonymous. 前往 CORS settings attributes 获取更多信息.</p>
+				<p>href，该属性指定被链接资源的URL. URL 可以是绝对的或相对的.</p>
+				<p>hreflang,该属性指明了被链接资源的语言. 其意义仅供参考. 可取的值参见 BCP47. 仅当设置了 href 属性时才应设置该属性.</p>
+				<p>media</p>
+				<p>rel</p>
+				<p>size</p>
+				<p>type</p> -->
+				<table>
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>href</td>	
+						<td>URL</td>	
+						<td>规定被链接文档的位置。</td>
+					</tr>
+					<tr>
+						<td>hreflang</td>	
+						<td>language_code</td>	
+						<td>规定被链接文档中文本的语言。</td>
+					</tr>
+					<tr>
+						<td>media</td>	
+						<td>media_query</td>	
+						<td>规定被链接文档将被显示在什么设备上。</td>
+					</tr>
+					<tr>
+						<td>rel</td>
+						<td>	
+							<li>alternate	<small>文档的替代版本（比如打印页、翻译或镜像）。</small></li>
+							<li>stylesheet	<small>文档的外部样式表。</small></li>
+							<li>start	<small>集合中的第一个文档。</small></li>
+							<li>next	<small>集合中的下一个文档。</small></li>
+							<li>prev	<small>集合中的上一个文档。</small></li>
+							<li>contents	<small>文档的目录。</small></li>
+							<li>index	<small>文档的索引。</small></li>
+							<li>glossary	<small>在文档中使用的词汇的术语表（解释）。</small></li>
+							<li>copyright	<small>包含版权信息的文档。</small></li>
+							<li>chapter	<small>文档的章。</small></li>
+							<li>section	<small>文档的节。</small></li>
+							<li>subsection	<small>文档的小节。</small></li>
+							<li>appendix	<small>文档的附录。</small></li>
+							<li>help	<small>帮助文档。</small></li>
+							<li>bookmark	<small>相关文档。</small></li>
+						</td>
+						<td>规定当前文档与被链接文档之间的关系。</td>
+					</tr>
+					<tr>
+						<td>sizes<img src="../images/html5.jpg"></td>
+						<td>
+							<li>heightxwidth	<small>为被链接的图标规定一个或多个以像素计的高度/宽度值对。高度与宽度之间由 "x" 或 "X" 分隔。</small></li>
+							<li>any	<small>规定图标是可伸缩的（比如 SVG 图像）。</small></li>
+						</td>
+						<td>规定被链接资源的尺寸。仅适用于 rel="icon"。</td>
+					</tr>
+					<tr>
+						<td>type</td>	
+						<td>MIME_type</td>	
+						<td>规定被链接文档的 MIME 类型。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;meta&gt;</td>	
+			<td>定义其他 HTML 元素无法描述的元数据。</td>
+			<td>
+				<!-- <p>charset</p>
+				<p>content,基于内容，这个属性为 http-equiv 或 name 属性提供了与其相关的值的定义.</p>
+				<p>http-equiv</p>
+				<p>name</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>content<small>必需的属性</small></td>	
+						<td>some_text</td>	
+						<td>定义与 http-equiv 或 name 属性相关的元信息</td>
+					</tr>
+					<tr>
+						<td>http-equiv</td>
+						<td>	
+							<li>content-type</li>
+							<li>expires</li>
+							<li>refresh</li>
+							<li>set-cookie</li>
+						</td>
+						<td>把 content 属性关联到 HTTP 头部。</td>
+					</tr>
+					<tr>
+						<td>name</td>	
+						<td>
+							<li>author</li>
+							<li>description</li>
+							<li>keywords</li>
+							<li>generator</li>
+							<li>revised</li>
+							<li>others</li>
+						</td>
+						<td>把 content 属性关联到一个名称。</td>
+					</tr>
+					<tr>
+						<td>scheme</td>	
+						<td>some_text</td>	
+						<td>定义用于翻译 content 属性值的格式。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;style&gt;</td>	
+			<td>用于内联 CSS。</td>
+			<td>
+				<!-- <p>type,该属性以MIME类型（不应该指定字符集）定义样式语言。如果该属性未指定，则默认为‘text/css'。</p>
+				<p>media,指定哪个媒体应该应用该样式，请查看 http://dev.w3.org/csswg/css3-mediaqueries.</p>
+				<p>scoped,如果该属性存在，则样式应用于其父元素；如果不存在，则应用于整个文档。</p>
+				<p>title,指定可选的样式表。</p>
+				<p>disabled,If set, disables (does not apply) the style rules to the Document that are specified within the element.如果指定该属性，关闭（不应用）样式规则到文档中的元素。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>type<small>必需的属性</small></td>	
+						<td>text/css</td>
+						<td>规定样式表的 MIME 类型。</td>
+					</tr>
+					<tr>
+						<td>media</td>
+						<td>	
+							<li>screen	<small>计算机屏幕（默认值）。</small></li>
+							<li>tty	<small>电传打字机以及使用等宽字符网格的类似媒介。</small></li>
+							<li>tv	<small>电视类型设备（低分辨率、有限的屏幕翻滚能力）。</small></li>
+							<li>projection	<small>放映机。</small></li>
+							<li>handheld	<small>手持设备（小屏幕、有限的带宽）。</small></li>
+							<li>print	<small>打印预览模式 / 打印页。</small></li>
+							<li>braille	<small>盲人用点字法反馈设备。</small></li>
+							<li>aural	<small>语音合成器。</small></li>
+							<li>all	<small>适合所有设备。</small></li>
+						</td>
+						<td>为样式表规定不同的媒介类型。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td class="trHead" colspan="3">脚本EDIT</td>
+		</tr>
+		<tr>
+			<td>&lt;script&gt;</td>	
+			<td>定义一个内联脚本或链接到外部脚本。脚本语言是 JavaScript。</td>
+			<td>
+				<!-- <p>async <img src="../images/html5.jpg">,该布尔属性指示浏览器是否在允许的情况下异步执行该脚本。该属性对于内联脚本无作用 (即没有src属性的脚本）。关于浏览器支持请参见浏览器兼容性。另可参见文章asm.js的异步脚本。</p>
+				<p>integrity,包含用户代理可用于验证已提取资源是否已无意外操作的内联元数据。参见 Subresource Integrity。</p>
+				<p>src,这个属性定义引用外部脚本的URI，这可以用来代替直接在文档中嵌入脚本。指定了 src 属性的script元素标签内不应该再有嵌入的脚本。</p>
+				<p>type,该属性定义script元素包含或src引用的脚本语言。属性的值为MIME类型; 支持的MIME类型包括text/javascript, text/ecmascript, application/javascript, 和application/ecmascript。如果没有定义这个属性，脚本会被视作JavaScript。如果MIME类型不是JavaScript类型（上述支持的类型），则该元素所包含的内容会被当作数据块而不会被浏览器执行。如果type属性为module，代码会被当作JavaScript模块 。请参见ES6 in Depth: Modules在Firefox中可以通过定义type=application/javascript;version=1.8来使用如let声明这类的JS高版本中的先进特性。 但请注意这是个非标准功能，其他浏览器，特别是基于Chrome的浏览器可能会不支持。关于如何引入特殊编程语言，请参见这篇文章。</p>
+				<p>text和 textContent 属性类似，本属性用于设置元素的文本内容。但和 textContent  不一样的是，本属性在节点插入到DOM之后，此属性被解析为可执行代码。</p>
+				<p>defer,这个布尔属性定义该脚本是否会延迟到文档解析完毕后才执行。但因为这个功能还未被所有主流浏览器实施，开发人员不应假设脚本实际上都会被延迟执行。defer属性不应在没有src属性的脚本标签上使用。从Gecko 1.9.2开始, 没有src属性的脚本标签的defer属性会被忽略。但是在Gecko 1.9.1中，如果定义了defer属性，即使内嵌的脚本也会被延迟执行。</p>
+				<p>crossorigin,哪些没有通过标准CORS检查的正常script 元素传递最少的信息到 {domxref('GlobalEventHandlers.onerror', 'window.onerror')}。可以使用本属性来使那些将静态资源放在另外一个域名的站点打印错误信息。参考 CORS 设置属性了解对有效参数的更具描述性的解释。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>type<small>必选的属性</small></td>	
+						<td>MIME-type</td>	
+						<td>指示脚本的 MIME 类型。</td>
+					</tr>
+					<tr>
+						<td>async</td>	
+						<td>async</td>	
+						<td>规定异步执行脚本（仅适用于外部脚本）。</td>
+					</tr>
+					<tr>
+						<td>charset</td>	
+						<td>charset</td>	
+						<td>规定在外部脚本文件中使用的字符编码。</td>
+					</tr>
+					<tr>
+						<td>defer</td>	
+						<td>defer</td>	
+						<td>规定是否对脚本执行进行延迟，直到页面加载为止。</td>
+					</tr>
+					<tr>
+						<td>language</td>	
+						<td>script</td>	
+						<td>不赞成使用。规定脚本语言。请使用 type 属性代替它。</td>
+					</tr>
+					<tr>
+						<td>src</td>	
+						<td>URL</td>	
+						<td>规定外部脚本文件的 URL。</td>
+					</tr>
+					<tr>
+						<td>xml:space</td>	
+						<td>preserve</td>	
+						<td>规定是否保留代码中的空白。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;noscript&gt;</td>	
+			<td>定义当浏览器不支持脚本时显示的替代文字。</td>
+			<td>
+				<p>全局属性。</p>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;template&gt;<img src="../images/html5.jpg"></td>	
+			<td></td>
+			<td>
+				<p>通过 JavaScript 在运行时实例化内容的容器。HTML 模板元素 template 是一种机制，允许包含加载页面时不渲染、但又可以随后通过 JavaScript 实例化的客户端内容。可以将模板视作为存储在页面上稍后使用的一小段内容。尽管不会渲染，但解析器会在加载页面的时候处理 template元素中的内容来确保它是有效的。</p>
+				<p>除此以外，还包含只读的 content 属性，通过它可以读取模板内容。一般来说，可以通过判断 content 属性是否存在来判断浏览器是否支持 template 元素。</p>
+			</td>
+		</tr>
+		<tr>
+			<td class="trHead" colspan="3">章节EDIT</td>
+		</tr>
+		<tr>
+			<td>&lt;body&gt;</td>	
+			<td>代表 HTML 文档的内容。在文档中只能有一个元素。</td>
+			<td>
+				<p>onafterprint <img src="../images/html5.jpg">，<small>用户打印完成当前文档后的回调函数。</small></p>
+				<p>onbeforeprint <img src="../images/html5.jpg">,<small>用户请求打印当前文档时（打印前）的回调函数。</small></p>
+				<p>onbeforeunload <img src="../images/html5.jpg">,<small>当文档即将被卸载的回调函数。</small></p>
+				<p>onblur <img src="../images/html5.jpg">,<small>DOM失去焦点的回调函数。</small></p>
+				<p>onerror <img src="../images/html5.jpg">,<small>DOM加载失败的回调函数。</small></p>
+				<p>onfocus <img src="../images/html5.jpg">,<small>DOM接收到焦点focus的回调函数。</small></p>
+				<p>onhashchange <img src="../images/html5.jpg">,<small>当文档当前地址的片段标识部分（地址后面以＃号开始的部分）变化时的回调函数。</small></p>
+				<p>onlanguagechange 试验中,<small>语言改变时的回调函数。</small></p>
+				<p>onload <img src="../images/html5.jpg">,<small>DOM完成加载的回调函数。</small></p>
+				<p>onmessage <img src="../images/html5.jpg">,<small>DOM接收到message的回调函数。</small></p>
+				<p>onoffline <img src="../images/html5.jpg">,<small>网络连接失败的回调函数。</small></p>
+				<p>ononline <img src="../images/html5.jpg">,<small>网络恢复连接的回调函数。</small></p>
+				<p>onpopstate <img src="../images/html5.jpg">,<small>用户导航历史会话的回调函数。</small></p>
+				<p>onredo <img src="../images/html5.jpg">,<small>用户从历史记录里面前进的</small></p>
+				<p>onresize <img src="../images/html5.jpg">,<small>DOM大小调整时触发的回调函数。</small></p>
+				<p>onstorage <img src="../images/html5.jpg">,<small>存储区改变的回调函数。</small></p>
+				<p>onundo <img src="../images/html5.jpg">,<small>用户从历史记录里前进时触发的回调函数。</small></p>
+				<p>onunload <img src="../images/html5.jpg">,<small>当文档已经被关闭的回调函数.</small></p>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;section&gt; <img src="../images/html5.jpg"></td>	
+			<td>定义文档中的一个章节。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;nav&gt; <img src="../images/html5.jpg"></td>	
+			<td>定义只包含导航链接的章节。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;article&gt; <img src="../images/html5.jpg"></td>	
+			<td>定义可以独立于内容其余部分的完整独立内容块。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;aside&gt; <img src="../images/html5.jpg"></td>
+			<td>定义和页面内容关联度较低的内容——如果被删除，剩下的内容仍然很合理。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;h1&gt;,&lt;h2&gt;,&lt;h3&gt;,&lt;h4&gt;,&lt;h5&gt;,&lt;h6&gt;</td>	
+			<td>标题元素实现了六层文档标题，&lt;h1&gt; 是最大的标题，&lt;h6&gt; 是最小的标题。标题元素简要地描述章节的主题。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;header&gt; <img src="../images/html5.jpg"></td>	
+			<td>定义页面或章节的头部。它经常包含 logo、页面标题和导航性的目录。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;footer&gt; <img src="../images/html5.jpg"></td>	
+			<td>定义页面或章节的尾部。它经常包含版权信息、法律信息链接和反馈建议用的地址。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;address&gt;</td>	
+			<td>定义包含联系信息的一个章节。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;main&gt;<img src="../images/html5.jpg"></td>	
+			<td>定义文档中主要或重要的内容。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="trHead" colspan="3">组织内容EDIT</td>
+		</tr>
+		<tr>
+			<td>&lt;p&gt;</td>	
+			<td>定义一个段落。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;hr&gt;</td>	
+			<td>代表章节、文章或其他长内容中段落之间的分隔符。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;pre&gt;</td>	
+			<td>代表其内容已经预先排版过，格式应当保留 。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;blockquote&gt;</td>	
+			<td>代表引用自其他来源的内容。</td>
+			<td>cite,是一个标注引用的信息的来源文档或者相关信息的URL。通常用来描述能够解释引文的上下文或者引用的信息。</td>
+		</tr>
+		<tr>
+			<td>&lt;ol&gt;</td>	
+			<td>定义一个有序列表。</td>
+			<td>
+				<!-- <p>reversed <img src="../images/html5.jpg">,这个布尔属性规定了列表的条目采用倒序，即最不重要的条目放在列表第一个位置。</p>
+				<p>start<img src="../images/html5.jpg">,这是整数属性，规定了列表得条目序号的开始的值。尽管列表条目的序号可能是罗马字母顺序，如 XXXI， 或者字母，这个开始的顺序总是使用数字表示。比如想要元素序号从字母 “C” 开始，使用 &lt;ol start="3"&gt;。</p>
+				<p>Note: 这个属性在 HTML4中弃用，但是在 HTML5 中被重新引入。</p>
+				<p>type,
+					<ul>
+						<li>表明编号类型:</li>
+						<li>'a' 表示小写字母编号；</li>
+						<li>'A' 表示大写字母编号；</li>
+						<li>'i' 表示小写罗马数字编号；</li>
+						<li>'I' 表示大写罗马数字编号；</li>
+						<li>and '1' 表示数字编号（默认值）。</li>
+					</ul>
+				</p>
+				<p>类型设置用于整个列表,除非使用不同类型的属性在一个封闭的li元素。</li>
+				<p>Note: 这个属性在 HTML4中弃用，但是在 HTML5 中被重新引入。除非列表中序号很重要（比如，在法律或者技术文件中条目通常被需要所引用），否则请使用 CSS  list-style-type 属性替代。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>reversed</td>	
+						<td>reversed</td>	
+						<td>规定列表顺序为降序。(9,8,7...)</td>
+					</tr>
+					<tr>
+						<td>start</td>	
+						<td>number</td>	
+						<td>规定有序列表的起始值。</td>
+					</tr>
+					<tr>
+						<td>type</td>	
+						<td>
+							<li>1	<small>默认值。数字有序列表。（1、2、3、4）</small></li>
+							<li>a	<small>按字母顺序排列的有序列表，小写。（a、b、c、d）</small></li>
+							<li>A	<small>按字母顺序排列的有序列表，大写。（A、B、C、D）</small></li>
+							<li>i	<small>罗马字母，小写。（i, ii, iii, iv）</small></li>
+							<li>I	<small>罗马字母，大写。（I, II, III, IV）</small></li>
+						</td>
+						<td>规定在列表中使用的标记类型。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;ul&gt;</td>	
+			<td>定义一个无序列表。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;li&gt;</td>	
+			<td>定义列表中的一个列表项。</td>
+			<td>value,这个整数属性显示的当前顺序值列表项所定义的 ol 元素。这个属性只允许的值是一个数字,即使与罗马数字或字母显示列表。遵循这一继续编号的列表项价值。价值属性没有意义为无序列表( ul )或菜单(菜单)。 注意:这个属性在HTML4被弃用,但在HTML5引入。 注意:壁虎9.0之前,消极的价值观不正确转换为0。从壁虎9.0整数值都是正确地解析。</td>
+		</tr>
+		<tr>
+			<td>&lt;dl&gt;</td>	
+			<td>定义一个定义列表（一系列术语和其定义）。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;dt&gt;</td>	
+			<td>代表一个由下一个 &lt;dd&gt; 定义的术语。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;dd&gt;</td>	
+			<td>代表出现在它之前术语的定义。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;figure&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表一个和文档有关的图例。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;figcaption&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表一个图例的说明。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;div&gt;</td>	
+			<td>代表一个通用的容器，没有特殊含义。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="trHead" colspan="3">文字形式EDIT</td>
+		</tr>
+		<tr>
+			<td>&lt;a&gt;</td>	
+			<td>代表一个链接到其他资源的超链接 。</td>
+			<td>
+				<!-- <p>download <img src="../images/html5.jpg">,此属性，如果存在，表明笔者拟用于下载资源的超级链接。如果属性有一个值，浏览器应该解释，作为默认的文件名，笔者建议使用本地文件系统中的资源标记。允许值没有任何限制，但你应该考虑大多数文件系统都用什么标点符号，在文件名支持方面的局限性，以及浏览器都可能调整相应的文件名。注意:这本属性仅支持同源 URLs。可以使用 blob: URLs 和 data: URLs 以方便用户下载 JavaScript 方式生成的内容（例如使用在线绘图的Web应用创建的照片）。如果HTTP头的Content-Disposition：存在，并且赋予了一个和这个属性不同的文件名，HTTP头优先于此属性。如果这个属性存在 Content-Disposition 被设置为 inline，火狐优先 Content-Disposition，像之前文件名​​的情况下，而Chrome则优先 download 属性。</p>
+				<p>href,这是一个必需属性为锚定义一个超文本链接来源。这表示链接目标的URL或URL片段。URL片段是由一个hash符号（＃），它指定一个内部目标在当前文档中的位置（ID）开头的名字。URL不限于网页（HTTP）的文件。URL可能使用浏览器所支持的任何协议。例如，文件，FTP，大多数用户代理mailto工作。注意: 可以使用 href="#top" 或者 href="#" 链接返回到页面顶部。这种行为在HTML5上被指定。</p>
+				<p>hreflang,该属性用于指定链接文档的人类语言。其仅提供建议，并没有内置的功能。hreflang 允许的值由HTML5 BCP47 所决定。</p>
+				<p>rel,该属性指定了目标对象到链接对象的关系。该值是空格分隔的列表类型值。</p>
+				<p>target,该属性指定在何处显示链接的资源。 取值为标签（tab），窗口（window），或框架（iframe）等浏览上下文的名称或其他关键词。以下关键字具有特殊的意义:
+					<ul>
+						<li>_self: 当前页面加载，即当前的响应到同一HTML 4 frame（或HTML5浏览上下文）。此值是默认的，如果没有指定属性的话。</li>
+						<li>_blank: 新窗口打开，即到一个新的未命名的HTML4窗口或HTML5浏览器上下文</li>
+						<li>_parent: 加载响应到当前框架的HTML4父框架或当前的HTML5浏览上下文的父浏览上下文。如果没有parent框架或者浏览上下文，此选项的行为方式相同_self。</li>
+						<li>_top: IHTML4中：加载的响应成完整的，原来的窗口，取消所有其它frame。 HTML5中：加载响应进入顶层浏览上下文（即，浏览上下文，它是当前的一个的祖先，并且没有parent）。如果没有parent框架或者浏览上下文，此选项的行为方式相同_self.注意：使用target时，考虑添加 rel="noopener norefferrer" 以防止针对 window.opener API 的恶意行为。</li>
+						<li> type,该属性指定在一个 MIME type 链接目标的形式的媒体类型。其仅提供建议，并没有内置的功能。</li>
+					</ul>
+				</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>download</td>	
+						<td>filename</td>	
+						<td>规定被下载的超链接目标。</td>
+					</tr>
+					<tr>
+						<td>href</td>	
+						<td>URL</td>	
+						<td>规定链接指向的页面的</td>
+					</tr>
+					<tr> URL。
+						<td>hreflang</td>	
+						<td>language_code</td>	
+						<td>规定被链接文档的语言。</td>
+					</tr>
+					<tr>
+						<td>media</td>	
+						<td>media_query</td>	
+						<td>规定被链接文档是为何种媒介/设备优化的。</td>
+					</tr>
+					<tr>
+						<td>rel</td>	
+						<td>text</td>	
+						<td>规定当前文档与被链接文档之间的关系。</td>
+					</tr>
+					<tr>
+						<td>target</td>	
+						<td>
+							<li>_blank	<small>在新窗口中打开被链接文档。</small></li>
+							<li>_self	<small>默认。在相同的框架中打开被链接文档。</small></li>
+							<li>_parent	<small>在父框架集中打开被链接文档。</small></li>
+							<li>_top	<small>在整个窗口中打开被链接文档。</small></li>
+							<li>framename	<small>在指定的框架中打开被链接文档。</small></li>
+						</td>
+						<td>规定在何处打开链接文档。</td>
+					</tr>
+					<tr>
+						<td>type</td>	
+						<td>MIME type</td>	
+						<td>规定被链接文档的的 MIME 类型。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;em&gt;</td>	
+			<td>代表强调 文字。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;strong&gt;</td>	
+			<td>代表特别重要 文字。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;small&gt;</td>	
+			<td>代表注释 ，如免责声明、版权声明等，对理解文档不重要。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;s&gt;</td>	
+			<td>代表不准确或不相关 的内容。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;cite&gt;</td>	
+			<td>代表作品标题 。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;q&gt;</td>	
+			<td>代表内联的引用 。</td>
+			<td>cite,这个属性的值是URL，意在指出被引用的文本的源文档或者源信息. 这个属性重在解释这个引用的参考或者是上下文.</td>
+		</tr>
+		<tr>
+			<td>&lt;dfn&gt;</td>	
+			<td>代表一个术语包含在其最近祖先内容中的定义 。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;abbr&gt;</td>	
+			<td>代表省略 或缩写 ，其完整内容在 title 属性中。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;data&gt; <img src="../images/html5.jpg"></td>	
+			<td>关联一个内容的机器可读的等价形式 （该元素只在 WHATWG 版本的 HTML 标准中，不在 W3C 版本的 HTML5 标准中）。</td>
+			<td>value,该属性指定元素内容对应的机器可读的翻译。</td>
+		</tr>
+		<tr>
+			<td>&lt;time&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表日期 和时间 值；机器可读的等价形式通过 datetime 属性指定。</td>
+			<td>
+				<!-- <p>datetime,该属性表示此元素的时间和日期，并且属性值必须是一个有效的日期格式，并可包含时间。 如果此值不能被解析为日期，元素不会有一个关联的时间戳.</p>
+				<p>pubdate,(该属性仍在被WHATWG 和 W3C组织设计和讨论中.) 这个布尔属性指定的日期和时间元素是文档的发布日期。文档适用于最近的祖先元素条或整个文档(如果没有祖先文章元素)。如果这是真的,时间元素必须有一个对应的日期。此外,每次元素表示一个出版日期必须元素,这样做的唯一一次文档。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>datetime</td>	
+						<td>datetime</td>	
+						<td>规定日期 / 时间。否则，由元素的内容给定日期 / 时间。</td>
+					</tr>
+					<tr>
+						<td>pubdate</td>	
+						<td>pubdate</td>
+						<td>指示 &lt;time&gt; 元素中的日期 / 时间是文档（或 &lt;article&gt; 元素）的发布日期。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;code&gt;</td>	
+			<td>代表计算机代码 。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;var&gt;</td>	
+			<td>代表代码中的变量 。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;samp&gt;</td>	
+			<td>代表程序或电脑的输出 。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;kbd&gt;</td>	
+			<td>代表用户输入 ，一般从键盘输出，但也可以代表其他输入，如语音输入。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;sub&gt;,&lt;sup&gt;</td>	
+			<td>分别代表下标 和上标 。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;i&gt;</td>	
+			<td>代表一段不同性质 的文字，如技术术语、外文短语等。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;b&gt;</td>	
+			<td>代表一段需要被关注 的文字。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;u&gt;</td>	
+			<td>代表一段需要下划线呈现的文本注释，如标记出拼写错误的文字等。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;mark&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表一段需要被高亮的引用 文字。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;ruby&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表被ruby 注释 标记的文本，如中文汉字和它的拼音。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;rt&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表ruby 注释 ，如中文拼音。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;rp&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表 ruby 注释两边的额外插入文本 ，用于在不支持 ruby 注释显示的浏览器中提供友好的注释显示。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;bdi&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表需要脱离父元素文本方向的一段文本。它允许嵌入一段不同或未知文本方向格式的文本。</td>
+		<tr>
+			<td>&lt;bdo&gt;</td>
+			<td>指定子元素的文本方向 ，显式地覆盖默认的文本方向。</td>
+			<td>dir,这个标签包含文本的文本方向. 属性值可为:
+				<ul>
+					<li>ltr: 从左往右写，与现代汉语的书写习惯相同.</li>
+					<li>rtl: 从右往左写，与古代汉语书写习惯相同.</li>
+					<li>auto: 自动，由浏览器决定文字的排列方向.</li>
+				</ul>
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;span&gt;</td>
+			<td>代表一段没有特殊含义的文本，当其他语义元素都不适合文本时候可以使用该元素。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;br&gt;</td>
+			<td>代表换行 。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;wbr&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表建议换行 (Word Break Opportunity) ，当文本太长需要换行时将会在此处添加换行符。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="trHead" colspan="3">编辑EDIT</td>
+		</tr>
+			<td>&lt;ins&gt;</td>
+			<td>定义增加 到文档的内容。</td>
+			<td>
+				<!-- <p>cite,cite 属性的值指向一个文档的 URL，该文档解释了文本被插入或修改的原因。（目前该属性还没有被主流浏览器支持）</p>
+				<p>datetime,该特性指示的此修改发生的时间和日期，并且该特性的值必须是一个有效的日期或者时间字符串。如果该值不能被解析为日期或者时间，则该元素不具有相关联的时间标记。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>cite</td>	
+						<td>URL</td>	
+						<td>指向另外一个文档的 URL，此文档可解释文本被插入的原因。</td>
+					</tr>
+					<tr>
+						<td>datetime</td>	
+						<td>YYYYMMDD</td>	
+						<td>定义文本被插入的日期和时间。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;del&gt;</td>
+			<td>定义从文档移除 的内容。</td>
+			<td>
+				<!-- <p>cite,用于解释更改的资源的URI(例如，会议记录)。</p>
+				<p>datetime,该属性表示更改的时间和日期，并且必须是一个可选的时间字符串的有效日期。如果不能将该值解析为带有可选时间字符串的日期，那么该元素就没有相关的时间戳。 -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>cite</td>	
+						<td>URL</td>	
+						<td>指向另外一个文档的 URL，此文档可解释文本被删除的原因。</td>
+					</tr>
+					<tr>
+						<td>datetime</td>	
+						<td>YYYYMMDD</td>	
+						<td>定义文本被删除的日期和时间。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td class="trHead" colspan="3">嵌入内容EDIT</td>
+		</tr>
+			<td>&lt;img&gt;</td>
+			<td>代表一张图片 。</td>
+			<td>
+				<!-- <p>alt,这个属性定义了描述图像的替换文本。用户将看到这个显示，如果图像的URL是错误的，该图像不在 支持的格式 列表中，或者如果图像还没有被下载。使用说明： 省略这个属性表明该图像是内容的关键部分，但没有等效的文本可用。把这个属性设置为空字符串，表明该图像不是内容的关键部分，非可视化浏览器在渲染的时候可能会忽略它。</p>
+				<p>crossorigin <img src="../images/html5.jpg">,这个枚举属性表明是否必须使用 CORS 完成相关图像的抓取。启用CORS的图像 在 &lt;canvas&gt; 元素中可以重复使用而不会被污染。允许的值有：
+					<ul>
+						<li>anonymous,执行一个跨域的请求（比如，有 Origin: HTTP header）。但是没有发送证书（比如，没有 cookie，没有 X.509 证书，没有 HTTP 基本的授权认证）。如果服务器没有给源站证书（没有设置 Access-Control-Allow-Origin: HTTP头），图像会被污染而且它的使用会被限制。</li>
+						<li>use-credentials,一个有证书的跨域请求（比如，有 Origin: HTTP header）被发送 （比如，a cookie, a certificate, and HTTP Basic authentication is performed）。如果服务器没有给源站发送证书（通过 Access-Control-Allow-Credentials: HTTP header），图像将会被污染，且它的使用会受限制。</li>
+				<p>当用户并未显式使用本属性时，默认不使用 CORS 发起请求(例如，不会向服务器发送 HTTP 头部信息)，用以防止其在&lt;canvas&gt;中的使用。如果无效，默认当做anonymous关键字生效。更多信息，请查看 CORS 属性设置 。</p>
+				<p>height,图像的高度，在 HTML5 中的单位是 CSS 像素，在 HTML 4 中可以是像素也可以是百分比。</p>
+				<p>ismap,这个布尔属性表示图像是否是服务器端map的一部分。如果是， 那么点击的精准坐标将会被发送到服务器。使用说明：只有当 &lt;img&gt; 是 href 属性是有效的 &lt;a&gt; 元素的后代元素时，这个属性才被允许使用。</p>
+				<p>sizes<img src="../images/html5.jpg">,表示资源大小的以逗号隔开的一个或多个字符串。每一个资源大小包括：
+					<ul>
+						<li>一个媒体条件。最后一项一定是被忽略的。</li>
+						<li>一个资源尺寸的值。</li>
+					</ul>
+					资源尺寸的值被用来指定图像的预期尺寸。当srcset使用 'w' 描述符时，用户代理使用当前图像大小来选择srcset中合适的一个图像URL。 被选中的尺寸影响图像的显示大小（如果没有CSS样式被应用的话）。如果没有设置srcset属性，或者没值，那么sizes属性也将不起作用。</p>
+				<p>src,图像的 URL，这个属性对 &lt;img&gt; 元素来说是必需的。在支持 srcset 的浏览器中，src 被当做拥有一个像素密度的描述符 1x 的候选图像处理，除非一个图像拥有这个像素密度描述符已经被在 srcset 或者 srcset 包含 'w' 描述符中定义了.</p>
+				<p>srcset<img src="../images/html5.jpg">,以逗号分隔的一个或多个字符串列表表明一系列用户代理使用的可能的图像。每一个字符串由以下组成：
+					<ul>
+						<li>一个图像的 URL。</li>
+						<li>可选的，空格后跟以下的其一：
+							<ul>
+								<li>一个宽度描述符，这是一个正整数，后面紧跟 'w' 符号。该整数宽度除以sizes属性给出的资源（source）大小来计算得到有效的像素密度，即换算成和x描述符等价的值。</li>
+								<li>一个像素密度描述符，这是一个正浮点数，后面紧跟 'x' 符号。</li>
+							</ul>
+						</li>
+					</ul>
+					如果没有指定源描述符，那它会被指定为默认的 1x。
+				</p>
+				<p>在相同的 srcset 属性中混合使用宽度描述符和像素密度描述符时，会导致该值无效。重复的描述符（比如，两个源 在相同的srcset两个源都是 '2x'）也是无效的。</p>
+				<p>浏览器选择在给出的时间点显示大部分 adequate 图片。</p>
+				<p>width,图像的宽度，在 HTML5 中单位是 CSS 像素， 在 HTML 4 中可以是像素也可以是百分比。</p>
+				<p>usemap,与元素相关联的的 image map 的部分 URL（以 '#' 开始的部分）。使用说明： 你不能使用这个属性，如果 &lt;img&gt; 元素是 &lt;a&gt; 或 &lt;button&gt; 元素的后代元素。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>alt<small>必需的属性</small></td>	
+						<td>text</td>	
+						<td>规定图像的替代文本。</td>
+					</tr>
+					<tr>
+						<td>src<small>必需的属性</small></td>	
+						<td>URL</td>	
+						<td>规定显示图像的 URL。</td>
+					</tr>
+					<tr>
+						<td>align</td>	
+						<td>
+							<li>top</li>
+							<li>bottom</li>
+							<li>middle</li>
+							<li>left</li>
+							<li>right</li>
+						</td>
+						<td>不推荐使用。规定如何根据周围的文本来排列图像。</td>
+					</tr>
+					<tr>
+						<td>border</td>	
+						<td>pixels</td>	
+						<td>不推荐使用。定义图像周围的边框。</td>
+					</tr>
+					<tr>
+						<td>height</td>	
+						<td>
+							<li>pixels</li>
+							<li>%</li>
+						</td>
+						<td>定义图像的高度。</td>
+					</tr>
+					<tr>
+						<td>hspace</td>	
+						<td>pixels</td>	
+						<td>不推荐使用。定义图像左侧和右侧的空白。</td>
+					</tr>
+					<tr>
+						<td>ismap</td>	
+						<td>URL</td>	
+						<td>将图像定义为服务器端图像映射。</td>
+					</tr>
+					<tr>
+						<td>longdesc</td>	
+						<td>URL</td>	
+						<td>指向包含长的图像描述文档的 URL。</td>
+					</tr>
+					<tr>
+						<td>usemap</td>	
+						<td>URL</td>	
+						<td>将图像定义为客户器端图像映射。</td>
+					</tr>
+					<tr>
+						<td>vspace</td>	
+						<td>pixels</td>	
+						<td>不推荐使用。定义图像顶部和底部的空白。</td>
+					</tr>
+					<tr>
+						<td>width</td>
+						<td>
+							<li>pixels</li>
+							<li>%</li>
+						</td>
+						<td>设置图像的宽度。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;iframe&gt;</td>
+			<td>代表一个内联的框架 。</td>
+			<td>
+				<!-- <p>height,以CSS像素格式HTML5，或像素格式HTML 4.01，或百分比格式指定frame的高度。</p>
+				<p>name,嵌入的浏览上下文（框架）的名称。该名称可以用作&lt;a&gt;标签，&lt;form&gt;标签的target属性值，或&lt;input&gt; 标签和 &lt;button&gt;标签的formtaget属性值。</p>
+				<p>sandbox HTML5 only,如果指定了空字符串，该属性对呈现在iframe框架中的内容启用一些额外的限制条件。属性值可以是用空格分隔的一系列指定的字符串。有效的值有：
+ 					<ul>
+ 						<li>allow-forms: 允许嵌入的浏览上下文可以提交表单。如果该关键字未使用，该操作将不可用。</li>
+ 						<li>allow-modals: 允许内嵌浏览环境打开模态窗口。</li>
+ 						<li>allow-orientation-lock: 允许内嵌浏览环境禁用屏幕朝向锁定（译者注：比如智能手机、平板电脑的水平朝向或垂直朝向）。</li>
+ 						<li>allow-pointer-lock: 允许内嵌浏览环境使用 Pointer Lock API.</li>
+ 						<li>allow-popups: 允许弹窗 (类似window.open, target="_blank", showModalDialog)。如果没有设置该属性，相应的功能将静默失效。</li>
+ 						<li>allow-popups-to-escape-sandbox:  允许沙箱文档打开新窗口，并且不强制要求新窗口设置沙箱标记。例如，这将允许一个第三方的沙箱环境运行广告开启一个登陆页面，新页面不强制受到沙箱相关限制。</li>
+ 						<li>allow-presentation: 允许嵌入者控制是否iframe启用一个展示会话。</li>
+ 						<li>allow-same-origin: 允许将内容作为普通来源对待。如果未使用该关键字，嵌入的内容将被视为一个独立的源。</li>
+ 						<li>allow-scripts: 允许嵌入的浏览上下文运行脚本（但不能window创建弹窗）。如果该关键字未使用，这项操作不可用。</li>
+ 						<li>allow-top-navigation:嵌入的页面的上下文可以导航（加载）内容到顶级的浏览上下文环境（browsing context）。如果未使用该关键字，这个操作将不可用。</li>
+ 					</ul>
+ 				</p>
+ 				<p>注意:当被嵌入的文档与主页面同源时，强烈建议不要同时使用 allow-scripts 和allow-same-origin ，否则的话将允许嵌入的文档通过代码删除 sandbox 属性。虽然你可以这么做，但是这样的话其安全性还不如不用sandbox。如果攻击者可以将潜在的恶意内容往用户的已沙箱化的iframe中显示，那么沙箱操作的安全性将不再可靠。推荐把这种内容放置到独立的专用域中，减小可能的损失。沙箱属性(sandbox)在Internet Explorer 9及更早的版本上不被支持</p>
+ 				<p>seamless HTML5 only,该布尔属性指示浏览器将iframe渲染成容器页面文档的一部分。例如，通过打被包含的文档的链接，在iframe页面的样式被渲染之前，父页面的CSS样式就可以应用在iframe中（除非被其他设置阻止）。</p>
+ 				<p>src,嵌套页面的URL地址。使用遵守同源策略的  'about:blank' 来嵌套空白页。</p>
+ 				<p>srcdoc HTML5 only,该属性值可以是HTML代码，这些代码会被渲染到iframe中，如果同时指定了src属性，srcdoc会覆盖src所指向的页面。该属性最好能与sandbox和seamless属性一起使用。</p>
+ 				<p>width,以CSS像素格式HTML5，或以像素格式HTML 4.01，或以百分比格式指定frame的宽度。</p> -->
+ 				<table>
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+ 					<tr>
+ 						<td>frameborder</td>
+ 						<td>	
+ 							<li>1</li>
+ 							<li>0</li>
+ 						</td>
+ 						<td>规定是否显示框架周围的边框。</td>
+ 					</tr>
+ 					<tr>
+ 						<td>height</td>	
+ 						<td>
+ 							<li>pixels</li>
+ 							<li>%</li>
+ 						</td>
+ 						<td>规定 iframe 的高度。</td>
+ 					</tr>
+ 					<tr>
+ 						<td>longdesc	</td>
+ 						<td>URL	</td>
+ 						<td>规定一个页面，该页面包含了有关 iframe 的较长描述。</td>
+ 					</tr>
+ 					<tr>
+ 						<td>marginheight	</td>
+ 						<td>pixels	</td>
+ 						<td>定义 iframe 的顶部和底部的边距。</td>
+ 					</tr>
+ 					<tr>
+ 						<td>marginwidth	</td>
+ 						<td>pixels	</td>
+ 						<td>定义 iframe 的左侧和右侧的边距。</td>
+ 					</tr>
+ 					<tr>
+ 						<td>name	</td>
+ 						<td>frame_name	</td>
+ 						<td>规定 iframe 的名称。</td>
+ 					</tr>
+ 					<tr>
+ 						<td>sandbox</td>
+ 						<td>	
+ 							<li>""	<small>应用以下所有的限制。</small></li>
+ 							<li>allow-same-origin	<small>允许 iframe 内容被视为与包含文档有相同的来源。</small></li>
+ 							<li>allow-top-navigation	<small>允许 iframe 内容从包含文档导航（加载）内容。</small></li>
+ 							<li>allow-forms	<small>允许表单提交。</small></li>
+ 							<li>allow-scripts	<small>允许脚本执行。</small></li>
+ 						</td>
+ 						<td>启用一系列对 &lt;iframe&gt; 中内容的额外限制。</td>
+ 					</tr>
+ 					<tr>
+ 						<td>scrolling</td>
+ 						<td>	
+ 							<li>yes</li>
+ 							<li>no</li>
+ 							<li>auto</li>
+ 						</td>
+ 						<td>规定是否在 iframe 中显示滚动条。</td>
+ 					</tr>
+ 					<tr>
+ 						<td>seamless</td>	
+ 						<td>seamless</td>	
+ 						<td>规定 &lt;iframe&gt; 看上去像是包含文档的一部分。</td>
+ 					</tr>
+ 					<tr>
+ 						<td>src</td>	
+ 						<td>URL</td>	
+ 						<td>规定在 iframe 中显示的文档的 URL。</td>
+ 					</tr>
+ 					<tr>
+ 						<td>srcdoc</td>	
+ 						<td>HTML_code</td>	
+ 						<td>规定在 &lt;iframe&gt; 中显示的页面的 HTML 内容。</td>
+ 					</tr>
+ 					<tr>
+ 						<td>width</td>	
+ 						<td>
+ 							<li>pixels</li>
+ 							<li>%</li>
+ 						</td>
+ 						<td>定义 iframe 的宽度。</td>
+ 					</tr>
+ 				</table>
+ 			</td>
+		</tr>
+		<tr>
+			<td>&lt;embed&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表一个嵌入 的外部资源，如应用程序或交互内容。</td>
+			<td>
+				<!-- <p>height,资源显示的高度。单位为CSS像素。</p>
+				<p>src,被嵌套的资源的URL。</p>
+				<p>type,用来选择被示例化的插件的 MIME 类型。</p>
+				<p>width,资源显示的宽度。单位为CSS像素。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>height</td>	
+						<td>pixels</td>	
+						<td>设置嵌入内容的高度。</td>
+					</tr>
+					<tr>
+						<td>src</td>	
+						<td>url</td>	
+						<td>嵌入内容的 URL。</td>
+					</tr>
+					<tr>
+						<td>type</td>	
+						<td>type</td>	
+						<td>定义嵌入内容的类型。</td>
+					</tr>
+					<tr>
+						<td>width</td>	
+						<td>pixels</td>	
+						<td>设置嵌入内容的宽度。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;object&gt;</td>
+			<td>代表一个外部资源 ，如图片、HTML 子文档、插件等。</td>
+			<td>
+				<!-- <p>data,一个合法的 URL 作为资源的地址，，需要为 data 和 type 中至少一个设置值。</p>
+				<p>form <img src="../images/html5.jpg">,对象元素关联的 form 元素（属于的 form）。 取值必须是同一文档下的一个 &lt;form&gt; 元素的 ID。</p>
+				<p>height,资源显示的高度，单位是 CSS 像素。</p>
+				<p>name,浏览上下文名称（HTML5），或者控件名称（HTML 4）。</p>
+				<p>type,data 指定的资源的 MIME 类型，需要为 data 和 type 中至少一个设置值。</p>
+				<p>usemap,指向一个 &lt;map&gt; 元素的 hash-name；格式为 ‘#’ 加 map 元素 name 元素的值。</p>
+				<p>width,资源显示的宽度，单位是 CSS 像素。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>align</td>
+						<td>	
+							<li>left</li>
+							<li>right</li>
+							<li>top</li>
+							<li>bottom</li>
+						</td>
+						<td>定义围绕该对象的文本对齐方式。</td>
+					</tr>
+					<tr>
+						<td>archive</td>	
+						<td>URL</td>	
+						<td>由空格分隔的指向档案文件的 URL 列表。这些档案文件包含了与对象相关的资源。</td>
+					</tr>
+					<tr>
+						<td>border</td>	
+						<td>pixels</td>	
+						<td>定义对象周围的边框。</td>
+					</tr>
+					<tr>
+						<td>classid</td>	
+						<td>class</td> 
+						<td>ID	定义嵌入 Windows Registry 中或某个 URL 中的类的 ID值，此属性可用来指定浏览器中包含的对象的位置，通常是一个 Java 类。</td>
+					</tr>
+					<tr>
+						<td>codebase</td>	
+						<td>URL</td>	
+						<td>定义在何处可找到对象所需的代码，提供一个基准 URL。</td>
+					</tr>
+					<tr>
+						<td>codetype</td>	
+						<td>MIME</td> 
+						<td>type	通过 classid 属性所引用的代码的 MIME 类型。</td>
+					</tr>
+					<tr>
+						<td>data</td>	
+						<td>URL</td>	
+						<td>定义引用对象数据的 URL。如果有需要对象处理的数据文件,要用 data 属性来指定这些数据文件。</td>
+					</tr>
+					<tr>
+						<td>declare</td>	
+						<td>declare</td>	
+						<td>可定义此对象仅可被声明，但不能被创建或例示，直到此对象得到应用为止。</td>
+					</tr>
+					<tr>
+						<td>form</td>	
+						<td>form_id</td>	
+						<td>规定对象所属的一个或多个表单。</td>
+					</tr>
+					<tr>
+						<td>height</td>	
+						<td>pixels</td>	
+						<td>定义对象的高度。</td>
+					</tr>
+					<tr>
+						<td>hspace</td>	
+						<td>pixels</td>	
+						<td>定义对象周围水平方向的空白。</td>
+					</tr>
+					<tr>
+						<td>name</td>	
+						<td>unique_name</td>	
+						<td>为对象定义唯一的名称（以便在脚本中使用）。</td>
+					</tr>
+					<tr>
+						<td>standby</td>	
+						<td>text</td>	
+						<td>定义当对象正在加载时所显示的文本。</td>
+					</tr>
+					<tr>
+						<td>type</td>	
+						<td>MIME_type</td>	
+						<td>定义被规定在 data 属性中指定的文件中出现的数据的 MIME 类型。</td>
+					</tr>
+					<tr>
+						<td>usemap</td>	
+						<td>URL</td>	
+						<td>规定与对象一同使用的客户端图像映射的 URL。</td>
+					</tr>
+					<tr>
+						<td>vspace</td>	
+						<td>pixels</td>	
+						<td>定义对象的垂直方向的空白。</td>
+					</tr>
+					<tr>
+						<td>width</td>	
+						<td>pixels</td>	
+						<td>定义对象的宽度。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;param&gt;</td>
+			<td>代表 &lt;object&gt; 元素所指定的插件的参数 。</td>
+			<td>value,确定参数的值。</td>
+		</tr>
+		<tr>
+			<td>&lt;video&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表一段视频 及其视频文件和字幕，并提供了播放视频的用户界面。</td>
+			<td>
+				<!-- <p>autoplay,布尔属性；指定后，视频会马上自动开始播放，不会停下来等着数据载入结束。</p>
+				<p>buffered,这个属性可以读取到哪段时间范围内的媒体被缓存了。该属性包含了一个 TimeRanges 对象。</p>
+				<p>controls,加上这个属性，Gecko 会提供用户控制，允许用户控制视频的播放，包括音量，跨帧，暂停/恢复播放。</p>
+				<p>crossorigin,该枚举属性指明抓取相关图片是否必须用到CORS（跨域资源共享）。 支持CORS的资源 可在 &lt;canvas&gt; 元素中被重用，而不会被污染。允许的值如下：
+					<ul>
+						<li>anonymous,跨域请求（即，使用 Origin: 的HTTP头）会被执行。但是不发送凭证（即，不发送cookie， X.509 证书或者 HTTP Basic 授权）。如果服务器不提供证书给源站点 (不设置 Access-Control-Allow-Origin: HTTP头)，图片会被 污染 并且它的使用会受限。</li>
+						<li>use-credentials,跨域请求A cross-origin request (i.e. with Origin: HTTP header) 会被执行，且凭证会被发送 (即， 发送一个 cookie, 一个证书和HTTP Basic授权会被执行)。如果服务器不提供证书给源站点 (通过Access-Control-Allow-Credentials: HTTP 头)，图像会被 污染 且它的使用会受限。</li>
+					</ul>
+					不加这个属性时，抓取资源不会走CORS请求(即，不会发送 Origin: HTTP 头)，保证其在 &lt;canvas&gt; 元素中使用时不会被污染。如果指定非法值，会被当作指定了枚举关键字 anonymous 一样使用。 查看 CORS 设置属性 获取更多信息。
+				</p>
+				<p>height,视频展示区域的高度，单位是CSS像素。</p>
+				<p>loop,布尔属性；指定后，会在视频结尾的地方，自动返回视频开始的地方。</p>
+				<p>muted,布尔属性，指明了视频里的音频的默认设置。设置后，音频会初始化为静音。默认值是false,意味着视频播放的时候音频也会播放 。</p>
+				<p>played,一个 TimeRanges 对象，指明了视频已经播放的所有范围。</p>
+				<p>preload,该枚举属性旨在告诉浏览器作者认为达到最佳的用户体验的方式是什么。可能是下列值之一：
+					<ul>
+						<li>none: 提示作者认为用户不需要查看该视频，服务器也想要最小化访问流量；换句话说就是提示浏览器该视频不需要缓存。</li>
+						<li>metadata: 提示尽管作者认为用户不需要查看该视频，不过抓取元数据（比如：长度）还是很合理的。</li>
+						<li>auto: 用户需要这个视频优先加载；换句话说就是提示：如果需要的话，可以下载整个视频，即使用户并不一定会用它。</li>
+						<li>空字符串：也就代指 auto 值。</li>
+					</ul>
+					假如不设置，默认值就是浏览器定义的了 （即，不同浏览器会选择自己的默认值），即使规范建议设置为 metadata。
+					使用备注：autoplay 属性优先于 preload 假如用户想自动播放视频，那么很明显浏览器需要下载视频。同时设置autoplay 和 preload属性在规范里是允许的。规范没有强制浏览器去遵循该属性的值；这仅仅只是个提示。
+				</p>
+				<p>poster,一个海报帧的URL，用于在用户播放或者跳帧之前展示。如果属性未指定，那么在第一帧可用之前什么都不会展示；之后第一帧就像海报帧一样展示。</p>
+				<p>src,要嵌到页面的视频的URL。可选；你也可以使用video块内的 &lt;source&gt; 元素来指定需要嵌到页面的视频。</p>
+				<p>width,视频显示区域的宽度，单位是CSS像素。时间偏移量目前是指定为float类型的值，表示偏移的秒数。备注： HTML 5 规范中，时间偏移量值的定义还没有完成，有可能会变更。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>autoplay</td>	
+						<td>autoplay</td>	
+						<td>如果出现该属性，则视频在就绪后马上播放。</td>
+					</tr>
+					<tr>
+						<td>controls</td>	
+						<td>controls</td>	
+						<td>如果出现该属性，则向用户显示控件，比如播放按钮。</td>
+					</tr>
+					<tr>
+						<td>height</td>	
+						<td>pixels</td>	
+						<td>设置视频播放器的高度。</td>
+					</tr>
+					<tr>
+						<td>loop</td>	
+						<td>loop</td>	
+						<td>如果出现该属性，则当媒介文件完成播放后再次开始播放。</td>
+					</tr>
+					<tr>
+						<td>muted</td>	
+						<td>muted</td>	
+						<td>规定视频的音频输出应该被静音。</td>
+					</tr>
+					<tr>
+						<td>poster</td>	
+						<td>URL</td>	
+						<td>规定视频下载时显示的图像，或者在用户点击播放按钮前显示的图像。</td>
+					</tr>
+					<tr>
+						<td>preload</td>	
+						<td>preload</td>	
+						<td>如果出现该属性，则视频在页面加载时进行加载，并预备播放。如果使用 "autoplay"，则忽略该属性。</td>
+					</tr>
+					<tr>
+						<td>src</td>	
+						<td>url</td>	
+						<td>要播放的视频的 URL。</td>
+					</tr>
+					<tr>
+						<td>width</td>	
+						<td>pixels</td>	
+						<td>设置视频播放器的宽度。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;audio&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表一段声音 ，或音频流 。</td>
+			<td>
+				<!-- <p>autoplay,布尔属性；如果指定（默认值为"false"！）；指定后，音频会马上自动开始播放，不会停下来等着数据载入结束。</p>
+				<p>buffered,你可以通过该属性获取已缓冲的资源的时间段信息。该属性包含一个 TimeRanges 对象。</p>
+				<p>controls,如果设置了该属性，浏览器将提供一个包含声音，播放进度，播放暂停的控制面板，让用户可以控制音频的播放。</p>
+				<p>loop,布尔属性；如果指定，将循环播放音频。</p>
+				<p>mozCurrentSampleOffset,在音频播放时，表示相对于音频开始处的偏移量的一个数值。</p>
+				<p>muted,表示是否静音的布尔值。默认值为false，表示有声音。</p>
+				<p>played,一个TimeRanges 对象，表示所有已播放的音频片段。</p>
+				<p>preload,枚举属性，让开发者自行思考来示意浏览器使用何种加载方式以达到最好的用户体验。可以是以下属性之一：
+					<ul>
+						<li>none: 示意用户可能不会播放该音频，或者服务器希望节省带宽；换句话说，该音频不会被缓存；</li>
+						<li>metadata: 示意即使用户可能不会播放该音频，但获取元数据 (例如音频长度) 还是有必要的。</li>
+						<li>auto: 示意用户可能会播放音频；换句话说，如果有必要，整个音频都将被加载，即使用户不期望使用。</li>
+						<li>空字符串 : 等效于auto属性。</li>
+					</ul>
+					假如不设置，默认值就是浏览器定义的了（不同浏览器会选择自己的默认值）， 即使规范建议设置为 metadata.使用备注：autoplay 属性优先于 preload 假如用户想自动播放视频，那么很明显浏览器需要下载视频。同时设置autoplay 和 preload属性在规范里是允许的。规范没有强制浏览器去遵循该属性的值；这仅仅只是个提示。
+				</p>
+				<p>src,嵌入的音频的URL。 该URL应遵从 HTTP access controls. 这是一个可选属性；你可以在audio元素中使用 &lt;source&gt; 元素来替代该属性指定嵌入的音频。</p>
+				<p>volume,音频播放的音量。值从0.0 (无声) 到 1.0 (最大声).时间偏移量目前是指定为float类型的值，表示偏移的秒数。备注： HTML 5 规范中，时间偏移量值的定义还没有完成，有可能会变更。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>autoplay</td>	
+						<td>autoplay</td>	
+						<td>如果出现该属性，则音频在就绪后马上播放。</td>
+					</tr>
+					<tr>
+						<td>controls</td>	
+						<td>controls</td>	
+						<td>如果出现该属性，则向用户显示控件，比如播放按钮。</td>
+					</tr>
+					<tr>
+						<td>loop</td>	
+						<td>loop</td>	
+						<td>如果出现该属性，则每当音频结束时重新开始播放。</td>
+					</tr>
+					<tr>
+						<td>muted</td>	
+						<td>muted</td>	
+						<td>规定视频输出应该被静音。</td>
+					</tr>
+					<tr>
+						<td>preload</td>	
+						<td>preload</td>	
+						<td>如果出现该属性，则音频在页面加载时进行加载，并预备播放。如果使用 "autoplay"，则忽略该属性。</td>
+					</tr>
+					<tr>
+						<td>src</td>	
+						<td>url</td>	
+						<td>要播放的音频的 URL。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;source&gt; <img src="../images/html5.jpg"></td>	
+			<td>为 &lt;video&gt; 或 &lt;audio&gt; 这类媒体元素指定媒体源 。</td>
+			<td>
+				<p>src,&lt;audio&gt;和&lt;video&gt;,媒体资源的地址。这个属性的值被忽略时,&lt;source&gt;元素放置在一个&lt;picture&gt;元素。</p>
+				<p>type,资源的mime类型,选择编解码器参数。看到信息如何指定RFC 4281编解码器。</td>
+		</tr>
+		<tr>
+			<td>&lt;track&gt; <img src="../images/html5.jpg"></td>	
+			<td>为 &lt;video&gt; 或 &lt;audio&gt; 这类媒体元素指定文本轨道（字幕）。</td> 
+			<td>
+				<!-- <p>default,该属性定义了该track应该启用，除非用户首选项指定了更合适一个track。每个媒体元素里面只有一个 track 元素可以有这个属性。</p>
+				<p>kind,定义了 text track 应该如何使用。如果省略了该属性，默认的 kind 值就是 subtitles。下面是允许的关键字：
+					<ul>
+						<li>subtitles,字幕给观影者看不懂的内容提供了翻译。比如英文电影里非英文的对话框或者文字。字幕可能包含额外的内容，通常有附加的背景信息。比如在电影星球大战开头的文字，或者某个场景的日期，时间，还有地点。</li>
+						<li>captions,隐藏式字幕提供了音频的转录甚至是翻译。可能包含重要的非言语的信息，比如音乐提示或者音效。可以指定提示音的源文件 (e.g. music, text, character).适用于耳聋的用户或者当调成静音的时候。</li>
+						<li>descriptions,视频内容的文本描述。适用于失明用户或者当视频不可见的场景。</li>
+						<li>chapters,章节标题用于用户浏览媒体资源的时候。</li>
+						<li>metadata,脚本使用的track。 对用户不可见。</li>
+					</ul>
+				</p>
+				<p>label,当列出可用的text tracks时，给浏览器使用的text track的标题，这种标题是用户可读的。</p>
+				<p>src,track的地址。必须是合法的URL。该属性必须定义。</p>
+				<p>srclang,track文本数据的语言。它必须是合法的 BCP 47 语言标签。如果 kind 属性被设为 subtitles, 那么srclang 必须定义。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>default</td>	
+						<td>default</td>	
+						<td>规定该轨道是默认的，假如没有选择任何轨道。</td>
+					</tr>
+					<tr>
+						<td>kind</td>
+						<td>	
+							<li>captions</li>
+							<li>chapters</li>
+							<li>descriptions</li>
+							<li>metadata</li>
+							<li>subtitles</li>
+						</td>
+						<td>表示轨道属于什么文本类型。</td>
+					</tr>
+					<tr>
+						<td>label</td>	
+						<td>label</td>	
+						<td>轨道的标签或标题。</td>
+					</tr>
+					<tr>
+						<td>src</td>	
+						<td>url</td>	
+						<td>轨道的 URL。</td>
+					</tr>
+					<tr>
+						<td>srclang</td>	
+						<td>language_code</td>	
+						<td>轨道的语言，若 kind 属性值是 "subtitles"，则该属性必需的。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;canvas&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表位图区域，可以通过脚本在它上面实时呈现图形，如图表、游戏绘图等。</td>
+			<td>
+				<p>height,该元素占用空间的高度，以 CSS 像素（px）表示，默认为 150。</p>
+				<p>width,该元素占用空间的宽度，以 CSS 像素（px）表示，默认为 300。</p>
+			</td>
+		</tr> 
+		<tr>
+			<td>&lt;map&gt;</td>
+			<td>与 &lt;area&gt; 元素共同定义图像映射 区域。</td>
+			<td>name,name属性为地图赋予一个名称，以便引用它。 该属性必须存在，并且必须具有不为空值的空格。 name属性的值不能是同一文档中另一个map元素的name属性的值的兼容性无关的匹配。 如果还指定了id属性，则两个属性必须具有相同的值。</td>
+		</tr>
+		<tr>
+			<td>&lt;area&gt;</td>
+			<td>与 &lt;map&gt; 元素共同定义图像映射 区域。</td>
+			<td>
+				<!-- <p>alt,在未显示图像的浏览器上显示代替的文本字符串。这个文本应该能传达给用户与显示图像而没有文本的情况下同等的选择（译者注：就是字和图片表达一个意思）。在HTML4中， 这个属性时必需的, 但是可以是一个空的串("")。在HTML5中, 这个属性只有在href 属性被使用的时候才是必需的。</p>
+				<p>coords,给热点区域设定具体的坐标值。这个值的数值和意义取决于这个值所描述的形状属性.。对于矩形或长方形, 这个coords 值为两个X,Y对：左上、右下。 对于圆形, 这个值是 x,y,r ，这里的 x,y 是一对确定圆的中心的坐标而 r 则表示的是半径值.。对于多边和多边形，这个值是用x,y对表示的多边形的每一个点：x1,y1,x2,y2,x3,y3,等等。In HTML4, the values are numbers of pixels or percentages, if a percent sign (%) is appended; in <img src="../images/html5.jpg">, the values are numbers of CSS pixels.</p>
+				<p>download <img src="../images/html5.jpg">,这个属性如果存在的话, 表明作者想把超链接用于下载一个资源。请查看&lt;a&gt; 获得关于 download属性的完整描述。</p>
+				<p>href,超链接的目标区域。它的值是一个有效的URL。在HTML4,这个属性或nohref属性必须出现在元素。在<img src="../images/html5.jpg">,这个属性可以省略;如果是这样,该地区元素并不代表一个超链接。</p>
+				<p>hreflang <img src="../images/html5.jpg">,指示链接资源的语言。 允许的值由BCP47确定。 仅当href属性存在时才使用此属性。</p>
+				<p>media <img src="../images/html5.jpg">,提示相关的媒体的资源设计,例如打印和屏幕。如果省略,默认为全部。使用这个属性只有在href属性。</p>
+				<p>rel <img src="../images/html5.jpg">,锚包含href属性,该属性指定目标对象的关系链接对象。链接类型的值是一个以逗号分隔的值。的价值观和他们的语义将一些机关登记文档作者可能有意义。默认的关系,如果没有其他的,无效。使用这个属性只有在href属性。</p>
+				<p>shape,的形状相关的热点。HTML 5规范和HTML 4定义矩形的值,它定义了一个矩形区域,圆,它定义了一个圆形区域;聚,它定义了一个多边形,和默认,这表明整个地区以外的任何定义的形状。很多浏览器,特别是Internet Explorer 4和高,支持中国保监会,多边形,和矩形形状的有效值;这些值! !
+				<p>target,该属性指定在哪里显示链接资源。在HTML4的名字,或一个关键字,一个框架。在<img src="../images/html5.jpg">,名称或关键字,浏览的上下文(例如,选项卡中,窗口,或内联框架)。以下关键词具有特殊的意义:
+					<ul>
+						<li>_self:响应加载到同一个HTML4帧(或HTML5浏览上下文)。这个值是默认如果没有指定属性。</li>
+						<li>_blank: 响应加载到一个新的匿名HTML4 HTML5浏览窗口或上下文。</li>
+						<li>_parent: 响应加载到HTML4框架集的母公司的当前帧或HTML5家长浏览上下文。如果没有父母,这个选项_self行为一样。</li>
+						<li>_top: In HTML4: 负载响应完整,原始窗口,取消所有其他框架。在HTML5:响应加载到顶级浏览上下文(即浏览当前的上下文是一个祖先,和没有父母)。如果没有父母,这个选项_self行为一样。 使用这个属性只有在href属性。</li>
+					</ul>
+				</p>
+				<p>type,该属性指定的媒体类型的形式链接目标的MIME类型。一般来说,这是严格按照提供的咨询信息;然而,在未来的一个浏览器可能为多媒体类型添加一个小图标。例如,一个浏览器可以添加一个小喇叭图标类型设置为音频/ wav。公认的MIME类型的完整列表,请参阅http://www.w3.org/TR/html4/references.html ref-MIMETYPES。使用这个属性只有在href属性。</p> -->
+				<table>
+					<p>必需的属性</p>
+					<tr>
+						<th>属性</th>	
+						<th>值</th>	
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>alt</td>	
+						<td>text</td>	
+						<td>定义此区域的替换文本。</td>
+					</tr>
+					<tr><td>可选的属性</td></tr>
+					<tr>
+						<td>coords</td>	
+						<td>坐标值</td>	
+						<td>定义可点击区域（对鼠标敏感的区域）的坐标。</td>
+					</tr>
+					<tr>
+						<td>href</td>	
+						<td>URL</td>	
+						<td>定义此区域的目标</td>
+					</tr> URL。
+					<tr>
+						<td>nohref</td>	
+						<td>nohref</td>	
+						<td>从图像映射排除某个区域。</td>
+					</tr>
+					<tr>
+						<td>shape</td>
+						<td>
+							<li>default</li>
+							<li>rect</li>
+							<li>circ</li>
+							<li>poly</li>
+						</td>
+						<td>定义区域的形状。</td>
+					<tr>
+						<td>target</td>
+						<td>
+							<li>_blank</li>
+							<li>_parent</li>
+							<li>_self</li>
+							<li>_top</li>
+						</td>
+						<td>规定在何处打开 href 属性指定的目标 URL。</td>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;svg&gt; <img src="../images/html5.jpg"></td>	
+			<td>定义一个嵌入式矢量图 。</td>
+			<td>
+				<ul>全局属性
+					<li>条件处理属性 »</li>
+					<li>核心属性 »</li>
+					<li>文档事件属性 »</li>
+					<li>图形事件属性 »</li>
+					<li>外观属性 »</li>
+					<li>class</li>
+					<li>style</li>
+					<li>externalResourcesRequired</li>
+				</ul>
+				<ul>专有属性
+					<li>version</li>
+					<li>baseProfile</li>
+					<li>x</li>
+					<li>y</li>
+					<li>width</li>
+					<li>height</li>
+					<li>preserveAspectRatio</li>
+					<li>contentScriptType</li>
+					<li>contentStyleType</li>
+					<li>viewBox</li>
+				</ul>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;math&gt; <img src="../images/html5.jpg"></td>	
+			<td>定义一段数学公式 。</td>
+			<td>
+				<table>
+					<tr>
+						<th>属性</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>class, id, style,</td>
+						<td>用于配合样式表使用。</td>
+					</tr>
+					<tr>
+						<td>dir,</td>
+						<td>公式的整体方向。取值可以是 ltr (从左到右) 或者 rtl (从右到左).</td>
+					</tr>
+					<tr>
+						<td>href,</td>
+						<td>用于给公式设置一个超链接的URI。</td>
+					</tr>
+					<tr>
+						<td>mathbackground,</td>
+						<td>背景颜色。你可以使用#rgb格式、 #rrggbb 格式和 HTML颜色名。</td>
+					</tr>
+					<tr>
+						<td>mathcolor,</td>
+						<td>公式的文本颜色。你可以使用#rgb格式、 #rrggbb 格式和 HTML颜色名。</td>
+					</tr>
+					<tr>
+						<td>distdlay,</td>
+						<td>这个枚举属性指定本标记所括的MathML代码应该如何被显示。该属性有如下取值：</td>
+					</tr>
+					<tr>
+						<td>block,</td>
+						<td> 使用该值会使该MathML元素显示于文本之外，成为一个独立的块元素，不受其所在的文本的影响。</td>
+					</tr>
+					<tr>
+						<td>inline,</td>
+						<td> 使用该值使这段MathML显示为行内元素，放置于当前文本的区域中。除非改变文本的显示，否则无法移动这个MathML的显示位置。如果没有指定该属性值，默认值采用 inline。</td>
+					</tr>
+					<tr>
+						<td>overflow,</td>
+						<td>指定当该数学公式超过了其运行的范围时应该如何表现。可能的取值为： linebreak (默认值), scroll, elide, truncate, scale.</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td class="trHead" colspan="3">表格EDIT</td>
+		</tr>
+			<td>&lt;table&gt;</td>
+			<td>定义多维数据 。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;caption&gt;</td>
+			<td>代表表格的标题 。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;colgroup&gt;</td>
+			<td>代表表格中一组单列或多列 。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;col&gt;</td>
+			<td>代表表格中的列 。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;tbody&gt;</td>
+			<td>代表表格中一块具体数据 （表格主体）。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;thead&gt;</td>
+			<td>代表表格中一块列标签 （表头）。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;tfoot&gt;</td>
+			<td>代表表格中一块列摘要 （表尾）。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;tr&gt;</td>
+			<td>代表表格中的行 。</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>&lt;td&gt;</td>
+			<td>代表表格中的单元格 。</td>
+			<td>
+				<!-- <p>colspan这个属性包含一个非负整数的值表明有多少列细胞延伸。其默认值为1;如果将它的值设置为0,它延伸到&lt; colgroup &gt;指定表格中,即使隐式定义,细胞属于。值高于1000将被认为是不正确的,将被设置为默认值(1)。 注意:在HTML5这个属性只接受值大于零,因为它不能被用来重叠细胞。此外,Firefox是唯一的浏览器支持0作为HTML 4.01规范中定义的价值。</p>
+				<p>headers,这个属性包含一个空格分隔的字符串列表,每个对应的id属性&lt;th&gt;适用于该元素的元素。</p>
+				<p>rowspan,这个属性包含一个非负整数的值,显示多少行细胞延伸。其默认值为1;如果将它的值设置为0,它延伸到桌子上部分(&lt;thead&gt;&lt;tbody&gt;&lt;tfoot&gt;,即使隐式定义,细胞属于。值高于65534剪到65534。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>abbr</td>	
+						<td>text</td>	
+						<td>规定单元格中内容的缩写版本。</td>
+					</tr>
+					<tr>
+						<td>align</td>	
+						<td>
+							<li>left</li>
+							<li>right</li>
+							<li>center</li>
+							<li>justify</li>
+							<li>char</li>
+						</td>
+						<td>规定单元格内容的水平对齐方式。</td>
+					</tr>
+					<tr>
+						<td>axis</td>	
+						<td>category_name</td>	
+						<td>对单元进行分类。</td>
+					</tr>
+					<tr>
+						<td>bgcolor</td>	
+						<td>
+							<li>rgb(x,x,x)</li>
+							<li>#xxxxxx</li>
+							<li>colorname</li>
+						</td>
+						<td>不赞成使用。请使用样式取而代之。规定单元格的背景颜色。</td>
+					</tr>
+					<tr>
+						<td>char</td>	
+						<td>character</td>	
+						<td>规定根据哪个字符来进行内容的对齐。</td>
+					</tr>
+					<tr>
+						<td>charoff</td>	
+						<td>number</td>	
+						<td>规定对齐字符的偏移量。</td>
+					</tr>
+					<tr>
+						<td>colspan</td>	
+						<td>number</td>
+						<td>规定单元格可横跨的列数。</td>
+					</tr>
+					<tr>
+						<td>headers</td>	
+						<td>header_cells'_id</td>
+						<td>规定与单元格相关的表头。</td>
+					</tr>
+					<tr>
+						<td>height</td>	
+						<td>
+							<li>pixels</li>
+							<li>%</li>
+						</td>
+						<td>不赞成使用。请使用样式取而代之。规定表格单元格的高度。</td>
+					</tr>
+					<tr>
+						<td>nowrap</td>	
+						<td>nowrap</td>	
+						<td>不赞成使用。请使用样式取而代之。规定单元格中的内容是否折行。</td>
+					<tr>
+						<td>rowspan</td>	
+						<td>number</td>	
+						<td>规定单元格可横跨的行数。</td>
+					</tr>
+					<tr>
+						<td>scope</td>	
+						<td>
+							<li>col</li>
+							<li>colgroup</li>
+							<li>row</li>
+							<li>rowgroup</li>
+						</td>
+						<td>定义将表头数据与单元数据相关联的方法。</td>
+					</tr>
+					<tr>
+						<td>valign</td>
+						<td>
+							<li>top</li>
+							<li>middle</li>
+							<li>bottom</li>
+							<li>baseline</li>
+						</td>
+						<td>规定单元格内容的垂直排列方式。</td>
+					</tr>
+					<tr>
+						<td>width</td>	
+						<td>
+							<li>pixels</li>
+							<li>%</li>
+						</td>
+						<td>不赞成使用。请使用样式取而代之。规定表格单元格的宽度。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;th&gt;</td>
+			<td>代表表格中的头部单元格 。</td>
+			<td>
+				<!-- <p>colspan这个属性包含一个正整数的值,表示在多少列细胞扩展。其默认值是1。如果它的值设置为0,则单元扩展到最后一个元素&lt;colgroup&gt;。值高于1000剪到1000。</p>
+				<p>headers这个属性包含一个空格分隔的字符串列表,每个对应的id属性,其他&lt;th&gt;与此元素的元素。</p>
+				<p>rowspan这个属性包含一个正整数的值,显示多少行细胞扩展。其默认值是1。如果它的值设置为0,则单元扩展到最后一个元素的表部分(&lt;thead&gt;&lt;tbody&gt;或&lt;tfoot&gt;)。值高于65534剪到65534。</p>
+				<p>scope这个枚举属性定义了标题的细胞(定义在&lt;th &gt;)元素有关。它可能有下列值:
+					<ul>
+						<li>row:  头与行它属于的所有细胞。</li>
+						<li>col: 头与列它属于的所有细胞。</li>
+						<li>rowgroup: 标头属于表列，涉及到所有的单元格。这些细胞可以放到右边或左边的标题，根据的值的 &lt; 表 &gt; 元素中的属性。</li>
+						<li>colgroup: 头属于colgroup和指定表格中涉及到它的所有细胞。</li>
+					</ul>
+				</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>abbr</td>	
+						<td>text</td>	
+						<td>规定单元格中内容的缩写版本。</td>
+					</tr>
+					<tr>
+						<td>align</td>
+						<td>	
+							<li>left</li>
+							<li>right</li>
+							<li>center</li>
+							<li>justify</li>
+							<li>char</li>
+						</td>
+						<td>规定单元格内容的水平对齐方式。</td>
+					</tr>
+					<tr>
+						<td>axis</td>	
+						<td>category_name</td>	
+						<td>对单元格进行分类。</td>
+					</tr>
+					<tr>
+						<td>char</td>	
+						<td>character</td>	
+						<td>规定根据哪个字符来进行内容的对齐。</td>
+					</tr>
+					<tr>
+						<td>charoff</td>	
+						<td>number</td>	
+						<td>规定对齐字符的偏移量。</td>
+					</tr>
+					<tr>
+						<td>colspan</td>	
+						<td>number</td>	
+						<td>设置单元格可横跨的列数。</td>
+					</tr>
+					<tr>
+						<td>headers</td>	
+						<td>idrefs</td>	
+						<td>由空格分隔的表头单元格 ID 列表，为数据单元格提供表头信息。</td>
+					</tr>
+					<tr>
+						<td>rowspan</td>	
+						<td>number</td>	
+						<td>规定单元格可横跨的行数。</td>
+					</tr>
+					<tr>
+						<td>scope</td>
+						<td>	
+							<li>col</li>
+							<li>colgroup</li>
+							<li>row</li>
+							<li>rowgroup</li>
+						</td>
+						<td>定义将表头数据与单元数据相关联的方法。</td>
+					</tr>
+					<tr>
+						<td>valign</td>
+						<td>	
+							<li>top</li>
+							<li>middle</li>
+							<li>bottom</li>
+							<li>baseline</li>
+						</td>
+						<td>规定单元格内容的垂直排列方式。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td class="trHead" colspan="3">表单EDIT</td>
+		</tr>
+		<tr>
+			<td>&lt;form&gt;</td>
+			<td>代表一个表单 ，由控件组成。</td>
+			<td>
+				<!-- <p>accept-charset,一个空格分隔或逗号分隔的列表，这个列表包括了服务器支持的字符编码。浏览器以这些编码被列举的顺序使用它们。默认值是一个保留字符串“UNKNOWN”。这个字符串指的是，和包含这个form元素的文档相同的编码。在之前版本的HTML中，不同的字符编码可以用空格或逗号分隔。在HTML5中，只有空格可以允许作为分隔符。</p>
+				<p>action,一个处理这个form信息的程序所在的URL。这个值可以被 &lt;button&gt; 或者 &lt;input&gt; 元素中的 formaction 属性重载（覆盖）。</p>
+				<p>autocomplete <img src="../images/html5.jpg">,用于指示 input 元素是否能够拥有一个默认值，这个默认值是由浏览器自动补全的。这个设定可以被属于这个form的子元素的 autocomplete 属性重载（覆盖）。 可能的值有:
+					<ul>
+						<li>off: 在每一个用到的输入域里，用户必须显式的输入一个值，或者document 以它自己的方式提供自动补全；浏览器不会自动补全输入。</li>
+						<li>on: 浏览器能够根据用户之前在form里输入的值自动补全。</li>
+						注意: 如果你在一个表单里把 autocomplete 设置成 off 是因为 document 提供了它独有的自动补全，那么你也应该把这个表单里每一个 input 元素的 autocomplete 设成 off 来让 document 能够自动补全. 想要了解详细信息, 参见 Google Chrome notes.
+					</ul>
+				</p>
+				<p>enctype,当 method 属性值为 post 时, enctype 是提交form给服务器的内容的 MIME 类型 。可能的取值有:
+					<ul>
+						<li>application/x-www-form-urlencoded: 如果属性未指定时的默认值。</li>
+						<li>multipart/form-data: 这个值用于一个 type 属性设置为 "file" 的 &lt;input&gt; 元素。</li>
+					</ul>
+				</p>
+				<p>text/plain (HTML5),这个值可以被 &lt;button&gt; 或者 &lt;input&gt; 元素中的 formenctype 属性重载（覆盖）。</p>
+				<p>method,浏览器使用这种 HTTP 方式来提交 form. 可能的值有:
+					<ul>
+						<li>post: 指的是 HTTP POST 方法 ; 表单数据会包含在表单体内然后发送给服务器.</li>
+						<li>get: 指的是 HTTP GET 方法; 表单数据会附加在 URI action 属性中并以 '?' 作为分隔符, 然后这样得到的 URI 再发送给服务器. 当这样做（数据暴露在URI里面）没什么副作用，或者表单仅包含ASCII字符时，再使用这种方法吧。这个值可以被 &lt;button&gt; 或者 &lt;input&gt; 元素中的 formmethod 属性重载（覆盖）。</li>
+						<li>name,这个form的名字。在HTML4中，这个用法不被推荐(作为替代，应该使用id). HTML5中，一个文档中的多个form当中，name必须唯一而不仅仅是一个空字符串。</li>
+					</ul>
+				</p>
+				<p>novalidate <img src="../images/html5.jpg">,这个布尔类型的属性指示了，当提交时form是否没有被验证。 如果这个属性没有指定 (因此这个 form 是验证通过的)，这个默认设置可以被属于这个form的 &lt;button&gt; 或者 &lt;input&gt; 元素中的 formnovalidate 属性重载（覆盖）。</p>
+				<p>target,一个名字或者说关键字，用来指示在提交表单之后，在哪里显示收到的回复. 在 HTML 4 里, 这是一个用于 frame 的名字/关键字. 在 HTML5 里, 这是一个用于 browsing context 浏览器上下文  的名字/关键字 (举例来说, 标签页tab, 窗口window, or 或者行内 frame). 如下的关键字含有特别的含义:
+					<ul>
+						<li>_self: 负载响应到相同的HTML 4帧(或HTML5浏览上下文)。这个值是默认如果没有指定属性。</li>
+						<li>_blank: 响应加载到一个新的匿名HTML 4 HTML5浏览窗口或上下文。</li>
+						<li>_parent: 响应加载到HTML 4框架集当前帧的母公司,或HTML5家长浏览当前的上下文。如果没有父母,这个选项_self行为一样。</li>
+						<li>_top: HTML 4: 响应加载到完整的原始窗口,并取消所有其他框架。HTML5:响应加载到顶级浏览上下文(即。浏览环境,是当前的祖先,和没有父母)。如果没有父母,这个选项_self行为一样。</li>
+						<li>iframename: 响应将显示在一个名叫&lt;iframe&gt;。</li>
+					</ul>
+				</p>
+				<p>HTML5: 这个值可以被 &lt;button&gt; 或者 &lt;input&gt; 元素中的 formtarget 属性重载（覆盖）。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>accept-charset</td>	
+						<td>charset_list</td>	
+						<td>规定服务器可处理的表单数据字符集。</td>
+					</tr>
+					<tr>
+						<td>action</td>	
+						<td>URL</td>	
+						<td>规定当提交表单时向何处发送表单数据。</td>
+					</tr>
+					<tr>
+						<td>autocomplete</td>
+						<td>	
+							<li>on</li>
+							<li>off</li>
+						</td>
+						<td>规定是否启用表单的自动完成功能。</td>
+					</tr>
+					<tr>
+						<td>enctype</td>	
+						<td>
+							<li>application/x-www-form-urlencoded	在发送前编码所有字符（默认）</li>
+							<li>multipart/form-data	不对字符编码。在使用包含文件上传控件的表单时，必须使用该值。</li>
+							<li>text/plain	空格转换为 "+" 加号，但不对特殊字符编码。</li>
+						</td>	
+						<td>规定在发送表单数据之前如何对其进行编码。</td>
+					</tr>
+					<tr>
+						<td>method</td>
+						<td>	
+							<li>get</li>
+							<li>post</li>
+						</td>
+						<td>规定用于发送 form-data 的 HTTP 方法。</td>
+					</tr>
+					<tr>
+						<td>name</td>	
+						<td>form_name</td>	
+						<td>规定表单的名称。</td>
+					</tr>
+					<tr>
+						<td>novalidate</td>	
+						<td>novalidate</td>	
+						<td>如果使用该属性，则提交表单时不进行验证。</td>
+					</tr>
+					<tr>
+						<td>target</td>
+						<td>	
+							<li>_blank</li>
+							<li>_self</li>
+							<li>_parent</li>
+							<li>_top</li>
+							<li>framename</li>
+						</td>
+						<td>规定在何处打开 action URL。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;fieldset&gt;</td>
+			<td>代表控件组 。</td>
+			<td>
+				<!-- <p>disabled <img src="../images/html5.jpg">,如果设置了这个布尔属性,它的后代的表单控件,除了第一个可选<传奇>元素的后代,被禁用。,而不是编辑。他们不会接收任何浏览事件,鼠标点击或焦点相关的问题。通常浏览器显示灰色等控制。</p>
+				<p>form <img src="../images/html5.jpg">,规定fieldset所属的form表单。 这个属性的值与其所属的form的ID相同。默认值是最近的那个form。</p>
+				<p>name <img src="../images/html5.jpg">,与集团相关的名称。 字段的标签集是由第一&lt;legend&gt;元素的孩子这一领域。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>disabled</td>	
+						<td>disabled</td>	
+						<td>规定应该禁用 fieldset。</td>
+					</tr>
+					<tr>
+						<td>form</td>	
+						<td>form_id</td>	
+						<td>规定 fieldset 所属的一个或多个表单。</td>
+					</tr>
+					<tr>
+						<td>name</td>	
+						<td>value</td>	
+						<td>规定 fieldset 的名称。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;legend&gt;</td>
+			<td>代表 &lt;fieldset&gt; 控件组的标题 。</td>
+		</tr>
+		<tr>
+			<td>&lt;label&gt;</td>
+			<td>代表表单控件的标题 。</td>
+			<td>
+				<!-- <p>accesskey HTML 4 <img src="../images/html5.jpg">,从键盘访问该元素的快捷键。</p>
+				<p>for,可标记的 form相关元素的ID，在同一文档中作为label元素。 第一个这样的元素在文档中有一个ID匹配属性值，作为这个label元素的labeled control。注意： label元素可同时有属性和包含控件元素（contained control element），只要此属性指向包含控件元素。</p>
+				<p>form <img src="../images/html5.jpg">, 表示label元素关联的form元素（它的表单拥有者）。此属性值必须是同一文档中&lt;form&gt; 元素的ID。如果未指定此属性值，&lt;label&gt;元素必须是&lt;form&gt;元素的后代。应用此属性值，你可以将label元素放置在文档的任何位置，而不仅仅是作为它的拥有者&lt;form&gt;元素的后代。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>for</td>	
+						<td>id</td>	
+						<td>规定 label 绑定到哪个表单元素。</td>
+					</tr>
+						<td>form</td>	
+						<td>formid</td>	
+						<td>规定 label 字段所属的一个或多个表单。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;input&gt;</td>
+			<td>代表允许用户编辑数据的数据区 （文本框、单选框、复选框等）。</td>
+			<td>
+				<!-- <p>type,控件类型的显示。如果这个属性没有指定，默认的类型是 text。可用的值包括：
+					<ul>
+						<li>button：无缺省行为按钮。</li>
+						<li>checkbox： 复选框。必须使用 value 属性定义此控件被提交时的值。使用 checked 属性指示控件是否被选择。也可以使用 indeterminate 指示复选框在一种不确定状态（大多数平台上，显示为一条穿过复选框的水平线）。</li>
+						<li>color：HTML5 用于指定颜色的控件。</li>
+						<li>date：HTML5 用于输入日期的控件（年，月，日，不包括时间）。</li>
+						<li>datetime：HTML5 基于 UTC 时区的日期时间输入控件（时，分，秒及几分之一秒）。</li>
+						<li>datetime-local：HTML5 用于输入日期时间控件，不包含时区。</li>
+						<li>email：HTML5 用于编辑 e-mail 的字段。 合适的时候可以使用 :valid 和 :invalid CSS 伪类。</li>
+						<li>file：此控件可以让用户选择文件。使用 accept 属性可以定义控件可以选择的文件类型。</li>
+						<li>hidden：不显示在页面上的控件，但它的值会被提交到服务器。</li>
+						<li>image：图片提交按钮。必须使用 src 属性定义图片的来源及使用 alt 定义替代文本。还可以使用 height 和 width 属性以像素为单位定义图片的大小。</li>
+						<li>month：HTML5 用于输入年月的控件，不带时区。</li>
+						<li>number: HTML5 用于输入浮点数的控件。</li>
+						<li>password：一个值被遮盖的单行文本字段。使用 maxlength 指定可以输入的值的最大长度 。</li>
+						<li>radio：单选按钮。必须使用 value 属性定义此控件被提交时的值。使用checked 必须指示控件是否缺省被选择。在同一个”单选按钮组“中，所有单选按钮的 name 属性使用同一个值； 一个单选按钮组中是，同一时间只有一个单选按钮可以被选择。</li>
+						<li>range：HTML5 用于输入不精确值控件。如果未指定相应的属性，控件使用如下缺省值：
+							<ul>
+								<li>min：0</li>
+								<li>max：100</li>
+								<li>value：min + (max-min)/2，或当 max 小于 min 时使用 min</li>
+								<li>step：1</li>
+							</ul>
+						</li>
+						<li>reset：用于将表单所内容设置为缺省值的按钮。</li>
+						<li>search：HTML5用于输入搜索字符串的单行文本字段。换行会被从输入的值中自动移除。</li>
+						<li>submit：用于提交表单的按钮。</li>
+						<li>tel：HTML5 用于输入电话号码的控件；换行会被自动从输入的值中移除A,，but no other syntax is enforced。可以使用属性，比如 pattern 和 maxlength 来约束控件输入的值。恰当的时候，可以应用 :valid 和 :invalid CSS 伪类。</li>
+						<li>text：单行字段；换行会将自动从输入的值中移除。</li>
+						<li>time：HTML5 用于输入不含时区的时间控件。</li>
+						<li>url：HTML5 用于编辑URL的字段。 The user may enter a blank or invalid address. 换行会被自动从输入值中移队。可以使用如：pattern 和 maxlength 样的属性来约束输入的值。 恰当的时候使可以应用 :valid 和 :invalid CSS 伪类。</li>
+						<li>week：HTML5 用于输入一个由星期-年组成的日期，日期不包括时区。</li>
+					</ul>
+				</p>
+				<p>accept,如果该元素的 type 属性的值是file,则该属性表明了服务器端可接受的文件类型；否则它将被忽略。该属性的值必须为一个逗号分割的列表,包含了多个唯一的内容类型声明：
+					<ul>
+						<li>以 STOP 字符 (U+002E) 开始的文件扩展名。（例如：".jpg,.png,.doc"）</li>
+						<li>一个有效的 MIME 类型，但没有扩展名</li>
+						<li>audio/* 表示音频文件 HTML5</li>
+						<li>video/* 表示视频文件 HTML5</li>
+						<li>image/* 表示图片文件 HTML5</li>
+					</ul>
+				</p>
+				<p>autocomplete <img src="../images/html5.jpg">,这个属性表示这个控件的值是否可被浏览器自动填充。如果type属性的值是hidden、checkbox、radio、file，或为按钮类型（button、submit、reset、image），则本属性被忽略。可用的值是:
+					<ul>
+						<li>off: 用户必须手动填值，或者该页面提供了自己的自动补全方法。浏览器不对此字段自动填充。</li>
+						<li>on: 浏览器可以根据用户先前的填表情况对此字段自动填值。</li>
+						<li>name: 完整的姓名</li>
+						<li>honorific-prefix:(如前缀或标题。“先生。”,“女士。”、“博士。”、“Mlle”)</li>
+						<li>given-name ：名</li>
+						<li>additional-name</li>
+						<li>family-name：姓</li>
+						<li>honorific-suffix: 后缀(如。“Jr。”、“博士生导师。MBASW "," 2 ")</li>
+						<li>nickname</li>
+						<li>email</li>
+						<li>username</li>
+						<li>new-password: 新密码（如创建帐号或更改密码时使用）</li>
+						<li>current-password</li>
+						<li>organization-title:职位(如。“软件工程师”,“高级副总裁”、“副总裁”)</li>
+						<li>organization</li>
+						<li>street-address</li>
+						<li>address-line1, address-line2, address-line3, address-level4, address-level3, address-level2, address-level1</li>
+						<li>country</li>
+						<li>country-name</li>
+						<li>postal-code</li>
+						<li>cc-name: 全名支付票据上</li>
+						<li>cc-given-name</li>
+						<li>cc-additional-name</li>
+						<li>cc-family-name</li>
+						<li>cc-number: 代码识别支付手段(如信用卡号码)</li>
+						<li>cc-exp: 支付票据的到期日期</li>
+						<li>cc-exp-month</li>
+						<li>cc-exp-year</li>
+						<li>cc-csc: 安全支付手段的代码 </li>
+						<li>cc-type: 类型的支付手段(例如签证)</li>
+						<li>transaction-currency</li>
+						<li>transaction-amount</li>
+						<li>language: 首选语言;有效BCP 47语言标签</li>
+						<li>bday</li>
+						<li>bday-day</li>
+						<li>bday-month</li>
+						<li>bday-year</li>
+						<li>sex:性别身份(如女性,侄子侄女);自由格式的文本,没有换行</li>
+						<li>tel</li>
+						<li>url: 主页或其他Web页面对应的公司,人,地址,或联系信息与这个领域相关的其他领域</li>
+						<li>photo: 照片,图标,或其他图像对应公司的人,地址,或联系信息与这个领域相关的其他领域</li>
+						<li>参考 WHATWG 标准 获取更多详细内容。</li>
+					</ul>
+				</p>
+				<p>如果&lt;input&gt;元素上没有autocomplete属性，浏览器可使用包含该input元素的表单（&lt;form&gt;）或通过input的form属性指定的表单的autocomplete属性值。更多信息请参见&lt;form&gt;的autocomplete属性。</p>
+				<p>autofocus <img src="../images/html5.jpg">,这个布尔属性允许您指定一个表单控制应该有输入焦点当页面加载时,除非用户覆盖它,例如,输入一个不同的控制。只有一个表单元素在文档中可以自动对焦的属性,这是一个布尔值。它不能应用如果type属性设置为隐藏的(也就是说,您不能自动设置集中到一个隐藏的控制)。</p>
+				<p>autosave <img src="../images/html5.jpg">,这个属性应被定义为一个独特的价值。如果搜索类型属性的值,先前的搜索词值将坚持在页面加载下拉。</p>
+				<p>checked,如果该元素的type属性的值为radio或者checkbox,则该布尔属性的存在与否表明了该控件是否是默认选择状态.</p>
+				<p>disabled,这个布尔属性表示此表单控件不可用。 特别是在禁用的控件中， click 事件 将不会被分发 。 并且，禁用的控件的值在提交表单时也不会被提交。如果 type 属性为  hidden，此属性将被忽略。</p>
+				<p>form <img src="../images/html5.jpg">,输入元素相关联的表单元素(它的所有者)形式。该属性的值必须是一个id &lt;form&gt;元素在同一个文档。如果没有指定这个属性,这&lt;input&gt;元素必须的后代&lt;form&gt;元素。这个属性允许您将&lt;input&gt;元素在文档中的任何位置,不仅仅是他们的表单元素的后代。
+				<p>formaction<img src="../images/html5.jpg">,程序流程的URI提交的信息输入元素,如果它是一个提交按钮或图像。如果指定,它覆盖的动作属性元素的形式所有者。</p>
+				<p>formenctype<img src="../images/html5.jpg">,如果输入元素是一个提交按钮或图像,该属性指定内容的类型,用来向服务器提交表单。可能的值是: 应用程序/ x-www-form-urlencoded:如果没有指定属性的默认值。 多部分/格式:使用这个值如果您正在使用一个&lt;input&gt;元素的type属性设置为文件。</p>
+				<p>text/plain,如果这是默认属性,它所overrides the enctype部件的默认属性of the form所有者姓名。</p>
+				<p>formmethod<img src="../images/html5.jpg">,如果输入元素是一个提交按钮或图像,该属性指定浏览器使用的HTTP方法提交表单。可能的值是: 职位:数据表单的形式包含在身体和发送到服务器。 得到:表单的数据附加到URI的形式属性,与“?作为一个分隔符,生成的URI发送到服务器。使用这种方法时,没有副作用,只包含ASCII字符形式。 如果指定这个属性重写的方法属性元素的形式所有者。</p>
+				<p>formnovalidate<img src="../images/html5.jpg">,如果输入元素是一个提交按钮或图像,这个布尔属性指定表单提交时验证。如果指定这个属性,它覆盖的已经属性元素的形式所有者。</p>
+				<p>formtarget<img src="../images/html5.jpg">,如果输入元素是一个提交按钮或图像,这个属性是一个名称或关键字显示,显示提交表单后,接收到的响应。这是一个名字,或关键字,浏览的上下文(例如,选项卡中,窗口,或内联框架)。如果指定这个属性,它覆盖目标属性的元素的形式所有者。以下关键词具有特殊的意义:
+					<ul>
+						<li>_self: 响应加载到相同的浏览环境。这个值是默认如果没有指定属性。</li>
+						<li>_blank: 响应加载到一个新的匿名浏览上下文。</li>
+						<li>_parent: 负载电流的响应为父浏览上下文。如果没有父母,这个选项_self行为一样。</li>
+						<li>_top: 响应加载到顶级浏览上下文(即浏览当前的上下文是一个祖先,和没有父母)。如果没有父母,这个选项_self行为一样。</li>
+					</ul>
+				</p>
+				<p>height <img src="../images/html5.jpg">,如果type属性的值是图像,这个属性定义的图像显示按钮的高度。</p>
+				<p>list <img src="../images/html5.jpg">,标识一个预定义的选项列表显示给用户。id的值必须是一个&lt;datalist&gt;元素在同一个文档。浏览器只显示选项有效值输入元素。这个属性将被忽略隐藏属性的值类型时,复选框,收音机,文件,或一个按钮类型。</p>
+				<p>max <img src="../images/html5.jpg">,的最大(数字或日期时间)值项,必须不低于其最小(最小值属性)值。</p>
+				<p>maxlength <img src="../images/html5.jpg">,如果 type 的值是  text, email, search, password, tel, 或 url，那么这个属性指明了用户最多可以输入的字符个数（按照Unicode编码方式计数）；对于其他类型的输入框，该属性被忽略。它可以大于 size 属性的值。如果不指定这个属性，那么用户可以输入任意多的字符。如果指定为一个负值，那么元素表现出默认行为，即用户可以输入任意多的字符。本属性的约束规则，仅在元素的 value 属性发生变化时才会执行。译者注:ie10+</p>
+				<p>min <img src="../images/html5.jpg">, 的最小(数字或日期时间)值项,不得超过其最大(max属性)的价值。</p>
+				<p>multiple<img src="../images/html5.jpg">,这个布尔属性指示用户是否可以输入多个值。这个属性适用于当type属性设置为电子邮件或文件,否则它将被忽略。name控制的名称,提交表单数据。</p>
+				<p>pattern<img src="../images/html5.jpg">,检查控件值的正则表达式.。pattern必须匹配整个值，而不仅仅是某些子集.。使用title属性来描述帮助用户的模式.。当类型属性的值为text, search, tel, url 或 email时，此属性适用，否则将被忽略。译者注:ie10+</p>
+				<p>placeholder <img src="../images/html5.jpg">,一个提示用户可以输入的控制。占位符文本必须不包含回车或换行。这个属性适用于当type属性的值是文本,搜索,电话,网址或电子邮件,否则它将被忽略。 注意:不要使用占位符属性而不是& lt;label&gt;元素。他们的目的是不同的:&lt;label&gt;属性描述了表单元素的作用;也就是说,它表明什么样的信息预计,占位符属性是一种提示的格式内容应该采取。在某些情况下的地方.readonly这个布尔属性表明,用户不能修改的值控制。 HTML5将忽略该属性如果隐藏类型属性的值,范围,颜色,复选框,收音机,文件,或一个按钮类型。</p>
+				<p>required <img src="../images/html5.jpg">,这个属性指定用户在提交表单之前必须为该元素填充值. 当type属性是hidden,image或者按钮类型(submit,reset,button)时不可使用. :optional 和 :required CSS 伪元素的样式将可以被该字段应用作外观.</p>
+				<p>selectionDirection <img src="../images/html5.jpg">,选择的方向发生。这是“前进”,如果选择是由从左到右的LTR地区,或从右到左的RTL的地区,或者“落后”,如果选择了相反的方向。这可能是“没有”如果选择方向是未知的。</p>
+				<p>size,的初始大小控制。这个值是在像素除非type属性的值是文本或密码,在这种情况下,它是一个整数的字符数。从<img src="../images/html5.jpg">,这个属性只适用于当type属性设置为文本,搜索,电话,地址,电子邮件,或密码,否则它将被忽略。此外,大小必须大于零。如果你不指定大小,使用默认值为20。</p>
+				<p>spellcheck <img src="../images/html5.jpg">,将此属性的值设置为true表示元素需要检查其拼写和语法。 值default表示元素将根据默认行为进行操作，可能基于父元素自己的拼写检查值。 值false表示不应该检查元素。</p>
+				<p>src,如果type属性的值是图像,该属性指定了一个URI的位置图像上显示的图形提交按钮,否则它将被忽略。</p>
+				<p>step <img src="../images/html5.jpg">,使用最小和最大属性来限制可以设置数字或日期时间值的增量。 它可以是字符串任何或正的浮点数。 如果此属性未设置为任何，则控件仅接受大于最小值的步长值的倍数的值。</p>
+				<p>tabindex element-specific in HTML 4, global in <img src="../images/html5.jpg">,元素的位置移动导航为当前文档。</p>
+				<p>usemap HTML 4 only, 已废弃 <img src="../images/html5.jpg">,的名称&lt;map&gt;元素作为图像映射。</p>
+				<p>value,的初始值控制。这个属性是可选的,除了当type属性的值是单选或复选框。 注意,在重新加载页面时,壁虎和IE将忽略HTML源代码中指定的值,如果该值被改变之前重新加载。</p>
+				<p>width <img src="../images/html5.jpg">, 如果type属性的值是图像,这个属性定义了图像的显示按钮的宽度。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>accept</td>	
+						<td>mime_type</td>	
+						<td>规定通过文件上传来提交的文件的类型。</td>
+					</tr>
+					<tr>
+						<td>align</td>	
+						<td>
+							<li>left</li>
+							<li>right</li>
+							<li>top</li>
+							<li>middle</li>
+							<li>bottom</li>
+						</td>
+						<td>不赞成使用。规定图像输入的对齐方式。</td>
+					</tr>
+					<tr>
+						<td>alt</td>	
+						<td>text</td>	
+						<td>定义图像输入的替代文本。</td>
+					</tr>
+					<tr>
+						<td>autocomplete</td>
+						<td>	
+							<li>on</li>
+							<li>off</li>
+						</td>
+						<td>规定是否使用输入字段的自动完成功能。</td>
+					</tr>
+					<tr>
+						<td>autofocus</td>	
+						<td>autofocus</td>
+						<td>规定输入字段在页面加载时是否获得焦点。（不适用于 type="hidden"）</td>
+					</tr>
+					<tr>
+						<td>checked</td>	
+						<td>checked</td>	
+						<td>规定此 input 元素首次加载时应当被选中。</td>
+					</tr>
+					<tr>
+						<td>disabled</td>	
+						<td>disabled</td>	
+						<td>当 input 元素加载时禁用此元素。</td>
+					</tr>
+					<tr>
+						<td>form</td>	
+						<td>formname</td>	
+						<td>规定输入字段所属的一个或多个表单。</td>
+					</tr>
+					<tr>
+						<td>formaction</td>	
+						<td>URL</td>	
+						<td>覆盖表单的 action 属性。（适用于 type="submit" 和 type="image"）</td>
+					</tr>
+					<tr>
+						<td>formenctype</td>	
+						<td>
+							<li>application/x-www-form-urlencoded	在发送前对所有字符进行编码（默认）。</li>
+							<li>multipart/form-data	不对字符编码。当使用有文件上传控件的表单时，该值是必需的。</li>
+							<li>text/plain	将空格转换为 "+" 符号，但不编码特殊字符。</li>
+						</td>	
+						<td>覆盖表单的 enctype 属性。（适用于 type="submit" 和 type="image"）</td>
+					</tr>
+					<tr>
+						<td>formmethod</td>	
+						<td>
+							<li>get</li>
+							<li>post</li>
+						</td>
+						<td>覆盖表单的 method 属性。（适用于 type="submit" 和 type="image"）</td>
+					</tr>
+					<tr>
+						<td>formnovalidate</td>	
+						<td>formnovalidate</td>	
+						<td>覆盖表单的 novalidate 属性。如果使用该属性，则提交表单时不进行验证。</td>
+					</tr>
+					<tr>
+						<td>formtarget</td>
+						<td>	
+							<li>_blank</li>
+							<li>_self</li>
+							<li>_parent</li>
+							<li>_top</li>
+							<li>framename</li>
+						</td>
+						<td>覆盖表单的 target 属性。（适用于 type="submit" 和 type="image"）</td>
+					</tr>
+					<tr>
+						<td>height</td>	
+						<td>
+							<li>pixels</li>
+							<li>%</li>
+						</td>
+						<td>定义 input 字段的高度。（适用于 type="image"）</td>
+					</tr>
+					<tr>
+						<td>list</td>	
+						<td>datalist-id</td>	
+						<td>引用包含输入字段的预定义选项的 datalist 。</td>
+					</tr>
+					<tr>
+						<td>max</td>
+						<td>	
+							<li>number</li>
+							<li>date</li>
+						</td>
+						<td>规定输入字段的最大值。请与 "min" 属性配合使用，来创建合法值的范围。</td>
+					</tr>
+					<tr>
+						<td>maxlength</td>	
+						<td>number</td>	
+						<td>规定输入字段中的字符的最大长度。</td>
+					</tr>
+					<tr>
+						<td>min</td>
+						<td>	
+							<li>number</li>
+							<li>date</li>
+						</td>
+						<td>规定输入字段的最小值。请与 "max" 属性配合使用，来创建合法值的范围。</td>
+					</tr>
+					<tr>
+						<td>multiple</td>	
+						<td>multiple</td>	
+						<td>如果使用该属性，则允许一个以上的值。</td>
+					</tr>
+					<tr>
+						<td>name</td>	
+						<td>field_name</td>	
+						<td>定义 input 元素的名称。</td>
+					</tr>
+					<tr>
+						<td>pattern</td>	
+						<td>regexp_pattern</td>	
+						<td>规定输入字段的值的模式或格式。例如 pattern="[0-9]" 表示输入值必须是 0 与 9 之间的数字。</td>
+					</tr>
+					<tr>
+						<td>placeholder</td>	
+						<td>text</td>	
+						<td>规定帮助用户填写输入字段的提示。</td>
+					</tr>
+					<tr>
+						<td>readonly</td>	
+						<td>readonly</td>	
+						<td>规定输入字段为只读。</td>
+					</tr>
+					<tr>
+						<td>required</td>	
+						<td>required</td>	
+						<td>指示输入字段的值是必需的。</td>
+					</tr>
+					<tr>
+						<td>size</td>	
+						<td>number_of_char</td>	
+						<td>定义输入字段的宽度。</td>
+					</tr>
+					<tr>
+						<td>src</td>	
+						<td>URL</td>	
+						<td>定义以提交按钮形式显示的图像的 URL。</td>
+					</tr>
+					<tr>
+						<td>step</td>	
+						<td>number</td>	
+						<td>规定输入字的的合法数字间隔。</td>
+					</tr>
+					<tr>
+						<td>type</td>	
+						<td>
+							<li>button</li>
+							<li>checkbox</li>
+							<li>file</li>
+							<li>hidden</li>
+							<li>image</li>
+							<li>password</li>
+							<li>radio</li>
+							<li>reset</li>
+							<li>submit</li>
+							<li>text</li>
+						</td>
+						<td>规定 input 元素的类型。</td>
+					</tr>
+					<tr>
+						<td>value</td>	
+						<td>value</td>	
+						<td>规定 input 元素的值。</td>
+					</tr>
+					<tr>
+						<td>width</td>	
+						<td>
+							<li>pixels</li>
+							<li>%</li>
+						</td>
+						<td>定义 input 字段的宽度。（适用于 type="image"）</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;button&gt;</td>
+			<td>代表按钮 。</td>
+			<td>
+				<!-- <p>autofocus <img src="../images/html5.jpg">,一个布尔属性，用于指定当页面加载时按钮必须有输入焦点，除非用户重写，例如通过不同控件键入。只有一个表单关联元素可以指定该属性。</p>
+				<p>disabled,此布尔属性表示用户不能与button交互。如果属性值未指定，button继承包含元素，例如&lt;fieldset&gt;；如果没有设置disabled属性的包含元素，button将可交互。不像其它浏览器，Firefox默认在页面加载时持续禁用Button的动态状态（Firefox persists the dynamic disabled state ）。使用autocomplete属性可控制此特性。</p>
+				<p>form <img src="../images/html5.jpg">,表示button元素关联的form元素（它的表单拥有者）。此属性值必须为同一文档中的一个&lt;form&gt;元素的id属性。如果此属性未指定，&lt;button&gt;元素必须是form元素的后代。利用此属性，你可以将&lt;button&gt;元素放置在文档内的任何位置，而不仅仅是作为他们form元素的后代。</p>
+				<p>formaction <img src="../images/html5.jpg">,表示程序处理button提交信息的URI。如果指定了，将重写button表单拥有者的action属性。</p>
+				<p>formenctype <img src="../images/html5.jpg">,如果button是submit类型，此属性值指定提交表单到服务器的内容类型。可选值：
+					<ul>
+						<li>application/x-www-form-urlencoded: 未指定时的默认值。</li>
+						<li>multipart/form-data: 如果使用type属性的&lt;input&gt;元素设置文件，使用此值。</li>
+						<li>text/plain</li>
+						如果指定此属性，它将重写button的表单拥有者的enctype属性。
+					</ul>
+				</p>
+				<p>formmethod <img src="../images/html5.jpg">,如果button是submit类型，此属性指定浏览器提交表单使用的HTTP方法。可选值:
+					<ul>
+						<li>post: 来自表单的数据被包含在表单内容中，被发送到服务器。</li>
+						<li>get:  来自表单的数据以'?'作为分隔符被附加到form的URI属性中，得到的URI被发送到服务器。当表单没有副作用，且仅包含ASCII字符时使用这种方法。</li>
+						如果指定了，此属性会重写button拥有者的method属性。
+					</ul>
+				</p>
+				<p>formnovalidate <img src="../images/html5.jpg">,如果button是submit类型，此布尔属性指定当表单被提交时不需要验证。如果指定了，它会重写button拥有者的novalidate属性。</p>
+				<p>formtarget <img src="../images/html5.jpg">,如果button是submit类型，此属性指定一个名称或关键字，表示接收提交的表单后在哪里显示响应。这是一个浏览上下文（例如tab，window或内联框架）的名称或关键字。如果指定了，它会重写button拥有者的target 属性。关键字如下：
+					<ul>
+						<li>_self: 在同一个浏览上下文中加载响应作为当前的。未指定时此值为默认值。
+						<li>_blank:  在一个新的不知名浏览上下文中加载响应。
+						<li>_parent: 在当前浏览上下文父级中加载响应。如果没有父级的，此选项将按_self执行。
+						<li>_top:  在顶级浏览上下文（即当前浏览上下文的祖先，且没有父级）中架加载响应。如果没有顶级的，此选项将按_self执行。
+					</li>
+				</li>
+				<p>name,button的名称，与表单数据一起提交。</p>
+				<p>type,button的类型。可选值：
+					<ul>
+						<li>submit:  此按钮提交表单数据给服务器。未指定时，此值为默认值，或者如果此属性动态变为空值或无效值。</li>
+						<li>reset:  此按钮重置所有组件为初始值。</li>
+						<li>button: 此按钮没有默认行为。它可以有与元素事件相关的客户端脚本，当事件出现时可触发。</li>
+						<li>menu: 此按钮打开一个由指定&lt;menu&gt;元素进行定义的弹出菜单。</li>
+					</ul>
+				</p>
+				<p>value,button的初始值。它定义的值与表单数据的提交按钮相关联。当表单中的数据被提交时，这个值便以参数的形式被递送至服务器。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>autofocus</td>	
+						<td>autofocus</td>	
+						<td>规定当页面加载时按钮应当自动地获得焦点。</td>
+					</tr>
+					<tr>
+						<td>disabled</td>	
+						<td>disabled</td>	
+						<td>规定应该禁用该按钮。</td>
+					</tr>
+					<tr>
+						<td>form</td>	
+						<td>form_name</td>	
+						<td>规定按钮属于一个或多个表单。</td>
+					</tr>
+					<tr>
+						<td>formaction</td>	
+						<td>url</td>	
+						<td>覆盖 form 元素的 action 属性。注释：该属性与 type="submit" 配合使用。</td>
+					</tr>
+					<tr>
+						<td>formenctype</td>	
+						<td>见注释</td>	
+						<td>覆盖 form 元素的 enctype 属性。注释：该属性与 type="submit" 配合使用。</td>
+					</tr>
+					<tr>
+						<td>formmethod</td>
+						<td>	
+							<li>get</li>
+							<li>post</li>
+						</td>
+						<td>覆盖 form 元素的 method 属性。注释：该属性与 type="submit" 配合使用。</td>
+					</tr>
+					<tr>
+						<td>formnovalidate</td>	
+						<td>formnovalidate</td>	
+						<td>覆盖 form 元素的 novalidate 属性。注释：该属性与 type="submit" 配合使用。</td>
+					</tr>
+					<tr>
+						<td>formtarget</td>
+						<td>	
+							<li>_blank</li>
+							<li>_self</li>
+							<li>_parent</li>
+							<li>_top</li>
+							<li>framename</li>
+						</td>
+						<td>覆盖 form 元素的 target 属性。注释：该属性与 type="submit" 配合使用。</td>
+					</tr>
+					<tr>
+						<td>name</td>	
+						<td>button_name</td>	
+						<td>规定按钮的名称。</td>
+					</tr>
+					<tr>
+						<td>type</td>	
+						<td>
+							<li>button</li>
+							<li>reset</li>
+							<li>submit</li>
+						</td>
+						<td>规定按钮的类型。</td>
+					</tr>
+					<tr>
+						<td>value</td>	
+						<td>text</td>	
+						<td>规定按钮的初始值。可由脚本进行修改。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;select&gt;</td>
+			<td>代表下拉框 。</td>
+			<td>
+				<!-- <p>autofocus <img src="../images/html5.jpg">,这个属性能够让一个对象在页面加载的时候获得焦点. 在一个页面上下文中, 只有一个对象可以有这个属性，并且是布尔值(true 或者 false).</p>
+				<p>disabled,这个布尔值的属性表明一个用户是否可以操控该表单对象. 如果这个属性没有被明确定义, 则从它的父元素继承, 例如 fieldset; 如果没有父元素设置 disabled 属性, 那么默认该表单对象 enabled.</p>
+				<p>form <img src="../images/html5.jpg">,select所关联的form表单 (它的"表单拥有者"). 如果这个属性被明确定义, 那么它的值一定是在同一个document中表单ID. 这样能够让你把select标签放在任何的位置, 不仅限于作为form表单的后代元素.</p>
+				<p>multiple,这个布尔值的属性标记select是否可以多选. 默认是单选.</p>
+				<p>name,控件名称</p>
+				<p>required <img src="../images/html5.jpg">,规定select的值不能为空(布尔值).</p>
+				<p>size,如果控制了滚动列表框,这个属性代表列表中的行数,应该是可见的。浏览器不需要选择元素作为滚动列表框。默认值是0。 Firefox注意:根据HTML5规范,默认值的大小应该1;然而,在实践中,这是发现打破一些网站,目前并没有其他浏览器,所以Mozilla选择继续与Firefox暂时返回0。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>autofocus</td>	
+						<td>autofocus</td>	
+						<td>规定在页面加载后文本区域自动获得焦点。</td>
+					</tr>
+					<tr>
+						<td>disabled</td>	
+						<td>disabled</td>	
+						<td>规定禁用该下拉列表。</td>
+					</tr>
+					<tr>
+						<td>form</td>	
+						<td>form_id</td>	
+						<td>规定文本区域所属的一个或多个表单。</td>
+					</tr>
+					<tr>
+						<td>multiple</td>	
+						<td>multiple</td>	
+						<td>规定可选择多个选项。</td>
+					</tr>
+					<tr>
+						<td>name</td>	
+						<td>name</td>	
+						<td>规定下拉列表的名称。</td>
+					</tr>
+					<tr>
+						<td>required</td>	
+						<td>required</td>	
+						<td>规定文本区域是必填的。</td>
+					</tr>
+					<tr>
+						<td>size</td>	
+						<td>number</td>	
+						<td>规定下拉列表中可见选项的数目。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;datalist&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表提供给其他控件的一组预定义选项 。</td>
+		</tr>
+		<tr>
+			<td>&lt;optgroup&gt;</td>
+			<td>代表一个选项分组 。</td>
+			<td>
+				<p>disabled,如果设置了这个布尔值，那么这个选项组中将没有选项是可以被选择的。通常浏览器会置灰这样的控件，它不会再接受任何浏览器事件，例如鼠标点击或者焦点相关的事件。</p>
+				<p>label,选项组的名字，当在用户界面标记(label)选项的时候可以被浏览器使用。使用这个元素时必须加上这个属性.</p>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;option&gt;</td>
+			<td>代表一个 &lt;select&gt; 元素或 &lt;datalist&gt; 元素中的一个选项</td>
+			<td>
+				<!-- <p>disabled,如果这个布尔属性设置,这个选项不是支票。通常浏览器灰色这样的控制,它不会接受任何浏览事件,鼠标点击或焦点相关的问题。如果没有设置这个属性,元素仍然可以禁用如果其祖先是一个残疾人&lt;optgroup&gt;元素。</p>
+				<p>label,这个属性的文本标签指示的意义的选择。如果没有定义标签属性,其值为元素的文本内容。 使用注意:标签属性是用来包含短标签通常用于分层菜单。value属性描述了一个长标签设计用于附近一个单选按钮,例如。</p>
+				<p>selected,如果存在,这个布尔属性表明,最初选择的选项。如果&lt;option&gt;元素a&lt;的后裔;select&gt;没有设置元素的多个属性,只有一个单一的&lt;option&gt;这&lt;select&gt;元素可能选择的属性。</p>
+				<p>value,这个属性代表了价值的内容与形式提交,这个选项应该选中。如果省略该属性,那么该值取自选择元素的文本内容。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>disabled</td>	
+						<td>disabled</td>	
+						<td>规定此选项应在首次加载时被禁用。</td>
+					</tr>
+					<tr>
+						<td>label</td>	
+						<td>text</td>	
+						<td>定义当使用 &lt;optgroup&gt; 时所使用的标注。</td>
+					</tr>
+					<tr>
+						<td>selected</td>	
+						<td>selected</td>	
+						<td>规定选项（在首次显示在列表中时）表现为选中状态。</td>
+					</tr>
+					<tr>
+						<td>value</td>	
+						<td>text</td>	
+						<td>定义送往服务器的选项值。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;textarea&gt;</td>
+			<td>代表多行文本框 。</td>
+			<td>
+				<!-- <p>autocomplete <img src="../images/html5.jpg">,这个属性表示的值控制是否可以自动完成浏览器。可能的值是: :用户必须显式地为每个用这个字段输入一个值,或者文档提供自己的自动完成方法;浏览器不会自动完成输入。 :浏览器可以自动完成期间根据用户输入值的值之前使用。 如果没有指定自动完成属性在文本区域的元素,然后浏览器使用的自动完成属性值& lt;textarea&gt;元素的形式.</p>
+				<p>autofocus <img src="../images/html5.jpg">,这个布尔属性允许您指定一个表单控制应该有输入焦点当页面加载时,除非用户覆盖它,例如,输入一个不同的控制。只有一个form-associated元素在文档中可以指定这个属性。</p>
+				<p>cols,可见文本控件的宽度,平均字符宽度。如果是指定的,它必须是一个正整数。如果没有指定,默认值是20(HTML5)。</p>
+				<p>disabled,这个布尔属性表明,用户无法与控制。(如果没有指定这个属性,包含元素的控制继承它的设置,例如& lt;fieldset&gt;;如果没有包含元素与残疾人属性集,然后控制启用。)</p>
+				<p>form <img src="../images/html5.jpg">,文本区域元素相关联的表单元素(它的“所有者”形式)。该属性的值必须是一个表单元素的ID相同的文档。如果没有指定这个属性,文本区域的元素必须是一个表单元素的后代。这个属性允许您将文本区域元素在文档中的任何位置,不仅仅是他们的表单元素的后代。</p>
+				<p>maxlength <img src="../images/html5.jpg">,的最大字符数(Unicode代码点),用户可以输入。如果没有指定,用户可以输入一个无限数量的字符。</p>
+				<p>minlength <img src="../images/html5.jpg">,的最小字符数(Unicode代码点)要求用户要输入。</p>
+				<p>name,控件的名称。</p>
+				<p>placeholder <img src="../images/html5.jpg">,一个提示用户可以输入的控制。回车或换行占位符文本渲染时必须被视为换行符提示。</p>
+				<p>readonly,这个布尔属性表明,用户不能修改的值控制。与残疾人属性不同,只读的属性不会阻止用户点击或选择的控制。一个只读的价值控制仍然是提交表单。</p>
+				<p>required <img src="../images/html5.jpg">,该属性指定,用户必须在提交表单之前填写一个值。</p>
+				<p>rows,可见文本的行数的控制。</p>
+				<p>selectionDirection <img src="../images/html5.jpg">,选择的方向发生。这是“前进”,如果选择是由从左到右的LTR地区,或从右到左的RTL的地区,或者“落后”,如果选择了相反的方向。这可能是“没有”如果选择方向是未知的.</p>
+				<p>selectionEnd,该指数在当前的选择最后一个字符。</p>
+				<p>selectionStart,第一个字符的索引在当前的选择。</p>
+				<p>spellcheck <img src="../images/html5.jpg">,将此属性的值设置为true表示元素需要检查其拼写和语法。值default表示元素将根据默认行为进行操作，可能基于父元素自己的拼写检查值。值false表示不应该检查元素。</p>
+				<p>wrap <img src="../images/html5.jpg">,表明该控件封装文本。可能的值是:
+					<ul>
+						<li>hard: 浏览器自动插入换行符(CR + LF),使每一行没有超过的宽度控制;cols属性必须被指定。</li>
+						<li>soft: 浏览器确保所有换行价值包括一对CR +低频,但不插入任何额外的换行符。</li>
+					</ul>
+					如果没有指定这个属性,柔软是其默认值。
+				</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>autofocus</td>	
+						<td>autofocus</td>	
+						<td>规定在页面加载后文本区域自动获得焦点。</td>
+					</tr>
+					<tr>
+						<td>cols</td>	
+						<td>number</td>	
+						<td>规定文本区内的可见宽度。</td>
+					</tr>
+					<tr>
+						<td>disabled</td>	
+						<td>disabled</td>	
+						<td>规定禁用该文本区。</td>
+					</tr>
+					<tr>
+						<td>form</td>	
+						<td>form_id</td>	
+						<td>规定文本区域所属的一个或多个表单。</td>
+					</tr>
+					<tr>
+						<td>maxlength</td>	
+						<td>number</td>	
+						<td>规定文本区域的最大字符数。</td>
+					</tr>
+					<tr>
+						<td>name</td>	
+						<td>name_of_textarea</td>	
+						<td>规定文本区的名称。</td>
+					</tr>
+					<tr>
+						<td>placeholder</td>	
+						<td>text</td>	
+						<td>规定描述文本区域预期值的简短提示。</td>
+					</tr>
+					<tr>
+						<td>readonly</td>	
+						<td>readonly</td>	
+						<td>规定文本区为只读。</td>
+					</tr>
+					<tr>
+						<td>required</td>	
+						<td>required</td>	
+						<td>规定文本区域是必填的。</td>
+					</tr>
+					<tr>
+						<td>rows</td>	
+						<td>number</td>	
+						<td>规定文本区内的可见行数。</td>
+					</tr>
+					<tr>
+						<td>wrap</td>
+						<td>	
+							<li>hard</li>
+							<li>soft</li>
+						</td>
+						<td>规定当在表单中提交时，文本区域中的文本如何换行。。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;keygen&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表一个密钥对生成器 控件。</td>
+			<td>
+				<!-- <p>autofocus,这个布尔属性允许您指定的控制应该有输入焦点当页面加载时,除非用户覆盖它,例如,输入一个不同的控制。只有一个表单元素在文档中可以自动对焦的属性,这是一个布尔值。</p>
+				<p>challenge,提交一个挑战字符串,以及公钥。如果没有指定默认为一个空字符串。</p>
+				<p>disabled,这个布尔属性表明交互的表单控件不可用。</p>
+				<p>form,表单元素,这个元素与所有者(其形式)。该属性的值必须是一个id &lt;form&gt;元素在同一个文档。如果没有指定这个属性,这个元素必须的后代&lt;form&gt;元素。这个属性允许您将&lt;keygen&gt;元素在文档中的任何位置,不仅仅是他们的表单元素的后代。</p>
+				<p>keytype,密钥生成的类型。默认值是RSA。</p>
+				<p>namem控制的名称,提交表单数据。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>autofocus</td>	
+						<td>autofocus</td>	
+						<td>使 keygen 字段在页面加载时获得焦点。</td>
+					<tr>
+						<td>challenge</td>	
+						<td>challenge</td>	
+						<td>如果使用，则将 keygen 的值设置为在提交时询问。</td>
+					<tr>
+						<td>disabled</td>	
+						<td>disabled</td>	
+						<td>禁用 keytag 字段。</td>
+					<tr>
+						<td>form</td>	
+						<td>formname</td>	
+						<td>定义该 keygen 字段所属的一个或多个表单。</td>
+					<tr>
+						<td>keytype</td>	
+						<td>rsa</td>	
+						<td>定义 keytype。rsa 生成 RSA 密钥。</td>
+					<tr>
+						<td>name</td>	
+						<td>fieldname</td>	
+						<td>定义 keygen 元素的唯一名称。name 属性用于在提交表单时搜集字段的值。</td>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;output&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表计算值 。</td>
+			<td>
+				<!-- <p>for,其它影响计算结果的标签的ID，可以多个。</p>
+				<p>form,与当前标签有关联的form（从属的表单）。该属性的值必须是当前文档内的表单元素的ID。如果未指明该属性，output标签必须是一个form的后代标签。该属性的用处在于可以让output标签脱离form标签，存在于一个网页文档的任意位置。</p>
+				<p>name,name属性。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>for</td>	
+						<td>element_id</td>	
+						<td>定义输出域相关的一个或多个元素。</td>
+					</tr>
+					<tr>
+						<td>form</td>	
+						<td>form_id</td>	
+						<td>定义输入字段所属的一个或多个表单。</td>
+					</tr>
+					<tr>
+						<td>name</td>	
+						<td>name</td>	
+						<td>定义对象的唯一名称。（表单提交时使用）</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;progress&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表进度条 。</td>
+			<td>
+				<!-- <p>max,该属性描述了这个progress元素所表示的任务一共需要完成多少工作.</p>
+				<p>value,该属性用来指定该进度条已完成的工作量.如果没有value属性,则该进度条的进度为"不确定",也就是说,进度条不会显示任何进度,你无法估计当前的工作会在何时完成(比如在下载一个未知大小的文件时,下载对话框中的进度条就是这样的).</p>
+				<p>你可以使用orient属性来指定该进度条的显示方向是横向(默认)还是纵向.CSS伪类:indeterminate可以用来匹配那些不确定的进度条.</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>for</td>	
+						<td>element_id</td>	
+						<td>定义输出域相关的一个或多个元素。</td>
+					</tr>
+					<tr>
+						<td>form</td>	
+						<td>form_id</td>	
+						<td>定义输入字段所属的一个或多个表单。</td>
+					</tr>
+					<tr>
+						<td>name</td>	
+						<td>name</td>	
+						<td>定义对象的唯一名称。（表单提交时使用）</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;meter&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表滑动条 。</td>
+			<td>
+				<!-- <p>value,当前的数值。如果设置了最小值和最大值（分别由min属性和max属性定义），它必须介于最小值和最大值之间。如果没有指定或者格式有误，值即为0.如果给定的值不在最小值和最大值之间，它的值就等于它最接近的一端的值。使用备注: 除非值域在0到1（闭区间）, 否则最小值和最大值属性需要定义，以保证value属性在值域范围内。换言之，默认的min和max值分别为0和1。</p>
+				<p>min,值域的最小边界值。如果设置了，它必须比最大值要小。如果没设置，默认为0。</p>
+				<p>max,值域的上限边界值。如果设置了，它必须比最小值要大。如果没设置，默认为1。</p>
+				<p>low,定义了低值区间的上限值（译者注：如果value介于min和low之间，该元素就会表现出低值的视觉效果，value落在[min,low]、[high,max]等不同的区间会使浏览器渲染该元素时出不同的视觉效果）。如果设置了，它必须比最小值属性大，并且不能超过high值和最大值。未设置或者比最小值还要小时，其值即为最小值。</p>
+				<p>high,定义了高值区间的下限值。如果设置了，它必须小于最大值，同时必须大于low值和最小值。如果没有设置，或者比最大值还大，其值即为最大值。</p>
+				<p>optimum,这个属性用来指示最优/最佳取值。它必须在正确的值域内（由最小值属性和最大值属性定义）。当使用了low和high属性时，它指明哪一个取值范围是更好的。例如，假设它介于最小值和low之间，那么lower区间就被认为是更佳的取值范围。
+				<p>form,该属性将本元素与对应的form元素关联。例如，一个计量器可能用来显示某个数值输入框（input元素，number类型）的范围。只有当计量器元素被用作表单关联的元素时，该属性才应当被使用；即便如此，如果它作为表单的后代元素出现，它仍然有可能被省略。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>form</td>	
+						<td>form_id</td>	
+						<td>规定 &lt;meter&gt; 元素所属的一个或多个表单。</td>
+					</tr>
+					<tr>
+						<td>high</td>	
+						<td>number</td>	
+						<td>规定被视作高的值的范围。</td>
+					</tr>
+					<tr>
+						<td>low</td>	
+						<td>number</td>	
+						<td>规定被视作低的值的范围。</td>
+					</tr>
+					<tr>
+						<td>max</td>	
+						<td>number</td>	
+						<td>规定范围的最大值。</td>
+					</tr>
+					<tr>
+						<td>min</td>	
+						<td>number</td>	
+						<td>规定范围的最小值。</td>
+					</tr>
+					<tr>
+						<td>optimum</td>	
+						<td>number</td>	
+						<td>规定度量的优化值。</td>
+					</tr>
+					<tr>
+						<td>value</td>	
+						<td>number</td>	
+						<td>必需。规定度量的当前值。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td class="trHead" colspan="3">交互元素EDIT</td>
+		</tr>
+			<td>&lt;details&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表一个用户可以(点击)获取额外信息或控件的小部件 。</td>
+			<td>open,本属性只支持布尔值。且该属性默认值为"open"，这表示只有当用户点击该标签的时候才会展示详情。如果设置为“false”，那页面渲染完毕，就将展示details元素内包含的内容。</td>
+		</tr>
+		<tr>
+			<td>&lt;summary&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表 &lt;details&gt; 元素的综述 或标题 。</td>
+		</tr>
+		<tr>
+			<td>&lt;menuitem&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表一个用户可以点击的菜单项。</td>
+			<td>
+				<!-- <p>checked,布尔属性表明命令是否被选中。时只能使用type属性复选框或收音机。</p>
+				<p>command,指定一个单独的元素的ID,间接指示命令调用。不得使用菜单项中还包括属性检查,残疾,图标,标签,radiogroup或类型。</p>
+				<p>default,这个布尔属性表明使用相同的命令菜单的主题元素(如一个按钮或输入)。</p>
+				<p>disabled,布尔属性表示命令不可用的当前状态。注意,禁用有别于隐藏。残疾人属性是适当的在任何环境改变的情况下可能呈现相关的命令。</p>
+				<p>icon,图像URL,用于提供一幅画代表命令。</p>
+				<p>label,命令的名称显示给用户。时需要一个命令属性不存在。</p>
+				<p>radiogroup,该属性指定的一组命令的名称切换时单选按钮选择。类型属性在哪里才可以使用收音机。</p>
+				<p>type,这个属性表示的命令,可以三个值中的一个。
+					<ul>
+						<li>command: 定期与一个关联的命令行动。这是失踪的默认值。</li>
+						<li>checkbox: 代表一个命令可以连接两个不同的国家之间。</li>
+						<li>radio: 代表一个选择的一组命令可以连接单选按钮。</li>
+					</ul>
+				</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>checked</td>	
+						<td>checked</td>	
+						<td>规定在页面加载后选中命令/菜单项目。仅适用于 type="radio" 或 type="checkbox"。</td>
+					</tr>
+					<tr>
+						<td>default</td>	
+						<td>default</td>	
+						<td>把命令/菜单项设置为默认命令。</td>
+					</tr>
+					<tr>
+						<td>disabled</td>	
+						<td>disabled</td>	
+						<td>规定命令/菜单项应该被禁用。</td>
+					</tr>
+					<tr>
+						<td>icon</td>	
+						<td>URL</td>	
+						<td>规定命令/菜单项的图标。</td>
+					</tr>
+					<tr>
+						<td>open</td>	
+						<td>open</td>	
+						<td>定义 details 是否可见。</td>
+					</tr>
+					<tr>
+						<td>label</td>	
+						<td>text</td>	
+						<td>必需。规定命令/菜单项的名称，以向用户显示。</td>
+					</tr>
+					<tr>
+						<td>radiogroup</td>	
+						<td>groupname</td>	
+						<td>规定命令组的名称，命令组会在命令/菜单项本身被切换时进行切换。仅适用于 type="radio"。</td>
+					</tr>
+					<tr>
+						<td>type</td>
+						<td>	
+							<li>checkbox</li>
+							<li>command</li>
+							<li>radio</li>
+						</td>
+						<td>规定命令/菜单项的类型。默认是 "command"。</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&lt;menu&gt; <img src="../images/html5.jpg"></td>	
+			<td>代表菜单。</td>
+			<td>
+				<!-- <p>label,菜单的名称,显示给用户。中使用嵌套菜单,提供一个标签的子菜单可以访问。只能在父元素指定&lt;menu&gt;在上下文菜单的状态。</p>
+				<p>type,这个属性显示的菜单被宣布,并且可以两个值之一。</p>
+				<p>context: 上下文菜单状态,代表一组命令激活通过另一个元素。这可能是通过菜单属性&lt;button&gt;或一个元素和一个快捷菜单属性。当嵌套&lt;menu&gt;直接在另一个元素,这是缺失值默认如果父母已经在这个国家。</p>
+				<p>list: 菜单列表状态,代表一系列命令的用户交互。这是缺失值默认情况下,除了在父元素是一个&lt;menu&gt;在上下文菜单的状态。</p> -->
+				<table class="little-table">
+					<tr>
+						<th>属性</th>
+						<th>值</th>
+						<th>描述</th>
+					</tr>
+					<tr>
+						<td>label</td>	
+						<td>text</td>
+						<td>规定菜单的可见标签。</td>
+					<tr>
+						<td>type</td>	
+						<td>
+							<li>list	<small>默认。规定列表菜单。一个用户可执行或激活的命令列表（li 元素）。</small></li>
+							<li>context	<small>规定上下文菜单。该菜单必须在用户能够与命令进行交互之前被激活。</small></li>
+							<li>toolbar	<small>规定工具栏菜单。活动式命令，允许用户立即与命令进行交互。</small></li>
+						</td>
+						<td>规定要显示哪种菜单类型。</td>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<div class="main-table">
+		<p>另请参阅EDIT
+		一系列 HTML5 文档。
+		所有 HTML 标签的参考，包括 HTML5 中不再有效的元素。</p>
+		<h3>表单</h3>
+		<p>值指的是控件内显示的文本；name指的是控件名称，和ID的区别未知；</p>
+	</div>
+	<form action="action_page.php" method="POST" name="add" class="main-table">
+		<!--action定义在提交表单时执行的动作；method定义提交表单时所用的方法：get/post；name表单的名称。-->
+		<h4>允许用户编辑数据的数据区 （文本框、单选框、复选框等）:input</h4>	
+		<table>
+			<tr>
+				<th>Element</th>
+				<th>Description</th>
+				<th>Demo</th>
+			</tr>
+			<tr>
+				<td><code>type="text"</code>文本框</td>
+				<td>
+					<span><code>readonly="readonly"</code>不可输入文本框：</span>
+					<code>&lt;input type="text" name="" value="默认文本不可修改" readonly="readonly" size="100%"&gt;</code><br>
+					<span><code>maxlength="12" minlength="6"</code>可输入文本框：</span>
+					<code>&lt;input type="text" name="" value="请输入6~12位数文本" maxlength="12" minlength="6" size="100%"&gt;</code><br>
+					<small>value：框内的文本;maxlength：最大输入字符长度；size：空间宽度；readonly：只读。</small>
+				</td>
+				<td>
+					<input type="text" name="" value="默认文本不可修改" readonly="readonly" size="100%">
+					<input type="text" name="" value="请输入6~12位数文本" maxlength="12" minlength="6" size="100%">
+					
+				</td>
+			</tr>
+			<tr>
+				<td><code>type="password"</code>密码框：</td>
+				<td>
+					<span>不可输入密码框</span>
+					<code>&lt;input type="password" name="" value="" readonly="readonly" size="100%"&gt;</code><br>
+					<span>可输入文本框</span>
+					<code>&lt;input type="password" name="" value="提示" maxlength="12" minlength="6" size="100%"><em>提示文本可见，单密码不可见</em></code>
+				</td>
+				<td>
+					<input type="password" name="" value="" readonly="readonly" size="100%"><br>
+					<input type="password" name="" value="提示" maxlength="12" minlength="6" size="100%"><em>提示文本可见，单密码不可见</em>
+				</td>
+			</tr>
+			<tr>
+				<td><code>type="checkbox"</code>多选勾选控件:</td>
+				<td>
+				</td>
+				<td>
+					<input type="checkbox" name="" value="" checked="checked" disabled="disabled">
+					<span>1默认选中且禁用控件:<code>checked="checked" disabled="disabled"</code></span>
+					<input type="checkbox" name="" value="" checked="checked">
+					<span>2默认选中:<code>checked="checked"</code></span>
+					<input type="checkbox" name="" value="">
+					<span>3选项</span>
+				</td>
+			</tr>
+			<tr>
+				<td>单选勾选控件:<code>type="radio"</code></td>
+				<td>
+				</td>
+				<td>
+					<input type="radio" name="" value="" checked="checked" disabled="disabled">
+					<span>1单选默认选中并且禁用控件:<code>checked="checked" disabled="disabled"</code></span>
+					<input type="radio" name="Radio" value="" checked="cheked">
+					<span>2单选默认选中:<code>checked="checked"</code></span>
+					<input type="radio" name="Radio" value="">
+					<span>3选项</span>
+					<em>相同的name才能单选</em>
+				</td>
+			</tr>
+			<tr>
+				<td>上传文件按钮：<code>type="file"</code></td>
+				<td>
+				</td>
+				<td><input type="file" name="文件名称"></td>
+			</tr>
+			<tr>
+				<td>隐藏域（未知）：<code>type="hidden"</code></td>
+				<td>
+				</td>
+				<td><input type="hidden" name="控件名称" value="值"></td>
+			</tr>
+			<tr>
+				<td>纯按钮：<code>type="button"</code></td>
+				<td>
+				</td>
+				<td><input type="button" name="" onclick="alert('hello word!')" value="点击">
+
+				<h4>HTML5新增的输入类型</h4><em>不支持的浏览器会视为输入类型text</em>
+			<tr>
+				<td>包含数字值的输入字段：<code>type="number"</code></td>
+				<td>
+				</td>
+				<td><input type="number" name="" min="6" max="12"><em>请输入6~12位数字</em></td>
+			</tr>
+			<tr>
+				<td>包含颜色的输入字段：<code>type="color"</code></td>
+				<td>
+				</td>
+				<td><input type="color" name=""></td>
+			</tr>
+			<tr>
+				<td>包含一定范围内的值的输入字段：<code>type="range"</code></td>
+				<td>
+				</td>
+				<td><input type="range" name="" min="0" max="10"></td>
+			</tr>
+			<tr>
+				<td>包含日期的输入字段：<code>type="date" max="1979-12-31"</code></td>
+				<td>
+				</td>
+				<td><input type="date" name="" max="1979-12-31"></td>
+			</tr>
+			<tr>
+				<td>允许用户选择月份和年份：<code>type="month"</code></td>
+				<td>
+				</td>
+				<td><input type="month" name=""></td>
+			</tr>
+			<tr>
+				<td>允许用户选择周和年<code>type="week"</code></td>
+				<td>
+				</td>
+				<td><input type="week" name=""></td>
+			</tr>
+			<tr>
+				<td>允许用户选择时间（无时区）<code>type="time"</code></td>
+				<td>
+				</td>
+				<td><input type="time" name=""></td>
+			</tr>
+			<tr>
+				<td>允许用户选择日期和时间（有时区）<code>type="datetime"</code></td>
+				<td>
+				</td>
+				<td><input type="datetime" name=""></td>
+			</tr>
+			<tr>
+				<td>允许用户选择日期和时间（无时区）<code>type="datetime-local"</code></td>
+				<td>
+				</td>
+				<td><input type="datetime-local" name=""></td>
+			</tr>
+			<tr>
+				<td>包含电子邮件地址的输入字段<code>type="email"</code></td>
+				<td>
+				</td>
+				<td><input type="email" name=""></td>
+			</tr>
+			<tr>
+				<td>用于搜索字段（搜索字段的表现类似常规文本字段）<code>type="search"</code></td>
+				<td>
+				</td>
+				<td><input type="search" name=""></td>
+			</tr>
+			<tr>
+				<td>包含电话号码的输入字段<code>type="tel"</code></td>
+				<td>
+				</td>
+				<td><input type="tel" name=""></td>
+			</tr>
+			<tr>
+				<td>包含URL地址的输入字段<code>type="url"</code></td>
+				<td>
+				</td>
+				<td><input type="url" name="homepage">
+				
+			<tr>
+				<td>提交表单数据至表单处理程序的按钮:<code>type="submit"</code></td>
+				<td>
+				</td>
+				<td><input type="submit" name="" value="提交"></td>
+			</tr>
+			<tr>
+				<td>重置表单按钮:<code>type="reset"</code></td>
+				<td>
+				</td>
+				<td><input type="reset" name="" value="重置"></td>
+			</tr>
+			<tr>
+				<td>多行输入字段（文本域）：<code>cols="设置宽度字数" rows="设置高度行数"</code></td>
+				<td>
+				</td>
+				<td><textarea name="" cols="50" rows="5">文本内容</textarea></td>
+			</tr>
+			<tr>
+				<td>下拉列表</td>
+				<td>
+				</td>
+				<td><p>value值不再指框内文本内容，所指未知。<code>select;option;selected="selected"</code></p>
+				<select name="">
+					<option value="" selected="selected">1默认选中</option>
+					<option value="">2</option>
+					<option value="">3</option>
+				</select>
+			<tr>
+				<td>下拉选项的分组</td>
+				<td>
+				</td>
+				<td>
+					<select name="">
+					<option value="" selected="selected">1默认选中</option>
+					<option value="">2</option>
+					<optgroup label="分组标签01">
+						<option value="值" selected="selected"(已选中)>选择内容</option>
+						<option value="值" >选择内容</option>
+						<option value="值" >选择内容</option>
+					</optgroup>
+					</select>
+				</td>
+			</tr>
+		</table>
+	</form>
+	<div>
+		<h4>框架</h4>
+	<tr>
+		<td>框架集</td>
+		<td>
+			<p>rows横向分割（固定值px|百分比|*）有三种写法:（200，300，500）（20%，30%,*）（20%,*,*）；cols纵向分割；border边框宽度px；frameborder='1'是否显示边框0或者1。</p>
+		</td>
+		<td>
+			<pre>
+				<frameset cols="25%,75%"><!--设置一个两列的框架集: 第一列占据浏览器窗口的 25%。第二列占据浏览器窗口的 75%。HTML 文档 "a.htm" 被置于第一个列中，而 HTML 文档 "b.htm" 被置于第二个列中-->
+					<frame src="a.html" name="" scrolling="yes" noresize="noresize">滚动条显示<code>scrolling="no"</code></frame>
+					<frame src="b.html"></frame>
+				</frameset>
+			</pre>
+		</td>
+	</tr>
+		<p>内联框架</p>
+		<p>在网页内显示网页</p>
+		<iframe width="100%" height="100%" src="a.html" frameborder="0" seamless></iframe>
+	    
+	   
+	    <p>noframes标签</p>
+	    <noframes>对不起，你的浏览器不支持框架集类型。</noframes>
+	</div>
+<!-- main End -->
+</body>
+</html>

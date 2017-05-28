@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta heep-equiv="X-UA-Compatible" content="IE=edge" /><!--让IE浏览器运行最新的渲染模式-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0，minimum-scale=1.0,maximum-scale=1.0,user-scalable:no" />
+
+    <link rel="shortcut icon" href="images/favicon.ico" type="favicon.ico" />
+    <title>sublime text 3配置livereload</title>
+    <meta name="keywords" content="林少佳" />
+    <meta name="description" content="林少佳的个人网站" />
+</head>
+<body>
+<div>
+    <h1>LiveReload插件下载</h1>
+    <h2>Sublime端</h2>
+    <p>Github上的LiveReload for Sublime text3的地址：
+    <a href="https://github.com/Grafikart/ST3-LiveReload"> LiveReload</a> ，两种方式安装:
+    </p>
+    <h3>方法一：</h3>
+    <p>选择DownloadZip，将解压的文件夹放在Packages文件夹（codeference>Browse Packags）重启ST3</p>
+    <h3>方法二：</h3>
+    <p>直接clone到Packages文件夹。</p>
+    <p>//适用于Linux  OSX</p>  
+    <p>//Windows可以通过Git操作</p>
+    <p>//进入Packages目录下</p>
+    <em>rm -rf LiveReload</em>  
+    git clone https://github.com/Grafikart/ST3-LiveReload.git LiveReload
+    浏览器端
+    我用的是chrom，在应用商店可以直接找到LiveReload，安装。
+    安装之后会出现这个图标。
+    配置
+    方法一：
+    codeference>Package Settings>LiveReload>Settings User
+    {
+    "enabled_plugins": [
+    "SimpleReloadPlugin",
+    "SimpleRefresh"
+    ]
+    }
+    方法二：
+    1. ctrl+shift+p
+    2. LiveReload: Enable/disable plugins
+    3. Enable - SimpleReload
+    实时预览
+    把html文件在浏览器中打开，点击一次图标中间的圆环变成原点就代表可以实时预览了。ST3中的文件保存一次，浏览器就会刷新一次，实时预览，很方便！
+    </div>
+    <div>
+    打开Sublime Text3 ，按Ctrl+`（和qq输入法快捷切换冲突，可以修改qq的输入法切换热键）
+    Sublime Text3 如何安装、删除及更新插件
+    复制粘黏以下代码添加至命令行，然后回车
+    <code>
+    import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())
+    </code>
+    Sublime Text3 如何安装、删除及更新插件
+    重启Sublime Text 3，查看Perferences->package settings中是否有package control这一项，如果有，则安装成功
+    Sublime Text3 如何安装、删除及更新插件
+    接下来就是安装插件了，按下Ctrl+Shift+P调出命令面板，输入install 选则列表中的 Install Package 选项并回车，稍微等待几秒，然后在出现的列表中搜索想要安装的插件回车即可，这里笔者已经安装了jQuery，所以列表中没有显示
+    Sublime Text3 如何安装、删除及更新插件
+    Sublime Text3 如何安装、删除及更新插件
+    如果想要删除插件，Ctrl+Shift+P调出命令面板，输入remove，调出Remove Package选项并回车，选择要删除的插件即可，当然，更新插件，upgrade packages，通过简单的几个命令就可以方便的管理我们的插件了
+    然后就可以使用sublime尽情的编码了
+    Sublime Text3 如何安装、删除及更新插件
+    END
+    注意事项
+    sublime text2安装包管理import urllib2,os; pf='Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), 'wb' ).write( urllib2.urlopen( 'http://sublime.wbond.net/' +pf.replace( ' ','%20' )).read()); print( 'Please restart Sublime Text to finish installation')
+    </div>
+    <div>
+    文件打开左侧文件夹，右键根部文件夹查找文件，可以实现全项目查找。
+    增加缩进Ctrl+]，减少缩进Ctrl+[。
+    注释选择区快捷键ctrl+/。注释快捷键ctrl+shift+/.
+    Ctrl+D，多选同个标签。Ctrl+f3，Ctrl+H同个页面所有的标签同时改。Ctrl+K跳过一个标签。
+    Ctrl+shift+D，复制粘贴整行。 
+    Ctrl+shift+P，启动命令模式。set symtax javascript,切换编辑区语法模式。
+    不显示右侧缩略图：点击View菜单->Hide Minimap。
+    命令模式下：minimap，   
+    Alt+>补全结束语义。
+    插件：emmet补全：ul>.名字$*10然后Ctrl+E即是十行ul。
+    Ctrl+标签，快速寻找标签。
+    Ctrl+Enter,下面添加一行。
+    Ctrl+Shift+Enter,上面添加一行。 
+    Alt+F3,全选选择的符号。
+    Ctrl+Shift+V,粘贴同时缩进。
+    Shift+Alt+1，2，3，4，5 ：开启对应数字的多栏编辑
+    </div>
+</body>
+</html>
