@@ -2,56 +2,61 @@
 <html>
 <head>
 	<title></title>
+	
 	<link rel="stylesheet" type="text/css" href="../css/base.css">
+	<link rel="stylesheet" type="text/css" href="../css/public.css">
+	<link rel="stylesheet" type="text/css" href="../css/page.css">
+    <script>
+      (function (tags) {
+        var i = 0, len = tags.length;
+
+        for (; i < len; ++i) {
+            document.createElement(tags[i]);
+        }
+      }([ 'header', 'nav', 'article', 'footer' ]));
+    </script>
 </head>
 <body>
-<div id="maincontent">
+<head>
 	<h1>CSS 参考手册</h1>
-	<div id="tpn">
-		<ul class="prenext">
-			<li class="pre"><a href="/cssref/index.asp" title="CSS 参考手册">CSS 参考手册</a></li>
-			<li class="next"><a href="/cssref/css_selectors.asp" title="CSS 选择器参考手册">CSS 选择器</a></li>
-		</ul>
-	</div>
-	<div id="intro">
-		<p>W3School 的 CSS 参考手册定期通过所有主流浏览器进行测试。</p>
-	</div>
-	<div>
-		<h2>CSS 属性</h2>
-		<p>CSS 属性组：</p>
-		<ul>
-			<li><a href="#animation">动画</a></li>
-			<li><a href="#background">背景</a></li>
-			<li><a href="#border">边框和轮廓</a></li>
-			<li><a href="#box">盒（框）</a></li>
-			<li><a href="#color">颜色</a></li>
-			<li><a href="#contentpm">内容分页媒体</a></li>
-			<li><a href="#dimension">定位</a></li>
-			<li><a href="#flexbox">可伸缩框</a></li>
-			<li><a href="#font">字体</a></li>
-			<li><a href="#generatedcontent">生成内容</a></li>
-			<li><a href="#grid">网格</a></li>
-			<li><a href="#hyperlink">超链接</a></li>
-			<li>行框</li>
-			<li><a href="#list">列表</a></li>
-			<li><a href="#margin">外边距</a></li>
-			<li><a href="#marquee">Marquee</a></li>
-			<li><a href="#multicolumn">多列</a></li>
-			<li><a href="#padding">内边距</a></li>
-			<li><a href="#pagedmedia">分页媒体</a></li>
-			<li><a href="#positioning">定位</a></li>
-			<li><a href="#print">打印</a></li>
-			<li>Ruby</li>
-			<li>语音</li>
-			<li><a href="#table">表格</a></li>
-			<li><a href="#text">文本</a></li>
-			<li><a href="#transform">2D/3D 转换</a></li>
-			<li><a href="#transition">过渡</a></li>
-			<li><a href="#userinterface">用户界面</a></li>
-		</ul>
+</head>
+<nav>
+	<div class="menubar">
+		<a class="button">CSS 属性</a>
 		<p>"CSS" 列指示该属性是在哪个 CSS 版本（CSS1、CSS2 或 CSS3）中定义的。</p>
 	</div>
-	<div id="animation">
+	<ul>
+		<li class="level2"><a href="#animation">动画</a></li>
+		<li class="level2"><a href="#background">背景</a></li>
+		<li class="level2"><a href="#border">边框和轮廓</a></li>
+		<li class="level2"><a href="#box">盒（框）</a></li>
+		<li class="level2"><a href="#color">颜色</a></li>
+		<li class="level2"><a href="#contentpm">内容分页媒体</a></li>
+		<li class="level2"><a href="#dimension">定位</a></li>
+		<li class="level2"><a href="#flexbox">可伸缩框</a></li>
+		<li class="level2"><a href="#font">字体</a></li>
+		<li class="level2"><a href="#generatedcontent">生成内容</a></li>
+		<li class="level2"><a href="#grid">网格</a></li>
+		<li class="level2"><a href="#hyperlink">超链接</a></li>
+		<li class="level2">行框</li>
+		<li class="level2"><a href="#list">列表</a></li>
+		<li class="level2"><a href="#margin">外边距</a></li>
+		<li class="level2"><a href="#marquee">Marquee</a></li>
+		<li class="level2"><a href="#multicolumn">多列</a></li>
+		<li class="level2"><a href="#padding">内边距</a></li>
+		<li class="level2"><a href="#pagedmedia">分页媒体</a></li>
+		<li class="level2"><a href="#positioning">定位</a></li>
+		<li class="level2"><a href="#print">打印</a></li>
+		<li class="level2">Ruby</li>
+		<li class="level2">语音</li>
+		<li class="level2"><a href="#table">表格</a></li>
+		<li class="level2"><a href="#text">文本</a></li>
+		<li class="level2"><a href="#transform">2D/3D 转换</a></li>
+		<li class="level2"><a href="#transition">过渡</a></li>
+		<li class="level2"><a href="#userinterface">用户界面</a></li>
+	</ul>
+</nav>
+<article>
 		<h2>CSS3 动画属性（Animation）</h2>
 		<table class="dataintable">
 			<tbody>
@@ -142,7 +147,7 @@
 				</td>
 				<td>
 					<h2>在一个动画中改变多个 CSS 样式：</h2>
-					<pre>
+					<pre><code>
 @keyframes mymove
 {
 0%   {top:0px; background:red; width:100px;}
@@ -166,7 +171,7 @@
 0%   {top:0px; background:red; width:100px;}
 100% {top:200px; background:yellow; width:300px;}
 }
-					</pre>
+					</code></pre>
 				</td>
 			</tr>
 			<tr>
@@ -293,7 +298,7 @@
 animation:mymove 5s infinite;
 -webkit-animation:mymove 5s infinite; <span class="code_comment">/* Safari 和 Chrome */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_animation">亲自试一试</a></p>
 					</div>
@@ -389,13 +394,13 @@ animation:mymove 5s infinite;
 
 					<p>为 @keyframes 动画规定一个名称：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 animation:mymove 5s infinite;
 -webkit-animation:mymove 5s infinite; <span class="code_comment">/* Safari 和 Chrome */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_animation-name">亲自试一试</a></p>
 					</div>
@@ -484,13 +489,13 @@ animation:mymove 5s infinite;
 
 					<p>为 @keyframes 动画规定一个名称：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 animation-duration:2s;
 -webkit-animation-duration:2s; <span class="code_comment">/* Safari 和 Chrome */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_animation-duration">亲自试一试</a></p>
 					</div>
@@ -620,13 +625,13 @@ animation-duration:2s;
 
 					<p>从开头到结尾以相同的速度来播放动画：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 animation-timing-function:2s;
 -webkit-animation-timing-function:2s; <span class="code_comment">/* Safari 和 Chrome */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_animation-timing-function">亲自试一试</a></p>
 					</div>
@@ -721,13 +726,13 @@ animation-timing-function:2s;
 
 					<p>等待两秒，然后开始动画：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 animation-delay:2s;
 -webkit-animation-delay:2s; <span class="code_comment">/* Safari 和 Chrome */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_animation-delay">亲自试一试</a></p>
 					</div>
@@ -824,13 +829,13 @@ animation-delay:2s;
 
 					<p>播放动画三次：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 animation-iteration-count:3;
 -webkit-animation-iteration-count:3; <span class="code_comment">/* Safari 和 Chrome */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_animation-iteration-count">亲自试一试</a></p>
 					</div>
@@ -931,13 +936,13 @@ animation-iteration-count:3;
 
 					<p>暂停动画：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 animation-direction:alternate;
 -webkit-animation-direction:alternate; <span class="code_comment">/* Safari 和 Chrome */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_animation-direction">亲自试一试</a></p>
 					</div>
@@ -1036,13 +1041,13 @@ animation-direction:alternate;
 
 					<p>暂停动画：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 animation-play-state:paused;
 -webkit-animation-play-state:paused; <span class="code_comment">/* Safari 和 Chrome */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_animation-play-state">亲自试一试</a></p>
 					</div>
@@ -1149,12 +1154,12 @@ animation-play-state:paused;
 
 					<p>为 h1 元素规定填充模式：</p>
 
-					<pre>
+					<pre><code>
 h1
   {
   animation-fill-mode: forwards;
   }
-					</pre>
+					</code></pre>
 
 					</div>
 				</td>
@@ -1319,12 +1324,12 @@ h1
 
 					<p>如何在一个声明中设置所有背景属性：</p>
 
-					<pre>
+					<pre><code>
 body
   { 
   <code>background</code>: #00FF00 url(bgimage.gif) no-repeat fixed top;
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_background">亲自试一试</a></p>
 					</div>
@@ -1418,13 +1423,13 @@ body
 
 					<p>如何设置固定的背景图像：</p>
 
-					<pre>
+					<pre><code>
 body 
   { 
   background-image: url(bgimage.gif); 
   <code>background-attachment: fixed;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_background-attachment">亲自试一试</a></p>
 					</div>
@@ -1535,7 +1540,7 @@ body
 					<div>
 					<h2>实例</h2>
 
-					<pre>
+					<pre><code>
 body
   {
   <code>background-color:yellow;</code>
@@ -1548,7 +1553,7 @@ p
   {
   <code>background-color:rgb(255,0,255);</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_background-color">亲自试一试</a></p>
 					</div>
@@ -1654,13 +1659,13 @@ p
 					<div>
 					<h2>实例</h2>
 
-					<pre>
+					<pre><code>
 body
   { 
   <code>background-image: url(bgimage.gif);</code>
   background-color: #000000;
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_background-image">亲自试一试</a></p>
 					</div>
@@ -1783,7 +1788,7 @@ body
 
 					<p>如何定位背景图像：</p>
 
-					<pre>
+					<pre><code>
 body
 { 
 background-image:url('bgimage.gif');
@@ -1791,7 +1796,7 @@ background-repeat:no-repeat;
 background-attachment:fixed;
 <code>background-position:center;</code>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_background-position">亲自试一试</a></p>
 					</div>
@@ -1903,13 +1908,13 @@ background-attachment:fixed;
 					<div>
 					<h2>实例</h2>
 
-					<pre>
+					<pre><code>
 body
   {
   background-image: url(stars.gif);
   <code>background-repeat: repeat-y;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_background-repeaty">亲自试一试</a></p>
 					</div>
@@ -2010,13 +2015,13 @@ body
 
 					<p>规定背景的绘制区域：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 background-color:yellow;
 <code>background-clip:content-box;</code>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_background-clip">亲自试一试</a></p>
 					</div>
@@ -2117,7 +2122,7 @@ background-color:yellow;
 
 					<p>相对于内容框来定位背景图像：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 background-image:url('smiley.gif');
@@ -2125,7 +2130,7 @@ background-repeat:no-repeat;
 background-position:left;
 <code>background-origin:content-box;</code>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_background-origin">亲自试一试</a></p>
 					</div>
@@ -2241,14 +2246,14 @@ background-position:left;
 
 					<p>规定背景图像的尺寸：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 background:url(img_flwr.gif);
 <code>background-size:80px 60px;</code>
 background-repeat:no-repeat;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_background-size">亲自试一试</a></p>
 					</div>
@@ -2370,12 +2375,12 @@ background-repeat:no-repeat;
 
 					<p>设置 4 个边框的样式：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   <code>border:5px solid red;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_border">亲自试一试</a></p>
 					</div>
@@ -2485,13 +2490,13 @@ p
 
 					<p>设置下边框的样式：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   border-style:solid;
   <code>border-bottom:thick dotted #ff0000;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_border-bottom">亲自试一试</a></p>
 					</div>
@@ -2601,13 +2606,13 @@ p
 
 					<p>设置下边框的颜色：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   border-style:solid;
   <code>border-bottom-color:#ff0000;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_border-bottom-color">亲自试一试</a></p>
 					</div>
@@ -2746,13 +2751,13 @@ p
 
 					<p>设置下边框的样式：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   border-style:solid;
   <code>border-bottom-style:dotted;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_border-bottom-style">亲自试一试</a></p>
 					</div>
@@ -2860,13 +2865,13 @@ p
 
 					<p>设置下边框的宽度：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   border-style:solid;
   <code>border-bottom-width:15px;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_border-bottom-width">亲自试一试</a></p>
 					</div>
@@ -3012,13 +3017,13 @@ p
 
 					<p>设置 4 个边框的颜色：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   border-style:solid;
   <code>border-color:#ff0000 #0000ff;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_border-color">亲自试一试</a></p>
 					</div>
@@ -3128,13 +3133,13 @@ p
 
 					<p>设置左边框的样式：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   border-style:solid;
   <code>border-left:thick double #ff0000;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_border-left">亲自试一试</a></p>
 					</div>
@@ -3514,12 +3519,12 @@ p
 
 					<p>设置 4 个边框的样式：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   <code>border-style:solid;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_border-style">亲自试一试</a></p>
 					</div>	
@@ -3616,12 +3621,12 @@ p
 
 					<p>设置 4 个边框的样式：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   <code>outline:#00FF00 dotted thick;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_outline">亲自试一试</a></p>
 					</div>
@@ -3714,13 +3719,13 @@ p
 
 					<p>设置点状轮廓的颜色：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   outline-style:dotted;
   <code>outline-color:#00ff00;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_outline-color">亲自试一试</a></p>
 					</div>
@@ -3838,12 +3843,12 @@ p
 
 					<p>设置轮廓的样式：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   <code>outline-style:dotted;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_outline-color">亲自试一试</a></p>
 					</div>
@@ -3941,7 +3946,7 @@ p
 					  outline-style:dotted;
 					  <code>outline-width:5px;</code>
 					  }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_outline-width">亲自试一试</a></p>
 					</div>
@@ -4038,13 +4043,13 @@ p
 
 					<p>向 div 元素的左下角添加圆角边框：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 border:2px solid;
 <code>border-bottom-left-radius:2em;</code>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_border-bottom-left-radius">亲自试一试</a></p>
 					</div>
@@ -4141,13 +4146,13 @@ border:2px solid;
 
 					<p>向 div 元素的右下角添加圆角边框：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 border:2px solid;
 <code>border-bottom-right-radius:2em;</code>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_border-bottom-right-radius">亲自试一试</a></p>
 					</div>
@@ -4269,14 +4274,14 @@ border:2px solid;
 
 					<p>将图片规定为包围 div 元素的边框：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 -webkit-border-image:url(border.png) 30 30 round; <span class="code_comment">/* Safari 5 */</span>
 -o-border-image:url(border.png) 30 30 round; <span class="code_comment">/* Opera */</span>
 border-image:url(border.png) 30 30 round;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_border-image">亲自试一试</a></p>
 
@@ -4376,13 +4381,13 @@ border-image:url(border.png) 30 30 round;
 
 					<p>设置 border-image-outset 属性：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 border-image-source: url(border.png);
 <code>border-image-outset: 30 30;</code>
 }
-					</pre>
+					</code></pre>
 
 					</div>
 				</td>
@@ -4484,13 +4489,13 @@ border-image-source: url(border.png);
 
 					<p>规定如何重复图像边框：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 border-image-source: url(border.png);
 <code>border-image-repeat: round;</code>
 }
-					</pre>
+					</code></pre>
 
 					</div>
 				</td>
@@ -4592,13 +4597,13 @@ border-image-source: url(border.png);
 
 					<p>规定图像边框的向内偏移：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 border-image-source: url(border.png);
 <code>border-image-slice: 50% 50%;</code>
 }
-					</pre>
+					</code></pre>
 
 					</div>
 				</td>
@@ -4695,12 +4700,12 @@ border-image-source: url(border.png);
 
 					<p>使用一幅图像作为围绕 div 元素的边框：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 <code>border-image-source: url(border.png)</code>;
 }
-					</pre>
+					</code></pre>
 
 					</div>
 				</td>
@@ -4802,13 +4807,13 @@ div
 
 					<p>规定图像边框的宽度：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 border-image-source: url(border.png);
 <code>border-image-width: 30 30;</code>
 }
-					</pre>
+					</code></pre>
 
 					</div>
 				</td>
@@ -4908,7 +4913,7 @@ border-image-source: url(border.png);
 					border-top-right-radius:2em;
 					border-bottom-right-radius:2em;
 					border-bottom-left-radius:2em;
-					</pre>
+					</code></pre>
 
 					<h3>例子 2</h3>
 
@@ -4920,7 +4925,7 @@ border-image-source: url(border.png);
 					border-top-right-radius: 1em 3em;
 					border-bottom-right-radius: 4em 0.5em;
 					border-bottom-left-radius: 1em 3em;
-					</pre>
+					</code></pre>
 					</div>
 				</td>
 				<td>
@@ -4929,13 +4934,13 @@ border-image-source: url(border.png);
 
 					<p>向 div 元素添加圆角边框：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 border:2px solid;
 border-radius:25px;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_border-radius">亲自试一试</a></p>
 
@@ -5034,13 +5039,13 @@ border-radius:25px;
 
 					<p>向 div 元素的左上角添加圆角边框：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 border:2px solid;
 <code>border-top-left-radius:2em;</code>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_border-top-left-radius">亲自试一试</a></p>
 					</div>
@@ -5137,13 +5142,13 @@ border:2px solid;
 
 					<p>向 div 元素的右上角添加圆角边框：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 border:2px solid;
 <code>border-top-right-radius:2em;</code>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_border-top-right-radius">亲自试一试</a></p>
 					</div>
@@ -5269,12 +5274,12 @@ border:2px solid;
 
 					<p>向 div 元素添加 box-shadow：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 box-shadow: 10px 10px 5px #888888;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_box-shadow">亲自试一试</a></p>
 
@@ -5394,12 +5399,12 @@ box-shadow: 10px 10px 5px #888888;
 
 					<p>裁剪 div 元素中内容的左/右边缘 - 如果溢出元素的内容区域的话：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 overflow-x:hidden;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_overflow-xy">亲自试一试</a></p>
 					</div>
@@ -5500,7 +5505,7 @@ overflow-x:hidden;
 					overflow:auto;
 					<code>overflow-style:marquee,panner;</code>
 					}
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_overflow-style">亲自试一试</a></p>
 					</div>
@@ -5571,13 +5576,13 @@ overflow-x:hidden;
 
 					<p>将 h1 元素旋转 180 度（从上向下）：</p>
 
-					<pre>
+					<pre><code>
 h1
 {
 rotation-point:50% 50%;
 <code>rotation:180deg;</code>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_rotation">亲自试一试</a></p>
 					</div>
@@ -5665,13 +5670,13 @@ rotation-point:50% 50%;
 
 					<p>将 h1 元素旋转 180 度（从上向下）：</p>
 
-					<pre>
+					<pre><code>
 h1
 {
 <code>rotation-point:50% 50%;</code>
 rotation:180deg;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_rotation">亲自试一试</a></p>
 					</div>
@@ -5766,12 +5771,12 @@ rotation:180deg;
 
 					<p>设置 div 元素的不透明级别：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 opacity:0.5;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_opacity">亲自试一试</a></p>
 
@@ -5973,13 +5978,13 @@ opacity:0.5;
 
 					<p>设置段落的高度和宽度：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   <code>height:100px;</code>
   width:100px;
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_dim_height">亲自试一试</a></p>
 					</div>
@@ -6085,12 +6090,12 @@ p
 
 					<p>设置段落的最大高度：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   <code>max-height:100px;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_dim_max-height">亲自试一试</a></p>
 					</div>
@@ -6247,7 +6252,7 @@ p
 					box-pack:center;
 					box-align:center;
 					}
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_box-pack">亲自试一试</a></p>
 
@@ -6335,7 +6340,7 @@ p
 
 					<p>以反方向显示 div 框的子元素：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 width:350px;
@@ -6354,7 +6359,7 @@ display:-webkit-box;
 display:box;
 box-direction:reverse;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_box-direction">亲自试一试</a></p>
 					</div>
@@ -6428,7 +6433,7 @@ box-direction:reverse;
 
 					<p>定义两个可伸缩的 p 元素。如果父元素的总宽度是 300 像素，则 #p1 的宽度是 100 像素，而 #p2 的宽度是 200 像素：</p>
 
-					<pre>
+					<pre><code>
 #p1
 {
 -moz-box-flex:1.0; <span class="code_comment">/* Firefox */</span>
@@ -6444,7 +6449,7 @@ border:1px solid red;
 box-flex:2.0;
 border:1px solid blue;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_box-flex">亲自试一试</a></p>
 					</div>
@@ -6581,7 +6586,7 @@ border:1px solid blue;
 
 					<p>规定允许 div 扩展为多行：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 display:box;
@@ -6589,7 +6594,7 @@ box-orient:horizontal;
 <code>box-lines:multiple;</code>
 width:200px;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_box-lines">亲自试一试</a></p>
 					</div>
@@ -6667,7 +6672,7 @@ width:200px;
 
 					<p>规定框中子元素的显示次序：</p>
 
-					<pre>
+					<pre><code>
 .box
 {
 display:-moz-box; <span class="code_comment">/* Firefox */</span>
@@ -6689,7 +6694,7 @@ margin:5px;
 -webkit-box-ordinal-group:2; <span class="code_comment">/* Safari 和 Chrome */</span>
 <code>box-ordinal-group:2;</code>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_box-ordinal-group">亲自试一试</a></p>
 					</div>
@@ -6789,7 +6794,7 @@ margin:5px;
 
 					<p>水平排列 div 元素的子元素：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 width:350px;
@@ -6808,7 +6813,7 @@ display:-webkit-box;
 display:box;
 <code>box-orient:horizontal;</code>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_box-orient">亲自试一试</a></p>
 					</div>
@@ -6908,7 +6913,7 @@ display:box;
 
 					<p>通过一起使用 box-align 和 box-pack 属性，对 div 框的子元素进行居中：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 width:350px;
@@ -6930,7 +6935,7 @@ display:box;
 <code>box-pack:center;</code>
 box-align:center;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_box-pack">亲自试一试</a></p>
 					</div>
@@ -7094,7 +7099,7 @@ box-align:center;
 
 					<p>在一个声明中设置所有字体属性：</p>
 
-					<pre>
+					<pre><code>
 p.ex1
   {
   <code>font:italic arial,sans-serif;</code>
@@ -7104,7 +7109,7 @@ p.ex2
   {
   <code>font:italic bold 12px/20px arial,sans-serif;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_font">亲自试一试</a></p>
 					</div>
@@ -7216,12 +7221,12 @@ p.ex2
 
 					<p>为段落设置字体：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   <code>font-family:"Times New Roman",Georgia,Serif;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_font-family">亲自试一试</a></p>
 					</div>
@@ -7350,11 +7355,11 @@ p
 
 					<p>设置不同的 HTML 元素的尺寸：</p>
 
-					<pre>
+					<pre><code>
 h1 {<code>font-size:250%;</code>}
 h2 {<code>font-size:200%;</code>}
 p {<code>font-size:100%</code>}
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_font-size">亲自试一试</a></p>
 					</div>
@@ -7435,7 +7440,7 @@ p {<code>font-size:100%</code>}
 
 					<p>设置不同的 HTML 元素的 font-size-adjust 属性：</p>
 
-					<pre>
+					<pre><code>
 h1
   {
   <code>font-size-adjust:0.58;</code>
@@ -7445,7 +7450,7 @@ p
   {
   <code>font-size-adjust:0.60;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_font-size-adjust">亲自试一试</a></p>
 					</div>
@@ -7556,12 +7561,12 @@ p
 
 					<p>设置 HTML 元素的 font-stretch 属性：</p>
 
-					<pre>
+					<pre><code>
 h1
   {
   <code>font-stretch:ultra-condensed;</code>
   }
-					</pre>
+					</code></pre>
 					</div>
 				</td>
 			</tr>
@@ -7662,11 +7667,11 @@ h1
 
 					<p>为三个段落设置不同的字体样式：</p>
 
-					<pre>
+					<pre><code>
 p.normal {<code>font-style:normal;</code>}
 p.italic {<code>font-style:italic;</code>}
 p.oblique {<code>font-style:oblique;</code>}
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_font-style">亲自试一试</a></p>
 					</div>
@@ -7764,12 +7769,12 @@ p.oblique {<code>font-style:oblique;</code>}
 
 					<p>把段落设置为小型大写字母字体：</p>
 
-					<pre>
+					<pre><code>
 p.small
   {
   <code>font-variant:small-caps;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_font-variant">亲自试一试</a></p>
 					</div>
@@ -7895,11 +7900,11 @@ p.small
 
 					<p>设置三个段落的字体的粗细：</p>
 
-					<pre>
+					<pre><code>
 p.normal {<code>font-weight:normal;</code>}
 p.thick {<code>font-weight:bold;</code>}
 p.thicker {<code>font-weight:900;</code>}
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_font-weight">亲自试一试</a></p>
 					</div>
@@ -8014,12 +8019,12 @@ p.thicker {<code>font-weight:900;</code>}
 
 					<p>下面的例子在每个链接后插入括号中的 URL：</p>
 
-					<pre>
+					<pre><code>
 a:after
   {
   <code>content: " (" attr(href) ")";</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_gen_content">亲自试一试</a></p>
 					</div>
@@ -8123,7 +8128,7 @@ a:after
 
 					<p>对部分和子部分进行编号（比如 "Section 1"、"1.1"、"1.2"）的方法：</p>
 
-					<pre>
+					<pre><code>
 body
   {
   counter-reset:section;
@@ -8145,7 +8150,7 @@ h2:before
   counter-increment:subsection;
   <code>content:counter(section) "." counter(subsection) " ";</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_gen_counter-reset">亲自试一试</a></p>
 					</div>
@@ -8250,7 +8255,7 @@ h2:before
 
 					<p>对部分和子部分进行编号（比如 "Section 1"、"1.1"、"1.2"）的方法：</p>
 
-					<pre>
+					<pre><code>
 body
   {
   <code>counter-reset:section;</code>
@@ -8272,7 +8277,7 @@ h2:before
   counter-increment:subsection;
   content:counter(section) "." counter(subsection) " ";
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_gen_content">亲自试一试</a></p>
 					</div>
@@ -8368,16 +8373,16 @@ h2:before
 					<div>
 					<h2>实例</h2>
 
-					<pre>
+					<pre><code>
 q:lang(en)
   {
   <code>quotes: '"' '"' "'" "'";</code>
   }
-					</pre>
+					</code></pre>
 
 					<p>HTML 代码：</p>
 
-					<pre>
+					<pre><code>
 &lt;html lang="en"&gt;
 &lt;head&gt;
 &lt;/head&gt;
@@ -8385,7 +8390,7 @@ q:lang(en)
 &lt;p&gt;&lt;q&gt;This is a &lt;q&gt;big&lt;/q&gt; quote&lt;/q&gt;&lt;/p&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-					</pre>
+					</code></pre>
 
 					<p>输出：</p>
 
@@ -8501,12 +8506,12 @@ q:lang(en)
 
 					<p>在 div 元素中部添加一个网格行，距右侧 200 像素处添加另一个，在余下空间的中间再添加一个：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 grid-columns:50% * * 200px;
 }
-					</pre>
+					</code></pre>
 					</div>
 				</td>
 			</tr>
@@ -8589,12 +8594,12 @@ grid-columns:50% * * 200px;
 
 					<p>定义 100 像素的标题行，并按需添加多个额外的行，高度交替为 30 和 60 像素：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 grid-rows:100px (30px 60px);
 }
-					</pre>
+					</code></pre>
 					</div>
 				</td>
 			</tr>
@@ -8690,12 +8695,12 @@ grid-rows:100px (30px 60px);
 
 					<p>在新窗口中打开所有超链接，并在所有其他标签页/窗口上面放置新窗口：</p>
 
-					<pre>
+					<pre><code>
 a
 {
 target:new front;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_target_prop">亲自试一试</a></p>
 					</div>
@@ -8788,12 +8793,12 @@ target:new front;
 
 					<p>在新窗口中打开所有超链接：</p>
 
-					<pre>
+					<pre><code>
 a
 {
 target-name:new;
 }
-					</pre>
+					</code></pre>
 					</div>
 				</td>
 			</tr>
@@ -8871,13 +8876,13 @@ target-name:new;
 
 					<p>在新标签页而不是新窗口中打开超链接：</p>
 
-					<pre>
+					<pre><code>
 a
 {
 target-name:new;
 target-new:tab;
 }
-					</pre>
+					</code></pre>
 					</div>
 				</td>
 			</tr>
@@ -8960,13 +8965,13 @@ target-new:tab;
 
 					<p>在新窗口中打开超链接，并在所有其他标签页/窗口之前放置新的窗口：</p>
 
-					<pre>
+					<pre><code>
 a
 {
 target-name:new;
 target-position:front;
 }
-					</pre>
+					</code></pre>
 					</div>
 				</td>
 			</tr>
@@ -9090,12 +9095,12 @@ target-position:front;
 
 					<p>把图像设置为列表中的列表项目标记：</p>
 
-					<pre>
+					<pre><code>
 ul
   {
   <code>list-style:square inside url('/i/arrow.gif');</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_list-style">亲自试一试</a></p>
 					</div>
@@ -9196,13 +9201,13 @@ ul
 
 					<p>把图像设置为列表中的项目标记：</p>
 
-					<pre>
+					<pre><code>
 ul
   {
   <code>list-style-image:url("/i/arrow.gif");</code>
   list-style-type:square;
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_list-style-image">亲自试一试</a></p>
 					</div>
@@ -9301,12 +9306,12 @@ ul
 
 					<p>规定列表中列表项目标记的位置：</p>
 
-					<pre>
+					<pre><code>
 ul
   {
   <code>list-style-position:inside;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_list-style-position">亲自试一试</a></p>
 					</div>
@@ -9491,12 +9496,12 @@ ul
 
 					<p>设置不同的列表样式：</p>
 
-					<pre>
+					<pre><code>
 ul.circle {<code>list-style-type:circle;</code>}
 ul.square {<code>list-style-type:square;</code>}
 ol.upper-roman {<code>list-style-type:upper-roman;</code>}
 ol.lower-alpha {<code>list-style-type:lower-alpha;</code>}
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_list-style-type_test">亲自试一试</a></p>
 					<p>（在页面底部可以找到更多实例）</p>
@@ -9657,12 +9662,12 @@ ol.lower-alpha {<code>list-style-type:lower-alpha;</code>}
 
 					<p>设置 p 元素的 4 个外边距：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   <code>margin:2cm 4cm 3cm 4cm;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_margin">亲自试一试</a></p>
 					</div>
@@ -9764,12 +9769,12 @@ p
 
 					<p>设置 p 元素的下外边距：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   <code>margin-bottom:2cm;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_margin-bottom">亲自试一试</a></p>
 					<p>（在页面底部可以找到更多实例）</p>
@@ -9928,14 +9933,14 @@ p
 
 					<p>将 div 元素中的文本分为三列：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 -moz-column-count:3; <span class="code_comment">/* Firefox */</span>
 -webkit-column-count:3; <span class="code_comment">/* Safari 和 Chrome */</span>
 column-count:3;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_column-count">亲自试一试</a></p>
 
@@ -10027,12 +10032,12 @@ column-count:3;
 
 					<p>规定如何对列进行填充：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 column-fill:auto;
 }
-					</pre>
+					</code></pre>
 					</div>
 				</td>
 			</tr>
@@ -10131,14 +10136,14 @@ column-fill:auto;
 
 					<p>规定列间的间隔为 40 像素：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 -moz-column-gap:40px; <span class="code_comment">/* Firefox */</span>
 -webkit-column-gap:40px; <span class="code_comment">/* Safari 和 Chrome */</span>
 column-gap:40px;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_column-gap">亲自试一试</a></p>
 
@@ -10243,14 +10248,14 @@ column-gap:40px;
 
 					<p>规定列之间的宽度、样式和颜色规则：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 -moz-column-rule:3px outset #ff00ff; <span class="code_comment">/* Firefox */</span>
 -webkit-column-rule:3px outset #ff00ff; <span class="code_comment">/* Safari 和 Chrome */</span>
 column-rule:3px outset #ff00ff;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_column-rule">亲自试一试</a></p>
 
@@ -10343,14 +10348,14 @@ column-rule:3px outset #ff00ff;
 
 					<p>设置列之间的颜色规则：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 -moz-column-rule-color:#ff0000; <span class="code_comment">/* Firefox */</span>
 -webkit-column-rule-color:#ff0000; <span class="code_comment">/* Safari 和 Chrome */</span>
 column-rule-color:#ff0000;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_column-rule-color">亲自试一试</a></p>
 
@@ -10500,14 +10505,14 @@ column-rule-color:#ff0000;
 
 					<p>设置列之间的颜色规则：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 -moz-column-rule-style:dotted; <span class="code_comment">/* Firefox */</span>
 -webkit-column-rule-style:dotted; <span class="code_comment">/* Safari 和 Chrome */</span>
 column-rule-style:dotted;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_column-rule-style">亲自试一试</a></p>
 
@@ -10620,14 +10625,14 @@ column-rule-style:dotted;
 
 					<p>设置列之间的颜色规则：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 -moz-column-rule-width:1px; <span class="code_comment">/* Firefox */</span>
 -webkit-column-rule-width:1px; <span class="code_comment">/* Safari 和 Chrome */</span>
 column-rule-width:1px;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_column-rule-width">亲自试一试</a></p>
 
@@ -10726,13 +10731,13 @@ column-rule-width:1px;
 
 					<p>使 h2 元素横跨所有列：</p>
 
-					<pre>
+					<pre><code>
 h2
 {
 -webkit-column-span:all; <span class="code_comment">/* Chrome */</span>
 column-span:all;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_column-span">亲自试一试</a></p>
 
@@ -10833,14 +10838,14 @@ column-span:all;
 
 					<p>规定列的宽度：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 column-width:100px;
 -moz-column-width:100px; <span class="code_comment">/* Firefox */</span>
 -webkit-column-width:100px; <span class="code_comment">/* Safari 和 Chrome */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_column-width">亲自试一试</a></p>
 
@@ -10938,14 +10943,14 @@ column-width:100px;
 
 					<p>规定列的宽度和列数：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 columns:100px 3;
 -moz-columns:100px 3; <span class="code_comment">/* Firefox */</span>
 -webkit-columns:100px 3; <span class="code_comment">/* Safari 和 Chrome */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_columns">亲自试一试</a></p>
 
@@ -11081,12 +11086,12 @@ columns:100px 3;
 
 					<p>设置 p 元素的 4 个内边距：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   <code>padding:2cm 4cm 3cm 4cm;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_padding">亲自试一试</a></p>
 					</div>
@@ -11171,12 +11176,12 @@ p
 
 					<p>设置 p 元素的下内边距：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   <code>padding-bottom:2cm;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_padding-bottom">亲自试一试</a></p>
 
@@ -11334,13 +11339,13 @@ p
 
 					<p>把图像的底边缘设置在其包含元素底边缘之上 5 像素高的位置：</p>
 
-					<pre>
+					<pre><code>
 img
   {
   position:absolute;
   <code>bottom:5px;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_position_bottom_test">亲自试一试</a></p>
 					</div>
@@ -11461,13 +11466,13 @@ img
 
 					<p>图像的左侧和右侧均不允许出现浮动元素：</p>
 
-					<pre>
+					<pre><code>
 img
   {
   float:left;
   <code>clear:both;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_class-clear">亲自试一试</a></p>
 					</div>
@@ -11551,13 +11556,13 @@ img
 
 					<p>剪裁图像：</p>
 
-					<pre>
+					<pre><code>
 img
   {
   position:absolute;
   <code>clip:rect(0px,60px,200px,0px);</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_clip">亲自试一试</a></p>
 					</div>
@@ -11728,11 +11733,11 @@ img
 
 					<p>一些不同的光标：</p>
 
-					<pre>
+					<pre><code>
 span.crosshair {<code>cursor:crosshair;</code>}
 span.help {<code>cursor:help;</code>}
 span.wait {<code>cursor:wait;</code>}
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_cursor">亲自试一试</a></p>
 					</div>
@@ -11910,12 +11915,12 @@ span.wait {<code>cursor:wait;</code>}
 
 					<p>使段落生出行内框：</p>
 
-					<pre>
+					<pre><code>
 p.inline
   {
   <code>display:inline;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_display">亲自试一试</a></p>
 					</div>
@@ -12017,12 +12022,12 @@ p.inline
 
 					<p>把图像向右浮动：</p>
 
-					<pre>
+					<pre><code>
 img
   {
   <code>float:right;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_float">亲自试一试</a></p>
 					</div>
@@ -12114,14 +12119,14 @@ img
 
 					<p>设置 overflow 属性：</p>
 
-					<pre>
+					<pre><code>
 div
   {
   width:150px;
   height:150px;
   <code>overflow:scroll;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_overflow">亲自试一试</a></p>
 					</div>
@@ -12238,14 +12243,14 @@ div
 
 					<p>定位 h2 元素：</p>
 
-					<pre>
+					<pre><code>
 h2
   {
   <code>position:absolute;</code>
   left:100px;
   top:150px;
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_position_absolute">亲自试一试</a></p>
 					</div>
@@ -12367,12 +12372,12 @@ h2
 
 					<p>垂直对齐一幅图像：</p>
 
-					<pre>
+					<pre><code>
 img
   {
   <code>vertical-align:text-top;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_vertical-align">亲自试一试</a></p>
 					</div>
@@ -12478,12 +12483,12 @@ img
 
 					<p>使 h2 元素不可见：</p>
 
-					<pre>
+					<pre><code>
 h2
   {
   <code>visibility:hidden;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_visibility">亲自试一试</a></p>
 					</div>
@@ -12569,7 +12574,7 @@ h2
 
 					<p>设置图像的 z-index：</p>
 
-					<pre>
+					<pre><code>
 img
   {
   position:absolute;
@@ -12577,7 +12582,7 @@ img
   top:0px;
   <code>z-index:-1;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_zindex">亲自试一试</a></p>
 					</div>
@@ -12695,7 +12700,7 @@ img
 
 					<p>设置在表格元素之后始终进行分页的分页行为：</p>
 
-					<pre>
+					<pre><code>
 &lt;html&gt;
 &lt;head&gt;
 &lt;style&gt;
@@ -12710,7 +12715,7 @@ table {<code>page-break-after:always;</code>}
 ....
 &lt;/body&gt;
 &lt;/html&gt;
-					</pre>
+					</code></pre>
 					</div>
 				</td>
 			</tr>
@@ -12823,7 +12828,7 @@ table {<code>page-break-after:always;</code>}
 					....
 					&lt;/body&gt;
 					&lt;/html&gt;
-					</pre>
+					</code></pre>
 					</div>
 				</td>
 			</tr>
@@ -12903,7 +12908,7 @@ table {<code>page-break-after:always;</code>}
 
 					<p>设置在表格元素内部避免进行分页的分页行为：</p>
 
-					<pre>
+					<pre><code>
 &lt;html&gt;
 &lt;head&gt;
 &lt;style&gt;
@@ -12918,7 +12923,7 @@ table {<code>page-break-inside:avoid;</code>}
 ....
 &lt;/body&gt;
 &lt;/html&gt;
-					</pre>
+					</code></pre>
 					</div>
 				</td>
 			</tr>
@@ -13031,12 +13036,12 @@ table {<code>page-break-inside:avoid;</code>}
 
 					<p>为表格设置合并边框模型：</p>
 
-					<pre>
+					<pre><code>
 table
   {
   <code>border-collapse:collapse;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_table_border-collapse">亲自试一试</a></p>
 					</div>
@@ -13137,13 +13142,13 @@ table
 
 					<p>为表格设置 border-spacing：</p>
 
-					<pre>
+					<pre><code>
 table
   {
   border-collapse:separate;
   <code>border-spacing:10px 50px;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_table_border-spacing">亲自试一试</a></p>
 					</div>
@@ -13243,12 +13248,12 @@ table
 
 					<p>规定表格标题的放置方式：</p>
 
-					<pre>
+					<pre><code>
 caption
   {
   <code>caption-side:bottom;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_table_caption-side">亲自试一试</a></p>
 					</div>
@@ -13350,13 +13355,13 @@ caption
 
 					<p>隐藏表格中空单元格上的边框和背景：</p>
 
-					<pre>
+					<pre><code>
 table
   {
   border-collapse:separate;
   <code>empty-cells:hide;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_table_empty-cells">亲自试一试</a></p>
 					</div>
@@ -13470,12 +13475,12 @@ table
 
 					<p>设置表格布局算法：</p>
 
-					<pre>
+					<pre><code>
 table
   {
   <code>table-layout:fixed;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_table_table-layout">亲自试一试</a></p>
 					</div>
@@ -13587,7 +13592,7 @@ table
 
 					<p>为不同元素设置文本颜色：</p>
 
-					<pre>
+					<pre><code>
 body
   {
   <code>color:red;</code>
@@ -13600,7 +13605,7 @@ p
   {
   <code>color:rgb(0,0,255);</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_color">亲自试一试</a></p>
 					</div>
@@ -13694,12 +13699,12 @@ p
 
 					<p>把文本方向设置为“从右向左”：</p>
 
-					<pre>
+					<pre><code>
 div
   {
   <code>direction: rtl</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_text_direction">亲自试一试</a></p>
 					</div>
@@ -13794,10 +13799,10 @@ div
 
 					<p>设置 h1 和 h2 元素的字母间距：</p>
 
-					<pre>
+					<pre><code>
 h1 {<code>letter-spacing:2px</code>}
 h2 {<code>letter-spacing:-3px</code>}
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_letter-spacing">亲自试一试</a></p>
 					</div>
@@ -13912,10 +13917,10 @@ h2 {<code>letter-spacing:-3px</code>}
 
 					<p>设置以百分比计的行高：</p>
 
-					<pre>
+					<pre><code>
 p.small {<code>line-height:90%</code>}
 p.big {<code>line-height:200%</code>}
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_dim_line-height_percent">亲自试一试</a></p>
 					<p>（可以在页面底部查看更多实例）</p>
@@ -14033,11 +14038,11 @@ p.big {<code>line-height:200%</code>}
 
 					<p>设置 h1、h2、h3 元素的文本对齐方式：</p>
 
-					<pre>
+					<pre><code>
 h1 {<code>text-align:center</code>}
 h2 {<code>text-align:left</code>}
 h3 {<code>text-align:right</code>}
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_text-align">亲自试一试</a></p>
 					</div>
@@ -14151,12 +14156,12 @@ h3 {<code>text-align:right</code>}
 
 					<p>设置 h1、h2、h3、h4 元素的文本修饰：</p>
 
-					<pre>
+					<pre><code>
 h1 {<code>text-decoration:overline</code>}
 h2 {<code>text-decoration:line-through</code>}
 h3 {<code>text-decoration:underline</code>}
 h4 {<code>text-decoration:blink</code>}
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_text-decoration">亲自试一试</a></p>
 					</div>
@@ -14254,12 +14259,12 @@ h4 {<code>text-decoration:blink</code>}
 
 					<p>将段落的第一行缩进 50 像素：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   <code>text-indent:50px;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_text-indent">亲自试一试</a></p>
 					</div>
@@ -14374,11 +14379,11 @@ p
 
 					<p>转换不同元素中的文本：</p>
 
-					<pre>
+					<pre><code>
 h1 {<code>text-transform:uppercase</code>}
 h2 {<code>text-transform:capitalize</code>}
 p {<code>text-transform:lowercase</code>}
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_text-transform">亲自试一试</a></p>
 					</div>
@@ -14533,12 +14538,12 @@ p {<code>text-transform:lowercase</code>}
 
 					<p>规定段落中的文本不进行换行：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   <code>white-space: nowrap</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_text_white-space">亲自试一试</a></p>
 					</div>
@@ -14642,12 +14647,12 @@ p
 
 					<p>规定段落中的字间距是 25 像素：</p>
 
-					<pre>
+					<pre><code>
 p
   {
   <code>word-spacing:25px;</code>
   }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=csse_text_word-spacing">亲自试一试</a></p>
 					</div>
@@ -14753,12 +14758,12 @@ p
 
 					<p>在 p 元素首行的开始边缘之外放置一个标点符号：</p>
 
-					<pre>
+					<pre><code>
 p
 {
 <code>hanging-punctuation:first;</code>
 }
-					</pre>
+					</code></pre>
 
 					</div>
 				</td>
@@ -14833,12 +14838,12 @@ p
 
 					<p>修剪 p 元素中每行开头的开启标点：</p>
 
-					<pre>
+					<pre><code>
 p
 {
 punctuation-trim:start;
 }
-					</pre>
+					</code></pre>
 
 					</div>
 				</td>
@@ -15032,13 +15037,13 @@ punctuation-trim:start;
 
 					<p>齐行改变单词间的间隔：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 text-align:justify;
 <code>text-justify:inter-word;</code>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_text-justify">亲自试一试</a></p>
 					</div>
@@ -15117,12 +15122,12 @@ text-align:justify;
 
 					<p>设置 text-outline：</p>
 
-					<pre>
+					<pre><code>
 p.test
 {
 text-outline: 2px 2px #ff0000;
 }
-					</pre>
+					</code></pre>
 					</div>
 				</td>
 			</tr>
@@ -15220,12 +15225,12 @@ text-outline: 2px 2px #ff0000;
 
 					<p>使用 text-overflow 属性：</p>
 
-					<pre>
+					<pre><code>
 div.test
 {
 text-overflow:ellipsis;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_text-overflow">亲自试一试</a></p>
 
@@ -15336,12 +15341,12 @@ text-overflow:ellipsis;
 
 					<p>基础的文本阴影效果：</p>
 
-					<pre>
+					<pre><code>
 h1
 {
 text-shadow: 5px 5px 5px #FF0000;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_text-shadow">亲自试一试</a></p>
 
@@ -15426,9 +15431,9 @@ text-shadow: 5px 5px 5px #FF0000;
 
 					<p>不允许换行：</p>
 
-					<pre>
+					<pre><code>
 p.test {text-wrap:none;}
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_text-wrap">亲自试一试</a></p>
 					</div>
@@ -15526,9 +15531,9 @@ p.test {text-wrap:none;}
 
 					<p>在恰当的断字点进行换行：</p>
 
-					<pre>
+					<pre><code>
 p.test {word-break:hyphenate;}
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_word-break">亲自试一试</a></p>
 					</div>
@@ -15619,9 +15624,9 @@ p.test {word-break:hyphenate;}
 
 					<p>允许长单词换行到下一行：</p>
 
-					<pre>
+					<pre><code>
 p.test {word-wrap:break-word;}
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_word-wrap">亲自试一试</a></p>
 					</div>
@@ -15854,7 +15859,7 @@ p.test {word-wrap:break-word;}
 
 					<p>旋转 div 元素：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 transform:rotate(7deg);
@@ -15863,7 +15868,7 @@ transform:rotate(7deg);
 -webkit-transform:rotate(7deg); <span class="code_comment">/* Safari 和 Chrome */</span>
 -o-transform:rotate(7deg); 	<span class="code_comment">/* Opera */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_transform">亲自试一试</a></p>
 
@@ -15999,7 +16004,7 @@ transform:rotate(7deg);
 
 					<p>设置旋转元素的基点位置：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 transform: rotate(45deg);
@@ -16017,7 +16022,7 @@ transform-origin:20% 40%;
 -o-transform: rotate(45deg);		<span class="code_comment">/* Opera */</span>
 -o-transform-origin:20% 40%;		<span class="code_comment">/* Opera */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_transform-origin">亲自试一试</a></p>
 
@@ -16113,7 +16118,7 @@ transform-origin:20% 40%;
 
 					<p>使被转换的子元素保留其 3D 转换：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 transform: rotateY(60deg);
@@ -16121,7 +16126,7 @@ transform-style: preserve-3d;
 -webkit-transform: rotateY(60deg);	<span class="code_comment">/* Safari 和 Chrome */</span>
 -webkit-transform-style: preserve-3d;	<span class="code_comment">/* Safari 和 Chrome */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_transform-style">亲自试一试</a></p>
 					</div>
@@ -16202,13 +16207,13 @@ transform-style: preserve-3d;
 
 					<p>设置元素被查看位置的视图：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 perspective: 500;
 -webkit-perspective: 500; <span class="code_comment">/* Safari 和 Chrome */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_perspective1">亲自试一试</a></p>
 					</div>
@@ -16307,7 +16312,7 @@ perspective: 500;
 
 					<p>设置 3D 元素的基点位置：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 perspective:150;
@@ -16315,7 +16320,7 @@ perspective-origin: 10% 10%;
 -webkit-perspective:150;	<span class="code_comment">/* Safari 和 Chrome */</span>
 -webkit-perspective-origin: 10% 10%;	<span class="code_comment">/* Safari 和 Chrome */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_perspective1">亲自试一试</a></p>
 					</div>
@@ -16409,7 +16414,7 @@ perspective-origin: 10% 10%;
 
 					<p>隐藏被旋转的 div 元素的背面：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 backface-visibility:hidden;
@@ -16417,7 +16422,7 @@ backface-visibility:hidden;
 -moz-backface-visibility:hidden; 	<span class="code_comment">/* Firefox */</span>
 -ms-backface-visibility:hidden; 	<span class="code_comment">/* Internet Explorer */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_backface-visibility">亲自试一试</a></p>
 					</div>
@@ -16543,7 +16548,7 @@ backface-visibility:hidden;
 
 					<p>把鼠标指针放到 div 元素上，其宽度会从 100px 逐渐变为 300px：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 width:100px;
@@ -16552,7 +16557,7 @@ transition: width 2s;
 -webkit-transition: width 2s; <span class="code_comment">/* Safari 和 Chrome */</span>
 -o-transition: width 2s; <span class="code_comment">/* Opera */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_transition">亲自试一试</a></p>
 					</div>
@@ -16655,7 +16660,7 @@ transition: width 2s;
 
 					<p>把鼠标指针放到 div 元素上，会产生带有平滑改变元素宽度的过渡效果：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 transition-property:width;
@@ -16663,7 +16668,7 @@ transition-property:width;
 -webkit-transition-property:width; <span class="code_comment">/* Safari 和 Chrome */</span>
 -o-transition-property:width; <span class="code_comment">/* Opera */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_transition-property">亲自试一试</a></p>
 					</div>
@@ -16755,7 +16760,7 @@ transition-property:width;
 
 					<p>让过渡效果持续 5 秒：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 transition-duration: 5s;
@@ -16763,7 +16768,7 @@ transition-duration: 5s;
 -webkit-transition-duration: 5s; <span class="code_comment">/* Safari 和 Chrome */</span>
 -o-transition-duration: 5s; <span class="code_comment">/* Opera */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_transition-duration">亲自试一试</a></p>
 					</div>
@@ -16881,7 +16886,7 @@ transition-duration: 5s;
 
 					<p>以相同的速度从开始到结束的过渡效果：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 transition-timing-function: linear;
@@ -16889,7 +16894,7 @@ transition-timing-function: linear;
 -webkit-transition-timing-function: linear; /* Safari 和 Chrome */
 -o-transition-timing-function: linear; /* Opera */
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_transition-timing-function">亲自试一试</a></p>
 					</div>
@@ -16980,7 +16985,7 @@ transition-timing-function: linear;
 
 					<p>在过渡效果开始前等待 2 秒：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 transition-delay: 2s;
@@ -16988,7 +16993,7 @@ transition-delay: 2s;
 -webkit-transition-delay: 2s; <span class="code_comment">/* Safari 和 Chrome */</span>
 -o-transition-delay: 2s; <span class="code_comment">/* Opera */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_transition-delay">亲自试一试</a></p>
 					</div>
@@ -17097,14 +17102,14 @@ transition-delay: 2s;
 
 					<p>使 div 元素看上去像一个按钮：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 appearance:button;
 -moz-appearance:button; <span class="code_comment">/* Firefox */</span>
 -webkit-appearance:button; <span class="code_comment">/* Safari 和 Chrome */</span>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_appearance">亲自试一试</a></p>
 
@@ -17213,7 +17218,7 @@ appearance:button;
 
 					<p>规定两个并排的带边框的框：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 box-sizing:border-box;
@@ -17222,7 +17227,7 @@ box-sizing:border-box;
 width:50%;
 float:left;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_box-sizing">亲自试一试</a></p>
 
@@ -17321,13 +17326,13 @@ float:left;
 
 					<p>将图像元素设置为图标化的等价物：</p>
 
-					<pre>
+					<pre><code>
 img
 {
 content:icon;
 icon:url(imgicon.png);
 }
-					</pre>
+					</code></pre>
 					</div>
 				</td>
 			</tr>
@@ -17408,7 +17413,7 @@ icon:url(imgicon.png);
 
 					<p>规定在使用方向键时向何处导航：</p>
 
-					<pre>
+					<pre><code>
 button#b1
 {
 top:20%;left:25%;
@@ -17440,7 +17445,7 @@ nav-index:4;
 nav-right:#b1;nav-left:#b3;
 nav-down:#b1;nav-up:#b3;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_nav">亲自试一试</a></p>
 					</div>
@@ -17518,7 +17523,7 @@ nav-down:#b1;nav-up:#b3;
 
 					<p>规定在使用方向键时向何处导航：</p>
 
-					<pre>
+					<pre><code>
 button#b1
 {
 top:20%;left:25%;
@@ -17645,14 +17650,14 @@ nav-down:#b1;nav-up:#b3;
 
 					<p>规定边框边缘之外 15 像素处的轮廓：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 border:2px solid black;
 outline:2px solid red;
 <code>outline-offset:15px;</code>
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_outline-offset">亲自试一试</a></p>
 					</div>
@@ -17737,13 +17742,13 @@ outline:2px solid red;
 
 					<p>规定可以由用户调整 div 元素的大小：</p>
 
-					<pre>
+					<pre><code>
 div
 {
 <code>resize:both;</code>
 overflow:auto;
 }
-					</pre>
+					</code></pre>
 
 					<p class="tiy"><a target="_blank" href="/tiy/t.asp?f=css3_resize">亲自试一试</a></p>
 					</div>
@@ -17751,330 +17756,331 @@ overflow:auto;
 			</tr>
 			</tbody>
 		</table>
-	</div><div>
-<h2>CSS3 选择器</h2>
+</article>
+<article>
+	<h2>CSS3 选择器</h2>
 
-<p>在 CSS 中，选择器是一种模式，用于选择需要添加样式的元素。</p>
+	<p>在 CSS 中，选择器是一种模式，用于选择需要添加样式的元素。</p>
 
-<p>"CSS" 列指示该属性是在哪个 CSS 版本中定义的。（CSS1、CSS2 还是 CSS3。）</p>
+	<p>"CSS" 列指示该属性是在哪个 CSS 版本中定义的。（CSS1、CSS2 还是 CSS3。）</p>
 
-<table class="dataintable">
-<tbody><tr>
-<th>选择器</th>
-<th>例子</th>
-<th>例子描述</th>
-<th style="width:5%;">CSS</th>
-</tr>
+	<table class="dataintable">
+	<tbody><tr>
+	<th>选择器</th>
+	<th>例子</th>
+	<th>例子描述</th>
+	<th style="width:5%;">CSS</th>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_class.asp" title="CSS .class 选择器">.<i>class</i></a></td>
-<td>.intro</td>
-<td>选择 class="intro" 的所有元素。</td>
-<td>1</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_class.asp" title="CSS .class 选择器">.<i>class</i></a></td>
+	<td>.intro</td>
+	<td>选择 class="intro" 的所有元素。</td>
+	<td>1</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_id.asp" title="CSS #id 选择器">#<i>id</i></a></td>
-<td>#firstname</td>
-<td>选择 id="firstname" 的所有元素。</td>
-<td>1</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_id.asp" title="CSS #id 选择器">#<i>id</i></a></td>
+	<td>#firstname</td>
+	<td>选择 id="firstname" 的所有元素。</td>
+	<td>1</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_all.asp" title="CSS * 选择器">*</a></td>
-<td>*</td>
-<td>选择所有元素。</td>
-<td>2</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_all.asp" title="CSS * 选择器">*</a></td>
+	<td>*</td>
+	<td>选择所有元素。</td>
+	<td>2</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_element.asp" title="CSS element 选择器"><i>element</i></a></td>
-<td>p</td>
-<td>选择所有 &lt;p&gt; 元素。</td>
-<td>1</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_element.asp" title="CSS element 选择器"><i>element</i></a></td>
+	<td>p</td>
+	<td>选择所有 &lt;p&gt; 元素。</td>
+	<td>1</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_element_comma.asp" title="CSS element,element 选择器"><i>element</i>,<i>element</i></a></td>
-<td>div,p</td>
-<td>选择所有 &lt;div&gt; 元素和所有 &lt;p&gt; 元素。</td>
-<td>1</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_element_comma.asp" title="CSS element,element 选择器"><i>element</i>,<i>element</i></a></td>
+	<td>div,p</td>
+	<td>选择所有 &lt;div&gt; 元素和所有 &lt;p&gt; 元素。</td>
+	<td>1</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_element_element.asp" title="CSS element element 选择器"><i>element</i> <i>element</i></a></td>
-<td>div p</td>
-<td>选择 &lt;div&gt; 元素内部的所有 &lt;p&gt; 元素。</td>
-<td>1</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_element_element.asp" title="CSS element element 选择器"><i>element</i> <i>element</i></a></td>
+	<td>div p</td>
+	<td>选择 &lt;div&gt; 元素内部的所有 &lt;p&gt; 元素。</td>
+	<td>1</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_element_gt.asp" title="CSS element>element 选择器"><i>element</i>&gt;<i>element</i></a></td>
-<td>div&gt;p</td>
-<td>选择父元素为 &lt;div&gt; 元素的所有 &lt;p&gt; 元素。</td>
-<td>2</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_element_gt.asp" title="CSS element>element 选择器"><i>element</i>&gt;<i>element</i></a></td>
+	<td>div&gt;p</td>
+	<td>选择父元素为 &lt;div&gt; 元素的所有 &lt;p&gt; 元素。</td>
+	<td>2</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_element_plus.asp" title="CSS element+element 选择器"><i>element</i>+<i>element</i></a></td>
-<td>div+p</td>
-<td>选择紧接在 &lt;div&gt; 元素之后的所有 &lt;p&gt; 元素。</td>
-<td>2</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_element_plus.asp" title="CSS element+element 选择器"><i>element</i>+<i>element</i></a></td>
+	<td>div+p</td>
+	<td>选择紧接在 &lt;div&gt; 元素之后的所有 &lt;p&gt; 元素。</td>
+	<td>2</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_attribute.asp" title="CSS [attribute] 选择器">[<i>attribute</i>]</a></td>
-<td>[target]</td>
-<td>选择带有 target 属性所有元素。</td>
-<td>2</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_attribute.asp" title="CSS [attribute] 选择器">[<i>attribute</i>]</a></td>
+	<td>[target]</td>
+	<td>选择带有 target 属性所有元素。</td>
+	<td>2</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_attribute_value.asp" title="CSS [attribute=value] 选择器">[<i>attribute</i>=<i>value</i>]</a></td>
-<td>[target=_blank]</td>
-<td>选择 target="_blank" 的所有元素。</td>
-<td>2</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_attribute_value.asp" title="CSS [attribute=value] 选择器">[<i>attribute</i>=<i>value</i>]</a></td>
+	<td>[target=_blank]</td>
+	<td>选择 target="_blank" 的所有元素。</td>
+	<td>2</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_attribute_value_contain.asp" title="CSS [attribute~=value] 选择器">[<i>attribute</i>~=<i>value</i>]</a></td>
-<td>[title~=flower]</td>
-<td>选择 title 属性包含单词 "flower" 的所有元素。</td>
-<td>2</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_attribute_value_contain.asp" title="CSS [attribute~=value] 选择器">[<i>attribute</i>~=<i>value</i>]</a></td>
+	<td>[title~=flower]</td>
+	<td>选择 title 属性包含单词 "flower" 的所有元素。</td>
+	<td>2</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_attribute_value_start.asp" title="CSS [attribute|=value] 选择器">[<i>attribute</i>|=<i>value</i>]</a></td>
-<td>[lang|=en]</td>
-<td>选择 lang 属性值以 "en" 开头的所有元素。</td>
-<td>2</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_attribute_value_start.asp" title="CSS [attribute|=value] 选择器">[<i>attribute</i>|=<i>value</i>]</a></td>
+	<td>[lang|=en]</td>
+	<td>选择 lang 属性值以 "en" 开头的所有元素。</td>
+	<td>2</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_link.asp" title="CSS :link 选择器">:link</a></td>
-<td>a:link</td>
-<td>选择所有未被访问的链接。</td>
-<td>1</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_link.asp" title="CSS :link 选择器">:link</a></td>
+	<td>a:link</td>
+	<td>选择所有未被访问的链接。</td>
+	<td>1</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_visited.asp" title="CSS :visited 选择器">:visited</a></td>
-<td>a:visited</td>
-<td>选择所有已被访问的链接。</td>
-<td>1</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_visited.asp" title="CSS :visited 选择器">:visited</a></td>
+	<td>a:visited</td>
+	<td>选择所有已被访问的链接。</td>
+	<td>1</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_active.asp" title="CSS :active 选择器">:active</a></td>
-<td>a:active</td>
-<td>选择活动链接。</td>
-<td>1</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_active.asp" title="CSS :active 选择器">:active</a></td>
+	<td>a:active</td>
+	<td>选择活动链接。</td>
+	<td>1</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_hover.asp" title="CSS :hover 选择器">:hover</a></td>
-<td>a:hover</td>
-<td>选择鼠标指针位于其上的链接。</td>
-<td>1</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_hover.asp" title="CSS :hover 选择器">:hover</a></td>
+	<td>a:hover</td>
+	<td>选择鼠标指针位于其上的链接。</td>
+	<td>1</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_focus.asp" title="CSS :focus 选择器">:focus</a></td>
-<td>input:focus</td>
-<td>选择获得焦点的 input 元素。</td>
-<td>2</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_focus.asp" title="CSS :focus 选择器">:focus</a></td>
+	<td>input:focus</td>
+	<td>选择获得焦点的 input 元素。</td>
+	<td>2</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_first-letter.asp" title="CSS :first-letter 选择器">:first-letter</a></td>
-<td>p:first-letter</td>
-<td>选择每个 &lt;p&gt; 元素的首字母。</td>
-<td>1</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_first-letter.asp" title="CSS :first-letter 选择器">:first-letter</a></td>
+	<td>p:first-letter</td>
+	<td>选择每个 &lt;p&gt; 元素的首字母。</td>
+	<td>1</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_first-line.asp" title="CSS :first-line 选择器">:first-line</a></td>
-<td>p:first-line</td>
-<td>选择每个 &lt;p&gt; 元素的首行。</td>
-<td>1</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_first-line.asp" title="CSS :first-line 选择器">:first-line</a></td>
+	<td>p:first-line</td>
+	<td>选择每个 &lt;p&gt; 元素的首行。</td>
+	<td>1</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_first-child.asp" title="CSS :first-child 选择器">:first-child</a></td>
-<td>p:first-child</td>
-<td>选择属于父元素的第一个子元素的每个 &lt;p&gt; 元素。</td>
-<td>2</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_first-child.asp" title="CSS :first-child 选择器">:first-child</a></td>
+	<td>p:first-child</td>
+	<td>选择属于父元素的第一个子元素的每个 &lt;p&gt; 元素。</td>
+	<td>2</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_before.asp" title="CSS :before 选择器">:before</a></td>
-<td>p:before</td>
-<td>在每个 &lt;p&gt; 元素的内容之前插入内容。</td>
-<td>2</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_before.asp" title="CSS :before 选择器">:before</a></td>
+	<td>p:before</td>
+	<td>在每个 &lt;p&gt; 元素的内容之前插入内容。</td>
+	<td>2</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_after.asp" title="CSS :after 选择器">:after</a></td>
-<td>p:after</td>
-<td>在每个 &lt;p&gt; 元素的内容之后插入内容。</td>
-<td>2</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_after.asp" title="CSS :after 选择器">:after</a></td>
+	<td>p:after</td>
+	<td>在每个 &lt;p&gt; 元素的内容之后插入内容。</td>
+	<td>2</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_lang.asp" title="CSS :lang(language) 选择器">:lang(<i>language</i>)</a></td>
-<td>p:lang(it)</td>
-<td>选择带有以 "it" 开头的 lang 属性值的每个 &lt;p&gt; 元素。</td>
-<td>2</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_lang.asp" title="CSS :lang(language) 选择器">:lang(<i>language</i>)</a></td>
+	<td>p:lang(it)</td>
+	<td>选择带有以 "it" 开头的 lang 属性值的每个 &lt;p&gt; 元素。</td>
+	<td>2</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_gen_sibling.asp" title="CSS element1~element2 选择器"><i>element1</i>~<i>element2</i></a></td>
-<td>p~ul</td>
-<td>选择前面有 &lt;p&gt; 元素的每个 &lt;ul&gt; 元素。</td>
-<td>3</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_gen_sibling.asp" title="CSS element1~element2 选择器"><i>element1</i>~<i>element2</i></a></td>
+	<td>p~ul</td>
+	<td>选择前面有 &lt;p&gt; 元素的每个 &lt;ul&gt; 元素。</td>
+	<td>3</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_attr_begin.asp" title="CSS [attribute^=value] 选择器">[<i>attribute</i>^=<i>value</i>]</a></td>
-<td>a[src^="https"]</td>
-<td>选择其 src 属性值以 "https" 开头的每个 &lt;a&gt; 元素。</td>
-<td>3</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_attr_begin.asp" title="CSS [attribute^=value] 选择器">[<i>attribute</i>^=<i>value</i>]</a></td>
+	<td>a[src^="https"]</td>
+	<td>选择其 src 属性值以 "https" 开头的每个 &lt;a&gt; 元素。</td>
+	<td>3</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_attr_end.asp" title="CSS [attribute$=value] 选择器">[<i>attribute</i>$=<i>value</i>]</a></td>
-<td>a[src$=".pdf"]</td>
-<td>选择其 src 属性以 ".pdf" 结尾的所有 &lt;a&gt; 元素。</td>
-<td>3</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_attr_end.asp" title="CSS [attribute$=value] 选择器">[<i>attribute</i>$=<i>value</i>]</a></td>
+	<td>a[src$=".pdf"]</td>
+	<td>选择其 src 属性以 ".pdf" 结尾的所有 &lt;a&gt; 元素。</td>
+	<td>3</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_attr_contain.asp" title="CSS [attribute*=value] 选择器">[<i>attribute</i>*=<i>value</i>]</a></td>
-<td>a[src*="abc"]</td>
-<td>选择其 src 属性中包含 "abc" 子串的每个 &lt;a&gt; 元素。</td>
-<td>3</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_attr_contain.asp" title="CSS [attribute*=value] 选择器">[<i>attribute</i>*=<i>value</i>]</a></td>
+	<td>a[src*="abc"]</td>
+	<td>选择其 src 属性中包含 "abc" 子串的每个 &lt;a&gt; 元素。</td>
+	<td>3</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_first-of-type.asp" title="CSS :first-of-type 选择器">:first-of-type</a></td>
-<td>p:first-of-type</td>
-<td>选择属于其父元素的首个 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。</td>
-<td>3</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_first-of-type.asp" title="CSS :first-of-type 选择器">:first-of-type</a></td>
+	<td>p:first-of-type</td>
+	<td>选择属于其父元素的首个 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。</td>
+	<td>3</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_last-of-type.asp" title="CSS :last-of-type 选择器">:last-of-type</a></td>
-<td>p:last-of-type</td>
-<td>选择属于其父元素的最后 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。</td>
-<td>3</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_last-of-type.asp" title="CSS :last-of-type 选择器">:last-of-type</a></td>
+	<td>p:last-of-type</td>
+	<td>选择属于其父元素的最后 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。</td>
+	<td>3</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_only-of-type.asp" title="CSS :only-of-type 选择器">:only-of-type</a></td>
-<td>p:only-of-type</td>
-<td>选择属于其父元素唯一的 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。</td>
-<td>3</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_only-of-type.asp" title="CSS :only-of-type 选择器">:only-of-type</a></td>
+	<td>p:only-of-type</td>
+	<td>选择属于其父元素唯一的 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。</td>
+	<td>3</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_only-child.asp" title="CSS :only-child 选择器">:only-child</a></td>
-<td>p:only-child</td>
-<td>选择属于其父元素的唯一子元素的每个 &lt;p&gt; 元素。</td>
-<td>3</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_only-child.asp" title="CSS :only-child 选择器">:only-child</a></td>
+	<td>p:only-child</td>
+	<td>选择属于其父元素的唯一子元素的每个 &lt;p&gt; 元素。</td>
+	<td>3</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_nth-child.asp" title="CSS :nth-child(n) 选择器">:nth-child(<i>n</i>)</a></td>
-<td>p:nth-child(2)</td>
-<td>选择属于其父元素的第二个子元素的每个 &lt;p&gt; 元素。</td>
-<td>3</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_nth-child.asp" title="CSS :nth-child(n) 选择器">:nth-child(<i>n</i>)</a></td>
+	<td>p:nth-child(2)</td>
+	<td>选择属于其父元素的第二个子元素的每个 &lt;p&gt; 元素。</td>
+	<td>3</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_nth-last-child.asp" title="CSS :nth-last-child(n) 选择器">:nth-last-child(<i>n</i>)</a></td>
-<td>p:nth-last-child(2)</td>
-<td>同上，从最后一个子元素开始计数。</td>
-<td>3</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_nth-last-child.asp" title="CSS :nth-last-child(n) 选择器">:nth-last-child(<i>n</i>)</a></td>
+	<td>p:nth-last-child(2)</td>
+	<td>同上，从最后一个子元素开始计数。</td>
+	<td>3</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_nth-of-type.asp" title="CSS :nth-of-type(n) 选择器">:nth-of-type(<i>n</i>)</a></td>
-<td>p:nth-of-type(2)</td>
-<td>选择属于其父元素第二个 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。</td>
-<td>3</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_nth-of-type.asp" title="CSS :nth-of-type(n) 选择器">:nth-of-type(<i>n</i>)</a></td>
+	<td>p:nth-of-type(2)</td>
+	<td>选择属于其父元素第二个 &lt;p&gt; 元素的每个 &lt;p&gt; 元素。</td>
+	<td>3</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_nth-last-of-type.asp" title="CSS :nth-last-of-type(n) 选择器">:nth-last-of-type(<i>n</i>)</a></td>
-<td>p:nth-last-of-type(2)</td>
-<td>同上，但是从最后一个子元素开始计数。</td>
-<td>3</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_nth-last-of-type.asp" title="CSS :nth-last-of-type(n) 选择器">:nth-last-of-type(<i>n</i>)</a></td>
+	<td>p:nth-last-of-type(2)</td>
+	<td>同上，但是从最后一个子元素开始计数。</td>
+	<td>3</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_last-child.asp" title="CSS :last-child 选择器">:last-child</a></td>
-<td>p:last-child</td>
-<td>选择属于其父元素最后一个子元素每个 &lt;p&gt; 元素。</td>
-<td>3</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_last-child.asp" title="CSS :last-child 选择器">:last-child</a></td>
+	<td>p:last-child</td>
+	<td>选择属于其父元素最后一个子元素每个 &lt;p&gt; 元素。</td>
+	<td>3</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_root.asp" title="CSS :root 选择器">:root</a></td>
-<td>:root</td>
-<td>选择文档的根元素。</td>
-<td>3</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_root.asp" title="CSS :root 选择器">:root</a></td>
+	<td>:root</td>
+	<td>选择文档的根元素。</td>
+	<td>3</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_empty.asp" title="CSS :empty 选择器">:empty</a></td>
-<td>p:empty</td>
-<td>选择没有子元素的每个 &lt;p&gt; 元素（包括文本节点）。</td>
-<td>3</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_empty.asp" title="CSS :empty 选择器">:empty</a></td>
+	<td>p:empty</td>
+	<td>选择没有子元素的每个 &lt;p&gt; 元素（包括文本节点）。</td>
+	<td>3</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_target.asp" title="CSS :target 选择器">:target</a></td>
-<td>#news:target</td>
-<td>选择当前活动的 #news 元素。</td>
-<td>3</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_target.asp" title="CSS :target 选择器">:target</a></td>
+	<td>#news:target</td>
+	<td>选择当前活动的 #news 元素。</td>
+	<td>3</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_enabled.asp" title="CSS :enabled 选择器">:enabled</a></td>
-<td>input:enabled</td>
-<td>选择每个启用的 &lt;input&gt; 元素。</td>
-<td>3</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_enabled.asp" title="CSS :enabled 选择器">:enabled</a></td>
+	<td>input:enabled</td>
+	<td>选择每个启用的 &lt;input&gt; 元素。</td>
+	<td>3</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_disabled.asp" title="CSS :disabled 选择器">:disabled</a></td>
-<td>input:disabled</td>
-<td>选择每个禁用的 &lt;input&gt; 元素</td>
-<td>3</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_disabled.asp" title="CSS :disabled 选择器">:disabled</a></td>
+	<td>input:disabled</td>
+	<td>选择每个禁用的 &lt;input&gt; 元素</td>
+	<td>3</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_checked.asp" title="CSS :checked 选择器">:checked</a></td>
-<td>input:checked</td>
-<td>选择每个被选中的 &lt;input&gt; 元素。</td>
-<td>3</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_checked.asp" title="CSS :checked 选择器">:checked</a></td>
+	<td>input:checked</td>
+	<td>选择每个被选中的 &lt;input&gt; 元素。</td>
+	<td>3</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_not.asp" title="CSS :not(selector) 选择器">:not(<i>selector</i>)</a></td>
-<td>:not(p)</td>
-<td>选择非 &lt;p&gt; 元素的每个元素。</td>
-<td>3</td>
-</tr>
+	<tr>
+	<td><a href="/cssref/selector_not.asp" title="CSS :not(selector) 选择器">:not(<i>selector</i>)</a></td>
+	<td>:not(p)</td>
+	<td>选择非 &lt;p&gt; 元素的每个元素。</td>
+	<td>3</td>
+	</tr>
 
-<tr>
-<td><a href="/cssref/selector_selection.asp" title="CSS ::selection 选择器">::selection</a></td>
-<td>::selection</td>
-<td>选择被用户选取的元素部分。</td>
-<td>3</td>
-</tr>
-</tbody></table>
-</div>
-</div>
+	<tr>
+	<td><a href="/cssref/selector_selection.asp" title="CSS ::selection 选择器">::selection</a></td>
+	<td>::selection</td>
+	<td>选择被用户选取的元素部分。</td>
+	<td>3</td>
+	</tr>
+	</tbody>
+	</table>
+</article>
 </body>
 </html>

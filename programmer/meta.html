@@ -13,8 +13,9 @@
 	<meta name="keywords" content="" />
 	<meta name="description" content=" " />
 
-	<link rel="stylesheet" type="text/css" href="css/base.css" />
-	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="../css/base.css">
+	<link rel="stylesheet" type="text/css" href="../css/public.css">
+	<link rel="stylesheet" type="text/css" href="../css/page.css">
 </head>
 <body>
 <code>
@@ -35,7 +36,7 @@
 	viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。所有主流浏览器都支持这个设置，包括IE9。对于那些老式浏览器（主要是IE6、7、8），需要使用css3-mediaqueries.js。
 
 	meta标签的format-detection属性是做一些格式检查用的，比如题主提到的：
-<meta name="format-detection" content="telephone=no">
+&lt;meta name="format-detection" content="telephone=no"&gt;
 具体作用：禁止将页面中的一连串数字识别为电话号码、并设置为手机可以拨打的一个连接。
 这个标签的默认值是telephone=yes。
 
