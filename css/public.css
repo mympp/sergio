@@ -7,28 +7,80 @@
 	*page.css是单个页面的精细样式
 */
 /*通用导航*/
-.index-nav{width: 1024px;height: 150px;margin: 0 auto;background-image: url(images/.index-nav_banner.jpg);}
-.index-nav .logo{display: inline;float:left;padding-left:45px;padding-top:5px;}
+.index-nav{
+	width: 1024px;
+	height: 150px;
+	margin: 0 auto;
+	background-image: url(images/.index-nav_banner.jpg);
+}
+.index-nav .logo{
+	display: inline;
+	float:left;
+	padding-left:45px;
+	padding-top:5px;
+}
 /**菜单**/
-.index-nav li:hover{border-bottom: 1px solid blue;}
-.index-nav>ul{list-style:none;padding-top: 50px;float: right;/*步骤1,先让ul浮动，然后让li反方向浮动，就可以实现不用倒序排html*/}
-.index-nav ul li{ 
- 	width: 90px; 
- 	height: 35px; 
- 	display: inline-block; 
+.index-nav li:hover{
+	border-bottom: 1px solid blue;
+}
+.index-nav>ul{
+	list-style:none;
+	padding-top: 50px;
+	float: right;
+/*步骤1,先让ul浮动，然后让li反方向浮动，就可以实现不用倒序排html*/}
+.index-nav ul li{
+ 	width: 90px;
+ 	height: 35px;
+ 	display: inline-block;
  	float: left;/*没有加浮动直接使用display: block会有margin值*//*步骤2,先让ul浮动，然后让li反方向浮动，就可以实现不用倒序排html*/
- 	border-radius: 0px;  }
-.index-nav ul li:hover ul{display:block;}
-.index-nav ul li a{text-align:center; width:90px; height:37px; line-height:35px; display:block; text-decoration:none;}
-.index-nav ul li ul{width: 90px;float: left;display:none;position:relative;}
-.index-nav ul li ul li{}
-.index-nav ul li ul li:hover{}
-.index-nav ul li ul li:hover ul{visibility:visible;}
-.index-nav ul li ul li ul{width: 90px;float: left;visibility:hidden; position:relative;left: 90px;top: -37.5px;}
-.index-nav ul li ul li ul li{}
-.index-nav ul li ul li ul li:hover{}
+ 	border-radius: 0px;
+}
+.index-nav ul li:hover ul{
+	display:block;
+}
+.index-nav ul li a{
+	text-align:center;
+	width:90px;
+	height:37px;
+	line-height:35px;
+	display:block;
+	text-decoration:none;
+}
+.index-nav ul li ul{
+	width: 90px;
+	float: left;
+	display:none;
+	position:relative;
+}
+.index-nav ul li ul li{
+}
+.index-nav ul li ul li:hover{
+}
+.index-nav ul li ul li:hover ul{
+	visibility:visible;
+}
+.index-nav ul li ul li ul{
+	width: 90px;
+	float: left;
+	visibility:hidden;
+	position:relative;
+	left: 90px;
+	top: -37.5px;
+}
+.index-nav ul li ul li ul li{
+}
+.index-nav ul li ul li ul li:hover{
+}
 /*首页视频*/
-.head_video video{width:100%;height:auto;position:absolute;top:0;z-index: -1;}
+.head_video video{
+	width:100%;
+	height:auto;
+	position:absolute;
+	top:0;
+	z-index: -1;
+}
 /**programming**/
 /*logo*/
-.logo{/*-webkit-mask-image: -webkit-gradient(radial, 17 17, 123, 17 17, 138, 	from(rgb(0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0.2)), to(rgb(0, 0, 0)));*//*谷歌下载界面logo闪光效果未实现。*/}
+.logo{
+/*-webkit-mask-image: -webkit-gradient(radial, 17 17, 123, 17 17, 138, 	from(rgb(0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0.2)), to(rgb(0, 0, 0)));
+*//*谷歌下载界面logo闪光效果未实现。*/}
