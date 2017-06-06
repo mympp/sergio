@@ -51,6 +51,14 @@ button::-moz-focus-inner,input::-moz-focus-inner{
 	padding:0;
 	border:0;
 }
+th{
+	background: #d5d5d5;
+	border: 1px solid #aaa;
+}
+td{
+	padding: 10px 5px;
+	border:1px solid #aaa;
+}
 /*code{
 	color:red;
 	padding:5px 10px;
