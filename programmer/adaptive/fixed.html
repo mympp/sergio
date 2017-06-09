@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>固定布局</title>
+<style type="text/css">
+	main{
+		background: #aaa;
+	}
+	header,footer,summary,aside,details,article{
+		background: #ccc;
+	}
+	header,main,summary,details,footer{
+		margin: 0 auto;
+		width: 960px;
+	}
+	body{
+		text-align: center;
+	}
+	header{
+		height: 100px;
+	}
+	main{
+		height: 700px;
+	}
+	summary{
+		height: 50px;
+	}
+	.article1,.article2,.article3{
+		float: left;
+		margin: 10px;
+		height: 500px;
+	}
+	.article1{
+		width: 500px;
+	}
+	.article2{
+		width: 300px;
+	}
+	.article3{
+		width: 100px;
+	}
+	article section{
+		width: 400px;
+		height: 400px;
+		margin: 0 auto;
+		background: #fff;
+	}
+	details{
+		clear: both;
+	}
+	aside{
+		position: absolute;
+		right: 0px;
+		top: 100px;
+		width: 100px;
+	}
+	footer{
+		height: 50px;
+	}
+</style>
+</head>
+<body>
+<header>
+	<p>header</p>
+</header>
+<aside>
+	<p>aside</p>
+</aside>
+<main>
+	<p>main</p>
+	<summary>
+		<p>summary</p>
+	</summary>
+	<article class="article1">
+		<p>article</p>
+		<section><p>section</p></section>	
+	</article>
+	<article class="article2">
+		<p>article</p>
+	</article>
+	<article class="article3">
+		<p>article</p>
+	</article>
+	<details>
+		<p><small>details</small></p>
+	</details>
+</main>
+<footer>
+	<p>footer</p>
+</footer>
+</body>
+</html>

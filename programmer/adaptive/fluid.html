@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>流体布局</title>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+		header,footer,summary,article{
+			background: #ccc;
+		}
+		main{
+			background: #aaa;
+			height: 700px;
+		}
+		header,footer{
+			height: 100px;
+		}
+		header,footer,main{
+			width: 960px;
+			margin: 0 auto;
+		}
+		.article1,.article2,.article3{
+			float: left;
+			height: 500px;
+			margin: 1%;
+		}
+		.article1{
+			width: 50%;
+		}
+		.article2{
+			width: 24%;
+		}
+		.article3{
+			width: 20%;
+		}
+		footer{
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+<header>
+	<p>header</p>
+</header>
+<main>
+	<p>main</p>
+	<summary>
+		<p>summary</p>
+	</summary>
+	<article class="article1">
+		<p>article</p>
+	</article>
+	<article class="article2">
+		<p>article</p>
+	</article>
+	<article class="article3">
+		<p>article</p>
+	</article>
+</main>
+<footer>
+	<p>footer</p>
+</footer>
+</body>
+</html>
