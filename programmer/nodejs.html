@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../css/public.css">
     <link rel="stylesheet" type="text/css" href="../css/page.css">
 
-    <!-- <script async="" src="./七天学会NodeJS_files/analytics.js.下载"></script> -->
+    <!-- <script async="" src="../七天学会NodeJS_files/analytics.js.下载"></script> -->
     <!-- <script>
       (function (tags) {
         var i = 0, len = tags.length;
@@ -165,7 +165,7 @@
         <li>    
             <p>进入解压到的目录，使用以下命令编译和安装。</p>
             <pre><code>
- $ ./configure
+ $ ../configure
  $ make
  $ sudo make install
             </code></pre>
@@ -197,15 +197,15 @@
         <p>编写稍大一点的程序时一般都会将代码模块化。在NodeJS中，一般将代码合理拆分到不同的JS文件中，每一个文件就是一个模块，而文件路径就是模块名。</p>
         <p>在编写每个模块时，都有<code>require</code>、<code>exports</code>、<code>module</code>三个预先定义好的变量可供使用。</p>
         <h4 id="1.5.1">require</h4>
-        <p><code>require</code>函数用于在当前模块中加载和使用别的模块，传入一个模块名，返回一个模块导出对象。模块名可使用相对路径（以<code>./</code>开头），或者是绝对路径（以<code>/</code>或<code>C:</code>之类的盘符开头）。另外，模块名中的<code>.js</code>扩展名可以省略。以下是一个例子。</p>
-    <pre><code>var foo1 = require('./foo');
-    var foo2 = require('./foo.js');
+        <p><code>require</code>函数用于在当前模块中加载和使用别的模块，传入一个模块名，返回一个模块导出对象。模块名可使用相对路径（以<code>../</code>开头），或者是绝对路径（以<code>/</code>或<code>C:</code>之类的盘符开头）。另外，模块名中的<code>.js</code>扩展名可以省略。以下是一个例子。</p>
+    <pre><code>var foo1 = require('../foo');
+    var foo2 = require('../foo.js');
     var foo3 = require('/home/user/foo');
     var foo4 = require('/home/user/foo.js');
 
     // foo1至foo4中保存的是同一个模块的导出对象。</code></pre>
         <p>另外，可以使用以下方式加载和使用一个JSON文件。</p>
-    <pre><code>var data = require('./data.json');</code></pre>
+    <pre><code>var data = require('../data.json');</code></pre>
         <h4 id="1.5.2">exports</h4>
         <p><code>exports</code>对象是当前模块的导出对象，用于导出模块公有方法和属性。别的模块通过<code>require</code>函数使用当前模块时得到的就是当前模块的<code>exports</code>对象。以下例子中导出了一个公有方法。</p>
     <pre><code>exports.hello = function () {
@@ -238,8 +238,8 @@
     exports.count = count;</code></pre>
         <p>该模块内部定义了一个私有变量<code>i</code>，并在<code>exports</code>对象导出了一个公有方法<code>count</code>。</p>
         <p>主模块<code>main.js</code>内容如下：</p>
-    <pre><code>var counter1 = require('./util/counter');
-    var    counter2 = require('./util/counter');
+    <pre><code>var counter1 = require('../util/counter');
+    var    counter2 = require('../util/counter');
 
     console.log(counter1.count());
     console.log(counter2.count());
@@ -267,7 +267,7 @@
         <p>有经验的C程序员在编写一个新程序时首先从make文件写起。同样的，使用NodeJS编写程序前，为了有个良好的开端，首先需要准备好代码的目录结构和部署方式，就如同修房子要先搭脚手架。本章将介绍与之相关的各种知识。</p>
         
         <h3 id="2.1">模块路径解析规则</h3>
-        <p>我们已经知道，<code>require</code>函数支持斜杠（<code>/</code>）或盘符（<code>C:</code>）开头的绝对路径，也支持<code>./</code>开头的相对路径。但这两种路径在模块之间建立了强耦合关系，一旦某个模块文件的存放位置需要变更，使用该模块的其它模块的代码也需要跟着调整，变得牵一发动全身。因此，<code>require</code>函数支持第三种形式的路径，写法类似于<code>foo/bar</code>，并依次按照以下规则解析路径，直到找到模块位置。</p>
+        <p>我们已经知道，<code>require</code>函数支持斜杠（<code>/</code>）或盘符（<code>C:</code>）开头的绝对路径，也支持<code>../</code>开头的相对路径。但这两种路径在模块之间建立了强耦合关系，一旦某个模块文件的存放位置需要变更，使用该模块的其它模块的代码也需要跟着调整，变得牵一发动全身。因此，<code>require</code>函数支持第三种形式的路径，写法类似于<code>foo/bar</code>，并依次按照以下规则解析路径，直到找到模块位置。</p>
         <ol>
             <li>    
                 <p>内置模块</p>
@@ -297,8 +297,8 @@
             body.js
             main.js</code></pre>
         <p>其中<code>cat</code>目录定义了一个包，其中包含了3个子模块。<code>main.js</code>作为入口模块，其内容如下：</p>
-    <pre><code>var head = require('./head');
-    var body = require('./body');
+    <pre><code>var head = require('../head');
+    var body = require('../body');
 
     exports.create = function (name) {
         return {
@@ -327,7 +327,7 @@
         <p>其中<code>package.json</code>内容如下。</p>
     <pre><code>{
         "name": "cat",
-        "main": "./lib/main.js"
+        "main": "../lib/main.js"
     }</code></pre>
         <p>如此一来，就同样可以使用<code>require('/home/user/lib/cat')</code>的方式加载模块。NodeJS会根据包目录下的<code>package.json</code>找到入口模块所在位置。</p>
         
@@ -385,7 +385,7 @@
     /* package.json */
     {
         "name": "node-echo",
-        "main": "./lib/echo.js"
+        "main": "../lib/echo.js"
     }</code></pre>
         <p>以上例子中分类存放了不同类型的文件，并通过<code>node_moudles</code>目录直接使用三方包名加载模块。此外，定义了<code>package.json</code>之后，<code>node-echo</code>目录也可被当作一个包来使用。</p>
         
@@ -413,7 +413,7 @@
         <p>如果使用到的三方包比较多，在终端下一个包一条命令地安装未免太人肉了。因此NPM对<code>package.json</code>的字段做了扩展，允许在其中申明三方包依赖。因此，上边例子中的<code>package.json</code>可以改写如下：</p>
     <pre><code>{
         "name": "node-echo",
-        "main": "./lib/echo.js",
+        "main": "../lib/echo.js",
         "dependencies": {
             "argv": "0.0.2"
         }
@@ -454,9 +454,9 @@
         "dependencies": {              # 三方包依赖，需要指定包名和版本号
             "argv": "0.0.2"
           },
-        "main": "./lib/echo.js",       # 入口模块位置
+        "main": "../lib/echo.js",       # 入口模块位置
         "bin" : {
-            "node-echo": "./bin/node-echo"      # 命令行程序名和主模块位置
+            "node-echo": "../bin/node-echo"      # 命令行程序名和主模块位置
         }
     }</code></pre>
         <p>之后，我们就可以在<code>package.json</code>所在目录下运行<code>npm publish</code>发布代码了。</p>
@@ -981,8 +981,8 @@
         <p><code>https</code>模块与<code>http</code>模块极为类似，区别在于<code>https</code>模块需要额外处理SSL证书。</p>
         <p>在服务端模式下，创建一个HTTPS服务器的示例如下。</p>
     <pre><code>var options = {
-            key: fs.readFileSync('./ssl/default.key'),
-            cert: fs.readFileSync('./ssl/default.cer')
+            key: fs.readFileSync('../ssl/default.key'),
+            cert: fs.readFileSync('../ssl/default.cer')
         };
 
     var server = https.createServer(options, function (request, response) {
@@ -991,13 +991,13 @@
         <p>可以看到，与创建HTTP服务器相比，多了一个<code>options</code>对象，通过<code>key</code>和<code>cert</code>字段指定了HTTPS服务器使用的私钥和公钥。 </p>
         <p>另外，NodeJS支持SNI技术，可以根据HTTPS客户端请求使用的域名动态使用不同的证书，因此同一个HTTPS服务器可以使用多个域名提供服务。接着上例，可以使用以下方法为HTTPS服务器添加多组证书。</p>
     <pre><code>server.addContext('foo.com', {
-        key: fs.readFileSync('./ssl/foo.com.key'),
-        cert: fs.readFileSync('./ssl/foo.com.cer')
+        key: fs.readFileSync('../ssl/foo.com.key'),
+        cert: fs.readFileSync('../ssl/foo.com.cer')
     });
 
     server.addContext('bar.com', {
-        key: fs.readFileSync('./ssl/bar.com.key'),
-        cert: fs.readFileSync('./ssl/bar.com.cer')
+        key: fs.readFileSync('../ssl/bar.com.key'),
+        cert: fs.readFileSync('../ssl/bar.com.cer')
     });</code></pre>
         <p>在客户端模式下，发起一个HTTPS客户端请求与<code>http</code>模块几乎相同，示例如下。</p>
     <pre><code>var options = {
