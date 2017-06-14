@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=0.33">
 	<title>固定布局</title>
 <style type="text/css">
+	body{
+		font-size: 100px;
+	}
 	main{
 		background: #aaa;
 	}
 	header,footer,summary,aside,details,article{
 		background: #ccc;
+		font-size: 1rem;
 	}
 	header,main,summary,details,footer{
 		margin: 0 auto;
-		width: 960px;
+		width: 9.6rem;
 	}
 	body{
 		text-align: center;
 	}
 	header{
-		height: 100px;
+		height: 1rem;
 	}
 	main{
-		height: 700px;
+		height: 7rem;
 	}
 	summary{
-		height: 50px;
+		height: 0.5rem;
 	}
 	.article1,.article2,.article3{
 		float: left;
-		margin: 10px;
-		height: 500px;
+		margin: 0.1rem;
+		height: 5rem;
 	}
 	.article1{
-		width: 500px;
+		width: 5rem;
 	}
 	.article2{
-		width: 300px;
+		width: 3rem;
 	}
 	.article3{
-		width: 100px;
+		width: 1rem;
 	}
 	article section{
-		width: 400px;
-		height: 400px;
+		width: 4rem;
+		height: 4rem;
 		margin: 0 auto;
 		background: #fff;
 	}
@@ -50,14 +55,37 @@
 	}
 	aside{
 		position: absolute;
-		right: 0px;
-		top: 100px;
-		width: 100px;
+		right: 0rem;
+		top: 1rem;
+		width: 1rem;
 	}
 	footer{
-		height: 50px;
+		height: 0.5rem;
 	}
 </style>
+<script>
+
+(function () {
+
+size();
+
+window.onresize = function () {
+
+size();
+
+};
+
+function size() {
+
+var winW = document.documentElement.clientWidth || document.body.clientWidth;
+
+document.documentElement.style.fontSize = winW / 100 +'px';
+
+}
+
+})();
+
+</script>
 </head>
 <body>
 <header>

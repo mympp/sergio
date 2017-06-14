@@ -7,6 +7,9 @@
 	*page.css是单个页面的精细样式
 */
 /*自行更改*/
+body{
+	font-family: Helvetica,Tahoma,Arial,"Hiragino Sans GB","Microsoft YaHei",SimSun,Heiti,sans-serif;
+}
 @charset "utf-8";
 html,body,dl,dd,h1,h2,h3,h4,h5,h6,p,form{
 	margin:0;
