@@ -40,3 +40,16 @@
 .little-table{
 	width:100%;
 }
+
+/**示例CSS样式**/
+/*adaptive/adaptive.html*/
+.img-wrapbox{
+	width: 200px;
+}
+.img-wrap {
+	display: inline-block;
+}
+.img-wrap img {
+    width: 100%;
+    vertical-align: middle;
+}

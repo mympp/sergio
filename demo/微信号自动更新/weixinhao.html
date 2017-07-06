@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+<script src="jquery-1.js"></script>
+<script type="text/javascript">
+   $(function(){
+   var temp_array=["yueyue12658","yueyue18243","yueyue13598","yueyue18658"];
+   var arrIndex = Math.floor(Math.random()*temp_array.length);
+   var weixin = temp_array[arrIndex];
+   window.weixinhao = weixin;
+
+    var getQueryString = function(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");  
+        var r = window.location.search.substr(1).match(reg);  
+        if (r != null) return unescape(r[2]);  
+        return null;  
+    }
+    var value = getQueryString('weixin');
+
+    if(value!==null){
+      weixin = value
+    } 
+
+    $(".weixin").text(weixin);  
+
+   });
+
+
+   function jump(page){
+    var getQueryString = function(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");  
+        var r = window.location.search.substr(1).match(reg);  
+        if (r != null) return unescape(r[2]);  
+        return null;  
+    }
+    var wxh = getQueryString('weixin');
+
+    var url = page+".html";
+    if(wxh==null){
+      wxh = window.weixinhao;
+      
+    } 
+url = url+"?weixin="+wxh;
+      window.location.href=url;
+   }
+
+</script>
+</head>
+<body>
+<p>微信号每次刷新自动更新：<span class="weixin">yueyue12658</span></p>
+</body>
+</html>

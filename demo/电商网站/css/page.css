@@ -1,0 +1,71 @@
+/**page单页面样式表**/
+/**作者:sergiolin**/
+/**创建于:2017.07.02**/
+/*此项目有三个CSS文件：
+	*base.css是css reset以及通用CSS样式库，
+	*public.css是此项目基础结构样式以及统一的设计风格样式库
+	*page.css是单个页面的精细样式
+*/
+/*首页*/
+header{
+	width: 100%;
+
+}
+header .htop{
+	height: 31px;
+	line-height: 31px;
+}
+.htop .fl i{
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	background: url(../images/icon/1.png) no-repeat;
+	background-position: 0px 2px;
+	background-size: 15px 15px;
+}
+.htop span a{
+	color: #aaa;
+}
+.htop span a:hover{
+	color: red;
+}
+
+header .hmiddle{
+	height: 84px;
+	background: #1d7ad9;
+}
+.hmiddle .logo{
+	width: 111px;
+	height: 59px;
+	padding: 13px 40px;
+}
+.hmiddle .search input{
+	width: 360px;
+	height: 35px;
+	margin: 23px 0 23px 182px;
+	padding: 0;
+	border: 1px solid #fff;
+}
+.hmiddle .search label{
+	width: 70px;
+	height: 35px;
+	background: #ff8c00;
+	line-height: 35px;
+	color: #fff;
+	letter-spacing: 5px;
+	text-align: center;
+	display: inline-block;
+	position: relative;
+	top: 2px;
+	left: -5px;
+	border: 1px solid #ff8c00;
+}
+.hmiddle .shopcar{
+	width: 145px;
+	height: 35px;
+	background: #ff8c00;
+}
+
+header .hnav{
+	height: 20px;
+}

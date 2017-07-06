@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>表单美化-复选按钮(bug)</title>
+<style type="text/css">
+	.typeList{
+		width: 540px;
+		height: 30px;
+		margin: 30px auto;
+	}
+	.typeList ul{
+		height: 30px;
+		overflow: hidden;
+		line-height: 30px;
+		padding-left: 10px;
+		border: 1px solid #ccc;
+	}
+	.typeList ul li{
+		list-style: none;
+		float: left;
+		margin-right: 10px;
+		position: relative;
+	}
+	.typeList ul label{
+		padding-left: 23px;
+	}
+	.typeList ul input{
+		display: none;
+	}
+	.typeList ul b{
+		width: 20px;
+		height: 20px;
+		display: block;
+		background: url(checkbox.gif) no-repeat -12px -18px;
+		position: absolute;
+		top: 6px;
+		left: 0px;
+	}
+	.typeList ul li:hover b{
+		background-position: -12px -118px;
+	}
+	.typeList ul .seleccted b,.typeList ul .seleccted:hover b{
+		background-position: -12px -218px;
+	}
+</style>
+</head>
+<body>
+<div class="typeList">
+	<form action="#" method="post" name="typeList">
+		<ul id="checkList">
+            <li class="selected"><input type="checkbox" name="type" id="x" value=""/><label for="x">消费者保障</label></li>
+            <li><input type="checkbox" name="type" id="po" value=""/><label for="po">破损补寄</label></li>
+            <li><input type="checkbox" name="type" id="s" value=""/><label for="s">7天退换</label></li>
+            <li><input type="checkbox" name="type" id="z" value=""/><label for="z">正品保障</label></li>
+            <li><input type="checkbox" name="type" id="d" value=""/><label for="d">电子凭证</label></li>
+            <li><input type="checkbox" name="type" id="wang" value=""/><label for="wang">旺旺在线</label></li>
+            <li><input type="checkbox" name="type" id="p" value=""/><label for="p">品牌授权</label></li>
+            <li><input type="checkbox" name="type" id="h" value=""/><label for="h">货到付款</label></li>
+            <li><input type="checkbox" name="type" id="cre" value=""/><label for="cre">信用卡</label></li>
+		</ul>
+	</form>
+</div>
+<script type="text/javascript">
+	function addLoadEvent(func){
+		var oldonload = window.onload;//得到上一个onload事件的函数；
+		if (typeof window.onload != 'function') {//判断类型是否为‘function，注意typeof返回的是字符串
+			window.onload = func;
+		} else {
+			window.onload = function(){
+				oldonload();//调用之前覆盖的onload事件的函数
+				func();//调用当前事件函数
+			}
+		}
+	}
+	function createTag(){//动态创建b标签
+		var li = document.getElementById("checkList").getElementsByTagName("li");//把所有id为checkList里面的li标签取出来
+		var label;
+		for (var i = 0; i < li.length; i++) {
+			label = li[i].getElementsByTagName("label");//把每个li里面的label取出来
+			var bTag = document.createElment("b");//创建b标签
+			li[i].insertBefore(bTag,label[0]);
+		}
+	}
+	function checklist(){//点击变化效果
+		var li = document.getElementById("checkList").getElementsByTagName("li");//把所有id为checkList里面的li标签取出来
+		for (var i = 0; i < li.length; i++) {
+			li[i].onclick = function(){
+				if (this.className == "selected") {
+					this.className = null;
+				} else {
+					this.className = "selected";
+				}
+			}
+		}
+	}
+	addLoadEvent(createTag);
+	addLoadEvent(checkList);
+</script>
+</body>
+</html>

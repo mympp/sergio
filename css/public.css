@@ -6,9 +6,11 @@
 	*public.css是此项目基础结构样式以及统一的设计风格样式库
 	*page.css是单个页面的精细样式
 */
+/*通用样式*/
+
 /*通用导航*/
 .index-nav{
-	width: 1024px;
+	max-width: 860px;
 	height: 150px;
 	margin: 0 auto;
 	background-image: url(images/.index-nav_banner.jpg);
@@ -19,26 +21,29 @@
 	padding-left:45px;
 	padding-top:5px;
 }
+nav.index-nav p{
+	text-indent: 2em;
+}
 /**菜单**/
-.index-nav li:hover{
+nav.index-nav li:hover{
 	border-bottom: 1px solid blue;
 }
-.index-nav>ul{
+nav.index-nav>ul{
 	list-style:none;
 	padding-top: 50px;
 	float: right;/*步骤1,先让ul浮动，然后让li反方向浮动，就可以实现不用倒序排html*/
 }
-.index-nav ul li{
+nav.index-nav ul li{
  	width: 90px;
  	height: 35px;
  	display: inline-block;
  	float: left;/*没有加浮动直接使用display: block会有margin值*//*步骤2,先让ul浮动，然后让li反方向浮动，就可以实现不用倒序排html*/
  	border-radius: 0px;
 }
-.index-nav ul li:hover ul{
+nav.index-nav ul li:hover ul{
 	display:block;
 }
-.index-nav ul li a{
+nav.index-nav ul li a{
 	text-align:center;
 	width:90px;
 	height:37px;
@@ -46,20 +51,20 @@
 	display:block;
 	text-decoration:none;
 }
-.index-nav ul li ul{
+nav.index-nav ul li ul{
 	width: 90px;
 	float: left;
 	display:none;
 	position:relative;
 }
-.index-nav ul li ul li{
+nav.index-nav ul li ul li{
 }
-.index-nav ul li ul li:hover{
+nav.index-nav ul li ul li:hover{
 }
-.index-nav ul li ul li:hover ul{
+nav.index-nav ul li ul li:hover ul{
 	visibility:visible;
 }
-.index-nav ul li ul li ul{
+nav.index-nav ul li ul li ul{
 	width: 90px;
 	float: left;
 	visibility:hidden;
@@ -67,9 +72,9 @@
 	left: 90px;
 	top: -37.5px;
 }
-.index-nav ul li ul li ul li{
+nav.index-nav ul li ul li ul li{
 }
-.index-nav ul li ul li ul li:hover{
+nav.index-nav ul li ul li ul li:hover{
 }
 /*首页视频*/
 .head_video video{

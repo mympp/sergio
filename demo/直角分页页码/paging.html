@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>直角普通分页页码</title>
+<style type="text/css">
+	.page-normal,.page-normal a,.page-normal .page-current{
+		color: #ff6500;
+	}
+	.page-normal a,.page-normal .page-current,.page-normal .page-prev{
+		padding:5px 7px;
+		font-size: 18px;
+		margin-left: 10px;
+	}
+	.page-normal{
+		text-align: center;
+		font-size: 0;
+	}
+	.page-normal a{
+		border:1px solid #ff9600;
+		text-decoration: none;
+	}
+	.page-normal a:hover{
+		background: #ffbe95;
+	}
+	.page-normal .page-current{
+		border:1px solid #ff9600;
+		background: #ffbe95;
+	}
+	.page-normal .page-prev{
+		border: 1px solid #ffe3c6;
+	}
+	.page-icon i{
+		cursor:pointer;
+		display: inline-block;
+		width: 5px;
+		height: 9px;
+		background: url(ba_hotsale.jpg);
+	}
+	.page-disabled i{
+		background-position:-80px -608px;
+	}
+	.page-next i{
+		background-position:-62px -608px;
+	}
+	.page-normal .page-icon{
+		font-size: 14px;
+	}
+	.page-normal .elicps{
+		font-size: 14px;
+		border: none;
+		margin-left: 8px;
+	}
+</style>
+</head>
+<!-- 行内元素中间有间隙
+产生原因：换行符、tab（制表符）、空格产生空隙
+解决方法： 1、元素写成一行 2、设置font-size:0； -->
+<body>
+<div class="page-normal">
+	<span class="page-icon page-disabled"><i></i>上一页</span>
+	<span class="page-prev">&lt;</span>
+	<span class="page-current">1</span>
+	<a href="">2</a>
+	<a href="">3</a>
+	<a href="">4</a>
+	<a href="">5</a>
+	<a href="">6</a>
+	<a href="">7</a>
+	<span class="elicps">...</span>
+	<a href="">198</a>
+	<a href="">199</a>
+	<a href="">200</a>
+	<span class="page-prev">&gt;</span>
+	<span class="page-icon page-next">下一页<i></i></span>
+</div>
+</body>
+</html>

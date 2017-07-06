@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>表单美化-文本框</title>
+	<link rel="stylesheet" type="text/css" href="http://linshaojia.com/css/base.css">
+<style type="text/css">
+	.contact *{
+		outline: none;
+	}
+	.contact{
+		width: 700px;
+		height: auto;
+		margin: 40px auto;
+		padding: 10px;
+	}
+	.contact ul{
+		width: 700px;
+	}
+	.contact ul li{
+		border-bottom: 1px solid #ccc;
+		padding: 12px;
+	}
+	.contact ul li label{
+		width: 120px;
+		display: inline-block;
+		float: left;
+	}
+	.contact ul li input[type=text]{
+		width: 220px;
+		height: 20px;
+		border: 1px solid #000;
+		border-radius: 5px;
+		background: url(red_asterisk.png) no-repeat #fff 98%;
+		padding: 3px 8px;
+		transition: padding .25s;
+		-webkit-transition: padding .25s;
+		-moz-transition: padding .25s;
+		-o-transition: padding .25s;
+	}
+	.contact ul li input:focus{
+		border-color: #c00;
+		padding-right: 70px;
+		background: url(invalid.png) no-repeat #fff 98%;
+	}
+</style>
+</head>
+<body>
+<div class="contact">
+	<form action="#" method="post" name="textForm">
+		<ul>
+			<li>
+				<label>姓名：</label>
+				<input type="text" name="yourname" placeholder="SunBest" required="必须填写"><!-- HTML5<input>中使用的属性placeholder、required替换旧的value值 -->
+			</li>
+		</ul>
+	</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="http://linshaojia.com/css/base.css">
+<style type="text/css">
+	body{
+		font-size: 12px;
+	}
+	.type{
+		width: 400px;
+		height: 32px;
+		border: 1px solid #ccc;
+		margin: 30px auto 0;
+	}
+	.type dl{
+		height: 32px;
+		padding-left: 10px;
+		line-height: 32px;
+	}
+	.type dl dt{
+		float: left;
+	}
+	.type dl dd{
+		float: left;
+		padding-left: 23px;
+		position: relative;
+		margin: 0 10px 0 8px;
+	}
+	.type dl a:hover{
+		color: red;
+		text-decoration: underline;
+	}
+	.type dl b{
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		top: 6px;
+		left: 0;
+		background: url(radiobutton.gif) no-repeat -15px -18px;/*通过背景图片仿表单效果*/
+	}
+	.type dl dd a:hover b{
+		background-position: -15px -118px;
+	}
+	.type dl .selected b,.type dl .selected a:hover b{
+		background-position:  -15px -218px;
+	}
+</style>
+</head>
+<body>
+<div class="type">
+	<!-- <form action="#" method="post" name="typeForm">
+		<label>配送类型：</label>
+		<input type="radio" name="type" checked="checked"><label>全部</label>
+		<input type="radio" name="type"><label>京东配送</label>
+		<input type="radio" name="type"><label>第三方配送</label>
+	</form> -->
+	<dl id="type">
+    	<dt>配送类型：</dt>
+        <dd class="selected" onclick="show(0)"><a href="#"><b></b>全部</a></dd>
+        <dd><a href="#" onclick="show(1)"><b></b>京东配送</a></dd>
+        <dd><a href="#" onclick="show(2)"><b></b>第三方配送</a></dd>
+    </dl>
+</div>
+<script type="text/javascript">
+// JavaScript Document
+
+function $(id){
+	return document.getElementById(id);
+}
+
+function addLoadEvent(func) { 
+	var oldonload = window.onload; 
+	if (typeof window.onload != 'function') { 
+		window.onload = func; 
+	} 
+	else { 
+		window.onload = function() { 
+		oldonload(); 
+		func(); 
+		} 
+	} 
+} 
+
+function show(index){
+	var dd = $("type").getElementsByTagName("dd");
+	for(var i=0;i<dd.length;i++){
+		if(i==index){
+			dd[i].className="selected";
+		}
+		else{
+			dd[i].className=null;
+		}
+	}
+}
+</script>
+</body>
+</html>

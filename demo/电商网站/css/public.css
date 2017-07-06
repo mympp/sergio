@@ -1,0 +1,30 @@
+/**public公共样式表**/
+/**作者:sergiolin**/
+/**创建于:2017.07.02**/
+/*此项目有三个CSS文件：
+	*base.css是css reset以及通用CSS样式库，
+	*public.css是此项目基础结构样式以及统一的设计风格样式库
+	*page.css是单个页面的精细样式
+*/
+/*通用导航*/
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.cl{
+	clear: both;
+}
+.wdauto{
+	width: 1000px;
+	margin: 0 auto;
+}
+.f12{
+	font-size: 12px;
+}
+.fw7{
+	font-weight: 700;
+}
+/**菜单**/
+/*主结构*/

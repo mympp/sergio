@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	// 在匿名函数内使用callee属性来引用匿名函数自身，
+	// 以便实现递归
+	var factorial = function(x){
+		if (x < 2) return 1;
+		else return x * arguments.callee(x-1)
+	}
+	var y = factorial(5);//返回120
+</script>
+<script type="text/javascript">
+	'use strict'
+	// 廖雪峰教程
+	
+	// 对象：
+	var person = {
+		name: 'Bob',
+		age: 20,
+		tags: ['js','web','mobile'],
+		city: 'Beijing',
+		hasCar: true,
+		zipcode: null
+	};
+	// 获取对象属性
+	person.name;//'Bob'
+	person.zipcode;//null
+	
+	//变量
+	var a;//申明变量a，此时a的值为undefined
+	var $b = 1;//申明了变量$b，同时给$b赋值，值为1
+	var s_007 = '007';//s_007是一个字符串
+	var Answer = true;//Answer是一个布尔值true
+	var t = null;//t的值为null
+	var mored = `这是一个
+	多行
+	字符串`
+	// 如果'本身也是一个字符，那就可以用""括起来
+	
+	var message = '你好，' + person.name + '，你今年' + person.age + '岁了！';
+	alert(message);
+
+	// 操作字符串
+	var s = "Hello, world!";
+	alert(s.length);//13
+	alert(s[0]);//'H'
+	alert(s[6]);//' '
+	alert(s[12])//'!'
+	alert(s[13])//undefined
+	// var sx = "Test";
+	// sx[0] = "X";
+	// alert(sx);//s仍然为'Test'
+
+	// var upper = s.toUpperCase;//把一个字符串改为大写。
+	// alert(upper);
+	// var lower = s.toLowerCase;//改为小写；
+	// alert(lower);
+
+	// var location = s.indexOf('world');//搜索指定字符串出现的位置。返回7
+	// alert(location);
+	// var location1 = s.indexOf('World')//没有找到指定子串，返回-1
+	// alert(location1);
+	// var section = s.substring(0,5);//返回指定索引区间的子串从索引0开始到5（不包括5），返回'Hello'
+	// alert(section);
+	// var section1 = s.subsring(7);//从索引7开始到结束，返回'world'
+	// alert(section1);
+	
+	//要取得数组的长度，直接访问length属性；
+	var arr = [1,2,3.14,'Hello',null,true];
+	alert(arr.length);
+	//直接给数组的length值赋一个新的值会导致数组的大小变化；
+	var arr = [1,2,3];
+	alert(arr.length);
+	arr.length = 6;
+	alert(arr);//arr变为[1,2,3,undefined,undefined,undefined]
+	arr.length = 2;
+	alert(arr);
+	// 修改也可以
+	var arr = ['A','B','C'];
+	arr[1] = 99;
+	alert(arr);//arr变为['A',99,'C']
+	var arr = ['1','2','3'];
+	arr[5] = 'x';
+	alert(arr);//arr变为['1','2','3',undefined,undefined,'x']
+
+	// indexOf()搜索一个指定的元素的位置。
+	var arr = [10,20,'30','xyz'];
+	alert(arr.indexOf(30));//没有找到元素30，返回-1
+	alert(arr.indexOf('30'));
+
+	// slice()截取数组的部分元素，返回一个新的数组
+	var arr = ['A','B','C','D','E','F','G']
+	alert(arr.slice(0,3));//从索引0开始，到索引3结束，但不包括索引3: ['A', 'B', 'C']
+	alert(arr.slice(3)); // 从索引3开始到结束: ['D', 'E', 'F', 'G']
+	var aCopy = arr.slice();
+	alert(aCopy === arr);//false
+
+	//push向数组的末尾添加若干元素，pop()把数组最后一个元素删掉。
+	var arr = [1,2];
+	arr.push('A');
+	alert(arr);
+	arr.pop();
+	alert(arr);
+	arr.pop();arr.pop();arr.pop();
+	alert(arr);
+	arr.pop();
+	alert(arr);
+</script>
+</body>
+</html>

@@ -4,25 +4,222 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" />
 	<link rel="shortcut icon" href="images/favicon.ico" type="favicon.ico" />
-	<title></title>
+	<title>适配移动端</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
 
-	<link rel="stylesheet" type="text/css" href="../css/base.css">
-	<link rel="stylesheet" type="text/css" href="../css/public.css">
-	<link rel="stylesheet" type="text/css" href="../css/page.css">
+	<link rel="stylesheet" type="text/css" href="/sergio/css/base.css">
+	<link rel="stylesheet" type="text/css" href="/sergio/css/public.css">
+	<link rel="stylesheet" type="text/css" href="/sergio/css/page.css">
+
+	<link rel="stylesheet" type="text/css" href="/sergio/TPPS/highlight/styles/Ocean.css">
 </head>
 <body>
-<header>
+
+<!-- nav -->
+<nav class="index-nav" style="border: 1px solid #ccc;"><a id="BackTop"></a>
+	<div class="logo">
+		<img src="/sergio/images/logo2.gif" alt="Logo" width="250px"><!--logo 为名字签名手写体-->
+	</div>
+	<ul>
+		<li class=""><a href="index.html">首页</a></li>
+		<li><a href="production.html">作品</a></li>
+		<li><a href="">程序猿</a>
+			<ul>
+				<li><a href="">HTML5</a>
+					<ul>
+						<li><a href="/sergio/programmer/html5.html">HTML5</a></li>
+						<li><a href="/sergio/programmer/html5new.html">HTML5新标签</a></li>
+						<li><a href="/sergio/programmer/meta.html">meta</a></li>
+						<li><a href="/sergio/programmer/viewport.html">viewport</a></li>
+					</ul>
+				</li>
+				<li><a href="">CSS3</a>
+					<ul>
+						<li><a href="/sergio/programmer/css3search.html">CSS3参考</a></li>
+						<li><a href="/sergio/programmer/css3.html">CSS3</a></li>
+						<li><a href="/sergio/programmer/center.html">居中</a></li>
+					</ul>
+				</li>
+				<li><a href="">JavaScript</a>
+					<ul>
+						<li><a href="/sergio/programmer/javascript">JavaScript</a></li>
+						<li><a href="/sergio/programmer/ajax.html">Ajax</a></li>
+					</ul>
+				</li>
+				<li><a href="/sergio/programmer/nodejs.html">Node.js</a></li>
+				<li><a href="">网站可用性</a>
+					<ul>
+						<li><a href="/sergio/programmer/awdrwd.html">AWDRWD</a></li>
+						<li><a href=""></a></li>
+					</ul>
+				</li>
+				<li><a href="/sergio/programmer/chart.html">可视化图形</a></li>
+				<li><a href="/sergio/programmer/st3.html">sublime text 3</a></li>
+				<li><a href=""></a></li>
+			</ul>
+		</li><!--两种模式点击和键盘输入。1，纯键盘输入，页面底下代码输入，背景关键词星系旋转悬停显示“请用键盘输入”。2，鼠标正常点击。-->
+		<li><a href="human.html">人类</a></li><!--未来多条分支虚拟化，并设置投票。-->
+		<li><a href="funny.html">娱乐</a></li><!--包含游戏、音乐、读书-->
+		<li><a href="aboutme.html">找到我</a></li>
+	</ul>
+	<!-- <div class="clean_float"></div>
+	<div class="head_video">
+		<div class="head_img"></div>
+		<video loop="loop" preload="auto">
+			<source src="images/index.mp4" type="video/mp4">
+			<source src="images/index.mp4" type="video/mp4">
+			<source src="images/index.mp4" type="video/ogg">
+		</video>
+	</div> -->
 	
-</header>
-<main>
+</nav>
+<!-- nav End -->
+<main class="index-nav">
+	<!-- 响应式AWD RWD的区别 -->
 	<article>
-		
+		<div>
+			<h3>响应式AWD RWD的区别</h3>
+			<p>其实RWD和AWD都是响应式设计，从外观上很难分辨，但他们自己运行机理不同，RWD是主动式的响应设计，AWD是被动式的响应式设计，RWD不管用户使用的是什么设备都是在服务器把数据推送到浏览器后，脚本或CSS自行侦测屏幕大小后执行对应的样式表内容，并且一直通过本地脚本在监听屏幕大小的变化，随时做出样式响应的变化，所以是主动的。但AWD是用户通过浏览器发送请求后，服务器根据请求中夹带的用户设备设备信息做出判断，调用已经在服务器里准备好的，适应对应设备样式文件+HTML内容+JS，返回给浏览器以这种方式响应不同设备。</p>
+		</div>
+		<div>
+			<p>1、RWD的基本条件就是允许网页宽度自动调整<pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;</code></pre>viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。所有主流浏览器都支持这个设置，包括IE9。对于那些老式浏览器（主要是IE6、7、8），需要使用css3-mediaqueries.js。</p>
+			<ul>
+				<li>width：控制 viewport 的大小，可以指定的一个值，如果 600，或者特殊的值，如 device-width 为设备的宽度（单位为缩放为 100% 时的 CSS 的像素）。</li>
+				<li>height：和 width 相对应，指定高度。</li>
+				<li>initial-scale：初始缩放比例，也即是当页面第一次 load 的时候缩放比例。</li>
+				<li>maximum-scale：允许用户缩放到的最大比例。</li>
+				<li>minimum-scale：允许用户缩放到的最小比例。</li>
+				<li>user-scalable：用户是否可以手动缩放。</li>
+			</ul>
+			<ul>CSS3 Media Query常见属性：
+				<li>device-width,	device-height		屏幕宽高</li>
+				<li>width, height		渲染窗口宽高</li>
+				<li>orientation		设备方向</li>
+				<li>resolution		设备分辨率</li>
+			</ul>
+			<p>附：常用meta
+				<pre><code>
+&lt;meta charset="utf-8"&gt;
+&lt;!-- 为了让 IE 浏览器运行最新的渲染模式 --&gt;
+&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+&lt;!-- 为了让 Bootstrap 开发的网站对移动设备友好，确保适当的绘制和触屏缩放。
+加入user-scalable=no 禁止缩放zooming功能，即可滚动屏幕。 --&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+&lt;!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ --&gt;
+&lt;!-- meta标签的format-detection属性是做一些格式检查用的，比如题主提到的：具体作用：禁止将页面中的一连串数字识别为电话号码、并设置
+为手机可以拨打的一个连接。这个标签的默认值是telephone=yes。 --&gt;
+&lt;meta name="format-detection" content="telephone=no"&gt;
+				</code></pre>
+			</p>
+			<p>2、不使用绝对宽度。由于网页会根据屏幕宽度调整布局，所以不能使用绝对宽度的布局，也不能使用具有绝对宽度的元素。这一条非常重要。 具体说，CSS代码不能指定像素宽度： width:xxxpx; 只能指定百分比宽度： width:xx%; 或者 width:auto;</p>
+			<p>3、字体也不能使用绝对大小（px），而只能使用相对大小（em）或（rem）。em相对于父元素，rem相对于html根元素。</p>
+		</div>
+		<div>
+			<h3>适配有以下几种常用方法：</h3>
+			<p><strong>一、流动布局（fluidgrid）</strong>“流动布局”的含义是，各个区块的位置都是浮动的，不是固定不变的。
+			<pre><code>
+.main{float:right;width:70%;}.leftBar{float:left;width:25%;}
+			</code></pre>float的好处是，如果宽度太小，放不下两个元素，后面的元素会自动滚动到前面元素的下方，不会在水平方向overflow（溢出），避免了水平滚动条的出现。另外，绝对定位（position:absolute）的使用，也要非常小心。要注意的是由于网页会根据屏幕宽度调整布局，所以不能使用绝对宽度的布局，也不能使用具有绝对宽度的元素。这一条非常重要，否则会出现横向滚动条。</p>
+			<p><strong>二、选择加载CSS</strong>“自适应网页设计”的核心，就是CSS3引入的MediaQuery模块。它的意思就是，自动探测屏幕宽度，然后加载相应的CSS文件。
+			<pre><code class="html">
+&lt;media=”screenand(max-device-width:400px)”href=”tinyScreen.css”/&gt;
+			</code></pre>
+			上面的代码意思是，如果屏幕宽度小于400像素（max-device-width:400px），就加载tinyScreen.css文件。
+			<pre><code class="html">
+&lt;media=”screenand(min-width:400px)and(max-device-width:600px)”href=”smallScreen.css”/&gt;
+			</code></pre>
+			如果屏幕宽度在400像素到600像素之间，则加载smallScreen.css文件。除了用html标签加载CSS文件，还可以在现有CSS文件中加载。
+			<br />同一个CSS文件中，也可以根据不同的屏幕分辨率，选择应用不同的CSS规则。
+			<pre><code>
+@media screen and(max-device-width:400px){
+.column{float:none;width:auto;}
+#sidebar{display:none;}
+}
+			</code></pre>
+			上面的代码意思是，如果屏幕宽度小于400像素，则column块取消浮动（float:none）、宽度自动调节（width:auto），sidebar块不显示（display:none）。</p>
+		</div>
+	</article>
+
+	<!-- 图片宽度自适应 -->
+	<article>
+		<div>
+			<h3>图片宽度自适应(未完)</h3>
+			<div>
+				<p>图片宽度自适应：
+				<pre><code class="css">img{max-width:100%;height:auto;display: block;}</code></pre>这行代码对于大多数嵌入网页的视频也有效，所以可以写成：<pre><code>img,object{max-width:100%;height:auto;display: block;}</code></pre>老版本的IE不支持max-width，所以只好写成：<code>img{width:100%;}</code>此外，windows平台缩放图片时，可能出现图像失真现象。这时，可以尝试使用IE的专有命令：<code>img{-ms-interpolation-mode:bicubic;}</code>插值图像比原始小图像的简单放大产生更平滑的线条和更好看的图片。该-ms插值模式属性只在Internet Explorer 7的版本支持。
+				或者，EthanMarcotte的imgSizer.js。</p>
+				<pre><code class="js">
+addLoadEvent(function(){
+varimgs=document.getElementById(“content”).getElementsByTagName(“img”);
+imgSizer.collate(imgs);
+});
+				</code></pre>
+				<p>最好还是做适配分辨率的图片。有很多方法可以做到同样效果，服务器端和客户端都可以实现。</p>
+				<code>tips：margin-left:auto;margin-right:auto;</code>
+			</div>
+
+			<div class="img-wrapbox">	
+				<div class="img-wrap">
+				    <img src="/sergio/images/test.jpg"	width="200px" alt="">
+				</div>
+				<div class="img-wrap">
+				    <img src="/sergio/images/test.jpg"	width="200px" alt="">
+				</div>
+				<div class="img-wrap">
+				    <img src="/sergio/images/test.jpg"	width="200px" alt="">
+				</div>
+			</div>
+			<pre><code class="html">
+&lt;div class="img-wrap"&gt;
+    &lt;img src="imgs/560x200.jpg" alt=""&gt;
+&lt;/div&gt;
+&lt;div class="img-wrap"&gt;
+    &lt;img src="imgs/440x200.jpg" alt=""&gt;
+&lt;/div&gt;
+&lt;div class="img-wrap"&gt;
+    &lt;img src="imgs/300x200.jpg" alt=""&gt;
+&lt;/div&gt;
+			</code></pre>
+		</div>
+		<div>css设置最小高度，然后自适应：
+		<pre><code class="css">
+min-height:400px;//（解决ie8.9.ff.chrome）*+height:100%;//（解决ie7）
+_height:400px;//（解决ie6） ie6超出自动溢出
+min-height:400px; height:auto!important; height:400px;
+		</code></pre>
+		</div>
+	</article>
+
+	<!-- 字体适配 -->
+	<article>
+		<div>
+			<h3>字体适配</h3>
+			<ul>
+				<li><strong>px像素（Pixel）</strong>。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。(引自CSS2.0手册)</li>
+				<li><strong>em</strong>是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸，em会继承父级元素的字体大小。(引自CSS2.0手册)</li>
+				<li><strong>rem</strong>是CSS3新增的一个相对单位（root em，根em），相对于HTML根元素。IE8以及更早版本不兼容，可以多些一个绝对单位如p {font-size:14px; font-size:.875rem;}。</li>
+			</ul>
+			<p>1em=16px， body选择器中声明Font-size=62.5%；  将你的原来的px数值除以10，然后换上rem作为单位。<br />
+			默认字体16px，h1是默认字体的1.5倍即24px，small是默认的0.875倍即14px，<br />
+			几乎所有浏览器通常都提供了文本缩放功能（注意：非整页缩放），这是浏览器对网页可访问性提供的最基础的支持。所以PX固定单位不会随IE缩放。</p>
+			<ul>移动端常规字体：
+				<li>● IOS:常选择华文黑体或者冬青黑体，尤其是冬青黑体效果最好。</li>
+				<li>● 导航主标题字号：40-42px，偏小的40px精致些。</li>
+				<li>● 大的正文字号32px,副文是26px，小字20px</li>
+				<li>● 列表形式、工具化的APP普遍是正文32px，不加粗。副文案26px,小字20px</li>
+				<li>● 26px的字号还会用于划分类别的提示文案，因为这样的文字希望用户阅读，但不要抢过主列表信息的引导。</li>
+				<li>● 36px的字号还经常运用在页面的大按钮中。为了拉开按钮的层次，同时加强按钮引导性，选用了稍大号的字体。</li>
+				<li>● 在选用字体大小的时候一定要选择偶数的字号，因为在开发界面的时候，字号大小换算是要除以二的。</li>
+			</ul>
+		</div>
 	</article>
 </main>
 <footer>
-	
+	<div></div>
 </footer>
+<!-- 页面代码高亮 -->
+<script type="text/javascript" src="/sergio/TPPS/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
