@@ -83,7 +83,13 @@
 			<p>其实RWD和AWD都是响应式设计，从外观上很难分辨，但他们自己运行机理不同，RWD是主动式的响应设计，AWD是被动式的响应式设计，RWD不管用户使用的是什么设备都是在服务器把数据推送到浏览器后，脚本或CSS自行侦测屏幕大小后执行对应的样式表内容，并且一直通过本地脚本在监听屏幕大小的变化，随时做出样式响应的变化，所以是主动的。但AWD是用户通过浏览器发送请求后，服务器根据请求中夹带的用户设备设备信息做出判断，调用已经在服务器里准备好的，适应对应设备样式文件+HTML内容+JS，返回给浏览器以这种方式响应不同设备。</p>
 		</div>
 		<div>
-			<p>1、RWD的基本条件就是允许网页宽度自动调整<pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;</code></pre>viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。所有主流浏览器都支持这个设置，包括IE9。对于那些老式浏览器（主要是IE6、7、8），需要使用css3-mediaqueries.js。</p>
+			<h3>适配的几个基本要点</h3>
+			<p>1、RWD的基本条件就是允许网页宽度自动调整</p><pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;</code></pre><p>viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。所有主流浏览器都支持这个设置，包括IE9。对于那些老式浏览器（主要是IE6、7、8），需要使用css3-mediaqueries.js。</p>
+			<pre><code>
+&lt;!--[if lt IE 9]&gt;
+	&lt;script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+			</code></pre>
 			<ul>
 				<li>width：控制 viewport 的大小，可以指定的一个值，如果 600，或者特殊的值，如 device-width 为设备的宽度（单位为缩放为 100% 时的 CSS 的像素）。</li>
 				<li>height：和 width 相对应，指定高度。</li>
@@ -98,7 +104,7 @@
 				<li>orientation		设备方向</li>
 				<li>resolution		设备分辨率</li>
 			</ul>
-			<p>附：常用meta
+			<strong>附：常用meta</strong>
 				<pre><code>
 &lt;meta charset="utf-8"&gt;
 &lt;!-- 为了让 IE 浏览器运行最新的渲染模式 --&gt;
@@ -111,33 +117,195 @@
 为手机可以拨打的一个连接。这个标签的默认值是telephone=yes。 --&gt;
 &lt;meta name="format-detection" content="telephone=no"&gt;
 				</code></pre>
-			</p>
 			<p>2、不使用绝对宽度。由于网页会根据屏幕宽度调整布局，所以不能使用绝对宽度的布局，也不能使用具有绝对宽度的元素。这一条非常重要。 具体说，CSS代码不能指定像素宽度： width:xxxpx; 只能指定百分比宽度： width:xx%; 或者 width:auto;</p>
 			<p>3、字体也不能使用绝对大小（px），而只能使用相对大小（em）或（rem）。em相对于父元素，rem相对于html根元素。</p>
 		</div>
+
 		<div>
 			<h3>适配有以下几种常用方法：</h3>
-			<p><strong>一、流动布局（fluidgrid）</strong>“流动布局”的含义是，各个区块的位置都是浮动的，不是固定不变的。
-			<pre><code>
-.main{float:right;width:70%;}.leftBar{float:left;width:25%;}
-			</code></pre>float的好处是，如果宽度太小，放不下两个元素，后面的元素会自动滚动到前面元素的下方，不会在水平方向overflow（溢出），避免了水平滚动条的出现。另外，绝对定位（position:absolute）的使用，也要非常小心。要注意的是由于网页会根据屏幕宽度调整布局，所以不能使用绝对宽度的布局，也不能使用具有绝对宽度的元素。这一条非常重要，否则会出现横向滚动条。</p>
-			<p><strong>二、选择加载CSS</strong>“自适应网页设计”的核心，就是CSS3引入的MediaQuery模块。它的意思就是，自动探测屏幕宽度，然后加载相应的CSS文件。
+			<h4><strong>一，静态布局（Static Layout）</strong></h4>
+			<p>即传统Web设计，采用固定宽度。对于PC设计一个Layout，在屏幕宽高有调整时，使用横向和竖向的滚动条来查阅被遮掩部分；对于移动设备，单独设计一个布局，使用不同的域名如wap.或m.。“然后通过JS检测窗口大小调用不同的html？”</p>
+		</div>
+		<div>
+			<h4><strong>二、流动布局（fluidgrid）</strong></h4>
+			<p>“流动布局”的含义是，各个区块的位置都是浮动的，不是固定不变的。</p><pre><code class="css">.main{float:right;width:70%;}.leftBar{float:left;width:25%;}</code></pre>
+			<p>流式就是采用了一些设置，当宽度大于多少时怎么展示，小于多少时怎么展示，而且展示的方式向水流一样，一部分一部分的加载</p>
+			<p>float的好处是，如果宽度太小，放不下两个元素，后面的元素会自动滚动到前面元素的下方，不会在水平方向overflow（溢出），避免了水平滚动条的出现。另外，绝对定位（position:absolute）的使用，也要非常小心。要注意的是由于网页会根据屏幕宽度调整布局，所以不能使用绝对宽度的布局，也不能使用具有绝对宽度的元素。这一条非常重要，否则会出现横向滚动条。浮动的排版问题，一行多个浮动可以通过设置父元素左浮动，子元素右浮动实现正确排版。</p>
+			<p>流式布局主要的问题是如果屏幕尺度跨度太大，那么在相对其原始设计而言过小或过大的屏幕上不能正常显示。</p>
+		</div>
+		<div>
+			<h4><strong>三、自适应布局。</strong></h4>
+			<p>一种说法是：分别为不同的屏幕分辨率定义布局。布局切换时页面元素发生改变，但在每个布局中，页面元素不随窗口大小的调整发生变化，通过JS选择不同的HTML页面，比如<a href="http://www.ctrip.com/">http://www.ctrip.com/</a>和<a href="http://m.ctrip.com/html5/">http://m.ctrip.com/html5/</a>。你可以把自适应布局看作是静态布局的一个系列。</p>
+			<p>另一种说法是：检测设备，根据不同的设备加载不同的css，而且css都是采用的百分比的，而不是固定的宽度。自适应布局所有的设备看起来都是一套的模板，不过是长度或者图片变小了，不会根据设备采用不同的展示样式，</p>
+			<p>选择加载CSS，媒体查询，“自适应网页设计”的核心，就是CSS3引入的MediaQuery模块。它的意思就是，自动探测屏幕宽度，然后加载相应的CSS文件。</p>
 			<pre><code class="html">
-&lt;media=”screenand(max-device-width:400px)”href=”tinyScreen.css”/&gt;
-			</code></pre>
-			上面的代码意思是，如果屏幕宽度小于400像素（max-device-width:400px），就加载tinyScreen.css文件。
-			<pre><code class="html">
+&lt;media=”screenand(max-device-width:400px)”href=”tinyScreen.css”/&gt;	
+&lt;!-- 上面的代码意思是，如果屏幕宽度小于400像素（max-device-width:400px），就加载tinyScreen.css文件。 --&gt;
 &lt;media=”screenand(min-width:400px)and(max-device-width:600px)”href=”smallScreen.css”/&gt;
+&lt;!-- 如果屏幕宽度在400像素到600像素之间，则加载smallScreen.css文件。 --&gt;
 			</code></pre>
-			如果屏幕宽度在400像素到600像素之间，则加载smallScreen.css文件。除了用html标签加载CSS文件，还可以在现有CSS文件中加载。
-			<br />同一个CSS文件中，也可以根据不同的屏幕分辨率，选择应用不同的CSS规则。
+			<p>除了用html标签加载CSS文件，还可以在现有CSS文件中加载。“当CSS文件放在head里面时不起效？”</p>
 			<pre><code>
 @media screen and(max-device-width:400px){
 .column{float:none;width:auto;}
 #sidebar{display:none;}
 }
+/*如果屏幕宽度小于400像素，则column块取消浮动（float:none）、宽度自动调节（width:auto），sidebar块不显示（display:none）。*/
 			</code></pre>
-			上面的代码意思是，如果屏幕宽度小于400像素，则column块取消浮动（float:none）、宽度自动调节（width:auto），sidebar块不显示（display:none）。</p>
+			<p>如果你只想在横屏时应用这个，你可以使用 and 操作符合并媒体属性：<pre><code class="css">(min-width: 700px) and (orientation: landscape) { ... }</code></pre></p>
+			<p>only 关键字防止老旧的浏览器不支持带媒体属性的查询而应用到给定的样式：<pre><code>&lt;link rel="stylesheet" media="only screen and (color)" href="example.css" /&gt;</code></pre></p>
+		</div>
+		<div>
+			<h4>四，响应式布局。</h4>
+			<p>响应式与自适应的原理是相似的，都是检测设备，根据不同的设备采用不同的css，而且css都是采用的百分比的，而不是固定的宽度，不同点是响应式的模板在不同的设备上看上去是不一样的，会随着设备的改变而改变展示样式。</p>
+			<p>响应式分别为不同的屏幕分辨率定义布局，同时，在每个布局中，应用流式布局的理念，即页面元素宽度随着窗口调整而自动适配。可以把响应式布局看作是流式布局和自适应布局设计理念的融合。</p>
+			<p>自适应的体验<a href="http://m.ctrip.com/html5/">http://m.ctrip.com/html5/  </a></p>
+			<p>响应式的体验<a href="http://segmentfault.com/">http://segmentfault.com/ </a></p>
+			<p>Meida Queries 优点
+  ● media query可以做到设备像素比的判断，方法简单，成本低，特别是对移动和PC维护同一套代码的时候。目前像Bootstrap等框架使用这种方式布局
+  ● 图片便于修改，只需修改css文件
+  ● 调整屏幕宽度的时候不用刷新页面即可响应式展示
+缺点
+  ● 代码量比较大，维护不方便
+  ● 为了兼顾大屏幕或高清设备，会造成其他设备资源浪费，特别是加载图片资源
+  ● 为了兼顾移动端和PC端各自响应式的展示效果，难免会损失各自特有的交互方式</p>
+		</div>
+		<div>
+			<h4>五，rem布局</h4>
+			<p>我们可以通过设置不同的html基础值来达到在不同页面适配的目的，当然在使用js来设置时，需要绑定页面的resize事件来达到变化时更新html的font-size。可以通过CSS设置也可以通过JS设置。</p>
+			<pre><code>
+@media (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio : 2){
+      html{font-size: 37.5px;}
+}
+document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 10 + 'px';
+</code></pre>
+			<p>关于rem的基准值，也就是上面那个37.5px其实是根据我们所拿到的视觉稿来决定的，主要有以下几点原因：1 由于我们所写出的页面是要在不同的屏幕大小设备上运行的;2 所以我们在写样式的时候必须要先以一个确定的屏幕来作为参考，这个就由我们拿到的视觉稿来定;3 假如我们拿到的视觉稿是以iphone6的屏幕为基准设计的;4 iPhone6的屏幕大小是375px。</p>
+			<p>移动web适配利器-rem：<a href="http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/">http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/</a></p>
+			<p>rem布局的不足是：当用作图片或者一些不能缩放的展示时，必须要使用固定的px值，因为缩放可能会导致图片压缩变形等。</p>
+			<p>在列举几个使用rem的线上网站：<br />
+			网易新闻：<a href="http://3g.163.com/touch/news/subchannel/all?version=v_standard">http://3g.163.com/touch/news/subchannel/all?version=v_standard</a><br />
+			聚划算：<a href="https://jhs.m.taobao.com/m/index.htm#!all">https://jhs.m.taobao.com/m/index.htm#!all</a></p>
+			<p>说说我司【魅族】移动端的实现方式，viewport也是固定的：<code> &lt;meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"&gt;</code>。</p>
+			<p>通过以下代码来控制rem基准值(设计稿以720px宽度量取实际尺寸)
+			<pre><code class="js">
+!function (d) {
+var c = d.document;
+var a = c.documentElement;
+var b = d.devicePixelRatio;
+var f;
+function e() {
+var h = a.getBoundingClientRect().width, g;
+if (b === 1) {
+h = 720
+}
+if(h>720) h = 720;//设置基准值的极限值
+g = h / 7.2;
+a.style.fontSize = g + "px"
+}
+if (b > 2) {
+b = 3
+} else {
+if (b > 1) {
+b = 2
+} else {
+b = 1
+}
+}
+a.setAttribute("data-dpr", b);
+d.addEventListener("resize", function () {
+clearTimeout(f);
+f = setTimeout(e, 200)
+}, false);
+e()
+}(window);
+			</pre></code>
+			css通过sass预编译，设置量取的px值转化rem的变量$px: (1/100)+rem;;</p>
+		</div>
+		<div>
+			<h4>六，Flex弹性布局</h4>
+			<p>它的viewport是固定的：<code>&lt;meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"&gt;</code>高度定死，宽度自适应(不定义)，元素都采用px做单位。加上display：-webkit-fiex；随着屏幕宽度变化，页面也会跟着变化，效果就和PC页面的流体布局差不多，在哪个宽度需要调整的时候使用响应式布局调调就行（比如网易新闻），这样就实现了『适配』。<br />
+			Flex弹性布局方案：<a href="http://www.meow.re/demo/screen-adaptation-in-mobileweb/app-fixed-height.html">http://www.meow.re/demo/screen-adaptation-in-mobileweb/app-fixed-height.html</a></p>
+		</div>
+		<div>
+			<h4>七，rem + viewport</h4>
+			<p>兼容性比flex布局好一点。</p>
+			<p>实现原理:根据rem将页面放大dpr倍, 然后viewport设置为1/dpr.
+  ● 如iphone6 plus的dpr为3, 则页面整体放大3倍, 1px(css单位)在plus下默认为3px(物理像素)
+  ● 然后viewport设置为1/3, 这样页面整体缩回原始大小. 从而实现高清。</p>
+  			<p>这样整个网页在设备内显示时的页面宽度就会等于设备逻辑像素大小，也就是device-width。这个device-width的计算公式为：设备的物理分辨率/(devicePixelRatio * scale)，在scale为1的情况下，device-width = 设备的物理分辨率/devicePixelRatio 。<br />
+  			具体请查看:<br />
+  			可伸缩布局方案 <a href="https://github.com/amfe/lib-flexible">https://github.com/amfe/lib-flexible</a> 或<br />
+  			移动端高清1px方案 <a href="https://www.npmjs.com/package/anima-hd">https://www.npmjs.com/package/anima-hd</a>.</p>
+		</div>
+		<div>
+			<h4>八，1像素边框高清
+<!-- 淘宝实现方式
+上面说到的淘宝的实现方式即rem+viewport 缩放来实现。
+transform: scale(0.5)
+CSS代码：
+1
+2
+3
+4
+5
+6
+7
+8div{
+ width: 1px;
+ height: 100%;
+ display: block;
+ border-left: 1px solid #e5e5e5;
+ -webkit-transform: scaleX(.5);
+ transform: scaleX(.5);
+}
+缺点：
+  ● 圆角无法实现，实现4条边框比较麻烦，并且只能单独实现，如果嵌套，会对包含的效果产生不想要的效果，所以此方案配合:after和before独立使用较多。
+box-shadow
+实现方法：
+利用CSS对阴影处理的方式实现0.5px的效果。
+1-webkit-box-shadow:0 1px 1px -1px rgba(0, 0, 0, 0.5);
+优点：
+基本所有场景都能满足，包含圆角的button，单条，多条线。
+缺点：
+  ● 颜色不好处理， 黑色 rgba(0,0,0,1) 最深的情况了。有阴影出现，不好用。
+  ● 大量使用box-shadow可能会导致性能瓶颈。
+  ● 四条边框实现效果不理想。
+图片实现
+使用 background-image 实现1px有两种方式: 渐变 linear-gradient 或直接使用图片(base64)。
+渐变 linear-gradient (50%有颜色，50%透明)
+单条线：
+1
+2
+3
+4
+5
+6
+7div {
+ height: 1px;
+ background-image: -webkit-linear-gradient(top,transparent 50%,#000 50%);
+ background-position: top left;
+ background-repeat: no-repeat
+ background-size: 100% 1px;
+}
+多条线：
+1
+2
+3
+4
+5
+6div {
+ background-image:-webkit-linear-gradient(top, transparent 50%, #000 50%),-webkit-linear-gradient(bottom, transparent 50%, #000 50%),-webkit-linear-gradient(left, transparent 50%, #000 50%),-webkit-linear-gradient(right, transparent 50%, #000 50%);
+ background-size: 100% 1px,100% 1px,1px 100%,1px 100%;
+ background-repeat: no-repeat;
+ background-position: top left, bottom left, left top, right top;
+}
+优点:
+  ● 可以设置单条,多条边框
+  ● 可以设置颜色
+缺点:
+  ● 大量使用渐变可能导致性能瓶颈
+  ● 代码量大
+  ● 多背景图片有兼容性问题 --></h4>
 		</div>
 	</article>
 
@@ -155,7 +323,7 @@ varimgs=document.getElementById(“content”).getElementsByTagName(“img”);
 imgSizer.collate(imgs);
 });
 				</code></pre>
-				<p>最好还是做适配分辨率的图片。有很多方法可以做到同样效果，服务器端和客户端都可以实现。</p>
+				<p>不过，有条件的话，最好还是根据不同大小的屏幕，加载不同分辨率的图片。有很多方法可以做到这一条，服务器端和客户端都可以实现。</p>
 				<code>tips：margin-left:auto;margin-right:auto;</code>
 			</div>
 
@@ -195,23 +363,122 @@ min-height:400px; height:auto!important; height:400px;
 	<article>
 		<div>
 			<h3>字体适配</h3>
-			<ul>
-				<li><strong>px像素（Pixel）</strong>。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。(引自CSS2.0手册)</li>
-				<li><strong>em</strong>是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸，em会继承父级元素的字体大小。(引自CSS2.0手册)</li>
-				<li><strong>rem</strong>是CSS3新增的一个相对单位（root em，根em），相对于HTML根元素。IE8以及更早版本不兼容，可以多些一个绝对单位如p {font-size:14px; font-size:.875rem;}。</li>
-			</ul>
-			<p>1em=16px， body选择器中声明Font-size=62.5%；  将你的原来的px数值除以10，然后换上rem作为单位。<br />
-			默认字体16px，h1是默认字体的1.5倍即24px，small是默认的0.875倍即14px，<br />
-			几乎所有浏览器通常都提供了文本缩放功能（注意：非整页缩放），这是浏览器对网页可访问性提供的最基础的支持。所以PX固定单位不会随IE缩放。</p>
-			<ul>移动端常规字体：
-				<li>● IOS:常选择华文黑体或者冬青黑体，尤其是冬青黑体效果最好。</li>
-				<li>● 导航主标题字号：40-42px，偏小的40px精致些。</li>
-				<li>● 大的正文字号32px,副文是26px，小字20px</li>
-				<li>● 列表形式、工具化的APP普遍是正文32px，不加粗。副文案26px,小字20px</li>
-				<li>● 26px的字号还会用于划分类别的提示文案，因为这样的文字希望用户阅读，但不要抢过主列表信息的引导。</li>
-				<li>● 36px的字号还经常运用在页面的大按钮中。为了拉开按钮的层次，同时加强按钮引导性，选用了稍大号的字体。</li>
-				<li>● 在选用字体大小的时候一定要选择偶数的字号，因为在开发界面的时候，字号大小换算是要除以二的。</li>
-			</ul>
+			<table>
+				<label>字体单位：</label>
+				<tr>
+					<th>单位</th>
+					<th>含义</th>
+				</tr>
+				<tr>
+					<td>em</td>
+					<td>相对于父元素的字体大小ex相对于小写字母"x"的高度，如未设置，则相对于浏览器默认字体尺寸。em会继承父级元素的字体大小。</td>
+				</tr>
+				<tr>
+					<td>gd</td>
+					<td>一般用在东亚字体排版上，这个与英文并无关系</td>
+				</tr>
+				<tr>
+					<td>rem</td>
+					<td>相对于根元素html字体大小。IE8以及更早版本不兼容，可以多些一个绝对单位如p {font-size:14px; font-size:.875rem;}。</td>
+				</tr>
+				<tr>
+					<td>vw</td>
+					<td>相对于视窗的宽度：视窗宽度是100vw</td>
+				</tr>
+				<tr>
+					<td>vh</td>
+					<td>相对于视窗的高度：视窗高度是100vh</td>
+				</tr>
+				<tr>
+					<td>vm</td>
+					<td>相对于视窗的宽度或高度，取决于哪个更小</td>
+				</tr>
+				<tr>
+					<td>ch</td>
+					<td>相对于0尺寸px相对于屏幕分辨率而不是视窗大小：通常为1个点或1/72英寸</td>
+				</tr>
+				<tr>
+					<td>in</td>
+					<td>inch, 表英寸</td>
+				</tr>
+				<tr>
+					<td>cm</td>
+					<td>centimeter, 表厘米</td>
+				</tr>
+				<tr>
+					<td>mm</td>
+					<td>millimeter, 表毫米</td>
+				</tr>
+				<tr>
+					<td>pt</td>
+					<td>1/72英寸</td>
+				</tr>
+				<tr>
+					<td>pc</td>
+					<td>12点活字，或1/12点</td>
+				</tr>
+				<tr>
+					<td>%</td>
+					<td>相对于父元素。正常情况下是通过属性定义自身或其他元素</td>
+				</tr>
+			</table>
+			<p>经试验rem为适配移动端最合适字体，在此不展开讨论其他字体的优劣，可以点击<a href="https://www.w3cplus.com/css3/define-font-size-with-css3-rem">这里</a>查看。</p>
+			<p>rem实例：</p>
+			<pre><code class="css">
+html{
+	font-family: Helvetica,Tahoma,Arial,"Hiragino Sans GB","Microsoft YaHei",SimSun,Heiti,sans-serif;/*借用魅族的字体选择*/
+	font-size: 16px;/*兼容IE8以下IE浏览器*/
+	font-size: 62.5%/*10 ÷ 16 X 100% = 62.5%*/
+	/*第三方引用库用的px如何更改成rem，只有设置成6.25%，才能通过编辑器改。*/
+	/*chrome浏览器允许的最小字体为12px。*/
+}
+body{
+	font-size: 14px;/*兼容IE8以下IE浏览器*/
+	font-size: 1.4rem;/*1.4 X 10px = 14px*/
+}
+h1{
+	font-size: 24px;/*兼容IE8以下IE浏览器*/
+	font-size: 2.4rem;/*2.4 X 10px = 24px*/
+}
+			</code></pre>
+			<p>在根元素HTML中定义了一个基本字体大小为62.5%（也就是10px。设置这个值主要方便计算，如果没有设置，将是以“16px”为基准 ）。从上面的计算结果，我们使用“rem”就像使用“px”一样的方便，将你的原来的px数值除以10，然后换上rem作为单位。而且同时解决了“px”和“em”两者不同之处。</p>
+			<p>各个单位的换算可以参考下图：</p>
+			<img src="/sergio/images/programmer/adaptive1.png">
+		</div>
+		<div>
+			<h4>可读性最高的字体大小</h4>
+			<p>1,一般来说，常规正文的字号，在9pt~12pt为宜，其中，9pt~11pt相对更适合西文，10pt~12pt相对更适合中文；</p>
+			<p>2,基于1，如果做版面比较紧张的文字设计，可以适当再缩小0.5~1pt，例如杂志和报纸等；</p>
+			<p>3,行高选择为正文的1.6~1.8倍，将会是比较舒服的，如果版面紧张，可以适当缩小的1.2~1.5倍；</p>
+			<p>4,基于3，“可以缩小”的情况，一般是指选用了西文的Serif类字体或中文的“宋体类”字体，Sans-serif或“黑体类”的正文字体，不适宜缩小行高，反而需要更多地加大行高；</p>
+			<p>5,正文段间距，可以简单地取为一个空行（也就是与行高相等），这是比较常规也比较合适的做法；</p>
+			<p>IOS:常选择华文黑体或者冬青黑体，尤其是冬青黑体效果最好。</p>
+			<pre><code class="css">
+/* 正常情况下 */
+p{
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 1.6em;/*em根据父元素相对定大小*/
+	padding-top: 1.6em;
+	/*!-- letter-spacing让浏览器自动计算即可 */
+}
+/* 版面紧张下 */
+p{
+	font-size: 14px;
+	font-size: 1.4rem;
+	padding-top: 1.6em;
+	line-height: 1.5em;
+
+}
+			</code></pre>
+			<!-- <h4>移动端常规字体：</h4>
+			<p>● IOS:常选择华文黑体或者冬青黑体，尤其是冬青黑体效果最好。</p>
+			<p>● 导航主标题字号：40-42px，偏小的40px精致些。</p>
+			<p>● 大的正文字号32px,副文是26px，小字20px</p>
+			<p>● 列表形式、工具化的APP普遍是正文32px，不加粗。副文案26px,小字20px</p>
+			<p>● 26px的字号还会用于划分类别的提示文案，因为这样的文字希望用户阅读，但不要抢过主列表信息的引导。</p>
+			<p>● 36px的字号还经常运用在页面的大按钮中。为了拉开按钮的层次，同时加强按钮引导性，选用了稍大号的字体。</p>
+			<p>● 在选用字体大小的时候一定要选择偶数的字号，因为在开发界面的时候，字号大小换算是要除以二的。</p> -->
 		</div>
 	</article>
 </main>

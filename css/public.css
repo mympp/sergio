@@ -10,19 +10,52 @@
 
 /*通用导航*/
 .index-nav{
-	max-width: 860px;
-	height: 150px;
+	max-width: 86rem;
+	height: 15rem;
 	margin: 0 auto;
 	background-image: url(images/.index-nav_banner.jpg);
 }
 .index-nav .logo{
 	display: inline;
-	float:left;
-	padding-left:45px;
-	padding-top:5px;
+	float: left;
+	padding-left: 4.5rem;
+	padding-top: .5rem;
 }
-nav.index-nav p{
+/*字体*/
+/*div{
+	font-size: 1.6rem;
 	text-indent: 2em;
+	padding: 1rem 0 0;
+	line-height: 1.6em;
+	letter-spacing: 0.07em;
+}*/
+html{
+	font-size: 16px;
+	font-size: 62.5%;
+}
+/*不知为啥设置HTMLfont-size值后还要在此设置h1h2h3这些标签的值。浏览器默认的h1的值为em。好像是因为父元素没设置font值。*/
+h1{
+	font-size: 32px;
+	font-size: 3.2rem;
+}
+h2{
+	font-size: 24px;
+	font-size: 2.4rem;
+}
+h3{
+	font-size: 18px;
+	font-size: 1.8rem;
+}
+h4{
+	font-size: 16px;
+	font-size: 1.6rem;
+}
+p{
+	font-size: 14px;
+	font-size: 1.4rem;
+	text-indent: 2em;
+	padding: 0.5em 0;
+	line-height: 1.5em;
 }
 /**菜单**/
 nav.index-nav li:hover{
@@ -30,29 +63,29 @@ nav.index-nav li:hover{
 }
 nav.index-nav>ul{
 	list-style:none;
-	padding-top: 50px;
+	padding-top: 5;
 	float: right;/*步骤1,先让ul浮动，然后让li反方向浮动，就可以实现不用倒序排html*/
 }
 nav.index-nav ul li{
- 	width: 90px;
+ 	width: 9rem;
  	height: 35px;
  	display: inline-block;
  	float: left;/*没有加浮动直接使用display: block会有margin值*//*步骤2,先让ul浮动，然后让li反方向浮动，就可以实现不用倒序排html*/
- 	border-radius: 0px;
+ 	border-radius: none;
 }
 nav.index-nav ul li:hover ul{
 	display:block;
 }
 nav.index-nav ul li a{
 	text-align:center;
-	width:90px;
-	height:37px;
-	line-height:35px;
+	width:9rem;
+	height:3.7rem;
+	line-height:3.5rem;
 	display:block;
 	text-decoration:none;
 }
 nav.index-nav ul li ul{
-	width: 90px;
+	width: 9rem;
 	float: left;
 	display:none;
 	position:relative;
@@ -65,12 +98,12 @@ nav.index-nav ul li ul li:hover ul{
 	visibility:visible;
 }
 nav.index-nav ul li ul li ul{
-	width: 90px;
+	width: 9rem;
 	float: left;
 	visibility:hidden;
 	position:relative;
-	left: 90px;
-	top: -37.5px;
+	left: 9rem;
+	top: -3.75rem;
 }
 nav.index-nav ul li ul li ul li{
 }
@@ -87,47 +120,51 @@ nav.index-nav ul li ul li ul li:hover{
 /**programming**/
 /*主结构*/
 .program {
-	font-size: 12pt;
+	font-size: 16px;
+	font-size: 1.6rem;
 	line-height: 170%;
-	padding: 0 30px 0 270px;
+	padding: 0 3rem 0 27rem;
 }
 .program header h1 {
 	background: #ccc;
 	border-radius: 4px;
 	color: #fff;
-	font-size: 24pt;
+	font-size: 24px;
+	font-size: 2.4rem;
 	margin: 0;
 	padding: 1.2em 0;
 	text-align: center;
 }
 .program nav {
-	font-size: 10pt;
+	font-size: 14px;
+	font-size: 1.4rem;
 	overflow-x: hidden;
 	overflow-y: auto;
 	position: fixed;
 	top: 0;
 	left: 0;
 	bottom: 0;
-	width: 240px;
+	width: 24rem;
 }
 .program nav .menubar {
 	border-bottom: solid 1px #ccc;
 	display: none;
-	height: 48px;
-	line-height: 48px;
-	padding: 0 10px;
+	height: 4.8rem;
+	line-height: 4.8rem;
+	padding: 0 1rem;
 }
 .program nav .button {
 	background: #777;
 	border: 1px solid #333;
 	color: #fff;
-	font-size: 10pt;
+	font-size: 14px;
+	font-size: 1.4rem;
 	font-weight: bold;
-	padding: 8px;
-	border-radius: 4px;
+	padding: .8rem;
+	border-radius: .4rem;
 }
 .program nav ul {
-	padding: 0 0 0 10px;
+	padding: 0 0 0 1rem;
 }
 .program nav ul a {
 	color: #333;
@@ -143,7 +180,8 @@ nav.index-nav ul li ul li ul li:hover{
 	padding: 0;
 }
 .program nav .level2 {
-	font-size: 11pt;
+	font-size: 14px;
+	font-size: 1.4rem;
 	font-weight: bold;
 }
 .program nav .level3 {
@@ -160,19 +198,22 @@ nav.index-nav ul li ul li ul li:hover{
 }
 .program article h2 {
 	border-bottom: dotted 1px #777;
-	font-size: 12pt;
+	font-size: 16px;
+	font-size: 1.6rem;
 	line-height: 100%;
 	margin: 4em 0 1em 0;
 	padding: 0 0 0.3em 0;
 }
 .program article h3 {
-	font-size: 12pt;
+	font-size: 16px;
+	font-size: 1.6rem;
 	line-height: 100%;
 	margin: 2em 0 1em 0;
 	padding: 0;
 }
 .program article h4 {
-	font-size: 12pt;
+	font-size: 16px;
+	font-size: 1.6rem;
 	font-style:italic;
 	font-weight: normal;
 	line-height: 100%;
@@ -192,7 +233,8 @@ nav.index-nav ul li ul li ul li:hover{
 .program article pre {
 	background: #eee;
 	border-left: solid 2px #3c0;
-	font-size: 10pt;
+	font-size: 14px;
+	font-size: 1.4rem;
 	margin: 1em 0;
 	padding: 0 0 0 1em;
 	overflow-x: auto;
@@ -211,21 +253,22 @@ nav.index-nav ul li ul li ul li:hover{
 }
 .program footer {
 	border-top: 1px solid #ccc;
-	font-size: 10pt;
+	font-size: 14px;
+	font-size: 1.4rem;
 	margin-top: 4em;
 }
-@media (max-width: 768px) {
+@media (max-width: 76.8rem) {
 
 	.program{
-		padding: 0 10px 0 230px;
+		padding: 0 1rem 0 23rem;
 	}
 	.program nav {
-		width: 230px;
+		width: 23rem;
 	}
 }
-@media (max-width: 480px) {
+@media (max-width: 48rem) {
 	.program{
-		padding: 64px 10px 0 10px;
+		padding: 6.4rem 1rem 0 1rem;
 	}
 	.program header .banner {
 		display: none;
@@ -243,12 +286,14 @@ nav.index-nav ul li ul li ul li:hover{
 	.program nav ul {
 		background: #fff;
 		display: none;
-		font-size: 14pt;
+		font-size: 18px;
+		font-size: 1.8rem;
 		margin: 0;
-		padding: 0 0 0 8px;
+		padding: 0 0 0 .8rem;
 	}
 	.program nav .level2 {
-		font-size: 16pt;
+		font-size: 2rem;
+		font-size: 20rem;
 		font-weight: bold;
 	}
 	.program nav li {

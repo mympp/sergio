@@ -8,29 +8,30 @@
 */
 /**HTML5.html页面**/
 .main{
-	width:1024px;
+	width:102.4rem;
 	margin:0 auto;
 }
 .main-table{
-	width:1000px;
+	width:100rem;
 	margin:0 auto;
 }
 .main-table .trHead{
 	font-weight: bold;
 	font-size: 18px;
+	font-size: 1.8rem;
 }
 .main-table th{
-	padding: 5px 0px;
+	padding: .5rem .0rem;
 	font-weight: normal;
 	background: #d5d5d5;
-	border: 1px solid #aaa;
+	border: .1rem solid #aaa;
 }
 .main-table tr td img{
-	width:15px;
+	width:1.5rem;
 }
 .main-table td{
-	padding: 10px 5px;
-	border:1px solid #aaa;
+	padding: 1.0rem .5rem;
+	border:.1rem solid #aaa;
 }
 .main-table td:first{
 }
@@ -44,7 +45,7 @@
 /**示例CSS样式**/
 /*adaptive/adaptive.html*/
 .img-wrapbox{
-	width: 200px;
+	width: 20rem;
 }
 .img-wrap {
 	display: inline-block;
