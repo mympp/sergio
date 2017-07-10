@@ -1,21 +1,41 @@
 @charset "utf-8";
 html, body {
+	font-size: 16px;
+	font-size: 62.5%;
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
 }
+
+@media only screen and (min-width: 501px){
+	.container {
+		width: 50.1rem;
+		height: 100%;
+		position: absolute;
+		left: 50%;
+		top: 0%;
+		margin-left: -20.7rem;
+	}
+}
+/*屏幕宽度小于768px时*/
+@media only screen and (max-width: 500px){
+	.container {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0%;
+		top: 0%;
+	}
+}
+/*@media only screen and(max-width: 76.8rem){
 .container {
-	width: 100%;
+	width: 100rem;
 	height: 100%;
 	position: absolute;
 	left: 0%;
 	top: 0%;
 }
-@media only screen and(min-width: 768px){
-	.container{
-		width: 1000px;
-	}
-}
+}*/
 .container .page {
 	width: 100%;
 	height: 100%;
@@ -25,6 +45,7 @@ html, body {
 }
 .container .page1,.page2,.page4,.page5,.page6{
 	background: url(pagebak.jpg) no-repeat;
+	background-size: auto 100%;
 }
 .container .page1 {
 }
@@ -39,36 +60,40 @@ html, body {
 .container .page5 {
 }
 img[alt=logo1]{
-	width: 146px;
+	width: 50%;
 	height: auto;
 	position: absolute;
-	top: 13%;
-	left: -6px;
+	top: 8%;
+	left: -2%;
 }
-img[alt=page1text]{
-	width: 203px;
+.page1 img[alt=page1m]{
+	width: 24%;
 	height: auto;
 	position: absolute;
-	top: 30%;
-	left: 50%;
-	margin-left: -70px;
+	top: 35%;
+	left: 16%;
+}
+.page1 img[alt=page1text]{
+	width: 50%;
+	height: auto;
+	position: absolute;
+	top: 33%;
+	left: 40%;
 }
 .page1 img[alt=page1car]{
-	width: 605px;
+	width: 160%;
 	height: auto;
 	position: absolute;
 	bottom: 0;
-	left: 50%;
-	margin-left: -405px;
+	left: -55%;
 }
-.container .page2title{
+.page2 .page2title{
 	cursor: default; 
-	font-size: 24px; 
-	width: 258px; 
+	font-size: 2.4rem; 
+	width: 62%; 
 	position: absolute;
 	bottom: 65%;
-	left: 50%;
-	margin-left: -129px;
+	left: 20%;
 	transform: rotate(-14deg);
 	text-rendering: optimizeLegibility; 
 	-webkit-writing-mode: horizontal-tb; 
@@ -79,158 +104,149 @@ img[alt=page1text]{
 	font-weight: bold; 
 	font-style: italic;
 }
-.container .page2text{
+.page2 .page2text{
 	cursor: default; 
-	font-size: 24px; 
 	width: 90%;  
 	position: absolute;
 	bottom: 40%;
-	left: 50%;
-	margin-left: -45%;
+	left: 5%;
 	text-rendering: optimizeLegibility; 
 	-webkit-writing-mode: horizontal-tb; 
 	writing-mode: horizontal-tb; 
 	min-height: inherit;
-	font-size: 16px; 
+	font-size: 1.6rem; 
 	font-family: HT; 
 	color: rgb(71, 65, 65);
 }
-img[alt=page2car]{
-	width: 362px;
+.page2 img[alt=page2car]{
+	width: 110%;
 	height: auto;
 	position: absolute;
-	bottom: 10%;
-	left: 50%;
-	margin-left: -181px;
+	bottom: 5%;
+	left: -5%;
 }
-.page4 img[alt=page1car]{
-	width: 350px;
-	height: auto;
-	position: absolute;
-	bottom: 30%;
-	left: 50%;
-	margin-left: -160px;
-}
-img[alt=page4car]{
-	width: 330px;
-	height: auto;
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	margin-left: -220px;
-}
-.page4text{
+.page4 .page4text{
 	cursor: default; 
-	font-size: 24px; 
-	width: 189px;  
+	font-size: 2.4rem; 
+	width: 50%;  
 	text-rendering: optimizeLegibility; 
 	-webkit-writing-mode: horizontal-tb; 
 	writing-mode: horizontal-tb; 
 	min-height: inherit;font-weight: bold; 
 	font-family: HT; 
 	color: rgb(196, 67, 60);
-	line-height: 45px;
+	line-height: 4.5rem;
 	position: absolute;
-	bottom: 55%;
-	left: 50%;
-	margin-left: -95px;
+	bottom: 50%;
+	left: 25%;
 }
-img[alt=logo2]{
-	width: 100px;
+.page4 img[alt=page1car]{
+	width: 90%;
 	height: auto;
-	padding-top: 30%;
-}
-img[alt=page6car1]{
-	width: 160px;
 	position: absolute;
-	top: 25%;	
-	left: 50%;
-	margin-left: -170px;
+	bottom: 25%;
+	left: 10%;
 }
-img[alt=page6car2]{
-	width: 150px;
+.page4  img[alt=page4car]{
+	width: 85%;
+	height: auto;
 	position: absolute;
-	top: 25%;	
-	left: 50%;
-	padding-top: 14px;
-	margin-left: -65px;	
+	bottom: 0%;
+	left: -10%;
 }
-img[alt=page6car3]{
-	width: 200px;
+.page6 img[alt=logo2]{
+	width: 30%;
+	height: auto;
+	padding-top: 25%;
+}
+.page6 img[alt=page6car1]{
+	width: 35%;
 	position: absolute;
-	top: 25%;	
-	left: 50%;
-	margin-left: 30px;
-	margin-top: -10px;	
+	top: 25.5%;	
+	left: 9%;
 }
-form{
-	margin-top: 130px;
+.page6 img[alt=page6car2]{
+	width: 35%;
+	position: absolute;
+	top: 27.5%;	
+	left: 34%;
 }
-form input{
-	width: 190px;
-	height: 22px;
+.page6 img[alt=page6car3]{
+	width: 48%;
+	position: absolute;
+	top: 23.5%;	
+	left: 58%;
+}
+.page6 form{
+	width: 70%;
+	font-size: 1.8rem;
+	position: absolute;
+	top: 45%;
+	left: 15%;
+}
+.page6 form input{
+	width: 100%;
+	height: 2.2rem;
 	display: inline-block;
-	padding: 10px;
-	margin-bottom: 20px;
-	border: 1px solid rgb(8,161,239);
+	padding: 1.0rem;
+	margin-bottom: 5%;
+	border: .1rem solid rgb(8,161,239);
 }
-form .province{
-	width: 210px;
-	height: 40px;
-	margin: 0 auto;
-	margin-bottom: 20px;
+.page6 form .province{
+	width: 100%;
+	padding: 0 1rem;
+	height: 4rem;;
+	margin-bottom: 5%;
 	text-align: left;
 	background: #fff;
 	color: #000;
-	border: 1px solid rgb(8,161,239);
+	border: .1rem solid rgb(8,161,239);
 }
-form .province span{
-	line-height: 40px;
-	padding-left: 8px;
+.page6 form .province span{
+	line-height: 4.0rem;
 	color: #aaa;
 }
-form button{
-	width: 210px;
-	height: 40px;
+.page6 form button{
+	width: 100%;
+	height: 4.0rem;
+	margin-left: 1rem;
 	background: rgb(8,161,239);
-	margin: 0 auto;
-	border: 1px solid rgb(8,161,239);
+	border: .1rem solid rgb(8,161,239);
 	color: #fff;
 }
 .province .provinceul{
 	display: none;
-	width: 328px;
+	width: 100%;
 	height: auto;
 	background: #fff;
 	position: absolute;
-	left: 50%;
-	margin-left: -164px;
-	top: 42px;
+	left: 1.1rem;
+	top: 0;
 	z-index: 101;
 }
 .province ul li{
-	height: 30px;
-	line-height: 30px;
-	border-bottom: 1px solid #dfdfdf;
-	padding-left: 10px;
+	height: 3.0rem;
+	line-height: 3.0rem;
+	border-bottom: .1rem solid #dfdfdf;
+	padding-left: 1.0rem;
 }
 #layer{
 	display: none;
 	width: 100%;
 	height: 100%;
-	background: #fff;
+	background: #000;
 	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: 100;
-	filter: alpha(opacity=0);
-	opacity: 0;
+	filter: alpha(opacity=0.5);
+	opacity: 0.5;
 }
 /*
 .container .page2 img.no1 {
 	position: absolute;
-	left: 10px;
-	top: 50px;
+	left: 1.0rem;
+	top: 5.0rem;
 	-webkit-transition: all 1s ease 0s;
 }
 .container .page2.cur img.no1 {
@@ -238,28 +254,28 @@ form button{
 }
 .container .page2 img.no2 {
 	position: absolute;
-	left: 600px;
-	top: 50px;
+	left: 60.0rem;
+	top: 5.0rem;
 	-webkit-transition: all 1s ease 2s;
 }
 .container .page2.cur img.no2 {
-	left: 30px;
-	top: 100px;
+	left: 3.0rem;
+	top: 10.0rem;
 	-webkit-transform: rotate(720deg);
 }
 .xiangxiatishi {
 	position: fixed;
-	bottom: 20px;
+	bottom: 2.0rem;
 	left: 50%;
 	-webkit-transform: translateX(-50%);
 	-webkit-animation: dong 1s linear 0s infinite alternate;
 }
 @-webkit-keyframes dong {
 	from {
-	bottom:20px;
+	bottom:2.0rem;
 }
 to {
-	bottom: 60px;
+	bottom: 6.0rem;
 }
 }*/
 /* 效果CSS结束 */
