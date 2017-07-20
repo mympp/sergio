@@ -1,0 +1,476 @@
+@charset "utf-8";
+
+@media only screen and (min-width: 415px){
+	html, body {
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+	}
+	.container {
+		width: 876px;
+		height: auto;
+		position: absolute;
+		left: 50%;
+		top: 0%;
+		margin-left: -438px;
+	}
+	.container .page {
+		width: 100%;
+		position: relative;
+		color:#fff;
+		text-align:center;
+	}
+	.container .page1 {
+		height: 608px;
+		background: url(webpage1.png) no-repeat;
+		background-size: 100% 100%;
+	}
+	.container .page2 {
+		height: 876px;
+		background: url(webpage2.png) no-repeat;
+		background-size: 100% 100%;
+	}
+	.container .page3 {
+		height: 531px;
+		background: url(webpage3.png) no-repeat;
+		background-size: 100% 100%;
+	}
+	.container .page4 {
+		background: url(webpage4.png) no-repeat;
+		background-size: 100% 100%;
+	}
+	.container .page5 {
+		/*background: url(webpage5.png) no-repeat;
+		background-size: 100% 100%;*/
+	}
+	form{
+		font-size: 1.2rem;
+		text-align: left;
+		margin-bottom: 70px;
+	}
+	form h3{
+		font-size: 2.4rem;
+		line-height: 3.6rem;
+		text-align: center;
+		letter-spacing: 1.6rem;
+		color: #b14908;
+	}
+	form p{
+		text-align: center;
+		font-size: 1.4rem;
+		color: #b14908;
+	}
+	form .page4left{
+		width: 30%;
+		height: 48%;
+		float: left;
+	}
+	form .page4left label{
+		float: right;
+		font-size: 1.4rem;
+		color: #000;
+		line-height: 4.5rem;
+	}
+	form input,select{
+		border: .1rem solid #b14908;
+	}
+	form input{
+		width: 15%;
+		margin: .5rem 0;
+		line-height: 2.0rem;
+		padding-left: 1.0rem;
+		margin: 1.0rem 2.0rem 2.0rem 0;
+	}
+	form select{
+		width: 17%;
+		height: 2.4rem;
+		margin-right: 2.0rem;
+		margin-bottom: 2.2rem;
+	}
+	form button{
+		width: 15.0rem;
+		clear: both;
+		position: absolute;
+		left: 50%;
+		margin-left: -7.5rem;
+		line-height: 2.5rem;
+		color: #fff;
+		background: #b14908;
+	}
+	.page4 table{
+		margin: 0px auto;
+	}
+	.page4 table,tr,td,th{
+		border: none;
+		background: none;
+		color: #000;
+	}
+	
+}
+/*屏幕宽度小于414px时*/
+@media only screen and (max-width: 414px){
+	html, body {
+		font-size: 16px;
+		font-size: 62.5%;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.container {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0%;
+		top: 0%;
+	}
+	.container .page {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		color:#fff;
+		text-align:center;
+	}
+	.container .page1 {
+		background: url(page1.jpg) no-repeat;
+		background-size: 100% 100%;
+	}
+	.container .page2 {
+		background: url(page2.png) no-repeat;
+		background-size: 100% 100%;
+	}
+	.container .page3 {
+		background: url(page3.jpg) no-repeat;
+		background-size: 100% 100%;
+	}
+	/*.container .page4 .page4img1{
+		width: 100%;
+		height: 25%;
+		background: url(page4.jpg) no-repeat;
+		background-position: top left;
+		background-size: 100% auto;
+	}*/
+	.container .page4{
+		width: 100%;
+		height: 100%;
+		background: url(webpage4.png) no-repeat;
+		background-size: 100% 100%;
+	}
+	/*.container .page4 .page4img2{
+		width: 100%;
+		height: 35%;
+		background: url(page4.jpg) no-repeat;
+		background-position: bottom left;
+		background-size: 100% auto;		
+	}*/
+	form{
+		font-size: 1.2rem;
+		text-align: left;
+	}
+	form h3{
+		font-size: 2.4rem;
+		line-height: 3.6rem;
+		text-align: center;
+		letter-spacing: 1.6rem;
+		color: #b14908;
+	}
+	form p{
+		text-align: center;
+		font-size: 1.4rem;
+		color: #b14908;
+	}
+	form .page4left{
+		width: 40%;
+		height: 48%;
+		float: left;
+	}
+	form .page4left label{
+		float: right;
+		font-size: 1.4rem;
+		color: #000;
+		line-height: 4.5rem;
+	}
+	form input,select{
+		border: .1rem solid #b14908;
+	}
+	form input{
+		width: 15%;
+		margin: .5rem 0;
+		line-height: 2.0rem;
+		padding-left: 1.0rem;
+		margin: 1.0rem 0 2.0rem;
+	}
+	form select{
+		width: 22%;
+		height: 2.4rem;
+		margin-right: .0rem;
+		margin-bottom: 2.2rem;
+	}
+	form #fkDealerId{
+		width: 45%;
+		position: relative;
+		left: 40%;
+		margin-bottom: .0rem;
+	}
+	form button{
+		width: 15.0rem;
+		clear: both;
+		position: absolute;
+		left: 50%;
+		margin-left: -7.5rem;
+		line-height: 2.5rem;
+		color: #fff;
+		background: #b14908;
+	}
+	.page4 table,tr,td,th{
+		border: none;
+		background: none;
+		color: #000;
+	}
+	.page4 table{
+		margin: 50px auto;
+	}
+	.page4 table,tr,td,th{
+		border: none;
+		background: none;
+		color: #000;
+	}
+	.page4>a{
+		position: absolute;
+		bottom: 10px;
+		left: 38%;
+	}
+	
+}
+/*@media only screen and(max-width: 76.8rem){
+.container {
+	width: 100rem;
+	height: 100%;
+	position: absolute;
+	left: 0%;
+	top: 0%;
+}
+}*/
+/*.container .page1,.page2,.page4,.page5,.page6{
+	background: url(pagebak.jpg) no-repeat;
+	background-size: auto 100%;
+}*/
+/*img[alt=logo1]{
+	width: 50%;
+	height: auto;
+	position: absolute;
+	top: 8%;
+	left: -2%;
+}
+.page1 img[alt=page1m]{
+	width: 24%;
+	height: auto;
+	position: absolute;
+	top: 35%;
+	left: 16%;
+}
+.page1 img[alt=page1text]{
+	width: 50%;
+	height: auto;
+	position: absolute;
+	top: 33%;
+	left: 40%;
+}
+.page1 img[alt=page1car]{
+	width: 160%;
+	height: auto;
+	position: absolute;
+	bottom: 0;
+	left: -55%;
+}
+.page2 .page2title{
+	cursor: default; 
+	font-size: 2.4rem; 
+	width: 62%; 
+	position: absolute;
+	bottom: 65%;
+	left: 20%;
+	transform: rotate(-14deg);
+	text-rendering: optimizeLegibility; 
+	-webkit-writing-mode: horizontal-tb; 
+	writing-mode: horizontal-tb; 
+	min-height: inherit;
+	font-family: HT; 
+	color: rgb(196, 67, 60); 
+	font-weight: bold; 
+	font-style: italic;
+}
+.page2 .page2text{
+	cursor: default; 
+	width: 90%;  
+	position: absolute;
+	bottom: 40%;
+	left: 5%;
+	text-rendering: optimizeLegibility; 
+	-webkit-writing-mode: horizontal-tb; 
+	writing-mode: horizontal-tb; 
+	min-height: inherit;
+	font-size: 1.6rem; 
+	font-family: HT; 
+	color: rgb(71, 65, 65);
+}
+.page2 img[alt=page2car]{
+	width: 110%;
+	height: auto;
+	position: absolute;
+	bottom: 5%;
+	left: -5%;
+}
+.page4 .page4text{
+	cursor: default; 
+	font-size: 2.4rem; 
+	width: 50%;  
+	text-rendering: optimizeLegibility; 
+	-webkit-writing-mode: horizontal-tb; 
+	writing-mode: horizontal-tb; 
+	min-height: inherit;font-weight: bold; 
+	font-family: HT; 
+	color: rgb(196, 67, 60);
+	line-height: 4.5rem;
+	position: absolute;
+	bottom: 50%;
+	left: 25%;
+}
+.page4 img[alt=page1car]{
+	width: 90%;
+	height: auto;
+	position: absolute;
+	bottom: 25%;
+	left: 10%;
+}
+.page4  img[alt=page4car]{
+	width: 85%;
+	height: auto;
+	position: absolute;
+	bottom: 0%;
+	left: -10%;
+}
+.page6 img[alt=logo2]{
+	width: 30%;
+	height: auto;
+	padding-top: 25%;
+}
+.page6 img[alt=page6car1]{
+	width: 35%;
+	position: absolute;
+	top: 25.5%;	
+	left: 9%;
+}
+.page6 img[alt=page6car2]{
+	width: 35%;
+	position: absolute;
+	top: 27.5%;	
+	left: 34%;
+}
+.page6 img[alt=page6car3]{
+	width: 48%;
+	position: absolute;
+	top: 23.5%;	
+	left: 58%;
+}
+.page6 form{
+	width: 70%;
+	font-size: 1.8rem;
+	position: absolute;
+	top: 45%;
+	left: 15%;
+}
+.page6 form input{
+	width: 100%;
+	height: 2.2rem;
+	display: inline-block;
+	padding: 1.0rem;
+	margin-bottom: 5%;
+	border: .1rem solid rgb(8,161,239);
+}
+.page6 form .province{
+	width: 100%;
+	padding: 0 1rem;
+	height: 4rem;;
+	margin-bottom: 5%;
+	text-align: left;
+	background: #fff;
+	color: #000;
+	border: .1rem solid rgb(8,161,239);
+}
+.page6 form .province span{
+	line-height: 4.0rem;
+	color: #aaa;
+}
+.page6 form button{
+	width: 100%;
+	height: 4.0rem;
+	margin-left: 1rem;
+	background: rgb(8,161,239);
+	border: .1rem solid rgb(8,161,239);
+	color: #fff;
+}
+.province .provinceul{
+	display: none;
+	width: 100%;
+	height: auto;
+	background: #fff;
+	position: absolute;
+	left: 1.1rem;
+	top: 0;
+	z-index: 101;
+}
+.province ul li{
+	height: 3.0rem;
+	line-height: 3.0rem;
+	border-bottom: .1rem solid #dfdfdf;
+	padding-left: 1.0rem;
+}
+#layer{
+	display: none;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	filter: alpha(opacity=0.5);
+	opacity: 0.5;
+}*/
+/*
+.container .page2 img.no1 {
+	position: absolute;
+	left: 1.0rem;
+	top: 5.0rem;
+	-webkit-transition: all 1s ease 0s;
+}
+.container .page2.cur img.no1 {
+		-webkit-transform: rotate(720deg);
+}
+.container .page2 img.no2 {
+	position: absolute;
+	left: 60.0rem;
+	top: 5.0rem;
+	-webkit-transition: all 1s ease 2s;
+}
+.container .page2.cur img.no2 {
+	left: 3.0rem;
+	top: 10.0rem;
+	-webkit-transform: rotate(720deg);
+}
+.xiangxiatishi {
+	position: fixed;
+	bottom: 2.0rem;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-webkit-animation: dong 1s linear 0s infinite alternate;
+}
+@-webkit-keyframes dong {
+	from {
+	bottom:2.0rem;
+}
+to {
+	bottom: 6.0rem;
+}
+}*/
+/* 效果CSS结束 */

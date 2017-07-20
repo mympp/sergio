@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>东风日产</title>
+	<link rel="stylesheet" type="text/css" href="base.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="jquery.touchSwipe.min.js"></script><script type="text/javascript">
+    $(document).ready(
+        function() {
+            var nowpage = 0;
+            //给最大的盒子增加事件监听
+            $(".container").swipe(
+                {
+                    swipe:function(event, direction, distance, duration, fingerCount) {
+                         if(direction == "up"){
+                            nowpage = nowpage + 1;
+                         }else if(direction == "down"){
+                            nowpage = nowpage - 1;
+                         }
+
+                         if(nowpage > 5){
+                            nowpage = 5;
+                         }
+
+                         if(nowpage < 0){
+                            nowpage = 0;
+                         }
+
+                        $(".container").animate({"top":nowpage * -100 + "%"},400);
+
+                        $(".page").eq(nowpage).addClass("cur").siblings().removeClass("cur");
+                    }
+                }
+            );
+        }
+    );
+</script>
+<script type="text/javascript">
+function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func;
+  } else {  
+    window.onload = function() {
+      oldonload();
+      func();
+    }
+  }
+}
+function getDom(id){
+	return document.getElementById(id);
+}
+
+function showProvince(){
+	getDom("selectProvince").onclick = showAllProvince;
+}
+function showAllProvince(){
+	getDom("allProvince").style.display = "block";
+	getDom("selectProvince").className = "show"
+	getDom("layer").style.display = "block";
+	getDom("layer").onclick = function(){
+		hideAllProvince();
+	};
+	selectProvince();
+}
+function hideAllProvince(){
+	getDom("allProvince").style.display = "none";
+	getDom("selectProvince").className = "hide"; 
+	getDom("layer").style.display = "none";
+}
+function selectProvince(){
+	var pro = getDom("allProvince").getElementsByTagName("li");
+	var links;
+	for (var i = 0; i < pro.length; i++) {
+		links = pro[i].getElementsByTagName("a");
+		for (var j = 0; j < links.length; j++) {
+			links[j].onclick = function(){
+				getDom("selectProvince").innerHTML = this.innerHTML;
+				hideAllProvince();
+			}
+		}
+	}
+}
+addLoadEvent(showProvince);
+</script>
+</head>
+<body onmousewheel="return false;">
+<div class="container">
+	<div class="page page1 cur">
+		<img alt="logo1" src="logo1.png">
+		<img alt="page1text" src="page1text.png">
+		<img alt="page1car" src="page1car.png">
+	</div>
+	<div class="page page2">
+		<img alt="logo1" src="logo1.png">
+		<div class="page2title">
+			<span>劲爽三重豪礼，好礼连连送！</span>
+		</div>
+		<div class="page2text">
+			<span>劲爽一重礼：红包专享礼-车展AR扫红包，翻百倍领劵！<br />
+			劲爽二重礼：置换专享礼-车展期间，部分车型置换最高可享近万元！<br />
+			劲爽三重礼：金融专享礼-全车系0首付0利率，一证购到底！</span>
+		</div>
+		<img alt="page2car" src="page2car.png">
+	</div>
+	<div class="page page3"></div>
+	<div class="page page4">
+		<img alt="logo1" src="logo1.png">
+		<div class="page4text"><span>超长零利息<br>超惠置换购<br>超值双重险</span></div>
+		<img alt="page1car" src="page1car.png">
+		<img alt="page4car" src="page4car.png">
+	</div>
+	<div class="page page5">
+		<img alt="page5" src="page5.jpg" width="100%" height="100%">
+	</div>
+	<div class="page page6">
+		<img alt="logo2" src="logo2.png">
+		<img alt="page6car1" src="page6car1.png">
+		<img alt="page6car2" src="page6car2.png">
+		<img alt="page6car3" src="page6car3.png">
+		<form>
+			<input type="text" name="yourname" required="请输入您的姓名" placeholder="姓名">
+			<input type="text" name="yournumber" required="请输入您的联系方式" placeholder="联系方式">
+			<div class="province">
+				<span id="selectProvince">东风日产吉林省各专营店</span>
+				<ul id="allProvince" class="provinceul show">
+					<li><a href="javascript:void(0);">1</a></li>
+					<li><a href="javascript:void(0);">1</a></li>
+					<li><a href="javascript:void(0);">1</a></li>
+					<li><a href="javascript:void(0);">1</a></li>
+					<li><a href="javascript:void(0);">1</a></li>
+					<li><a href="javascript:void(0);">1</a></li>
+					<li><a href="javascript:void(0);">1</a></li>
+					<li><a href="javascript:void(0);">1</a></li>
+					<li><a href="javascript:void(0);">1</a></li>
+				</ul>
+			</div>
+			<button>提交</button>
+		</form>
+		<div id="layer"></div>
+	</div>
+</div>
+</body>
+</html>

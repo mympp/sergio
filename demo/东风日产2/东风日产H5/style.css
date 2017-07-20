@@ -1,0 +1,261 @@
+@charset "utf-8";
+html, body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.container {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0%;
+	top: 0%;
+}
+@media only screen and(min-width: 768px){
+	.container{
+		width: 1000px;
+	}
+}
+.container .page {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	color:#fff;
+	text-align:center;
+}
+.container .page1,.page2,.page4,.page5,.page6{
+	background: url(pagebak.jpg) no-repeat;
+}
+.container .page1 {
+}
+.container .page2 {
+}
+.container .page3 {
+	background: url(page2.png) no-repeat;
+	background-size: 100% 100%;
+}
+.container .page4 {
+}
+.container .page5 {
+}
+img[alt=logo1]{
+	width: 146px;
+	height: auto;
+	position: absolute;
+	top: 13%;
+	left: -6px;
+}
+img[alt=page1text]{
+	width: 203px;
+	height: auto;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -70px;
+}
+.page1 img[alt=page1car]{
+	width: 605px;
+	height: auto;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	margin-left: -405px;
+}
+.container .page2title{
+	cursor: default; 
+	font-size: 24px; 
+	width: 258px; 
+	padding-top: 50%;
+	margin: 0 auto;
+	transform: rotate(-14deg);
+	text-rendering: optimizeLegibility; 
+	-webkit-writing-mode: horizontal-tb; 
+	writing-mode: horizontal-tb; 
+	min-height: inherit;
+	font-family: HT; 
+	color: rgb(196, 67, 60); 
+	font-weight: bold; 
+	font-style: italic;
+}
+.container .page2text{
+	cursor: default; 
+	font-size: 24px; 
+	width: 90%;  
+	padding-top: 5%;
+	margin: 0 auto;
+	text-rendering: optimizeLegibility; 
+	-webkit-writing-mode: horizontal-tb; 
+	writing-mode: horizontal-tb; 
+	min-height: inherit;
+	font-size: 16px; 
+	font-family: HT; 
+	color: rgb(71, 65, 65);
+}
+img[alt=page2car]{
+	width: 362px;
+	height: auto;
+	position: absolute;
+	bottom: 10%;
+	left: 50%;
+	margin-left: -181px;
+}
+.page4 img[alt=page1car]{
+	width: 350px;
+	height: auto;
+	position: absolute;
+	bottom: 30%;
+	left: 50%;
+	margin-left: -160px;
+}
+img[alt=page4car]{
+	width: 330px;
+	height: auto;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	margin-left: -220px;
+}
+.page4text{
+	cursor: default; 
+	font-size: 24px; 
+	width: 189px;  
+	text-rendering: optimizeLegibility; 
+	-webkit-writing-mode: horizontal-tb; 
+	writing-mode: horizontal-tb; 
+	min-height: inherit;font-weight: bold; 
+	font-family: HT; 
+	color: rgb(196, 67, 60);
+	line-height: 45px;
+	position: absolute;
+	bottom: 55%;
+	left: 50%;
+	margin-left: -95px;
+}
+img[alt=logo2]{
+	width: 100px;
+	height: auto;
+	padding-top: 30%;
+}
+img[alt=page6car1]{
+	width: 160px;
+	position: absolute;
+	top: 25%;	
+	left: 50%;
+	margin-left: -170px;
+}
+img[alt=page6car2]{
+	width: 150px;
+	position: absolute;
+	top: 25%;	
+	left: 50%;
+	padding-top: 14px;
+	margin-left: -65px;	
+}
+img[alt=page6car3]{
+	width: 200px;
+	position: absolute;
+	top: 25%;	
+	left: 50%;
+	margin-left: 30px;
+	margin-top: -10px;	
+}
+form{
+	margin-top: 130px;
+}
+form input{
+	width: 190px;
+	height: 22px;
+	display: inline-block;
+	padding: 10px;
+	margin-bottom: 20px;
+	border: 1px solid rgb(8,161,239);
+}
+form .province{
+	width: 210px;
+	height: 40px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	text-align: left;
+	background: #fff;
+	color: #000;
+	border: 1px solid rgb(8,161,239);
+}
+form .province span{
+	line-height: 40px;
+	padding-left: 8px;
+	color: #aaa;
+}
+form button{
+	width: 210px;
+	height: 40px;
+	background: rgb(8,161,239);
+	margin: 0 auto;
+	border: 1px solid rgb(8,161,239);
+	color: #fff;
+}
+.province .provinceul{
+	display: none;
+	width: 328px;
+	height: auto;
+	background: #fff;
+	position: absolute;
+	left: 50%;
+	margin-left: -164px;
+	top: 42px;
+	z-index: 101;
+}
+.province ul li{
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 1px solid #dfdfdf;
+	padding-left: 10px;
+}
+#layer{
+	display: none;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	filter: alpha(opacity=0);
+	opacity: 0;
+}
+/*
+.container .page2 img.no1 {
+	position: absolute;
+	left: 10px;
+	top: 50px;
+	-webkit-transition: all 1s ease 0s;
+}
+.container .page2.cur img.no1 {
+		-webkit-transform: rotate(720deg);
+}
+.container .page2 img.no2 {
+	position: absolute;
+	left: 600px;
+	top: 50px;
+	-webkit-transition: all 1s ease 2s;
+}
+.container .page2.cur img.no2 {
+	left: 30px;
+	top: 100px;
+	-webkit-transform: rotate(720deg);
+}
+.xiangxiatishi {
+	position: fixed;
+	bottom: 20px;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-webkit-animation: dong 1s linear 0s infinite alternate;
+}
+@-webkit-keyframes dong {
+	from {
+	bottom:20px;
+}
+to {
+	bottom: 60px;
+}
+}*/
+/* 效果CSS结束 */
