@@ -1,0 +1,50 @@
+/* CSS Document */
+/*-功能：页面样式-*/
+/*-作者：sergiolin*/
+/*-日期：2016/06/02*/
+.body{position:relative;top:25px;}
+ul{list-style-type:none;}
+.bigboss .bkg{width:100%;height:450px;background:url(../images/about_1.png) no-repeat;background-size:auto 450px;}
+.bigboss .bkg .slogan,
+.bigboss .bkg .slogan1{color:#fff;font-size:18px;letter-spacing:10px;}
+.bigboss .bkg .slogan{width:180px;position:absolute;top:50px;left:100px;}
+.bigboss .bkg .slogan1{width:170px;position:absolute;top:80px;left:125px;}
+.bigboss #bkgText_{width:100%;height:225px;background:#000000 ;opacity:0.6;position:relative;top:203px;float:left;display:inline;}
+.bigboss #bkgText{display: inline;width:100%;float:left;color:#ffffff;overflow:hidden;margin-top:-16px;position:relative;z-index:90;}
+.bigboss #bkgText .text_{width:180px;overflow:hidden;margin-top:-10px;}
+.bigboss #bkgText h6{margin-left:5%;font-size:150%;text-indent:5%;}
+small{font-size:0.6em;}
+.bigboss  #bkgText p{overflow:hidden;text-indent:2em;font-size:12px;-webkit-text-size-adjust:none;margin:0px 6%;line-height:170%;}
+/*正文*/
+.bigboss .content .text_1{position: relative;top: -5px;width:185px;overflow:hidden;}
+.bigboss .content .text_2{position: relative;top: -5px;width:215px;overflow:hidden;}
+.bigboss .content .text_3{position: relative;top: -5px;width:285px;overflow:hidden;}
+.bigboss .content{width:100%;height: auto;margin: 0 auto;}
+.bigboss .content #ul_0,#ul_1,#ul_2,#ul_3{position:relative;display:inline;float:left;margin-left:25px;}
+.bigboss .content .text{width:90%;margin:0 auto;clear:both;padding-top:20px;}
+
+.bigboss .content p{line-height: 38px;font-size:16px;font-family:"Microsoft YaHei","微软雅黑",Helvetica,"黑体",Arial,Tahoma;}
+/*图片廊*/
+.bigboss .content .about_top{background:#ffffff;width:100%;height:90%;}
+.bigboss .content #about_s .imgs{height:auto;display:inline;padding:0;margin:0 auto;}
+.bigboss .content #about_s img{width:32.6%;height:auto;margin:0 auto;padding:0;display: inline;}
+.bigboss .content ul li{font-size:14px;line-height:28px;}
+.bigboss .content ul li a:hover{color:#ff2400;}
+.bigboss .content h6{text-indent:40px;margin-top:25px;font-size:24px;font-family:"Microsoft YaHei","微软雅黑",Helvetica,"黑体",Arial,Tahoma;}
+.bigboss .post{padding:25px auto;background:#fff;}
+.bigboss .post li{transition:All 0.2s ease-in-out;
+    -webkit-transition:All 0.2s ease-in-out;
+    -moz-transition:All 0.2s ease-in-out;
+    -o-transition:All 0.2s ease-in-out;}
+.bigboss .post li:hover{transform:scale(1.15);
+    -webkit-transform:scale(1.15);
+    -moz-transform:scale(1.15);
+    -o-transform:scale(1.15);
+    -ms-transform:scale(1.15);}
+.bigboss #button{position:relative;display:inline-block;text-decoration:none;background:#ff2400;color:#fff;border:1px solid #ff2400;box-shadow:1px 1px 1px #888;
+	font-size:15px;padding:6px 9px;border-radius:5px;box-shadow:0 8px 16px 0 rgba(0,0,0.9),0 6px 20px 0 rgba(0,0,0.19);}
+.bigboss #button:hover{background:#ff2400;color:white;border:1px solid #ff2400;padding:5px 8px;box-shadow:1px 1px 1px #888888;border-radius:5px;box-shadow:0 8px 16px 0 rgba(0,0,0.2),0 6px 20px 0 rgba(0,0,0.19);}
+.bigboss #map-bkg{width:100%;height:auto;background:#fff;}
+.bigboss #allmap{width: 100%;height: 200px;position: relative;top:20px;float:left;}
+.bigboss #dizhi{display:inline;margin-top:40px;float:left;height:200px;}
+.bigboss #dizhi span{font-size:16px;margin-left:46px;}

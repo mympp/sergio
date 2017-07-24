@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>霸王小面</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?10cbb3b5613f8e2cb6f367ab5997c120";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+</script>
+</head>
+<style type="text/css">
+#bigbox{width:1000px;height:auto;margin:0 auto;}
+#bigbox>img{width:1000px;}
+body{margin:0;padding:0;}
+.witness{width:900px;height:300px;}
+#div1,#div2,#div3{width:900px;height:205px;margin-left:50px; overflow: hidden;  }  
+#div1 ul,#div2 ul,#div3 ul{position:absolute;top:0;left:0;  }  
+#div1 ul li,#div2 ul li,#div3 ul li{float:left;width:210px;height:205px;list-style: none;margin:0 10px;}  
+ul li img{width:210px;height: 205px;margin:0 10px;}  
+/*留言*/
+.mess{float:right;position:fixed;right:0px;bottom:13%;z-index:999;}
+.mess-bg{width:100%;height:100%;float:left;position:fixed;top:0px;z-index:99;}
+.mess-click{position:fixed;right:0px;width:250px;height:auto;}
+.mess-click img{float:right;position:relative;top:-250px;}
+form{width:420px;height:330px;background:#fff url('images/霸王小面/bg2.png') no-repeat center top; background-size:100% 100%;padding:20px 0 20px 10px;border:1px solid #fff;border-radius:8px;}
+form strong{margin-left:60px;line-height:30px;font-family:'微软雅黑';font-size:20px;font-weight:bold;}
+form strong span{color:red;}
+form .box1{margin-top:10px;}
+form .box1 span{color:#ff2400;}
+form .box1 input,form .box2 input,textarea{width:300px;color:#ccc;line-height:2em;text-indent:0.2em;border:1px solid #ccc;border-radius:2px;}
+select{width:300px;}
+select option{width:300px;height:100px;}
+textarea{width:300px;margin-left:8px;}
+form .box2,form .box3{margin-top:10px;margin-left:8px;}
+#button input{width:305px;margin-left:97px;margin-top:10px;padding:10px 0;border:1px solid #ff2400;border-radius:4px;color:#fff;font-weight:bold;font-size:16px;background:#ff2400;}
+</style>
+<body>
+<div id="bigbox">
+	<img src="images/霸王小面/电信直投内页文案.png" />
+	<!-- <input type="button" id="turnLeft" value="向左走" />  
+    <input type="button" id="turnRight" value="向右走" />   -->
+    <div id="div1" style="position:absolute;top:6600px; ">             
+        <ul class="ul1">  
+            <li class="li1"><img src="images/霸王小面/01.png" width="210px" height="205px" /></li>  
+            <li class="li1"><img src="images/霸王小面/02.png" width="210px" height="205px" /></li>  
+            <li class="li1"><img src="images/霸王小面/03.png" width="210px" height="205px" /></li>  
+            <li class="li1"><img src="images/霸王小面/04.png" width="210px" height="205px" /></li>  
+        </ul>           
+		<span style="white-space:pre">    </span>
+	</div>   
+    <div id="div2" style="position:absolute;top:3570px; ">             
+        <ul class="ul2">  
+            <li class="li2"><img src="images/霸王小面/011.png" width="210px" height="205px" /></li>  
+            <li class="li2"><img src="images/霸王小面/012.png" width="210px" height="205px" /></li>  
+            <li class="li2"><img src="images/霸王小面/013.png" width="210px" height="205px" /></li>  
+            <li class="li2"><img src="images/霸王小面/014.png" width="210px" height="205px" /></li>  
+        </ul>           
+		<span style="white-space:pre">    </span>
+	</div>   
+
+</div>
+<div class="mess-bg"></div>
+<div class="mess">
+<div class="mess-click"><img src="images/霸王小面/bg1.png" width="100%" /></div>
+<form>
+    <strong>如果您对该项目感兴趣,请在下方<span>留言</span></strong>
+	<div class="box1">
+		<span>*</span>姓&nbsp&nbsp名：
+		<input id="fullname" type="text" name="" value="您的真实姓名" onfocus="if (value =='您的真实姓名'){value =''}" onblur="if (value ==''){value='您的真实姓名'}">
+	</div>
+
+	<div class="box1">
+		<span>*</span>手&nbsp&nbsp机：
+		<input id="phonenumber" type="text" name="" value="电话是与您联系的重要方式" onfocus="if (value =='电话是与您联系的重要方式'){value =''}" onblur="if (value ==''){value='电话是与您联系的重要方式'}">
+	</div>
+
+	<div class="box2">
+		地&nbsp&nbsp址：
+		<input id="address" type="text" name="" value="与您联系的重要方式" onfocus="if (value =='与您联系的重要方式'){value =''}" onblur="if (value ==''){value='与您联系的重要方式'}">
+	</div>
+
+	<div class="box2">
+		投资额度：
+		<select id="investment">
+			<option value="" selected="selected">请选择你的投资区间</option>
+			<option value="3-5万">3-5万</option>
+			<option value="5-10万">5-10万</option>
+			<option value="10-20万">10-20万</option>
+			<option value="20万以上">20万以上</option>
+		</select>
+	</div>
+
+	<div class="box3">
+		回&nbsp&nbsp访：
+		<input type="radio" class="visit" name="visit" value="随时" checked="checked">随时
+		<input type="radio" class="visit" name="visit" value="上班时间">上班时间
+		<input type="radio" class="visit" name="visit" value="下班时间">下班时间
+	</div>
+
+	<div class="box2">
+		<span style="float:left;">留言内容：</span>
+		<textarea id="message">请输入您的留言内容或选择快捷留言</textarea>
+	</div>
+	<div id="button">
+		<input id="submit" type="submit" name="" value="提交留言">
+	</div>
+</form>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+    $("#message").focus(function () {
+        if ($("#message").val() == "请输入您的留言内容或选择快捷留言") {
+            $("#message").val("");
+        }
+    });
+
+    $("#message").blur(function () {
+        if ($("#message").val() == "") {
+            $("#message").val("请输入您的留言内容或选择快捷留言");
+        }
+    });
+
+    $("#submit").click(function () {
+        var fullname = $("#fullname").val();
+        var phonenumber = $("#phonenumber").val();
+        var address = $("#address").val();
+        var investment = $("#investment").val();
+        var visit = $(".visit:checked").val();
+        var message = $("#message").val();
+
+        var allow = true;
+
+        if (fullname == "您的真实姓名") {
+            allow = false;
+
+            alert("请输入您的真实姓名！");
+        }
+
+        var reg = /^1[3|4|5|7|8][0-9]{9}$/;
+
+        if (allow && !reg.test(phonenumber)) {
+            allow = false;
+
+            alert("请输入正确的电话号码！");
+        }
+
+        if (allow) {
+            $.post("http://bimcool.com/home/saveclient?fullname=" + fullname + "&phonenumber=" + phonenumber + "&address=" + (address == "与您联系的重要方式" ? "" : address) + "&investment=" + investment + "&visit=" + visit + "&message=" + (message == "请输入您的留言内容或选择快捷留言" ? "" : message), function (r) {
+                alert("谢谢！我们会尽快联系您！")
+
+                location.href = "bawang1.html";
+            });
+        }
+
+        return false;
+    });
+</script>
+<script type="text/javascript">
+$('.mess-bg').click(function(){
+    $('.mess').animate({right:'-475px'});
+    $('.mess-click').animate({right:'0px'});
+    $('.mess-bg').fadeOut(400);
+})
+$('.mess-click').hover(function(){
+	$('.mess').animate({right:'0px'});
+	$('.mess-bg').fadeIn(400);
+})
+$("input").focus(function(){
+    $(this).css("color","#000");
+
+});
+$("textarea").focus(function(){
+    $(this).css("color","#000");
+
+})
+</script>
+<script type="text/javascript">   
+	window.onload=function(){  
+    var div1=document.getElementById('div1');
+    var oUl1=div1.getElementsByClassName('ul1')[0];  
+    var li1=oUl1.getElementsByClassName('li1');  
+    var speed=-2;//用来存移动的速度，小于零时向左滚，大于零时向右滚  
+  
+    //复制oUl1,在滚动时让最后一张图片和第一张图片无缝衔接  
+    oUl1.innerHTML=oUl1.innerHTML+oUl1.innerHTML;  
+    oUl1.style.width=li1[0].offsetWidth*li1.length+'px'; //通过li的个数动态获取Ul的宽度，使所有图片都在一行  
+    //alert(div1.offsetLeft);//获取左边距:返回所有影响其位置的总和  
+    function Move1(){  
+        if(oUl1.offsetLeft<-oUl1.offsetWidth/2)  
+        {  
+            oUl1.style.left='0';  
+        }  
+        if (oUl1.offsetLeft>0) {  
+            oUl1.style.left=-oUl1.offsetWidth/2+'px';  
+        }  
+        oUl1.style.left=oUl1.offsetLeft+speed+'px';  
+    }  
+    var timer1=setInterval(Move1,40);  
+    div1.onmouseover=function(){  
+        clearInterval(timer1);  
+    }  
+    div1.onmouseout=function(){  
+        timer1=setInterval(Move1,40);  
+    }  
+
+    // 2 
+    var div2=document.getElementById('div2');
+    var oUl2=div2.getElementsByClassName('ul2')[0];  
+    var li2=oUl2.getElementsByClassName('li2');  
+    var speed=-2;//用来存移动的速度，小于零时向左滚，大于零时向右滚  
+  
+    //复制oUl2,在滚动时让最后一张图片和第一张图片无缝衔接  
+    oUl2.innerHTML=oUl2.innerHTML+oUl2.innerHTML;  
+    oUl2.style.width=li2[0].offsetWidth*li2.length+'px'; //通过li的个数动态获取Ul的宽度，使所有图片都在一行  
+    //alert(div2.offsetLeft);//获取左边距:返回所有影响其位置的总和  
+    function Move2(){  
+        if(oUl2.offsetLeft<-oUl2.offsetWidth/2)  
+        {  
+            oUl2.style.left='0';  
+        }  
+        if (oUl2.offsetLeft>0) {  
+            oUl2.style.left=-oUl2.offsetWidth/2+'px';  
+        }  
+        oUl2.style.left=oUl2.offsetLeft+speed+'px';  
+    }  
+    var timer2=setInterval(Move2,40);  
+    div2.onmouseover=function(){  
+        clearInterval(timer2);  
+    }  
+    div2.onmouseout=function(){  
+        timer2=setInterval(Move2,40);  
+    } 
+
+    // 3
+    var div3=document.getElementById('div3');
+    var oUl3=div3.getElementsByClassName('ul3')[0];  
+    var li3=oUl3.getElementsByClassName('li3');  
+    var speed=-2;//用来存移动的速度，小于零时向左滚，大于零时向右滚  
+  
+    //复制oUl3,在滚动时让最后一张图片和第一张图片无缝衔接  
+    oUl3.innerHTML=oUl3.innerHTML+oUl3.innerHTML;  
+    oUl3.style.width=li3[0].offsetWidth*li3.length+'px'; //通过li的个数动态获取Ul的宽度，使所有图片都在一行  
+    //alert(div3.offsetLeft);//获取左边距:返回所有影响其位置的总和  
+    function Move3(){  
+        if(oUl3.offsetLeft<-oUl3.offsetWidth/2)  
+        {  
+            oUl3.style.left='0';  
+        }  
+        if (oUl3.offsetLeft>0) {  
+            oUl3.style.left=-oUl3.offsetWidth/2+'px';  
+        }  
+        oUl3.style.left=oUl3.offsetLeft+speed+'px';  
+    }  
+    var timer3=setInterval(Move3,40);  
+    div3.onmouseover=function(){  
+        clearInterval(timer3);  
+    }  
+    div3.onmouseout=function(){  
+        timer3=setInterval(Move3,40);  
+    }   
+};  
+</script>  
+
+</body>
+</html>

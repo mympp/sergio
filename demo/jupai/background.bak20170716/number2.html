@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="csrf-token" content="I9VnGhpb1YFgTJPiLA7u89h73Ps15wcxGo4Lhguy" />
+<meta name="renderer" content="webkit">
+<meta name="description" content="聚派科技，国内首家移动场景营销广告平台。广告sdk流量变现联盟，ios、android广告插件sdk，新型互联网app流量变现模式；场景营销广告联盟，cpa cpm cpc cps cpt等。聚派-简单连接一切，开启智慧生活。">
+<meta name="keywords" content="流量变现、app流量变现、广告sdk、sdk广告、场景营销、cpm广告联盟、app广告联盟、广告联盟">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=IE8">
+<title>聚派-SDK-添加客户</title>
+<link rel="stylesheet" href="/css/metisMenu.min.css">
+<link href="/css/city-picker.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<div id="wrapper">
+
+				<!-- 右侧 -->
+		<div class="content_wrap" style="margin-left:0;">
+			<div class="content">
+    <div class="container custom-edit-container clearfix">
+        <!-- <h5><span><a href="http://www.soundtooth.cn/childAccountList">客户列表</a>&nbsp;&gt;&gt;&nbsp;编辑</span></h5> -->
+        <div class="vital-row-box">
+            <div class="vital-row nick-name">
+                <span class="left">*帐号名称:</span>
+                <input type="text" maxlength="20" id="nick-name" placeholder="请输入帐号名称" autocomplete="off">
+                <span class="tips">用于登录，支持中英文，2-20个字符，不包含空格</span>
+            </div>
+            <div class="vital-row password">
+                <span class="left">*设置密码:</span>
+                <input type="password" id="password" placeholder="请设置客户密码" autocomplete="off">
+                <span class="tips">6-16个字符，包含数字、英文，区分大小写，不含空格</span>
+            </div>
+            <div class="vital-row verify-password">
+                <span class="left">*确认密码:</span>
+                <input type="password" id="verify-password" placeholder="请确认客户密码" autocomplete="off">
+                <span class="tips">请确认客户账号密码</span>
+            </div>
+            <div class="vital-row conpany-name">
+                <span class="left">*客户公司名称:</span>
+                <input type="text" id="conpany-name" placeholder="请输入客户公司名称">
+                <span class="tips">请输入与营业执照一致的公司全称</span>
+            </div>
+            <div class="vital-row conpany-addr">
+                <span class="left">*客户公司地址:</span>
+                <div class="select-city"><input type="text" id="conpany-addr" placeholder="请选择所在地区" readonly value="" data-toggle="city-picker"></div>
+            </div>
+            <div class="vital-row conpany-addr-detail">
+                <span class="left"></span>
+                <input type="text" id="conpany-addr-detail" placeholder="详细地址，街道楼牌号等">
+            </div>
+            <div class="vital-row contacts-people">
+                <span class="left">*联系人:</span>
+                <input type="text" id="contacts-people" placeholder="请输入联系人名称">
+                <span class="tips">建议输入老板或业务负责人的姓名</span>
+            </div>
+            <div class="vital-row phone-num">
+                <span class="left">*联系方式:</span>
+                <input type="number" maxlength="11" id="phone-num" placeholder="请输入联系人手机号">
+                <span class="tips">请输入11位有效手机号</span>
+            </div>
+             <div class="vital-row phone-num">
+                <span class="left">TOKEN:</span>
+                <input type="text" maxlength="30" id="token" placeholder="">
+                <span class="tips"></span>
+            </div>
+            <div class="vital-row role">
+                <span class="left">*权限</span>
+                <select id="role" >
+            <option value ="0" >admin</option>
+            <option value ="1" >运营商</option>
+            <option value ="2" >客户</option>
+              </select>  
+            </div>
+           <!--  <div class="vital-row unit-price">
+                <span class="left">*设备单价:</span>
+                <input type="number" id="unit-price" placeholder="请输入设备单价">
+                <div class="dib">
+                    <input type="radio" name="box-type" id="box-type-0" class="regular-radio" value="0">
+                    <label for="box-type-0"></label>
+                    <label for="box-type-0">元/个</label>
+                    <input type="radio" name="box-type" id="box-type-1" class="regular-radio" value="1">
+                    <label for="box-type-1"></label>
+                    <label for="box-type-1"> 元/个/月</label>
+                </div>
+                <span class="tips">请输入客户购买/租用设备的单价</span>
+            </div> 
+            <div class="vital-row hardware-num">
+                <span class="left">*设备数量:</span>
+                <input type="number"  id="hardware-num" placeholder="请输入购买/租用设备的数量">个
+                <span class="tips">请输入客户购买/租用设备的数量</span>
+            </div>
+            -->
+          <!--   <div class="vital-row user-type">
+                <span class="left">*用户类型:</span>
+                <div class="check-box">
+                    <div class="">
+                        <input type="radio" name="user-type" id="user-type-0" class="regular-radio" value="0" checked>
+                        <label for="user-type-0"></label>
+                        <span>广告主</span>
+                    </div>
+                    <div class="">
+                        <input type="radio" name="user-type" id="user-type-1" class="regular-radio" value="1">
+                        <label for="user-type-1"></label>
+                        <span>代理商</span>
+                    </div>
+                </div>
+            </div> -->
+            <div class="vital-row agent-area" style="display: none;">
+                <span class="left">*所属区域:</span>
+                <div class="status-selector dropdown-click" id="agent-area" data-area="">
+                    <a class="dropdown-toggle">请选择所属区域</a>
+                    <div class="dropdown-content">
+                        <ul class="dropdown-menu">
+                            <!-- <li id="area-0" data-area="0"><a>省级</a></li> -->
+                            <li id="area-1" data-area="1"><a>市级</a></li>
+                            <li id="area-2" data-area="2"><a>县级</a></li>
+                        </ul>
+                        <span class="dropdown-arrow"><em></em></span>
+                    </div>
+                </div>
+            </div>
+            <div class="vital-row agent-industry" style="display: none;">
+                <span class="left">所属行业:</span>
+                <input type="text"  id="agent-industry" placeholder="请输入所属行业">
+                <span class="tips">请输入客户的所属行业</span>
+            </div>
+           <!--  <div class="vital-row A">
+                <span class="left">客户权限:</span>
+                <div class="check-box">
+                    <div class="">
+                        <input type="checkbox" name="checkbox" id="share-scene" class="regular-checkbox" value="1" checked>
+                        <label for="share-scene"></label>
+                        <span>场景管理</span>
+                    </div>
+                    <div class="">
+                        <input type="checkbox" name="checkbox" id="message-manage" class="regular-checkbox" value="2" checked>
+                        <label for="message-manage"></label>
+                        <span>广告管理</span>
+                    </div>
+                </div>
+            </div>
+            <div class="vital-row" id="message-box">
+                <span class="left">APP广告单价:</span>
+                <input type="number" class="" id="message-price" placeholder="请输入客户发布APP广告的单价">元/条
+            </div>
+            <div class="vital-row" id="box-message-box">
+                <span class="left">设备广告单价:</span>
+                <input type="number" class="" id="box-message-price" placeholder="请输入客户发布设备广告的单价">元/条
+            </div> -->
+
+        </div>
+        <button id="submit-button">确定</button>
+    </div>
+</div>
+
+			
+		</div>
+	</div>
+	<div class="loading-area">
+		<div class="loading-mask"></div>
+		<div class="loading-icon"></div>
+	</div>
+	<!--[if !IE]> -->
+	<script src="/js/jquery-2.1.4.min.js"></script>
+	<!-- <![endif]-->
+	<!--[if IE]>
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<![endif]-->
+	<script src="/background/js/metisMenu.js"></script>
+	<script>
+		$(function() {
+			 $('#menu').metisMenu({
+				toggle: false
+			});
+		});
+	</script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$(".post_content a[href='"+window.location.href+"']").addClass("selflink")
+		$('.selflink').click(function() {return false;});
+		$.fn.scrollFollow=function(options){options=options||{};options.container=options.container||$(this).parent();options.bottomObj=options.bottomObj||'';options.bottomMargin=options.bottomMargin||0;options.marginTop=options.marginTop||0;options.marginBottom=options.marginBottom||0;$window=$(window),$scrollObj=$(this);if($scrollObj.length<=0){return}scrollObj_Top=$scrollObj.position().top,scrollObj_Container_Height=options.container.height(),scrollObj_Position=$scrollObj.css("position");if(options.bottomObj==''||$(options.bottomObj).length<=0){is_bottomObj_exists=false}else{is_bottomObj_exists=true}$window.scroll(function(event){var new_scrollObj_Container_Height=options.container.height();var scrollObj_Height=$scrollObj.height();if(scrollObj_Container_Height!=new_scrollObj_Container_Height&&scrollObj_Container_Height<new_scrollObj_Container_Height+scrollObj_Height){scrollObj_Top=$scrollObj.position().top;scrollObj_Container_Height=new_scrollObj_Container_Height}scrollTop=$window.scrollTop(),topPosition=Math.max(0,scrollObj_Top-scrollTop);if(is_bottomObj_exists==true){var bottomObj_Top=$(options.bottomObj).position().top-options.marginBottom-options.marginTop;topPosition=Math.min(topPosition,(bottomObj_Top-scrollTop)-scrollObj_Height)}if(scrollTop>scrollObj_Top){if(is_bottomObj_exists==true&&(scrollObj_Top+scrollObj_Height>bottomObj_Top)){$scrollObj.css({position:scrollObj_Position,top:scrollObj_Top})}else{if(window.XMLHttpRequest){$scrollObj.css({position:"fixed",top:topPosition+options.marginTop})}else{$scrollObj.css({position:"absolute",top:scrollTop+topPosition+options.marginTop+'px'})}}}else{$scrollObj.css({position:scrollObj_Position,top:scrollObj_Top})}})};
+		$(".sidebar").scrollFollow({
+			bottomObj: '.footer',
+			marginTop: 0,
+			marginBottom: 2
+		});
+
+	});
+	</script>
+	<script src="/background/js/bootstrap.min.js"></script>
+<script src="/js/city-picker.data.js"></script>
+<script src="/js/city-picker.js"></script>
+<script type="text/javascript" src="/background/js/custom.js"></script>
+<script type="text/javascript">
+$("#role   option[value='2']").attr("selected",true);
+var BASEURL = "/";
+$(document).ready(function() {
+    $("#nav-addCustomer").addClass("open");
+    customs.edit();
+});
+</script>
+</body>
+</html>

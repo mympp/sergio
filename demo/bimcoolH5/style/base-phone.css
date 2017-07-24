@@ -1,0 +1,56 @@
+/* CSS Document */
+/*-功能：页面样式-*/
+/*-作者：sergiolin*/
+/*-日期：2016/06/22*/
+/*Phone CSS reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0; padding:0;}
+table{border-collapse:collapse;border-spacing:0; }
+fieldset,img {border:0;}
+address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:normal;}
+
+capation,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before, q:after{content:''}
+abbr,acronym{border:0;}
+a{ text-decoration:none;}
+body{ font-size:12px; font-family:"Microsoft YaHei","微软雅黑",Helvetica,"黑体",Arial,Tahoma; color:#666666; line-height:24px;}
+body a{color:#666666;outline:none;blr:expression(this.onFocus=this.blur()); cursor:pointer;}
+body input{outline:none;blr:expression(this.onFocus=this.blur());}
+* {margin: 0;padding: 0;}
+html, body {height: 100%;}
+.body{background:#eeeeee;position:relative;top:31px;}
+/*品库*/
+/*导航-*/
+.bigboss .nav{position:fixed;top:0;left:0;width:100%;height:100%;z-index:99999;}
+.bigboss .nav .nav_1{display: none;}
+.bigboss .nav ul{z-index:99px;}
+.bigboss .nav .phone-click img{display: inline;margin-top:10px;margin-right:10px;}
+.bigboss .nav .phone-click{display: inline;float:right;}
+.phone-bg{float:left;position:fixed;display:none;top:50px;z-index:99;width:100%;height:100%;background:transparent;background-color:rgba(0,0,0,0.6);}
+.phone-bg img{width:36px;margin:20px;}
+.content1{width:80%;height:100%;position:fixed;top:50px;left:100%;color:#000;background:#fff;z-index:99;text-align:left;text-indent:1em;line-height:70px;letter-spacing:0.5em;}
+.content1 li{margin-left:45px;border-bottom:1px solid #ccc;}
+.bigboss .nav{width:100%;margin:0 auto; height:50px;background:#ff2400 ;}
+.bigboss .nav .logo{display: inline;float: left;margin-top:11px;}
+.bigboss .nav .logo img{display: inline;width:120px;height:auto;position:relative;bottom:5px;left:15px;}
+.bigboss .nav ul li a{text-decoration:none;line-height: 45px;font-size:18px;}
+.bigboss .nav ul li:hover{background:#ff2400;}
+.bigboss .nav ul li:hover a{color:#fff;}
+/*-导航*/
+/*脚本-*/
+.foot{clear: both;background: #444444;width: 100%;height:81px;}
+.foot p{position:relative;top:35px;color:#ffffff;text-align: center;font-size: 12px;}
+/*-脚本*/
+/*联系我们*/
+.contact-panel { background: #c3c3c3 ; border-radius:5px;box-shadow:1px 1px 1px #E6E8FA; bottom: 81px; height: 200px; position: fixed; right: -130px; width: 130px; z-index: 999; color:#fff;}
+.contact-panel  .contact-btn { background: #ff2400; border-radius: 5px 0 0 5px; color: #fff; cursor: pointer; left: -40px; margin-top: -66px; position: absolute; top: 50%; width: 40px; padding:15px; }
+.contact-btn h4 { vertical-align:top; font-size:16px; width:20px; line-height:20px;position:relative;right:4px;}
+.contact-btn img{position:relative;right:9px;}
+.contact-panel .contact-btn > img { margin-left:20px; }
+#tlzbmask { display: none; left: 0; position: fixed; top: 0; z-index: 800; filter: alpha(opacity=40); -moz-opacity: 0.4; -webkit-opacity: 0.4;  opacity: 0.4;  }
+.contact-panel .contact-content { padding: 20px 33px;}
+.contact-content .contact-item:last-child { border-bottom:none;}
+.contact-content h4 { font-size:16px; font-weight:normal; margin-bottom:4px;}
+.contact-content hr{color:black;margin:3px 0;}
+
+

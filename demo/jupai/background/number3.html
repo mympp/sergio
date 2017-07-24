@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="csrf-token" content="I9VnGhpb1YFgTJPiLA7u89h73Ps15wcxGo4Lhguy" />
+<meta name="renderer" content="webkit">
+<meta name="description" content="聚派科技，国内首家移动场景营销广告平台。广告sdk流量变现联盟，ios、android广告插件sdk，新型互联网app流量变现模式；场景营销广告联盟，cpa cpm cpc cps cpt等。聚派-简单连接一切，开启智慧生活。">
+<meta name="keywords" content="流量变现、app流量变现、广告sdk、sdk广告、场景营销、cpm广告联盟、app广告联盟、广告联盟">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=IE8">
+<title>聚派-SDK-修改密码</title>
+	<link rel="stylesheet" href="/css/metisMenu.min.css">
+<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<div id="wrapper">
+
+				<!-- 右侧 -->
+		<div class="content_wrap" style="margin-left:0;">
+			<div class="content">
+	<div class="container modify-pd-container clearfix">
+		<h3>修改密码</h3>
+		<div class="vital-row-box">
+			<div class="vital-row account">
+				<span>账户:</span>
+				<input type="userName"  id="current-userName" readonly="true">
+			</div>
+			<div class="vital-row current-pwd">
+				<span>当前密码:</span>
+				<input type="password" placeholder="请输入当前密码" id="current-pwd">
+			</div>
+			<div class="vital-row new-pwd">
+				<span>新密码:</span>
+				<input type="password" placeholder="请输入新的密码" id="new-pwd"><br>
+				<span>密码由6-16个字符组成,不包含空格,区分大小写</span>
+			</div>
+			<div class="vital-row enter-pwd">
+				<span>确认密码:</span>
+				<input type="password" placeholder="请再次输入新的密码" id="enter-pwd">
+			</div>
+			<div class="vital-row enter-pwd" id="token-view">
+				<span>TOKEN:</span>
+				<input type="text" placeholder="请输入用户Token" id="user-token">
+			</div>
+		</div>
+		<button class="enter-modify-pwd" id="submit-button">确定</button>
+	</div>
+</div>
+
+			
+		</div>
+	</div>
+	<div class="loading-area">
+		<div class="loading-mask"></div>
+		<div class="loading-icon"></div>
+	</div>
+	<!--[if !IE]> -->
+	<script src="/js/jquery-2.1.4.min.js"></script>
+	<!-- <![endif]-->
+	<!--[if IE]>
+	<script src="/js/jquery-1.11.3.min.js"></script>
+	<![endif]-->
+	<script src="/background/js/metisMenu.js"></script>
+	<script>
+		$(function() {
+			 $('#menu').metisMenu({
+				toggle: false
+			});
+		});
+	</script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$(".post_content a[href='"+window.location.href+"']").addClass("selflink")
+		$('.selflink').click(function() {return false;});
+		$.fn.scrollFollow=function(options){options=options||{};options.container=options.container||$(this).parent();options.bottomObj=options.bottomObj||'';options.bottomMargin=options.bottomMargin||0;options.marginTop=options.marginTop||0;options.marginBottom=options.marginBottom||0;$window=$(window),$scrollObj=$(this);if($scrollObj.length<=0){return}scrollObj_Top=$scrollObj.position().top,scrollObj_Container_Height=options.container.height(),scrollObj_Position=$scrollObj.css("position");if(options.bottomObj==''||$(options.bottomObj).length<=0){is_bottomObj_exists=false}else{is_bottomObj_exists=true}$window.scroll(function(event){var new_scrollObj_Container_Height=options.container.height();var scrollObj_Height=$scrollObj.height();if(scrollObj_Container_Height!=new_scrollObj_Container_Height&&scrollObj_Container_Height<new_scrollObj_Container_Height+scrollObj_Height){scrollObj_Top=$scrollObj.position().top;scrollObj_Container_Height=new_scrollObj_Container_Height}scrollTop=$window.scrollTop(),topPosition=Math.max(0,scrollObj_Top-scrollTop);if(is_bottomObj_exists==true){var bottomObj_Top=$(options.bottomObj).position().top-options.marginBottom-options.marginTop;topPosition=Math.min(topPosition,(bottomObj_Top-scrollTop)-scrollObj_Height)}if(scrollTop>scrollObj_Top){if(is_bottomObj_exists==true&&(scrollObj_Top+scrollObj_Height>bottomObj_Top)){$scrollObj.css({position:scrollObj_Position,top:scrollObj_Top})}else{if(window.XMLHttpRequest){$scrollObj.css({position:"fixed",top:topPosition+options.marginTop})}else{$scrollObj.css({position:"absolute",top:scrollTop+topPosition+options.marginTop+'px'})}}}else{$scrollObj.css({position:scrollObj_Position,top:scrollObj_Top})}})};
+		$(".sidebar").scrollFollow({
+			bottomObj: '.footer',
+			marginTop: 0,
+			marginBottom: 2
+		});
+	});
+	</script>
+		<script type="text/javascript" src="/js/layer.js"></script>
+		<script type="text/javascript">
+		var BASEURL = "";
+		$(document).ready(function() {
+			$("#nav-password").addClass("open");
+			if(getParam("userName")){
+				$("#current-userName").val(getParam("userName"));
+			}else{
+				$.ajax({
+					url: '/background/getLoginName.do',
+					type: 'post',
+					dataType: 'json'
+				})
+				.done(function(json) {
+					console.log("success");
+					console.log(json);
+					if(json.errCode=='200'){
+						$("#current-userName").val(json.data.userName);
+						$("#user-token").val(json.data.token)
+						if(json.data.userName=='admin'){
+							$("#token-view").hide();
+						}else{
+							$("#token-view").show();
+						}
+					}else{
+						layer.alert(data.errMsg);
+					}
+				})
+				.fail(function() {
+					console.log("error");
+				})
+				.always(function() {
+					console.log("complete");
+				});
+				
+			}
+			$("#submit-button").click(function(event){
+				event.preventDefault();
+				var pswReg = /^(\w){6,16}$/;
+				var currentPWD = document.getElementById('current-pwd');
+    			var newPWD = document.getElementById('new-pwd');
+    			var enterPWD = document.getElementById('enter-pwd');
+    			if (!currentPWD.value || !pswReg.test(currentPWD.value)) {
+		            layer.msg('当前密码错误,请重新输入', {icon: 5,time: 2000});
+		            return;
+		        }
+		        if (!newPWD.value || !pswReg.test(newPWD.value)) {
+		            layer.msg('请输入格式正确的新密码', {icon: 5,time: 2000});
+		            return;
+		        }
+		        if (!enterPWD.value || !pswReg.test(enterPWD.value)) {
+		            layer.msg('请输入格式正确的新密码', {icon: 5,time: 2000});
+		            return;
+		        }
+		        if (enterPWD.value !== newPWD.value) {
+		            layer.msg('新密码两次输入不相等,请重新输入', {icon: 5,time: 2000});
+		            return;
+		        }
+				$.ajax({
+					url: '/background/userupdatepass.do',
+					type: 'post',
+					dataType: 'json',
+					data: {
+						userName:$("#current-userName").val(),
+						passwd:$("#current-pwd").val(),
+						other1:$("#new-pwd").val(),
+						token:$("#user-token").val()
+					}
+				})
+				.done(function(json) {
+					console.log("success");
+					console.log(json);
+					if(json.errCode=='200'){
+						layer.alert("修改密码成功");
+						window.location.reload();
+					}else{
+						layer.alert(json.errMsg);
+					}
+				})
+				.fail(function() {
+					console.log("error");
+				})
+				.always(function() {
+					console.log("complete");
+				});
+			});
+		});
+
+		function getParam(paramName) {
+			paramValue = "";
+			isFound = false;
+			//alert(location.href);
+			if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=") > 1) {
+				arrSource = unescape(this.location.search).substring(1, this.location.search.length).split("&");
+				i = 0;
+				while (i < arrSource.length && !isFound) {
+					if (arrSource[i].indexOf("=") > 0) {
+						if (arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase()) {
+							paramValue = arrSource[i].split("=")[1];
+							isFound = true;
+						}
+					}
+					i++;
+				}
+			}
+			return paramValue;
+		}
+</script>
+</body>
+</html>

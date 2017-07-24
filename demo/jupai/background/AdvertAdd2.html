@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="csrf-token" content="Y6cSmtB0CzbRvmCsgusZzuP1KCGfJtAjdpOuAGZD"/>
+    <meta name="renderer" content="webkit">
+    <meta name="description"
+          content="聚派，国内首家移动场景营销广告平台。广告sdk流量变现联盟，ios、android广告插件sdk，新型互联网app流量变现模式；场景营销广告联盟，cpa cpm cpc cps cpt等。声牙-简单连接一切，开启智慧生活。">
+    <meta name="keywords" content="流量变现、app流量变现、广告sdk、sdk广告、场景营销、cpm广告联盟、app广告联盟、广告联盟">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=IE8">
+    <title>聚派-新建广告</title>
+    <link rel="bookmark" type="image/x-icon">
+    <link rel="icon" type="image/x-icon">
+    <link rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" href="/css/metisMenu.min.css">
+    <link rel="stylesheet" href="/background/css/index.css">
+    <link rel="stylesheet" href="/background/css/newAddAdvert.css">
+<link rel="stylesheet" href="/kindeditor/themes/default/default.css" />
+</head>
+
+<body>
+<div id="wrapper">
+
+    <!-- 右侧 -->
+    <div class="content_wrap">
+        <div class="container add-ad-container clearfix">
+            <div class="add-ad-main fl">
+                <div class="page-title-box clearfix">
+                    <h3>新建广告</h3></div>
+                <div class="step-process-box">
+                    <ul class="step-process"></ul>
+                </div>
+                <div class="step-box"></div>
+                <div class="buttons-box clearfix">
+                    <div class="button fl" id="prev-step">上一步</div>
+                    <div class="button fr" id="next-step">下一步</div>
+                    <div class="button fr" id="save-step">完成</div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">Copyright © 2015-2016 Soundtooth. All Rights Reserved. 粤ICP备14034246号-1</footer>
+    </div>
+</div>
+<div class="loading-area">
+    <div class="loading-mask"></div>
+    <div class="loading-icon"></div>
+</div>
+<!--[if !IE]> -->
+<script src="/js/jquery-2.1.4.min.js"></script>
+<!-- <![endif]-->
+<!--[if IE]>
+<script src="http://www.soundtooth.cn/js/jquery-1.11.3.min.js"></script>
+<![endif]-->
+<!-- <script src="/background/js/metisMenu.js"></script>
+<script>$(function () {
+    $('#menu').metisMenu({
+        toggle: false
+    });
+});</script> -->
+<script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+<script type="text/javascript">$(document).ready(function () {
+
+    $.fn.scrollFollow = function (options) {
+        options = options || {};
+        options.container = options.container || $(this).parent();
+        options.bottomObj = options.bottomObj || '';
+        options.bottomMargin = options.bottomMargin || 0;
+        options.marginTop = options.marginTop || 0;
+        options.marginBottom = options.marginBottom || 0;
+        $window = $(window),
+            $scrollObj = $(this);
+        if ($scrollObj.length <= 0) {
+            return
+        }
+        scrollObj_Top = $scrollObj.position().top,
+            scrollObj_Container_Height = options.container.height(),
+            scrollObj_Position = $scrollObj.css("position");
+        if (options.bottomObj == '' || $(options.bottomObj).length <= 0) {
+            is_bottomObj_exists = false
+        } else {
+            is_bottomObj_exists = true
+        }
+        $window.scroll(function (event) {
+            var new_scrollObj_Container_Height = options.container.height();
+            var scrollObj_Height = $scrollObj.height();
+            if (scrollObj_Container_Height != new_scrollObj_Container_Height && scrollObj_Container_Height < new_scrollObj_Container_Height + scrollObj_Height) {
+                scrollObj_Top = $scrollObj.position().top;
+                scrollObj_Container_Height = new_scrollObj_Container_Height
+            }
+            scrollTop = $window.scrollTop(),
+                topPosition = Math.max(0, scrollObj_Top - scrollTop);
+            if (is_bottomObj_exists == true) {
+                var bottomObj_Top = $(options.bottomObj).position().top - options.marginBottom - options.marginTop;
+                topPosition = Math.min(topPosition, (bottomObj_Top - scrollTop) - scrollObj_Height)
+            }
+            if (scrollTop > scrollObj_Top) {
+                if (is_bottomObj_exists == true && (scrollObj_Top + scrollObj_Height > bottomObj_Top)) {
+                    $scrollObj.css({
+                        position: scrollObj_Position,
+                        top: scrollObj_Top
+                    })
+                } else {
+                    if (window.XMLHttpRequest) {
+                        $scrollObj.css({
+                            position: "fixed",
+                            top: topPosition + options.marginTop
+                        })
+                    } else {
+                        $scrollObj.css({
+                            position: "absolute",
+                            top: scrollTop + topPosition + options.marginTop + 'px'
+                        })
+                    }
+                }
+            } else {
+                $scrollObj.css({
+                    position: scrollObj_Position,
+                    top: scrollObj_Top
+                })
+            }
+        })
+    };
+    $(".sidebar").scrollFollow({
+        bottomObj: '.footer',
+        marginTop: 0,
+        marginBottom: 2
+    });
+
+});
+
+
+
+function initEditor(editorId,urlid){
+  alert("editorId=="+editorId+",urlid=="+urlid);
+  KindEditor.ready(function(K) {
+    var editor = K.editor({
+        uploadJson: '/kindeditor/jsp/upload_json.jsp',
+        fileManagerJson: '/kindeditor/jsp/file_manager_json.jsp',
+        allowFileManager: true
+    });
+    $("#"+editorId).bind("click",function(){
+      alert("test");
+    });
+    K('#'+editorId).click(function(e) {
+      alert("up");
+        editor.loadPlugin('image', function() {
+            editor.plugin.imageDialog({
+                showRemote: false,
+                imageUrl: K('#'+urlid).val(),
+                clickFn: function(url, title, width, height, border, align) {
+
+                    $('#'+urlid).val(url);
+                    alert($('#'+urlid).val());
+                    var upSizeObj = {
+                        width: width,
+                        height: height
+                    };
+                    addAdvert.imgUrls.img.push({
+                        'url': SERVERURL+url,
+                        "size": "未知",
+                        'width': width,
+                        'height': height,
+                        'channel_type': 0,
+                        'fundsLimit': $("#daily-budget").val()
+                    });
+                 
+                   
+                    editor.hideDialog();
+                }
+            });
+        });
+    });
+
+});
+}
+
+
+
+
+
+
+</script>
+<script type="text/javascript">var BASEURL = "/";
+var USER_TYPE_ID = 5;</script>
+<script type="text/javascript" src="js/rome.min.js"></script>
+<script type="text/javascript" src="/js/layer.js"></script>
+<script type="text/javascript" src="/background/js/index.js"></script>
+<script type="text/javascript" src="/background/js/newAddAdvert.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#nav-addDspAdvert").addClass("open");
+    //界面配置信息
+    addAdvert.config = {
+        pages: [{
+            id: 1,
+            text: '基本信息',
+            active: true,
+            content: [{
+                    id: 'ad-name',
+                    text: '广告名称',
+                    type: 'text',
+                    placeholder: '请输入广告名称，不超过20个字符',
+                    tip: '只用于记录广告，不对外展示',
+                    content: []
+                }, {
+                    id: 'pay-type',
+                    text: '付费模式',
+                    type: 'radio',
+                    content: [{
+                        id: 0,
+                        text: 'CPC',
+                        value: 0,
+                        checked: true
+                    }, {
+                        id: 1,
+                        text: 'CPM',
+                        value: 1
+                    }],
+                    onchange: function() {
+                        if ($("input[name='pay-type']:checked").val() == '0') {
+                            $(".cpm-type").hide();
+                        } else {
+                            $(".cpm-type").show();
+                        }
+                    }
+
+                }, {
+                    id: 'show-type',
+                    text: '广告方式',
+                    type: 'radio',
+                    content: [{
+                        id: 0,
+                        text: '入口广告',
+                        value: 0,
+                        checked: true
+                    }, {
+                        id: 1,
+                        text: 'APP平台',
+                        value: 1
+                    }, {
+                        id: 2,
+                        text: '微信朋友圈广告位',
+                        cssClass: 'cpm-type',
+                        value: 2
+                    }],
+                    onchange: function() {
+                        if ($("input[name='show-type']:checked").val() == '0') {
+                            $(".all-show-type").show();
+                            $(".show-type-0").show();
+                            $(".show-type-1").hide();
+                            $(".show-type-2").hide();
+                            $(".pushtypeall").hide();
+                            $("#put-type-1").attr("checked", true);
+                        } else if ($("input[name='show-type']:checked").val() == '1') {
+                            $(".all-show-type").show();
+                            $(".show-type-1").show();
+                            $(".show-type-0").hide();
+                            $(".show-type-2").hide();
+                            $(".pushtypeall").show();
+                            $("#put-type-11").attr("checked", true);
+                        } else if ($("input[name='show-type']:checked").val() == '2') {
+                            $(".all-show-type").show();
+                            $(".show-type-2").show();
+                            $(".show-type-0").hide();
+                            $(".show-type-1").hide();
+                            $(".pushtypeall").hide();
+                        } else {
+                            $(".all-show-type").hide();
+                        }
+                    }
+
+                }, {
+                    id: 'put-type',
+                    text: '媒体资源',
+                    type: 'radio',
+                    content: [{
+                        id: 0,
+                        text: '个信（安卓推）',
+                        cssClass: 'show-type-0',
+                        value: 1,
+                        checked: true
+                    }, {
+                        id: 1,
+                        text: '360推',
+                        cssClass: 'show-type-0',
+                        value: 2
+                    }, {
+                        id: 3,
+                        text: '百度推',
+                        cssClass: 'show-type-0',
+                        value: 3
+                    }, {
+                        id: 11,
+                        text: '腾讯广点通/智汇推',
+                        cssClass: 'show-type-1',
+                        value: 11
+                    }, {
+                        id: 12,
+                        text: '新浪/搜狐/网易/凤凰',
+                        cssClass: 'show-type-1',
+                        value: 12
+                    }, {
+                        id: 13,
+                        text: '百度新闻/百度知道',
+                        cssClass: 'show-type-1',
+                        value: 13
+                    }, {
+                        id: 14,
+                        text: '其他APP媒体',
+                        cssClass: 'show-type-1',
+                        value: 14
+                    }, {
+                        id: 21,
+                        text: '核心城市（北京、上海）',
+                        cssClass: 'show-type-2',
+                        value: 21
+                    }, {
+                        id: 22,
+                        text: '重点城市（广深等20个)',
+                        cssClass: 'show-type-2',
+                        value: 22
+                    }, {
+                        id: 23,
+                        text: '其它城市',
+                        cssClass: 'show-type-2',
+                        value: 23
+                    }],
+                    init: function() {
+                        $(".all-show-type").show();
+                        $(".show-type-0").show();
+                        $(".show-type-1").hide();
+                        $(".show-type-2").hide();
+                        $(".pushtypeall").hide();
+                        $("#put-type-1").attr("checked", true);
+                    }
+
+                }, {
+                    id: 'push-type2',
+                    text: '推送广告',
+                    type: 'radio',
+                    content: [{
+                        id: 1,
+                        text: '开机闪屏',
+                        value: 1,
+                        checked: true
+                    }, {
+                        id: 2,
+                        text: '其他广告位',
+                        value: 2
+                    }]
+
+                }, {
+                    id: 'ad-date',
+                    text: '投放日期',
+                    type: 'date',
+                    start: 3,
+                    end: 8,
+                    hasEnd: true
+                }, {
+                    id: 'piriod',
+                    text: '投放时段',
+                    type: 'radio',
+                    content: [{
+                        id: 0,
+                        text: '不限',
+                        value: 0,
+                        checked: true
+                    }, {
+                        id: 1,
+                        text: '定时发送',
+                        value: 1
+                    }]
+                }, {
+                    id: 'piriod-selector-box',
+                    text: '投放时段',
+                    type: 'piriod',
+                    content: []
+                }, {
+                    id: 'promotion-way',
+                    text: '点击效果',
+                    type: 'radio',
+                    content: [{
+                        id: 0,
+                        text: '访问广告链接',
+                        value: 0,
+                        checked: true
+                    }]
+                }, {
+                    id: 'add-ad-url',
+                    text: '链接地址',
+                    type: 'text',
+                    placeholder: '请输入点击广告跳转的链接',
+                    tip: '*参考样式：http://www.soundtooth.cn',
+                    content: []
+                }, {
+                    id: 'finalprice',
+                    text: '广告单价',
+                    type: 'text',
+                    placeholder: '元',
+                    tip: '*元',
+                    content: []
+                }
+                /*              {
+                                    id: 'daily-budget',
+                                    text: '每日预算',
+                                    type: 'text',
+                                    placeholder: '请输入您的预算上限，不少于10000条',
+                                    tip: '*超过预算，广告将自动停止发布',
+                                    unit: '条'
+                                }*/
+            ]
+        }, {
+            id: 2,
+            text: '广告制作',
+            content: [{
+                id: 'promotion-channel',
+                text: '投放渠道',
+                type: 'radio',
+                content: [{
+                    id: 8,
+                    text: "腾讯广点通",
+                    value: 8,
+                    checked: true
+                }, {
+                    id: 9,
+                    text: "百度网盟",
+                    value: 9
+                }, {
+                    id: 27,
+                    text: "谷歌广告联盟",
+                    value: 27
+                }, {
+                    id: 28,
+                    text: "淘宝",
+                    value: 28
+                }, {
+                    id: 29,
+                    text: "新浪扶翼",
+                    value: 29
+                }, {
+                    id: 30,
+                    text: "灵集",
+                    value: 30
+                }, {
+                    id: 31,
+                    text: "好耶",
+                    value: 31
+                }, {
+                    id: 32,
+                    text: "爱奇艺直通车",
+                    value: 32
+                }, {
+                    id: 33,
+                    text: "搜狐汇算",
+                    value: 33
+                }, {
+                    id: 35,
+                    text: "快友",
+                    value: 35
+                }, {
+                    id: 39,
+                    text: "智汇推",
+                    value: 39
+                }]
+            }, {
+                id: 'ad-spec',
+                text: '广告规格',
+                type: 'accordion',
+                content: [{
+                    id: 8,
+                    text: '腾讯',
+                    value: 8,
+                    content: [{
+                        id: 0,
+                        text: '开屏640*1136图片',
+                        value: 0,
+                        billing: '按点击计费',
+                        thumb: BASEURL + 'images/promotion_channel/tencent/kaiping_640-1136.jpg',
+                        content: [{
+                            id: 'img-8-0-0',
+                            text: '广告图片',
+                            type: 'img',
+                            size: ['640*1136'],
+                            space: '100kb',
+                            ext: ['jpg', 'png', 'gif'],
+                            tip: '640*1136, 100K以内的jpg、png或gif图片，gif时长需小于5秒'
+                        }]
+                    }, {
+                        id: 1,
+                        text: '开屏640*960图文',
+                        value: 1,
+                        billing: '按点击计费',
+                        thumb: BASEURL + 'images/promotion_channel/tencent/kaiping_640-960.jpg',
+                        content: [{
+                            id: 'img-8-1-0',
+                            text: '广告图片',
+                            type: 'img',
+                            size: ['640*960'],
+                            space: '100kb',
+                            ext: ['jpg', 'png', 'gif'],
+                            tip: '640*960, 100K以内的jpg、png或gif图片，gif时长需小于5秒'
+                        }, {
+                            id: 'infoflow_title',
+                            text: '广告文案',
+                            type: 'text',
+                            tip: '12个字符以内'
+                        }, {
+                            id: 'infoflow_con',
+                            text: '广告描述',
+                            type: 'text',
+                            tip: '13个字符以内'
+                        }]
+                    }, {
+                        id: 2,
+                        text: '信息流240*180图文',
+                        value: 2,
+                        billing: '按点击计费',
+                        thumb: BASEURL + 'images/promotion_channel/tencent/infoflow_240-180.jpg',
+                        content: [{
+                            id: 'img-8-2-0',
+                            text: '广告图片',
+                            type: 'img',
+                            size: ['240*180'],
+                            space: '30kb',
+                            ext: ['jpg', 'png'],
+                            tip: '240*180, 30K以内的jpg或png图片'
+                        }, {
+                            id: 'infoflow_title',
+                            text: '广告文案',
+                            type: 'text',
+                            tip: '13个字符以内'
+                        }, {
+                            id: 'infoflow_con',
+                            text: '广告描述',
+                            type: 'text',
+                            tip: '24个字符以内'
+                        }, {
+                            id: 'logo-8-2',
+                            text: '商标',
+                            type: 'img',
+                            size: ['512*512'],
+                            space: '30kb',
+                            ext: ['jpg', 'png'],
+                            tip: '512*512, 30K以内的jpg或png图片'
+                        }, {
+                            id: 'infoflow_advertiser_name',
+                            text: '商标名称',
+                            type: 'text',
+                            tip: '20个字符以内'
+                        }]
+                    }, {
+                        id: 3,
+                        text: '信息流640*288图文',
+                        value: 3,
+                        billing: '按点击计费',
+                        thumb: BASEURL + 'images/promotion_channel/tencent/infoflow_640-288.jpg',
+                        content: [{
+                            id: 'img-8-3-0',
+                            text: '广告图片',
+                            type: 'img',
+                            size: ['640*288'],
+                            space: '30kb',
+                            ext: ['jpg', 'png'],
+                            tip: '640*288, 30K以内的jpg或png图片'
+                        }, {
+                            id: 'infoflow_title',
+                            text: '广告文案',
+                            type: 'text',
+                            tip: '15个字符以内'
+                        }, {
+                            id: 'logo-8-3',
+                            text: '商标',
+                            type: 'img',
+                            size: ['512*512'],
+                            space: '30kb',
+                            ext: ['jpg', 'png'],
+                            tip: '512*512, 30K以内的jpg或png图片'
+                        }, {
+                            id: 'infoflow_advertiser_name',
+                            text: '商标名称',
+                            type: 'text',
+                            tip: '20个字符以内'
+                        }]
+                    }, {
+                        id: 4,
+                        text: '信息流240*180多图',
+                        value: 4,
+                        billing: '按点击计费',
+                        thumb: BASEURL + 'images/promotion_channel/tencent/infoflow_240-180.jpg',
+                        content: [{
+                            id: 'img-8-4-0',
+                            text: '广告图片',
+                            type: 'img',
+                            size: ['240*180'],
+                            space: '30kb',
+                            ext: ['jpg', 'png'],
+                            tip: '240*180, 30K以内的jpg或png图片'
+                        }, {
+                            id: 'img-8-4-1',
+                            text: '广告图片',
+                            type: 'img',
+                            size: ['240*180'],
+                            space: '30kb',
+                            ext: ['jpg', 'png'],
+                            tip: '240*180, 30K以内的jpg或png图片'
+                        }, {
+                            id: 'img-8-4-2',
+                            text: '广告图片',
+                            type: 'img',
+                            size: ['240*180'],
+                            space: '30kb',
+                            ext: ['jpg', 'png'],
+                            tip: '240*180, 30K以内的jpg或png图片'
+                        }, {
+                            id: 'infoflow_title',
+                            text: '广告文案',
+                            type: 'text',
+                            tip: '15个字符以内'
+                        }, {
+                            id: 'logo-8-4',
+                            text: '商标',
+                            type: 'img',
+                            size: ['512*512'],
+                            space: '30kb',
+                            ext: ['jpg', 'png'],
+                            tip: '512*512, 30K以内的jpg或png图片'
+                        }, {
+                            id: 'infoflow_advertiser_name',
+                            text: '商标名称',
+                            type: 'text',
+                            tip: '20个字符以内'
+                        }]
+                    }, {
+                        id: 5,
+                        text: '横幅640*100图片',
+                        value: 5,
+                        billing: '按点击计费',
+                        thumb: BASEURL + 'images/promotion_channel/tencent/banner_640-100.jpg',
+                        content: [{
+                            id: 'img-8-5-0',
+                            text: '广告图片',
+                            type: 'img',
+                            size: ['640*100'],
+                            space: '30kb',
+                            ext: ['jpg', 'png', 'gif'],
+                            tip: '640*100, 30K以内的jpg、png或gif图片，gif时长需小于5秒'
+                        }]
+                    }, {
+                        id: 6,
+                        text: '横幅240*38图片',
+                        value: 6,
+                        billing: '按点击计费',
+                        thumb: BASEURL + 'images/promotion_channel/tencent/banner_240-38.jpg',
+                        content: [{
+                            id: 'img-8-6-0',
+                            text: '广告图片',
+                            type: 'img',
+                            size: ['240*38'],
+                            space: '30kb',
+                            ext: ['jpg', 'png', 'gif'],
+                            tip: '240*38, 30K以内的jpg、png或gif图片，gif时长需小于5秒'
+                        }]
+                    }, {
+                        id: 7,
+                        text: '横幅80*80图文',
+                        value: 7,
+                        billing: '按点击计费',
+                        thumb: BASEURL + 'images/promotion_channel/tencent/banner_80-80.jpg',
+                        content: [{
+                            id: 'img-8-7-0',
+                            text: '广告图片',
+                            type: 'img',
+                            size: ['80*80'],
+                            space: '30kb',
+                            ext: ['jpg', 'png'],
+                            tip: '80*80, 30K以内的jpg或png图片'
+                        }, {
+                            id: 'infoflow_title',
+                            text: '广告文案',
+                            type: 'text',
+                            tip: '30个字符以内'
+                        }]
+                    }, {
+                        id: 8,
+                        text: '插屏600*500图片',
+                        value: 8,
+                        billing: '按点击计费',
+                        thumb: BASEURL + 'images/promotion_channel/tencent/chaping_600-500.jpg',
+                        content: [{
+                            id: 'img-8-8-0',
+                            text: '广告图片',
+                            type: 'img',
+                            size: ['600*500'],
+                            space: '30kb',
+                            ext: ['jpg', 'png', 'gif'],
+                            tip: '600*500, 30K以内的jpg、png或gif图片，gif时长需小于5秒'
+                        }]
+                    }, {
+                        id: 9,
+                        text: '插屏640*960图片',
+                        value: 9,
+                        billing: '按点击计费',
+                        thumb: BASEURL + 'images/promotion_channel/tencent/chaping_640-960.jpg',
+                        content: [{
+                            id: 'img-8-9-0',
+                            text: '广告图片',
+                            type: 'img',
+                            size: ['640*960'],
+                            space: '80kb',
+                            ext: ['jpg', 'png', 'gif'],
+                            tip: '640*960, 80K以内的jpg、png或gif图片，gif时长需小于5秒'
+                        }]
+                    }]
+                }, {
+                    id: 9,
+                    text: '百度',
+                    value: 9,
+                    content: [{
+                        id: 0,
+                        text: '横幅800*120图片',
+                        value: 0,
+                        billing: '按点击计费',
+                        thumb: BASEURL + 'images/promotion_channel/baidu/banner_800-120.jpg',
+                        content: [{
+                            id: 'img-9-0-0',
+                            text: '广告图片',
+                            type: 'img',
+                            size: ['800*120'],
+                            space: '100kb',
+                            ext: ['jpg', 'png', 'gif'],
+                            tip: '800*120, 100K以内的jpg、png或gif图片'
+                        }]
+                    }, {
+                        id: 1,
+                        text: '横幅640*100图片',
+                        value: 0,
+                        billing: '按点击计费',
+                        thumb: BASEURL + 'images/promotion_channel/baidu/banner_640-100.jpg',
+                        content: [{
+                            id: 'img-9-1-0',
+                            text: '广告图片',
+                            type: 'img',
+                            size: ['640*100'],
+                            space: '100kb',
+                            ext: ['jpg', 'png', 'gif'],
+                            tip: '640*100, 100K以内的jpg、png或gif图片'
+                        }]
+                    }, {
+                        id: 2,
+                        text: '插屏600*500图片',
+                        value: 2,
+                        billing: '按点击计费',
+                        thumb: BASEURL + 'images/promotion_channel/baidu/chaping_600-500.jpg',
+                        content: [{
+                            id: 'img-9-2-0',
+                            text: '广告图片',
+                            type: 'img',
+                            size: ['600*500'],
+                            space: '100kb',
+                            ext: ['jpg', 'png', 'gif'],
+                            tip: '600*500, 100K以内的jpg、png或gif图片'
+                        }]
+                    }, {
+                        id: 3,
+                        text: '插屏600*300图片',
+                        value: 2,
+                        billing: '按点击计费',
+                        thumb: BASEURL + 'images/promotion_channel/baidu/chaping_600-300.jpg',
+                        content: [{
+                            id: 'img-9-3-0',
+                            text: '广告图片',
+                            type: 'img',
+                            size: ['600*300'],
+                            space: '100kb',
+                            ext: ['jpg', 'png', 'gif'],
+                            tip: '600*300, 100K以内的jpg、png或gif图片'
+                        }]
+                    }, {
+                        id: 4,
+                        text: '信息流600*300图文',
+                        value: 3,
+                        billing: '按点击计费',
+                        thumb: BASEURL + 'images/promotion_channel/baidu/infoflow.jpg',
+                        content: [{
+                            id: 'infoflow_title',
+                            text: '主标题',
+                            type: 'text',
+                            tip: ''
+                        }, {
+                            id: 'infoflow_con',
+                            text: '描述',
+                            type: 'text',
+                            tip: ''
+                        }, {
+                            id: 'logo-9-4',
+                            text: 'Logo',
+                            type: 'img',
+                            size: ['90*90'],
+                            space: '15kb',
+                            ext: ['jpg', 'png', 'gif'],
+                            tip: '90*90, 15K以内的jpg、png或gif图片'
+                        }, {
+                            id: 'infoflow_advertiser_name',
+                            text: '品牌名称',
+                            type: 'text',
+                            tip: '20个字符以内'
+                        }, {
+                            id: 'img-9-4-0',
+                            text: '广告图片',
+                            type: 'img',
+                            size: ['600*300'],
+                            space: '100kb',
+                            ext: ['jpg', 'png', 'gif'],
+                            tip: '600*300, 100K以内的jpg、png或gif图片'
+                        }]
+                    }]
+                }]
+            }, {
+                id: 'general-budget',
+                text: '总预算金额',
+                type: 'text',
+                placeholder: '请输入您的总预算上限',
+                tip: '*不少于500，超过预算，广告将自动停止发布',
+                unit: '元'
+            }]
+        }, {
+            id: 3,
+            text: '定向设置',
+            content: []
+        }, {
+            id: 4,
+            text: '效果预览',
+            content: []
+        }]
+    }
+    addAdvert.init();
+});
+
+</script>
+</body>
+
+</html>

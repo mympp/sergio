@@ -1,0 +1,241 @@
+/**base通用样式表**/
+/**作者:sergiolin**/
+/**创建于:2016.11.08**/
+/*此项目有三个CSS文件：
+*base.css是css reset以及通用CSS样式库，
+*public.css是此项目基础结构样式以及统一的设计风格样式库
+*pages.css是单个页面的精细样式
+*/
+@charset "utf-8"
+html{
+	font-family: Helvetica, Arial, "Microsoft YaHei", sans-serif;
+}
+html,body{
+	min-width: 1170px;
+	height: 100%;
+}
+body,ul,ol,li,h1,h2,h3,h4,pre,code,form,button,input,fieldset,legend,input,textarea,p,blockquote,th,td,article,aside,hgroup,menu,nav,section{
+	margin:0;
+	padding:0;
+}
+button,input,textarea,span,section,img,a{
+	outline:none;
+	-webkit-transition:all 0.30s ease-in-out;
+	-moz-transition:all 0.30s ease-in-out;
+	transition:all 0.30s ease-in-out;
+}
+*{
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+*:before,*:after{
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{
+	display:block;
+}
+audio,canvas,progress,video{
+	display:inline-block;
+	vertical-align:baseline;
+}
+address,cite,dfn,em,var,i{
+	font-style:normal;
+	} /* 将斜体扶正 */
+code,kbd,pre,samp,tt{
+	font-family:"Courier New", Courier, monospace;
+	} /* 统一等宽字体 */
+small{
+	font-size:12px;
+}
+body{
+	color: #fff;
+	background: none;
+	font-size:14px;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+	text-rendering:optimizeLegibility;
+}
+.windows{
+	font-family: Helvetica, Arial, "Microsoft YaHei", sans-serif;
+}
+.windows input,.windows button,.windows textarea,.windows select{
+	font-family: Helvetica, Arial, "Microsoft YaHei", sans-serif;
+}
+.mac{
+	font-family: "Hiragino Sans GB","Helvetica Neue", Helvetica, Arial,"Microsoft YaHei", sans-serif;
+}
+.mac input,.mac button,.mac textarea,.mac select{
+	font-family: "Hiragino Sans GB","Helvetica Neue", Helvetica, Arial,"Microsoft YaHei", sans-serif;
+}
+input{
+	color: #ccc;
+	font-size: 12px;
+	padding-left: 12px;
+	box-shadow: 1px 3px 5px 2px #393c3a inset;
+	background: #494d4b;
+	cursor: pointer;
+	border: 1px solid #494d4b;
+	border-radius: 4px;
+	}/**通用CSS样式库**/
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
+	-webkit-text-fill-color: #666 !important;
+}
+ul,ol{
+	list-style:none;
+}
+a{
+	cursor:pointer;
+	text-decoration:none;
+	color:#fff;
+}
+a:hover{
+	color:#007aff;
+	text-decoration:none;
+}
+a:focus {
+	text-decoration: none;
+	outline: none;
+}
+img {
+	vertical-align: middle;
+}
+::selection{
+	background:#007aff;
+	color:#fff;
+	text-shadow:none;
+}
+::-webkit-selection{
+	background:#007aff;
+	color:#fff;
+	text-shadow:none;
+}
+::-moz-selection{
+	background:#007aff;
+	color:#fff;
+	text-shadow:none;
+}
+@font-face {
+	font-family: 'FontAwesome';
+	src: url('../../fonts/fontawesome-webfont.eot');
+	src: url("../../fonts/fontawesome-webfont.eot?#iefix") format('embedded-opentype'), url("../../fonts/fontawesome-webfont.woff") format('woff'), url("../../fonts/fontawesome-webfont.ttf") format('truetype'), url("../../fonts/fontawesome-webfont.svg#FontAwesome") format('svg');
+	font-style: normal;
+	font-weight: normal;
+}
+
+.full-height {
+	height: 100%;
+}
+.full-width{
+	width: 100%;
+}
+.block {
+	display: block;
+}
+.flex-box {
+	display: flex;
+}
+.clear {
+	display: block;
+	overflow: hidden;
+}
+.clearboth{
+	clear: both;
+}
+.clearfix{
+	*zoom: 1;
+}
+.clearfix:before, 
+.clearfix:after {
+	display: table;
+	line-height: 0;
+	content: "";
+}
+.clearfix:after {
+	clear: both;
+}
+.text_left{
+	text-align:left;
+}
+.text_right{
+	text-align:right;
+}
+.text-center {
+	text-align: center;
+}
+.font-bold {
+	font-weight: 600;
+}
+.font-noraml {
+	font-weight: 400;
+}
+.ml-5{
+	margin-left: 5px;
+}
+.text-uppercase {
+	text-transform: uppercase;
+}
+.border-bottom {
+	border-bottom: 1px solid #e7eaec;
+}
+.b-r{
+	border-right: 1px solid #e7eaec;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.f20{
+	font-size: 20px;
+}
+.f24{
+	font-size: 24px;
+}
+.f36{
+	font-size: 36px;
+}
+.hr-line-dashed {
+	border-top: 1px dashed #e7eaec;
+	color: #ffffff;
+	background-color: #ffffff;
+	height: 1px;
+	margin: 20px 0;
+}
+.hr-line-solid {
+	border-bottom: 1px solid #e7eaec;
+	background-color: rgba(0, 0, 0, 0);
+	border-style: solid;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.c_aff{
+	color:#007aff !important;
+}
+.c_aff:hover{
+	text-decoration: underline;
+}
+.levitate {
+	border-radius: 10px;
+	box-shadow: 0px 1px 16px 0px rgba(13, 4, 8, 0.06);
+}
+.dib {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+.pointer {
+	cursor: pointer;
+}
+.no-drop{
+	cursor: no-drop;
+}
+.levitate {
+	border-radius: 10px;
+	box-shadow: 0px 1px 16px 0px rgba(13, 4, 8, 0.06);
+}
+

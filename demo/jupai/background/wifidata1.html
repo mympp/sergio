@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="csrf-token" content="I9VnGhpb1YFgTJPiLA7u89h73Ps15wcxGo4Lhguy" />
+<meta name="renderer" content="webkit">
+<meta name="description" content="聚派科技，国内首家移动场景营销广告平台。广告sdk流量变现联盟，ios、android广告插件sdk，新型互联网app流量变现模式；场景营销广告联盟，cpa cpm cpc cps cpt等。聚派-简单连接一切，开启智慧生活。">
+<meta name="keywords" content="流量变现、app流量变现、广告sdk、sdk广告、场景营销、cpm广告联盟、app广告联盟、广告联盟">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=IE8">
+<title>聚派-SDK-新建设备广告</title>
+<link href="http://www.soundtooth.cn/images/soundTooth.ico" rel="bookmark" type="image/x-icon">
+<link href="http://www.soundtooth.cn/images/soundTooth.ico" rel="icon" type="image/x-icon">
+<link href="http://www.soundtooth.cn/images/soundTooth.ico" rel="shortcut icon" type="image/x-icon">
+	<link rel="stylesheet" href="http://www.soundtooth.cn/css/newAgent/metisMenu.min.css">
+<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<div id="wrapper">
+
+				<!-- 右侧 -->
+		<div class="content_wrap" style="margin-left:0;">
+			<div class="container add-ad-container clearfix">
+	<div class="add-ad-main fl">
+		<div class="page-title-box clearfix">
+			<h3>新建设备广告</h3>
+			<!-- <p>如需帮客户发布广告，请在<a href="#">客户列表</a>中选择单一客户进行操作</p> -->
+		</div>
+		<div class="step-process-box">
+			<ul class="step-process">
+				<li class="active">
+					<div class="ball"><span class="ball-in">1</span><div class="ball-title">广告设置</div></div>
+				</li>
+				<li>
+					<div class="ball"><span class="ball-in">2</span><div class="ball-title">设置精准投放条件</div></div>
+				</li>
+				<li>
+					<div class="ball"><span class="ball-in">3</span><div class="ball-title">制作广告</div></div>
+				</li>
+			</ul>
+		</div>
+		<div class="step-box">
+			<div class="add-ad-step add-ad-step1 active">
+				<div class="form-group">
+					<label for="ad-name">广告名称</label>
+					<div>
+						<div class="form-input-box">
+							<input id="ad-name" type="text" name="ad-name" placeholder="请输入广告名称，不超过20个字符">
+						</div>
+						<div class="form-tip-box">
+							<p>只用于记录广告，不对外展示</p>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>展示方式</label>
+					<div>
+						<label class="radio-inline short pointer">
+							<input name="promotion-position" id="promotion-position-0" class="regular-radio" type="radio" value="0" checked="">
+							<label for="promotion-position-0"></label>
+							<span class="radio-name">横幅</span>
+						</label>
+						<label class="radio-inline short pointer">
+							<input name="promotion-position" id="promotion-position-1" class="regular-radio" type="radio" value="1">
+							<label for="promotion-position-1"></label>
+							<span class="radio-name">开屏</span>
+						</label>
+						<label class="radio-inline short pointer">
+							<input name="promotion-position" id="promotion-position-2" class="regular-radio" type="radio" value="2">
+							<label for="promotion-position-2"></label>
+							<span class="radio-name">插屏</span>
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>点击效果</label>
+					<div>
+						<label class="radio-inline pointer">
+							<input name="promotion-way" id="promotion-way-0" class="regular-radio" type="radio" value="0" checked="">
+							<label for="promotion-way-0"></label>
+							<span class="radio-name">访问广告链接</span>
+						</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="daily-budget">设备预算</label>
+					<div>
+					<div class="form-input-box">
+						<input id="daily-budget" type="text" name="daily-budget" placeholder="请输入您的预算上限">
+						<span>条</span>
+					</div>
+					<div class="form-tip-box">
+						<p>超过上限，广告将自动停止发布</p>
+					</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="startDate">开始时间</label>
+					<div class="date-range">
+						<div class="date-selector-box">
+							<input class="date-selector" id="startDate" placeholder="开始日期"/>
+						</div>
+						<input type="checkbox" id="hasTimeEnd" class="regular-checkbox">
+						<label for="hasTimeEnd"></label>
+						<label for="hasTimeEnd">结束时间</label>
+						<div class="date-selector-box">
+							<input class="date-selector" id="endDate" placeholder="结束日期" disabled />
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>广告时段</label>
+					<div>
+						<label class="radio-inline short pointer">
+							<input name="piriod" id="piriod-0" class="regular-radio" type="radio" value="0" checked="">
+							<label for="piriod-0"></label>
+							<span class="radio-name">不限</span>
+						</label>
+						<label class="radio-inline pointer">
+							<input name="piriod" id="piriod-1" class="regular-radio" type="radio" value="1">
+							<label for="piriod-1"></label>
+							<span class="radio-name">定时发送</span>
+						</label>
+					</div>
+				</div>
+				<div class="piriod-selector-box" id="piriod-selector-box">
+					<div class="legend"><span class="rect active"></span><span>投放时段</span><span class="rect"></span><span>暂停时段</span></div>
+					<div class="triangle"></div>
+					<div class="piriod-selector" id="piriod-selector"></div>
+				</div>
+				<div class="form-group">
+					<label>投放频次</label>
+					<div>
+						<div class="form-input-box">
+							<span>每人每天</span>
+							<input id="promotion-frequency" type="text" name="promotion-frequency" placeholder="" value="1">
+							<span>条</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="add-ad-step add-ad-step2">
+				<div class="region-selector-box" id="region-selector-box">
+					<div class="region-selector">
+						<!-- <div class="region-search search-box">
+							<input id="search-ad" type="text" name="searchCity" placeholder="输入城市名称">
+							<div class="fa fa-search search-button"></div>
+						</div> -->
+						<div class="region-select-all">
+							<label class="checkbox-inline pointer">
+								<input name="region" id="region-all" class="regular-checkbox" type="checkbox" value="all">
+								<label for="region-all"></label>
+								<span class="checkbox-name">全选</span>
+							</label>
+						</div>
+						<ul class="region-select-list clearfix"></ul>
+					</div>
+					<div class="region-reviewer">
+						<ul class="region-review-list"></ul>
+					</div>
+					<div class="triangle"></div>
+				</div>
+				
+				<div class="region-selector-box" id="zone-selector-box">
+					<div class="region-selector">
+						<div class="province-dropdown dib">
+							<div class="province-selector dropdown-click" id="province-dropdown" data-provinceId="">
+								<a class="dropdown-toggle"></a>
+								<div class="dropdown-content">
+									<ul class="dropdown-menu"></ul>
+									<span class="dropdown-arrow"><em></em></span>
+								</div>
+							</div>
+						</div>
+						<div class="city-dropdown dib">
+							<div class="city-selector dropdown-click" id="city-dropdown" data-provinceId="">
+								<a class="dropdown-toggle"></a>
+								<div class="dropdown-content">
+									<ul class="dropdown-menu"></ul>
+									<span class="dropdown-arrow"><em></em></span>
+								</div>
+							</div>
+						</div>
+						<div class="region-select-all">
+							<label class="checkbox-inline pointer">
+								<input name="zone" id="zone-all" class="regular-checkbox" type="checkbox" value="all">
+								<label for="zone-all"></label>
+								<span class="checkbox-name">全选</span>
+							</label>
+						</div>
+						<ul class="region-select-list clearfix"></ul>
+					</div>
+					<div class="region-reviewer">
+						<ul class="region-review-list"></ul>
+					</div>
+					<div class="triangle"></div>
+				</div>
+
+				<div class="scene-selector-box" id="scene-selector-box">
+					<div class="scene-selector">
+						<!-- <div class="search-box">
+							<input id="search-scene" type="text" name="searchScene" placeholder="输入关键词搜索">
+							<div class="fa fa-search search-button"></div>
+						</div> -->
+						<ul class="trees"></ul>
+					</div>
+					<div class="scene-reviewer">
+						<div class="scene-clear"><a id="clear-scene">删除全部</a></div>
+						<ul class="scene-review-list" id="scene-review-list"></ul>
+					</div>
+				</div>
+
+				<div class="scene-selector-box" id="scene-diy-selector-box">
+					<div class="scene-selector">
+						<!-- <div class="search-box">
+							<input id="search-scene" type="text" name="searchScene" placeholder="输入关键词搜索">
+							<div class="fa fa-search search-button"></div>
+						</div> -->
+						<ul class="trees"></ul>
+					</div>
+					<div class="scene-reviewer">
+						<div class="scene-clear"><a id="clear-diy-scene">删除全部</a></div>
+						<ul class="scene-review-list" id="scene-diy-review-list"></ul>
+					</div>
+				</div>
+			</div>
+			<div class="add-ad-step add-ad-step3">
+				<div class="form-group">
+					<label for="add-ad-img-box">设备图片</label>
+					<div class="form-input-box">
+						<label class="file-button" id="add-ad-img-box">上传</label>
+
+						<label id="uploading-kidd-box"></label>
+						<label id="uploaded-status-box"></label>
+						<!-- <input name="add-ad-img" id="add-ad-img-box" class="file-input" type="file"> -->
+						<input type="hidden" id="image-qiniu-url-box">
+					</div>
+					<div class="form-tip-box">
+						<div class="img-tip">
+						<p>大小小于1M，支持jpg、gif、png格式，建议上传长宽比接近4:1的图片</p>
+						</div>
+						<div class="img-tip-kaiping" style="display: none;">
+						<p>大小小于1M，支持jpg、gif、png格式，建议上传长宽比接近1:2的图片</p>
+						</div>
+						<img id="imgContent" style="display: none;">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="add-ad-url">链接地址</label>
+					<div class="form-input-box">
+						<input id="add-ad-url" type="text" name="add-ad-url" placeholder="http://">
+					</div>
+					<div class="form-tip-box">
+						<p>点击广告跳转的链接</p>
+						<p>(例如：http://www.soundtooth.cn)</p>
+					</div>
+				</div>
+				<div class="img-review" id="img-review">
+					<p class="img-review-title">已传广告图<span id="img-count">0</span>张</p>
+					<span class="close-all-btn">删除全部</span>
+					<ul></ul>
+				</div>
+				<div class="advert-preview">
+					<div class="preview-tabs clearfix">
+						<div class="preview-tab tab-phone active" id="tab-phone">手机</div>
+						<div class="preview-tab tab-pad" id="tab-pad">平板</div>
+					</div>
+					<div class="preview-content-box">
+						<div class="preview-content preview-phone active">
+							<div class="preview-screen"></div>
+						</div>
+						<div class="preview-content preview-pad">
+							<div class="preview-screen"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="buttons-box clearfix">
+			<div class="button fl" id="prev-step">上一步</div>
+			<div class="button fr" id="next-step">下一步</div>
+			<div class="button fr" id="save-step">完成</div>
+		</div>
+	</div>
+	<div class="add-ad-slide fr" style="display: none;">
+		<div class="ad-summary" id="ad-summary">
+			<h4>广告摘要</h4>
+		</div>
+	</div>
+</div>
+
+
+			
+		</div>
+	</div>
+	<div class="loading-area">
+		<div class="loading-mask"></div>
+		<div class="loading-icon"></div>
+	</div>
+<!--[if !IE]> -->
+<script src="/js/jquery-2.1.4.min.js"></script>
+<!-- <![endif]-->
+<!--[if IE]>
+<script src="http://www.soundtooth.cn/js/jquery-1.11.3.min.js"></script>
+<![endif]-->
+<script src="/background/js/metisMenu.js"></script>
+    <script type="text/javascript" src="/background/js/rome.min.js"></script>
+<script type="text/javascript" src="/js/layer.js"></script>
+<!-- <script type="text/javascript" src="/js/plupload.full.min.js"></script> -->
+<script type="text/javascript" src="/js/qiniu.js"></script>
+<script type="text/javascript" src="/background/js/index.js"></script>
+<script type="text/javascript" src="/background/js/addAdvert.js"></script>
+<script charset="utf-8" src="/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh_CN.js"></script>
+<link rel="stylesheet" href="/kindeditor/themes/default/default.css" />
+<script type="text/javascript">
+var BASEURL = "/";
+var USER_TYPE_ID = 5;
+var SERVERURL="http://210.209.82.113";
+$(document).ready(function() {
+    $("#nav-agentAddAdvert").addClass("open");
+    addAdvert.init();
+    // getAdverdata(getParam("mid"))
+});
+
+KindEditor.ready(function(K) {
+    var editor = K.editor({
+        uploadJson: '/kindeditor/jsp/upload_json.jsp',
+        fileManagerJson: '/kindeditor/jsp/file_manager_json.jsp',
+        allowFileManager: true
+    });
+    K('#add-ad-img-box').click(function(e) {
+
+        editor.loadPlugin('image', function() {
+            editor.plugin.imageDialog({
+                showRemote: false,
+                imageUrl: K('#url3').val(),
+                clickFn: function(url, title, width, height, border, align) {
+
+                    // K('#url3').val(url);
+                    // alert(url);
+                    var upSizeObj = {
+                        width: width,
+                        height: height
+                    };
+                    addAdvert.imgUrls.img.push({
+                        'url': SERVERURL+url,
+                        "size": "未知",
+                        'width': width,
+                        'height': height,
+                        'channel_type': 0,
+                        'fundsLimit': $("#daily-budget").val()
+                    });
+                 
+                    var $status = $('#uploading-kidd-box');
+                    var type = "盒子广告";
+                    var html = '<li class="clearfix"><div class="img-review-pic fl"><img src="' + url + '"/></div><div class="img-review-size fl">尺寸:' + width + '*' + height + '</div><div class="img-review-type fl">格式:' + getFileType(url) + '</div><div class="img-review-space fl">大小:未知</div><div class="img-review-space fl">' + type + '</div><div class="fa fa-close close-btn"></div></li>';
+                    $('#img-review').children("ul").append(html);
+                    var preview = '<img src="' + url + '">';
+                    $('.preview-img-container').empty().append(preview);
+                    editor.hideDialog();
+                }
+            });
+        });
+    });
+
+});
+
+</script>
+</body>
+</html>

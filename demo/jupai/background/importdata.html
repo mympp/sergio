@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="csrf-token" content="I9VnGhpb1YFgTJPiLA7u89h73Ps15wcxGo4Lhguy" />
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="聚派科技，国内首家移动场景营销广告平台。广告sdk流量变现联盟，ios、android广告插件sdk，新型互联网app流量变现模式；场景营销广告联盟，cpa cpm cpc cps cpt等。聚派-简单连接一切，开启智慧生活。">
+    <meta name="keywords" content="流量变现、app流量变现、广告sdk、sdk广告、场景营销、cpm广告联盟、app广告联盟、广告联盟">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=IE8">
+    <title>聚派-SDK-导入文件</title>
+    <link rel="stylesheet" href="/css/metisMenu.min.css">
+    <link rel="stylesheet" href="css/index.css"></head>
+    
+<body>
+    <div id="wrapper">
+        <form id="ajax_form" action="/background/dataAnalyze.do" enctype="multipart/form-data" method="post">
+        <!-- 右侧 -->
+            <div class="content_wrap" style="margin-left:0;">
+                <div class="content">
+                    <div class="container modify-pd-container clearfix">
+                        <h3>导入文件</h3>
+                        <div class="vital-row-box">
+                            <div class="vital-row account">
+                                <span>导入文件:</span>
+                                <input type="file" name="file"></div>
+                        </div>
+                        <button type="button" class="enter-modify-pwd" id="ajax_submit">确定</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+        <form id="import_form" action="/background/dataAnalyzeImport.do" method="post">
+
+        </form>
+    </div>
+    <div class="loading-area">
+        <div class="loading-mask"></div>
+        <div class="loading-icon"></div>
+    </div>
+    <!--[if !IE]>
+    -->
+    <script src="/js/jquery-2.1.4.min.js"></script>
+    <!-- <![endif]-->
+    <!--[if IE]>
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <![endif]-->
+    <script src="/background/js/metisMenu.js"></script>
+    <script src="/background/js/jquery.form.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#ajax_submit").click(function(event) {
+                // alert("123");
+                $('#ajax_form').ajaxSubmit({
+                    dataType:'json',
+                    success: function(json) {
+                        console.log(json);
+                        // alert(json.errcode);
+                        if(json.errorCode=='0'){
+                            $("#ajax_form").hide();
+                            var datetempoption="";
+                            $.each(json.datadefaulttemp,function(i,v){
+                                datetempoption+='<option value="'+v.key+'">'+v.value+'</option>';
+                            });
+                            var html='<input type="hidden" name="filename" value="'+json.tempfilename+'">';
+                            html+='<div class="content_wrap" style="margin-left:0;"><div class="content"><div class="container modify-pd-container clearfix"><h3>分析结果</h3>';
+                            $.each(json.sheetNames,function(i,v){
+                                html+='<div class="vital-row-box"><div class="vital-row account"><input type="hidden" name="sheetNameindex" value="'+v.key+'"><span>'+v.value+':</span><select name="tablenames">'+datetempoption+'</select></div></div>';
+                            });
+                            html+='<button type="button" class="enter-modify-pwd" id="btn_upload" onclick="updateSumbit()">确定导入</button></div></div></div>';
+                            $("#import_form").append(html);
+                            $.each($("select[name='tablenames']"),function(i,v){
+                                if(i!=0&&i!=1){
+                                    $(this).find('option').eq(i-1).attr("selected",true)
+                                }
+                            });
+                        }else{
+                            alert(json.errorMsg);
+                        }
+
+                    },
+                    error:function(){
+                        alert("上传图片失败");
+                    }
+
+
+                });
+            });
+        })
+        function updateSumbit(){
+            $('#import_form').ajaxSubmit({
+                    dataType:'json',
+                    success: function(json) {
+                        alert(json.errorMsg);
+                        window.location.href="/background/importdata.html"
+                    }
+            });
+        }
+    </script>
+</body>
+</html>

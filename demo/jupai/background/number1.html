@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="csrf-token" content="I9VnGhpb1YFgTJPiLA7u89h73Ps15wcxGo4Lhguy" />
+<meta name="renderer" content="webkit">
+<meta name="description" content="聚派科技，国内首家移动场景营销广告平台。广告sdk流量变现联盟，ios、android广告插件sdk，新型互联网app流量变现模式；场景营销广告联盟，cpa cpm cpc cps cpt等。聚派-简单连接一切，开启智慧生活。">
+<meta name="keywords" content="流量变现、app流量变现、广告sdk、sdk广告、场景营销、cpm广告联盟、app广告联盟、广告联盟">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=IE8">
+<title>聚派-SDK-客户列表</title>
+<link href="http://www.soundtooth.cn/images/soundTooth.ico" rel="bookmark" type="image/x-icon">
+<link href="http://www.soundtooth.cn/images/soundTooth.ico" rel="icon" type="image/x-icon">
+<link href="http://www.soundtooth.cn/images/soundTooth.ico" rel="shortcut icon" type="image/x-icon">
+	<link rel="stylesheet" href="http://www.soundtooth.cn/css/newAgent/metisMenu.min.css">
+	<link type="text/css" rel="stylesheet" href="http://www.soundtooth.cn/css/tipso.min.css">
+	<link rel="stylesheet" href="http://www.soundtooth.cn/css/newAgent/dateRange.css">
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<div id="wrapper">
+
+				<!-- 右侧 -->
+		<div class="content_wrap" style="margin-left:0;">
+			<div class="container chipList-container">
+	<div class="all-details">
+		<p class="title clearfix">
+			<span class="bold fl">客户列表</span>
+			<span class="normal fl">共有<em id="child-totalCount"></em>个客户</span>
+		</p>
+    	<!-- 广告列表 -->
+		<div class="search-box child-search-box clearfix">
+			<div class="fl">
+				<input type="checkbox" id="select-all" class="regular-checkbox">
+				<label for="select-all"></label>
+				<label for="select-all">全选</label>
+				|
+				<a id="all-delete-btn">删除</a>
+			</div>
+			<a href="javascript:;" id="child-search-btn" class="search-btn fr">查询</a>
+			<p class="search-input fr">
+				<input type="text" id="key-word" placeholder="输入搜索关键字">
+			</p>
+			<div class="child-selector dropdown-click fr" id="child-key-select" data-keytype="name">
+				<a class="dropdown-toggle">账号名称</a>
+				<div class="dropdown-content">
+					<ul class="dropdown-menu">
+						<li id="ad-all" data-keytype="name"><a>账号名称</a></li>
+						<li id="ad-all" data-keytype="phone"><a>联系人手机号</a></li>
+					</ul>
+					<span class="dropdown-arrow"><em></em></span>
+				</div>
+			</div>
+			<span class="text fr">关键字类型：</span>
+		</div>
+		<div class="table-responsive">
+			<table class="table table-striped" id="childAccount-table">
+				<colgroup>
+					<col style="width: 20%;">
+					<col style="width: 8%;">
+					<col style="width: 8%;">
+					<col style="width: 8%;">
+					<col style="width: 10%;">
+					<col style="width: 13%;">
+					<col style="width: 13%;">
+					<col style="width: 20%;">
+				</colgroup>
+				<thead>
+			    	<tr>
+						<th>账号名称</th>
+						<th>客户身份</th>
+						<th>所属区域</th>
+						<th>所属行业</th>
+						<th>账户余额（元）</th>
+						<th>剩余设备广告（条）</th>
+						<th>添加日期</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- 此处放置列表信息 -->
+				</tbody>
+			</table>
+			<p class="no-data" id="childAccount-no-data">暂无数据</p>
+		</div>
+		<!-- 分页 -->
+		<div class="page-show clearfix" id="childAccount-page-show">
+			<span class="page-count fl">每页显示15条</span>
+			<div id="childAccount-list-pagination" class="fr" data-page=""></div>
+		</div>
+		<!-- Info Window -->
+		<div class="info-user-box" id="info-user-box">
+			<div class="info-user-mask"></div>
+			<div class="info-user-content" id="info-user-content">
+				<h3 class="title">客户信息</h3>
+				<div class="info_container"></div>
+				<div class="info-btns">
+					<a href="javascript:;" class="info-cancel" style="width: 100%;">确定</a>
+				</div>
+			</div>
+		</div>
+		<!-- 删除弹窗 -->
+		<div class="del-ad-box" id="del-child-box">
+			<div class="del-ad-mask"></div>
+			<div class="del-ad-content" id="del-child-content">
+				<h3 class="title">删除该客户账户后将无法还原</h3>
+				<p class="tips">客户账户删除后，后台将无法记录该客户信息</p>
+				<div class="del-btns">
+					<a href="javascript:;" class="del-cancel">取消</a>
+					<a href="javascript:;" class="del-confirm" id="child-del-btn">继续删除</a>
+				</div>
+			</div>
+		</div>
+		<!-- 充值弹窗 -->
+		<div class="recharge-box" id="recharge-box">
+			<div class="recharge-mask"></div>
+			<div class="recharge-content" id="recharge-content">
+				<p class="lines clearfix">
+					<span class="left fl">转出账户：</span>
+					<span class="right indent fl"><em id="self-phone">聚派传媒</em></span>
+				</p>
+				<p class="lines clearfix">
+					<span class="left fl">账户余额：</span>
+					<span class="right indent fl"><em id="self-balance"></em>元</span>
+				</p>
+				<p class="lines clearfix">
+					<span class="left fl">设备广告：</span>
+					<span class="right indent fl">本月设备广告条数<em id="self-box-balance">0</em>条</span>
+				</p>
+				<p class="lines clearfix" style="display:none;">
+					<span class="left fl">广告条数：</span>
+					<span class="right indent fl"><em id="self-finance-surplus"></em>条</span>
+				</p>
+				<p class="lines clearfix">
+					<span class="left fl">转入账户：</span>
+					<span class="right indent fl"><em id="child-phone"></em></span>
+				</p>
+				<p class="lines clearfix" style="display:none;">
+					<span class="left fl">广告单价：</span>
+					<span class="right indent fl"><em id="self-preprice"></em>元/条</span>
+				</p>
+				<div class="lines clearfix">
+					<span class="left fl">充值类型：</span>
+					<div class="right line-box fl">
+						<input type="radio" name="recharge-type" id="recharge-type-0" class="regular-radio" value="0" checked>
+						<label for="recharge-type-0"></label>
+						<label for="recharge-type-0">APP广告</label>
+						<!-- <input type="radio" name="recharge-type" id="recharge-type-1" class="regular-radio" value="1">
+						<label for="recharge-type-1"></label>
+						<label for="recharge-type-1">设备广告</label> -->
+					</div>
+				</div>
+				<p class="lines clearfix">
+					<span class="left fl">充值广告条数：</span>
+					<span class="right fl"><input type="text" class="fl" id="advert-recharge-num" placeholder="请输入充值广告条数" onkeyup="this.value=this.value.replace(/\D/g,'')">条</span>
+				</p>
+				<div class="recharge-btns">
+					<input type="hidden" id="money_balance">
+					<input type="hidden" id="box_balance">
+					<input type="hidden" id="advert_price">
+					<a href="javascript:;" class="recharge-cancel">取消</a>
+					<a href="javascript:;" class="recharge-confirm" id="child-recharge-btn">确定</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+			
+		</div>
+	</div>
+	<div class="loading-area">
+		<div class="loading-mask"></div>
+		<div class="loading-icon"></div>
+	</div>
+	<!--[if !IE]> -->
+	<script src="http://www.soundtooth.cn/js/jquery-2.1.4.min.js"></script>
+	<!-- <![endif]-->
+	<!--[if IE]>
+	<script src="http://www.soundtooth.cn/js/jquery-1.11.3.min.js"></script>
+	<![endif]-->
+	<script src="http://www.soundtooth.cn/js/newAgent/metisMenu.min.js"></script>
+	<script>
+		$(function() {
+			 $('#menu').metisMenu({
+				toggle: false
+			});
+		});
+	</script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$(".post_content a[href='"+window.location.href+"']").addClass("selflink")
+		$('.selflink').click(function() {return false;});
+		$.fn.scrollFollow=function(options){options=options||{};options.container=options.container||$(this).parent();options.bottomObj=options.bottomObj||'';options.bottomMargin=options.bottomMargin||0;options.marginTop=options.marginTop||0;options.marginBottom=options.marginBottom||0;$window=$(window),$scrollObj=$(this);if($scrollObj.length<=0){return}scrollObj_Top=$scrollObj.position().top,scrollObj_Container_Height=options.container.height(),scrollObj_Position=$scrollObj.css("position");if(options.bottomObj==''||$(options.bottomObj).length<=0){is_bottomObj_exists=false}else{is_bottomObj_exists=true}$window.scroll(function(event){var new_scrollObj_Container_Height=options.container.height();var scrollObj_Height=$scrollObj.height();if(scrollObj_Container_Height!=new_scrollObj_Container_Height&&scrollObj_Container_Height<new_scrollObj_Container_Height+scrollObj_Height){scrollObj_Top=$scrollObj.position().top;scrollObj_Container_Height=new_scrollObj_Container_Height}scrollTop=$window.scrollTop(),topPosition=Math.max(0,scrollObj_Top-scrollTop);if(is_bottomObj_exists==true){var bottomObj_Top=$(options.bottomObj).position().top-options.marginBottom-options.marginTop;topPosition=Math.min(topPosition,(bottomObj_Top-scrollTop)-scrollObj_Height)}if(scrollTop>scrollObj_Top){if(is_bottomObj_exists==true&&(scrollObj_Top+scrollObj_Height>bottomObj_Top)){$scrollObj.css({position:scrollObj_Position,top:scrollObj_Top})}else{if(window.XMLHttpRequest){$scrollObj.css({position:"fixed",top:topPosition+options.marginTop})}else{$scrollObj.css({position:"absolute",top:scrollTop+topPosition+options.marginTop+'px'})}}}else{$scrollObj.css({position:scrollObj_Position,top:scrollObj_Top})}})};
+		$(".sidebar").scrollFollow({
+			bottomObj: '.footer',
+			marginTop: 0,
+			marginBottom: 2
+		});
+		$.ajax({
+			url: BASEURL + 'message/messagesList',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				is_read: 0,
+				page_index: 1,
+				page_num: 1
+			}
+		})
+		.done(function(data) {
+			var message_count = data.result[0].count;
+			$(".message-count-tips").find(".have").text(message_count);
+		})
+		.fail(function() {
+			console.log("error");
+		});
+	});
+	</script>
+		<script src="http://www.soundtooth.cn/js/layer.js?v=2.3"></script>
+	<script src="http://www.soundtooth.cn/js/newAgent/dateRange.js"></script>
+	<script type="text/javascript" src="http://www.soundtooth.cn/js/tipso.min.js"></script>
+	<script src="http://www.soundtooth.cn/js/newAgent/index.js"></script>
+	<script type="text/javascript">
+	var BASEURL = "http://www.soundtooth.cn/";
+	var BASEINDEX = "agentIndex";
+	var ACCOUNT = "";
+	$(document).ready(function() {
+		$("#nav-childAccountList").addClass("open");
+		childAccount.init();
+	});
+	</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+/* CSS Document */
+/*-功能：页面样式-*/
+/*-作者：sergiolin*/
+/*-日期：2016/06/03*/
+
+#content .title_0 ul{list-style-type:none;display:inline-block;}
+#content .title_0 li{float:left;}
+.body{position:relative;top:27px;padding-bottom:27px;}
+/*三级导航*/
+/*设置通配符样式*/
+*{margin:0; padding:0;}
+body{font-size:12px;}
+ul{list-style:none;z-index:1;}
+a{text-decoration:none;}
+/*设置二级导航样式*/   
+.nav-three .nav_jw1{background:#ff2400;color:white;}
+.nav-three_{background:#eeeeee;position:relative;}
+.nav-three {width:90px;height:30px;/*导航栏居中*/margin:auto;position:relative;left:34%;top:7px;}
+.nav-three ul li { width:100px; height:30px; float:left; position:relative;}
+.nav-three ul li a {display:block;width:96px; border-radius:5px;height:26px; line-height:26px; text-align:center;}
+.nav-three ul li a:hover { background-color:#ff2400;}
+/*设置一级导航样式*/
+.nav-three ul li ul{display:none;}
+.nav-three ul li:hover ul{display:block;width:100px;position:absolute;top:30px;left:0;background-color:white;}
+.nav-three ul li:hover ul li a{display:block;width:96px;height:26px;line-height:26px;border-radius:5px;text-align:center;}
+.nav-three ul li:hover ul li a:hover{background-color:#ff2400;}
+/*设置三级导航样式*/
+.nav-three{height:40px;}
+.nav-three ul li:hover ul li ul { display:none;}
+.nav-three ul li:hover ul li:hover ul{ display:block; width:100px; position:absolute; top:0px; left:100px;}
+.nav-three ul li:hover ul li:hover ul li { width:100px; height:30px; }
+.nav-three ul li:hover ul li:hover ul li a { display:block; width:96px; height:26px; line-height:26px; border-radius:5px;text-align:center; }
+.nav-three ul li:hover ul li:hover ul li a:hover { }
+.nav-three ul li:hover ul .nav_jw ul { display:none;}
+.nav-three ul li:hover ul .nav_jw:hover ul{ display:block; width:100px; position:absolute; top:0px; left:-100px;}
+.nav-three ul li:hover ul .nav_jw:hover ul li { width:100px; height:30px; }
+.nav-three ul li:hover ul .nav_jw:hover ul li a { display:block; width:96px; height:26px; line-height:26px; border-radius:5px;text-align:center; }
+.nav-three ul li:hover ul .nav_jw:hover ul li a:hover { }
+/*案例*/
+#content{z-index:-1;width:100%;}
+#content .box{width:95%;height:auto;background:#fff;margin:0 auto;box-shadow:3px 5px 1px #ccc;}
+#content .img_{width:100%;height:auto;overflow:hidden;position: relative;}
+#content .img_ img{width:100%;height:auto;}
+#content  img{min-width:100%;min-height:auto;display: inline;}
+#content  img{transition:All 0.3s ease-in-out;-webkit-transition:All 0.3s ease-in-out;-moz-transition:All 0.3s ease-in-out;-o-transition:All 0.3s ease-in-out;}
+#content img:hover{opacity:0.9;transform:scale(1.10);-webkit-transform:scale(1.10);-moz-transform:scale(1.10);-o-transform:scale(1.10);-ms-transform:scale(1.10);}
+#content .box .boxtom{margin-top:25px;}
+#conten .box .boxtom,.boxtom1{margin-top:25px;}
+#content .box .title_{display: none;}
+#content .box .title_1{margin:10px 10px;padding-top:10px;font-size:18px;}
+#content .box .sum{position:relative;top:-18px;width: 90%;height:auto;margin:0 auto;padding-bottom:10px;}

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>树</title>
+	<link rel="stylesheet" type="text/css" href="/background/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/index.css">
+	<!-- <script src="js/jquery.min.js"></script> -->
+	<script src="/js/jquery-2.1.4.min.js"></script>
+	<script src="/background/js/bootstrap.min.js"></script>
+	
+
+</head>
+<body>
+<div class="row">
+	<div class="col-sm-4">
+		<div class="widget-box">
+			<div class="widget-header">
+				<h4 class="widget-title lighter smaller">Choose Categories</h4>
+			</div>
+
+			<div class="widget-body">
+				<div class="widget-main padding-8">
+					<div id="treeview" class="treeview"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-8">
+		<div class="">
+			<form role="form">
+			<input type="hidden" name="id" id="id"/>
+			<input type="hidden" name="idtemp" id="idtemp"/>
+			<input type="hidden" name="pid" id="pid"/>
+			<!-- <input type="hidden" name="key" id="key"/> -->
+			<input type="hidden" name="type" id="type"/>
+
+				<div class="form-group">
+					<label class="" for="">描述</label>
+					<span class="">
+						<input type="text" name="description" id="description" disabled="disabled">
+					</span>
+				</div>
+				<div class="form-group">
+					<label class="" for="">费率</label>
+					<span class="">
+						<input type="text" name="level" id="level" disabled="disabled">
+					</span>
+				</div>
+				<div class="form-group">
+					<label class="" for="">KEY</label>
+					<span class="">
+						<input type="text" name="tkey" id="tkey" disabled="disabled">(与声牙标签对应的key)
+					</span>
+				</div>
+				<!-- <div class="form-group">
+					<label class="" for="">单选框</label>
+					<span class="">
+						<input type="radio" value="" name="相同值" id="" checked="checked">选项1
+						<input type="radio" value="" name="相同值" id="">选项2
+						<input type="radio" value="" name="相同值" id="">选项3
+					</span>
+				</div> -->
+				<!-- <div class="form-group">
+					<label class="" for="">多选项</label>
+					<span>
+						<input type="checkbox" name="" id="" checked="checked">1
+						<input type="checkbox" name="" id="" >2
+						<input type="checkbox" name="" id="" >3
+					</span>
+				</div> -->
+				<!-- <div class="form-group">
+					<label class="" for="">下拉框</label>
+					<select name="" class="">
+						<option value="" selected="selected">1</option>
+						<option value="">2</option>
+						<option value="">3</option>
+					</select>
+				</div> -->
+				<div class="form-group">
+					<label class="" for="">备注</label>
+					<span class="">
+						<textarea name="remark" id="remark" disabled="disabled"></textarea>
+					</span>
+				</div>
+				<div class="" id="add" style="display: none;">
+					<input type="button" name="addbtn" id="addbtn" value="新增">
+				</div>
+				<div class="" id="edit" style="display: none;">
+					<input type="button" name="editbtn" id="editbtn" value="编辑">
+				</div>
+				<div class="" id="del" style="display: none;">
+					<input type="button" name="delbtn" id="delbtn" value="删除">
+				</div>
+				<div class="" id="sumb" style="display: none;">
+					<input type="button" name="smbtn" id="smbtn" value="提交">
+				</div>
+				<div class="" id="cel" style="display: none;">
+					<input type="button" name="cancel" id="cancel" value="取消">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<script src="/background/js/bootstrap-treeview.min.js"></script>
+<script type="text/javascript">
+ var defaultData2;
+var defaultData;
+	$(function(){
+
+        $.ajax({
+
+            url: '/background/pricecfgList.do',
+            type: 'post',
+            dataType: 'json'
+            
+        })
+         .done(function (data) {
+                    // console.log("success");
+                     // console.log(data.jsonlist);
+                  defaultData=data.jsonlist; 
+                  defaultData2= data.tplist;
+                  // console.log(JSON.stringify(defaultData));
+                  // console.log(JSON.stringify(defaultData2));
+                  $('#treeview').treeview({
+	          color: "#428bca",
+	          showBorder: false,
+	          data: defaultData,
+	          onNodeSelected: function (event, node) {
+	          	showdate(node.id);
+	           console.log(node.id);
+	          }
+	        });
+                })
+        .fail(function () {
+            console.log("error");
+        });
+		   
+
+        $("#smbtn").click(function(event){
+        	if($("#type").val()=="add"){
+        			$.ajax({
+        				url: '/background/pricecfgAdd.do',
+            			type: 'post',
+            			dataType: 'json',
+            			data:getParam()
+        			})
+        			 .done(function (data) {
+            		    console.log("success");
+            		   if(data.errCode=='200'){
+             		   	alert("添加成功");
+             		   	window.location.reload();
+             		   }
+                    })
+        			.fail(function () {
+           			 console.log("error");
+        			});
+        	}else if($("#type").val()=="edit"){
+        			$.ajax({
+        				url: '/background/pricecfgUpdate.do',
+            			type: 'post',
+            			dataType: 'json',
+            			data:getParam()
+        			})
+        			 .done(function (data) {
+            		    console.log("success");
+            		   if(data.errCode=='200'){
+             		   	alert("编辑成功");
+             		   	window.location.reload();
+             		   }
+                    })
+        			.fail(function () {
+           			 console.log("error");
+        			});
+        	}
+        });
+
+        $("#addbtn").click(function(event){
+        	$('#description').attr("disabled",false); 
+        	$('#level').attr("disabled",false);
+        	$('#remark').attr("disabled",false);
+        	$('#tkey').attr("disabled",false);
+
+        	$("#type").val("add");
+        	$("#description").val("");
+			$("#level").val("");
+			$("#pid").val($("#id").val());
+			$("#id").val("");
+			$("#remark").val("");
+			$("#tkey").val("");
+
+			$("#add").hide();
+			$("#edit").hide();
+			$("#del").hide();
+			$("#sumb").show();
+			$("#cel").show();
+
+        });
+
+        $("#editbtn").click(function(event){
+        	$('#description').attr("disabled",false); 
+        	$('#level').attr("disabled",false);
+        	$('#tkey').attr("disabled",false);
+        	$('#remark').attr("disabled",false);
+
+        	$("#type").val("edit");
+        	
+
+			$("#add").hide();
+			$("#edit").hide();
+			$("#del").hide();
+			$("#sumb").show();
+			$("#cel").show();
+
+        });
+
+        $("#delbtn").click(function(event){
+        	if(confirm("确定要删除标签吗？")){
+        	if($("#id").val()!=0){
+        		$.ajax({
+        				url: '/background/pricecfgDelete.do',
+            			type: 'post',
+            			dataType: 'json',
+            			data:getParam()
+        			})
+        			 .done(function (data) {
+            		    console.log("success");
+            		   if(data.errCode=='200'){
+             		   	alert("删除成功");
+             		   	window.location.reload();
+             		   }
+                    })
+        			.fail(function () {
+           			 console.log("error");
+        			});
+        	}else{
+        		alert("无法删除根标签");
+        	}
+        	}
+        });
+
+        $("#cancel").click(function(event){
+        	showdate($("#idtemp").val());
+        });
+
+
+       
+	});
+
+	function showdate(id){
+		$.each(defaultData2,function(i,v){
+			if(v.id==id){
+			// alert("description:"+v.description+",id:"+v.id);
+			$("#description").val(v.description);
+			$("#level").val(v.level);
+			$("#pid").val(v.pid);
+			$("#id,#idtemp").val(v.id);
+			$("#remark").val(v.remark);
+			$("#tkey").val(v.tkey);
+			$("#add").show();
+			$("#edit").show();
+			$("#del").show();
+			$("#sumb").hide();
+			$("#cel").hide();
+			}
+		});
+	}
+
+	function getParam() {
+		var id=$("#id").val();
+		var description =$("#description").val();
+		var remark=$("#remark").val();
+		var pid=$("#pid").val();
+		var level=$("#level").val();
+		var key=$("#tkey").val();
+        var params = {
+            id: id,
+            description:description,
+            remark:remark,
+            pid:pid,
+            level:level,
+            tkey:key
+        };
+        return params
+    }
+	</script>
+</body>
+</html>

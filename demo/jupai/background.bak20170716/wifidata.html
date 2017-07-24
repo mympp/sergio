@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="csrf-token" content="I9VnGhpb1YFgTJPiLA7u89h73Ps15wcxGo4Lhguy" />
+	<meta name="renderer" content="webkit">
+	<meta name="description" content="聚派科技，国内首家移动场景营销广告平台。广告sdk流量变现联盟，ios、android广告插件sdk，新型互联网app流量变现模式；场景营销广告联盟，cpa cpm cpc cps cpt等。聚派-简单连接一切，开启智慧生活。">
+	<meta name="keywords" content="流量变现、app流量变现、广告sdk、sdk广告、场景营销、cpm广告联盟、app广告联盟、广告联盟">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=IE8">
+	<title>聚派-SDK-设备广告统计</title>
+	<link href="http://www.soundtooth.cn/images/soundTooth.ico" rel="bookmark" type="image/x-icon">
+	<link href="http://www.soundtooth.cn/images/soundTooth.ico" rel="icon" type="image/x-icon">
+	<link href="http://www.soundtooth.cn/images/soundTooth.ico" rel="shortcut icon" type="image/x-icon">
+	<link rel="stylesheet" href="http://www.soundtooth.cn/css/newAgent/metisMenu.min.css">
+	<link type="text/css" rel="stylesheet" href="http://www.soundtooth.cn/css/tipso.min.css">
+	<link rel="stylesheet" href="http://www.soundtooth.cn/css/newAgent/dateRange.css">
+	<link rel="stylesheet" href="css/index.css"></head>
+<body>
+	<div id="wrapper">
+
+		<!-- 右侧 -->
+		<div class="content_wrap" style="margin-left:0;">
+			<div class="container ad-statistics-container">
+				<div class="all-overview">
+					<p class="title clearfix">
+						<span class="bold fl">WiFi广告推广</span>
+					</p>
+					<p class="details clearfix">
+						<span> <em id=""></em>
+							账号
+						</span>
+						<br>
+						<span>
+							点击： <em id="advertPush_click"></em>
+							次
+						</span>
+						<br>
+						<span>
+							展现量
+							<em id="advertPush_exposure"></em>
+							元
+						</span>
+						<span>
+							今日账号消耗：
+							<em id="advertPush_cost"></em>
+							元
+						</span>
+					</p>
+				</div>
+				<div class="all-details">
+					<p class="title clearfix">
+						<span class="bold fl">个人账户广告统计报表</span>
+						<a id="add-advert" class="fr" href="wifidata1.html">新建广告</a>
+						<a id="add-advert" class="fr" href="wifidata1.html">数据导出</a>
+					</p>
+					<!-- <p class="details clearfix">
+					<span>
+						发布广告总数：
+						<em id="self-adTotal"></em>
+						条
+					</span>
+					<span>
+						广告总展现量：
+						<em id="self-adShow"></em>
+						条
+					</span>
+					<span>
+						广告总点击量：
+						<em id="self-adClick"></em>
+						条
+					</span>
+					<span>
+						广告总点击率：
+						<em id="self-adClickRate"></em>
+						%
+					</span>
+					<span>
+						今日有效广告总数：
+						<em id="self-validMessage"></em>
+						条
+					</span>
+				</p>
+				-->
+				<ul class="mm-nav">
+					<li class="active">
+						<a href="javascript:;">广告</a>
+					</li>
+					<li class="" data-type="day">
+						<a href="javascript:;">广告创意</a>
+					</li>
+				</ul>
+				<div class="datalist-tab">
+					<!-- 广告列表 -->
+					<div class="con1" style="display: block;">
+						<div class="search-box clearfix">
+							<p class="search-input fl">
+								<input type="text" id="key-adname" placeholder="输入广告名称或广告关键字">
+								<span class="fa fa-search" id="search-advert-byname"></span>
+							</p>
+							<a href="javascript:;" id="ad-search-btn" class="search-btn fr">查询</a>
+							<div class="date-select-box fr">
+								<input class="date-select" id="ad-search-date" placeholder="请选择日期" readonly></div>
+							<div class="child-selector dropdown-click fr" id="ad-status-select" data-status="">
+								<a class="dropdown-toggle">全部</a>
+								<div class="dropdown-content">
+									<ul class="dropdown-menu">
+										<li id="ad-all" data-status="">
+											<a>全部</a>
+										</li>
+										<li id="ad-all" data-status="1">
+											<a>播放</a>
+										</li>
+										<li id="ad-all" data-status="0">
+											<a>暂停</a>
+										</li>
+									</ul>
+									<span class="dropdown-arrow">
+										<em></em>
+									</span>
+								</div>
+							</div>
+							<span class="text fr">筛选广告状态：</span>
+						</div>
+						<!-- <p class="message-details clearfix">
+						<span>
+							广告数：
+							<em id="message-adTotal"></em>
+							条
+						</span>
+						<span>
+							展现量：
+							<em id="message-adShow"></em>
+							条
+						</span>
+						<span>
+							点击量：
+							<em id="message-adClick"></em>
+							条
+						</span>
+						<span>
+							点击率：
+							<em id="message-adClickRate"></em>
+							%
+						</span>
+						<span>
+							累计广告条数：
+							<em id="message-validMessage"></em>
+							条
+						</span>
+						<span>
+							总消费：
+							<em id="message-money"></em>
+							元
+						</span>
+					</p>
+					-->
+					<div class="table-responsive">
+						<table class="table table-striped daydata-table" id="advert-list-table">
+							<colgroup>
+							<col style="width: 9%;">
+							<col style="width: 9%;">
+							<col style="width: 9%;">
+							<col style="width: 9%;">
+							<col style="width: 8.5%;">
+							<col style="width: 8.5%;">
+							<col style="width: 9%;">
+							<col style="width: 7.8%;">
+							<col style="width: 9%;"></colgroup>
+						<thead>
+							<tr>
+								<!-- <th>广告名称</th>
+							<th>广告内容</th>
+							<th>修改时间</th>
+							<th>展现量</th>
+							<th>点击量</th>
+							<th>点击率</th>
+							<th>每日预算(条)</th>
+							<th>消费(元)</th>
+							<th>状态/操作</th>
+							-->
+							<th>广告ID</th>
+							<th>广告名称</th>
+							<th>投放时间</th>
+							<th>状态</th>
+							<th>开关</th>
+							<th>预算（元）</th>
+							<th>出价（元）</th>
+							<th>展示量</th>
+							<th>点击量</th>
+							<th>消耗（元）</th>
+							<th>状态操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- 此处放置列表数据 -->
+					</tbody>
+				</table>
+				<p class="no-data" id="ad-no-data">暂无数据</p>
+			</div>
+			<div class="page-show clearfix" id="ad-page-show">
+				<span class="page-count fl">每页显示15条</span>
+				<div id="advert-list-pagination" class="fr" data-page=""></div>
+				<div id="advert-list-pagination" class="fr" data-page="">
+				</div>
+			</div>
+			<div class="del-ad-box" id="del-ad-box">
+				<div class="del-ad-mask"></div>
+				<div class="del-ad-content" id="del-ad-content">
+					<h3 class="title">删除该广告后将无法还原</h3>
+					<p class="tips">广告删除后，后台将无法记录该广告数据</p>
+					<div class="del-btns">
+						<a href="javascript:;" class="del-cancel">取消</a>
+						<a href="javascript:;" class="del-confirm" id="ad-del-btn">继续删除</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 分日报告 -->
+		<div class="con2" style="display: none;">
+			<div class="search-box clearfix">
+				<a href="javascript:;" id="export-btn" class="export-btn fl">增加创意素材</a>
+				<a href="javascript:;" id="export-btn" class="export-btn fl" style="width:auto;margin-left:10px;">设置创意分类和标签</a>
+				<div class="date-select-box fr">
+					<input class="date-select" id="day-search-date" placeholder="请选择日期" readonly></div>
+			</div>
+			<div class="table-responsive">
+				<table class="table table-striped daydata-table" id="everyday-list-table">
+					<colgroup>
+					<col style="width: 9%;">
+					<col style="width: 9%;">
+					<col style="width: 9%;">
+					<col style="width: 9%;">
+					<col style="width: 10%;"></colgroup>
+				<thead>
+					<tr>
+						<!-- <th>日期</th>
+					<th>展现量(条)</th>
+					<th>点击量(条)</th>
+					<th>点击率</th>
+					<th>消费(元)</th>
+					-->
+					<th>创意</th>
+					<th>状态</th>
+					<th>广告计划</th>
+					<th>广告组</th>
+					<th>展示数</th>
+					<th>点击数</th>
+					<th>点击率</th>
+					<th>平均单价（元）</th>
+					<th>总消费（元）</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- 此处放置列表数据 -->
+			</tbody>
+		</table>
+		<p class="no-data" id="day-no-data">暂无数据</p>
+	</div>
+	<div class="page-show clearfix" id="day-page-show">
+		<span class="page-count fl">每页显示15条</span>
+		<div id="everyday-list-pagination" class="fr" data-page=""></div>
+	</div>
+	<div>
+		<p>
+			创意素材*
+			<em>图片</em>
+			<em>组图</em>
+			<em>视频</em>
+		</p>
+		<div>
+			<input type="" name="">上传图片</div>
+		<p>
+			创意名称*
+			<input type="" name=""></p>
+		<p>
+			链接地址*
+			<input type="" name=""></p>
+	</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+<div class="loading-area">
+<div class="loading-mask"></div>
+<div class="loading-icon"></div>
+</div>
+<!--[if !IE]>
+-->
+<script src="/js/jquery-2.1.4.min.js"></script>
+<!-- <![endif]-->
+<!--[if IE]>
+<script src="/js/jquery-1.11.3.min.js"></script>
+<![endif]-->
+<script src="/background/js/metisMenu.js"></script>
+<script type="text/javascript" src="/js/layer.js"></script>
+<script type="text/javascript" src="js/dateRange.js"></script>
+<script type="text/javascript" src="js/function.js"></script>
+<script>
+    $(function () {
+        $('#menu').metisMenu({
+            toggle: false
+        });
+    });
+</script>
+
+<script type="text/javascript">
+
+    var pageNo = 0;
+    var pageDataCount = 15;
+    $(function() {
+    	getdatajson(getQueryParam(pageNo));
+    	getAdvertPush();
+    	$("#ad-search-btn").click(function(event) {
+    		event.preventDefault();
+    		pageNo = 0;
+    		getdatajson(getQueryParam(pageNo));
+    	});
+    	$("#datajsonnext").click(function(event) {
+    		event.preventDefault();
+    		getdatajson(getQueryParam(pageNo++));
+    	});
+
+
+    })
+
+    function getQueryParam(pageNo) {
+    	var selectStatus = $("#ad-status-select").attr("data-status");
+    	var params = {
+    		title: $("#key-adname").val(), //搜索关键词
+    		status: selectStatus, //状态
+    		startTime: $("#ad-startDate").val(), //开始时间
+    		endTime: $("#ad-endDate").val(), //结束时间
+    		page: pageNo, //当前页码
+    		pageSize: pageDataCount, //每页数量
+    		adType: 1 //0 APP 1 盒子
+    	};
+    	return params
+    }
+
+    function getdatajson(params) {
+    	var pagi = new Pagination("#advert-list-pagination"); //分页
+    	$.ajax({
+    			url: '/advert/datajson.do',
+    			type: 'POST',
+    			dataType: 'json',
+    			data: params
+    		})
+    		.done(function(data) {
+    			// alert(data.errCode);
+    			if (data.errCode == '200') {
+    				$("#advert-list-table > tbody > tr").remove();
+    				// alert(data);
+    				// alert($("#everyday-list-table").html());
+    				$("#datacount").text("共" + data.result.analysis.messageCount + "条记录")
+    				if (pageNo * pageDataCount <= data.result.analysis.messageCount) {
+    					$.each(data.result.messageList, function(i, v) {
+    						var controlbtn = "";
+    						if (v.status == 1) {
+    							controlbtn += "<span class='play-btn fa fa-pause-circle-o' data-status='0' data-mid='" + v.id + "'  data-title='" + v.title + "' data-tipso='暂停' onclick=\"advertUpdateStatus(" + v.id + ",0)\"></span>";
+    						} else if (v.status == 0) {
+    							controlbtn += "<span class='play-btn fa fa-play-circle-o' data-status='1' data-mid='" + v.id + "' data-title='" + v.title + "' data-tipso='播放' onclick=\"advertUpdateStatus(" + v.id + ",1)\"></span>";
+    						} else {
+    							controlbtn += "<span class='fa fa-play-circle-o' data-mid='" + v.id + "'  data-title='" + v.title + "' data-tipso='暂不能操作'></span>";
+    						}
+    						controlbtn += "<span class=\"edit-btn fa fa-pencil\" data-mid=\"' + v.id + '\" data-tipso=\"编辑\" onclick=\"editAdvert(" + v.id + ")\"></span>";
+    						controlbtn += "<span class='trash-btn fa fa-trash' data-mid='" + v.id + "' data-tipso='删除' data-status='2' data-title='" + v.title + "' onclick=\"deleteAdvert(" + v.id + ",'" + v.title + "')\"></span>";
+
+    						$("#advert-list-table > tbody").append("<tr><td>" + v.id + "</td><td>" + v.title + "</td><td>" + v.updated_at + "</td><td>" + (v.status == '0' ? '关闭' : '开启') + "</td><td></td><td>" + v.dailyBudget + "</td><td>" + "</td><td>" + (v.showCount?v.showCount:0) + "</td><td>" + (v.clickCount?v.clickCount:0) + "</td><td>" + (v.costCount?v.costCount:0) + "</td><td>" + controlbtn + "</td></tr>");
+    					});
+    					var pageCount = Math.ceil(data.result.analysis.messageCount / pageDataCount); //计算总页数
+                        $("#after-officialMessagesTotal").html(data.result.count);
+                        pagi.update({
+                            pageCount: pageCount,
+                            pageNo: pageNo
+                        });
+                        //分页点击
+                        var activePage = parseInt($(".pagination>.active").text());                        
+                        activePage = activePage ? activePage : 1;
+                        page_index = activePage;
+                        $(".pagination-prev > a").click(function(){
+                            if (activePage > 1) {
+                                getdatajson(getQueryParam(activePage-1));
+                            }else{
+                                layer.alert("没有上一页");   
+                            }
+                        });
+                         $(".pagination-next > a").click(function(){
+                            if (pageCount - activePage > 0) {
+                                getdatajson(getQueryParam(activePage+1));
+                            }else{
+                                layer.alert("没有下一页");
+                            }
+                        });
+    				} else {
+    					layer.alert("没有下一页");
+    					getdatajson(getQueryParam(pageNo--));
+    				}
+    			} else {
+    				layer.alert(data.errMsg);
+    			}
+    		})
+    		.fail(function() {
+    			console.log("error");
+    		});
+    }
+
+    function advertUpdateStatus(id, status) {
+    	$.ajax({
+    			url: '/advert/advertUpdateStatus.do',
+    			type: 'post',
+    			dataType: 'json',
+    			data: {
+    				mid: id,
+    				status: status
+    			}
+    		})
+    		.done(function(data) {
+    			console.log("success");
+    			if (data.errCode == '200') {
+    				alert("成功");
+    			} else {
+    				layer.alert(data.errMsg);
+    			}
+    		})
+    		.fail(function() {
+    			console.log("error");
+    		});
+    }
+
+    function deleteAdvert(id, title) {
+    	layer.confirm("确认删除广告？", {
+    		btn: ['确定', '取消'] //按钮
+    	}, function() {
+    		$.ajax({
+    				url: '/advert/deleteAdvert.do',
+    				type: 'post',
+    				dataType: 'json',
+    				data: {
+    					mid: id,
+    					status: status
+    				}
+    			})
+    			.done(function(data) {
+    				console.log("success");
+    				if (data.errCode == '200') {
+    					layer.alert("成功");
+    					window.location.reload();
+    				} else {
+    					layer.alert(data.errMsg);
+    				}
+    			})
+    			.fail(function() {
+    				console.log("error");
+    			});
+    	}, function() {});
+
+    }
+
+    function editAdvert(mid) {
+    	window.location.href = "/background/AdvertAct.html?mid=" + mid;
+    }
+
+    function Export() {
+    	var selectStatus = $("#ad-status-select").attr("data-status");
+    	window.location.href = "/advert/exportAdvertReport.do?startTime=" + $("#ad-startDate").val() + "&endTime=" + $("#ad-endDate").val() + "&page=" + pageNo + "&pageSize=" + pageDataCount;
+    	//        window.location.href="/advert/exportAdvertReport.do?startTime=2016-10-08&endTime="+$("#ad-endDate").val()+"&page="+pageNo+"&pageSize="+pageDataCount;
+    }
+
+    function getAdvertPush() {
+    	$.ajax({
+    			url: '/advert/advertPush.do',
+    			type: 'POST',
+    			dataType: 'json',
+    			data: {
+                    adType : 1
+                }
+    		})
+    		.done(function(data) {
+    			$("#advertPush_click").text(data.result[0].click?data.result[0].click:0);
+                $("#advertPush_exposure").text(data.result[0].exposure?data.result[0].exposure:0);
+                $("#advertPush_cost").text(data.result[0].cost?data.result[0].cost:0);
+    		})
+    		.fail(function() {
+    			console.log("error");
+    		});
+    }
+</script>
+</body>
+</html>

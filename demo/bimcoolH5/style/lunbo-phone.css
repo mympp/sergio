@@ -1,0 +1,29 @@
+/*新闻*/
+.content{background:#fff;width:100%;margin:0 auto;}
+.content h2{font-size:18px;font-weight: bold;line-height: 30px;margin-top:30px;}
+.content .text{width:90%;margin:0 auto;}
+.content .text p{text-indent: 2em;font-size:15px;margin-top: 20px;}
+.content .txt{line-height: 10px;}
+.content .share{display: inline;line-height: 50px;}
+.content .mod{margin-left:50px;position:relative;top:-40px;}
+.caption>img{display:block;width:100%;height:auto;margin:5px auto;}
+.caption .box1{width:95%;margin:10px auto;background:rgb(235,235,235);line-height:1.5em;font-size:14px;color:rgb(165,165,165);padding:20px 10px;}
+.caption p{font-family:"microsoft yahei",arial,simsun;text-indent:2em;font-size:16px;line-height: 1.8em;margin:5px 0 50px;}
+.caption h1{color:#ff2400;margin-top:50px;margin-bottom:30px;font-size:20px;}
+.caption h3{margin:20px 0 10px;font-size:18px;}
+@charset "utf-8";
+*{margin:0;padding:0;list-style:none;border:0;}
+/* main_image */
+.main_visual{height:200px;border-top:1px solid #d7d7d7;overflow:hidden;position:relative;}
+.main_image{height:200px;overflow:hidden;position:relative;}
+.main_image ul{width:9999px;height:200px;overflow:hidden;position:absolute;top:0;left:0}
+.main_image li{float:left;width:100%;height:200px;}
+.main_image li>span{display:block;width:100%;height:200px}
+.main_image li a{display:block;width:100%;height:200px}
+.img-text{display:none;}
+div.flicking_con{display:none;position:absolute;top:180px;left:98%;z-index:999;width:300px;height:10px;margin:0 0 0 -50px;}
+div.flicking_con a{float:left;width:10px;height:10px;margin:0;padding:0;background:url('../images/btn_main_img.png') 0 0 no-repeat;background-size:10px auto;display:block;text-indent:-1000px}
+div.flicking_con a.on{background-position:0 -10px}
+#btn_prev,#btn_next{z-index:11111;position:absolute;display:block;width:73px!important;height:74px!important;top:50%;margin-top:-37px;display:none;}
+#btn_prev{background:url(../images/hover_left.png) no-repeat left top;left:100px;}
+#btn_next{background:url(../images/hover_right.png) no-repeat right top;right:100px;}

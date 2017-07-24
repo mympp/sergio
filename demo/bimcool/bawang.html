@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>霸王小面</title>
+
+</head>
+<style type="text/css">
+#bigbox{width:1000px;height:auto;margin:0 auto;}
+#bigbox>img{width:1000px;}
+body{margin:0;padding:0;}
+.witness{width:900px;height:300px;}
+#div1,#div2,#div3{width:900px;height:205px;margin-left:50px; overflow: hidden;  }  
+#div1 ul,#div2 ul,#div3 ul{position:absolute;top:0;left:0;  }  
+#div1 ul li,#div2 ul li,#div3 ul li{float:left;width:210px;height:205px;list-style: none;margin:0 10px;}  
+ul li img{width:210px;height: 205px;margin:0 10px;}  
+/*留言*/
+/*.mess{background:#fff;float:right;border:1px solid #ccc;position:fixed;right:-455px;bottom:150px;z-index:999;}
+.mess-bg{width:100%;height:100%;float:left;position:fixed;display:none;top:0px;z-index:99;background:transparent;background-color:rgba(0,0,0,0.3);}
+.mess-click{position:fixed;right:0;bottom:100px;}
+form{width:450px;height:300px;}
+form .box1{margin-top:10px;}
+form .box1 input,form .box2 input,textarea{width:300px;color:#ccc;line-height:2em;text-indent:0.2em;border:1px solid #ccc;border-radius:2px;}
+select{width:300px;}
+select option{width:300px;height:100px;}
+textarea{width:300px;margin-left:8px;}
+form .box2,form .box3{margin-top:10px;margin-left:8px;}
+#button input{width:305px;margin-left:97px;margin-top:10px;padding:10px 0;border:1px solid #ff2400;border-radius:4px;color:#fff;font-weight:bold;font-size:16px;background:#ff2400;}*/
+</style>
+<body>
+<div id="bigbox">
+	<img src="images/霸王小面/最后确定方案.png" />
+	<!-- <input type="button" id="turnLeft" value="向左走" />  
+    <input type="button" id="turnRight" value="向右走" />   -->
+    <div id="div1" style="position:absolute;top:5102px; ">             
+        <ul class="ul1">  
+            <li class="li1"><img src="images/霸王小面/01.png" width="210px" height="205px" /></li>  
+            <li class="li1"><img src="images/霸王小面/02.png" width="210px" height="205px" /></li>  
+            <li class="li1"><img src="images/霸王小面/03.png" width="210px" height="205px" /></li>  
+            <li class="li1"><img src="images/霸王小面/04.png" width="210px" height="205px" /></li>  
+        </ul>           
+		<span style="white-space:pre">    </span>
+	</div>   
+    <div id="div2" style="position:absolute;top:7547px; ">             
+        <ul class="ul2">  
+            <li class="li2"><img src="images/霸王小面/011.png" width="210px" height="205px" /></li>  
+            <li class="li2"><img src="images/霸王小面/012.png" width="210px" height="205px" /></li>  
+            <li class="li2"><img src="images/霸王小面/013.png" width="210px" height="205px" /></li>  
+            <li class="li2"><img src="images/霸王小面/014.png" width="210px" height="205px" /></li>  
+        </ul>           
+		<span style="white-space:pre">    </span>
+	</div>   
+    <div id="div3" style="position:absolute;top:8920px; ">             
+        <ul class="ul3">  
+            <li class="li3"><img src="images/霸王小面/021.png" width="210px" height="205px" /></li>  
+            <li class="li3"><img src="images/霸王小面/022.png" width="210px" height="205px" /></li>  
+            <li class="li3"><img src="images/霸王小面/023.png" width="210px" height="205px" /></li>  
+            <li class="li3"><img src="images/霸王小面/024.png" width="210px" height="205px" /></li>  
+        </ul>           
+		<span style="white-space:pre">    </span>
+	</div>   
+
+</div>
+<!-- 
+<div class="mess-click">留言</div>
+<div class="mess-bg"></div>
+<div class="mess">
+<form>
+	<div class="box1">
+		<span>*</span>姓&nbsp&nbsp名：
+		<input type="text" name="" value="您的真实姓名">
+	</div>
+
+	<div class="box1">
+		<span>*</span>手&nbsp&nbsp机：
+		<input type="text" name="" value="电话是与您联系的重要方式">
+	</div>
+
+	<div class="box2">
+		地&nbsp&nbsp址：
+		<input type="text" name="" value="与您联系的重要方式">
+	</div>
+
+	<div class="box2">
+		投资额度：
+		<select>
+			<option value="" selected="selected">请选择你的投资区间</option>
+			<option value="">3-5万</option>
+			<option value="">5-10万</option>
+			<option value="">10-20万</option>
+			<option value="">20万以上</option>
+		</select>
+	</div>
+
+	<div class="box3">
+		回&nbsp&nbsp访：
+		<input type="radio" name="" checked="checked">随时
+		<input type="radio" name="">上班时间
+		<input type="radio" name="">下班时间
+	</div>
+
+	<div class="box2">
+		<span style="float:left;">留言内容：</span>
+		<textarea>请输入您的留言内容或选择快捷留言</textarea>
+	</div>
+	<div id="button">
+		<input type="submit" name="" value="提交留言">
+	</div>
+</form>
+</div> 
+
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+$('.mess-click').click(function(){
+	$('.mess').animate({right:'0px'});
+	$('.mess-bg').fadeIn(400);
+})
+$('.mess-bg').click(function(){
+	$('.mess').animate({right:'-455px'});
+	$('.mess-bg').fadeOut(400);
+})
+</script>-->
+<script type="text/javascript">   
+	window.onload=function(){  
+    var div1=document.getElementById('div1');
+    var oUl1=div1.getElementsByClassName('ul1')[0];  
+    var li1=oUl1.getElementsByClassName('li1');  
+    var speed=-2;//用来存移动的速度，小于零时向左滚，大于零时向右滚  
+  
+    //复制oUl1,在滚动时让最后一张图片和第一张图片无缝衔接  
+    oUl1.innerHTML=oUl1.innerHTML+oUl1.innerHTML;  
+    oUl1.style.width=li1[0].offsetWidth*li1.length+'px'; //通过li的个数动态获取Ul的宽度，使所有图片都在一行  
+    //alert(div1.offsetLeft);//获取左边距:返回所有影响其位置的总和  
+    function Move1(){  
+        if(oUl1.offsetLeft<-oUl1.offsetWidth/2)  
+        {  
+            oUl1.style.left='0';  
+        }  
+        if (oUl1.offsetLeft>0) {  
+            oUl1.style.left=-oUl1.offsetWidth/2+'px';  
+        }  
+        oUl1.style.left=oUl1.offsetLeft+speed+'px';  
+    }  
+    var timer1=setInterval(Move1,40);  
+    div1.onmouseover=function(){  
+        clearInterval(timer1);  
+    }  
+    div1.onmouseout=function(){  
+        timer1=setInterval(Move1,40);  
+    }  
+
+    // 2 
+    var div2=document.getElementById('div2');
+    var oUl2=div2.getElementsByClassName('ul2')[0];  
+    var li2=oUl2.getElementsByClassName('li2');  
+    var speed=-2;//用来存移动的速度，小于零时向左滚，大于零时向右滚  
+  
+    //复制oUl2,在滚动时让最后一张图片和第一张图片无缝衔接  
+    oUl2.innerHTML=oUl2.innerHTML+oUl2.innerHTML;  
+    oUl2.style.width=li2[0].offsetWidth*li2.length+'px'; //通过li的个数动态获取Ul的宽度，使所有图片都在一行  
+    //alert(div2.offsetLeft);//获取左边距:返回所有影响其位置的总和  
+    function Move2(){  
+        if(oUl2.offsetLeft<-oUl2.offsetWidth/2)  
+        {  
+            oUl2.style.left='0';  
+        }  
+        if (oUl2.offsetLeft>0) {  
+            oUl2.style.left=-oUl2.offsetWidth/2+'px';  
+        }  
+        oUl2.style.left=oUl2.offsetLeft+speed+'px';  
+    }  
+    var timer2=setInterval(Move2,40);  
+    div2.onmouseover=function(){  
+        clearInterval(timer2);  
+    }  
+    div2.onmouseout=function(){  
+        timer2=setInterval(Move2,40);  
+    } 
+
+    // 3
+    var div3=document.getElementById('div3');
+    var oUl3=div3.getElementsByClassName('ul3')[0];  
+    var li3=oUl3.getElementsByClassName('li3');  
+    var speed=-2;//用来存移动的速度，小于零时向左滚，大于零时向右滚  
+  
+    //复制oUl3,在滚动时让最后一张图片和第一张图片无缝衔接  
+    oUl3.innerHTML=oUl3.innerHTML+oUl3.innerHTML;  
+    oUl3.style.width=li3[0].offsetWidth*li3.length+'px'; //通过li的个数动态获取Ul的宽度，使所有图片都在一行  
+    //alert(div3.offsetLeft);//获取左边距:返回所有影响其位置的总和  
+    function Move3(){  
+        if(oUl3.offsetLeft<-oUl3.offsetWidth/2)  
+        {  
+            oUl3.style.left='0';  
+        }  
+        if (oUl3.offsetLeft>0) {  
+            oUl3.style.left=-oUl3.offsetWidth/2+'px';  
+        }  
+        oUl3.style.left=oUl3.offsetLeft+speed+'px';  
+    }  
+    var timer3=setInterval(Move3,40);  
+    div3.onmouseover=function(){  
+        clearInterval(timer3);  
+    }  
+    div3.onmouseout=function(){  
+        timer3=setInterval(Move3,40);  
+    }   
+};  
+</script>  
+
+</body>
+</html>
