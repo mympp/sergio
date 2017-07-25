@@ -7,20 +7,6 @@
 	*page.css是单个页面的精细样式
 */
 /*通用样式*/
-
-/*通用导航*/
-.index-nav{
-	max-width: 86rem;
-	height: 15rem;
-	margin: 0 auto;
-	background-image: url(images/.index-nav_banner.jpg);
-}
-.index-nav .logo{
-	display: inline;
-	float: left;
-	padding-left: 4.5rem;
-	padding-top: .5rem;
-}
 /*字体*/
 /*div{
 	font-size: 1.6rem;
@@ -58,16 +44,61 @@ p{
 	line-height: 1.5em;
 }
 /**菜单**/
-nav.index-nav li:hover{
-	border-bottom: 1px solid blue;
+/*通用导航*/
+.index-nav{
+	width: 76.8rem;
+	height: 10rem;
+	margin: 0 auto;
+}
+.index-nav img[alt=logo2],
+.index-nav .menu-right{
+	display: none;
+}
+.index-nav img[alt=logo1]{
+	width: auto;
+	height: 9rem;
+	float: left;
+	padding:.5rem 3.5rem;
 }
 nav.index-nav>ul{
 	list-style:none;
-	padding-top: 5;
+	margin-top: 5.5rem;
 	float: right;/*步骤1,先让ul浮动，然后让li反方向浮动，就可以实现不用倒序排html*/
 }
+/*当屏幕小于768px时*/
+@media only screen and (max-width: 767px){
+	.index-nav{
+		width: 100%;
+		height: 5rem;
+	}
+	.index-nav img[alt=logo1]{
+		display: none;
+	}
+	.index-nav img[alt=logo2]{
+		display: inline-block;
+		width: auto;
+		height: 4rem;
+		float: left;
+		padding:.5rem;
+	}
+	.index-nav .menu-right{
+		display: inline-block;
+		width: 5rem;
+		height: 5rem;
+		float: right;
+		background: url(../images/menu.png) no-repeat;
+		background-size: 4rem 4rem;
+		background-position: 1rem 1rem;
+	}
+	nav.index-nav>ul{
+		display: none;
+	}
+}
+nav.index-nav li:hover{
+	border-bottom: 1px solid blue;
+}
 nav.index-nav ul li{
- 	width: 9rem;
+ 	width: 8rem;
  	height: 35px;
  	display: inline-block;
  	float: left;/*没有加浮动直接使用display: block会有margin值*//*步骤2,先让ul浮动，然后让li反方向浮动，就可以实现不用倒序排html*/
@@ -78,9 +109,6 @@ nav.index-nav ul li:hover ul{
 }
 nav.index-nav ul li a{
 	text-align:center;
-	width:9rem;
-	height:3.7rem;
-	line-height:3.5rem;
 	display:block;
 	text-decoration:none;
 }
@@ -110,13 +138,8 @@ nav.index-nav ul li ul li ul li{
 nav.index-nav ul li ul li ul li:hover{
 }
 /*首页视频*/
-.head_video video{
-	width:100%;
-	height:auto;
-	position:absolute;
-	top:0;
-	z-index: -1;
-}
+
+
 /**programming**/
 /*主结构*/
 .program {
