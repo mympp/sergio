@@ -46,7 +46,7 @@ p{
 /**菜单**/
 /*通用导航*/
 .index-nav{
-	width: 76.8rem;
+	width: 960px;
 	height: 10rem;
 	margin: 0 auto;
 }
@@ -330,7 +330,3 @@ header.index-nav ul li ul li ul li:hover{
 		display: none;
 	}
 }
-/*logo*/
-.logo{
-/*-webkit-mask-image: -webkit-gradient(radial, 17 17, 123, 17 17, 138, 	from(rgb(0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0.2)), to(rgb(0, 0, 0)));
-*//*谷歌下载界面logo闪光效果未实现。*/}

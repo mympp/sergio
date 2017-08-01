@@ -8,7 +8,6 @@
 */
 /*自行更改*/
 body{
-	background: #ddd;
 	font-family: Helvetica,Tahoma,Arial,"Hiragino Sans GB","Microsoft YaHei",SimSun,Heiti,sans-serif;/*借用魅族的字体选择*/
 }
 @charset "utf-8";
@@ -69,6 +68,9 @@ td{
 	background-color:#0F192A;
 	border-radius:5px;
 }*/
+.float-left{
+	float: left;
+}
 .clean_float{
 	clear:both;
 }
