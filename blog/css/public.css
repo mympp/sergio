@@ -46,7 +46,7 @@ p{
 /**菜单**/
 /*通用导航*/
 .index-nav{
-	width: 960px;
+	max-width: 960px;
 	height: 10rem;
 	margin: 0 auto;
 }
@@ -66,7 +66,7 @@ header.index-nav nav{
 	float: right;/*步骤1,先让ul浮动，然后让li反方向浮动，就可以实现不用倒序排html*/
 }
 /*当屏幕小于768px时*/
-@media only screen and (max-width: 767px){
+@media only screen and (max-width: 960px){
 	.index-nav{
 		width: 100%;
 		height: 5rem;

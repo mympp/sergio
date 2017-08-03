@@ -6,6 +6,24 @@
 	*public.css是此项目基础结构样式以及统一的设计风格样式库
 	*page.css是单个页面的精细样式
 */
+/*首页*/
+.index article{
+	width: 330px;
+	height: 80px;
+	background: rgba(0,0,0,0.3);
+	color: #fff;
+	position: absolute;
+	bottom: 10%;
+	left: 10%;
+}
+.index article p{
+	font-size: 16px;
+
+}
+.index article a{
+	color: #fff;
+	text-decoration: underline;
+}
 /**HTML5.html页面**/
 .main{
 	width:102.4rem;

@@ -8,6 +8,7 @@
 */
 /*自行更改*/
 body{
+	color: #666;
 	font-family: Helvetica,Tahoma,Arial,"Hiragino Sans GB","Microsoft YaHei",SimSun,Heiti,sans-serif;/*借用魅族的字体选择*/
 }
 @charset "utf-8";
@@ -16,7 +17,7 @@ html,body,dl,dd,h1,h2,h3,h4,h5,h6,p,form{
 }
 a{
 	text-decoration:none;
-	color: #000;
+	color: #666;
 }
 ol,ul{
 	margin:0;
