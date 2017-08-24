@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My first javascrite</title>
+</head>
+<body>
+	<h4>点击改变HTML图像</h4>
+	<img src="http://linshaojia.com/images/logo2.gif" alt="demo" width="100px" id="myImage" onclick="changeImage()">
+	<script type="text/javascript">
+	function changeImage(){
+		element = document.getElementById('myImage');
+		if (element.src.match("bulbon")) {
+			element.src = "http://linshaojia.com/images/logo2.gif";
+		} else {
+			element.src = "http://linshaojia.com/images/logo2.png";
+		}
+	}
+	</script>
+
+	<h4 id="colorDemo">改变HTML样式</h4>
+	<button type="button" onclick="changerColor()">点我</button>
+	<script type="text/javascript">
+	function changerColor(){
+		x = document.getElementById('colorDemo');
+		x.style.color = "#aaa";
+	}
+	</script>
+
+	<h4>验证输入</h4>
+	<input type="text" name="cellphone" id="phoneDemo">
+	<button type="button" onclick="chackNumber()">验证是不是手机号码</button>
+	<script type="text/javascript">
+	function chackNumber(){
+		var phone = document.getElementById('phoneDemo').value;
+		if (!(/^1[34578]\d{9}$/.test(phone))) {
+			alert("请输入正确的手机号码");
+			return false;
+		}
+	}
+	</script>
+
+	<ul>
+		<p>JavaScript 可以通过不同的方式来输出数据：</p>
+		<li>使用 window.alert() 弹出警告框。</li>
+		<h4>对事件的反应</h4>
+		<button type="button" onclick="alert('标签内的事件，欢迎')">点我！</button>
+		<li>使用 document.write() 方法将内容写到 HTML 文档中。</li>
+		<h4>直接写入HTML输出流</h4>
+		<script type="text/javascript">
+		document.write("<p>这是脚本写入的文本</p>");
+		document.write("<small>是要加标签的</small>");
+		</script>
+		<li>使用 innerHTML 写入到 HTML 元素。innerHTML很多情况下都优于document.write，其原因在于其允许更精确的控制要刷新页面的那一个部分。</li>
+		<h4 id="innerDemo">改变HTML内容</h4>
+		<button type="button" onclick="innerChange()">点击这里</button>
+		<script type="text/javascript">
+		function innerChange(){
+			var x = document.getElementById("innerDemo");
+			x.innerHTML = "已经改变了的HTML内容";
+		};
+		</script>
+		<li>使用 console.log() 写入到浏览器的控制台。</li>
+		<script type="text/javascript">
+		for (var i = 0; i < 10; i++) {
+			console.log(i);
+		}
+		</script>
+	</ul>
+
+	<ul>
+		<p>下面是一些常见的HTML事件的列表:</p>
+		<li>onchange：	HTML 元素改变</li>
+		<li>onclick：	用户点击 HTML 元素</li>
+		<li>onmouseover：	用户在一个HTML元素上移动鼠标</li>
+		<li>onmouseout：	用户从一个HTML元素上移开鼠标</li>
+		<li>onkeydown：	用户按下键盘按键</li>
+		<li>onload：	浏览器已完成页面的加载</li>
+	</ul>
+
+	<ul>
+		<p>字符串属性</p>
+		<li>constructor：	返回创建字符串属性的函数</li>
+		<li>length：	返回字符串的长度</li>
+		<li>prototype：	允许您向对象添加属性和方法</li>
+	</ul>
+
+	<ul>
+		<p>字符串方法</p>
+		<li>charAt()：	返回指定索引位置的字符</li>
+		<li>charCodeAt()：	返回指定索引位置字符的 Unicode 值</li>
+		<li>concat()：	连接两个或多个字符串，返回连接后的字符串</li>
+		<li>fromCharCode()：	将 Unicode 转换为字符串</li>
+		<li>indexOf()：	返回字符串中检索指定字符第一次出现的位置</li>
+		<li>lastIndexOf()：	返回字符串中检索指定字符最后一次出现的位置</li>
+		<li>localeCompare()：	用本地特定的顺序来比较两个字符串</li>
+		<li>match()：	找到一个或多个正则表达式的匹配</li>
+		<li>replace()：	替换与正则表达式匹配的子串</li>
+		<li>search()：	检索与正则表达式相匹配的值</li>
+		<li>slice()：	提取字符串的片断，并在新的字符串中返回被提取的部分</li>
+		<li>split()：	把字符串分割为子字符串数组</li>
+		<li>substr()：	从起始索引号提取字符串中指定数目的字符</li>
+		<li>substring()：	提取字符串中两个指定的索引号之间的字符</li>
+		<li>toLocaleLowerCase()：	根据主机的语言环境把字符串转换为小写，只有几种语言（如土耳其语）具有地方特有的大小写映射</li>
+		<li>toLocaleUpperCase()：	根据主机的语言环境把字符串转换为大写，只有几种语言（如土耳其语）具有地方特有的大小写映射</li>
+		<li>toLowerCase()：	把字符串转换为小写</li>
+		<li>toString()：	返回字符串对象值</li>
+		<li>toUpperCase()：	把字符串转换为大写</li>
+		<li>trim()：	移除字符串首尾空白</li>
+		<li>valueOf()：	返回某个字符串对象的原始值</li>
+	</ul>
+	<p> typeof 操作符来检测变量的数据类型。</p>
+
+	<p>条件语句</p>
+	<button onclick="timeDemo()">点击</button>
+	<p id="timeDemo"></p>
+	<script type="text/javascript">
+		function timeDemo(){
+			var x = "";
+			var time = new Date().getHours();
+			if (time < 20) {
+				x = "Good day";
+			}
+			document.getElementById("timeDemo").innerHTML = x;
+		}
+	</script>
+
+
+</body>
+</html>
