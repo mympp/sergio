@@ -17,21 +17,21 @@
 	}
 	</script>
 
-	<h4 id="colorDemo">改变HTML样式</h4>
+	<h4 id="changerColor">改变HTML样式</h4>
 	<button type="button" onclick="changerColor()">点我</button>
 	<script type="text/javascript">
 	function changerColor(){
-		x = document.getElementById('colorDemo');
+		x = document.getElementById('changerColor');
 		x.style.color = "#aaa";
 	}
 	</script>
 
 	<h4>验证输入</h4>
-	<input type="text" name="cellphone" id="phoneDemo">
-	<button type="button" onclick="chackNumber()">验证是不是手机号码</button>
+	<input type="text" name="cellphone" id="checkNumber">
+	<button type="button" onclick="checkNumber()">验证是不是手机号码</button>
 	<script type="text/javascript">
-	function chackNumber(){
-		var phone = document.getElementById('phoneDemo').value;
+	function checkNumber(){
+		var phone = document.getElementById('checkNumber').value;
 		if (!(/^1[34578]\d{9}$/.test(phone))) {
 			alert("请输入正确的手机号码");
 			return false;
@@ -111,19 +111,234 @@
 	<p> typeof 操作符来检测变量的数据类型。</p>
 
 	<p>条件语句</p>
-	<button onclick="timeDemo()">点击</button>
-	<p id="timeDemo"></p>
+	<button onclick="ifDemo()">if(){...}</button>
+	<span id="ifDemo"></span><br />
 	<script type="text/javascript">
-		function timeDemo(){
+		function ifDemo(){
 			var x = "";
 			var time = new Date().getHours();
 			if (time < 20) {
 				x = "Good day";
 			}
-			document.getElementById("timeDemo").innerHTML = x;
+			document.getElementById("ifDemo").innerHTML = x;
 		}
 	</script>
+	<button onclick="ifelseDemo()">if(){...}else{...}</button>
+	<span id="ifelseDemo"></span><br />
+	<script type="text/javascript">
+	function ifelseDemo(){
+		var x = "";
+		var time = new Date().getHours();
+		if (time < 20) {
+			x = "Good day";
+		} else {
+			x = "Good evening";
+		}
+		document.getElementById("ifelseDemo").innerHTML = x;
+	}
+	</script>
+	<button onclick="elseifDemo()">if(){...}else if(){...}else{...}</button>
+	<span id="elseifDemo"></span><br />
+	<script type="text/javascript">
+	function elseifDemo(){
+		var x = "";
+		var time = new Date().getHours();
+		if (time < 12) {
+			x = "Good morning";
+		} else if( time >= 12 && time < 20){
+			x = "下午好";
+		}else{
+			x = "Good evening";
+		}
+		document.getElementById("elseifDemo").innerHTML = x;
+	}
+	</script>
 
+	<p>switch语句</p>
+	<button onclick="switchDemo()">switch语句</button>
+	<span id="switchDemo">判断并执行其中的一个</span><br />
+	<script type="text/javascript">
+	function switchDemo(){
+		var x;
+		var day = new Date().getDay();
+		switch(day){
+			case 0 : x = "今天是星期日";
+			break;
+			case 1 : x = "今天是星期一";
+			break;
+			case 2 : x = "今天是星期二";
+			break;
+			case 3 : x = "今天是星期三";
+			break;
+			case 4 : x = "今天是星期四";
+			break;
+			case 5 : x = "今天是星期五";
+			break;
+			case 6 : x = "今天是星期六";
+			break;
+		}
+		document.getElementById("switchDemo").innerHTML = x;
+	}
+	</script>
+	<button onclick="defaultDemo()">default关键词</button>
+	<span id="defaultDemo">与其他case不同时执行的代码</span><br />
+	<script type="text/javascript">
+	function defaultDemo(){
+		var x;
+		var day = new Date().getDay();
+		switch(day){
+			case 6: x = "今天是周六";
+			break;
+			case 0: x = "今天是周日";
+			break;
+			default: x = "期待周末";//与其他case不同时执行的代码
+		}
+		document.getElementById("defaultDemo").innerHTML = x;
+	}
+	</script>
 
+	<p>循环</p>
+	<button onclick="forDemo()">for循环：</button>
+	<span id="forDemo">循环遍历数组中的所有项</span>
+	<script type="text/javascript">
+	function forDemo(){
+		var txt;
+
+		var cars = ["BMW","Volvo","Saab","Ford"];
+		for (var i = 0; i < cars.length; i++) {
+			txt = txt + cars[i] + ",";
+		}
+		document.getElementById("forDemo").innerHTML = txt;
+	}
+	</script><br />
+	<button onclick="forinDemo()">for/in循环:</button>
+	<span id="forinDemo">循环遍历对象中的属性。</span><br />
+	<script type="text/javascript">
+	function forinDemo(){
+		var x;
+		var txt = "";
+		var person = {fname: "John",lname: "Doe",age: 25};
+		for(x in person){
+			txt = txt +person[x];
+		}
+		document.getElementById("forinDemo").innerHTML = txt;
+	}
+	</script>
+	<button onclick="whileDemo()">while循环：</button>
+	<span id="whileDemo">指定条件为真时循环执行代码块</span><br />
+	<script type="text/javascript">
+	function whileDemo(){
+		var x = "",i = 0;
+		while (i < 5){
+			x = x + "该数字为" + i + ",";
+			i++;
+		}
+		document.getElementById("whileDemo").innerHTML = x;
+	}
+	</script>
+	<button onclick="dowhileDemo()">do/while循环</button>
+	<span id="dowhileDemo">指定条件为真时循环执行代码块</span><br />
+	<script type="text/javascript">
+	function dowhileDemo(){
+		var x = "",i = 0;
+		do{
+			x = x + "该数字为" + i + ",";
+			i++;
+		}
+		while (i < 5);
+		document.getElementById("dowhileDemo").innerHTML = x;
+	}
+	</script>
+
+	<p>break语句</p>
+	<button onclick="breakDemo()">break语句</button>
+	<span id="breakDemo">该例子到值3跳出循环</span>
+	<script type="text/javascript">
+	function breakDemo(){
+		var x = "";
+		for (var i = 0;i < 10; i++){
+			if (i == 3) {
+				break;
+			}
+			x = x +"该数字为" + i + ",";
+		}
+		document.getElementById("breakDemo").innerHTML = x;
+	}
+	</script>
+	<p>continue语句</p>
+	<button onclick="continueDemo()">continue语句</button>
+	<span id="continueDemo">该例子跳过了值 3</span>
+	<script type="text/javascript">
+	function continueDemo(){
+		var x = "";
+		for (var i = 0;i < 10; i++){
+			if (i == 3) {
+				continue;
+			}
+			x = x +"该数字为" + i + ",";
+		}
+		document.getElementById("continueDemo").innerHTML = x;
+	}
+	</script>
+	<p>continue 语句（带有或不带标签引用）只能用在循环中。</p>
+	<p>break 语句（不带标签引用），只能用在循环或 switch 中。</p>
+	<script>
+	cars=["BMW","Volvo","Saab","Ford"];
+	list:{
+		document.write(cars[0] + "<br>"); 
+		document.write(cars[1] + "<br>"); 
+		document.write(cars[2] + "<br>"); 
+		break list;
+		document.write(cars[3] + "<br>"); 
+		document.write(cars[4] + "<br>"); 
+		document.write(cars[5] + "<br>"); 
+	}
+	</script>
+
+	<p>typeof操作符:</p>
+	<button onclick="typeofDemo()">typeof</button>
+	<span id="typeofDemo">使用 typeof 操作符来检测变量的数据类型。</span>
+	<script type="text/javascript">
+	function typeofDemo(){
+		document.getElementById("typeofDemo").innerHTML = 
+			typeof "john" + "," + 
+			typeof 3.14 + "," +
+			typeof false + "," +
+			typeof [1,2,3,4] + "," +
+			typeof {name:'john', age:34};
+	}
+	</script>
+
+	<p>Null</p>
+	<button onclick="nullDemo()">null</button>
+	<span id="nullDemo">对象可以通过null来清空</span>
+	<script type="text/javascript">
+	function nullDemo(){
+		var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+		var person = null;
+		document.getElementById("nullDemo").innerHTML = typeof person;
+	}
+	</script>
+
+	<p>undefined</p>
+	<button onclick="undefinedDemo()">undefined</button>
+	<span id="undefinedDemo">对象可以通过null来清空</span>
+	<script type="text/javascript">
+	function undefinedDemo(){
+		var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+		var person = undefined;
+		document.getElementById("undefinedDemo").innerHTML = typeof person + "," + person;
+	}
+	</script>
+	<ul>
+		null 和 undefined 的值相等，但类型不等：
+		<li>typeof undefined             // undefined</li>
+		<li>typeof null                  // object</li>
+		<li>null === undefined           // false</li>
+		<li>null == undefined            // true</li>
+	</ul>
+
+	<p>Number() 转换为数字， String() 转换为字符串， Boolean() 转化为布尔值。</p>
+	
 </body>
 </html>
