@@ -79,9 +79,16 @@
 
 	<ul>
 		<p>字符串属性</p>
-		<li>constructor：	返回创建字符串属性的函数</li>
-		<li>length：	返回字符串的长度</li>
-		<li>prototype：	允许您向对象添加属性和方法</li>
+		<li>.constructor	返回创建字符串属性的函数<span id="constructorDemo">判断是否为数组</span></li>	
+		<script type="text/javascript">
+			var fruits = ["banana","orange","apple","mango"];
+			document.getElementById("constructorDemo").innerHTML = isArray(fruits);
+			function isArray(myArray){
+				return myArray.constructor.toString().indexOf("Array") > -1;
+			}
+		</script>
+		<li>.length	返回字符串的长度</li>
+		<li>.prototype	允许您向对象添加属性和方法</li>
 	</ul>
 
 	<ul>
@@ -338,7 +345,16 @@
 		<li>null == undefined            // true</li>
 	</ul>
 
-	<p>Number() 转换为数字， String() 转换为字符串， Boolean() 转化为布尔值。</p>
+	<p>Number() 转换为数字：
+	toExponential()	把对象的值转换为指数计数法。
+	toFixed()	把数字转换为字符串，结果的小数点后有指定位数的数字。
+	toPrecision()	把数字格式化为指定的长度。</p>
+	<p>String() 转换为字符串:
+	toString()也有同样效果。</p>
+	<p>Boolean() 转化为布尔值。</p>
+	<a href="http://www.runoob.com/jsref/jsref-obj-date.html">Date 方法</a>
+	<a href="http://www.runoob.com/jsref/jsref-obj-number.html">Number 方法</a>
 	
+
 </body>
 </html>
