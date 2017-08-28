@@ -346,15 +346,121 @@
 	</ul>
 
 	<p>Number() 转换为数字：
-	toExponential()	把对象的值转换为指数计数法。
-	toFixed()	把数字转换为字符串，结果的小数点后有指定位数的数字。
-	toPrecision()	把数字格式化为指定的长度。</p>
-	<p>String() 转换为字符串:
-	toString()也有同样效果。</p>
-	<p>Boolean() 转化为布尔值。</p>
-	<a href="http://www.runoob.com/jsref/jsref-obj-date.html">Date 方法</a>
+	object.toExponential()	把对象的值转换为指数计数法。
+	object.toFixed()	把数字转换为字符串，结果的小数点后有指定位数的数字。
+	object.toPrecision()	把数字格式化为指定的长度。
 	<a href="http://www.runoob.com/jsref/jsref-obj-number.html">Number 方法</a>
+	</p>
+	<p>object.String() 转换为字符串:
+	object.toString()也有同样效果。<a href="http://www.runoob.com/jsref/jsref-obj-date.html">Date 方法</a></p>
+	<p>object.Boolean() 转化为布尔值。</p>
 	
+	
+	<p>try 和 catch</p>
+	<button onclick="tryDemo()">点击这里</button>
+	<script type="text/javascript">
+	function tryDemo(){
+		var txt = "";
+		try {
+			adddlert("Welcome guest!");
+		}
+		catch(err){
+			txt = "本页有一个错误。\n\n";
+			txt+= "错误描述：" + err.tryDemo + "\n\n";
+			txt+= "点击确定继续。\n\n";
+			alert(txt);
+		}
+	}
+	</script>
 
+	<p>Throw语句</p>
+	<input type="text" name="" id="throwDemo1">
+	<button onclick="throwDemo()">点击这里</button>
+	<p id="throwDemo"></p>
+	<script type="text/javascript">
+	function throwDemo(){
+		var message, x;
+		message = document.getElementById("throwDemo");
+		message.innerHTML = "";
+		x = document.getElementById("throwDemo1").value;
+		try {
+			if (x == "") throw "值为空"；
+			if (isNaN(x)） throw "不是数字"；
+			x = Number(x);
+			if (x < 5) throw "太小";
+			if (x < 10) throw "太大";
+		}
+		catch(err){
+			message.innerHTML = "错误：" + err;
+		}
+	}
+	</script>
+
+	<p>JavaScript 只有声明的变量会提升，初始化的不会。</p>
+
+	<p>表单验证</p>
+	<form name="myForm" action="demo.php" onsubmit="return validateForm()" method="post">名字：
+		<input type="text" name="fname">
+		<input type="submit" name="提交">
+	</form>
+	<script type="text/javascript">
+	function validateForm(){
+		var x = document.forms["myForm"]["fname"].value;
+		if (x == null || x == "") {
+			alert("需要输入名字");
+			return false;
+		}
+	}
+	</script>
+
+	<p>验证输入的数字</p>
+	<label>请输入1到10之间的数字</label><input type="" name="" id="numb">
+	<button type="button" onclick="numbDemo()">提交</button>
+	<p id="numb2"></p>
+	<script type="text/javascript">
+	function numbDemo(){
+		var x,text;
+		x = document.getElementById("numb").value;
+		if (isNaN(x) || x < 1 || x > 10) {
+			text = "输入错误";
+		} else {
+			text = "输入正确";
+		}
+		document.getElementById("numb2").innerHTML = text;
+	}
+	</script>
+
+	<p>验证表单</p>
+	<form name="formDemo" action="demo.php" method="post" onsubmit="return formDemo()">
+		<label>输入框为空会提醒错误信息</label>
+		<input type="text" name="fname"><!-- 标签内加入 required="required" 默认提醒提交空数据-->
+		<input type="submit" name="提交">
+	</form>
+	<script type="text/javascript">
+	function formDemo(){
+		var x = document.forms["formDemo"]["fname"].value;
+		if (x == null || x == ""){
+			alert("姓必须写");
+			return false;
+		}
+	}
+	</script>
+
+	<p>E-mail验证</p>
+	<form name="mailDemo" action="demo.php" onsubmit="return mailDemo();" method="post">
+		Email: <input type="text" name="email">
+		<input type="submit" name="" value="提交">
+	</form>
+	<script type="text/javascript">
+	function mailDemo(){
+		var x = document.forms["mailDemo"]["email"].value;
+		var atpos = x.indexOf("@");
+		var dotpos = x.lastIndexOf(".");
+		if (atpos < 1 || dotpos<atpos+2 || x.length) {
+			alert{"这不是一个有效的E-mail地址"};
+			return false;
+		}
+	}
+	</script>
 </body>
 </html>
