@@ -456,11 +456,28 @@
 		var x = document.forms["mailDemo"]["email"].value;
 		var atpos = x.indexOf("@");
 		var dotpos = x.lastIndexOf(".");
-		if (atpos < 1 || dotpos<atpos+2 || x.length) {
-			alert{"这不是一个有效的E-mail地址"};
+		if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+			alert("这不是一个有效的E-mail地址");
 			return false;
 		}
 	}
 	</script>
+
+	<p>自带验证</p>
+	<input type="number" name="" id="id1" min="100"	max="300" required>
+	<button onclick="idDemo()">验证</button>
+	<p id="demo1"></p>
+	<script type="text/javascript">
+	function idDemo(){
+		var inpObj = document.getElementById("id1");
+		if (inpObj.checkValidity() == false) {
+			document.getElementById('demo1').innerHTML = inpObj.validationMessage;
+		}else{
+			document.getElementById("demo1").innerHTML = "输入正确"
+		}
+	}
+	</script>
+
+	<a href="http://www.runoob.com/js/js-json.html">到这里</a>
 </body>
 </html>
