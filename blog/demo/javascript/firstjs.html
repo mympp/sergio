@@ -478,6 +478,33 @@
 	}
 	</script>
 
-	<a href="http://www.runoob.com/js/js-json.html">到这里</a>
+
+	<p>JSON</p>
+	<p>JSON.parse()：将JSON字符串转换为JavaScript对象</p>
+	<p id="parseDemo"></p>
+	<script type="text/javascript">
+	var text = '{"sites":['+
+		'{"name":"Runoob","url":"www.runoob.com"},' + 
+		'{"name":"Google","url":"www.google.com"},' + 
+		'{"name":"Taobao","url":"www.taobao.com"}' + 
+	']}';
+	var obj = JSON.parse(text);
+	document.getElementById("parseDemo").innerHTML = obj.sites[1].name + "" + obj.sites[1].url;
+	</script>
+	<p>JSON.stringify()：将JavaScript值转换为JSON字符串</p>
+	<p id="stringifyDemo"></p>
+	<script type="text/javascript">
+	var str = {"name":"菜鸟教程","site":"http://www.runoob.com"}
+	str_pretty1 = JSON.stringify(str)
+	document.write("只有一个参数情况：");
+	document.write("<br>");
+	document.write("<pre>" + str_pretty1 + "</pre>");
+	document.write("<br>");
+	str_pretty2 = JSON.stringify(str,null,4)//使用四个空格缩进
+	document.write("只有一个参数情况：");
+	document.write("<br>");
+	document.write("<pre>" + str_pretty2 + "</pre>");//pre用于格式化格式
+	</script>
+
 </body>
 </html>

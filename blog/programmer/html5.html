@@ -8,56 +8,40 @@
 	<link rel="stylesheet" type="text/css" href="/sergio/css/base.css">
 	<link rel="stylesheet" type="text/css" href="/sergio/css/public.css">
 	<link rel="stylesheet" type="text/css" href="/sergio/css/page.css">
+	<style type="text/css">
+	.box{
+		display: block;
+		width: 100px;
+		height: 50px;
+		text-align: center;
+		line-height: 50px;
+		border: 1px solid #aaa;
+		background: #ccc;
+	}
+	#clickBox:hover{
+		
+	}
+	p{
+		display: none;
+	}
+	</style>
 </head>
 <body>
 <!-- nav -->
-<nav class="index-nav"><a id="BackTop"></a>
-	<div class="logo">
-		<img src="/sergio/images/logo2.gif" alt="Logo" width="250px"><!--logo 为名字签名手写体-->
-	</div>
-	<ul>
-		<li class=""><a href="index.html">首页</a></li>
-		<li><a href="production.html">作品</a></li>
-		<li><a href="">程序猿</a>
-			<ul>
-				<li><a href="">HTML5</a>
-					<ul>
-						<li><a href="/sergio/programmer/html5.html">HTML5</a></li>
-						<li><a href="/sergio/programmer/html5new.html">HTML5新标签</a></li>
-						<li><a href="/sergio/programmer/meta.html">meta</a></li>
-						<li><a href="/sergio/programmer/viewport.html">viewport</a></li>
-					</ul>
-				</li>
-				<li><a href="">CSS3</a>
-					<ul>
-						<li><a href="/sergio/programmer/css3search.html">CSS3参考</a></li>
-						<li><a href="/sergio/programmer/css3.html">CSS3</a></li>
-						<li><a href="/sergio/programmer/center.html">居中</a></li>
-					</ul>
-				</li>
-				<li><a href="">JavaScript</a>
-					<ul>
-						<li><a href="/sergio/programmer/javascript">JavaScript</a></li>
-						<li><a href="/sergio/programmer/ajax.html">Ajax</a></li>
-					</ul>
-				</li>
-				<li><a href="/sergio/programmer/nodejs.html">Node.js</a></li>
-				<li><a href="">网站可用性</a>
-					<ul>
-						<li><a href="/sergio/programmer/awdrwd.html">AWDRWD</a></li>
-						<li><a href=""></a></li>
-					</ul>
-				</li>
-				<li><a href="/sergio/programmer/chart.html">可视化图形</a></li>
-				<li><a href="/sergio/programmer/st3.html">sublime text 3</a></li>
-				<li><a href=""></a></li>
-			</ul>
-		</li><!--两种模式点击和键盘输入。1，纯键盘输入，页面底下代码输入，背景关键词星系旋转悬停显示“请用键盘输入”。2，鼠标正常点击。-->
-		<li><a href="human.html">人类</a></li><!--未来多条分支虚拟化，并设置投票。-->
-		<li><a href="funny.html">娱乐</a></li><!--包含游戏、音乐、读书-->
-		<li><a href="aboutme.html">找到我</a></li>
-	</ul>
-</nav>
+<header class="index-nav"><a id="BackTop"></a>
+	<a href="/sergio/index.html" class="logo">
+		<img src="/sergio/images/logo2.gif" alt="logo1">
+		<img src="/sergio/images/logo2.png" alt="logo2">
+	</a>
+	<nav>
+		<ul>
+			<li><a href="blog.html">&lt;&nbsp;&gt;</a></li>
+			<li><a href="production.html">Archives</a></li>
+			<li><a href="https://github.com/sergiolin">Github</a></li>
+	</nav>
+	<div class="menu-right" id="rightClick"></div>
+</header>
+<div class="clean_float"></div>
 <!-- nav End -->
 <!-- main -->
 	<div class="main">
@@ -68,38 +52,33 @@
 		<p>符号 <img src="/sergio/images/html5.jpg" width="20px"> 代表该元素是在 HTML5 中新增的。另外注意，这里列出的其他元素可能在 HTML5 标准中得到了扩充或经过修改。</p>
 		<p>属性只显示HTML5支持并且非试验阶段的属性。并不含各属性的兼容性说明。局属性是所有HTML元素共有的属性;它们可以用于所有元素，尽管属性可能对某些元素没有影响。</p>
 	</div>
-	<table class="main-table">
-		<tr>
-			<th width="10%">Element标签</th>
-			<th width="20%">Description描述</th>
-			<th width="70%">Attribute属性</th>
-		</tr>
-		<tr>
-			<td class="trHead" colspan="3">根元素EDIT</td>
-		</tr>
-		<tr>
-			<td>&lt;html&gt;</td>	
-			<td>代表 HTML 或 XHTML文档的根。其他所有元素必须是这个元素的子节点。</td>
-			<td>
-				<p>xmlns,指派文档的 XML 命名空间。默认的值是 "http://www.w3.org/1999/xhtml"。这在 XHTML 中是必要的，而在 HTML 中则是可选的。</p>
-			</td>
-		</tr>
+		<h4 class="trHead" colspan="3">根元素EDIT</h4>
+		<div class="box" title="代表 HTML 或 XHTML文档的根。其他所有元素必须是这个元素的子节点。" onclick="test()">&lt;html&gt;</div>
+		<p id="clickBox" >xmlns,指派文档的 XML 命名空间。默认的值是 "http://www.w3.org/1999/xhtml"。这在 XHTML 中是必要的，而在 HTML 中则是可选的。</p>
+		<script type="text/javascript">
+		function test(){
+			var box = document.getElementById("clickBox")
+			if (box.style.display = "none") {
+				box.style.display = "block";
+			} else {
+				box.style.display = "none";
+			}
+
+		}
+		</script>
 		<tr>
 			<td class="trHead" colspan="3">文档元数据EDIT</td>
 		</tr>
 		<tr>
-			<td>&lt;head&gt;</td>	
-			<td>代表关于文档元数据的一个集合，包括脚本或样式表的链接或内容。</td>
+			<td title="代表关于文档元数据的一个集合，包括脚本或样式表的链接或内容。">&lt;head&gt;</td>
 			<td></td>
 		</tr>
 		<tr>
-			<td>&lt;title&gt;</td>	
-			<td>定义文档的标题，将显示在浏览器的标题栏或标签页上。该元素只能包含文本，包含的标签不会被解释。</td>
+			<td title="定义文档的标题，将显示在浏览器的标题栏或标签页上。该元素只能包含文本，包含的标签不会被解释。">&lt;title&gt;</td>
 			<td></td>
 		</tr>
 		<tr>
-			<td>&lt;base&gt;</td>	
-			<td>定义页面上相对 URL 的基准 URL。</td>
+			<td title="定义页面上相对 URL 的基准 URL。">&lt;base&gt;</td>
 			<td>
 				<!-- <p>href,用于文档中相对 URL 地址的基础 URL。如果指定了该属性，这个元素必须写在其他任何属性值是 URL 的元素之前。允许绝对和相对RUL（但是请查看下面的注意节段）。</p>
 				<p>target,为没有显示target引用属性的元素指定一个名字或关键字，当元素的超链接或导致导航的形式被激活时，指定显示结果的默认位置。在HTML4中，其值是一个框的名字或者在关键字。在HTML5中，其值是一个浏览上下文（例如标签页，窗口或者内联框）的名字或者关键字。以下的关键字指定特殊的意思：_self: 载入结果到当前的HTML4框（或者HTML5的浏览上下文）。如果没有指定该属性，那该值是元素的默认值属性值。_blank: 载入结果到一个新的未命名HTML4窗口，或者一个新的HTML5的浏览上下文。_parent: 对于HTML4，载入结果到当前框的父级框；对于HTML5，载入结果到父级浏览上下文。如果没有父级结构，该选项的行为和_self一样。_top: 在HTML4中，载入结果到全部原始窗口，并且取消其他所有框。在HTML5中，载入结果到顶级浏览上下文（该浏览上下文是当前上下文的最顶级上下文）。如果没有父级，该选项的行为和_self一样。</p> -->

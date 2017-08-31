@@ -43,6 +43,23 @@ p{
 	padding: 0.5em 0;
 	line-height: 1.5em;
 }
+/*字体*/
+@font-face {
+	font-family: 'NixieOne';
+	src: url('font/NixieOne.eot');
+	src: url('font/NixieOne.woff2') format('woff2'),
+	   url('font/NixieOne.woff') format('woff'),
+	   url('font/NixieOne.ttf') format('truetype'),
+	   url('font/NixieOne.svg#NixieOne') format('svg'),
+	   url('font/NixieOne.eot?#iefix') format('embedded-opentype');
+	font-weight: 100;
+	font-style: normal;
+}
+.font-title{
+	font-family: 'NixieOne';
+	font-size: 48px;
+}
+
 /**菜单**/
 /*通用导航*/
 .index-nav{
