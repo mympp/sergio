@@ -506,5 +506,75 @@
 	document.write("<pre>" + str_pretty2 + "</pre>");//pre用于格式化格式
 	</script>
 
+	<p>javascript:void(0) 改操作符指定要计算一个表达式但不返回值。</p>
+	<a href="javascript:void(0)">单击此处什么也不会发生</a><br />
+	<a href="javascript:void(alert('warning!!!'))">void(0)计算为0，也可以其他值</a>
+	<p id="voidDemo"></p>
+	<input type="button" name="" value="点我" onclick="voidDemo()">
+	<script type="text/javascript">
+		// 语法格式如下：
+		void (func())
+		javascript:void func()
+		//或者
+		void(func())
+		javascript:void(func())
+		function voidDemo(){
+			var a,b,c;
+			var text = "";
+			a = void(b = 5,c = 7);
+			text = "a = " + a + "b = " + b + "c = " + c;
+			document.getElementById('voidDemo').innerHTML = text;
+		}
+	</script>
+	<p>href="#"与href="javascript:void(0)"的区别</p>
+	<p># 包含了一个位置信息，默认的锚是#top 也就是网页的上端。而javascript:void(0), 仅仅表示一个死链接。</p>
+	<a href="#pos">点我定位到指定位置</a>
+	<p id="pos">飞到这里</p>
+
+	<h2>js函数</h2>
+	<p>函数声明</p>
+	<p>函数表达式</p>
+	<p>构造函数</p>
+	<script type="text/javascript">
+	var myFunction = new Function("a","b","return a * b");
+	//等同于 var myFunction = Function("a","b","return a * b");在 JavaScript 中，很多时候，你需要避免使用 new 关键字。
+	var x = myFunction(4,3);
+	document.write(x);
+	</script>
+	<p>函数提升</p>
+	<script type="text/javascript">
+	myFunction(5);
+	function myFunction(y){
+		return y * y;
+	}
+	</script>
+	<p>自调用函数：<span id="ziDemo"></span></p>
+	<script type="text/javascript">
+	(function(){
+		document.getElementById("ziDemo").innerHTML = "Hello,我是自己调用的。";
+	})();//以上函数实际上是一个 匿名自我调用的函数 (没有函数名)。
+	</script>
+	<p>函数可作为一个值使用</p>
+	<button onclick="toNumberDemo()"></button>
+	<p id="tonumberDemo"></p>
+	<script type="text/javascript">
+	function toNumberDemo(){
+		function tonumberDemo(a,b){
+			return a * b;
+		}
+
+		var x = tonumberDemo(4,3);//可作为一个值使用，
+		//var x = tunumberDemo(4,3) * 2;也可以作为一个表达式使用
+		document.getElementById("tonumberDemo").innerHTML = x;
+	}
+	</script>
+	<p>函数是对象</p>
+	<p>arguments.length</p>
+	<script type="text/javascript">
+	function argumentsDemo(){
+		return arguments.length;
+	}
+	document.getElementById("argumentsDemo").innerHTML = argumentsDemo(4,3)
+	</script>
 </body>
 </html>
