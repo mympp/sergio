@@ -5,7 +5,7 @@
 </head>
 <body>
 	<h4>点击改变HTML图像</h4>
-	<img src="http://linshaojia.com/images/logo2.gif" alt="demo" width="100px" id="myImage" onclick="changeImage()">
+	<img src="http://linshaojia.com/images/logo2.gif" alt="demo" width="100px" id="myImage" onclick="changeImage()"><!-- onclick就是点击事件，changeImage()就是调用函数的意思，但是就算不调用，相对于全局来说它还是执行了。 -->
 	<script type="text/javascript">
 	function changeImage(){
 		element = document.getElementById('myImage');
@@ -68,7 +68,7 @@
 	</ul>
 
 	<ul>
-		<p>下面是一些常见的HTML事件的列表:</p>
+		<h4>下面是一些常见的HTML事件的列表:</h4>
 		<li>onchange：	HTML 元素改变</li>
 		<li>onclick：	用户点击 HTML 元素</li>
 		<li>onmouseover：	用户在一个HTML元素上移动鼠标</li>
@@ -77,6 +77,7 @@
 		<li>onload：	浏览器已完成页面的加载</li>
 	</ul>
 
+	<h4>字符串</h4>
 	<ul>
 		<p>字符串属性</p>
 		<li>.constructor	返回创建字符串属性的函数<span id="constructorDemo">判断是否为数组</span></li>	
@@ -117,7 +118,7 @@
 	</ul>
 	<p> typeof 操作符来检测变量的数据类型。</p>
 
-	<p>条件语句</p>
+	<h4>条件语句</h4>
 	<button onclick="ifDemo()">if(){...}</button>
 	<span id="ifDemo"></span><br />
 	<script type="text/javascript">
@@ -161,7 +162,7 @@
 	}
 	</script>
 
-	<p>switch语句</p>
+	<h4>switch语句</h4>
 	<button onclick="switchDemo()">switch语句</button>
 	<span id="switchDemo">判断并执行其中的一个</span><br />
 	<script type="text/javascript">
@@ -204,7 +205,7 @@
 	}
 	</script>
 
-	<p>循环</p>
+	<h4>for循环</h4>
 	<button onclick="forDemo()">for循环：</button>
 	<span id="forDemo">循环遍历数组中的所有项</span>
 	<script type="text/javascript">
@@ -231,6 +232,8 @@
 		document.getElementById("forinDemo").innerHTML = txt;
 	}
 	</script>
+
+	<h4>while循环</h4>
 	<button onclick="whileDemo()">while循环：</button>
 	<span id="whileDemo">指定条件为真时循环执行代码块</span><br />
 	<script type="text/javascript">
@@ -257,6 +260,7 @@
 	}
 	</script>
 
+	<h4>break和continue语句</h4>
 	<p>break语句</p>
 	<button onclick="breakDemo()">break语句</button>
 	<span id="breakDemo">该例子到值3跳出循环</span>
@@ -302,7 +306,7 @@
 	}
 	</script>
 
-	<p>typeof操作符:</p>
+	<h4>typeof操作符:</h4>
 	<button onclick="typeofDemo()">typeof</button>
 	<span id="typeofDemo">使用 typeof 操作符来检测变量的数据类型。</span>
 	<script type="text/javascript">
@@ -345,6 +349,7 @@
 		<li>null == undefined            // true</li>
 	</ul>
 
+	<h4>类型转换</h4>
 	<p>Number() 转换为数字：
 	object.toExponential()	把对象的值转换为指数计数法。
 	object.toFixed()	把数字转换为字符串，结果的小数点后有指定位数的数字。
@@ -355,7 +360,7 @@
 	object.toString()也有同样效果。<a href="http://www.runoob.com/jsref/jsref-obj-date.html">Date 方法</a></p>
 	<p>object.Boolean() 转化为布尔值。</p>
 	
-	
+	<h4>错误和调试</h4>	
 	<p>try 和 catch</p>
 	<button onclick="tryDemo()">点击这里</button>
 	<script type="text/javascript">
@@ -384,8 +389,8 @@
 		message.innerHTML = "";
 		x = document.getElementById("throwDemo1").value;
 		try {
-			if (x == "") throw "值为空"；
-			if (isNaN(x)） throw "不是数字"；
+			if (x == "") throw "值为空";
+			if (isNaN(x)） throw "不是数字";
 			x = Number(x);
 			if (x < 5) throw "太小";
 			if (x < 10) throw "太大";
@@ -398,7 +403,7 @@
 
 	<p>JavaScript 只有声明的变量会提升，初始化的不会。</p>
 
-	<p>表单验证</p>
+	<h4>表单验证</h4>
 	<form name="myForm" action="demo.php" onsubmit="return validateForm()" method="post">名字：
 		<input type="text" name="fname">
 		<input type="submit" name="提交">
@@ -479,7 +484,7 @@
 	</script>
 
 
-	<p>JSON</p>
+	<h4>JSON</h4>
 	<p>JSON.parse()：将JSON字符串转换为JavaScript对象</p>
 	<p id="parseDemo"></p>
 	<script type="text/javascript">
@@ -531,7 +536,8 @@
 	<a href="#pos">点我定位到指定位置</a>
 	<p id="pos">飞到这里</p>
 
-	<h2>js函数</h2>
+	<h2>javascript函数</h2>
+	<h4>函数定义</h4>
 	<p>函数声明</p>
 	<p>函数表达式</p>
 	<p>构造函数</p>
@@ -555,7 +561,7 @@
 	})();//以上函数实际上是一个 匿名自我调用的函数 (没有函数名)。
 	</script>
 	<p>函数可作为一个值使用</p>
-	<button onclick="toNumberDemo()"></button>
+	<button onclick="toNumberDemo()">x = tunumberDemo(4,3)</button>
 	<p id="tonumberDemo"></p>
 	<script type="text/javascript">
 	function toNumberDemo(){
@@ -569,12 +575,124 @@
 	}
 	</script>
 	<p>函数是对象</p>
-	<p>arguments.length</p>
+	<p>arguments.length属性返回函数调用过程中接收到的参数个数：<span id="argumentsDemo"></span></p>
 	<script type="text/javascript">
-	function argumentsDemo(){
+	function argumentsDemo(a,b){
 		return arguments.length;
 	}
 	document.getElementById("argumentsDemo").innerHTML = argumentsDemo(4,3)
 	</script>
+	<p>toString()方法将函数作为一个字符串返回：<span id="tostringDemo"></span></p>
+	<script type="text/javascript">
+	function tostringDemo(a,b){
+		return a * b;
+	}
+	document.getElementById("tostringDemo").innerHTML = tostringDemo.toString();
+	</script>
+
+	<h4>javascript参数</h4>	
+	<script type="text/javascript">
+	function parameterDemo(x,y){
+		if (y === undefined) {
+			y = 0;
+		}
+		//或者更简洁
+		y = y || 0;//如果y已经定义 ， y || 返回 y, 因为 y 是 true, 否则返回 0, 因为 undefined 为 false。
+	}	
+	</script>
+	<p>Arguments对象包含了函数调用的参数数组。</p>
+	<p>查找一组数组总的最大值：<span id="findMax"></span></p>
+	<script type="text/javascript">
+	x = findMax(1,123,500,115,44,188);
+	function findMax(){
+		var i,max = arguments[0];
+		if(arguments.length < 2) return max;
+		for (i =0;i < arguments.length; i++) {
+			if(arguments[i] > max){
+				max = arguments[i];
+			}
+		}
+		return max;
+	}
+	document.getElementById("findMax").innerHTML = x;
+	</script>
+	<p>计算所有参数之和：<span id="sumallDemo"></span></p>
+	<script type="text/javascript">
+	function sumallDemo(){
+		var i,sum = 0;
+		for (i = 0;i < arguments.length; i++) {
+			sum += arguments[i];
+		}
+		return sum;
+	}
+	document.getElementById("sumallDemo").innerHTML = sumallDemo(1,223,500,115,44,189);
+	</script>
+	<h4>javascript函数4种调用方式</h4>
+	<script type="text/javascript">
+	//this 是保留关键字，你不能修改 this 的值。
+	function myFunction(a, b) {
+	    return a * b;
+	}
+	myFunction(10, 2);// 返回 20
+	// 以上函数不属于任何对象。但是在 JavaScript 中它始终是默认的全局对象。
+	// 在 HTML 中默认的全局对象是 HTML 页面本身，所以函数是属于 HTML 页面。
+	// 在浏览器中的页面对象是浏览器窗口(window 对象)。以上函数会自动变为 window 对象的函数。
+	// myFunction() 和 window.myFunction() 是一样的
+	</script>
+	<p>全局对象：<span id="thisDemo1"></span></p>
+	<script type="text/javascript">
+	function thisDemo1(){
+		return this;
+	}
+	document.getElementById("thisDemo1").innerHTML = thisDemo1();
+	</script>
+	<p>函数作为方法调用：<span id="thisDemo2"></span></p>
+	<script type="text/javascript">
+	var thisDemo2 = {
+		firstName:"John",
+		lastName:"Doe",
+		fullName:function(){
+			return this.firstName + " " + this.lastName;
+		}
+	}
+	document.getElementById("thisDemo2").innerHTML = thisDemo2.fullName();
+	</script>
+	<p>使用构造函数调用函数：<span id="thisDemo3"></span></p>
+	<script type="text/javascript">
+	function thisDemo3(arg1,arg2){
+		this.firstName = arg1;
+		this.lastName = arg2;
+	}
+
+	var x = new thisDemo3("John","Doe");
+	document.getElementById("thisDemo3").innerHTML = x.firstName;
+	//构造函数的调用会创建一个新的对象。新对象会继承构造函数的属性和方法。
+	// Note	构造函数中 this 关键字没有任何的值。
+	// this 的值在函数调用时实例化对象(new object)时创建。
+	</script>
+	<p>作为函数方法调用函数：</p>
+	<p>call()和apply()是预定义的函数方法，可用于调用函数，两个方法的第一个参数都必须是对象本身。<span id="thisDemo4"></span><span id="thisDemo5"></span></p>
+	<script type="text/javascript">
+	var callObject,applyObject,applyArray;
+	
+	function thisDemo4(a,b){
+		return a * b;
+	}
+	callObject = thisDemo4.call(callObject,10,2);
+	document.getElementById("thisDemo4").innerHTML = callObject;
+	function thisDemo5(a,b){
+		return a * b;
+	}
+	applyArray = [10,2]
+	applyObject = thisDemo5.apply(applyObject,applyArray);
+	document.getElementById("thisDemo5").innerHTML = applyObject;
+	// 两个方法都使用了对象本身作为第一个参数。 两者的区别在于第二个参数： apply传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而call则作为call的参数传入（从第二个参数开始）。
+	// 在 JavaScript 严格模式(strict mode)下, 在调用函数时第一个参数会成为 this 的值， 即使该参数不是一个对象。
+	// 在 JavaScript 非严格模式(non-strict mode)下, 如果第一个参数的值是 null 或 undefined, 它将使用全局对象替代。
+	// Note	通过 call() 或 apply() 方法你可以设置 this 的值, 且作为已存在对象的新方法调用。
+	</script>
+
+	<h4>JavaScript闭包</h4>
+	<p>全局变量，变量声明时如果不使用 var 关键字，那么它就是一个全局变量，即便它在函数内定义。全局和局部变量即便名称相同，它们也是两个不同的变量。修改其中一个，不会影响另一个的值。</p>
 </body>
 </html>
