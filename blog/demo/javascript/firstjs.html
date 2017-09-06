@@ -4,79 +4,6 @@
 	<title>My first javascrite</title>
 </head>
 <body>
-	<h4>点击改变HTML图像</h4>
-	<img src="http://linshaojia.com/images/logo2.gif" alt="demo" width="100px" id="myImage" onclick="changeImage()"><!-- onclick就是点击事件，changeImage()就是调用函数的意思，但是就算不调用，相对于全局来说它还是执行了。 -->
-	<script type="text/javascript">
-	function changeImage(){
-		element = document.getElementById('myImage');
-		if (element.src.match("bulbon")) {
-			element.src = "http://linshaojia.com/images/logo2.gif";
-		} else {
-			element.src = "http://linshaojia.com/images/logo2.png";
-		}
-	}
-	</script>
-
-	<h4 id="changerColor">改变HTML样式</h4>
-	<button type="button" onclick="changerColor()">点我</button>
-	<script type="text/javascript">
-	function changerColor(){
-		x = document.getElementById('changerColor');
-		x.style.color = "#aaa";
-	}
-	</script>
-
-	<h4>验证输入</h4>
-	<input type="text" name="cellphone" id="checkNumber">
-	<button type="button" onclick="checkNumber()">验证是不是手机号码</button>
-	<script type="text/javascript">
-	function checkNumber(){
-		var phone = document.getElementById('checkNumber').value;
-		if (!(/^1[34578]\d{9}$/.test(phone))) {
-			alert("请输入正确的手机号码");
-			return false;
-		}
-	}
-	</script>
-
-	<ul>
-		<p>JavaScript 可以通过不同的方式来输出数据：</p>
-		<li>使用 window.alert() 弹出警告框。</li>
-		<h4>对事件的反应</h4>
-		<button type="button" onclick="alert('标签内的事件，欢迎')">点我！</button>
-		<li>使用 document.write() 方法将内容写到 HTML 文档中。</li>
-		<h4>直接写入HTML输出流</h4>
-		<script type="text/javascript">
-		document.write("<p>这是脚本写入的文本</p>");
-		document.write("<small>是要加标签的</small>");
-		</script>
-		<li>使用 innerHTML 写入到 HTML 元素。innerHTML很多情况下都优于document.write，其原因在于其允许更精确的控制要刷新页面的那一个部分。</li>
-		<h4 id="innerDemo">改变HTML内容</h4>
-		<button type="button" onclick="innerChange()">点击这里</button>
-		<script type="text/javascript">
-		function innerChange(){
-			var x = document.getElementById("innerDemo");
-			x.innerHTML = "已经改变了的HTML内容";
-		};
-		</script>
-		<li>使用 console.log() 写入到浏览器的控制台。</li>
-		<script type="text/javascript">
-		for (var i = 0; i < 10; i++) {
-			console.log(i);
-		}
-		</script>
-	</ul>
-
-	<ul>
-		<h4>下面是一些常见的HTML事件的列表:</h4>
-		<li>onchange：	HTML 元素改变</li>
-		<li>onclick：	用户点击 HTML 元素</li>
-		<li>onmouseover：	用户在一个HTML元素上移动鼠标</li>
-		<li>onmouseout：	用户从一个HTML元素上移开鼠标</li>
-		<li>onkeydown：	用户按下键盘按键</li>
-		<li>onload：	浏览器已完成页面的加载</li>
-	</ul>
-
 	<h4>字符串</h4>
 	<ul>
 		<p>字符串属性</p>
@@ -418,6 +345,32 @@
 	}
 	</script>
 
+	<p>验证输入</p>
+	<input type="text" name="cellphone" id="checkNumber">
+	<button type="button" onclick="checkNumber()">验证是不是手机号码</button>
+	<script type="text/javascript">
+	function checkNumber(){
+		var phone = document.getElementById('checkNumber').value;
+		if (!(/^1[34578]\d{9}$/.test(phone))) {
+			alert("请输入正确的手机号码");
+			return false;
+		}
+	}
+	</script>
+	<ul>
+		<p>JavaScript 可以通过不同的方式来输出数据：</p>
+		<li>使用 window.alert() 弹出警告框。</li>
+		<p>对事件的反应</p>
+		<button type="button" onclick="alert('标签内的事件，欢迎')">点我！</button>
+		<li>使用 console.log() 写入到浏览器的控制台。</li>
+		<script type="text/javascript">
+		for (var i = 0; i < 10; i++) {
+			console.log(i);
+		}
+		</script>
+	</ul>
+
+
 	<p>验证输入的数字</p>
 	<label>请输入1到10之间的数字</label><input type="" name="" id="numb">
 	<button type="button" onclick="numbDemo()">提交</button>
@@ -694,5 +647,131 @@
 
 	<h4>JavaScript闭包</h4>
 	<p>全局变量，变量声明时如果不使用 var 关键字，那么它就是一个全局变量，即便它在函数内定义。全局和局部变量即便名称相同，它们也是两个不同的变量。修改其中一个，不会影响另一个的值。</p>
+	<p>JavaScript 内嵌函数,在 JavaScript 中，所有函数都能访问它们上一层的作用域。</p>
+	<button onclick="addDemo()">计数<span id="addDemo"></span></button>
+	<script type="text/javascript">
+	var add = (function(){
+		var conunter = 0;
+		return function(){
+			return conunter += 1;
+		}
+		//此处为简写，其实是：
+		// function plus(){conunter += 1;}
+		// plus();
+		// return conunter;
+	})();
+	function addDemo(){
+		document.getElementById('addDemo').innerHTML = add();
+	}
+	// 变量 add 指定了函数自我调用的返回字值。
+	// 自我调用函数只执行一次。设置计数器为 0。并返回函数表达式。
+	// add变量可以作为一个函数使用。非常棒的部分是它可以访问函数上一层作用域的计数器。
+	// 这个叫作 JavaScript 闭包。它使得函数拥有私有变量变成可能。
+	// 计数器受匿名函数的作用域保护，只能通过 add 方法修改。
+	// 闭包是可访问上一层函数作用域里变量的函数，即便上一层函数已经关闭。
+	</script>
+
+	<h2>JavaScript HTML DOM</h2>
+	<p>查找HTML元素3中方法：</p>
+	<p>通过id：var x = document.getElementById("intro")</p>
+	<p>通过标签名：var x = document.getElementByTagName("p")</p>
+	<p>通过类名：var x = document.getElementByClassName("intro")</p>
+	
+	<h4>DOM改变HTML</h4>
+	<p>改变HTML内容</p>
+	<button type="button" onclick="innerChange()">点击这里</button><span id="innerDemo">改变HTML内容</span>
+	<script type="text/javascript">
+	function innerChange(){
+		var x = document.getElementById("innerDemo");
+		x.innerHTML = "已经改变了的HTML内容";
+	};
+	</script>
+	<p>直接写入HTML</p>
+	<script type="text/javascript">
+	document.write("<span>这是脚本写入的文本</span>");
+	document.write("<small>是要加标签的</small>");
+	</script>
+	<small>使用 innerHTML 写入到 HTML 元素。innerHTML很多情况下都优于document.write，其原因在于其允许更精确的控制要刷新页面的那一个部分。</small>
+	<p>改变HTML属性</p>
+	<label>点击图片修改</label><img src="http://linshaojia.com/images/logo2.gif" alt="demo" width="100px" id="myImage" onclick="changeImage()"><!-- onclick就是点击事件，changeImage()就是调用函数的意思，但是就算不调用，相对于全局来说它还是执行了。 -->
+	<script type="text/javascript">
+	function changeImage(){
+		element = document.getElementById('myImage');
+		if (element.src.match("bulbon")) {
+			element.src = "http://linshaojia.com/images/logo2.gif";
+		} else {
+			element.src = "http://linshaojia.com/images/logo2.png";
+		}
+	}
+	</script>
+
+	<h4>DOM改变CSS</h4>
+	<p id="changerColor">改变HTML样式</p>
+	<button type="button" onclick="changerColor()">点我</button>
+	<script type="text/javascript">
+	function changerColor(){
+		x = document.getElementById('changerColor');
+		x.style.color = "#aaa";
+	}
+	</script>
+
+	<h4>DOM事件反应</h4>
+HTML 事件的例子：
+当用户点击鼠标时
+当网页已加载时
+当图像已加载时
+当鼠标移动到元素上时
+当输入字段被改变时
+当提交 HTML 表单时
+当用户触发按键时
+	<ul>
+		<h4>下面是一些常见的HTML事件的列表:</h4>
+		<li>onchange：	HTML 元素改变</li>
+		<li>
+			<p onclick="this.style.color = '#aaa'">onclick：	用户点击 HTML 元素</p>
+			<p onmousedown="this.style.color = '#aaa'" onmouseup="this.style.color = '#666'">onmousedown： 用户点击但没释放鼠标</p>
+			<p onmouseup="this.style.color = '#aaa'">onmouseup： 用户释放鼠标</p>
+		</li>
+		<li>
+			<p onmouseover="this.style.color = '#aaa';" onmouseout="this.style.color = '#333'">onmouseover：	用户在一个HTML元素上出现鼠标</p>
+			<p onmouseover="this.style.color = '#aaa';" onmouseout="this.style.color = '#333'">onmouseout：	用户从一个HTML元素上移开鼠标</p>
+		</li>
+		<li>onkeydown：	用户按下键盘按键</li>
+		<li>
+			<p>onload：	浏览器已完成页面的加载</p>
+			<p>onunload：用户离开页面时触发</p>
+			<p onclick="checkCookies"></p>
+			<script type="text/javascript">
+			function checkCookies(){
+				alert("test ")
+			}
+			//window.onload = checkCookies;//document.getElementByTagName("body").onload不可行,同样的getElementByClassName也不行，因为onload只能存在一个，所以getElementById就可以。onload多个事件该怎么写？ body onload="aa();bb();cc()">用分号隔开就可以了 
+			//未加载完成的事件呢？
+			</script>
+		</li>
+		<li>onfocus：获取焦点时触发<input type="" name="" onfocus="this.style.background = '#aaa'" ></li><!-- onfocusin 事件类似于 onfocus 事件。 主要的区别是 onfocus 事件不支持冒泡。因此，如果你想知道元素或者其子元素是否获取焦点，需要使用 onfocusin 事件。虽然 Firefox 浏览器不支持 onfocusin 事件， 但你可以通过使用 onfocus （使用addEventListener()方法的可选参数 useCapture）的捕获监听事件来查看元素或其子元素是否获取焦点。onfocusin 事件的相反事件是 onfocusout 事件。 -->
+	</ul>
+	<a href="http://www.runoob.com/jsref/dom-obj-event.html">所有的事件点击这里</a>
+
+	<h4>JavaScript HTML DOM EventListener</h4>
+	<p>addEventListener()方法</p>
+	<button id="clickDemo">在用户点击按钮时触发监听事件：<span id="oneDate"></span></button><br />
+	<button id="doubleclickDemo">添加两个事件句柄： <span id="twoDate"></span></button>
+	<script type="text/javascript">
+	document.getElementById("clickDemo").addEventListener("click",displayDate);//displayDate为函数名，无需加（），同事click要加“”，不是onclick
+	function displayDate(){
+		document.getElementById("oneDate").innerHTML = Date();
+	}
+	//removeEventListener() 方法来移除事件的监听
+	document.getElementById("doubleclickDemo").addEventListener("click",twoDate);
+	document.getElementById("doubleclickDemo").addEventListener("click",threeDate);
+	function twoDate(){
+		document.getElementById("twoDate").innerHTML = Date();
+	}
+	function threeDate(){
+		alert("test")
+	}//为什么是threeDate函数先执行呢？先弹出？
+	</script>
+
 </body>
 </html>
