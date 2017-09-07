@@ -3,11 +3,45 @@
 <head>
 	<title>My first javascrite</title>
 </head>
-<body>
+<body onload="checkCookie()">
+	<h5>变量，对象，对象属性，对象方法，函数，字符串，运算符，循环语句，判断语句。</h5>
+
+	<h4>对象</h4>
+	<p>访问对象属性：var objectName.propertyName</p>
+	<p>访问对象方法：var objectName.methodName()</p>
+	<p>创建新对象：</p>
+	<script type="text/javascript">
+	//创建新对象：
+	person = new object();person.firstname = "Jhon";
+
+	//或者替代语法：
+	person = {firstname:"Jhon",lastname:"Doe"};
+	
+	//或者用函数构造：
+	//1,创建对象构造器：
+	function person(firstname,lastname){
+		this.firstname = firstname;
+		this.lastname = lastname;
+	}
+	//2，创建新对象
+	myFunction = new person("Jhon","Doe")
+	
+	function person(firstname,lastname){
+		this.firstname = firstname;
+		this.lastname = lastname;
+		function changeName(name){
+			this.lastname = name;
+		}
+	}
+	myAnty = new person("Jhon","Doe");
+	myAnty.changeName("Do");
+	document.write(myAnty.lastname);
+	</script>
+
 	<h4>字符串</h4>
 	<ul>
 		<p>字符串属性</p>
-		<li>.constructor	返回创建字符串属性的函数<span id="constructorDemo">判断是否为数组</span></li>	
+		<li>.constructor	返回创建字符串属性的函数<span id="constructorDemo">判断是否为数组</span></li>
 		<script type="text/javascript">
 			var fruits = ["banana","orange","apple","mango"];
 			document.getElementById("constructorDemo").innerHTML = isArray(fruits);
@@ -677,7 +711,7 @@
 	<p>通过标签名：var x = document.getElementByTagName("p")</p>
 	<p>通过类名：var x = document.getElementByClassName("intro")</p>
 	
-	<h4>DOM改变HTML</h4>
+	<h4>DOM改变HTML内容</h4>
 	<p>改变HTML内容</p>
 	<button type="button" onclick="innerChange()">点击这里</button><span id="innerDemo">改变HTML内容</span>
 	<script type="text/javascript">
@@ -704,6 +738,29 @@
 		}
 	}
 	</script>
+
+	<h4>DOM改变创建HTML元素</h4>
+	<div id="domDiv">
+		<p id="p1">第一个段落</p>
+		<p id="p2">第二个段落</p>
+		<button onclick="appendDemo()">点击添加第三个段落</button>
+		<button onclick="removeDemo2()">点击删除第一个段落</button>
+	</div>
+	<script type="text/javascript">
+	var para = document.createElement("p");
+	var node = document.createTextNode("这是添加的第三个段落");
+	var child = document.getElementById("p1");
+	var element = document.getElementById("domDiv");
+	function appendDemo(){
+		para.appendChild(node);
+		element.appendChild(para);
+	}
+
+	function removeDemo2(){
+		element.removeChild(child);
+	}
+	</script>
+
 
 	<h4>DOM改变CSS</h4>
 	<p id="changerColor">改变HTML样式</p>
@@ -756,22 +813,289 @@ HTML 事件的例子：
 	<h4>JavaScript HTML DOM EventListener</h4>
 	<p>addEventListener()方法</p>
 	<button id="clickDemo">在用户点击按钮时触发监听事件：<span id="oneDate"></span></button><br />
-	<button id="doubleclickDemo">添加两个事件句柄： <span id="twoDate"></span></button>
+	<button id="doubleclickDemo">添加两个事件句柄： <span id="twoDate"></span></button><br />
+	<button>向window对象添加事件句柄：<span id="windowDate"></span></button><br />
 	<script type="text/javascript">
+	//向原元素添加事件句柄
 	document.getElementById("clickDemo").addEventListener("click",displayDate);//displayDate为函数名，无需加（），同事click要加“”，不是onclick
 	function displayDate(){
 		document.getElementById("oneDate").innerHTML = Date();
-	}
-	//removeEventListener() 方法来移除事件的监听
+	};//removeEventListener() 方法来移除事件的监听
+	
+	//向同一个元素添加多个事件句柄
 	document.getElementById("doubleclickDemo").addEventListener("click",twoDate);
 	document.getElementById("doubleclickDemo").addEventListener("click",threeDate);
 	function twoDate(){
 		document.getElementById("twoDate").innerHTML = Date();
-	}
+	};
 	function threeDate(){
 		alert("test")
-	}//为什么是threeDate函数先执行呢？先弹出？
+	};//为什么是threeDate函数先执行呢？先弹出？
+
+	//向window对象添加事件句柄
+	window.addEventListener("resize",function(){//重置浏览器的窗口触发 "resize" 事件句柄
+		document.getElementById("windowDate").innerHTML = "浏览窗口重置了";
+	});
 	</script>
 
+	<button id="sendDemo">传递参数<span id="sendDate"></span></button>
+	<script type="text/javascript">
+	//传递参数
+	var p1 = 5;
+	var p2 = 7;
+	document.getElementById("sendDemo").addEventListener("click",function(){
+		sendDate(p1,p2);
+	});
+	function sendDate(a,b){
+		var result = a * b;
+		document.getElementById("sendDate").innerHTML = result;
+	}
+	</script>
+
+	<p>事件冒泡和事件捕获</p>
+	<div id="divDemo1"><p id="divpDemo1" style="background: coral;border:1px solid #000;padding: 50px;">点击段落，我是冒泡</p></div>
+	<div id="divDemo2"><p id="divpDemo2" style="background: coral;border:1px solid #000;padding: 50px;">点击段落，我是捕获</p></div>
+	<script type="text/javascript">
+	//在 冒泡 中，内部元素的事件会先被触发，然后再触发外部元素，即： <p> 元素的点击事件先触发，然后会触发 <div> 元素的点击事件。
+	document.getElementById("divpDemo1").addEventListener("click",function(){alert("你点击了p元素！");},false);//默认值为 false, 即冒泡传递，当值为 true 时, 事件使用捕获传递。
+	document.getElementById("divDemo1").addEventListener("click",function(){alert("你点击了div元素！");},false);
+
+	//在 捕获 中，外部元素的事件会先被触发，然后才会触发内部元素的事件，即： <div> 元素的点击事件先触发 ，然后再触发 <p> 元素的点击事件。
+	document.getElementById("divpDemo2").addEventListener("click",function(){alert("你点击了p2元素！");},true);
+	document.getElementById("divDemo2").addEventListener("click",function(){alert("你点击了div2元素！");},true);
+	</script>
+
+	<p>removeEventListener()方法</p>
+	<div id="removeDiv" style="background: coral;border: 1px solid #000;padding: 50px;color: white;">
+		<p>div 元素添加了 onmousemove 事件句柄，鼠标在桔红色的框内移动时会显示随机数。</p>
+		<button onclick="removeDemo()" id="removeBtn">点击</button>
+		<p id="mathDemo"></p>
+	</div>
+	<script type="text/javascript">
+	// IE 8 及更早 IE 版本，Opera 7.0及其更早版本不支持 addEventListener() 和 removeEventListener() 方法。但是，对于这类浏览器版本可以使用 detachEvent() 方法来移除事件句柄
+	var x = document.getElementById("removeBtn");
+	if (x.addEventListener) {                    // 所有主流浏览器，除了 IE 8 及更早版本
+	    x.addEventListener("click", addDemo);
+	} else if (x.attachEvent) {                  // IE 8 及更早版本
+	    x.attachEvent("onclick", addDemo);
+	}
+
+	document.getElementById("removeDiv").addEventListener("mousemove",addDemo);
+	function addDemo(){
+		document.getElementById("mathDemo").innerHTML = Math.random();//Math.random的意思是随机数。
+	}
+	function removeDemo(){
+		document.getElementById("removeDiv").removeEventListener("mousemove",addDemo);
+	}
+	</script>
+
+	<h2>JavaScript高级教程(未阅)</h2>
+
+	<h2>JavaScript BOM</h2>
+	<p>全局变量是window对象的属性。全局函数是window对象的方法。</p>
+	
+	<p>window尺寸</p>
+	<button onclick="clienBtn()">点击显示窗口尺寸</button>
+	<b id="clienDemo"></b>
+	<script type="text/javascript">
+	function clienBtn(){
+		//对于IE，Chrome，Firefox，Opera，Safari：
+		window.innerHeight //浏览器窗口的内部高度（包括滚动条）
+		window.innerWidth //浏览器窗口的内部宽度（包括滚动条）
+		//对于IE8，7，6，5：
+		document.documentElement.clienHeight;
+		document.documentElement.clienWidth;
+		//或者：
+		document.body.clienHeight;
+		document.body.clienWidth;
+
+		//涵盖所有浏览器的写法：
+		var w = window.innerWidth
+		|| document.documentElement.clienWidth
+		|| document.body.clienWidth;
+		var h = window.innerHeight
+		|| document.documentElement.clienHeight
+		|| document.body.clienHeight;
+
+		//一些其他方法：
+		// window.open() //打开新窗口
+		// window.close() //关闭当前窗口
+		// window.moveTo() //移动当前窗口
+		// window.resizeTo() //调整当前窗口的尺寸
+		document.getElementById("clienDemo").innerHTML = "<br />" + "浏览器窗口的内部高度（包括滚动条）：" + h + "<br />" + "浏览器窗口的内部宽度（包括滚动条）：" + w;
+	}
+	</script>
+
+	<p>Window Screen可用高度宽度</p>
+	<button onclick="screenBtn()">点击显示可用高度宽度</button>
+	<b id="screenDemo"></b>
+	<script type="text/javascript">
+	function screenBtn(){
+		//可以省略window
+		var txt = "<br />" + "可用高度：" + screen.availWidth;
+		txt += "<br />" + "可用宽度：" + screen.availHeight;
+		document.getElementById("screenDemo").innerHTML = txt;
+	}
+	</script>
+
+	<p>JavaScript Location获得当前页面地址，并把浏览器重定向到新的页面</p>
+	<button onclick="locationBtn()">点击显示页面信息</button>
+	<b id="locationDemo"></b>
+	<button onclick="newDoc()">打开百度</button>
+	<script type="text/javascript">
+	function locationBtn(){
+		//一些实例:
+		var text = "<br />" + "web主机域名：" + location.hostname;
+		text += "<br />" + "当前页面的路径和文件名：" + location.pathname;
+		text += "<br />" + "web主机端口（80或443）：" + location.port;
+		text += "<br />" + "web协议（http://或者https://）：" + location.protocol;
+		text += "<br />" + "当前页面的URL：" + location.href + "<br />";
+		document.getElementById("locationDemo").innerHTML = text; 
+	}
+	function newDoc(){
+		window.location.assign("http://www.baidu.com")//location.assign()方法加载新的文档
+	}
+	</script>
+
+	<p>JavaScript History对象包含浏览器的历史</p>
+	<button onclick="backDemo()">历史前一页</button>
+	<button onclick="forwardDemo()">历史后一页</button>
+	<script type="text/javascript">
+	function backDemo(){
+		history.back()//等同浏览器点击后退按钮
+	}
+	function  forwardDemo(){
+		history.forward()//等同浏览器点击前进按钮
+	}
+	</script>
+
+	<p>Window Navigator对象包含有关访问者浏览器的信息</p>
+	<button onclick="navigatorBtn()">点击显示浏览器信息</button>
+	<p id="navigatorDemo"></p>
+	<script type="text/javascript">
+	function navigatorBtn(){
+		var txt = "<p>浏览器代号: " + navigator.appCodeName + "</p>";
+		txt+= "<p>浏览器名称: " + navigator.appName + "</p>";
+		txt+= "<p>浏览器版本: " + navigator.appVersion + "</p>";
+		txt+= "<p>启用Cookies: " + navigator.cookieEnabled + "</p>";
+		txt+= "<p>硬件平台: " + navigator.platform + "</p>";
+		txt+= "<p>用户代理: " + navigator.userAgent + "</p>";
+		txt+= "<p>用户代理语言: " + navigator.systemLanguage + "</p>";
+		document.getElementById("navigatorDemo").innerHTML=txt;
+	}
+	//来自 navigator 对象的信息具有误导性，不应该被用于检测浏览器版本，这是因为：navigator 数据可被浏览器使用者更改。一些浏览器对测试站点会识别错误。浏览器无法报告晚于浏览器发布的新操作系统。
+	//只有 Opera 支持属性 "window.opera"，您可以据此识别出 Opera。
+	if (window.opera) {...some action...}
+	</script>
+
+	<p>JavaScript有三种弹窗：警告框、确认框、提示框</p>
+	<button onclick="alertBtn()">警告框</button><br />
+	<button onclick="confirmBtn()">确认框</button><br />
+	<b id="confirmDemo"></b>
+	<button onclick="promptBtn()">提示框</button><br />
+	<b id="promptDemo"></b>
+	<script type="text/javascript">
+	function alertBtn(){
+		alert("这是一个警告框");
+	}
+	//window.confirm() 方法可以不带上window对象，直接使用confirm()方法。
+	function confirmBtn(){
+		var x;
+		var r = confirm("按下按钮");
+		if (r == true) {
+			x = "你按下了\"确定\"按钮";
+		} else {
+			x = "你按下了\"取消\"按钮";
+		}
+		document.getElementById("confirmDemo").innerHTML = x + "<br />";
+	}
+	//window.prompt() 方法可以不带上window对象，直接使用prompt()方法。
+	function promptBtn(){
+		var person = prompt("请输入你的名字","Harry Potter");
+		if (person != null && person != "") {
+			x = "你好" + person + "！这个可用作密码，但是可见。";
+			document.getElementById("promptDemo").innerHTML = x;
+		}
+	}
+	</script>
+
+	<p>JavaScript计时事件，有 setInterval() 和 setTimeout() 两个方法</p>
+	<p>setInterval() - 间隔指定的毫秒数不停地执行指定的代码。clearInterval() 方法用于停止 setInterval() 方法执行的函数代码。</p>
+	<button onclick="setIBtn()">点击显示时间</button>
+	<button onclick="clearIBtn()">点击停止显示时间</button>
+	<b id="setIDemo"></b>
+	<script type="text/javascript">
+	//每三秒弹出 "hello" ：
+	//setInterval(function(){alert("Hello")},3000);
+
+	//显示当前事件
+	function setIBtn(){
+		var myVar = setInterval(function(){myTimer()},1000);
+		function myTimer(){
+			var d = new Date();
+			var t = d.toLocaleTimeString();
+			document.getElementById("setIDemo").innerHTML = t;
+		}
+	}
+	function clearIBtn(){
+		clearInterval(myVar);
+	}
+	</script>
+
+	<p>setTimeout() - 暂停指定的毫秒数后执行指定的代码。clearTimeout() 方法用于停止执行setTimeout()方法的函数代码。</p>
+	<button onclick="setTBtn()">点击显示时间</button>
+	<button onclick="clearTBtn()">点击停止显示时间</button>
+	<b id="setTDemo"></b>
+	<script type="text/javascript">
+	//等待3秒后，弹出 "hello" ：
+	//setTimeout(function(){alert("Hello")},3000);
+
+	//显示当前事件
+	function setTBtn(){
+		var myVar = setTimeout(function(){myTimer()},1000);
+		function myTimer(){
+			var d = new Date();
+			var t = d.toLocaleTimeString();
+			document.getElementById("setTDemo").innerHTML = t;
+		}
+	}
+	function clearTBtn(){
+		clearTimeout(myVar);
+	}
+	</script>
+
+	<p>JavaScript Cookies</p>
+	<script type="text/javascript">
+	function setCookie(cname,cvalue,exdays){
+		var d = new Date();
+		d.setTime(d.getTime()+(exdays*24*60*60*1000));
+		var expires = "expires="+d.toGMTString();
+		document.cookie = cname + "=" + cvalue + "; " + expires;
+	}
+	 
+	function getCookie(cname){
+		var name = cname + "=";
+		var ca = document.cookie.split(';');
+		for(var i=0; i<ca.length; i++) 
+		{
+		var c = ca[i].trim();
+			if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+		}
+		return "";
+	}
+	 
+	function checkCookie(){
+		var user=getCookie("username");
+		if (user!=""){
+			alert("Welcome again " + user);
+		}
+		else {
+			user = prompt("Please enter your name:","");
+			if (user!="" && user!=null){
+				setCookie("username",user,365);
+			}
+		}
+	}
+	</script>
 </body>
 </html>
