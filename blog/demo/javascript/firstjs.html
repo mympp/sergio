@@ -6,7 +6,7 @@
 <body onload="checkCookie()">
 	<h5>变量，对象，对象属性，对象方法，函数，字符串，运算符，循环语句，判断语句。</h5>
 
-	<h4>对象</h4>
+	<h3>对象</h3>
 	<p>访问对象属性：var objectName.propertyName</p>
 	<p>访问对象方法：var objectName.methodName()</p>
 	<p>创建新对象：</p>
@@ -38,7 +38,59 @@
 	document.write(myAnty.lastname);
 	</script>
 
-	<h4>字符串</h4>
+	<h4>JavaScript类</h4>
+	<h4>JavaScript Number对象</h4>
+	<input type="button" onclick="numberBig()" value="整数（不使用小数点或指数计数法）最多为 15 位">
+	<p id="numberBig">实际赋值为999999999999999（15位）</p>
+	<p id="numberMore">实际赋值为99999999999999999（17位）</p>
+	<script type="text/javascript">
+	function numberBig(){
+		var x = 999999999999999;//输出为 999999999999999
+		var y = 99999999999999999;//输出为 100000000000000000
+		document.getElementById("numberBig").innerHTML = x;
+		document.getElementById("numberMore").innerHTML = y;
+	}
+	</script>
+	<input type="button" onclick="numberWrong()" value="小数的最大位数是 17，但是浮点运算并不总是 100% 准确">
+	<p id="numberWrong">实际赋值为12345678901234567890</p>
+	<p id="numberPoint">实际赋值为0.1+0.2</p>
+	<p id="numberPointr">可以通过对每个小数*10，最后/10来计算。(0.1*10 + 0.2*10)/10</p>
+	<script type="text/javascript">
+	function numberWrong(){
+		var x = 12345678901234567890;
+		var y = 0.1 + 0.2;
+		var z = (0.1*10 + 0.2*10)/10;
+		document.getElementById("numberWrong").innerHTML = x;
+		document.getElementById("numberPoint").innerHTML = y;
+		document.getElementById("numberPointr").innerHTML = z;
+		//如果前缀为 0，则 JavaScript 会把数值常量解释为八进制数，如果前缀为 0 和 "x"，则解释为十六进制数。
+	}
+	</script>
+	<p>无穷大用Infinity表示，有正负数。</p>	
+	<p>NaN代表非数字值的特殊值。isNaN()全局函数判断一个值是否是NaN值。</p>
+	<p>1000/"apple"：<span id="isNan"></span></p>
+	<script type="text/javascript">
+	var x = 1000/"apple";
+	document.getElementById("isNan").innerHTML= isNaN(x);
+	</script>
+	<ul>数字属性
+		<li>MAX_VALUE</li>
+		<li>MIN_VALUE</li>
+		<li>NEGATIVE_INFINITY</li>
+		<li>POSITIVE_INFINITY</li>
+		<li>NaN</li>
+		<li>prototype</li>
+		<li>constructor</li>
+	</ul>
+	<ul>数字方法
+		<li>toExponential()</li>
+		<li>toFixed()</li>
+		<li>toPrecision()</li>
+		<li>toString()</li>
+		<li>valueOf()</li>
+	</ul>
+
+	<h3>字符串</h3>
 	<ul>
 		<p>字符串属性</p>
 		<li>.constructor	返回创建字符串属性的函数<span id="constructorDemo">判断是否为数组</span></li>
@@ -52,7 +104,6 @@
 		<li>.length	返回字符串的长度</li>
 		<li>.prototype	允许您向对象添加属性和方法</li>
 	</ul>
-
 	<ul>
 		<p>字符串方法</p>
 		<li>charAt()：	返回指定索引位置的字符</li>
@@ -62,11 +113,11 @@
 		<li>indexOf()：	返回字符串中检索指定字符第一次出现的位置</li>
 		<li>lastIndexOf()：	返回字符串中检索指定字符最后一次出现的位置</li>
 		<li>localeCompare()：	用本地特定的顺序来比较两个字符串</li>
-		<li>match()：	找到一个或多个正则表达式的匹配</li>
-		<li>replace()：	替换与正则表达式匹配的子串</li>
+		<li>match()：	找到一个或多个正则表达式的匹配,match()函数用来查找字符串中特定的字符，并且如果找到的话，则返回这个字符。返回后字符串中就没有这个字符了。</li>
+		<li>replace()：	替换与正则表达式匹配的子串。replace("a","b")</li>
 		<li>search()：	检索与正则表达式相匹配的值</li>
 		<li>slice()：	提取字符串的片断，并在新的字符串中返回被提取的部分</li>
-		<li>split()：	把字符串分割为子字符串数组</li>
+		<li>split()：	把字符串分割为子字符串数组，并用符号隔开split("， ")</li>
 		<li>substr()：	从起始索引号提取字符串中指定数目的字符</li>
 		<li>substring()：	提取字符串中两个指定的索引号之间的字符</li>
 		<li>toLocaleLowerCase()：	根据主机的语言环境把字符串转换为小写，只有几种语言（如土耳其语）具有地方特有的大小写映射</li>
@@ -78,6 +129,64 @@
 		<li>valueOf()：	返回某个字符串对象的原始值</li>
 	</ul>
 	<p> typeof 操作符来检测变量的数据类型。</p>
+
+	<h4>Date对象</h4>
+	<ul>
+		<a href="http://www.runoob.com/jsref/jsref-obj-date.html">http://www.runoob.com/jsref/jsref-obj-date.html</a>
+		<li>Date 对象属性</li>
+		<li>constructor	返回对创建此对象的 Date 函数的引用。</li>
+		<li>prototype	使您有能力向对象添加属性和方法。</li>
+
+		<li>Date 对象方法</li>
+		<li>getDate()	从 Date 对象返回一个月中的某一天 (1 ~ 31)。</li>
+		<li>getDay()	从 Date 对象返回一周中的某一天 (0 ~ 6)。</li>
+		<li>getFullYear()	从 Date 对象以四位数字返回年份。</li>
+		<li>getHours()	返回 Date 对象的小时 (0 ~ 23)。</li>
+		<li>getMilliseconds()	返回 Date 对象的毫秒(0 ~ 999)。</li>
+		<li>getMinutes()	返回 Date 对象的分钟 (0 ~ 59)。</li>
+		<li>getMonth()	从 Date 对象返回月份 (0 ~ 11)。</li>
+		<li>getSeconds()	返回 Date 对象的秒数 (0 ~ 59)。</li>
+		<li>getTime()	返回 1970 年 1 月 1 日至今的毫秒数。</li>
+		<li>getTimezoneOffset()	返回本地时间与格林威治标准时间 (GMT) 的分钟差。</li>
+		<li>getUTCDate()	根据世界时从 Date 对象返回月中的一天 (1 ~ 31)。</li>
+		<li>getUTCDay()	根据世界时从 Date 对象返回周中的一天 (0 ~ 6)。</li>
+		<li>getUTCFullYear()	根据世界时从 Date 对象返回四位数的年份。</li>
+		<li>getUTCHours()	根据世界时返回 Date 对象的小时 (0 ~ 23)。</li>
+		<li>getUTCMilliseconds()	根据世界时返回 Date 对象的毫秒(0 ~ 999)。</li>
+		<li>getUTCMinutes()	根据世界时返回 Date 对象的分钟 (0 ~ 59)。</li>
+		<li>getUTCMonth()	根据世界时从 Date 对象返回月份 (0 ~ 11)。</li>
+		<li>getUTCSeconds()	根据世界时返回 Date 对象的秒钟 (0 ~ 59)。</li>
+		<li>getYear()	已废弃。 请使用 getFullYear() 方法代替。</li>
+		<li>parse()	返回1970年1月1日午夜到指定日期（字符串）的毫秒数。</li>
+		<li>setDate()	设置 Date 对象中月的某一天 (1 ~ 31)。</li>
+		<li>setFullYear()	设置 Date 对象中的年份（四位数字）。</li>
+		<li>setHours()	设置 Date 对象中的小时 (0 ~ 23)。</li>
+		<li>setMilliseconds()	设置 Date 对象中的毫秒 (0 ~ 999)。</li>
+		<li>setMinutes()	设置 Date 对象中的分钟 (0 ~ 59)。</li>
+		<li>setMonth()	设置 Date 对象中月份 (0 ~ 11)。</li>
+		<li>setSeconds()	设置 Date 对象中的秒钟 (0 ~ 59)。</li>
+		<li>setTime()	setTime() 方法以毫秒设置 Date 对象。</li>
+		<li>setUTCDate()	根据世界时设置 Date 对象中月份的一天 (1 ~ 31)。</li>
+		<li>setUTCFullYear()	根据世界时设置 Date 对象中的年份（四位数字）。</li>
+		<li>setUTCHours()	根据世界时设置 Date 对象中的小时 (0 ~ 23)。</li>
+		<li>setUTCMilliseconds()	根据世界时设置 Date 对象中的毫秒 (0 ~ 999)。</li>
+		<li>setUTCMinutes()	根据世界时设置 Date 对象中的分钟 (0 ~ 59)。</li>
+		<li>setUTCMonth()	根据世界时设置 Date 对象中的月份 (0 ~ 11)。</li>
+		<li>setUTCSeconds()	setUTCSeconds() 方法用于根据世界时 (UTC) 设置指定时间的秒字段。</li>
+		<li>setYear()	已废弃。请使用 setFullYear() 方法代替。</li>
+		<li>toDateString()	把 Date 对象的日期部分转换为字符串。</li>
+		<li>toGMTString()	已废弃。请使用 toUTCString() 方法代替。</li>
+		<li>toISOString()	使用 ISO 标准返回字符串的日期格式。</li>
+		<li>toJSON()	以 JSON 数据格式返回日期字符串。</li>
+		<li>toLocaleDateString()	根据本地时间格式，把 Date 对象的日期部分转换为字符串。</li>
+		<li>toLocaleTimeString()	根据本地时间格式，把 Date 对象的时间部分转换为字符串。</li>
+		<li>toLocaleString()	据本地时间格式，把 Date 对象转换为字符串。</li>
+		<li>toString()	把 Date 对象转换为字符串。</li>
+		<li>toTimeString()	把 Date 对象的时间部分转换为字符串。</li>
+		<li>toUTCString()	根据世界时，把 Date 对象转换为字符串。</li>
+		<li>UTC()	根据世界时返回 1970 年 1 月 1 日 到指定日期的毫秒数。</li>
+		<li>valueOf()	返回 Date 对象的原始值。</li>
+	</ul>
 
 	<h4>条件语句</h4>
 	<button onclick="ifDemo()">if(){...}</button>
@@ -1066,36 +1175,36 @@ HTML 事件的例子：
 
 	<p>JavaScript Cookies</p>
 	<script type="text/javascript">
-	function setCookie(cname,cvalue,exdays){
-		var d = new Date();
-		d.setTime(d.getTime()+(exdays*24*60*60*1000));
-		var expires = "expires="+d.toGMTString();
-		document.cookie = cname + "=" + cvalue + "; " + expires;
-	}
+	// function setCookie(cname,cvalue,exdays){
+	// 	var d = new Date();
+	// 	d.setTime(d.getTime()+(exdays*24*60*60*1000));
+	// 	var expires = "expires="+d.toGMTString();
+	// 	document.cookie = cname + "=" + cvalue + "; " + expires;
+	// }
 	 
-	function getCookie(cname){
-		var name = cname + "=";
-		var ca = document.cookie.split(';');
-		for(var i=0; i<ca.length; i++) 
-		{
-		var c = ca[i].trim();
-			if (c.indexOf(name)==0) return c.substring(name.length,c.length);
-		}
-		return "";
-	}
+	// function getCookie(cname){
+	// 	var name = cname + "=";
+	// 	var ca = document.cookie.split(';');
+	// 	for(var i=0; i<ca.length; i++) 
+	// 	{
+	// 	var c = ca[i].trim();
+	// 		if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+	// 	}
+	// 	return "";
+	// }
 	 
-	function checkCookie(){
-		var user=getCookie("username");
-		if (user!=""){
-			alert("Welcome again " + user);
-		}
-		else {
-			user = prompt("Please enter your name:","");
-			if (user!="" && user!=null){
-				setCookie("username",user,365);
-			}
-		}
-	}
+	// function checkCookie(){
+	// 	var user=getCookie("username");
+	// 	if (user!=""){
+	// 		alert("Welcome again " + user);
+	// 	}
+	// 	else {
+	// 		user = prompt("Please enter your name:","");
+	// 		if (user!="" && user!=null){
+	// 			setCookie("username",user,365);
+	// 		}
+	// 	}
+	// }
 	</script>
 </body>
 </html>
