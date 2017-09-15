@@ -7,12 +7,10 @@
 	<h5>变量，对象，对象属性，对象方法，函数，字符串，运算符，循环语句，判断语句。</h5>
 
 	<h3>对象</h3>
-	<p>访问对象属性：var objectName.propertyName</p>
-	<p>访问对象方法：var objectName.methodName()</p>
-	<p>创建新对象：</p>
 	<script type="text/javascript">
 	//创建新对象：
-	person = new object();person.firstname = "Jhon";
+	person = new object();
+	person.firstname = "Jhon";
 
 	//或者替代语法：
 	person = {firstname:"Jhon",lastname:"Doe"};
@@ -23,7 +21,7 @@
 		this.firstname = firstname;
 		this.lastname = lastname;
 	}
-	//2，创建新对象
+	//2，创建新对象方法：
 	myFunction = new person("Jhon","Doe")
 	
 	function person(firstname,lastname){
