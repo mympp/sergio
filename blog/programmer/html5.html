@@ -5,35 +5,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=0.33,maximum-scale=1.0,user-scalable=0">
 	<title>HTML5标签列表</title>
 	
-	<link rel="stylesheet" type="text/css" href="/sergio/css/base.css">
-	<link rel="stylesheet" type="text/css" href="/sergio/css/public.css">
-	<link rel="stylesheet" type="text/css" href="/sergio/css/page.css">
-	<style type="text/css">
-	.box{
-		display: block;
-		width: 100px;
-		height: 50px;
-		text-align: center;
-		line-height: 50px;
-		border: 1px solid #aaa;
-		background: #ccc;
-	}
-	#clickBox:hover{
-		
-	}
-	p{
-		display: none;
-	}
-	</style>
+	<link rel="stylesheet" type="text/css" href="../sergio/css/base.css">
+	<link rel="stylesheet" type="text/css" href="../sergio/css/public.css">
+	<link rel="stylesheet" type="text/css" href="../sergio/css/page.css">
 </head>
 <body class="blog-body">
 <!-- Google Analytics start -->
 <!-- Google Analytics start End -->
 <!-- nav -->
 <header class="index-nav"><a id="BackTop"></a>
-	<a href="/sergio/index.html" class="logo">
-		<img src="/sergio/images/logo2.gif" alt="logo1">
-		<img src="/sergio/images/logo2.png" alt="logo2">
+	<a href="../sergio/index.html" class="logo">
+		<img src="../sergio/images/logo2.gif" alt="logo1">
+		<img src="../sergio/images/logo2.png" alt="logo2">
 	</a>
 	<nav>
 		<ul>
@@ -46,44 +29,44 @@
 <div class="clean_float"></div>
 <!-- nav End -->
 <!-- main -->
-	<div class="main">
+<article class="main-table">
+	<header class="main">
 		<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5/HTML5_element_list">原文</a>
 		<a href="http://www.w3school.com.cn/tags/tag_td.asp">原文</a>
 		<h1>HTML5 标签列表</h1>
 		<p>这里列出了所有标准化的 HTML5 元素，使用起始标签描述，按照功能分组。与列出所有标准化的、非标准化的、有效的、废弃的标签的 HTML 元素索引 不同的是，该页只列出有效的 HTML5 元素。新网站应当只使用这里列出的元素。</p>
-		<p>符号 <img src="/sergio/images/html5.jpg" width="20px"> 代表该元素是在 HTML5 中新增的。另外注意，这里列出的其他元素可能在 HTML5 标准中得到了扩充或经过修改。</p>
+		<p>符号 <img src="../sergio/images/html5.jpg" width="20px"> 代表该元素是在 HTML5 中新增的。另外注意，这里列出的其他元素可能在 HTML5 标准中得到了扩充或经过修改。</p>
 		<p>属性只显示HTML5支持并且非试验阶段的属性。并不含各属性的兼容性说明。局属性是所有HTML元素共有的属性;它们可以用于所有元素，尽管属性可能对某些元素没有影响。</p>
-	</div>
-		<h4 class="trHead" colspan="3">根元素EDIT</h4>
-		<div class="box" title="代表 HTML 或 XHTML文档的根。其他所有元素必须是这个元素的子节点。" onclick="test()">&lt;html&gt;</div>
-		<p id="clickBox" >xmlns,指派文档的 XML 命名空间。默认的值是 "http://www.w3.org/1999/xhtml"。这在 XHTML 中是必要的，而在 HTML 中则是可选的。</p>
-		<script type="text/javascript">
-		function test(){
-			var box = document.getElementById("clickBox")
-			if (box.style.display = "none") {
-				box.style.display = "block";
-			} else {
-				box.style.display = "none";
-			}
-
-		}
-		</script>
+	</header>
+	<table>
+	<tbody>
+		<tr>
+			<td class="trHead" colspan="3">根元素EDIT</td>
+		</tr>
+		<tr>
+			<td>&lt;html&gt;</td>
+			<td>xmlns,指派文档的 XML 命名空间。默认的值是 "http://www.w3.org/1999/xhtml"。这在 XHTML 中是必要的，而在 HTML 中则是可选的。</td>
+			<td>代表 HTML 或 XHTML文档的根。其他所有元素必须是这个元素的子节点。</td>
+		</tr>
 		<tr>
 			<td class="trHead" colspan="3">文档元数据EDIT</td>
 		</tr>
 		<tr>
-			<td title="代表关于文档元数据的一个集合，包括脚本或样式表的链接或内容。">&lt;head&gt;</td>
+			<td>&lt;head&gt;</td>
 			<td></td>
+			<td>代表关于文档元数据的一个集合，包括脚本或样式表的链接或内容。</td>
 		</tr>
 		<tr>
-			<td title="定义文档的标题，将显示在浏览器的标题栏或标签页上。该元素只能包含文本，包含的标签不会被解释。">&lt;title&gt;</td>
+			<td>&lt;title&gt;</td>
 			<td></td>
+			<td>定义文档的标题，将显示在浏览器的标题栏或标签页上。该元素只能包含文本，包含的标签不会被解释。</td>
 		</tr>
 		<tr>
-			<td title="定义页面上相对 URL 的基准 URL。">&lt;base&gt;</td>
+			<td>&lt;base&gt;</td>
+			<td>定义页面上相对 URL 的基准 URL。</td>
 			<td>
-				<!-- <p>href,用于文档中相对 URL 地址的基础 URL。如果指定了该属性，这个元素必须写在其他任何属性值是 URL 的元素之前。允许绝对和相对RUL（但是请查看下面的注意节段）。</p>
-				<p>target,为没有显示target引用属性的元素指定一个名字或关键字，当元素的超链接或导致导航的形式被激活时，指定显示结果的默认位置。在HTML4中，其值是一个框的名字或者在关键字。在HTML5中，其值是一个浏览上下文（例如标签页，窗口或者内联框）的名字或者关键字。以下的关键字指定特殊的意思：_self: 载入结果到当前的HTML4框（或者HTML5的浏览上下文）。如果没有指定该属性，那该值是元素的默认值属性值。_blank: 载入结果到一个新的未命名HTML4窗口，或者一个新的HTML5的浏览上下文。_parent: 对于HTML4，载入结果到当前框的父级框；对于HTML5，载入结果到父级浏览上下文。如果没有父级结构，该选项的行为和_self一样。_top: 在HTML4中，载入结果到全部原始窗口，并且取消其他所有框。在HTML5中，载入结果到顶级浏览上下文（该浏览上下文是当前上下文的最顶级上下文）。如果没有父级，该选项的行为和_self一样。</p> -->
+			<!-- <p>href,用于文档中相对 URL 地址的基础 URL。如果指定了该属性，这个元素必须写在其他任何属性值是 URL 的元素之前。允许绝对和相对RUL（但是请查看下面的注意节段）。</p>
+			<p>target,为没有显示target引用属性的元素指定一个名字或关键字，当元素的超链接或导致导航的形式被激活时，指定显示结果的默认位置。在HTML4中，其值是一个框的名字或者在关键字。在HTML5中，其值是一个浏览上下文（例如标签页，窗口或者内联框）的名字或者关键字。以下的关键字指定特殊的意思：_self: 载入结果到当前的HTML4框（或者HTML5的浏览上下文）。如果没有指定该属性，那该值是元素的默认值属性值。_blank: 载入结果到一个新的未命名HTML4窗口，或者一个新的HTML5的浏览上下文。_parent: 对于HTML4，载入结果到当前框的父级框；对于HTML5，载入结果到父级浏览上下文。如果没有父级结构，该选项的行为和_self一样。_top: 在HTML4中，载入结果到全部原始窗口，并且取消其他所有框。在HTML5中，载入结果到顶级浏览上下文（该浏览上下文是当前上下文的最顶级上下文）。如果没有父级，该选项的行为和_self一样。</p> -->
 				<table>
 					<tr>
 						<th>属性</th>
@@ -97,7 +80,7 @@
 						<td>规定页面中所有相对链接的基准 URL。</td>
 					<tr>
 
-						<td>target<small>可选的属性</small></td>	
+						<td title="在何处打开页面中所有的链接。">target<small>可选的属性</small></td>	
 						<td>
 							<li>_blank	<small>在新窗口中打开被链接文档。</small></li>
 							<li>_self	<small>默认。在相同的框架中打开被链接文档。</small></li>
@@ -105,7 +88,7 @@
 							<li>_top	<small>在整个窗口中打开被链接文档。</small></li>
 							<li>framename	<small>在指定的框架中打开被链接文档。</small></li>
 						</td>
-						<td>在何处打开页面中所有的链接。</td>
+						<td></td>
 					</tr>
 				</table>
 			</td>
@@ -164,7 +147,7 @@
 						<td>规定当前文档与被链接文档之间的关系。</td>
 					</tr>
 					<tr>
-						<td>sizes<img src="/sergio/images/html5.jpg"></td>
+						<td>sizes<img src="../sergio/images/html5.jpg"></td>
 						<td>
 							<li>heightxwidth	<small>为被链接的图标规定一个或多个以像素计的高度/宽度值对。高度与宽度之间由 "x" 或 "X" 分隔。</small></li>
 							<li>any	<small>规定图标是可伸缩的（比如 SVG 图像）。</small></li>
@@ -273,7 +256,7 @@
 			<td>&lt;script&gt;</td>	
 			<td>定义一个内联脚本或链接到外部脚本。脚本语言是 JavaScript。</td>
 			<td>
-				<!-- <p>async <img src="/sergio/images/html5.jpg">,该布尔属性指示浏览器是否在允许的情况下异步执行该脚本。该属性对于内联脚本无作用 (即没有src属性的脚本）。关于浏览器支持请参见浏览器兼容性。另可参见文章asm.js的异步脚本。</p>
+				<!-- <p>async <img src="../sergio/images/html5.jpg">,该布尔属性指示浏览器是否在允许的情况下异步执行该脚本。该属性对于内联脚本无作用 (即没有src属性的脚本）。关于浏览器支持请参见浏览器兼容性。另可参见文章asm.js的异步脚本。</p>
 				<p>integrity,包含用户代理可用于验证已提取资源是否已无意外操作的内联元数据。参见 Subresource Integrity。</p>
 				<p>src,这个属性定义引用外部脚本的URI，这可以用来代替直接在文档中嵌入脚本。指定了 src 属性的script元素标签内不应该再有嵌入的脚本。</p>
 				<p>type,该属性定义script元素包含或src引用的脚本语言。属性的值为MIME类型; 支持的MIME类型包括text/javascript, text/ecmascript, application/javascript, 和application/ecmascript。如果没有定义这个属性，脚本会被视作JavaScript。如果MIME类型不是JavaScript类型（上述支持的类型），则该元素所包含的内容会被当作数据块而不会被浏览器执行。如果type属性为module，代码会被当作JavaScript模块 。请参见ES6 in Depth: Modules在Firefox中可以通过定义type=application/javascript;version=1.8来使用如let声明这类的JS高版本中的先进特性。 但请注意这是个非标准功能，其他浏览器，特别是基于Chrome的浏览器可能会不支持。关于如何引入特殊编程语言，请参见这篇文章。</p>
@@ -332,7 +315,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>&lt;template&gt;<img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;template&gt;<img src="../sergio/images/html5.jpg"></td>	
 			<td></td>
 			<td>
 				<p>通过 JavaScript 在运行时实例化内容的容器。HTML 模板元素 template 是一种机制，允许包含加载页面时不渲染、但又可以随后通过 JavaScript 实例化的客户端内容。可以将模板视作为存储在页面上稍后使用的一小段内容。尽管不会渲染，但解析器会在加载页面的时候处理 template元素中的内容来确保它是有效的。</p>
@@ -346,43 +329,43 @@
 			<td>&lt;body&gt;</td>	
 			<td>代表 HTML 文档的内容。在文档中只能有一个元素。</td>
 			<td>
-				<p>onafterprint <img src="/sergio/images/html5.jpg">，<small>用户打印完成当前文档后的回调函数。</small></p>
-				<p>onbeforeprint <img src="/sergio/images/html5.jpg">,<small>用户请求打印当前文档时（打印前）的回调函数。</small></p>
-				<p>onbeforeunload <img src="/sergio/images/html5.jpg">,<small>当文档即将被卸载的回调函数。</small></p>
-				<p>onblur <img src="/sergio/images/html5.jpg">,<small>DOM失去焦点的回调函数。</small></p>
-				<p>onerror <img src="/sergio/images/html5.jpg">,<small>DOM加载失败的回调函数。</small></p>
-				<p>onfocus <img src="/sergio/images/html5.jpg">,<small>DOM接收到焦点focus的回调函数。</small></p>
-				<p>onhashchange <img src="/sergio/images/html5.jpg">,<small>当文档当前地址的片段标识部分（地址后面以＃号开始的部分）变化时的回调函数。</small></p>
+				<p>onafterprint <img src="../sergio/images/html5.jpg">，<small>用户打印完成当前文档后的回调函数。</small></p>
+				<p>onbeforeprint <img src="../sergio/images/html5.jpg">,<small>用户请求打印当前文档时（打印前）的回调函数。</small></p>
+				<p>onbeforeunload <img src="../sergio/images/html5.jpg">,<small>当文档即将被卸载的回调函数。</small></p>
+				<p>onblur <img src="../sergio/images/html5.jpg">,<small>DOM失去焦点的回调函数。</small></p>
+				<p>onerror <img src="../sergio/images/html5.jpg">,<small>DOM加载失败的回调函数。</small></p>
+				<p>onfocus <img src="../sergio/images/html5.jpg">,<small>DOM接收到焦点focus的回调函数。</small></p>
+				<p>onhashchange <img src="../sergio/images/html5.jpg">,<small>当文档当前地址的片段标识部分（地址后面以＃号开始的部分）变化时的回调函数。</small></p>
 				<p>onlanguagechange 试验中,<small>语言改变时的回调函数。</small></p>
-				<p>onload <img src="/sergio/images/html5.jpg">,<small>DOM完成加载的回调函数。</small></p>
-				<p>onmessage <img src="/sergio/images/html5.jpg">,<small>DOM接收到message的回调函数。</small></p>
-				<p>onoffline <img src="/sergio/images/html5.jpg">,<small>网络连接失败的回调函数。</small></p>
-				<p>ononline <img src="/sergio/images/html5.jpg">,<small>网络恢复连接的回调函数。</small></p>
-				<p>onpopstate <img src="/sergio/images/html5.jpg">,<small>用户导航历史会话的回调函数。</small></p>
-				<p>onredo <img src="/sergio/images/html5.jpg">,<small>用户从历史记录里面前进的</small></p>
-				<p>onresize <img src="/sergio/images/html5.jpg">,<small>DOM大小调整时触发的回调函数。</small></p>
-				<p>onstorage <img src="/sergio/images/html5.jpg">,<small>存储区改变的回调函数。</small></p>
-				<p>onundo <img src="/sergio/images/html5.jpg">,<small>用户从历史记录里前进时触发的回调函数。</small></p>
-				<p>onunload <img src="/sergio/images/html5.jpg">,<small>当文档已经被关闭的回调函数.</small></p>
+				<p>onload <img src="../sergio/images/html5.jpg">,<small>DOM完成加载的回调函数。</small></p>
+				<p>onmessage <img src="../sergio/images/html5.jpg">,<small>DOM接收到message的回调函数。</small></p>
+				<p>onoffline <img src="../sergio/images/html5.jpg">,<small>网络连接失败的回调函数。</small></p>
+				<p>ononline <img src="../sergio/images/html5.jpg">,<small>网络恢复连接的回调函数。</small></p>
+				<p>onpopstate <img src="../sergio/images/html5.jpg">,<small>用户导航历史会话的回调函数。</small></p>
+				<p>onredo <img src="../sergio/images/html5.jpg">,<small>用户从历史记录里面前进的</small></p>
+				<p>onresize <img src="../sergio/images/html5.jpg">,<small>DOM大小调整时触发的回调函数。</small></p>
+				<p>onstorage <img src="../sergio/images/html5.jpg">,<small>存储区改变的回调函数。</small></p>
+				<p>onundo <img src="../sergio/images/html5.jpg">,<small>用户从历史记录里前进时触发的回调函数。</small></p>
+				<p>onunload <img src="../sergio/images/html5.jpg">,<small>当文档已经被关闭的回调函数.</small></p>
 			</td>
 		</tr>
 		<tr>
-			<td>&lt;section&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;section&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>定义文档中的一个章节。</td>
 			<td></td>
 		</tr>
 		<tr>
-			<td>&lt;nav&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;nav&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>定义只包含导航链接的章节。</td>
 			<td></td>
 		</tr>
 		<tr>
-			<td>&lt;article&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;article&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>定义可以独立于内容其余部分的完整独立内容块。</td>
 			<td></td>
 		</tr>
 		<tr>
-			<td>&lt;aside&gt; <img src="/sergio/images/html5.jpg"></td>
+			<td>&lt;aside&gt; <img src="../sergio/images/html5.jpg"></td>
 			<td>定义和页面内容关联度较低的内容——如果被删除，剩下的内容仍然很合理。</td>
 			<td></td>
 		</tr>
@@ -392,12 +375,12 @@
 			<td></td>
 		</tr>
 		<tr>
-			<td>&lt;header&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;header&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>定义页面或章节的头部。它经常包含 logo、页面标题和导航性的目录。</td>
 			<td></td>
 		</tr>
 		<tr>
-			<td>&lt;footer&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;footer&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>定义页面或章节的尾部。它经常包含版权信息、法律信息链接和反馈建议用的地址。</td>
 			<td></td>
 		</tr>
@@ -407,7 +390,7 @@
 			<td></td>
 		</tr>
 		<tr>
-			<td>&lt;main&gt;<img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;main&gt;<img src="../sergio/images/html5.jpg"></td>	
 			<td>定义文档中主要或重要的内容。</td>
 			<td></td>
 		</tr>
@@ -438,8 +421,8 @@
 			<td>&lt;ol&gt;</td>	
 			<td>定义一个有序列表。</td>
 			<td>
-				<!-- <p>reversed <img src="/sergio/images/html5.jpg">,这个布尔属性规定了列表的条目采用倒序，即最不重要的条目放在列表第一个位置。</p>
-				<p>start<img src="/sergio/images/html5.jpg">,这是整数属性，规定了列表得条目序号的开始的值。尽管列表条目的序号可能是罗马字母顺序，如 XXXI， 或者字母，这个开始的顺序总是使用数字表示。比如想要元素序号从字母 “C” 开始，使用 &lt;ol start="3"&gt;。</p>
+				<!-- <p>reversed <img src="../sergio/images/html5.jpg">,这个布尔属性规定了列表的条目采用倒序，即最不重要的条目放在列表第一个位置。</p>
+				<p>start<img src="../sergio/images/html5.jpg">,这是整数属性，规定了列表得条目序号的开始的值。尽管列表条目的序号可能是罗马字母顺序，如 XXXI， 或者字母，这个开始的顺序总是使用数字表示。比如想要元素序号从字母 “C” 开始，使用 &lt;ol start="3"&gt;。</p>
 				<p>Note: 这个属性在 HTML4中弃用，但是在 HTML5 中被重新引入。</p>
 				<p>type,
 					<ul>
@@ -509,12 +492,12 @@
 			<td></td>
 		</tr>
 		<tr>
-			<td>&lt;figure&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;figure&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表一个和文档有关的图例。</td>
 			<td></td>
 		</tr>
 		<tr>
-			<td>&lt;figcaption&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;figcaption&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表一个图例的说明。</td>
 			<td></td>
 		</tr>
@@ -530,7 +513,7 @@
 			<td>&lt;a&gt;</td>	
 			<td>代表一个链接到其他资源的超链接 。</td>
 			<td>
-				<!-- <p>download <img src="/sergio/images/html5.jpg">,此属性，如果存在，表明笔者拟用于下载资源的超级链接。如果属性有一个值，浏览器应该解释，作为默认的文件名，笔者建议使用本地文件系统中的资源标记。允许值没有任何限制，但你应该考虑大多数文件系统都用什么标点符号，在文件名支持方面的局限性，以及浏览器都可能调整相应的文件名。注意:这本属性仅支持同源 URLs。可以使用 blob: URLs 和 data: URLs 以方便用户下载 JavaScript 方式生成的内容（例如使用在线绘图的Web应用创建的照片）。如果HTTP头的Content-Disposition：存在，并且赋予了一个和这个属性不同的文件名，HTTP头优先于此属性。如果这个属性存在 Content-Disposition 被设置为 inline，火狐优先 Content-Disposition，像之前文件名​​的情况下，而Chrome则优先 download 属性。</p>
+				<!-- <p>download <img src="../sergio/images/html5.jpg">,此属性，如果存在，表明笔者拟用于下载资源的超级链接。如果属性有一个值，浏览器应该解释，作为默认的文件名，笔者建议使用本地文件系统中的资源标记。允许值没有任何限制，但你应该考虑大多数文件系统都用什么标点符号，在文件名支持方面的局限性，以及浏览器都可能调整相应的文件名。注意:这本属性仅支持同源 URLs。可以使用 blob: URLs 和 data: URLs 以方便用户下载 JavaScript 方式生成的内容（例如使用在线绘图的Web应用创建的照片）。如果HTTP头的Content-Disposition：存在，并且赋予了一个和这个属性不同的文件名，HTTP头优先于此属性。如果这个属性存在 Content-Disposition 被设置为 inline，火狐优先 Content-Disposition，像之前文件名​​的情况下，而Chrome则优先 download 属性。</p>
 				<p>href,这是一个必需属性为锚定义一个超文本链接来源。这表示链接目标的URL或URL片段。URL片段是由一个hash符号（＃），它指定一个内部目标在当前文档中的位置（ID）开头的名字。URL不限于网页（HTTP）的文件。URL可能使用浏览器所支持的任何协议。例如，文件，FTP，大多数用户代理mailto工作。注意: 可以使用 href="#top" 或者 href="#" 链接返回到页面顶部。这种行为在HTML5上被指定。</p>
 				<p>hreflang,该属性用于指定链接文档的人类语言。其仅提供建议，并没有内置的功能。hreflang 允许的值由HTML5 BCP47 所决定。</p>
 				<p>rel,该属性指定了目标对象到链接对象的关系。该值是空格分隔的列表类型值。</p>
@@ -634,12 +617,12 @@
 			<td></td>
 		</tr>
 		<tr>
-			<td>&lt;data&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;data&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>关联一个内容的机器可读的等价形式 （该元素只在 WHATWG 版本的 HTML 标准中，不在 W3C 版本的 HTML5 标准中）。</td>
 			<td>value,该属性指定元素内容对应的机器可读的翻译。</td>
 		</tr>
 		<tr>
-			<td>&lt;time&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;time&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表日期 和时间 值；机器可读的等价形式通过 datetime 属性指定。</td>
 			<td>
 				<!-- <p>datetime,该属性表示此元素的时间和日期，并且属性值必须是一个有效的日期格式，并可包含时间。 如果此值不能被解析为日期，元素不会有一个关联的时间戳.</p>
@@ -704,27 +687,27 @@
 			<td></td>
 		</tr>
 		<tr>
-			<td>&lt;mark&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;mark&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表一段需要被高亮的引用 文字。</td>
 			<td></td>
 		</tr>
 		<tr>
-			<td>&lt;ruby&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;ruby&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表被ruby 注释 标记的文本，如中文汉字和它的拼音。</td>
 			<td></td>
 		</tr>
 		<tr>
-			<td>&lt;rt&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;rt&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表ruby 注释 ，如中文拼音。</td>
 			<td></td>
 		</tr>
 		<tr>
-			<td>&lt;rp&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;rp&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表 ruby 注释两边的额外插入文本 ，用于在不支持 ruby 注释显示的浏览器中提供友好的注释显示。</td>
 			<td></td>
 		</tr>
 		<tr>
-			<td>&lt;bdi&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;bdi&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表需要脱离父元素文本方向的一段文本。它允许嵌入一段不同或未知文本方向格式的文本。</td>
 		<tr>
 			<td>&lt;bdo&gt;</td>
@@ -749,13 +732,14 @@
 			<td></td>
 		</tr>
 		<tr>
-			<td>&lt;wbr&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;wbr&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表建议换行 (Word Break Opportunity) ，当文本太长需要换行时将会在此处添加换行符。</td>
 			<td></td>
 		</tr>
 		<tr>
 			<td class="trHead" colspan="3">编辑EDIT</td>
 		</tr>
+		<tr>
 			<td>&lt;ins&gt;</td>
 			<td>定义增加 到文档的内容。</td>
 			<td>
@@ -812,21 +796,21 @@
 			<td>代表一张图片 。</td>
 			<td>
 				<!-- <p>alt,这个属性定义了描述图像的替换文本。用户将看到这个显示，如果图像的URL是错误的，该图像不在 支持的格式 列表中，或者如果图像还没有被下载。使用说明： 省略这个属性表明该图像是内容的关键部分，但没有等效的文本可用。把这个属性设置为空字符串，表明该图像不是内容的关键部分，非可视化浏览器在渲染的时候可能会忽略它。</p>
-				<p>crossorigin <img src="/sergio/images/html5.jpg">,这个枚举属性表明是否必须使用 CORS 完成相关图像的抓取。启用CORS的图像 在 &lt;canvas&gt; 元素中可以重复使用而不会被污染。允许的值有：
+				<p>crossorigin <img src="../sergio/images/html5.jpg">,这个枚举属性表明是否必须使用 CORS 完成相关图像的抓取。启用CORS的图像 在 &lt;canvas&gt; 元素中可以重复使用而不会被污染。允许的值有：
 					<ul>
 						<li>anonymous,执行一个跨域的请求（比如，有 Origin: HTTP header）。但是没有发送证书（比如，没有 cookie，没有 X.509 证书，没有 HTTP 基本的授权认证）。如果服务器没有给源站证书（没有设置 Access-Control-Allow-Origin: HTTP头），图像会被污染而且它的使用会被限制。</li>
 						<li>use-credentials,一个有证书的跨域请求（比如，有 Origin: HTTP header）被发送 （比如，a cookie, a certificate, and HTTP Basic authentication is performed）。如果服务器没有给源站发送证书（通过 Access-Control-Allow-Credentials: HTTP header），图像将会被污染，且它的使用会受限制。</li>
 				<p>当用户并未显式使用本属性时，默认不使用 CORS 发起请求(例如，不会向服务器发送 HTTP 头部信息)，用以防止其在&lt;canvas&gt;中的使用。如果无效，默认当做anonymous关键字生效。更多信息，请查看 CORS 属性设置 。</p>
 				<p>height,图像的高度，在 HTML5 中的单位是 CSS 像素，在 HTML 4 中可以是像素也可以是百分比。</p>
 				<p>ismap,这个布尔属性表示图像是否是服务器端map的一部分。如果是， 那么点击的精准坐标将会被发送到服务器。使用说明：只有当 &lt;img&gt; 是 href 属性是有效的 &lt;a&gt; 元素的后代元素时，这个属性才被允许使用。</p>
-				<p>sizes<img src="/sergio/images/html5.jpg">,表示资源大小的以逗号隔开的一个或多个字符串。每一个资源大小包括：
+				<p>sizes<img src="../sergio/images/html5.jpg">,表示资源大小的以逗号隔开的一个或多个字符串。每一个资源大小包括：
 					<ul>
 						<li>一个媒体条件。最后一项一定是被忽略的。</li>
 						<li>一个资源尺寸的值。</li>
 					</ul>
 					资源尺寸的值被用来指定图像的预期尺寸。当srcset使用 'w' 描述符时，用户代理使用当前图像大小来选择srcset中合适的一个图像URL。 被选中的尺寸影响图像的显示大小（如果没有CSS样式被应用的话）。如果没有设置srcset属性，或者没值，那么sizes属性也将不起作用。</p>
 				<p>src,图像的 URL，这个属性对 &lt;img&gt; 元素来说是必需的。在支持 srcset 的浏览器中，src 被当做拥有一个像素密度的描述符 1x 的候选图像处理，除非一个图像拥有这个像素密度描述符已经被在 srcset 或者 srcset 包含 'w' 描述符中定义了.</p>
-				<p>srcset<img src="/sergio/images/html5.jpg">,以逗号分隔的一个或多个字符串列表表明一系列用户代理使用的可能的图像。每一个字符串由以下组成：
+				<p>srcset<img src="../sergio/images/html5.jpg">,以逗号分隔的一个或多个字符串列表表明一系列用户代理使用的可能的图像。每一个字符串由以下组成：
 					<ul>
 						<li>一个图像的 URL。</li>
 						<li>可选的，空格后跟以下的其一：
@@ -1032,7 +1016,7 @@
  			</td>
 		</tr>
 		<tr>
-			<td>&lt;embed&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;embed&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表一个嵌入 的外部资源，如应用程序或交互内容。</td>
 			<td>
 				<!-- <p>height,资源显示的高度。单位为CSS像素。</p>
@@ -1073,7 +1057,7 @@
 			<td>代表一个外部资源 ，如图片、HTML 子文档、插件等。</td>
 			<td>
 				<!-- <p>data,一个合法的 URL 作为资源的地址，，需要为 data 和 type 中至少一个设置值。</p>
-				<p>form <img src="/sergio/images/html5.jpg">,对象元素关联的 form 元素（属于的 form）。 取值必须是同一文档下的一个 &lt;form&gt; 元素的 ID。</p>
+				<p>form <img src="../sergio/images/html5.jpg">,对象元素关联的 form 元素（属于的 form）。 取值必须是同一文档下的一个 &lt;form&gt; 元素的 ID。</p>
 				<p>height,资源显示的高度，单位是 CSS 像素。</p>
 				<p>name,浏览上下文名称（HTML5），或者控件名称（HTML 4）。</p>
 				<p>type,data 指定的资源的 MIME 类型，需要为 data 和 type 中至少一个设置值。</p>
@@ -1184,7 +1168,7 @@
 			<td>value,确定参数的值。</td>
 		</tr>
 		<tr>
-			<td>&lt;video&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;video&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表一段视频 及其视频文件和字幕，并提供了播放视频的用户界面。</td>
 			<td>
 				<!-- <p>autoplay,布尔属性；指定后，视频会马上自动开始播放，不会停下来等着数据载入结束。</p>
@@ -1269,7 +1253,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>&lt;audio&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;audio&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表一段声音 ，或音频流 。</td>
 			<td>
 				<!-- <p>autoplay,布尔属性；如果指定（默认值为"false"！）；指定后，音频会马上自动开始播放，不会停下来等着数据载入结束。</p>
@@ -1330,14 +1314,14 @@
 			</td>
 		</tr>
 		<tr>
-			<td>&lt;source&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;source&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>为 &lt;video&gt; 或 &lt;audio&gt; 这类媒体元素指定媒体源 。</td>
 			<td>
 				<p>src,&lt;audio&gt;和&lt;video&gt;,媒体资源的地址。这个属性的值被忽略时,&lt;source&gt;元素放置在一个&lt;picture&gt;元素。</p>
 				<p>type,资源的mime类型,选择编解码器参数。看到信息如何指定RFC 4281编解码器。</td>
 		</tr>
 		<tr>
-			<td>&lt;track&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;track&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>为 &lt;video&gt; 或 &lt;audio&gt; 这类媒体元素指定文本轨道（字幕）。</td> 
 			<td>
 				<!-- <p>default,该属性定义了该track应该启用，除非用户首选项指定了更合适一个track。每个媒体元素里面只有一个 track 元素可以有这个属性。</p>
@@ -1394,7 +1378,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>&lt;canvas&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;canvas&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表位图区域，可以通过脚本在它上面实时呈现图形，如图表、游戏绘图等。</td>
 			<td>
 				<p>height,该元素占用空间的高度，以 CSS 像素（px）表示，默认为 150。</p>
@@ -1411,14 +1395,14 @@
 			<td>与 &lt;map&gt; 元素共同定义图像映射 区域。</td>
 			<td>
 				<!-- <p>alt,在未显示图像的浏览器上显示代替的文本字符串。这个文本应该能传达给用户与显示图像而没有文本的情况下同等的选择（译者注：就是字和图片表达一个意思）。在HTML4中， 这个属性时必需的, 但是可以是一个空的串("")。在HTML5中, 这个属性只有在href 属性被使用的时候才是必需的。</p>
-				<p>coords,给热点区域设定具体的坐标值。这个值的数值和意义取决于这个值所描述的形状属性.。对于矩形或长方形, 这个coords 值为两个X,Y对：左上、右下。 对于圆形, 这个值是 x,y,r ，这里的 x,y 是一对确定圆的中心的坐标而 r 则表示的是半径值.。对于多边和多边形，这个值是用x,y对表示的多边形的每一个点：x1,y1,x2,y2,x3,y3,等等。In HTML4, the values are numbers of pixels or percentages, if a percent sign (%) is appended; in <img src="/sergio/images/html5.jpg">, the values are numbers of CSS pixels.</p>
-				<p>download <img src="/sergio/images/html5.jpg">,这个属性如果存在的话, 表明作者想把超链接用于下载一个资源。请查看&lt;a&gt; 获得关于 download属性的完整描述。</p>
-				<p>href,超链接的目标区域。它的值是一个有效的URL。在HTML4,这个属性或nohref属性必须出现在元素。在<img src="/sergio/images/html5.jpg">,这个属性可以省略;如果是这样,该地区元素并不代表一个超链接。</p>
-				<p>hreflang <img src="/sergio/images/html5.jpg">,指示链接资源的语言。 允许的值由BCP47确定。 仅当href属性存在时才使用此属性。</p>
-				<p>media <img src="/sergio/images/html5.jpg">,提示相关的媒体的资源设计,例如打印和屏幕。如果省略,默认为全部。使用这个属性只有在href属性。</p>
-				<p>rel <img src="/sergio/images/html5.jpg">,锚包含href属性,该属性指定目标对象的关系链接对象。链接类型的值是一个以逗号分隔的值。的价值观和他们的语义将一些机关登记文档作者可能有意义。默认的关系,如果没有其他的,无效。使用这个属性只有在href属性。</p>
+				<p>coords,给热点区域设定具体的坐标值。这个值的数值和意义取决于这个值所描述的形状属性.。对于矩形或长方形, 这个coords 值为两个X,Y对：左上、右下。 对于圆形, 这个值是 x,y,r ，这里的 x,y 是一对确定圆的中心的坐标而 r 则表示的是半径值.。对于多边和多边形，这个值是用x,y对表示的多边形的每一个点：x1,y1,x2,y2,x3,y3,等等。In HTML4, the values are numbers of pixels or percentages, if a percent sign (%) is appended; in <img src="../sergio/images/html5.jpg">, the values are numbers of CSS pixels.</p>
+				<p>download <img src="../sergio/images/html5.jpg">,这个属性如果存在的话, 表明作者想把超链接用于下载一个资源。请查看&lt;a&gt; 获得关于 download属性的完整描述。</p>
+				<p>href,超链接的目标区域。它的值是一个有效的URL。在HTML4,这个属性或nohref属性必须出现在元素。在<img src="../sergio/images/html5.jpg">,这个属性可以省略;如果是这样,该地区元素并不代表一个超链接。</p>
+				<p>hreflang <img src="../sergio/images/html5.jpg">,指示链接资源的语言。 允许的值由BCP47确定。 仅当href属性存在时才使用此属性。</p>
+				<p>media <img src="../sergio/images/html5.jpg">,提示相关的媒体的资源设计,例如打印和屏幕。如果省略,默认为全部。使用这个属性只有在href属性。</p>
+				<p>rel <img src="../sergio/images/html5.jpg">,锚包含href属性,该属性指定目标对象的关系链接对象。链接类型的值是一个以逗号分隔的值。的价值观和他们的语义将一些机关登记文档作者可能有意义。默认的关系,如果没有其他的,无效。使用这个属性只有在href属性。</p>
 				<p>shape,的形状相关的热点。HTML 5规范和HTML 4定义矩形的值,它定义了一个矩形区域,圆,它定义了一个圆形区域;聚,它定义了一个多边形,和默认,这表明整个地区以外的任何定义的形状。很多浏览器,特别是Internet Explorer 4和高,支持中国保监会,多边形,和矩形形状的有效值;这些值! !
-				<p>target,该属性指定在哪里显示链接资源。在HTML4的名字,或一个关键字,一个框架。在<img src="/sergio/images/html5.jpg">,名称或关键字,浏览的上下文(例如,选项卡中,窗口,或内联框架)。以下关键词具有特殊的意义:
+				<p>target,该属性指定在哪里显示链接资源。在HTML4的名字,或一个关键字,一个框架。在<img src="../sergio/images/html5.jpg">,名称或关键字,浏览的上下文(例如,选项卡中,窗口,或内联框架)。以下关键词具有特殊的意义:
 					<ul>
 						<li>_self:响应加载到同一个HTML4帧(或HTML5浏览上下文)。这个值是默认如果没有指定属性。</li>
 						<li>_blank: 响应加载到一个新的匿名HTML4 HTML5浏览窗口或上下文。</li>
@@ -1477,7 +1461,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>&lt;svg&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;svg&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>定义一个嵌入式矢量图 。</td>
 			<td>
 				<ul>全局属性
@@ -1505,7 +1489,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>&lt;math&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;math&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>定义一段数学公式 。</td>
 			<td>
 				<table>
@@ -1804,7 +1788,7 @@
 			<td>
 				<!-- <p>accept-charset,一个空格分隔或逗号分隔的列表，这个列表包括了服务器支持的字符编码。浏览器以这些编码被列举的顺序使用它们。默认值是一个保留字符串“UNKNOWN”。这个字符串指的是，和包含这个form元素的文档相同的编码。在之前版本的HTML中，不同的字符编码可以用空格或逗号分隔。在HTML5中，只有空格可以允许作为分隔符。</p>
 				<p>action,一个处理这个form信息的程序所在的URL。这个值可以被 &lt;button&gt; 或者 &lt;input&gt; 元素中的 formaction 属性重载（覆盖）。</p>
-				<p>autocomplete <img src="/sergio/images/html5.jpg">,用于指示 input 元素是否能够拥有一个默认值，这个默认值是由浏览器自动补全的。这个设定可以被属于这个form的子元素的 autocomplete 属性重载（覆盖）。 可能的值有:
+				<p>autocomplete <img src="../sergio/images/html5.jpg">,用于指示 input 元素是否能够拥有一个默认值，这个默认值是由浏览器自动补全的。这个设定可以被属于这个form的子元素的 autocomplete 属性重载（覆盖）。 可能的值有:
 					<ul>
 						<li>off: 在每一个用到的输入域里，用户必须显式的输入一个值，或者document 以它自己的方式提供自动补全；浏览器不会自动补全输入。</li>
 						<li>on: 浏览器能够根据用户之前在form里输入的值自动补全。</li>
@@ -1825,7 +1809,7 @@
 						<li>name,这个form的名字。在HTML4中，这个用法不被推荐(作为替代，应该使用id). HTML5中，一个文档中的多个form当中，name必须唯一而不仅仅是一个空字符串。</li>
 					</ul>
 				</p>
-				<p>novalidate <img src="/sergio/images/html5.jpg">,这个布尔类型的属性指示了，当提交时form是否没有被验证。 如果这个属性没有指定 (因此这个 form 是验证通过的)，这个默认设置可以被属于这个form的 &lt;button&gt; 或者 &lt;input&gt; 元素中的 formnovalidate 属性重载（覆盖）。</p>
+				<p>novalidate <img src="../sergio/images/html5.jpg">,这个布尔类型的属性指示了，当提交时form是否没有被验证。 如果这个属性没有指定 (因此这个 form 是验证通过的)，这个默认设置可以被属于这个form的 &lt;button&gt; 或者 &lt;input&gt; 元素中的 formnovalidate 属性重载（覆盖）。</p>
 				<p>target,一个名字或者说关键字，用来指示在提交表单之后，在哪里显示收到的回复. 在 HTML 4 里, 这是一个用于 frame 的名字/关键字. 在 HTML5 里, 这是一个用于 browsing context 浏览器上下文  的名字/关键字 (举例来说, 标签页tab, 窗口window, or 或者行内 frame). 如下的关键字含有特别的含义:
 					<ul>
 						<li>_self: 负载响应到相同的HTML 4帧(或HTML5浏览上下文)。这个值是默认如果没有指定属性。</li>
@@ -1905,9 +1889,9 @@
 			<td>&lt;fieldset&gt;</td>
 			<td>代表控件组 。</td>
 			<td>
-				<!-- <p>disabled <img src="/sergio/images/html5.jpg">,如果设置了这个布尔属性,它的后代的表单控件,除了第一个可选<传奇>元素的后代,被禁用。,而不是编辑。他们不会接收任何浏览事件,鼠标点击或焦点相关的问题。通常浏览器显示灰色等控制。</p>
-				<p>form <img src="/sergio/images/html5.jpg">,规定fieldset所属的form表单。 这个属性的值与其所属的form的ID相同。默认值是最近的那个form。</p>
-				<p>name <img src="/sergio/images/html5.jpg">,与集团相关的名称。 字段的标签集是由第一&lt;legend&gt;元素的孩子这一领域。</p> -->
+				<!-- <p>disabled <img src="../sergio/images/html5.jpg">,如果设置了这个布尔属性,它的后代的表单控件,除了第一个可选<传奇>元素的后代,被禁用。,而不是编辑。他们不会接收任何浏览事件,鼠标点击或焦点相关的问题。通常浏览器显示灰色等控制。</p>
+				<p>form <img src="../sergio/images/html5.jpg">,规定fieldset所属的form表单。 这个属性的值与其所属的form的ID相同。默认值是最近的那个form。</p>
+				<p>name <img src="../sergio/images/html5.jpg">,与集团相关的名称。 字段的标签集是由第一&lt;legend&gt;元素的孩子这一领域。</p> -->
 				<table class="little-table">
 					<tr>
 						<th>属性</th>
@@ -1940,9 +1924,9 @@
 			<td>&lt;label&gt;</td>
 			<td>代表表单控件的标题 。</td>
 			<td>
-				<!-- <p>accesskey HTML 4 <img src="/sergio/images/html5.jpg">,从键盘访问该元素的快捷键。</p>
+				<!-- <p>accesskey HTML 4 <img src="../sergio/images/html5.jpg">,从键盘访问该元素的快捷键。</p>
 				<p>for,可标记的 form相关元素的ID，在同一文档中作为label元素。 第一个这样的元素在文档中有一个ID匹配属性值，作为这个label元素的labeled control。注意： label元素可同时有属性和包含控件元素（contained control element），只要此属性指向包含控件元素。</p>
-				<p>form <img src="/sergio/images/html5.jpg">, 表示label元素关联的form元素（它的表单拥有者）。此属性值必须是同一文档中&lt;form&gt; 元素的ID。如果未指定此属性值，&lt;label&gt;元素必须是&lt;form&gt;元素的后代。应用此属性值，你可以将label元素放置在文档的任何位置，而不仅仅是作为它的拥有者&lt;form&gt;元素的后代。</p> -->
+				<p>form <img src="../sergio/images/html5.jpg">, 表示label元素关联的form元素（它的表单拥有者）。此属性值必须是同一文档中&lt;form&gt; 元素的ID。如果未指定此属性值，&lt;label&gt;元素必须是&lt;form&gt;元素的后代。应用此属性值，你可以将label元素放置在文档的任何位置，而不仅仅是作为它的拥有者&lt;form&gt;元素的后代。</p> -->
 				<table class="little-table">
 					<tr>
 						<th>属性</th>
@@ -2008,7 +1992,7 @@
 						<li>image/* 表示图片文件 HTML5</li>
 					</ul>
 				</p>
-				<p>autocomplete <img src="/sergio/images/html5.jpg">,这个属性表示这个控件的值是否可被浏览器自动填充。如果type属性的值是hidden、checkbox、radio、file，或为按钮类型（button、submit、reset、image），则本属性被忽略。可用的值是:
+				<p>autocomplete <img src="../sergio/images/html5.jpg">,这个属性表示这个控件的值是否可被浏览器自动填充。如果type属性的值是hidden、checkbox、radio、file，或为按钮类型（button、submit、reset、image），则本属性被忽略。可用的值是:
 					<ul>
 						<li>off: 用户必须手动填值，或者该页面提供了自己的自动补全方法。浏览器不对此字段自动填充。</li>
 						<li>on: 浏览器可以根据用户先前的填表情况对此字段自动填值。</li>
@@ -2055,17 +2039,17 @@
 					</ul>
 				</p>
 				<p>如果&lt;input&gt;元素上没有autocomplete属性，浏览器可使用包含该input元素的表单（&lt;form&gt;）或通过input的form属性指定的表单的autocomplete属性值。更多信息请参见&lt;form&gt;的autocomplete属性。</p>
-				<p>autofocus <img src="/sergio/images/html5.jpg">,这个布尔属性允许您指定一个表单控制应该有输入焦点当页面加载时,除非用户覆盖它,例如,输入一个不同的控制。只有一个表单元素在文档中可以自动对焦的属性,这是一个布尔值。它不能应用如果type属性设置为隐藏的(也就是说,您不能自动设置集中到一个隐藏的控制)。</p>
-				<p>autosave <img src="/sergio/images/html5.jpg">,这个属性应被定义为一个独特的价值。如果搜索类型属性的值,先前的搜索词值将坚持在页面加载下拉。</p>
+				<p>autofocus <img src="../sergio/images/html5.jpg">,这个布尔属性允许您指定一个表单控制应该有输入焦点当页面加载时,除非用户覆盖它,例如,输入一个不同的控制。只有一个表单元素在文档中可以自动对焦的属性,这是一个布尔值。它不能应用如果type属性设置为隐藏的(也就是说,您不能自动设置集中到一个隐藏的控制)。</p>
+				<p>autosave <img src="../sergio/images/html5.jpg">,这个属性应被定义为一个独特的价值。如果搜索类型属性的值,先前的搜索词值将坚持在页面加载下拉。</p>
 				<p>checked,如果该元素的type属性的值为radio或者checkbox,则该布尔属性的存在与否表明了该控件是否是默认选择状态.</p>
 				<p>disabled,这个布尔属性表示此表单控件不可用。 特别是在禁用的控件中， click 事件 将不会被分发 。 并且，禁用的控件的值在提交表单时也不会被提交。如果 type 属性为  hidden，此属性将被忽略。</p>
-				<p>form <img src="/sergio/images/html5.jpg">,输入元素相关联的表单元素(它的所有者)形式。该属性的值必须是一个id &lt;form&gt;元素在同一个文档。如果没有指定这个属性,这&lt;input&gt;元素必须的后代&lt;form&gt;元素。这个属性允许您将&lt;input&gt;元素在文档中的任何位置,不仅仅是他们的表单元素的后代。
-				<p>formaction<img src="/sergio/images/html5.jpg">,程序流程的URI提交的信息输入元素,如果它是一个提交按钮或图像。如果指定,它覆盖的动作属性元素的形式所有者。</p>
-				<p>formenctype<img src="/sergio/images/html5.jpg">,如果输入元素是一个提交按钮或图像,该属性指定内容的类型,用来向服务器提交表单。可能的值是: 应用程序/ x-www-form-urlencoded:如果没有指定属性的默认值。 多部分/格式:使用这个值如果您正在使用一个&lt;input&gt;元素的type属性设置为文件。</p>
+				<p>form <img src="../sergio/images/html5.jpg">,输入元素相关联的表单元素(它的所有者)形式。该属性的值必须是一个id &lt;form&gt;元素在同一个文档。如果没有指定这个属性,这&lt;input&gt;元素必须的后代&lt;form&gt;元素。这个属性允许您将&lt;input&gt;元素在文档中的任何位置,不仅仅是他们的表单元素的后代。
+				<p>formaction<img src="../sergio/images/html5.jpg">,程序流程的URI提交的信息输入元素,如果它是一个提交按钮或图像。如果指定,它覆盖的动作属性元素的形式所有者。</p>
+				<p>formenctype<img src="../sergio/images/html5.jpg">,如果输入元素是一个提交按钮或图像,该属性指定内容的类型,用来向服务器提交表单。可能的值是: 应用程序/ x-www-form-urlencoded:如果没有指定属性的默认值。 多部分/格式:使用这个值如果您正在使用一个&lt;input&gt;元素的type属性设置为文件。</p>
 				<p>text/plain,如果这是默认属性,它所overrides the enctype部件的默认属性of the form所有者姓名。</p>
-				<p>formmethod<img src="/sergio/images/html5.jpg">,如果输入元素是一个提交按钮或图像,该属性指定浏览器使用的HTTP方法提交表单。可能的值是: 职位:数据表单的形式包含在身体和发送到服务器。 得到:表单的数据附加到URI的形式属性,与“?作为一个分隔符,生成的URI发送到服务器。使用这种方法时,没有副作用,只包含ASCII字符形式。 如果指定这个属性重写的方法属性元素的形式所有者。</p>
-				<p>formnovalidate<img src="/sergio/images/html5.jpg">,如果输入元素是一个提交按钮或图像,这个布尔属性指定表单提交时验证。如果指定这个属性,它覆盖的已经属性元素的形式所有者。</p>
-				<p>formtarget<img src="/sergio/images/html5.jpg">,如果输入元素是一个提交按钮或图像,这个属性是一个名称或关键字显示,显示提交表单后,接收到的响应。这是一个名字,或关键字,浏览的上下文(例如,选项卡中,窗口,或内联框架)。如果指定这个属性,它覆盖目标属性的元素的形式所有者。以下关键词具有特殊的意义:
+				<p>formmethod<img src="../sergio/images/html5.jpg">,如果输入元素是一个提交按钮或图像,该属性指定浏览器使用的HTTP方法提交表单。可能的值是: 职位:数据表单的形式包含在身体和发送到服务器。 得到:表单的数据附加到URI的形式属性,与“?作为一个分隔符,生成的URI发送到服务器。使用这种方法时,没有副作用,只包含ASCII字符形式。 如果指定这个属性重写的方法属性元素的形式所有者。</p>
+				<p>formnovalidate<img src="../sergio/images/html5.jpg">,如果输入元素是一个提交按钮或图像,这个布尔属性指定表单提交时验证。如果指定这个属性,它覆盖的已经属性元素的形式所有者。</p>
+				<p>formtarget<img src="../sergio/images/html5.jpg">,如果输入元素是一个提交按钮或图像,这个属性是一个名称或关键字显示,显示提交表单后,接收到的响应。这是一个名字,或关键字,浏览的上下文(例如,选项卡中,窗口,或内联框架)。如果指定这个属性,它覆盖目标属性的元素的形式所有者。以下关键词具有特殊的意义:
 					<ul>
 						<li>_self: 响应加载到相同的浏览环境。这个值是默认如果没有指定属性。</li>
 						<li>_blank: 响应加载到一个新的匿名浏览上下文。</li>
@@ -2073,24 +2057,24 @@
 						<li>_top: 响应加载到顶级浏览上下文(即浏览当前的上下文是一个祖先,和没有父母)。如果没有父母,这个选项_self行为一样。</li>
 					</ul>
 				</p>
-				<p>height <img src="/sergio/images/html5.jpg">,如果type属性的值是图像,这个属性定义的图像显示按钮的高度。</p>
-				<p>list <img src="/sergio/images/html5.jpg">,标识一个预定义的选项列表显示给用户。id的值必须是一个&lt;datalist&gt;元素在同一个文档。浏览器只显示选项有效值输入元素。这个属性将被忽略隐藏属性的值类型时,复选框,收音机,文件,或一个按钮类型。</p>
-				<p>max <img src="/sergio/images/html5.jpg">,的最大(数字或日期时间)值项,必须不低于其最小(最小值属性)值。</p>
-				<p>maxlength <img src="/sergio/images/html5.jpg">,如果 type 的值是  text, email, search, password, tel, 或 url，那么这个属性指明了用户最多可以输入的字符个数（按照Unicode编码方式计数）；对于其他类型的输入框，该属性被忽略。它可以大于 size 属性的值。如果不指定这个属性，那么用户可以输入任意多的字符。如果指定为一个负值，那么元素表现出默认行为，即用户可以输入任意多的字符。本属性的约束规则，仅在元素的 value 属性发生变化时才会执行。译者注:ie10+</p>
-				<p>min <img src="/sergio/images/html5.jpg">, 的最小(数字或日期时间)值项,不得超过其最大(max属性)的价值。</p>
-				<p>multiple<img src="/sergio/images/html5.jpg">,这个布尔属性指示用户是否可以输入多个值。这个属性适用于当type属性设置为电子邮件或文件,否则它将被忽略。name控制的名称,提交表单数据。</p>
-				<p>pattern<img src="/sergio/images/html5.jpg">,检查控件值的正则表达式.。pattern必须匹配整个值，而不仅仅是某些子集.。使用title属性来描述帮助用户的模式.。当类型属性的值为text, search, tel, url 或 email时，此属性适用，否则将被忽略。译者注:ie10+</p>
-				<p>placeholder <img src="/sergio/images/html5.jpg">,一个提示用户可以输入的控制。占位符文本必须不包含回车或换行。这个属性适用于当type属性的值是文本,搜索,电话,网址或电子邮件,否则它将被忽略。 注意:不要使用占位符属性而不是& lt;label&gt;元素。他们的目的是不同的:&lt;label&gt;属性描述了表单元素的作用;也就是说,它表明什么样的信息预计,占位符属性是一种提示的格式内容应该采取。在某些情况下的地方.readonly这个布尔属性表明,用户不能修改的值控制。 HTML5将忽略该属性如果隐藏类型属性的值,范围,颜色,复选框,收音机,文件,或一个按钮类型。</p>
-				<p>required <img src="/sergio/images/html5.jpg">,这个属性指定用户在提交表单之前必须为该元素填充值. 当type属性是hidden,image或者按钮类型(submit,reset,button)时不可使用. :optional 和 :required CSS 伪元素的样式将可以被该字段应用作外观.</p>
-				<p>selectionDirection <img src="/sergio/images/html5.jpg">,选择的方向发生。这是“前进”,如果选择是由从左到右的LTR地区,或从右到左的RTL的地区,或者“落后”,如果选择了相反的方向。这可能是“没有”如果选择方向是未知的。</p>
-				<p>size,的初始大小控制。这个值是在像素除非type属性的值是文本或密码,在这种情况下,它是一个整数的字符数。从<img src="/sergio/images/html5.jpg">,这个属性只适用于当type属性设置为文本,搜索,电话,地址,电子邮件,或密码,否则它将被忽略。此外,大小必须大于零。如果你不指定大小,使用默认值为20。</p>
-				<p>spellcheck <img src="/sergio/images/html5.jpg">,将此属性的值设置为true表示元素需要检查其拼写和语法。 值default表示元素将根据默认行为进行操作，可能基于父元素自己的拼写检查值。 值false表示不应该检查元素。</p>
+				<p>height <img src="../sergio/images/html5.jpg">,如果type属性的值是图像,这个属性定义的图像显示按钮的高度。</p>
+				<p>list <img src="../sergio/images/html5.jpg">,标识一个预定义的选项列表显示给用户。id的值必须是一个&lt;datalist&gt;元素在同一个文档。浏览器只显示选项有效值输入元素。这个属性将被忽略隐藏属性的值类型时,复选框,收音机,文件,或一个按钮类型。</p>
+				<p>max <img src="../sergio/images/html5.jpg">,的最大(数字或日期时间)值项,必须不低于其最小(最小值属性)值。</p>
+				<p>maxlength <img src="../sergio/images/html5.jpg">,如果 type 的值是  text, email, search, password, tel, 或 url，那么这个属性指明了用户最多可以输入的字符个数（按照Unicode编码方式计数）；对于其他类型的输入框，该属性被忽略。它可以大于 size 属性的值。如果不指定这个属性，那么用户可以输入任意多的字符。如果指定为一个负值，那么元素表现出默认行为，即用户可以输入任意多的字符。本属性的约束规则，仅在元素的 value 属性发生变化时才会执行。译者注:ie10+</p>
+				<p>min <img src="../sergio/images/html5.jpg">, 的最小(数字或日期时间)值项,不得超过其最大(max属性)的价值。</p>
+				<p>multiple<img src="../sergio/images/html5.jpg">,这个布尔属性指示用户是否可以输入多个值。这个属性适用于当type属性设置为电子邮件或文件,否则它将被忽略。name控制的名称,提交表单数据。</p>
+				<p>pattern<img src="../sergio/images/html5.jpg">,检查控件值的正则表达式.。pattern必须匹配整个值，而不仅仅是某些子集.。使用title属性来描述帮助用户的模式.。当类型属性的值为text, search, tel, url 或 email时，此属性适用，否则将被忽略。译者注:ie10+</p>
+				<p>placeholder <img src="../sergio/images/html5.jpg">,一个提示用户可以输入的控制。占位符文本必须不包含回车或换行。这个属性适用于当type属性的值是文本,搜索,电话,网址或电子邮件,否则它将被忽略。 注意:不要使用占位符属性而不是& lt;label&gt;元素。他们的目的是不同的:&lt;label&gt;属性描述了表单元素的作用;也就是说,它表明什么样的信息预计,占位符属性是一种提示的格式内容应该采取。在某些情况下的地方.readonly这个布尔属性表明,用户不能修改的值控制。 HTML5将忽略该属性如果隐藏类型属性的值,范围,颜色,复选框,收音机,文件,或一个按钮类型。</p>
+				<p>required <img src="../sergio/images/html5.jpg">,这个属性指定用户在提交表单之前必须为该元素填充值. 当type属性是hidden,image或者按钮类型(submit,reset,button)时不可使用. :optional 和 :required CSS 伪元素的样式将可以被该字段应用作外观.</p>
+				<p>selectionDirection <img src="../sergio/images/html5.jpg">,选择的方向发生。这是“前进”,如果选择是由从左到右的LTR地区,或从右到左的RTL的地区,或者“落后”,如果选择了相反的方向。这可能是“没有”如果选择方向是未知的。</p>
+				<p>size,的初始大小控制。这个值是在像素除非type属性的值是文本或密码,在这种情况下,它是一个整数的字符数。从<img src="../sergio/images/html5.jpg">,这个属性只适用于当type属性设置为文本,搜索,电话,地址,电子邮件,或密码,否则它将被忽略。此外,大小必须大于零。如果你不指定大小,使用默认值为20。</p>
+				<p>spellcheck <img src="../sergio/images/html5.jpg">,将此属性的值设置为true表示元素需要检查其拼写和语法。 值default表示元素将根据默认行为进行操作，可能基于父元素自己的拼写检查值。 值false表示不应该检查元素。</p>
 				<p>src,如果type属性的值是图像,该属性指定了一个URI的位置图像上显示的图形提交按钮,否则它将被忽略。</p>
-				<p>step <img src="/sergio/images/html5.jpg">,使用最小和最大属性来限制可以设置数字或日期时间值的增量。 它可以是字符串任何或正的浮点数。 如果此属性未设置为任何，则控件仅接受大于最小值的步长值的倍数的值。</p>
-				<p>tabindex element-specific in HTML 4, global in <img src="/sergio/images/html5.jpg">,元素的位置移动导航为当前文档。</p>
-				<p>usemap HTML 4 only, 已废弃 <img src="/sergio/images/html5.jpg">,的名称&lt;map&gt;元素作为图像映射。</p>
+				<p>step <img src="../sergio/images/html5.jpg">,使用最小和最大属性来限制可以设置数字或日期时间值的增量。 它可以是字符串任何或正的浮点数。 如果此属性未设置为任何，则控件仅接受大于最小值的步长值的倍数的值。</p>
+				<p>tabindex element-specific in HTML 4, global in <img src="../sergio/images/html5.jpg">,元素的位置移动导航为当前文档。</p>
+				<p>usemap HTML 4 only, 已废弃 <img src="../sergio/images/html5.jpg">,的名称&lt;map&gt;元素作为图像映射。</p>
 				<p>value,的初始值控制。这个属性是可选的,除了当type属性的值是单选或复选框。 注意,在重新加载页面时,壁虎和IE将忽略HTML源代码中指定的值,如果该值被改变之前重新加载。</p>
-				<p>width <img src="/sergio/images/html5.jpg">, 如果type属性的值是图像,这个属性定义了图像的显示按钮的宽度。</p> -->
+				<p>width <img src="../sergio/images/html5.jpg">, 如果type属性的值是图像,这个属性定义了图像的显示按钮的宽度。</p> -->
 				<table class="little-table">
 					<tr>
 						<th>属性</th>
@@ -2299,11 +2283,11 @@
 			<td>&lt;button&gt;</td>
 			<td>代表按钮 。</td>
 			<td>
-				<!-- <p>autofocus <img src="/sergio/images/html5.jpg">,一个布尔属性，用于指定当页面加载时按钮必须有输入焦点，除非用户重写，例如通过不同控件键入。只有一个表单关联元素可以指定该属性。</p>
+				<!-- <p>autofocus <img src="../sergio/images/html5.jpg">,一个布尔属性，用于指定当页面加载时按钮必须有输入焦点，除非用户重写，例如通过不同控件键入。只有一个表单关联元素可以指定该属性。</p>
 				<p>disabled,此布尔属性表示用户不能与button交互。如果属性值未指定，button继承包含元素，例如&lt;fieldset&gt;；如果没有设置disabled属性的包含元素，button将可交互。不像其它浏览器，Firefox默认在页面加载时持续禁用Button的动态状态（Firefox persists the dynamic disabled state ）。使用autocomplete属性可控制此特性。</p>
-				<p>form <img src="/sergio/images/html5.jpg">,表示button元素关联的form元素（它的表单拥有者）。此属性值必须为同一文档中的一个&lt;form&gt;元素的id属性。如果此属性未指定，&lt;button&gt;元素必须是form元素的后代。利用此属性，你可以将&lt;button&gt;元素放置在文档内的任何位置，而不仅仅是作为他们form元素的后代。</p>
-				<p>formaction <img src="/sergio/images/html5.jpg">,表示程序处理button提交信息的URI。如果指定了，将重写button表单拥有者的action属性。</p>
-				<p>formenctype <img src="/sergio/images/html5.jpg">,如果button是submit类型，此属性值指定提交表单到服务器的内容类型。可选值：
+				<p>form <img src="../sergio/images/html5.jpg">,表示button元素关联的form元素（它的表单拥有者）。此属性值必须为同一文档中的一个&lt;form&gt;元素的id属性。如果此属性未指定，&lt;button&gt;元素必须是form元素的后代。利用此属性，你可以将&lt;button&gt;元素放置在文档内的任何位置，而不仅仅是作为他们form元素的后代。</p>
+				<p>formaction <img src="../sergio/images/html5.jpg">,表示程序处理button提交信息的URI。如果指定了，将重写button表单拥有者的action属性。</p>
+				<p>formenctype <img src="../sergio/images/html5.jpg">,如果button是submit类型，此属性值指定提交表单到服务器的内容类型。可选值：
 					<ul>
 						<li>application/x-www-form-urlencoded: 未指定时的默认值。</li>
 						<li>multipart/form-data: 如果使用type属性的&lt;input&gt;元素设置文件，使用此值。</li>
@@ -2311,15 +2295,15 @@
 						如果指定此属性，它将重写button的表单拥有者的enctype属性。
 					</ul>
 				</p>
-				<p>formmethod <img src="/sergio/images/html5.jpg">,如果button是submit类型，此属性指定浏览器提交表单使用的HTTP方法。可选值:
+				<p>formmethod <img src="../sergio/images/html5.jpg">,如果button是submit类型，此属性指定浏览器提交表单使用的HTTP方法。可选值:
 					<ul>
 						<li>post: 来自表单的数据被包含在表单内容中，被发送到服务器。</li>
 						<li>get:  来自表单的数据以'?'作为分隔符被附加到form的URI属性中，得到的URI被发送到服务器。当表单没有副作用，且仅包含ASCII字符时使用这种方法。</li>
 						如果指定了，此属性会重写button拥有者的method属性。
 					</ul>
 				</p>
-				<p>formnovalidate <img src="/sergio/images/html5.jpg">,如果button是submit类型，此布尔属性指定当表单被提交时不需要验证。如果指定了，它会重写button拥有者的novalidate属性。</p>
-				<p>formtarget <img src="/sergio/images/html5.jpg">,如果button是submit类型，此属性指定一个名称或关键字，表示接收提交的表单后在哪里显示响应。这是一个浏览上下文（例如tab，window或内联框架）的名称或关键字。如果指定了，它会重写button拥有者的target 属性。关键字如下：
+				<p>formnovalidate <img src="../sergio/images/html5.jpg">,如果button是submit类型，此布尔属性指定当表单被提交时不需要验证。如果指定了，它会重写button拥有者的novalidate属性。</p>
+				<p>formtarget <img src="../sergio/images/html5.jpg">,如果button是submit类型，此属性指定一个名称或关键字，表示接收提交的表单后在哪里显示响应。这是一个浏览上下文（例如tab，window或内联框架）的名称或关键字。如果指定了，它会重写button拥有者的target 属性。关键字如下：
 					<ul>
 						<li>_self: 在同一个浏览上下文中加载响应作为当前的。未指定时此值为默认值。
 						<li>_blank:  在一个新的不知名浏览上下文中加载响应。
@@ -2418,12 +2402,12 @@
 			<td>&lt;select&gt;</td>
 			<td>代表下拉框 。</td>
 			<td>
-				<!-- <p>autofocus <img src="/sergio/images/html5.jpg">,这个属性能够让一个对象在页面加载的时候获得焦点. 在一个页面上下文中, 只有一个对象可以有这个属性，并且是布尔值(true 或者 false).</p>
+				<!-- <p>autofocus <img src="../sergio/images/html5.jpg">,这个属性能够让一个对象在页面加载的时候获得焦点. 在一个页面上下文中, 只有一个对象可以有这个属性，并且是布尔值(true 或者 false).</p>
 				<p>disabled,这个布尔值的属性表明一个用户是否可以操控该表单对象. 如果这个属性没有被明确定义, 则从它的父元素继承, 例如 fieldset; 如果没有父元素设置 disabled 属性, 那么默认该表单对象 enabled.</p>
-				<p>form <img src="/sergio/images/html5.jpg">,select所关联的form表单 (它的"表单拥有者"). 如果这个属性被明确定义, 那么它的值一定是在同一个document中表单ID. 这样能够让你把select标签放在任何的位置, 不仅限于作为form表单的后代元素.</p>
+				<p>form <img src="../sergio/images/html5.jpg">,select所关联的form表单 (它的"表单拥有者"). 如果这个属性被明确定义, 那么它的值一定是在同一个document中表单ID. 这样能够让你把select标签放在任何的位置, 不仅限于作为form表单的后代元素.</p>
 				<p>multiple,这个布尔值的属性标记select是否可以多选. 默认是单选.</p>
 				<p>name,控件名称</p>
-				<p>required <img src="/sergio/images/html5.jpg">,规定select的值不能为空(布尔值).</p>
+				<p>required <img src="../sergio/images/html5.jpg">,规定select的值不能为空(布尔值).</p>
 				<p>size,如果控制了滚动列表框,这个属性代表列表中的行数,应该是可见的。浏览器不需要选择元素作为滚动列表框。默认值是0。 Firefox注意:根据HTML5规范,默认值的大小应该1;然而,在实践中,这是发现打破一些网站,目前并没有其他浏览器,所以Mozilla选择继续与Firefox暂时返回0。</p> -->
 				<table class="little-table">
 					<tr>
@@ -2470,7 +2454,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>&lt;datalist&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;datalist&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表提供给其他控件的一组预定义选项 。</td>
 		</tr>
 		<tr>
@@ -2522,23 +2506,23 @@
 			<td>&lt;textarea&gt;</td>
 			<td>代表多行文本框 。</td>
 			<td>
-				<!-- <p>autocomplete <img src="/sergio/images/html5.jpg">,这个属性表示的值控制是否可以自动完成浏览器。可能的值是: :用户必须显式地为每个用这个字段输入一个值,或者文档提供自己的自动完成方法;浏览器不会自动完成输入。 :浏览器可以自动完成期间根据用户输入值的值之前使用。 如果没有指定自动完成属性在文本区域的元素,然后浏览器使用的自动完成属性值& lt;textarea&gt;元素的形式.</p>
-				<p>autofocus <img src="/sergio/images/html5.jpg">,这个布尔属性允许您指定一个表单控制应该有输入焦点当页面加载时,除非用户覆盖它,例如,输入一个不同的控制。只有一个form-associated元素在文档中可以指定这个属性。</p>
+				<!-- <p>autocomplete <img src="../sergio/images/html5.jpg">,这个属性表示的值控制是否可以自动完成浏览器。可能的值是: :用户必须显式地为每个用这个字段输入一个值,或者文档提供自己的自动完成方法;浏览器不会自动完成输入。 :浏览器可以自动完成期间根据用户输入值的值之前使用。 如果没有指定自动完成属性在文本区域的元素,然后浏览器使用的自动完成属性值& lt;textarea&gt;元素的形式.</p>
+				<p>autofocus <img src="../sergio/images/html5.jpg">,这个布尔属性允许您指定一个表单控制应该有输入焦点当页面加载时,除非用户覆盖它,例如,输入一个不同的控制。只有一个form-associated元素在文档中可以指定这个属性。</p>
 				<p>cols,可见文本控件的宽度,平均字符宽度。如果是指定的,它必须是一个正整数。如果没有指定,默认值是20(HTML5)。</p>
 				<p>disabled,这个布尔属性表明,用户无法与控制。(如果没有指定这个属性,包含元素的控制继承它的设置,例如& lt;fieldset&gt;;如果没有包含元素与残疾人属性集,然后控制启用。)</p>
-				<p>form <img src="/sergio/images/html5.jpg">,文本区域元素相关联的表单元素(它的“所有者”形式)。该属性的值必须是一个表单元素的ID相同的文档。如果没有指定这个属性,文本区域的元素必须是一个表单元素的后代。这个属性允许您将文本区域元素在文档中的任何位置,不仅仅是他们的表单元素的后代。</p>
-				<p>maxlength <img src="/sergio/images/html5.jpg">,的最大字符数(Unicode代码点),用户可以输入。如果没有指定,用户可以输入一个无限数量的字符。</p>
-				<p>minlength <img src="/sergio/images/html5.jpg">,的最小字符数(Unicode代码点)要求用户要输入。</p>
+				<p>form <img src="../sergio/images/html5.jpg">,文本区域元素相关联的表单元素(它的“所有者”形式)。该属性的值必须是一个表单元素的ID相同的文档。如果没有指定这个属性,文本区域的元素必须是一个表单元素的后代。这个属性允许您将文本区域元素在文档中的任何位置,不仅仅是他们的表单元素的后代。</p>
+				<p>maxlength <img src="../sergio/images/html5.jpg">,的最大字符数(Unicode代码点),用户可以输入。如果没有指定,用户可以输入一个无限数量的字符。</p>
+				<p>minlength <img src="../sergio/images/html5.jpg">,的最小字符数(Unicode代码点)要求用户要输入。</p>
 				<p>name,控件的名称。</p>
-				<p>placeholder <img src="/sergio/images/html5.jpg">,一个提示用户可以输入的控制。回车或换行占位符文本渲染时必须被视为换行符提示。</p>
+				<p>placeholder <img src="../sergio/images/html5.jpg">,一个提示用户可以输入的控制。回车或换行占位符文本渲染时必须被视为换行符提示。</p>
 				<p>readonly,这个布尔属性表明,用户不能修改的值控制。与残疾人属性不同,只读的属性不会阻止用户点击或选择的控制。一个只读的价值控制仍然是提交表单。</p>
-				<p>required <img src="/sergio/images/html5.jpg">,该属性指定,用户必须在提交表单之前填写一个值。</p>
+				<p>required <img src="../sergio/images/html5.jpg">,该属性指定,用户必须在提交表单之前填写一个值。</p>
 				<p>rows,可见文本的行数的控制。</p>
-				<p>selectionDirection <img src="/sergio/images/html5.jpg">,选择的方向发生。这是“前进”,如果选择是由从左到右的LTR地区,或从右到左的RTL的地区,或者“落后”,如果选择了相反的方向。这可能是“没有”如果选择方向是未知的.</p>
+				<p>selectionDirection <img src="../sergio/images/html5.jpg">,选择的方向发生。这是“前进”,如果选择是由从左到右的LTR地区,或从右到左的RTL的地区,或者“落后”,如果选择了相反的方向。这可能是“没有”如果选择方向是未知的.</p>
 				<p>selectionEnd,该指数在当前的选择最后一个字符。</p>
 				<p>selectionStart,第一个字符的索引在当前的选择。</p>
-				<p>spellcheck <img src="/sergio/images/html5.jpg">,将此属性的值设置为true表示元素需要检查其拼写和语法。值default表示元素将根据默认行为进行操作，可能基于父元素自己的拼写检查值。值false表示不应该检查元素。</p>
-				<p>wrap <img src="/sergio/images/html5.jpg">,表明该控件封装文本。可能的值是:
+				<p>spellcheck <img src="../sergio/images/html5.jpg">,将此属性的值设置为true表示元素需要检查其拼写和语法。值default表示元素将根据默认行为进行操作，可能基于父元素自己的拼写检查值。值false表示不应该检查元素。</p>
+				<p>wrap <img src="../sergio/images/html5.jpg">,表明该控件封装文本。可能的值是:
 					<ul>
 						<li>hard: 浏览器自动插入换行符(CR + LF),使每一行没有超过的宽度控制;cols属性必须被指定。</li>
 						<li>soft: 浏览器确保所有换行价值包括一对CR +低频,但不插入任何额外的换行符。</li>
@@ -2613,7 +2597,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>&lt;keygen&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;keygen&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表一个密钥对生成器 控件。</td>
 			<td>
 				<!-- <p>autofocus,这个布尔属性允许您指定的控制应该有输入焦点当页面加载时,除非用户覆盖它,例如,输入一个不同的控制。只有一个表单元素在文档中可以自动对焦的属性,这是一个布尔值。</p>
@@ -2656,7 +2640,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>&lt;output&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;output&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表计算值 。</td>
 			<td>
 				<!-- <p>for,其它影响计算结果的标签的ID，可以多个。</p>
@@ -2687,7 +2671,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>&lt;progress&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;progress&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表进度条 。</td>
 			<td>
 				<!-- <p>max,该属性描述了这个progress元素所表示的任务一共需要完成多少工作.</p>
@@ -2718,7 +2702,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>&lt;meter&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;meter&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表滑动条 。</td>
 			<td>
 				<!-- <p>value,当前的数值。如果设置了最小值和最大值（分别由min属性和max属性定义），它必须介于最小值和最大值之间。如果没有指定或者格式有误，值即为0.如果给定的值不在最小值和最大值之间，它的值就等于它最接近的一端的值。使用备注: 除非值域在0到1（闭区间）, 否则最小值和最大值属性需要定义，以保证value属性在值域范围内。换言之，默认的min和max值分别为0和1。</p>
@@ -2775,16 +2759,16 @@
 		<tr>
 			<td class="trHead" colspan="3">交互元素EDIT</td>
 		</tr>
-			<td>&lt;details&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;details&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表一个用户可以(点击)获取额外信息或控件的小部件 。</td>
 			<td>open,本属性只支持布尔值。且该属性默认值为"open"，这表示只有当用户点击该标签的时候才会展示详情。如果设置为“false”，那页面渲染完毕，就将展示details元素内包含的内容。</td>
 		</tr>
 		<tr>
-			<td>&lt;summary&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;summary&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表 &lt;details&gt; 元素的综述 或标题 。</td>
 		</tr>
 		<tr>
-			<td>&lt;menuitem&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;menuitem&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表一个用户可以点击的菜单项。</td>
 			<td>
 				<!-- <p>checked,布尔属性表明命令是否被选中。时只能使用type属性复选框或收音机。</p>
@@ -2855,7 +2839,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>&lt;menu&gt; <img src="/sergio/images/html5.jpg"></td>	
+			<td>&lt;menu&gt; <img src="../sergio/images/html5.jpg"></td>	
 			<td>代表菜单。</td>
 			<td>
 				<!-- <p>label,菜单的名称,显示给用户。中使用嵌套菜单,提供一个标签的子菜单可以访问。只能在父元素指定&lt;menu&gt;在上下文菜单的状态。</p>
@@ -2883,8 +2867,11 @@
 				</table>
 			</td>
 		</tr>
+	</tbody>
 	</table>
-	<div class="main-table">
+</article>
+<article class="main-table">
+	<div>
 		<p>另请参阅EDIT
 		一系列 HTML5 文档。
 		所有 HTML 标签的参考，包括 HTML5 中不再有效的元素。</p>
@@ -3122,6 +3109,7 @@
 	    <p>noframes标签</p>
 	    <noframes>对不起，你的浏览器不支持框架集类型。</noframes>
 	</div>
+</article>
 <!-- main End -->
 </body>
 </html>
