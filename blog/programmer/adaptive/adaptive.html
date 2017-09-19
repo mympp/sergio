@@ -8,25 +8,25 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
 
-	<link rel="stylesheet" type="text/css" href="../css/base.css">
-	<link rel="stylesheet" type="text/css" href="../css/public.css">
-	<link rel="stylesheet" type="text/css" href="../css/page.css">
+	<link rel="stylesheet" type="text/css" href="/sergio/css/base.css">
+	<link rel="stylesheet" type="text/css" href="/sergio/css/public.css">
+	<link rel="stylesheet" type="text/css" href="/sergio/css/page.css">
 
-	<link rel="stylesheet" type="text/css" href="../TPPS/highlight/styles/Ocean.css">
+	<link rel="stylesheet" type="text/css" href="/sergio/TPPS/highlight/styles/Ocean.css">
 </head>
 <body class="blog-body">
 <!-- Google Analytics start -->
 <!-- Google Analytics start End -->
 <!-- nav -->
 <header class="index-nav"><a id="BackTop"></a>
-	<a href="../index.html" class="logo">
-		<img src="../images/logo2.gif" alt="logo1">
-		<img src="../images/logo2.png" alt="logo2">
+	<a href="/sergio/index.html" class="logo">
+		<img src="/sergio/images/logo2.gif" alt="logo1">
+		<img src="/sergio/images/logo2.png" alt="logo2">
 	</a>
 	<nav>
 		<ul>
-			<li><a href="blog.html">&lt;&nbsp;&gt;</a></li>
-			<li><a href="production.html">Archives</a></li>
+			<li><a href="/sergio/blog.html">&lt;&nbsp;&gt;</a></li>
+			<li><a href="/sergio/production.html">Archives</a></li>
 			<li><a href="https://github.com/sergiolin">Github</a></li>
 	</nav>
 	<div class="menu-right"></div>
@@ -81,18 +81,18 @@
 
 		<div>
 			<h3>适配有以下几种常用方法：</h3>
-			<h4><strong>一，静态布局（Static Layout）</strong></h4>
+			<h4><a href="fixed.html">一，静态布局（Static Layout）</a></h4>
 			<p>即传统Web设计，采用固定宽度。对于PC设计一个Layout，在屏幕宽高有调整时，使用横向和竖向的滚动条来查阅被遮掩部分；对于移动设备，单独设计一个布局，使用不同的域名如wap.或m.。“然后通过JS检测窗口大小调用不同的html？”</p>
 		</div>
 		<div>
-			<h4><strong>二、流动布局（fluidgrid）</strong></h4>
+			<h4><a href="fluid.html">二、流动布局（fluidgrid）</a></h4>
 			<p>“流动布局”的含义是，各个区块的位置都是浮动的，不是固定不变的。</p><pre><code class="css">.main{float:right;width:70%;}.leftBar{float:left;width:25%;}</code></pre>
 			<p>流式就是采用了一些设置，当宽度大于多少时怎么展示，小于多少时怎么展示，而且展示的方式向水流一样，一部分一部分的加载</p>
 			<p>float的好处是，如果宽度太小，放不下两个元素，后面的元素会自动滚动到前面元素的下方，不会在水平方向overflow（溢出），避免了水平滚动条的出现。另外，绝对定位（position:absolute）的使用，也要非常小心。要注意的是由于网页会根据屏幕宽度调整布局，所以不能使用绝对宽度的布局，也不能使用具有绝对宽度的元素。这一条非常重要，否则会出现横向滚动条。浮动的排版问题，一行多个浮动可以通过设置父元素左浮动，子元素右浮动实现正确排版。</p>
 			<p>流式布局主要的问题是如果屏幕尺度跨度太大，那么在相对其原始设计而言过小或过大的屏幕上不能正常显示。</p>
 		</div>
 		<div>
-			<h4><strong>三、自适应布局。</strong></h4>
+			<h4><a href="">三、自适应布局。</a></h4>
 			<p>一种说法是：分别为不同的屏幕分辨率定义布局。布局切换时页面元素发生改变，但在每个布局中，页面元素不随窗口大小的调整发生变化，通过JS选择不同的HTML页面，比如<a href="http://www.ctrip.com/">http://www.ctrip.com/</a>和<a href="http://m.ctrip.com/html5/">http://m.ctrip.com/html5/</a>。你可以把自适应布局看作是静态布局的一个系列。</p>
 			<p>另一种说法是：检测设备，根据不同的设备加载不同的css，而且css都是采用的百分比的，而不是固定的宽度。自适应布局所有的设备看起来都是一套的模板，不过是长度或者图片变小了，不会根据设备采用不同的展示样式，</p>
 			<p>选择加载CSS，媒体查询，“自适应网页设计”的核心，就是CSS3引入的MediaQuery模块。它的意思就是，自动探测屏幕宽度，然后加载相应的CSS文件。</p>
@@ -287,13 +287,13 @@ imgSizer.collate(imgs);
 
 			<div class="img-wrapbox">	
 				<div class="img-wrap">
-				    <img src="../images/test.jpg"	width="200px" alt="">
+				    <img src="/sergio/images/test.jpg"	width="200px" alt="">
 				</div>
 				<div class="img-wrap">
-				    <img src="../images/test.jpg"	width="200px" alt="">
+				    <img src="/sergio/images/test.jpg"	width="200px" alt="">
 				</div>
 				<div class="img-wrap">
-				    <img src="../images/test.jpg"	width="200px" alt="">
+				    <img src="/sergio/images/test.jpg"	width="200px" alt="">
 				</div>
 			</div>
 			<pre><code class="html">
@@ -401,7 +401,7 @@ h1{
 			</code></pre>
 			<p>在根元素HTML中定义了一个基本字体大小为62.5%（也就是10px。设置这个值主要方便计算，如果没有设置，将是以“16px”为基准 ）。从上面的计算结果，我们使用“rem”就像使用“px”一样的方便，将你的原来的px数值除以10，然后换上rem作为单位。而且同时解决了“px”和“em”两者不同之处。</p>
 			<p>各个单位的换算可以参考下图：</p>
-			<img src="../images/programmer/adaptive1.png">
+			<img src="/sergio/images/programmer/adaptive1.png">
 		</div>
 		<div>
 			<h4>可读性最高的字体大小</h4>
@@ -444,7 +444,7 @@ p{
 	<div></div>
 </footer>
 <!-- 页面代码高亮 -->
-<script type="text/javascript" src="../TPPS/highlight/highlight.pack.js"></script>
+<script type="text/javascript" src="/sergio/TPPS/highlight/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

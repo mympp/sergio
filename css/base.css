@@ -74,7 +74,9 @@ td{
 .clean_float{
 	clear:both;
 }
-
+.text-center{
+	text-align: center;
+}
 /*！normalize.css v5.0.0 | MIT许可证| github.com/necolas/normalize.css */
 
 /**
