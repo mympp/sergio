@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" />
 	<link rel="shortcut icon" href="images/favicon.ico" type="favicon.ico" />
-	<title>适配移动端</title>
+	<title>布局</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
 
@@ -81,28 +81,28 @@
 
 		<div>
 			<h3>适配有以下几种常用方法：</h3>
-			<h4><a href="fixed.html">一，静态布局（Static Layout）</a></h4>
-			<p>即传统Web设计，采用固定宽度。对于PC设计一个Layout，在屏幕宽高有调整时，使用横向和竖向的滚动条来查阅被遮掩部分；对于移动设备，单独设计一个布局，使用不同的域名如wap.或m.。“然后通过JS检测窗口大小调用不同的html？”</p>
+			<h4>一，静态布局（Static Layout）<a href="fixed.html">Demo</a></h4>
+			<p>即传统Web设计，采用固定宽度。对于PC设计一个Layout，在屏幕宽高有调整时，使用横向和竖向的滚动条来查阅被遮掩部分；对于移动设备，单独设计一个布局，使用不同的域名如wap.或m.。</p>
 		</div>
 		<div>
-			<h4><a href="fluid.html">二、流动布局（fluidgrid）</a></h4>
+			<h4>二、流动布局（fluidgrid）<a href="fluid.html">Demo</a></h4>
 			<p>“流动布局”的含义是，各个区块的位置都是浮动的，不是固定不变的。</p><pre><code class="css">.main{float:right;width:70%;}.leftBar{float:left;width:25%;}</code></pre>
 			<p>流式就是采用了一些设置，当宽度大于多少时怎么展示，小于多少时怎么展示，而且展示的方式向水流一样，一部分一部分的加载</p>
 			<p>float的好处是，如果宽度太小，放不下两个元素，后面的元素会自动滚动到前面元素的下方，不会在水平方向overflow（溢出），避免了水平滚动条的出现。另外，绝对定位（position:absolute）的使用，也要非常小心。要注意的是由于网页会根据屏幕宽度调整布局，所以不能使用绝对宽度的布局，也不能使用具有绝对宽度的元素。这一条非常重要，否则会出现横向滚动条。浮动的排版问题，一行多个浮动可以通过设置父元素左浮动，子元素右浮动实现正确排版。</p>
 			<p>流式布局主要的问题是如果屏幕尺度跨度太大，那么在相对其原始设计而言过小或过大的屏幕上不能正常显示。</p>
 		</div>
 		<div>
-			<h4><a href="">三、自适应布局。</a></h4>
+			<h4>三、自适应布局。<a href="self-adaption.html">Demo</a></h4>
 			<p>一种说法是：分别为不同的屏幕分辨率定义布局。布局切换时页面元素发生改变，但在每个布局中，页面元素不随窗口大小的调整发生变化，通过JS选择不同的HTML页面，比如<a href="http://www.ctrip.com/">http://www.ctrip.com/</a>和<a href="http://m.ctrip.com/html5/">http://m.ctrip.com/html5/</a>。你可以把自适应布局看作是静态布局的一个系列。</p>
 			<p>另一种说法是：检测设备，根据不同的设备加载不同的css，而且css都是采用的百分比的，而不是固定的宽度。自适应布局所有的设备看起来都是一套的模板，不过是长度或者图片变小了，不会根据设备采用不同的展示样式，</p>
-			<p>选择加载CSS，媒体查询，“自适应网页设计”的核心，就是CSS3引入的MediaQuery模块。它的意思就是，自动探测屏幕宽度，然后加载相应的CSS文件。</p>
+			<p>选择加载CSS，媒体查询，“自适应网页设计”的核心，就是CSS3引入的MediaQuery模块。它的意思就是，自动探测屏幕宽度，然后加载相应的CSS文件。用了css媒体查询后，ie6-8载入不了样式表，要引用个：Respond.js来让ie6-8下正确载入css。</p>
 			<pre><code class="html">
 &lt;media=”screenand(max-device-width:400px)”href=”tinyScreen.css”/&gt;	
 &lt;!-- 上面的代码意思是，如果屏幕宽度小于400像素（max-device-width:400px），就加载tinyScreen.css文件。 --&gt;
 &lt;media=”screenand(min-width:400px)and(max-device-width:600px)”href=”smallScreen.css”/&gt;
 &lt;!-- 如果屏幕宽度在400像素到600像素之间，则加载smallScreen.css文件。 --&gt;
 			</code></pre>
-			<p>除了用html标签加载CSS文件，还可以在现有CSS文件中加载。“当CSS文件放在head里面时不起效？”</p>
+			<p>除了用html标签加载CSS文件，还可以在现有CSS文件中加载。“当CSS文件放在head里面时不起效。@media必须放在最后面”</p>
 			<pre><code>
 @media screen and(max-device-width:400px){
 .column{float:none;width:auto;}
@@ -112,9 +112,25 @@
 			</code></pre>
 			<p>如果你只想在横屏时应用这个，你可以使用 and 操作符合并媒体属性：<pre><code class="css">(min-width: 700px) and (orientation: landscape) { ... }</code></pre></p>
 			<p>only 关键字防止老旧的浏览器不支持带媒体属性的查询而应用到给定的样式：<pre><code>&lt;link rel="stylesheet" media="only screen and (color)" href="example.css" /&gt;</code></pre></p>
+			<p>用@media适配不同尺寸的手机：</p>
+			<pre><code>
+@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone5 */} 
+@media only screen and (max-device-width :480px){ } 
+@media only screen and (min-device-width :481px){ } 
+/*6*/ 
+@media (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio : 2){ } 
+/*6+*/ 
+@media (min-device-width : 414px) and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio : 3){ } 
+/*魅族*/ 
+@media only screen and (min-device-width :1080px) and (-webkit-min-device-pixel-ratio : 2.5){ } 
+/*mate7*/ 
+@media only screen and (min-device-width :1080px) and (-webkit-min-device-pixel-ratio : 3){ } 
+/*4 4s*/ 
+@media only screen and (device-height :480px) and (-webkit-device-pixel-ratio:2){ } 
+			</code></pre>
 		</div>
 		<div>
-			<h4>四，响应式布局。</h4>
+			<h4>四，响应式布局。<a href="responsive.html">Demo</a></h4>
 			<p>响应式与自适应的原理是相似的，都是检测设备，根据不同的设备采用不同的css，而且css都是采用的百分比的，而不是固定的宽度，不同点是响应式的模板在不同的设备上看上去是不一样的，会随着设备的改变而改变展示样式。</p>
 			<p>响应式分别为不同的屏幕分辨率定义布局，同时，在每个布局中，应用流式布局的理念，即页面元素宽度随着窗口调整而自动适配。可以把响应式布局看作是流式布局和自适应布局设计理念的融合。</p>
 			<p>自适应的体验<a href="http://m.ctrip.com/html5/">http://m.ctrip.com/html5/  </a></p>
@@ -129,16 +145,25 @@
   ● 为了兼顾移动端和PC端各自响应式的展示效果，难免会损失各自特有的交互方式</p>
 		</div>
 		<div>
-			<h4>五，rem布局</h4>
+			<h4>五，rem布局。<a href="rem.html">Demo</a></h4>
+			<p>兼容性比flex布局好一点。</p>
+			<p>实现原理:根据rem将页面放大dpr倍, 然后viewport设置为1/dpr.
+  ● 如iphone6 plus的dpr为3, 则页面整体放大3倍, 1px(css单位)在plus下默认为3px(物理像素)
+  ● 然后viewport设置为1/3, 这样页面整体缩回原始大小. 从而实现高清。</p>
+  			<p>这样整个网页在设备内显示时的页面宽度就会等于设备逻辑像素大小，也就是device-width。这个device-width的计算公式为：设备的物理分辨率/(devicePixelRatio * scale)，在scale为1的情况下，device-width = 设备的物理分辨率/devicePixelRatio 。<br />
+  			具体请查看:<br />
+  			可伸缩布局方案 <a href="https://github.com/amfe/lib-flexible">https://github.com/amfe/lib-flexible</a> 或<br />
+  			移动端高清1px方案 <a href="https://www.npmjs.com/package/anima-hd">https://www.npmjs.com/package/anima-hd</a>.</p>
 			<p>我们可以通过设置不同的html基础值来达到在不同页面适配的目的，当然在使用js来设置时，需要绑定页面的resize事件来达到变化时更新html的font-size。可以通过CSS设置也可以通过JS设置。</p>
 			<pre><code>
 @media (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio : 2){
       html{font-size: 37.5px;}
 }
 document.getElementsByTagName('html')[0].style.fontSize = window.innerWidth / 10 + 'px';
-</code></pre>
+			</code></pre>
 			<p>关于rem的基准值，也就是上面那个37.5px其实是根据我们所拿到的视觉稿来决定的，主要有以下几点原因：1 由于我们所写出的页面是要在不同的屏幕大小设备上运行的;2 所以我们在写样式的时候必须要先以一个确定的屏幕来作为参考，这个就由我们拿到的视觉稿来定;3 假如我们拿到的视觉稿是以iphone6的屏幕为基准设计的;4 iPhone6的屏幕大小是375px。</p>
 			<p>移动web适配利器-rem：<a href="http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/">http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/</a></p>
+			<code>meta.setAttribute('content', 'initial-scale=' + 1/dpr + ', maximum-scale=' + 1/dpr + ', minimum-scale=' + 1/dpr + ', user-scalable=no');</code>
 			<p>rem布局的不足是：当用作图片或者一些不能缩放的展示时，必须要使用固定的px值，因为缩放可能会导致图片压缩变形等。</p>
 			<p>在列举几个使用rem的线上网站：<br />
 			网易新闻：<a href="http://3g.163.com/touch/news/subchannel/all?version=v_standard">http://3g.163.com/touch/news/subchannel/all?version=v_standard</a><br />
@@ -181,34 +206,19 @@ e()
 		</div>
 		<div>
 			<h4>六，Flex弹性布局</h4>
+			<p>兼容性有缺陷，暂时不优先考虑。</p>
 			<p>它的viewport是固定的：<code>&lt;meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"&gt;</code>高度定死，宽度自适应(不定义)，元素都采用px做单位。加上display：-webkit-fiex；随着屏幕宽度变化，页面也会跟着变化，效果就和PC页面的流体布局差不多，在哪个宽度需要调整的时候使用响应式布局调调就行（比如网易新闻），这样就实现了『适配』。<br />
 			Flex弹性布局方案：<a href="http://www.meow.re/demo/screen-adaptation-in-mobileweb/app-fixed-height.html">http://www.meow.re/demo/screen-adaptation-in-mobileweb/app-fixed-height.html</a></p>
 		</div>
-		<div>
+		<!-- <div>
 			<h4>七，rem + viewport</h4>
-			<p>兼容性比flex布局好一点。</p>
-			<p>实现原理:根据rem将页面放大dpr倍, 然后viewport设置为1/dpr.
-  ● 如iphone6 plus的dpr为3, 则页面整体放大3倍, 1px(css单位)在plus下默认为3px(物理像素)
-  ● 然后viewport设置为1/3, 这样页面整体缩回原始大小. 从而实现高清。</p>
-  			<p>这样整个网页在设备内显示时的页面宽度就会等于设备逻辑像素大小，也就是device-width。这个device-width的计算公式为：设备的物理分辨率/(devicePixelRatio * scale)，在scale为1的情况下，device-width = 设备的物理分辨率/devicePixelRatio 。<br />
-  			具体请查看:<br />
-  			可伸缩布局方案 <a href="https://github.com/amfe/lib-flexible">https://github.com/amfe/lib-flexible</a> 或<br />
-  			移动端高清1px方案 <a href="https://www.npmjs.com/package/anima-hd">https://www.npmjs.com/package/anima-hd</a>.</p>
-		</div>
+		</div> -->
 		<div>
 			<h4>八，1像素边框高清
-<!-- 淘宝实现方式
-上面说到的淘宝的实现方式即rem+viewport 缩放来实现。
+<!-- 1像素边框高清淘宝实现方式,即rem+viewport 缩放来实现。
 transform: scale(0.5)
 CSS代码：
-1
-2
-3
-4
-5
-6
-7
-8div{
+div{
  width: 1px;
  height: 100%;
  display: block;
@@ -232,13 +242,7 @@ box-shadow
 使用 background-image 实现1px有两种方式: 渐变 linear-gradient 或直接使用图片(base64)。
 渐变 linear-gradient (50%有颜色，50%透明)
 单条线：
-1
-2
-3
-4
-5
-6
-7div {
+div {
  height: 1px;
  background-image: -webkit-linear-gradient(top,transparent 50%,#000 50%);
  background-position: top left;
@@ -246,12 +250,7 @@ box-shadow
  background-size: 100% 1px;
 }
 多条线：
-1
-2
-3
-4
-5
-6div {
+div {
  background-image:-webkit-linear-gradient(top, transparent 50%, #000 50%),-webkit-linear-gradient(bottom, transparent 50%, #000 50%),-webkit-linear-gradient(left, transparent 50%, #000 50%),-webkit-linear-gradient(right, transparent 50%, #000 50%);
  background-size: 100% 1px,100% 1px,1px 100%,1px 100%;
  background-repeat: no-repeat;
@@ -264,13 +263,14 @@ box-shadow
   ● 大量使用渐变可能导致性能瓶颈
   ● 代码量大
   ● 多背景图片有兼容性问题 --></h4>
+  			<p>其他方式不推荐，推荐使用rem+viewport控制dpr。详见上面。</p>
 		</div>
 	</article>
 
 	<!-- 图片宽度自适应 -->
 	<article>
 		<div>
-			<h3>图片宽度自适应(未完)</h3>
+			<h4>图片宽度自适应(未完)</h4>
 			<div>
 				<p>图片宽度自适应：
 				<pre><code class="css">img{max-width:100%;height:auto;display: block;}</code></pre>这行代码对于大多数嵌入网页的视频也有效，所以可以写成：<pre><code>img,object{max-width:100%;height:auto;display: block;}</code></pre>老版本的IE不支持max-width，所以只好写成：<code>img{width:100%;}</code>此外，windows平台缩放图片时，可能出现图像失真现象。这时，可以尝试使用IE的专有命令：<code>img{-ms-interpolation-mode:bicubic;}</code>插值图像比原始小图像的简单放大产生更平滑的线条和更好看的图片。该-ms插值模式属性只在Internet Explorer 7的版本支持。

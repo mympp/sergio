@@ -298,6 +298,96 @@
     overflow: hidden;
     break-inside: avoid-column;
 }
+/*self-adaption.html*/
+
+.self-adaption{
+	background: #fff;
+	text-align: center;
+}
+.self-adaption header,
+.self-adaption footer,
+.self-adaption summary,
+.self-adaption article{
+	background: #ccc;
+}
+.self-adaption main{
+	background: #aaa;
+	height: 700px;
+}
+.self-adaption header,
+.self-adaption footer{
+	height: 100px;
+}
+.self-adaption header,
+.self-adaption footer,
+.self-adaption main{
+	width: 960px;
+	margin: 0 auto;
+}
+.self-adaption .article1,
+.self-adaption .article2,
+.self-adaption .article3{
+	float: left;
+	height: 500px;
+	margin: 1%;
+}
+.self-adaption .article1{
+	width: 50%;
+}
+.self-adaption .article2{
+	width: 24%;
+}
+.self-adaption .article3{
+	width: 20%;
+}
+.self-adaption footer{
+	clear: both;
+}
+/*responsive.html*/
+
+.responsive{
+	background: #fff;
+	text-align: center;
+}
+.responsive header,
+.responsive footer,
+.responsive summary,
+.responsive article{
+	background: #ccc;
+}
+.responsive main{
+	background: #aaa;
+	height: 700px;
+}
+.responsive header,
+.responsive footer{
+	height: 100px;
+}
+.responsive header,
+.responsive footer,
+.responsive main{
+	width: 960px;
+	margin: 0 auto;
+}
+.responsive .article1,
+.responsive .article2,
+.responsive .article3{
+	float: left;
+	height: 500px;
+	margin: 1%;
+}
+.responsive .article1{
+	width: 50%;
+}
+.responsive .article2{
+	width: 24%;
+}
+.responsive .article3{
+	width: 20%;
+}
+.responsive footer{
+	clear: both;
+}
 @media only screen and (max-width:960px){
 
 	/*html5.html*/
@@ -326,5 +416,27 @@
 	}
 	.blog aside,.blog article{
 		width: 100%;
+	}
+	/*blog/programmer/adaptive/self-adaption.html*/
+	.self-adaption header,
+	.self-adaption footer,
+	.self-adaption main{
+		width: 100%;
+	}
+	/*blog/programmer/adaptive/responsive.html*/
+	.responsive header,
+	.responsive footer,
+	.responsive main{
+		width: 100%;
+	}
+	.responsive .article1,
+	.responsive .article2,
+	.responsive .article3{
+		width: 98%;
+		float: none;
+	}
+	.responsive main{
+		height: auto;
+		padding-bottom: 10px;
 	}
 }
