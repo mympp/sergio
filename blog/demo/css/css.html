@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>css</title>
+<style type="text/css">
+article.content a[href^="http"]:empty::before{
+	content: attr(href);
+	pointer-events: none;
+}
+article.content div{
+	width: 100px;
+	border: 1px solid red;
+	position: relative;
+}
+article.content div:hover:after{
+	width: 200%;
+	content: attr(data-msg);
+	position: absolute;
+	font-size: 12px;
+	line-height: 30px;
+	text-align: center;
+	left: 0;
+	top: 25px;
+	border: 1px solid green;
+	background: #fff;
+}
+article.justify div{
+	width: 100px;
+	text-align: justify;/*兼容IE*/
+	text-align-last: justify;
+	-moz-text-align-last: justify;
+}
+article.justify .num{
+	text-align: center;/*兼容IE*/
+	text-align-last: center;
+	-moz-text-align-last: center;	
+}
+.valid {
+  border-color: #429032;
+  box-shadow: inset 5px 0 0 #429032;
+}
+
+.invalid {
+  border-color: #D61D1D;
+  box-shadow: inset 5px 0 0 #D61D1D;
+}
+
+.form-group {
+  width: 32rem;
+  padding: 1rem;
+  border: 1px solid transparent;
+  &:hover {
+    border-color: #eee;
+    transition: border .2s;
+  }
+  label {
+    display: block;
+    font-weight: normal;
+  }
+  input,
+  textarea {
+    display: block;
+    width: 100%;
+    line-height: 2rem;
+    padding: .5rem .5rem .5rem 1rem;
+    border: 1px solid #ccc;
+    outline: none;
+    &:valid {
+      @extend .valid;
+    }
+    &:invalid {
+      @extend .invalid;
+    } 
+  }
+}
+article.nth-of-type tbody tr:nth-of-type(2n){
+	background-color: #aaa;
+}
+article.nth-of-type tbody tr:nth-of-type(2n+1){
+	background-color: #ddd;
+}
+article.nth-of-type tbody tr:nth-child(n+5):nth-child(-n+6){
+	background-color: red;
+}
+article.writing-mode p{
+	writing-mode: tb-rl;
+	-webkit-writing-mode: vertical-rl;
+	writing-mode: vertical-rl;
+	*width: 120px;/*兼容IE7*/
+}
+article.writing-mode p{
+	*display: inline;/*兼容IE7*/
+	*writing-mode: tb-rl;/*兼容IE7*/
+}
+article.max-height li{
+	line-height: 30px;
+}
+article.max-height .bd{
+	max-height: 0;
+	overflow: hidden;
+	transition: all 1s ease-out;
+}
+article.max-height li:hover .bd{
+	max-height: 600px;
+	transition-timing-function: ease-in;
+}
+article.nth-child li:not(:nth-child(-n+2)){
+	color: red;
+}
+article.nth-child li:nth-child(n+2){
+	font-size: 24px;
+}
+article.nth-child li:not(:last-child)::after{
+	content: ",";
+}
+</style>
+</head>
+<body>
+<a href="https://github.com/jawil/blog/issues/29">原文</a>
+<a href="http://www.zhangxinxu.com/wordpress/2010/09/selectivizr-%E8%AE%A9ie6ie7ie8%E6%94%AF%E6%8C%81css3%E4%BC%AA%E7%B1%BB%E5%92%8C%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8/">解决IE6~8不支持CSS3伪类问题</a><small>以下兼容至IE8</small>
+<article class="content">
+	<h5>利用content的属性attr抓取资料</h5>
+	<div data-msg="Ophen this file in Github Desktop">hover</div>
+	<p title="title慢一点，而且不可控">区别title：</p>
+	<h5>显示没有文本值但是有href链接 的a元素标签</h5>
+	<a href="https://github.com/jawil/blog/issues/29"></a>
+</article>
+<article class="justify">
+	<h5>text-align-last:justify实现两端对齐</h5>
+	<p>justify对数字英文不起效，可以用center实现居中</p>
+	<div>姓名</div>
+	<div>手机号码</div>
+	<div>验证码</div>
+	<div class="num">1234</div>
+	<div class="num">Email</div>
+</article>
+<article class="container">
+	<h5>伪类<a href="https://segmentfault.com/a/1190000011194809">更多</a></h5>
+    <div class="row" style="margin-top: 2rem;">
+      <form>
+        <div class="form-group">
+          <label>name</label>
+          <input type="text" required placeholder="请输入名称">
+        </div>
+        <div class="form-group">
+          <label>email</label>
+          <input type="email" required placeholder="请输入邮箱">
+        </div>
+        <div class="form-group">
+          <label>homepage</label>
+          <input type="url" placeholder="请输入博客url">
+        </div>
+        <div class="form-group">
+          <label>Comments</label>
+          <textarea required></textarea>
+        </div>
+      </form>
+    </div>
+</article>
+<article class="nth-of-type">
+	<table>
+		<tbody>
+			<tr>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>2</td>
+			</tr>
+			<tr>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>4</td>
+			</tr>
+			<tr>
+				<td>5</td>
+			</tr>
+			<tr>
+				<td>6</td>
+			</tr>
+		</tbody>
+	</table>
+</article>
+<article class="writing-mode">
+	<h5>文字竖着排列<a href="http://www.zhangxinxu.com/wordpress/2016/04/css-writing-mode/">更多</a></h5>
+	<p>这是一段竖着排列的文字。</p>
+</article>
+<article class="max-height">
+	<h5>利用max-height和transition动画实现鼠标悬停自动撑开的过度动画</h5>
+	<ul>
+		<li>
+			<div class="hd">列表1</div>
+			<div class="bd">列表内容<br>列表内容<br>列表内容<br>列表内容<br>列表内容<br></div>
+		</li>
+		<li>
+			<div class="hd">列表1</div>
+			<div class="bd">列表内容<br>列表内容<br>列表内容<br></div>
+		</li>
+		<li>
+			<div class="hd">列表1</div>
+			<div class="bd">列表内容<br>列表内容<br>列表内容<br>列表内容<br></div>
+		</li>
+	</ul>
+</article>
+<article class="nth-child">
+	<h5>选择一系列标签中的某一些标签</h5>
+	<ul>
+		<li>a</li>
+		<li>a</li>
+		<li>a</li>
+		<li>a</li>
+		<li>a</li>
+		<li>a</li>
+	</ul>
+</article>
+<article>
+	<h5>弹性滚动</h5>
+	<p>-webkit-overflow-scrolling属性具有继承效果，所以在 body 上设置即可，这样局部滚动条就非常的流畅了。</p>
+	<pre><code>
+body{
+-webkit-overflow-scrolling: touch; /* ios5+ */
+}
+ele{
+overflow:auto;
+}
+	</code></pre>
+</article>
+</body>
+</html>
