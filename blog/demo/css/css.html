@@ -113,6 +113,53 @@ article.nth-child li:nth-child(n+2){
 article.nth-child li:not(:last-child)::after{
 	content: ",";
 }
+article.checked{
+    font-size: 0;
+    $bgc: green;
+    %common {
+        padding: 2px;
+        background-color: $bgc;
+        background-clip: content-box;
+    }
+    .radio-name {
+        vertical-align: middle;
+        font-size: 16px;
+    }
+    .radio-beauty {
+        width: 18px;
+        height: 18px;
+        box-sizing: border-box;
+        display: inline-block;
+        border: 1px solid $bgc;
+        vertical-align: middle;
+        margin: 0 15px 0 3px;
+        border-radius: 50%;
+        &:hover {
+            box-shadow: 0 0 7px $bgc;
+            @extend %common;
+        }
+    }
+    input[type="radio"]:checked+.radio-beauty {
+        @extend %common;
+    }
+}
+article .custom{
+	caret-color: red;
+}
+#triangle-right {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-left: 20px solid red;
+    border-bottom: 10px solid transparent;
+}
+article.grayscale{
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+}
 </style>
 </head>
 <body>
@@ -224,6 +271,39 @@ ele{
 overflow:auto;
 }
 	</code></pre>
+</article>
+<article>
+	<h5>利用伪类选择器:checked美化radio，checkbox</h5>
+	<p>此处应用到scss</p>
+	<div class="checked">
+	    <label>
+	        <span class="radio-name">前端工程师</span>
+	        <input type="radio" name="radioName" id="radioName1" hidden/>
+	        <label for="radioName1" class="radio-beauty"></label>
+	    </label>
+	    <label>
+	        <span class="radio-name">后端工程师</span>
+	        <input type="radio" name="radioName" id="radioName2" hidden/>
+	        <label for="radioName2" class="radio-beauty"></label>
+	    </label>
+	    <label>
+	        <span class="radio-name">全栈工程师</span>
+	        <input type="radio" name="radioName" id="radioName3" hidden/>
+	        <label for="radioName3" class="radio-beauty"></label>
+	    </label>
+	</div>
+</article>
+<article>
+	<input type="" name="" value="正常情况下的光标">
+	<input type="" name="" class="custom" value="改变了的光标">
+</article>
+<article>
+	<h5>利用transparent实现三角形，提示框</h5>
+	<div id="triangle-right"></div>
+</article>
+<article class="grayscale">
+	<h5>利用filter: grayscale(100%)让所有图片都变成黑白色彩的</h5>
+	<img src="http://linshaojia.com/images/moment.jpg" width="200px">
 </article>
 </body>
 </html>
