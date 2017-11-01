@@ -321,23 +321,5 @@
 				start();
 			});
 		</script>
-		<script>
-			$(function(){
-				//为关闭按钮绑定单击事件
-				$(document).on("click",".close-vx",function(){
-					$(".modal_video").fadeOut();
-					$(".video-div video").attr("src","");
-				})
-				
-				//为视频img绑定单击事件
-				$(document).on("click",".video_img_pro",function(){
-					var vdsrc = $(this).attr("vd-src");
-					$(".modal_video").fadeIn();
-					$(".video-div video").attr("src",vdsrc);
-					$(".video-div video")[0].play();
-					//console.log(vdsrc);
-				})
-			})
-		</script>
 	</body>
 </html>
