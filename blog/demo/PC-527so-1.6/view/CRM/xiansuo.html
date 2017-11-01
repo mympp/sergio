@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>线索</title>
+		<link rel="stylesheet" href="../../css/common.css" />
+	    <link rel="stylesheet" href="../../css/index.css" />
+	    <link rel="stylesheet" href="../../css/xiansuo.css" />
+	</head>
+	<body style="min-width: 1366px;">
+		<!--父容器开始-->
+		<div class="outer_div">
+			<!--左边导航模块-->
+			<div class="left_template">
+				<div class="user_logo"><img src="../../Images/common_logo.png" alt="" /></div>
+				<p class="company_name1">广东雀鸟科技有限公司</p>
+				<!--用户导航列表-->
+				<div class="userList_bar">
+					<ul class="userList_ul">
+						<li class="userList_li">
+							<span class="icon-01"></span>
+							<span class="icon-text">概览</span>
+						</li>
+						<li class="userList_li active">
+							<span class="icon-02"></span>
+							<span class="icon-text">线索</span>
+							<span class="xiansuo_count">10</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-03"></span>
+							<span class="icon-text">客户管理</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-04"></span>
+							<span class="icon-text">联系人</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-05"></span>
+							<span class="icon-text">公海</span>
+						</li>
+						<li class="userList_li icon-shopping">
+							<span class="icon-06"></span>
+							<span class="icon-text">商品</span>
+							<span class="icon-shopping-1"></span>
+						</li>
+						<div class="icon-shopping-div">
+							<p>商品管理</p>
+							<p>发布产品</p>
+						</div>
+						<li class="userList_li">
+							<span class="icon-07"></span>
+							<span class="icon-text">咨询信息</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-08"></span>
+							<span class="icon-text">设置</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-09"></span>
+							<span class="icon-text">反馈</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--右边主题内容-->
+			<div class="right_template">
+				<div class="left_header">
+					<div class="page_state">概览</div>
+					<div class="vip-valid">会员有效日期：2017-10-30</div>
+				</div>
+				<div class="right_header">
+					<ul>
+						<li class="buy_xiansuoli1">
+							<span class="buy_vip_icon1"></span>
+							<a href="javascript:;">购买会员</a>
+						</li>
+						<li class="xiansuoli1">
+							<span class="user_icon1"></span>
+							<a href="javascript:;">哟哟</a>
+						</li>
+						<li class="xiansuoli1">
+							<span class="login_out1"></span>
+							<a href="javascript:;">退出</a>
+						</li>
+					</ul>
+				</div>
+				<!--线索头部开始-->
+				<div class="xiansuo_header">
+					<!--线索头部左边-->
+					<div class="xiansuo_hdleft">
+						<!--第一列表-->
+						<ul>
+							<span class="saixuan_text1">筛选：</span>
+							<li>建筑建材</li>
+							<!--<li>手机数码</li>
+							<li>母婴玩具</li>-->
+							<li class="More_Actions">更多操作
+								<div class="More_Actions_ul">
+									<p>标记</p>
+									<p>作废</p>
+									<p>今日</p>
+									<p>本周</p>
+									<p>本月</p>
+									<p>自定义时间</p>
+								</div>
+								<div class="zdy_timer_div">
+									<div class="zdy_timer_cell1">
+										<span class="zdy_timer_cell1_s1">自定义时间筛选</span>
+										<span class="zdy_timer_cell1_s2">&times;</span>
+									</div>
+									<div class="oneLine-cell">
+										<input type="datetime" class="input-sm laydate-icon" id="inputStartTime" name="sdate" placeholder="开始时间">
+										<sapn class="most">至</sapn>
+										<input type="datetime" class="input-sm laydate-icon" id="inputEndTime" name="edate" placeholder="结束时间">
+									</div>
+									<div class="zdy_timer_btn">确认</div>
+								</div>
+							</li>
+						</ul>
+						<!--第二列表-->
+						<div class="xiansuo_hdleft_divlist">
+							<label class="checkbox checkboxAll1" onselectstart="return false;">
+					        	<input id="checkall" type="checkbox" class="vam" name="checkall" onclick="selectAll()"/>
+					            <i></i>
+					        </label>
+							<span class="saixuan_text1">全选：</span>
+							<div class="xiansuo_hdleft_btnlist">
+								<span class="btnlist_biaoji">标记</span>
+								<span class="btnlist_zuofei">作废</span>
+								<span class="btnlist_huifu">恢复</span>
+								<span class="btnlist_delete">删除</span>
+							</div>
+						</div>
+					</div>
+					<!--线索头部右边-->
+					<div class="xiansuo_hdright">
+						<div class="dingyue_cgMsgBtn">订阅行业采购商信息</div>
+						<div class="search-box">
+							<span class="search-icon1"></span>
+							<input class="search-input" type="search" placeholder="请输入关键词搜索"/>
+							<span class="search-btn">搜索</span>
+						</div>
+					</div>
+				</div>
+				<!--线索头部结束-->
+				
+				<!--线索内容开始-->
+				<div class="xiansuo_main">
+					<!--线索列表开始-->
+					<ul class="xiansuo_List">
+						<li name="111" data-null="default">
+							<div class="xiansuo_List_no1">
+								<label class="checkbox" onselectstart="return false;">
+									<input type="checkbox" class="vam" name="checkedres" />
+									<i></i> 
+								</label>
+								<div class="xiansuo_List_title">急求钢筋一批，规则20MM，广州天河大观中路工地</div>
+								<span class="xiansuo_List_state"></span>
+							</div>
+							<div class="xiansuo_List_dets">
+								<div class="xiansuo_List_dets_lf">
+									<div class="xiansuo_List_dets_div1">采购价格：<span class="xiansuo_List_dets_span1">详谈</span></div>
+									<div class="xiansuo_List_dets_div1">采购数量：<span class="xiansuo_List_dets_span1">1000PCS</span></div>
+									<div class="xiansuo_List_dets_div1">更多描述：<span class="xiansuo_List_dets_span1">急求钢筋一批，规格20MM</span></div>
+								</div>
+								<div class="xiansuo_List_dets_rt">
+									<div class="xiansuo_List_dets_div1">发布时间：<span class="xiansuo_List_dets_span1">2017-09-13 14:50</span></div>
+									<div class="xiansuo_List_dets_div1">截止时间：<span class="xiansuo_List_dets_span1">2017-09-30 17:00</span></div>
+									<div class="xiansuo_List_dets_div1">供货地址：<span class="xiansuo_List_dets_span1">广州市天河区体育东路115号羊城花园A栋XXX号</span></div>
+								</div>
+								<div class="chakan_lianxi1" onselectstart="return false;">
+									<span class="ck-phone-icon"></span>
+									<span class="ck-phone-val">查看联系方式</span>
+								</div>
+								<div class="chakan_lianxi2 hide" onselectstart="return false;">
+									<span class="ck-email-icon"></span>
+									<span class="ck-email-val">查看联系方式</span>
+								</div>
+							</div>
+							<div class="xiansuo_border"></div>
+							<input type="hidden" value="13268036998" class="tel_val"/>
+							<input type="hidden" value="642307404@qq.com" class="email_val"/>
+						</li>
+						<li name="222" data-null="true">
+							<div class="xiansuo_List_no1">
+								<label class="checkbox" onselectstart="return false;">
+									<input type="checkbox" class="vam" name="checkedres" />
+									<i></i> 
+								</label>
+								<div class="xiansuo_List_title">急求钢筋一批，规则20MM，广州天河大观中路工地</div>
+								<span class="xiansuo_List_state yi_zuofei">作废</span>
+							</div>
+							<div class="xiansuo_List_dets">
+								<div class="xiansuo_List_dets_lf">
+									<div class="xiansuo_List_dets_div1">采购价格：<span class="xiansuo_List_dets_span1">详谈</span></div>
+									<div class="xiansuo_List_dets_div1">采购数量：<span class="xiansuo_List_dets_span1">1000PCS</span></div>
+									<div class="xiansuo_List_dets_div1">更多描述：<span class="xiansuo_List_dets_span1">急求钢筋一批，规格20MM</span></div>
+								</div>
+								<div class="xiansuo_List_dets_rt">
+									<div class="xiansuo_List_dets_div1">发布时间：<span class="xiansuo_List_dets_span1">2017-09-13 14:50</span></div>
+									<div class="xiansuo_List_dets_div1">截止时间：<span class="xiansuo_List_dets_span1">2017-09-30 17:00</span></div>
+									<div class="xiansuo_List_dets_div1">供货地址：<span class="xiansuo_List_dets_span1">广州市天河区体育东路115号羊城花园A栋XXX号</span></div>
+								</div>
+								<div class="chakan_lianxi1 hide" onselectstart="return false;">
+									<span class="ck-phone-icon"></span>
+									<span class="ck-phone-val">查看联系方式</span>
+								</div>
+								<div class="chakan_lianxi2" onselectstart="return false;">
+									<span class="ck-email-icon"></span>
+									<span class="ck-email-val">查看联系方式</span>
+								</div>
+							</div>
+							<div class="xiansuo_border"></div>
+							<input type="hidden" value="13268036998" class="tel_val"/>
+							<input type="hidden" value="642307404@qq.com" class="email_val"/>
+						</li>
+						<li name="333" data-null="biaoji">
+							<div class="xiansuo_List_no1">
+								<label class="checkbox" onselectstart="return false;">
+									<input type="checkbox" class="vam" name="checkedres" />
+									<i></i> 
+								</label>
+								<div class="xiansuo_List_title">急求钢筋一批，规则20MM，广州天河大观中路工地</div>
+								<span class="xiansuo_List_state yi_biaoji">已标记</span>
+							</div>
+							<div class="xiansuo_List_dets">
+								<div class="xiansuo_List_dets_lf">
+									<div class="xiansuo_List_dets_div1">采购价格：<span class="xiansuo_List_dets_span1">详谈</span></div>
+									<div class="xiansuo_List_dets_div1">采购数量：<span class="xiansuo_List_dets_span1">1000PCS</span></div>
+									<div class="xiansuo_List_dets_div1">更多描述：<span class="xiansuo_List_dets_span1">急求钢筋一批，规格20MM</span></div>
+								</div>
+								<div class="xiansuo_List_dets_rt">
+									<div class="xiansuo_List_dets_div1">发布时间：<span class="xiansuo_List_dets_span1">2017-09-13 14:50</span></div>
+									<div class="xiansuo_List_dets_div1">截止时间：<span class="xiansuo_List_dets_span1">2017-09-30 17:00</span></div>
+									<div class="xiansuo_List_dets_div1">供货地址：<span class="xiansuo_List_dets_span1">广州市天河区体育东路115号羊城花园A栋XXX号</span></div>
+								</div>
+								<div class="chakan_lianxi1" onselectstart="return false;">
+									<span class="ck-phone-icon"></span>
+									<span class="ck-phone-val">查看联系方式</span>
+								</div>
+								<div class="chakan_lianxi2 hide" onselectstart="return false;">
+									<span class="ck-email-icon"></span>
+									<span class="ck-email-val">查看联系方式</span>
+								</div>
+							</div>
+							<div class="xiansuo_border"></div>
+							<input type="hidden" value="13268036998" class="tel_val"/>
+							<input type="hidden" value="642307404@qq.com" class="email_val"/>
+						</li>
+						<li name="444" data-null="biaoji">
+							<div class="xiansuo_List_no1">
+								<label class="checkbox" onselectstart="return false;">
+									<input type="checkbox" class="vam" name="checkedres" />
+									<i></i> 
+								</label>
+								<div class="xiansuo_List_title">急求钢筋一批，规则20MM，广州天河大观中路工地</div>
+								<span class="xiansuo_List_state yi_biaoji">已标记</span>
+							</div>
+							<div class="xiansuo_List_dets">
+								<div class="xiansuo_List_dets_lf">
+									<div class="xiansuo_List_dets_div1">采购价格：<span class="xiansuo_List_dets_span1">详谈</span></div>
+									<div class="xiansuo_List_dets_div1">采购数量：<span class="xiansuo_List_dets_span1">1000PCS</span></div>
+									<div class="xiansuo_List_dets_div1">更多描述：<span class="xiansuo_List_dets_span1">急求钢筋一批，规格20MM</span></div>
+								</div>
+								<div class="xiansuo_List_dets_rt">
+									<div class="xiansuo_List_dets_div1">发布时间：<span class="xiansuo_List_dets_span1">2017-09-13 14:50</span></div>
+									<div class="xiansuo_List_dets_div1">截止时间：<span class="xiansuo_List_dets_span1">2017-09-30 17:00</span></div>
+									<div class="xiansuo_List_dets_div1">供货地址：<span class="xiansuo_List_dets_span1">广州市天河区体育东路115号羊城花园A栋XXX号</span></div>
+								</div>
+								<div class="chakan_lianxi1 hide" onselectstart="return false;">
+									<span class="ck-phone-icon"></span>
+									<span class="ck-phone-val">查看联系方式</span>
+								</div>
+								<div class="chakan_lianxi2" onselectstart="return false;">
+									<span class="ck-email-icon"></span>
+									<span class="ck-email-val">查看联系方式</span>
+								</div>
+							</div>
+							<div class="xiansuo_border"></div>
+							<input type="hidden" value="13268036998" class="tel_val"/>
+							<input type="hidden" value="642307404@qq.com" class="email_val"/>
+						</li>
+						<li name="555" data-null="biaoji">
+							<div class="xiansuo_List_no1">
+								<label class="checkbox" onselectstart="return false;">
+									<input type="checkbox" class="vam" name="checkedres" />
+									<i></i> 
+								</label>
+								<div class="xiansuo_List_title">急求钢筋一批，规则20MM，广州天河大观中路工地</div>
+								<span class="xiansuo_List_state yi_biaoji">已标记</span>
+							</div>
+							<div class="xiansuo_List_dets">
+								<div class="xiansuo_List_dets_lf">
+									<div class="xiansuo_List_dets_div1">采购价格：<span class="xiansuo_List_dets_span1">详谈</span></div>
+									<div class="xiansuo_List_dets_div1">采购数量：<span class="xiansuo_List_dets_span1">1000PCS</span></div>
+									<div class="xiansuo_List_dets_div1">更多描述：<span class="xiansuo_List_dets_span1">急求钢筋一批，规格20MM</span></div>
+								</div>
+								<div class="xiansuo_List_dets_rt">
+									<div class="xiansuo_List_dets_div1">发布时间：<span class="xiansuo_List_dets_span1">2017-09-13 14:50</span></div>
+									<div class="xiansuo_List_dets_div1">截止时间：<span class="xiansuo_List_dets_span1">2017-09-30 17:00</span></div>
+									<div class="xiansuo_List_dets_div1">供货地址：<span class="xiansuo_List_dets_span1">广州市天河区体育东路115号羊城花园A栋XXX号</span></div>
+								</div>
+								<div class="chakan_lianxi1" onselectstart="return false;">
+									<span class="ck-phone-icon"></span>
+									<span class="ck-phone-val">查看联系方式</span>
+								</div>
+								<div class="chakan_lianxi2 hide" onselectstart="return false;">
+									<span class="ck-email-icon"></span>
+									<span class="ck-email-val">查看联系方式</span>
+								</div>
+							</div>
+							<div class="xiansuo_border"></div>
+							<input type="hidden" value="13268036998" class="tel_val"/>
+							<input type="hidden" value="642307404@qq.com" class="email_val"/>
+						</li>
+					</ul>
+					<!--线索列表结束-->
+					
+					<!--分页器开始-->
+					<div class="xiansuo_Page_Div">
+						<div class="xiansuo_Page_border"></div>
+						<div class="xiansuo_Page_div">
+							<div class="fl">
+								<span style="margin-right: 5px;">每页显示</span>
+								<select class="xiansuo_Page_Three">
+									<option value="10">10</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+								</select>
+								<span style="margin-left: 5px;">条</span><span style="margin-left: 10px;">共</span><span class="xiansuo_Sizes">1500</span><span>条/</span><span class="xiansuo_Pages">50页</span>
+								<img class="first_page" src="../../Images/icon_sanjiao_01.png" alt="" />
+								<img class="prev_page" src="../../Images/icon_sanjiao_02.png" alt="" />
+							</div>
+							<ul class="xiansuo_Page_list">
+								<li class="active">1</li>
+								<li>2</li>
+								<li>3</li>
+								<li>4</li>
+								<li>5</li>
+							</ul>
+							<img class="next_page" style="margin-left: 15px;" src="../../Images/icon_sanjiao_03.png" alt="" />
+							<img class="last_page"src="../../Images/icon_sanjiao_04.png" alt="" />
+							<span style="margin: 0 5px;">跳转</span><input type="text" value="0" class="that_Page" maxlength="10"/><span style="margin-left: 5px;">页</span>
+						</div>
+					</div>
+					<!--分页器结束-->
+				</div>
+				<!--线索内容结束-->
+			</div>
+		</div>
+		<!--父容器结束-->
+		
+		<!--线索详情开始-->
+		<div class="xiansuo_des_modal">
+			<div class="xiansuo_des">
+				<div class="xiansuo_des_header">
+					<div class="xiansuo_des_title">
+						线索详情
+						<span class="xiansuo_des_close">&times;</span>
+					</div>
+					<div class="xiansuo_des_state active">状态：已查看</div>
+					<!--功能列表开始-->
+					<ul class="xiansuo_des_ul">
+						<li>编辑</li>
+						<li>删除</li>
+						<li>作废</li>
+						<li>标记</li>
+						<li class="active">已转为客户</li>
+					</ul>
+					<!--功能列表结束-->
+					<!--客户信息开始-->
+					<div class="des_more_fun1">
+						<ul>
+							<li class="active">客户信息</li>
+							<li>服务</li>
+						</ul>
+						<div class="clear"></div>
+						<!--客户信息开始-->
+						<div class="xiansuo_des_content">
+							<div class="xiansuo_des_contents">
+								<div class="xiansuo_des_contents_cell">
+									<span class="span_lf1">客户名称：</span><span class="span_rt1">广东哇哈哈智能科技有限公司</span>
+								</div>
+								<div class="xiansuo_des_contents_cell">
+									<span class="span_lf1">联<span style="margin: 0 8px;">系</span><span>人：</span></span><span class="span_rt1">陈先生</span>
+								</div>
+								<div class="xiansuo_des_contents_cell">
+									<span class="span_lf1">手<span class="text_between">机</span>：</span><span class="span_rt1">13268036998</span>
+								</div>
+								<div class="xiansuo_des_contents_cell">
+									<span class="span_lf1">电<span class="text_between">话</span>：</span><span class="span_rt1">020-8738888</span>
+								</div>
+								<div class="xiansuo_des_contents_cell">
+									<span class="span_lf1">邮<span class="text_between">箱</span>：</span><span class="span_rt1">123456@qq.com</span>
+								</div>
+								<div class="xiansuo_des_contents_cell">
+									<span class="span_lf1">网<span class="text_between">址</span>：</span><span class="span_rt1">无</span>
+								</div>
+								<div class="xiansuo_des_contents_cell">
+									<span class="span_lf1">地<span class="text_between">址</span>：</span><span class="span_rt1">广东省广州市天河区大观中路95号A栋</span>
+								</div>
+								<div class="xiansuo_des_contents_cell">
+									<span class="span_lf1">产品名称：</span><span class="span_rt1">急求钢筋一批，规则20MM，广州天河大观中路工地</span>
+								</div>
+								<div class="xiansuo_des_contents_cell">
+									<span class="span_lf1">线索描述：</span><span class="span_rt1">详情请电联</span>
+								</div>
+								<div class="xiansuo_des_contents_cell">
+									<span class="span_lf1">创建时间：</span><span class="span_rt1">2017-10-20 16:30</span>
+								</div>
+							</div>
+						</div>
+						<!--客户信息结束-->
+						
+						<!--客户服务开始-->
+						<div class="xiansuo_des_content1">
+							<div class="new_fuwujilu">新建服务记录</div>
+							<textarea class="New_fuwujilu" maxlength="300" placeholder="最多输入300个字..."></textarea>
+							<div style="text-align: right;margin: 23px;">
+								<span class="add_newjilu">发布</span>
+							</div>
+							
+							<!--发布记录列表-->
+							<div class="fabu_jilu_list" name="111">
+								<p class="fabu_jilu_time">2017-09-15 11:25</p>
+								<div class="fabu_jilu_content">客户有计划采购大量钢筋水泥，用于新楼房</div>
+								<img class="fabu_jilu_delete" src="../../Images/common_icon_det_nor.png" alt="" />
+							</div>
+							
+							<div class="fabu_jilu_list" name="222">
+								<p class="fabu_jilu_time">2017-09-15 11:25</p>
+								<div class="fabu_jilu_content">客户有计划采购大量钢筋水泥，用于新楼房</div>
+								<img class="fabu_jilu_delete" src="../../Images/common_icon_det_nor.png" alt="" />
+							</div>
+						</div>
+						<!--客户服务结束-->
+					</div>
+					<!--客户信息结束-->
+				</div>
+			</div>
+		</div>
+		<!--线索详情结束-->
+		
+		<!--订阅行业采购商信息开始-->
+		<div class="dingyue_hy_modal">
+			<div class="dingyue_hy">
+				<div class="dingyue_hy_header">
+					订阅行业采购商信息
+					<span class="dingyue_hy_header_close">&times;</span>
+				</div>
+				<div class="dingyue_hy_user_list">
+					<ul>
+						<li>建材建筑</li>
+						<li>母婴用品</li>
+						<li>汽车维修</li>
+						<li>电子应用</li>
+						<li>床上用品</li>
+					</ul>
+					<img class="dingyue_hy_delete" src="../../Images/common_icon_det_nor.png" alt="" />
+				</div>
+				<ul class="php_hy_list">
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+					<li>建材建筑</li>
+				</ul>
+				<div class="php_key_list">
+					<p class="php_key_list_p1">选择订阅关键词</p>
+					<ul>
+						<li>水泥</li>
+						<li>挖掘机</li>
+						<li>钢筋</li>
+						<li>挖掘机</li>
+						<li>水泥</li>
+						<li>挖掘机</li>
+						<li>钢筋</li>
+						<li>挖掘机</li>
+						<li>水泥</li>
+						<li>挖掘机</li>
+						<li>水泥</li>
+						<li>挖掘机</li>
+						<li>钢筋</li>
+						<li>挖掘机</li>
+						<li>水泥</li>
+						<li>挖掘机</li>
+						<li>钢筋</li>
+						<li>挖掘机</li>
+						<li>水泥</li>
+						<li>挖掘机</li>
+					</ul>
+				</div>
+				<!--自定义关键词-->
+				<div class="zdy_keyWord">
+					<p class="zdy_keyWord_p1">自定义关键词</p>
+					<textarea class="zdy_keyWord_form" placeholder="多个关键词用英语逗号隔开"></textarea>
+				</div>
+				<div class="dingyue_hy_btns">	
+					<span class="dy_cancel_1">取消</span>
+					<span class="dy_save_1">保存</span>
+				</div>
+				<!--用户行业删除列表-->
+				<div class="user_dyhy_list">
+					<p class="user_dyhy_list_p1">
+						<span class="close_span">&times;</span>
+					</p>
+					<ul>
+						<li>
+							<div>建筑建材1</div>
+							<span class="delete_btn1">删除</span>
+						</li>
+						<li>
+							<div>建筑建材2</div>
+							<span class="delete_btn1">删除</span>
+						</li>
+						<li>
+							<div>建筑建材3</div>
+							<span class="delete_btn1">删除</span>
+						</li>
+						<li>
+							<div>建筑建材4</div>
+							<span class="delete_btn1">删除</span>
+						</li>
+						<li>
+							<div>建筑建材5</div>
+							<span class="delete_btn1">删除</span>
+						</li>
+					</ul>
+					<!--<span class="submit-save">保存</span>-->
+				</div>
+			</div>
+		</div>
+		<!--订阅行业采购商信息结束-->
+
+		<!--编辑线索开始-->
+		<div class="modal-box-2">
+			<div class="bj-kehu bj-kehu01">
+				<div class="bj-top">
+					<p>
+						编辑线索<span class="bj-top-span">×</span>
+					</p>
+				</div>
+				<div class="bj-center">
+					<div class="bj-text">
+						<!--<em>*</em>-->
+						<span>公    司</span>
+						<input class="input1 company" type="text" placeholder="请输入公司地址">
+					</div>
+					<div class="bj-text">
+						<em>*</em>
+						<span>联 系 人</span>
+						<input class="input2 lianxi_ren" type="text" placeholder="请输入联系人">
+					</div>
+					<div class="bj-text">
+						<!--<em>*</em>-->
+						<span>手    机</span>
+						<input class="input3 Phone" type="text" placeholder="请输入手机号码">
+					</div>
+					<div class="bj-text">
+						<span>电    话</span>
+						<input class="input4 Tle" type="text" placeholder="请输入电话号码">
+					</div>
+					<div class="bj-text">
+						<span>邮    箱</span>
+						<input class="Email" type="text" placeholder="请输入邮箱">
+					</div>
+					<div class="bj-text">
+						<span>网    址</span>
+						<input class="NetCom" type="text" placeholder="请输入网址">
+					</div>
+					<!--省市区-->
+					<div class="bj-text">
+						<span>区    域</span> 省
+						<select class="sheng1">
+							<option value="0">请选择</option>
+							<option value="111">111</option>
+							<option value="222">222</option>
+							<option value="333">333</option>
+							<option value="444">444</option>
+							<option value="555">555</option>
+						</select>
+						市
+						<select class="shi1">
+							<option value="0">请选择</option>
+							<option value="111">111</option>
+							<option value="222">222</option>
+							<option value="333">333</option>
+							<option value="444">444</option>
+							<option value="555">555</option>
+						</select>
+						县
+						<select class="quxian1">
+							<option value="0">请选择</option>
+							<option value="111">111</option>
+							<option value="222">222</option>
+							<option value="333">333</option>
+							<option value="444">444</option>
+							<option value="555">555</option>
+						</select>
+					</div>
+					<div class="bj-text">
+						<span>详细地址</span>
+						<input type="text" class="xianxi_dizhi" placeholder="请输入详细地址">
+					</div>
+					<div class="bj-text">
+						<span>产品名称</span>
+						<input type="text" class="cp-name1" placeholder="请输入产品名称">
+					</div>
+					<!--线索描述-->
+					<div class="bj-text" style="height: 120px;">
+						<span>线索描述</span>
+						<textarea class="xiansuo_miaoshu" placeholder="请输入线索描述 . . ."></textarea>
+					</div>
+					<!--btn-->
+					<div class="bj-btn">
+						<span class="bj-btn1">取消</span>
+						<span class="bj-btn2 btn-submit1">保存</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--编辑线索结束-->		
+		
+		<!--操作成功模态框-->
+		<div class="sucuess-modal">
+			<div class="sucuess-modal-cell">
+				<img src="../../Images/common_icon_success_nor.png" alt="" />
+				<p class="is_state1">操作成功!</p>
+			</div>
+		</div>
+		
+		<!--确认删除模态框1-->
+		<div class="delete-modal">
+			<div class="delete-modal-cell">
+				<p>您确认删除吗？</p>
+				<div class="delete_modal_btns">	
+					<span class="de_cancel_1">取消</span>
+					<span class="de_confirm_1">确定</span>
+				</div>
+			</div>
+		</div>
+		
+		<!--确认删除模态框2-->
+		<div class="delete-modal1">
+			<div class="delete-modal-cell1">
+				<p>您确认删除吗？</p>
+				<div class="delete_modal_btns">	
+					<span class="de_cancel_11">取消</span>
+					<span class="de_confirm_11">确定</span>
+				</div>
+			</div>
+		</div>
+		
+		<!--确认删除模态框3-->
+		<div class="delete-modal3">
+			<div class="delete-modal-cell3">
+				<p>您确认删除吗？</p>
+				<div class="delete_modal_btns">	
+					<span class="de_cancel_13">取消</span>
+					<span class="de_confirm_13">确定</span>
+				</div>
+			</div>
+		</div>
+		
+		<script src="../../js/jquery.js"></script>
+		<script src="../../js/crm-common.js"></script>
+		<script src="../../js/laydate.js"></script>
+		<script src="../../js/xiansuo.js"></script>
+	</body>
+</html>

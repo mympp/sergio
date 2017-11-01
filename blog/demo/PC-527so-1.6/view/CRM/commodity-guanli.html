@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>商品管理</title>
+		<link rel="stylesheet" href="../../css/common.css" />
+	    <link rel="stylesheet" href="../../css/index.css" />
+	    <link rel="stylesheet" href="../../css/commodity-guanli.css" />
+	</head>
+	<body style="min-width: 1500px;overflow-x: auto;overflow-y: hidden;">
+		<div class="outer_div">
+			<!--左边导航模块-->
+			<div class="left_template" style="height: 956px;">
+				<div class="user_logo"><img src="../../Images/common_logo.png" alt=""></div>
+				<p class="company_name1">广东雀鸟科技有限公司</p>
+				<!--用户导航列表-->
+				<div class="userList_bar">
+					<ul class="userList_ul">
+						<li class="userList_li">
+							<span class="icon-01"></span>
+							<span class="icon-text">概览</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-02"></span>
+							<span class="icon-text">线索</span>
+							<span class="xiansuo_count">10</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-03"></span>
+							<span class="icon-text">客户管理</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-04"></span>
+							<span class="icon-text">联系人</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-05"></span>
+							<span class="icon-text">公海</span>
+						</li>
+						<li class="userList_li icon-shopping active">
+							<span class="icon-06"></span>
+							<span class="icon-text">商品</span>
+							<span class="icon-shopping-1"></span>
+						</li>
+						<div class="icon-shopping-div" style="display: block;">
+							<p class="open">商品管理</p>
+							<p>发布产品</p>
+						</div>
+						<li class="userList_li">
+							<span class="icon-07"></span>
+							<span class="icon-text">咨询信息</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-08"></span>
+							<span class="icon-text">设置</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-09"></span>
+							<span class="icon-text">反馈</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--右边主题内容-->
+			<div class="right_template" style="height: 956px;">
+				<div class="left_header">
+					<div class="page_state">商品管理</div>
+					<div class="vip-valid">会员有效日期：2017-10-30</div>
+				</div>
+				<div class="right_header">
+					<ul>
+						<li class="buy_xiansuoli1">
+							<span class="buy_vip_icon1"></span>
+							<a href="javascript:;">购买会员</a>
+						</li>
+						<li class="xiansuoli1">
+							<span class="user_icon1"></span>
+							<a href="javascript:;">哟哟</a>
+						</li>
+						<li class="xiansuoli1">
+							<span class="login_out1"></span>
+							<a href="javascript:;">退出</a>
+						</li>
+					</ul>
+				</div>
+				<!--线索头部开始-->
+				<div class="xiansuo_header">
+					<!--线索头部左边-->
+					<div class="xiansuo_hdleft_1">
+						<!--第一列表-->
+						<ul>
+							<span class="saixuan_text1">筛选：</span>
+							<li class="li_1 down active">发布时间</li>
+							<li class="li_1 down">库存数量</li>
+						</ul>
+						<!--第二列表-->
+						<div class="xiansuo_hdleft_divlist">
+							<label class="checkbox checkboxAll1" onselectstart="return false;">
+					        	<input id="checkall" type="checkbox" class="vam" name="checkall" onclick="selectAll()">
+					            <i></i>
+					        </label>
+							<span class="saixuan_text1">全选：</span>
+							<div class="xiansuo_hdleft_btnlist">
+								<!--<span class="btnlist_biaoji">标记</span>
+								<span class="btnlist_zuofei">作废</span>
+								<span class="btnlist_huifu">恢复</span>-->
+								<span class="btnlist_delete">删除</span>
+							</div>
+						</div>
+					</div>
+					<!--线索头部右边-->
+					<div class="xiansuo_hdright">
+						<div class="dingyue_cgMsgBtn" style="visibility: hidden;">订阅行业采购商信息</div>
+						<div class="search-box">
+							<span class="search-icon1"></span>
+							<input class="search-input" type="search" placeholder="请输入关键词搜索">
+							<span class="search-btn">搜索</span>
+						</div>
+					</div>
+				</div>
+				<!--线索头部结束-->
+				
+				<!--线索内容开始-->
+				<div class="xiansuo_main">
+					<!--线索列表开始-->
+					<ul class="xiansuo_List">
+						<li name="111">
+							<div class="xiansuo_List_no1">
+								<label class="checkbox" onselectstart="return false;">
+									<input type="checkbox" class="vam" name="checkedres">
+									<i></i> 
+								</label>
+								<div class="xiansuo_List_title">急求钢筋一批，规则20MM，广州天河大观中路工地</div>
+								<span class="xiansuo_List_state"></span>
+							</div>
+							<div class="commodity_dets">
+								<div class="commodity_dets_lf">
+									<span class="state_t1">状态：<span class="state_t2">在线销售</span></span>
+									<span class="state_time">2017-09-13 14:50</span>
+									<span class="state_count1">库存：<span class="state_count2">1000</span></span>
+									<br>
+									<span class="state_price">&yen;4000.00</span>
+								</div>
+								<div class="commodity_dets_rt">
+									<div class="commodity_dets_rt_cell edit-1">
+										<img src="../../Images/goods_icon_edit_nor.png" alt="" />
+										<p>编辑</p>
+									</div>
+									<div class="commodity_dets_rt_cell share-1">
+										<img src="../../Images/goods_icon_share_nor.png" alt="" />
+										<p>分享</p>
+									</div>
+									<div class="commodity_dets_rt_cell add-ts1">
+										<img src="../../Images/goods_icon_push_nor.png" alt="" />
+										<p>加入推送</p>
+									</div>
+									<div class="commodity_dets_rt_cell ts-rizhi1">
+										<img src="../../Images/goods_icon_daily_nor.png" alt="" />
+										<p>推送日志</p>
+									</div>
+								</div>
+							</div>
+							<div class="xiansuo_border"></div>
+						</li>
+						<li name="222">
+							<div class="xiansuo_List_no1">
+								<label class="checkbox" onselectstart="return false;">
+									<input type="checkbox" class="vam" name="checkedres">
+									<i></i> 
+								</label>
+								<div class="xiansuo_List_title">急求钢筋一批，规则20MM，广州天河大观中路工地</div>
+								<span class="xiansuo_List_state"></span>
+							</div>
+							<div class="commodity_dets">
+								<div class="commodity_dets_lf">
+									<span class="state_t1">状态：<span class="state_t2">审核中</span></span>
+									<span class="state_time">2017-09-13 14:50</span>
+									<span class="state_count1">库存：<span class="state_count2">1000</span></span>
+									<br>
+									<span class="state_price">&yen;4000.00</span>
+								</div>
+								<div class="commodity_dets_rt">
+									<div class="commodity_dets_rt_cell edit-1">
+										<img src="../../Images/goods_icon_edit_nor.png" alt="" />
+										<p>编辑</p>
+									</div>
+									<div class="commodity_dets_rt_cell share-1 jy_btn">
+										<img src="../../Images/goods_icon_share_nor.png" alt="" />
+										<p>分享</p>
+									</div>
+									<div class="commodity_dets_rt_cell add-ts1 jy_btn">
+										<img src="../../Images/goods_icon_push_nor.png" alt="" />
+										<p>加入推送</p>
+									</div>
+									<div class="commodity_dets_rt_cell ts-rizhi1 jy_btn">
+										<img src="../../Images/goods_icon_daily_nor.png" alt="" />
+										<p>推送日志</p>
+									</div>
+								</div>
+							</div>
+							<div class="xiansuo_border"></div>
+						</li>
+						<li name="333">
+							<div class="xiansuo_List_no1">
+								<label class="checkbox" onselectstart="return false;">
+									<input type="checkbox" class="vam" name="checkedres">
+									<i></i> 
+								</label>
+								<div class="xiansuo_List_title">急求钢筋一批，规则20MM，广州天河大观中路工地</div>
+								<span class="xiansuo_List_state"></span>
+							</div>
+							<div class="commodity_dets">
+								<div class="commodity_dets_lf">
+									<span class="state_t1">状态：<span class="state_t2">审核未通过</span></span>
+									<span class="state_time">2017-09-13 14:50</span>
+									<span class="state_count1">库存：<span class="state_count2">1000</span></span>
+									<br>
+									<span class="state_price">&yen;4000.00</span>
+								</div>
+								<div class="commodity_dets_rt">
+									<div class="commodity_dets_rt_cell edit-1">
+										<img src="../../Images/goods_icon_edit_nor.png" alt="" />
+										<p>编辑</p>
+									</div>
+									<div class="commodity_dets_rt_cell share-1 jy_btn">
+										<img src="../../Images/goods_icon_share_nor.png" alt="" />
+										<p>分享</p>
+									</div>
+									<div class="commodity_dets_rt_cell add-ts1 jy_btn">
+										<img src="../../Images/goods_icon_push_nor.png" alt="" />
+										<p>加入推送</p>
+									</div>
+									<div class="commodity_dets_rt_cell ts-rizhi1 jy_btn">
+										<img src="../../Images/goods_icon_daily_nor.png" alt="" />
+										<p>推送日志</p>
+									</div>
+								</div>
+							</div>
+							<div class="xiansuo_border"></div>
+						</li>
+						<li name="444">
+							<div class="xiansuo_List_no1">
+								<label class="checkbox" onselectstart="return false;">
+								<input type="checkbox" class="vam" name="checkedres">
+									<i></i> 
+								</label>
+								<div class="xiansuo_List_title">急求钢筋一批，规则20MM，广州天河大观中路工地</div>
+								<span class="xiansuo_List_state"></span>
+							</div>
+							<div class="commodity_dets">
+								<div class="commodity_dets_lf">
+									<span class="state_t1">状态：<span class="state_t2">在线销售</span></span>
+									<span class="state_time">2017-09-13 14:50</span>
+									<span class="state_count1">库存：<span class="state_count2">1000</span></span>
+									<br>
+									<span class="state_price">&yen;4000.00</span>
+								</div>
+								<div class="commodity_dets_rt">
+									<div class="commodity_dets_rt_cell edit-1">
+										<img src="../../Images/goods_icon_edit_nor.png" alt="" />
+										<p>编辑</p>
+									</div>
+									<div class="commodity_dets_rt_cell share-1">
+										<img src="../../Images/goods_icon_share_nor.png" alt="" />
+										<p>分享</p>
+									</div>
+									<div class="commodity_dets_rt_cell add-ts1">
+										<img src="../../Images/goods_icon_push_nor.png" alt="" />
+										<p>加入推送</p>
+									</div>
+									<div class="commodity_dets_rt_cell ts-rizhi1">
+										<img src="../../Images/goods_icon_daily_nor.png" alt="" />
+										<p>推送日志</p>
+									</div>
+								</div>
+							</div>
+							<div class="xiansuo_border"></div>
+						</li>
+						<li name="555">
+							<div class="xiansuo_List_no1">
+								<label class="checkbox" onselectstart="return false;">
+									<input type="checkbox" class="vam" name="checkedres">
+									<i></i> 
+								</label>
+								<div class="xiansuo_List_title">急求钢筋一批，规则20MM，广州天河大观中路工地</div>
+								<span class="xiansuo_List_state"></span>
+							</div>
+							<div class="commodity_dets">
+								<div class="commodity_dets_lf">
+									<span class="state_t1">状态：<span class="state_t2">审核中</span></span>
+									<span class="state_time">2017-09-13 14:50</span>
+									<span class="state_count1">库存：<span class="state_count2">1000</span></span>
+									<br>
+									<span class="state_price">&yen;4000.00</span>
+								</div>
+								<div class="commodity_dets_rt">
+									<div class="commodity_dets_rt_cell edit-1">
+										<img src="../../Images/goods_icon_edit_nor.png" alt="" />
+										<p>编辑</p>
+									</div>
+									<div class="commodity_dets_rt_cell share-1 jy_btn">
+										<img src="../../Images/goods_icon_share_nor.png" alt="" />
+										<p>分享</p>
+									</div>
+									<div class="commodity_dets_rt_cell add-ts1 jy_btn">
+										<img src="../../Images/goods_icon_push_nor.png" alt="" />
+										<p>加入推送</p>
+									</div>
+									<div class="commodity_dets_rt_cell ts-rizhi1 jy_btn">
+										<img src="../../Images/goods_icon_daily_nor.png" alt="" />
+										<p>推送日志</p>
+									</div>
+								</div>
+							</div>
+							<div class="xiansuo_border"></div>
+						</li>
+						<li name="666">
+							<div class="xiansuo_List_no1">
+								<label class="checkbox" onselectstart="return false;">
+									<input type="checkbox" class="vam" name="checkedres">
+									<i></i> 
+								</label>
+								<div class="xiansuo_List_title">急求钢筋一批，规则20MM，广州天河大观中路工地</div>
+								<span class="xiansuo_List_state"></span>
+							</div>
+							<div class="commodity_dets">
+								<div class="commodity_dets_lf">
+									<span class="state_t1">状态：<span class="state_t2">审核未通过</span></span>
+									<span class="state_time">2017-09-13 14:50</span>
+									<span class="state_count1">库存：<span class="state_count2">1000</span></span>
+									<br>
+									<span class="state_price">&yen;4000.00</span>
+								</div>
+								<div class="commodity_dets_rt">
+									<div class="commodity_dets_rt_cell edit-1">
+										<img src="../../Images/goods_icon_edit_nor.png" alt="" />
+										<p>编辑</p>
+									</div>
+									<div class="commodity_dets_rt_cell share-1 jy_btn">
+										<img src="../../Images/goods_icon_share_nor.png" alt="" />
+										<p>分享</p>
+									</div>
+									<div class="commodity_dets_rt_cell add-ts1 jy_btn">
+										<img src="../../Images/goods_icon_push_nor.png" alt="" />
+										<p>加入推送</p>
+									</div>
+									<div class="commodity_dets_rt_cell ts-rizhi1 jy_btn">
+										<img src="../../Images/goods_icon_daily_nor.png" alt="" />
+										<p>推送日志</p>
+									</div>
+								</div>
+							</div>
+							<div class="xiansuo_border"></div>
+						</li>
+					</ul>
+					<!--线索列表结束-->
+					<!--分页器开始-->
+					<div class="xiansuo_Page_Div">
+						<div class="xiansuo_Page_border"></div>
+						<div class="xiansuo_Page_div">
+							<div class="fl">
+								<span style="margin-right: 5px;">每页显示</span>
+								<select class="xiansuo_Page_Three">
+									<option value="10">10</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+								</select>
+								<span style="margin-left: 5px;">条</span><span style="margin-left: 10px;">共</span><span class="xiansuo_Sizes">1500</span><span>条/</span><span class="xiansuo_Pages">50页</span>
+								<img class="first_page" src="../../Images/icon_sanjiao_01.png" alt="" />
+								<img class="prev_page" src="../../Images/icon_sanjiao_02.png" alt="" />
+							</div>
+							<ul class="xiansuo_Page_list">
+								<li class="active">1</li>
+								<li>2</li>
+								<li>3</li>
+								<li>4</li>
+								<li>5</li>
+							</ul>
+							<img class="next_page" style="margin-left: 15px;" src="../../Images/icon_sanjiao_03.png" alt="" />
+							<img class="last_page"src="../../Images/icon_sanjiao_04.png" alt="" />
+							<span style="margin: 0 5px;">跳转</span><input type="text" value="0" class="that_Page" maxlength="10"/><span style="margin-left: 5px;">页</span>
+						</div>
+					</div>
+					<!--分页器结束-->
+				</div>
+				<!--线索内容结束-->
+			</div>
+		</div>
+		
+		<!--推送日志开始-->
+		<div class="tsRz-modal">
+			<div class="tsRz-div">
+				<div class="tsRz-div_header">
+					推送日志
+					<span class="tsRz-div_header_close">×</span>
+				</div>
+				<div class="tsRz-div_limain">
+					<div class="tsRz-div_liImg">
+						<img src="../../Images/ts-img01.png" alt="" />
+					</div>
+					<div class="tsRz-div_dts">
+						<p class="tsRz-div_title">优质交通信息号灯批发 海瑞厂家直销</p>
+						<p style="margin-top: 10px;"><span class="span_1">&yen;4000.00</span>
+						<span class="span_2">
+							发布时间：
+							<span class="span_21">2017-09-13 14:50</span>
+						</span></p>
+					</div>
+				</div>
+				<div class="tsRz_saixuan">
+					<div class="tsRz_saixuan_hd">
+						<div class="oneLine-cell" style="text-align: initial;">
+							<span class="span-text11">按时间筛选</span>
+							<input type="datetime" class="input-sm laydate-icon" id="inputStartTime" name="sdate" placeholder="开始时间">
+							<sapn class="most">至</sapn>
+							<input type="datetime" class="input-sm laydate-icon" id="inputEndTime" name="edate" placeholder="结束时间">
+							<span class="saixuan_btn">确认</span>
+						</div>
+					</div>
+					<div class="tsRz-saixuan-box">
+						<div class="tsRz-saixuan-box-hd">
+							<p class="hd_p1">推送渠道</p>
+							<p class="hd_p2">推送时间</p>
+						</div>
+						<ul class="tsRz-saixuan-ul">
+							<li class="tsRz-saixuan-li">
+								<a class="click_sjbtn close"></a>
+								<div class="tsRz-saixuan-lihd">
+									<div class="tsRz-saixuan-qudao">31312213@qq.com</div>
+									<div class="tsRz-saixuan-timer">10月10日</div>
+								</div>
+								<div class="slider_content1">
+									<div class="slider_content1_lf">
+										<div>联系人：陈先生</div>
+										<div>手<span class="pdlf-14"></span>机：13580546695</div>
+										<div>电<span class="pdlf-14"></span>话：020-8678888</div>
+										<div>邮<span class="pdlf-14"></span>箱：642307404@qq.com</div>
+									</div>
+									<div class="slider_content1_rt">
+										<div>地<span style="padding-left: 28px;"></span>址： 陈先生</div>
+										<div class="jiequ_str">线索描述：肯德基撒恐龙当家萨洛克的撒娇快乐的撒线索描述：肯德基撒恐龙当家萨洛克的撒娇快乐的撒线索描述：肯德基撒恐龙当家萨洛克</div>
+										<div>创建时间：2017-09-13 18:15</div>
+									</div>
+								</div>
+							</li>
+							<li class="tsRz-saixuan-li">
+								<a class="click_sjbtn close"></a>
+								<div class="tsRz-saixuan-lihd">
+									<div class="tsRz-saixuan-qudao">31312213@qq.com</div>
+									<div class="tsRz-saixuan-timer">10月10日</div>
+								</div>
+								<div class="slider_content1">
+									<div class="slider_content1_lf">
+										<div>联系人：陈先生</div>
+										<div>手<span class="pdlf-14"></span>机：13580546695</div>
+										<div>电<span class="pdlf-14"></span>话：020-8678888</div>
+										<div>邮<span class="pdlf-14"></span>箱：642307404@qq.com</div>
+									</div>
+									<div class="slider_content1_rt">
+										<div>地<span style="padding-left: 28px;"></span>址： 陈先生</div>
+										<div class="jiequ_str">线索描述：肯德基撒恐龙当家萨洛克的撒娇快乐的撒线索描述：肯德基撒恐龙当家萨洛克的撒娇快乐的撒线索描述：肯德基撒恐龙当家萨洛克</div>
+										<div>创建时间：2017-09-13 18:15</div>
+									</div>
+								</div>
+							</li>
+							<li class="tsRz-saixuan-li">
+								<a class="click_sjbtn close"></a>
+								<div class="tsRz-saixuan-lihd">
+									<div class="tsRz-saixuan-qudao">31312213@qq.com</div>
+									<div class="tsRz-saixuan-timer">10月10日</div>
+								</div>
+								<div class="slider_content1">
+									<div class="slider_content1_lf">
+										<div>联系人：陈先生</div>
+										<div>手<span class="pdlf-14"></span>机：13580546695</div>
+										<div>电<span class="pdlf-14"></span>话：020-8678888</div>
+										<div>邮<span class="pdlf-14"></span>箱：642307404@qq.com</div>
+									</div>
+									<div class="slider_content1_rt">
+										<div>地<span style="padding-left: 28px;"></span>址： 陈先生</div>
+										<div class="jiequ_str">线索描述：肯德基撒恐龙当家萨洛克的撒娇快乐的撒线索描述：肯德基撒恐龙当家萨洛克的撒娇快乐的撒线索描述：肯德基撒恐龙当家萨洛克</div>
+										<div>创建时间：2017-09-13 18:15</div>
+									</div>
+								</div>
+							</li>
+							<li class="tsRz-saixuan-li">
+								<a class="click_sjbtn close"></a>
+								<div class="tsRz-saixuan-lihd">
+									<div class="tsRz-saixuan-qudao">31312213@qq.com</div>
+									<div class="tsRz-saixuan-timer">10月10日</div>
+								</div>
+								<div class="slider_content1">
+									<div class="slider_content1_lf">
+										<div>联系人：陈先生</div>
+										<div>手<span class="pdlf-14"></span>机：13580546695</div>
+										<div>电<span class="pdlf-14"></span>话：020-8678888</div>
+										<div>邮<span class="pdlf-14"></span>箱：642307404@qq.com</div>
+									</div>
+									<div class="slider_content1_rt">
+										<div>地<span style="padding-left: 28px;"></span>址： 陈先生</div>
+										<div class="jiequ_str">线索描述：肯德基撒恐龙当家萨洛克的撒娇快乐的撒线索描述：肯德基撒恐龙当家萨洛克的撒娇快乐的撒线索描述：肯德基撒恐龙当家萨洛克</div>
+										<div>创建时间：2017-09-13 18:15</div>
+									</div>
+								</div>
+							</li>
+							<li class="tsRz-saixuan-li">
+								<a class="click_sjbtn close"></a>
+								<div class="tsRz-saixuan-lihd">
+									<div class="tsRz-saixuan-qudao">31312213@qq.com</div>
+									<div class="tsRz-saixuan-timer">10月10日</div>
+								</div>
+								<div class="slider_content1">
+									<div class="slider_content1_lf">
+										<div>联系人：陈先生</div>
+										<div>手<span class="pdlf-14"></span>机：13580546695</div>
+										<div>电<span class="pdlf-14"></span>话：020-8678888</div>
+										<div>邮<span class="pdlf-14"></span>箱：642307404@qq.com</div>
+									</div>
+									<div class="slider_content1_rt">
+										<div>地<span style="padding-left: 28px;"></span>址： 陈先生</div>
+										<div class="jiequ_str">线索描述：肯德基撒恐龙当家萨洛克的撒娇快乐的撒线索描述：肯德基撒恐龙当家萨洛克的撒娇快乐的撒线索描述：肯德基撒恐龙当家萨洛克</div>
+										<div>创建时间：2017-09-13 18:15</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--推送日志结束-->
+		
+		<!--编辑详情开始-->
+		<div class="tsXq-modal">
+			<div class="tsXq-div">
+				<div class="tsXq-div_header">
+					编辑详情
+					<span class="tsXq-div_header_close">×</span>
+				</div>
+				<div class="tsXq-div_main">
+					<div class="one-cell">
+						<span class="one-cell_lf">
+							<em>*</em>
+							<label>信息类型：</label>
+						</span>
+						<div class="one-cell_rt">
+							<input type="radio" class="gongying1 radius_cell vam" value="供应"/>
+							<span class="first-cellSpan1 vam">供应</span>
+							<input type="radio" class="tg_fuwu radius_cell vam" value="提供服务"/>
+							<span class="first-cellSpan1 vam">提供服务</span>
+							<input type="radio" class="gy_ershou radius_cell vam" value="供应二手"/>
+							<span class="first-cellSpan1 vam">供应二手</span>
+							<input type="radio" class="tg_jg radius_cell vam" value="提供加工"/>
+							<span class="first-cellSpan1 vam">提供加工</span>
+							<input type="radio" class="tg_hezuo radius_cell vam" value="提供合作"/>
+							<span class="first-cellSpan1 vam">提供合作</span>
+							<input type="radio" class="kucun radius_cell vam" value="库存"/>
+							<span class="first-cellSpan1 vam">库存</span>
+						</div>
+					</div>
+					<div class="one-cell">
+						<span class="one-cell_lf">
+							<em>*</em>
+							<label>信息标题：</label>
+						</span>
+						<div class="one-cell_rt">
+							<input type="text" class="input_1cell msg_title" placeholder="请输入信息标题"/>
+							<select class="msg_level">
+								<option value="0">级别</option>
+								<option value="1">1级</option>
+								<option value="2">2级</option>
+								<option value="3">3级</option>
+								<option value="4">4级</option>
+								<option value="5">5级</option>
+							</select>
+						</div>
+					</div>
+					<div class="one-cell">
+						<span class="one-cell_lf">
+							<em>*</em>
+							<label>关<span style="padding-left: 8px;"></span>键<span style="padding-left: 8px;"></span>词<span></span>：</label>
+						</span>
+						<div class="one-cell_rt">
+							<input type="text" class="input_1cell msg_keyWord" placeholder="请输入关键词（多个关键词用英文逗号分隔）"/>
+						</div>
+					</div>
+					<div class="one-cell">
+						<span class="one-cell_lf">
+							<em>*</em>
+							<label>行业分类：</label>
+						</span>
+						<div class="one-cell_rt">
+							<select class="select_hangye">
+								<option value="0">请选择行业分类</option>
+								<option value="1">汽车行业</option>
+								<option value="2">建材行业</option>
+								<option value="3">食品行业</option>
+								<option value="4">医药行业</option>
+								<option value="5">塑料行业</option>
+							</select>
+						</div>
+					</div>
+					<div class="one-cell">
+						<span class="one-cell_lf">
+							<em style="visibility: hidden;">*</em>
+							<label>产品品牌：</label>
+						</span>
+						<div class="one-cell_rt">
+							<input type="text" class="input_1cell msg_brand" placeholder="请输入产品品牌"/>
+						</div>
+					</div>
+					<div class="one-cell">
+						<span class="one-cell_lf" style="vertical-align: top;height: 30px;display: inline-block;">
+							<em style="visibility: hidden;">*</em>
+							<label>详细说明：</label>
+						</span>
+						<div class="one-cell_rt" style="margin-left: 9px;vertical-align: top;position: relative;top: -6px;">
+							<iframe id="Baidu_editor" src="../RichTextEdit/index.html" frameborder="0" scrolling="no" width="750px" height="500px"></iframe>
+							<div class="tips_Text1_div">
+								<p class="tips_Text1_P1">1、建议您描述一下方面：产品的性能及优点、用途、售后服务、包装等；</p>
+								<p class="tips_Text1_P1">2、未避免不必要的纷争，请使用本企业图片；</p>
+							</div>
+						</div>
+					</div>
+					<div class="one-cell">
+						<span class="one-cell_lf" style="vertical-align: top;height: 30px;display: inline-block;">
+							<em style="visibility: hidden;">*</em>
+							<label>上传图片：</label>
+						</span>
+						<div class="one-cell_rt">
+							<!--上传照片开始-->
+							<div class="img-box full">
+								<section class=" img-section">
+									<div class="z_photo upimg-div">
+										<section class="z_file fl">
+											<img src="../../Images/a11.png" class="add-img">
+											<input type="file" name="file" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple />
+										</section>
+									</div>
+								</section>
+							</div>
+							<!--上传照片结束-->
+						</div>
+					</div>
+					<div class="one-cell" style="margin-top: 25px;">
+						<span class="one-cell_lf">
+							<em style="visibility: hidden;">*</em>
+							<label>过期时间：</label>
+						</span>
+						<div class="one-cell_rt">
+							<input type="text" class="input_cell_sm1 date_icon_1" id="expiration_time" placeholder="请选择到期时间"/>
+						</div>
+					</div>
+					<div class="one-cell">
+						<span class="one-cell_lf" style="vertical-align: top;">
+							<em style="visibility: hidden;">*</em>
+							<label>主要参数：</label>
+						</span>
+						<div class="one-cell_rt" style="vertical-align: top;">
+							<span class="arg_name1T">参数名称</span>
+							<span class="arg_val1T">参数值</span>
+							<!--自定义输入框列表-->
+							<div class="zdy_inputList">
+								<div class="zdy_input_cell">
+									<input type="text" class="input_cell_sm1 arg_name1" placeholder="自定义标签"/>
+									<input type="text" class="input_cell_md1 arg_val1" placeholder="自定义标签内容"/>
+								</div>
+								<div class="zdy_input_cell">
+									<input type="text" class="input_cell_sm1 arg_name2" placeholder="自定义标签"/>
+									<input type="text" class="input_cell_md1 arg_val2" placeholder="自定义标签内容"/>
+								</div>
+								<div class="zdy_input_cell">
+									<input type="text" class="input_cell_sm1 arg_name3" placeholder="自定义标签"/>
+									<input type="text" class="input_cell_md1 arg_val3" placeholder="自定义标签内容"/>
+								</div>
+							</div>
+							<p class="zdytips-text1">例如：规格<span></span>例如：10CM*20CM</p>
+						</div>
+					</div>
+					<div class="one-cell" style="margin-top: 20px;">
+						<span class="one-cell_lf" style="vertical-align: top;">
+							<em style="visibility: hidden;">*</em>
+							<label>交易条件：</label>
+						</span>
+						<div class="one-cell_rt" style="vertical-align: top;position: relative;bottom: 4px;">
+							<div class="compute_dets1">
+								<span class="Cspan-text1">计量单位</span>
+								<input type="text" class="input_cell_smm1 jl_count" placeholder="个数"/>
+								<sapn class="Cspan-text1" style="margin-left: 20px;">产品价格</sapn>
+								<input type="text" class="input_cell_smm1 pd_price" placeholder="0.00"/>
+							</div>
+							<div class="compute_dets2">
+								<span class="Cspan-text1">最小起订量</span>
+								<input type="text" class="input_cell_smm1 smm_count1" placeholder="个数"/>
+								<span style="font-size: 14px;color: #494949;margin-left: 5px;">单位</span>
+								<sapn class="Cspan-text1" style="margin-left: 20px;">供货总量</sapn>
+								<input type="text" class="input_cell_smm1 pd_counts1" placeholder="0.00"/>
+								<span style="font-size: 14px;color: #494949;margin-left: 5px;">单位</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--重置及确认按钮-->
+				<div class="Two_Btn_cells_1">
+					<span class="btn_reset_1">重置</span>
+					<span class="btn_yes_1">确认</span>
+				</div>
+			</div>
+		</div>
+		<!--编辑详情结束-->
+	
+		<!--上传图片删除模态框-->
+		<aside class="mask works-mask">
+			<div class="mask-content">
+				<p class="del-p">您确定要删除图片吗？</p>
+				<p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+			</div>
+		</aside>
+		
+		<!--操作成功模态框-->
+		<div class="sucuess-modal">
+			<div class="sucuess-modal-cell">
+				<img src="../../Images/common_icon_success_nor.png" alt="" />
+				<p class="is_state1">操作成功!</p>
+			</div>
+		</div>
+		
+		<!--确认删除模态框3-->
+		<div class="delete-modal3">
+			<div class="delete-modal-cell3">
+				<p>您确认删除吗？</p>
+				<div class="delete_modal_btns">	
+					<span class="de_cancel_13">取消</span>
+					<span class="de_confirm_13">确定</span>
+				</div>
+			</div>
+		</div>
+		
+		<!--异步加载模态框-->
+		<div class="ajax_loadModal">
+			<div class="ajax_load_img">
+				<img src="../../Images/load-1.gif" alt="" />
+			</div>
+		</div>
+		
+		<script src="../../js/jquery.js"></script>
+		<script src="../../js/crm-common.js"></script>
+		<script src="../../js/laydate.js"></script>
+		<script src="../../js/imgUp.js"></script>
+		<script src="../../js/commodity-guanli.js"></script>
+	</body>
+</html>

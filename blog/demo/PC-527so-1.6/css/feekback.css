@@ -1,0 +1,98 @@
+
+.fankui_main{
+    width: 98%;
+    height: 860px;
+    margin: 0 1%;
+    float: left;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #dcdcdc;
+}
+.fankui_main {
+    margin-top: 16px;
+}
+.fankui_main>p {
+    font-size: 18px;
+    color: #494949;
+    padding-left: 36px;
+    padding-top: 34px;
+}
+.fankui_main>span {
+    display: block;
+    font-size: 18px;
+    color: #494949;
+    margin-top: 40px;
+    margin-left: 38px;
+
+}
+.fankui_main>span i {
+    color: red;
+    padding-right: 12px;
+    font-style: normal;
+}
+.fankui_main>form>textarea {
+    margin-left: 38px;
+    height: 300px;
+    width: 92%;
+    resize: none;
+    border-radius: 5px;
+    border: 1px solid #d6d6d6;
+    color: #494949;
+    padding: 20px;
+    margin-top: 16px;
+    font-size:16px;
+    background: #f0f1f4;
+}
+.fankui_main>form>h3 {
+    font-size: 18px;
+    color: #494949;
+    padding-left: 62px;
+    padding-top: 34px;
+}
+.fileinput>input {
+    margin-top: 20px;
+    font-size: 20px;
+    margin-left: 50px;
+    opacity:0;
+}
+.fileinput {
+    position: relative;
+}
+.fileinput>span {
+    display: block;
+    width: 110px;
+    height: 36px;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #1da1f2;
+    line-height: 36px;
+    text-align: center;
+    border:1px solid #1da1f2;
+    cursor: pointer;
+    position: absolute;
+    top:19px;
+    left:42px;
+}
+.fileinput>i {
+    font-style: normal;
+    font-size: 16px;
+    color: #b6b6b6;
+    position: absolute;
+    top:27px;
+    left:190px;
+}
+.SubmitStatus {
+    display: block;
+    font-style: normal;
+    width: 140px;
+    height: 40px;
+    font-size: 18px;
+    color: #FFFFFF;
+    background: #1da1f2;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 20px;
+    margin: 0 auto;
+    margin-top:130px;
+    cursor: pointer;
+}

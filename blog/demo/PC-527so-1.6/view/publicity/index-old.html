@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>首页</title>
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../css/index.css" />
+		<style>
+			.QRcode {
+				width: 100%;
+				position: fixed;
+				left:0;
+				bottom: 0;
+			}
+			.QRcode .QR-CO {
+				width: 100%;
+			}
+			.QR-close {
+				display: inline-block;
+				width:5%;
+				height:50%;
+				position: absolute;
+				bottom:50%;
+				right:17%;
+				cursor: pointer;
+				z-index: 100;
+			}
+			.index_main {
+				position: relative;
+			}
+			.AD-QR {
+				width: 100px;
+				height: 263px;
+				background: url("../../Images/dingwei_bg.png") 100% no-repeat;
+				position: fixed;
+				top:62%;
+				right: 5px;
+				transform: scale(0.7);
+				display: none;
+
+			}
+			.img-01 {
+				position: absolute;
+				width: 84px;
+				height: 84px;
+				top: 8px;
+				left: 9px;
+				background: url("../../Images/logo_bg_small.png") 100% no-repeat;
+			}
+			.img-02 {
+				position: absolute;
+				width: 84px;
+				height: 84px;
+				top: 8px;
+				left:-3px;
+				background: url("../../Images/logo01_samll.png") 100% no-repeat;
+			}
+			.img-03 {
+				position: absolute;
+				width: 84px;
+				height: 84px;
+				top: 100px;
+				left:-7px;
+				background: url("../../Images/call.png") 100% no-repeat;
+				z-index: 10;
+			}
+			.img-04 {
+				position: absolute;
+				width: 84px;
+				height: 84px;
+				top: 180px;
+				left:-15px;
+				background: url("../../Images/erweimazi.png") 100%no-repeat;
+			}
+			.img-05 {
+				position: absolute;
+				width: 154px;
+				height: 39px;
+				top: 125px;
+				left:-200px;
+				background: url("../../Images/call_holl_002.png") 100%  100% no-repeat;
+				font-size: 12px;
+				color: #cccccc;
+				line-height: 39px;
+				text-align: center;
+				transform: scale(1.5);
+				display: none;
+			}
+			.img-06 {
+				position: absolute;
+				width:184px;
+				height:238px ;
+				top: 100px;
+				left:-190px;
+				background: url("../../Images/erweima_holl_002.png") 100% no-repeat;
+				transform: scale(1);
+				display: none;
+			}
+			.img-03:hover {
+				position: absolute;
+				width: 84px;
+				height: 84px;
+				top: 100px;
+				left:-7px;
+				background: url("../../Images/call_holl.png") 100% no-repeat;
+			}
+
+			.img-04:hover {
+				position: absolute;
+				width: 84px;
+				height: 84px;
+				top: 180px;
+				left:-15px;
+				background: url("../../Images/erweima_holl.png") 100% no-repeat;
+			}
+		</style>
+	</head>
+	<body style="min-width: 1200px;overflow-x: auto;" class="0 pages">
+		<!--页面顶部开始-->
+		<header class="header_box"></header>
+		<!--页面顶部结束-->
+		
+		<div style="font-size: 0;"><img class="slider-banner" src="../../Images/index_banner01.png" alt="" /></div>
+		
+		<!--主题内容开始-->
+		<main class="index_main clear">
+			<!--产品特色-->
+			<div class="product-feature-div">
+				<div class="product-feature">
+					<div class="index-title1">
+						<i>PRODUCT CHARACTERISTICS</i>
+						<p>[&nbsp;&nbsp;&nbsp;&nbsp;产品特色&nbsp;&nbsp;&nbsp;&nbsp;]</p>
+					</div>
+					<div class="product-items">
+						<div class="product-item">
+							<div class="product-img">
+								<img src="../../Images/mass-storage.png" alt="" />
+							</div>
+							<p class="product-item-t1">大数据</p>
+							<p class="product-item-t2">海量采购商信息数据，经过雀搜几年的深度挖掘全网供需数据、聚合、加工，使信息数据规模化，价值化，精准化，从而使得企业全网营销效果最大化，目前数据库已经超过上千万的采购商数据，并且大部分数据经过雀搜的人工验证。</p>
+						</div><div class="product-item">
+							<div class="product-img">
+								<img src="../../Images/intelligent-match.png" alt="" />
+							</div>
+							<p class="product-item-t1">智能匹配</p>
+							<p class="product-item-t2">智能匹配全网数据，实时、精准的将各大网站的采购商信息推送给相应的供应商，雀搜每天采购商信息更新10万以上；双向机制，系统每天定时将供应商的产品推送给各大网站的采购商。</p>
+						</div><div class="product-item">
+							<div class="product-img">
+								<img src="../../Images/saas-crm.png" alt="" />
+							</div>
+							<p class="product-item-t1">sassCRM</p>
+							<p class="product-item-t2">精准的供求信息，一体化的客户管理模式，销售机会实时跟踪，随时随地的移动销售管理，高效，方便，节省时间。</p>
+						</div>
+					</div>
+				</div>
+				<img class="weizhi-yun" src="../../Images/yun01.png" alt="" />
+			</div>
+			<!--业务介绍-->
+			<div class="yewu-jieshao-div">
+				<div class="yewu-jieshao">
+					<div class="index-title1">
+						<i>BUSINESS INTRODUCTION</i>
+						<p>[&nbsp;&nbsp;&nbsp;&nbsp;业务介绍&nbsp;&nbsp;&nbsp;&nbsp;]</p>
+					</div>
+					<div class="yewu-jieshao-items">
+						<div class="yewu-jieshao-item">
+							<div class="yewu-itemBgImg">
+								<p class="yewuitem-cn1">雀搜</p>
+								<p class="yewuitem-en1">QEUSOU</p>
+							</div>
+							<div class="yewu-itemImg1"></div>
+							<p class="yewu-item-dets">雀搜是全网供求大数据营销平台，致力于为广大中小企业提供最新的供求信息，普及新的网络营销理念，让更多的中小企业通过电子商务平台来做大做强为己任，让网络营销真正成为企业的营销利器。</p>
+						</div><div class="yewu-jieshao-item">
+							<div class="yewu-itemBgImg">
+								<p class="yewuitem-cn1">一开</p>
+								<p class="yewuitem-en1">O P E N</p>
+							</div>
+							<div class="yewu-itemImg2"></div>
+							<p class="yewu-item-dets">雀搜是一个需求信息库，以海量的、零散的、无序的、隐形的需求为原料，经过网络智能识别技术进行催化、加工。生产，精准推送到商家面前，从而缩短交易距离、交易时间、交易成本，扩大了市场机会，提示了企业盈利空间！</p>
+						</div><div class="yewu-jieshao-item">
+							<div class="yewu-itemBgImg">
+								<p class="yewuitem-cn1">生意</p>
+								<p class="yewuitem-en1">BUSINESS</p>
+							</div>
+							<div class="yewu-itemImg3"></div>
+							<p class="yewu-item-dets">雀搜深度挖掘全网供需数据、聚合、加工，使得信息数据规模化，精准化，从而使得企业全网营销效果最大化。</p>
+						</div><div class="yewu-jieshao-item">
+							<div class="yewu-itemBgImg">
+								<p class="yewuitem-cn1">自来</p>
+								<p class="yewuitem-en1" style="font-size: 11px;padding-left: 2px;">COME DOWN</p>
+							</div>
+							<div class="yewu-itemImg4"></div>
+							<p class="yewu-item-dets">雀搜给供求双方提供高效便捷的信息服务。通过聚拢优质认证客户群体，产生大量真实有效的求购及供应需求信息，借助精准高效的双方数据推送机制，将其转化为一个个真实有效的订单。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--banner-->
+			<div style="font-size: 0;"><img class="slider-banner" src="../../Images/youshi_bg.png" alt="" /></div>
+			<!--客户评价-->
+			<div class="kehu-pingjia-div">
+				<div class="kehu-pingjia">
+					<div class="index-title1">
+						<i>CUSTOMER REVIEWS</i>
+						<p>[&nbsp;&nbsp;&nbsp;&nbsp;客户评价&nbsp;&nbsp;&nbsp;&nbsp;]</p>
+					</div>
+					<div class="kehu-pingjia-items1">
+						<div class="kehu-pingjia-item1">
+							<a href="#" class="kehupj-imga">
+								<img src="../../Images/userhead-01.png" alt="" />
+							</a>
+							<p class="user_Text01">雀搜通过多系列数据营销方案，将客户的采购需求及供应产品进行完美对接，降低双方时间及劳动成本，提高交易效率。</p>
+							<div>
+								<a href="#" class="user-pjName">贾少华</a>
+							</div>
+							<div class="company-name">
+								<img class="main-leftbg01" src="../../Images/mian_left.png" alt="" />
+								<img class="main-rightbg01" src="../../Images/mian_right.png" alt="" />
+								<p class="company-text">广州吸点氢吧健康管理有限公司</p>
+							</div>
+						</div><div class="kehu-pingjia-item1">
+							<a href="#" class="kehupj-imga">
+								<img src="../../Images/userhead-02.png" alt="" />
+							</a>
+							<p class="user_Text01">雀搜改革了以往需要主动搜索的搜索方式，转而使用其自行研发的大数据匹配引擎系统，使得采购商或供应商只需录入自己的产品需求以及供应信息即可由系统自动抓取并推送到相匹配的采购商或供应商里。</p>
+							<div>
+								<a href="#" class="user-pjName">杨斯惠</a>
+							</div>
+							<div class="company-name">
+								<img class="main-leftbg01" src="../../Images/mian_left.png" alt="" />
+								<img class="main-rightbg01" src="../../Images/mian_right.png" alt="" />
+								<p class="company-text">昆明创搜科技有限公司</p>
+							</div>
+						</div><div class="kehu-pingjia-item1">
+							<a href="#" class="kehupj-imga">
+								<img src="../../Images/userhead-03.png" alt="" />
+							</a>
+							<p class="user_Text01">雀搜利用自身的大数据匹配引擎系统，把过去需要采购商或供应商一步步去搜索的方式彻底改革，只需稳坐电脑前，打开雀搜，便可收到符合你要求的采购需求或供应信息。</p>
+							<div>
+								<a href="#" class="user-pjName">张凤琦</a>
+							</div>
+							<div class="company-name">
+								<img class="main-leftbg01" src="../../Images/mian_left.png" alt="" />
+								<img class="main-rightbg01" src="../../Images/mian_right.png" alt="" />
+								<p class="company-text">广州掌恒信息技术有限公司</p>
+							</div>
+						</div><div class="kehu-pingjia-item1">
+							<a href="#" class="kehupj-imga">
+								<img src="../../Images/userhead-04.png" alt="" />
+							</a>
+							<p class="user_Text01">在雀搜发布采购需求，雀搜的大数据匹配引擎将自动把你的采购需求推送至相对应的供应商；而对于供应商来说，只要产品一上线，雀搜系统将自动推送该产品到相对应的采购商。</p>
+							<div>
+								<a href="#" class="user-pjName">林可</a>
+							</div>
+							<div class="company-name">
+								<img class="main-leftbg01" src="../../Images/mian_left.png" alt="" />
+								<img class="main-rightbg01" src="../../Images/mian_right.png" alt="" />
+								<p class="company-text">广州凡莲海企业咨询管理有限公司</p>
+							</div>
+						</div><div class="kehu-pingjia-item1 new-dyitem01">
+							<a href="#" class="kehupj-imga">
+								<img src="../../Images/userhead-05.png" alt="" />
+							</a>
+							<p class="user_Text01">雀搜给供求双方提供高效便捷的信息服务，通过聚拢优质认证客户群体，产生大量真实有效的求购及供应需求信息，借助精准高效的双方数据推送机制，将其转化为一个个真是有效的订单。</p>
+							<div>
+								<a href="#" class="user-pjName">谢林</a>
+							</div>
+							<div class="company-name">
+								<img class="main-leftbg01" src="../../Images/mian_left.png" alt="" />
+								<img class="main-rightbg01" src="../../Images/mian_right.png" alt="" />
+								<p class="company-text">深圳市惠美亚科技有限公司</p>
+							</div>
+						</div><div class="kehu-pingjia-item1 new-dyitem01">
+							<a href="#" class="kehupj-imga">
+								<img src="../../Images/userhead-06.png" alt="" />
+							</a>
+							<p class="user_Text01">雀搜智能化识别及加工整理海量数据，并根据用户所设领域及关键词，实时推送该领域最新信息给客户群体</p>
+							<div>
+								<a href="#" class="user-pjName">朱仕南</a>
+							</div>
+							<div class="company-name">
+								<img class="main-leftbg01" src="../../Images/mian_left.png" alt="" />
+								<img class="main-rightbg01" src="../../Images/mian_right.png" alt="" />
+								<p class="company-text">深圳市智慧美科技有限公司</p>
+							</div>
+						</div><div class="kehu-pingjia-item1 new-dyitem01">
+							<a href="#" class="kehupj-imga">
+								<img src="../../Images/userhead-07.png" alt="" />
+							</a>
+							<p class="user_Text01">雀搜深度挖掘全网海量的供应商/采购商数据，只需输入关键词点击搜索，所有的供应商/采购商的联系方式、报价、地址一应俱全，省时省力，一键发现商机。</p>
+							<div>
+								<a href="#" class="user-pjName">梅芳</a>
+							</div>
+							<div class="company-name">
+								<img class="main-leftbg01" src="../../Images/mian_left.png" alt="" />
+								<img class="main-rightbg01" src="../../Images/mian_right.png" alt="" />
+								<p class="company-text">郑州艾惠美网络科技有限公司</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--视频介绍-->
+			<div class="video-jieshao-div">
+				<div class="index-title1">
+					<i>VIDEO PRESENTATION</i>
+					<p>[&nbsp;&nbsp;&nbsp;&nbsp;视频介绍&nbsp;&nbsp;&nbsp;&nbsp;]</p>
+				</div>
+				<div class="video-jieshao-items">
+					<div class="video-left-items">
+						<img class="video-jieshao-img01" src="../../Images/video01.png" alt="" vd-src="http://www.527so.com/Public/video/ad.mp4"/>
+					</div>
+					<div class="video-right-items">
+						<div class="video-jieshao-item">
+							<div class="video-jieshao-yun01">
+								<p class="video-yun01-text">颠覆传统的采购模式</p>
+							</div>
+						</div>
+						<img class="video-jieshao-img02" src="../../Images/video03.png" alt="" vd-src="http://www.527so.com/Public/video/visit.mp4"/>
+						<img class="video-jieshao-img03" src="../../Images/video02.png" alt="" vd-src="http://www.527so.com/Public/video/visit2.mp4"/>
+						<div class="video-jieshao-item">
+							<div class="video-jieshao-yun01">
+								<p class="video-yun01-text">直接影响众多平台利益</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--播放器容器-->
+				<div class="modal_video">
+					<div class="video-div">
+						<div class="close-vx">&times;</div>
+						<video src="" width="100%" height="100%" controls="controls"></video>
+					</div>
+				</div>
+			</div>
+			<div class="QRcode">
+				<img class="QR-CO" src="../../Images/home_tangchuheng.png" alt="">
+				<span class="QR-close"></span>
+			</div>
+			<!--QR二维码广告部开始-->
+
+			<div class="AD-QR">
+				<span class="img-01"></span>
+				<span class="img-02"></span>
+				<span class="img-03"></span>
+				<span class="img-04"></span>
+				<span class="img-05">客服热线：4008088770</span>
+				<span class="img-06"></span>
+			</div>
+			<!--QR二维码广告部结束-->
+		</main>
+		<!--主题内容结束-->
+
+		<!--页面底部开始-->
+		<footer class="footer_box"></footer>
+		<!--页面底部结束-->
+			
+		<script src="../../js/jquery.js"></script>
+		<script src="../../js/common.js"></script>
+		<script>
+			$(function(){
+				//为关闭按钮绑定单击事件
+				$(document).on("click",".close-vx",function(){
+					$(".modal_video").fadeOut();
+					$(".video-div video").attr("src","");
+				})
+				
+				//为视频img绑定单击事件
+				$(document).on("click",".video-jieshao-items img",function(){
+					var vdsrc = $(this).attr("vd-src");
+					$(".modal_video").fadeIn();
+					$(".video-div video").attr("src",vdsrc);
+					$(".video-div video")[0].play();
+					//console.log(vdsrc);
+				})
+				
+				//为兼容其他浏览器，则需要js解决，以下为封装的方法。
+				function wordlimit(cname,wordlength){
+				    var cname = $(".user_Text01");//需要加省略符号的元素对象
+				    for(var i=0;i<cname.length;i++){　　　　　　　　　　　
+				       var nowhtml=cname[i].innerHTML;//元素的内容
+				        var nowlength=cname[i].innerHTML.length;//元素文本的长度
+				        if(nowlength>wordlength){
+				            cname[i].innerHTML=nowhtml.substr(0,wordlength)+'...';//截取元素的文本的长度并加上省略号
+				            //console.log(cname[i].offsetWidth);
+				        }
+				    }
+				}
+				wordlimit("user_Text01",55);//调用方法
+				
+				//点击悬浮广告close显示右侧浮标
+				$(".QR-close").on("click",function(){
+					$(".QRcode").fadeOut(500);
+					$(".AD-QR").fadeIn(500);
+				})
+
+				//鼠标悬停显示隐藏
+				$(".img-03").mouseover(function(){
+					$(".img-05").css({
+						"display":"block"
+					})
+				})
+				
+				$(".img-03").mouseout(function(){
+					$(".img-05").css({
+						"display":"none"
+					})
+				})
+				
+				$(".img-04").mouseover(function(){
+					$(".img-06").css({
+						"display":"block"
+					})
+				})
+				
+				$(".img-04").mouseout(function(){
+					$(".img-06").css({
+						"display":"none"
+					})
+				})
+
+			})
+		</script>
+	</body>
+</html>

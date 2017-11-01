@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <link rel="stylesheet" href="../../css/register.css" />
+</head>
+<body>
+    <div class="RegBigBox">
+        <!--头部开始-->
+        <div class="RegTop">
+            <em class="logo"></em>
+            <p>用户注册</p>
+        </div>
+        <!--导航开始-->
+        <div class="RegNav">
+            <span class="VipReg active">会员注册</span>
+            <span class="EmailReg">邮箱注册</span>
+            <span class="login">已有雀搜账号&nbsp;&nbsp;<i>登录></i></span>
+        </div>
+        <!--表单开始-->
+        <!--手机注册表单-->
+        <div class="RgeForm" id="RegPhone">
+            <div class="RgeForm-Box">
+                <i></i>
+                <input class="input-1 input-phone" type="text" placeholder="请输入您的手机号码" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" />
+            </div>
+            <div class="RgeForm-Box">
+                <span></span>
+                <input class="input-2" maxlength=20 type="text" placeholder="密码由6-20位字母、数字和符号组合">
+            </div>
+            <div class="RgeForm-Box">
+                <span></span>
+                <input class="input-3" maxlength=20 type="text" placeholder="确认密码">
+            </div>
+            <div class="RgeForm-Box">
+                <span></span>
+                <input class="input-4" type="text" placeholder="请输入短信验证码" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" />
+                <em class="UpData-Code Code01 ">获取验证码</em>
+            </div>
+            <!--注册按钮-->
+            <div class="RgeForm-Box">
+                <input class="input-5" type="button" value="立即注册" >
+            </div>
+            <input class="CheckBox" type="checkbox">
+            <span>我已同意<i class="sever">服务协议</i></span>
+        </div>
+        <!--邮箱注册表单-->
+        <div class="RgeForm" id="RegEmail">
+            <div class="RgeForm-Box">
+                <i></i>
+                <input class="input-1 input-email" type="text" placeholder="请输入您的邮箱号码" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" />
+            </div>
+            <div class="RgeForm-Box">
+                <span></span>
+                <input class="input-2" type="text" maxlength=20 placeholder="密码由6-20位字母、数字和符号组合">
+            </div>
+            <div class="RgeForm-Box">
+                <span></span>
+                <input class="input-3" maxlength=20 type="text" placeholder="确认密码">
+            </div>
+            <div class="RgeForm-Box">
+                <span></span>
+                <input class="input-4" type="text" placeholder="请输入邮箱验证码" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" />
+                <em class="UpData-Code Code02">获取验证码</em>
+            </div>
+            <!--注册按钮-->
+            <div class="RgeForm-Box">
+                <input class="input-5" type="button" value="立即注册" >
+            </div>
+            <input class="CheckBox" type="checkbox">
+            <span>我已同意<i class="sever">服务协议</i></span>
+        </div>
+
+    </div>
+    <!--底部-->
+    <div class="RegBottom">
+        <ul>
+            <li class="li1"><span><i>客服电话： 400-8088770 | 9:00-18:30</i></span></li>
+            <li class="li2"><span><i>关于我们</i></span></li>
+            <li class="li3"><span><i>雀搜微信公众号 : 雀搜</i></span></li>
+        </ul>
+    </div>
+<script src="../../js/jquery.js"></script>
+<script src="../../js/register.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>产品介绍</title>
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../css/index.css" />
+	</head>
+	<body style="min-width: 1200px;overflow-x: auto;" class="1 pages">
+		<!--页面顶部开始-->
+		<header class="header_box"></header>
+		<!--页面顶部结束-->
+
+		<!--头部背景图开始-->
+		<div class="JoinImg">
+			<img src="../../Images/pr-banner.png" alt="" width="100%">
+		</div>
+		<!--头部背景图结束-->
+
+		<!--内容区域开始-->
+		<div class="ProductStatus">
+			<div class="ProductText">
+				<span>雀搜</span>一站式采购供应服务平台
+			</div>
+			<p>面向未来，自主创新，是雀搜网坚持的发展原则。公司以成为“中小企业首选的互联网服务及信息化建设提供商”为目标，以推动企业实现“互联网+”为己任，不断细化用户体验，丰富服务内容。暂时出雀搜网成立以来的成就。</p>
+			<img class="video_img_pro" style="position: relative;top: 60px;" src="../../Images/video.png" alt="" vd-src="http://www.527so.com/Public/video/ad.mp4">
+			<div class="ProductBottom">
+				<span class="ProductBottom01">
+            <img src="../../Images/data_01.png" alt="">
+            <p>海量采购商信息数据，经过雀搜几年的深度挖掘全网供需数据、聚合、加工，使信息数据规模化，价值化，精准化，从而使得企业全网营销效果最大化，目前数据库已经超过上千万的采购商数据，并且大部分数据经过雀搜的人工验证。</p>
+        </span>
+				<span class="ProductBottom02">
+            <img src="../../Images/match_02.png" alt="">
+            <p>智能匹配全网数据，实时、精准的将各大网站的采购商信息推送给相应的供应商，雀搜每天采购商信息更新10万以上；双向机制，系统每天定时将供应商的产品推送给各大网站的采购商。</p>
+        </span>
+				<span class="ProductBottom03">
+            <img src="../../Images/CRM_03.png" alt="">
+            <p>精准的供求信息，一体化的客户管理模式，销售机会实时跟踪，随时随地的移动销售管理，高效，方便，节省时间。</p>
+        </span>
+			</div>
+		</div>
+		<!--内容区域结束-->
+
+		<!--播放器容器-->
+		<div class="modal_video">
+			<div class="video-div">
+				<div class="close-vx">&times;</div>
+				<video src="" width="100%" height="100%" controls="controls"></video>
+			</div>
+		</div>
+
+		<!--页面底部开始-->
+		<footer class="footer_box"></footer>
+		<!--页面底部结束-->
+
+		<script src="../../js/jquery.js"></script>
+		<script src="../../js/common.js"></script>
+		<script>
+			$(function(){
+				//为关闭按钮绑定单击事件
+				$(document).on("click",".close-vx",function(){
+					$(".modal_video").fadeOut();
+					$(".video-div video").attr("src","");
+				})
+				
+				//为视频img绑定单击事件
+				$(document).on("click",".video_img_pro",function(){
+					var vdsrc = $(this).attr("vd-src");
+					$(".modal_video").fadeIn();
+					$(".video-div video").attr("src",vdsrc);
+					$(".video-div video")[0].play();
+					//console.log(vdsrc);
+				})
+			})
+		</script>
+	</body>
+
+</html>

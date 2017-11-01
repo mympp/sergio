@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>收件箱</title>
+		<link rel="stylesheet" href="../../css/common.css" />
+	    <link rel="stylesheet" href="../../css/index.css" />
+	    <link rel="stylesheet" href="../../css/consult.css" />
+	</head>
+	<body style="min-width: 1500px;overflow-x: auto;overflow-y: hidden;">
+		<!--父容器开始-->
+		<div class="outer_div">
+			<!--左边导航模块-->
+			<div class="left_template">
+				<div class="user_logo"><img src="../../Images/common_logo.png" alt="" /></div>
+				<p class="company_name1">广东雀鸟科技有限公司</p>
+				<!--用户导航列表-->
+				<div class="userList_bar">
+					<ul class="userList_ul">
+						<li class="userList_li">
+							<span class="icon-01"></span>
+							<span class="icon-text">概览</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-02"></span>
+							<span class="icon-text">线索</span>
+							<span class="xiansuo_count">10</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-03"></span>
+							<span class="icon-text">客户管理</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-04"></span>
+							<span class="icon-text">联系人</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-05"></span>
+							<span class="icon-text">公海</span>
+						</li>
+						<li class="userList_li icon-shopping">
+							<span class="icon-06"></span>
+							<span class="icon-text">商品</span>
+							<span class="icon-shopping-1"></span>
+						</li>
+						<div class="icon-shopping-div">
+							<p>商品管理</p>
+							<p>发布产品</p>
+						</div>
+						<li class="userList_li active">
+							<span class="icon-07"></span>
+							<span class="icon-text">咨询信息</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-08"></span>
+							<span class="icon-text">设置</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-09"></span>
+							<span class="icon-text">反馈</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--右边主题内容-->
+			<div class="right_template">
+		        <div class="left_header">
+		            <div class="page_state">咨询信息</div>
+		            <div class="vip-valid">会员有效日期：2017-10-30</div>
+		        </div>
+		        <div class="right_header">
+		            <ul>
+		                <li class="buy_xiansuoli1">
+		                    <span class="buy_vip_icon1"></span>
+		                    <a href="javascript:;">购买会员</a>
+		                </li>
+		                <li class="xiansuoli1">
+		                    <span class="user_icon1"></span>
+		                    <a href="javascript:;">哟哟</a>
+		                </li>
+		                <li class="xiansuoli1">
+		                    <span class="login_out1"></span>
+		                    <a href="javascript:;">退出</a>
+		                </li>
+		            </ul>
+		        </div>
+		        <div class="consult-main">
+			        <!-- 资讯信息头部开始 -->
+			        <div class="fl consult-nav">
+			        	<ul class="fl ziti4">
+			        		<li class="fl"><a href="send.html">发送信息</a></li>
+			        		<li class="fl selected"><a href="inbox.html">收件箱</a></li>
+			        		<li class="fl"><a href="sent.html">已发送</a></li>
+			        		<li class="fl"><a href="drafts.html">草稿箱</a></li>
+			        		<li class="fl"><a href="recycle.html">回收站</a></li>
+			        	</ul>
+			        </div>
+			        <!-- 资讯信息头部结束 -->
+			        <div class="inbox-main">
+				        <!-- 收件箱列表开始 -->
+				        <div class="inbox-nav">
+				        	<ul class="fl">
+					        	<span class="fl">筛选：</span>
+				        		<li class="fl"><select><option>类型</option></select></li>
+				        		<li class="fl"><select><option>标题</option></select></li>
+				        	</ul>
+				        	<div class="inbox-nav-input">
+				        		<input type="text" class="search-input1"/>
+				        		<span class="search-btn2"></span>
+				        	</div>
+				        	<!-- 收件箱列表 -->
+				        	<div class="inbox-list">
+				        		<div class="inbox-listnav">
+					        		<ul class="fl">
+					        			<li class="fl selected">全部</li>
+					        			<li class="fl">普通</li>
+					        			<li class="fl">询价</li>
+					        			<li class="fl">报价</li>
+					        			<li class="fl">留言</li>
+					        			<li class="fl">信使</li>
+					        		</ul>
+					        		<div class="fr fus_list1">
+					        			<a class="huishou_1">回收站</a>
+					        			<a class="delete_1">彻底删除</a>
+					        			<!--<a class="clear_1">清空</a>-->
+					        		</div>
+					        	</div>
+				        		<table id="inbox_table">
+			        				<thead>
+				        				<tr>
+				        					<th>
+							                    <label class="checkbox checkboxAll1" onselectstart="return false;">
+							                        <input id="checkall" type="checkbox" class="vam" name="checkall" onclick="selectAll()"/>
+							                        <i></i>
+							                    </label>
+				        					</th>
+				        					<th>类型</th>
+				        					<th>标题</th>
+				        					<th>发件人</th>
+				        					<th>时间</th>
+				        				</tr>
+				        			</thead>
+				        			<tbody>
+				        				<!-- 这里存放已发送列表信息 -->
+				        				<tr name="111">
+				        					<td>
+				        						<label class="checkbox" onselectstart="return false;">
+					        						<input type="checkbox" class="vam" name="checkedres" />
+					        						<i></i>
+				        						</label>
+				        					</td>
+				        					<td><img src="../../Images/consultation_icon_mail.png" alt=""></td>
+				        					<td class="inbox-tabletext">建议网站加上分享功能</td>
+				        					<td>KC90788</td>
+				        					<td>2017-10-16 11:45</td>
+				        				</tr>
+				        				<tr name="222">
+				        					<td>
+				        						<label class="checkbox" onselectstart="return false;">
+					        						<input type="checkbox" class="vam" name="checkedres" />
+					        						<i></i>
+				        						</label>
+				        					</td>
+				        					<td><img src="../../Images/consultation_icon_information.png" alt=""></td>
+				        					<td class="inbox-tabletext">站内交易提醒，您有一笔交易付款</td>
+				        					<td>KC90789</td>
+				        					<td>2017-10-16 12:45</td>
+				        				</tr>
+				        				<tr name="333">
+				        					<td>
+				        						<label class="checkbox" onselectstart="return false;">
+					        						<input type="checkbox" class="vam" name="checkedres" />
+					        						<i></i>
+				        						</label>
+				        					</td>
+				        					<td><img src="../../Images/consultation_icon_commodity.png" alt=""></td>
+				        					<td class="inbox-tabletext">站内交易提醒，您有一笔交易付款</td>
+				        					<td>KC90790</td>
+				        					<td>2017-10-16 13:45</td>
+				        				</tr>
+				        			</tbody>
+				        		</table>
+				        	</div>
+				        </div>
+				        <!-- 列表分页 -->
+				        <div class="inbox-footer">
+				            <!--分页器开始-->
+				            <div class="xiansuo_Page_Div">
+				                <div class="xiansuo_Page_border"></div>
+				                <div class="xiansuo_Page_div">
+				                    <div class="fl">
+				                        <span style="margin-right: 5px;">每页显示</span>
+				                        <select class="xiansuo_Page_Three">
+				                            <option value="10">10</option>
+				                            <option value="50">50</option>
+				                            <option value="100">100</option>
+				                        </select>
+				                        <span style="margin-left: 5px;">条</span><span style="margin-left: 10px;">共</span><span class="xiansuo_Sizes">1500</span><span>条/</span><span class="xiansuo_Pages">50页</span>
+				                        <img class="first_page" src="../../Images/icon_sanjiao_01.png" alt="" />
+				                        <img class="prev_page" src="../../Images/icon_sanjiao_02.png" alt="" />
+				                    </div>
+				                    <ul class="xiansuo_Page_list">
+				                        <li>1</li>
+				                        <li>2</li>
+				                        <li>3</li>
+				                        <li>4</li>
+				                        <li>5</li>
+				                    </ul>
+				                    <img class="next_page" style="margin-left: 15px;" src="../../Images/icon_sanjiao_03.png" alt="" />
+				                    <img class="last_page"src="../../Images/icon_sanjiao_04.png" alt="" />
+				                    <span style="margin: 0 5px;">跳转</span><input type="text" value="0" class="that_Page" maxlength="10"/><span style="margin-left: 5px;">页</span>
+				                </div>
+				            </div>
+				            <!--分页器结束-->
+		
+				        </div>
+				        <!-- 收件箱列表结束 -->
+				    </div>
+			    </div>
+			</div>
+		</div>
+		
+		<!--确认删除模态框1-->
+		<div class="delete-modal">
+			<div class="delete-modal-cell">
+				<p>您确认删除吗？</p>
+				<div class="delete_modal_btns">	
+					<span class="de_cancel_1">取消</span>
+					<span class="de_confirm_1">确定</span>
+				</div>
+			</div>
+		</div>
+
+		<script src="../../js/jquery.js"></script>
+		<script src="../../js/consult.js"></script>
+		<script src="../../js/inbox.js"></script>
+	</body>
+</html>

@@ -1,0 +1,254 @@
+/* CSS Document 
+-功能：官网首页和产品页面样式
+-作者：sergiolin
+-日期：2017/10/27*/
+/*首页样式*/
+/*轮播样式*/
+.slider, .slider-panel img, .slider-extra {
+	width: 100%;
+	height: 543px;
+}
+.slider {
+	text-align: center;
+	margin: 0px auto;
+	position: relative;
+}
+.slider-panel, .slider-nav, .slider-pre, .slider-next {
+	position: absolute;
+	z-index: 1;
+}
+.slider-panel {
+	position: absolute;
+}
+.slider-panel img {
+	border: none;
+}
+.slider-extra {
+	position: relative;
+}
+.slider-nav {
+	margin-left: -51px;
+	position: absolute;
+	left: 50%;
+	bottom: 4px;
+}
+.slider-nav li {
+	width: 15px;
+	height: 15px;
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 50%;
+	cursor: pointer;
+	margin: 0 2px;
+	overflow: hidden;
+	text-align: center;
+	display: inline-block;
+}
+.slider-nav .slider-item-selected {
+	background: #ccc;
+}
+.slider-page a{
+	background: rgba(0, 0, 0, 0.2);
+	color: #fff;
+	text-align: center;
+	display: block;
+	font-family: "simsun";
+	font-size: 22px;
+	width: 28px;
+	height: 62px;
+	line-height: 62px;
+	margin-top: -31px;
+	position: absolute;
+	top: 50%;
+}
+.slider-page a:hover {
+	background: rgba(0, 0, 0, 0.4);
+}
+.slider-next {
+	left: 100%;
+	margin-left: -28px;
+}
+/*内容样式*/
+.index-box{
+	width: 1200px;
+	height:600px;
+	margin: 0 auto;
+	clear: both;
+}
+.index-gbox{
+	width: 100%;
+	background: #f6f8fa;
+}
+.index-box img{
+	width: 50%;
+}
+.index-box .index-textbox{
+	padding: 180px 30px 0;
+}
+.index-box .index-textbox h4{
+	font-size: 40px;
+	font-weight: bold;
+	line-height: 80px;
+}
+.index-box .index-textbox p{
+	font-size: 16px;
+	line-height: 35px;
+	color:#666;
+}
+.index-box .index-textbox.fr{
+	text-align: right;
+}
+/**箭头动画**/
+.index-boxanimate{
+	width: 1200px;
+	height: auto;
+	margin: 0 auto;
+}
+.rotate-box{
+	width: 350px;
+	height: 150px;
+	margin: 0 5px;
+	position: relative;
+	text-align: center;
+	display: inline-block;
+}
+.rotate-box:hover{
+	transition: all .3s ease-in;
+	-ms-transition: all .3s ease-in;
+	-moz-transition: all .3s ease-in;
+	-webkit-transition: all .3s ease-in;
+	transform: translate(3px,-3px);
+	-ms-transform: translate(3px,-3px);
+	-moz-transform: translate(3px,-3px);
+	-webkit-transform: translate(3px,-3px);
+}
+.rotate-box1,
+.rotate-box1 .rotate{
+	background: #7171b7;
+}
+.rotate-box2,
+.rotate-box2 .rotate{
+	background: #717db7;
+}
+.rotate-box3,
+.rotate-box3 .rotate{
+	background: #718bb7;
+}
+.rotate-box .rotate-white,
+.rotate-box .rotate{
+	width: 108px;
+	height: 108px;
+	transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+
+}
+.rotate-box .rotate-white{
+	position: absolute;
+	top: 21px;
+	left: -54px;
+	background: #f6f8fa;
+}
+.rotate-box .rotate{
+	position: absolute;
+	top: 21px;
+	right: -54px;
+}
+.rotate-box .rotate-text{
+	position: relative;
+	left: 40px;
+	z-index: 9999;
+}
+.rotate-box .rotate-text h5{
+	color: #fff;
+	font-size: 24px;
+	line-height: 90px;
+}
+.rotate-box .rotate-text p{
+	width: 280px;
+	height: 35px;
+	line-height: 35px;
+	margin: 0 auto;
+	font-size: 16px;
+	border: 1px solid #fff;
+	border-radius: 35px;
+	background: #fff;
+	color: #718bb7;
+}
+.index-boxanimate .fl{
+	width: 300px;
+	height: 92px;
+	line-height: 92px;
+	text-indent: 102px;
+	margin-top: 80px;
+	font-size: 24px;
+	margin-bottom: 166px;
+}
+.index-boxanimate h3{
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
+	line-height: 168px;
+	margin: 166px 0 8px;
+}
+.index-boxanimate .index-boxanimate1{
+	background: url(../Images/home_secondscreen_bottom01.png) no-repeat;
+	color: #3697b7;
+}
+.index-boxanimate .index-boxanimate2{
+	background: url(../Images/home_secondscreen_bottom02.png) no-repeat;
+	color: #4669ab;
+}
+.index-boxanimate .index-boxanimate3{
+	background: url(../Images/home_secondscreen_bottom03.png) no-repeat;
+	color: #15bd8a;
+}
+.index-boxanimate .index-boxanimate4{
+	background: url(../Images/home_secondscreen_bottom04.png) no-repeat;
+	color: #7f6ebc;
+}
+.main-footer{
+	width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+	clear: both;
+}
+.main-footer h3{
+	font-size: 30px;
+	color: #000;
+	font-weight: bold;
+}
+.main-footer .footer-movie{
+	width: 1200px;
+	height: 350px;
+	margin: 76px 0 0;
+}
+.main-footer .footer-movie .fl{
+	width: 270px;
+	height: 167px;
+	margin: 0 14px;
+	border: 1px solid #ccc;
+	cursor: pointer;
+}
+.footer-img{
+	width: 100%;
+	height: 235px;
+	text-align: center;
+	padding-top: 100px;
+	background: url(../Images/home_lastscreen_bg.png) no-repeat;
+	background-size: 100% 100%;
+}
+.footer-img h5{
+	font-size: 30px;
+}
+.footer-img a{
+	display: inline-block;
+	width: 183px;
+	height: 68px;
+	line-height: 68px;
+	margin-top: 50px;
+	background: #ffb908;
+	color: #fff;
+	font-size: 30px;
+}
+/*产品信息样式*/

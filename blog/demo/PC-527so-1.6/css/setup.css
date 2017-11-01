@@ -1,0 +1,670 @@
+
+.right_header ul {
+  margin-right: 20%;
+}
+.SetupCenter {
+    width: 98%;
+    height: 860px;
+    margin: 0 1%;
+    float: left;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid rgba(255,255,255,0.3);
+    margin-top: 16px;
+}
+.SetupCenter-top {
+    height: 220px;
+    width: 95%;
+    border-bottom: 1px  solid #dcdcdc;
+    margin:  0 auto;
+    position: relative;
+}
+#form0 {
+    display: inline-block;
+    position: relative;
+}
+#file0 {
+    opacity:0;
+}
+#img0 {
+    display:inline-block;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px solid #a1d4f4;
+    margin-left:22px;
+    cursor: pointer;
+}
+.SetupCenter-top>h2 {
+    position: absolute;
+    top:44px;
+    left:160px;
+    font-size: 18px;
+    color: #494949;
+    font-weight:700;
+}
+.SetupCenter-top>p {
+    color: #494949;
+    font-size: 16px;
+    position: absolute;
+    top: 80px;
+    left: 161px;
+}
+.SetupCenter-top>p>i {
+    font-style: normal;
+    margin-left: 64px;
+}
+.SetupCenter-top>em {
+    font-size: 18px;
+    color: #e67e19;
+    display: inline-block;
+    position: absolute;
+    top:65px;
+    left:63%;
+}
+.SetupCenter-top>em>i {
+    width: 30px;
+    height: 30px;
+    background: url("../Images/common_nav_member_nor.png") no-repeat;
+    display: inline-block;
+    position: absolute;
+    top:-3px;
+    left:-38px;
+}
+.SetupCenter-top>span {
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+    color: #e67e19;
+    background: #FFFFFF;
+    border:1px solid #e67e19;
+    border-radius: 20px;
+    line-height: 40px;
+    text-align: center;
+    position: absolute;
+    left: 72%;
+    top:55px;
+    cursor: pointer;
+}
+.modal_SetUp {
+    width: 100%;
+    height:100%;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.3);
+    position: absolute;
+    top:2px;
+    left:24px;
+    line-height: 90px;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 16px;
+    cursor: pointer;
+    /*visibility: hidden;*/
+    display: none;
+}
+.toppost {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.toppost:hover .modal_SetUp{
+    /*visibility: visible;*/
+    display: block;
+}
+.SetupCenter-center>p {
+    display: inline-block;
+    font-size: 16px;
+    color: #494949;
+    font-weight:700;
+    padding-top: 26px;
+    padding-left:56px;
+}
+.message>span {
+    font-size: 16px;
+    color: #494949;
+    margin-right: 38px;
+}
+.message>input {
+    width: 500px;
+    height: 36px;
+    background: #f0f1f4;
+    border:1px solid #d6d6d6;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 16px;
+}
+.message {
+    margin-bottom: 16px;
+    position: relative;
+    font-size: 16px;
+    color: #898989;
+}
+.message-sex {
+    width: 512px;
+    height: 40px;
+    background: #f0f1f4;
+    border:1px solid #d6d6d6;
+    border-radius: 5px;
+    font-size: 16px;
+    padding-left: 10px;
+    margin-left:-3px;
+}
+.name-messge {
+    margin-left:-0px;
+}
+.SetUp-btns {
+    margin-left: 26px;
+    margin-top: 32px;
+}
+.SetUp-btns>span {
+    font-size: 16px;
+    color: #494949;
+    margin-right: 69px;
+    font-weight:700;
+}
+.SetUp-btns i {
+    font-style: normal;
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    background: #e2ebf5;
+    border:1px solid #d3e0ee;
+    border-radius: 20px;
+    line-height: 40px;
+    text-align: center;
+    color: #7d879b;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 63px;
+
+}
+.SetUp-btns i:hover {
+    background: #1da1f2;
+    color: #FFFFFF;
+}
+.message-area {
+    width: 130px;
+    height: 36px;
+    border-radius:5px;
+    background: #f0f1f4;
+    margin-left: 9px;
+    margin-right: 9px;
+}
+.SetupCenter-center-form {
+    margin-left:11%;
+    margin-top: 27px;
+}
+.Updata {
+    background: #1da1f2;
+    color: #FFFFFF;
+    border-radius: 20px;
+    display: block;
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 54px;
+    margin-left: 179px;
+    cursor: pointer;
+}
+/*模态框开始*/
+.modal_Bigbox {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    position: fixed;
+    top:0;
+    right: 0;
+    display: none;
+}
+/*修改密码开始*/
+.UpPassword {
+    height: 290px;
+    width: 640px;
+    border-radius: 30px;
+    /*border:1px solid #d6d6d6;*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    display: none;
+}
+.UpPassword-top {
+    height:60px;
+    width: 100%;
+    background: #1da1f2;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.UpPassword-top>span {
+    display: inline-block;
+    font-size: 18px;
+    color: #FFF;
+    padding-left: 22px;
+    padding-top:18px;
+}
+.UpPassword-top>i {
+    font-style:normal;
+    font-size: 38px;
+    color: #FFFFFF;
+    float: right;
+    margin-right:22px ;
+    cursor: pointer;
+    margin-top: 3px;
+}
+.UpPassword-center {
+    width: 100%;
+    height: 200px;
+    background: #FFFFFF;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-top: 32px;
+}
+.UpPassword-center em {
+    font-size: 16px;
+    color: #494949;
+    margin-left:58px ;
+    margin-right: 26px;
+
+}
+.UpPassword-center input {
+    width: 442px;
+    height: 34px;
+    border-radius: 5px;
+    border: 1px solid #d6d6d6;
+    background: #f0f1f4;
+    font-size: 16px;
+    padding-left: 10px;
+}
+.input-name {
+    margin-bottom: 18px;
+    position: relative;
+}
+.input-name>i {
+    position: absolute;
+    top: 38px;
+    left: 150px;
+    font-style:normal;
+    color:#f57373;
+    font-size: 12px;
+    display: none;
+
+}
+.input-password {
+    position: relative;
+}
+.ShowPassword {
+    display: inline-block;
+    width: 20px;
+    height: 10px;
+    background: url("../Images/set_icon_eye_nor.png") no-repeat;
+    position: absolute;
+    top: 15px;
+    right: 60px;
+    cursor: pointer;
+}
+.password-off,.password-save {
+    display: inline-block;
+    width: 110px;
+    height: 36px;
+    border-radius: 30px;
+    margin-top: 36px;
+    text-align: center;
+    line-height: 36px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.password-off {
+    border:1px solid #1da1f2;
+    color:#1da1f2;
+    margin-left: 190px;
+}
+.password-save {
+    background: #1da1f2;
+    color: #ffffff;
+    margin-left: 28px;
+}
+/*修改密码结束*/
+
+/*操作成功模态框开始*/
+.sucuess-modal{
+    width: 100%;
+    height: 100%;
+    display: none;
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10000;
+}
+
+.sucuess-modal-cell{
+    width: 250px;
+    height: 200px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.sucuess-modal-cell img{
+    margin-top: 40px;
+}
+
+.sucuess-modal-cell p{
+    font-size: 18px;
+    color: #494949;
+    font-weight: 600;
+    margin-top: 20px;
+    padding-left: 5px;
+}
+/*操作成功模态框结束*/
+
+/*修改手机号开始*/
+.Updata-Phonenumber {
+    height: 290px;
+    width: 640px;
+    border-radius: 30px;
+    /*border:1px solid #d6d6d6;*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    display: none;
+}
+.UpPhone-top {
+    height:60px;
+    width: 100%;
+    background: #1da1f2;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.UpPhone-top>span {
+    display: inline-block;
+    font-size: 18px;
+    color: #FFF;
+    padding-left: 22px;
+    padding-top:18px;
+}
+.UpPhone-top>i {
+    font-style:normal;
+    font-size: 38px;
+    color: #FFFFFF;
+    float: right;
+    margin-right:22px ;
+    cursor: pointer;
+    margin-top: 3px;
+}
+.UpPhone-center {
+    width: 100%;
+    height:324px;
+    background: #FFFFFF;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-top: 32px;
+}
+.UpPhone-center em {
+    font-size: 16px;
+    color: #494949;
+    margin-left:58px ;
+    margin-right: 26px;
+
+}
+.UpPhone-center input {
+    width: 314px;
+    height: 34px;
+    border-radius: 5px;
+    border: 1px solid #d6d6d6;
+    background: #f0f1f4;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.Phone-off,.Phone-save {
+    display: inline-block;
+    width: 110px;
+    height: 36px;
+    border-radius: 30px;
+    margin-top: 19px;
+    text-align: center;
+    line-height: 36px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.Phone-off {
+    border:1px solid #1da1f2;
+    color:#1da1f2;
+    margin-left: 190px;
+}
+.Phone-save {
+    background: #1da1f2;
+    color: #ffffff;
+    margin-left: 28px;
+}
+.input01,.input02,.input03,.input04 {
+    margin-bottom: 18px;
+    position: relative;
+}
+.input01>input {
+    margin-left: 32px;
+}
+.input02>input {
+    margin-left: 47px;
+}
+.input04>input {
+    margin-left: 47px;
+}
+.UpPhone-send01, .UpPhone-send02 {
+    font-style: normal;
+    font-size: 14px;
+    margin-left: 16px;
+    cursor: pointer;
+}
+.UpPhone-send01 {
+    color: #1da1f2;
+}
+.UpPhone-send02 {
+    color: #aaaaaa;
+    pointer-events: none;
+}
+.code-state1{
+    color: #aaa;
+}
+.code-state {
+    color: #1da1f2;
+    cursor: pointer;
+    pointer-events:auto;
+}
+.iphoneNO1,.iphoneNO2 {
+    position: absolute;
+    top: 39px;
+    left: 195px;
+    color: #f57373;
+    display: none;
+}
+/*修改手机号结束*/
+
+/*消息管理开始*/
+.Updata-Message {
+    height: 482px;
+    width: 640px;
+    border-radius: 30px;
+    /*border:1px solid #d6d6d6;*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    display: none;
+}
+.Updata-Message-top {
+    height:60px;
+    width: 100%;
+    background: #1da1f2;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.Updata-Message-top>span {
+    display: inline-block;
+    font-size: 18px;
+    color: #FFF;
+    padding-left: 22px;
+    padding-top:18px;
+}
+.Updata-Message-top>i {
+    font-style:normal;
+    font-size: 38px;
+    color: #FFFFFF;
+    float: right;
+    margin-right:22px ;
+    cursor: pointer;
+    margin-top: 3px;
+}
+.Updata-Message-center {
+    width: 100%;
+    height:410px;
+    background: #FFFFFF;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-top: 32px;
+}
+.Updata-Message-center>h3 {
+    display: block;
+    font-size: 17px;
+    color: #494949;
+    margin-top: -8px;
+    padding-bottom: 18px;
+    padding-left: 46px;
+}
+.xian {
+    width: 560px;
+    border-top:1px solid #dcdcdc;
+    margin: 0 auto;
+}
+.center01 {
+    margin-top: 22px;
+    margin-left: 46px;
+    position: relative;
+}
+.center01>span {
+    color: #494949;
+    font-size: 17px;
+}
+.center01>i {
+    display: inline-block;
+    position: absolute;
+    right: 70px;
+    top: 3px;
+    width: 20px;
+    height: 20px;
+    background: url("../Images/set_icon_xioaxi_nor.png") no-repeat;
+}
+.center02 {
+    margin-top:30px;
+    margin-left: 46px;
+    position: relative;
+}
+.center02>span {
+    color: #494949;
+    font-size: 17px;
+}
+.center02>i {
+    display: inline-block;
+    position: absolute;
+    right: 70px;
+    top: 3px;
+    width: 20px;
+    height: 20px;
+    background: url("../Images/set_icon_xioaxi_nor.png") no-repeat;
+}
+.Updata-Message-center>h2 {
+    display: block;
+    font-size: 17px;
+    color: #494949;
+    margin-top: 30px;
+    padding-bottom: 22px;
+    padding-left: 46px;
+}
+.center03 {
+    margin-top:30px;
+    margin-left: 46px;
+    position: relative;
+}
+.center03>span {
+    color: #494949;
+    font-size: 17px;
+}
+.center03>i {
+    display: inline-block;
+    position: absolute;
+    right: 70px;
+    top: 3px;
+    width: 52px;
+    height: 18px;
+    background: url("../Images/set_icon_tixing_nor.png") no-repeat;
+}
+.center04 {
+    margin-top:30px;
+    margin-bottom: 20px;
+    margin-left: 46px;
+    position: relative;
+}
+.center04>span {
+    color: #494949;
+    font-size: 17px;
+}
+.center04>i {
+    display: inline-block;
+    position: absolute;
+    right: 70px;
+    top: 3px;
+    width: 52px;
+    height: 18px;
+    background: url("../Images/set_icon_tixing_nor.png") no-repeat;
+}
+.Message-off,.Message-no {
+    display: inline-block;
+    width: 110px;
+    height: 36px;
+    border-radius: 30px;
+    margin-top: 19px;
+    text-align: center;
+    line-height: 36px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.Message-off {
+    border:1px solid #1da1f2;
+    color:#1da1f2;
+    margin-left: 190px;
+}
+.Message-no {
+    background: #1da1f2;
+    color: #ffffff;
+    margin-left: 28px;
+}
+/*消息管理结束*/
