@@ -7,6 +7,8 @@
 	*page.css是单个页面的精细样式
 */
 /*自行更改*/
+@charset "UTF-8";
+
 body{
 	font-family: Helvetica,Tahoma,Arial,"Hiragino Sans GB","Microsoft YaHei",SimSun,Heiti,sans-serif;/*借用魅族的字体选择*/
 }

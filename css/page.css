@@ -7,6 +7,7 @@
 	*page.css是单个页面的精细样式
 */
 /*首页*/
+@charset "UTF-8";
 .index article{
 	width: 330px;
 	height: 80px;

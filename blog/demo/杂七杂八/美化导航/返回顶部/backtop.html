@@ -16,6 +16,7 @@
 		left: 50%;
 		margin-left: 390px;
 		background: url(backtop.jpg);
+		transition: all .3s;
 	}
 	#btn:hover{
 		background-position: 0 -39px;
@@ -26,7 +27,7 @@
 <div class="box">
 	<img src="backtop.png">
 </div>
-<a href="javascript:;" id="btn" title="回到顶部"></a>
+<div id="btn" title="回到顶部"></div>
 <script type="text/javascript">
 	//页面加载完毕后触发
 	window.onload = function(){
@@ -64,12 +65,15 @@
 				// console.log(osTop - ispeed);
 				//滚动至距离顶部的高度等于可视区域高度时，清除定时器
 				document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;
+				console.log(osTop + ispeed);
 				if (osTop == 0) {
 					clearInterval(timer);
 				}
 			},30)
 		}
 	}
+	//原理就是设置一个30毫秒的定时器，让滚动条位置距离顶部距离每30毫秒做一次减法，直到距离为零清除定时器。
 </script>
+
 </body>
 </html>
