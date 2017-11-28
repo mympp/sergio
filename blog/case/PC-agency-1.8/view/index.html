@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>雀鸟</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/MyHone.css" />
+</head>
+<body style="min-width: 1280px;">
+<div class="outer_div">
+    <div class="left_template"></div>
+    <div class="right_template"></div>
+    <div class="messageCenter">
+        <p class="indexTitle">本月统计</p>
+        <div class="indexBigbox">
+            <div class="indexBox">
+                <p>本月新增代理商</p>
+                <span><i class="boxImg-1"></i><em>30</em><span>个</span></span>
+            </div>
+            <div class="indexBox Boxcenter">
+                <p>本月新增认证会员</p>
+                <span><i class="boxImg-1 boxImg-2"></i><em>300</em><span>个</span></span>
+            </div>
+            <div class="indexBox">
+                <p>本月成交金额</p>
+                <span><i class="boxImg-1 boxImg-3"></i><em>208530</em><span>元</span></span>
+            </div>
+            <div class="indexBox2">
+                <p>累积代理商</p>
+                <span></i><em>2556</em><span>个</span></span>
+                <div id="main"></div>
+            </div>
+            <div class="indexBox2 Boxcenter">
+                <p>累积认证会员</p>
+                <span></i><em>15526</em><span>个</span></span>
+                <div id="main2"></div>
+            </div>
+            <div class="indexBox2">
+                <p>业务团队成员</p>
+                <span></i><em>563</em><span>名</span></span>
+                <div id="main3"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>var pages = "首页";var index1 = 0;var index2;</script>
+<script src="../js/jquery.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/echarts.js"></script>
+<script src="../js/MyHone.js"></script>
+<script>
+    $(function(){
+        $(window).on("load",function(){
+            getHeight();//设置动态高度
+        })
+
+        $(window).resize(function(){
+            var windowH = $(window).height();
+            if(windowH>600){
+                getHeight();//设置动态高度
+                window.location.href=window.location.href;
+            }
+        });
+
+        //定义获取高度方法
+        function getHeight(){
+            var winH = $(window).height();
+            var topH = $(".right_template").height();
+            $(".left_template").height(winH);
+            $(".messageCenter").height(winH-topH);
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>审核代理商</title>
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/set.css">
+</head>
+<body style="min-width: 1280px;">
+<!--父容器开始-->
+<div class="outer_div">
+	<div class="left_template"></div>
+	<div class="right_template"></div>
+	<div class="page-set">
+		<h2>审核代理商</h2>
+			<form class="agent-head">
+				<p>按条件筛选：</p>
+                <div class="agent-input">
+    				<label>姓名：</label><input type="text" name="searchName" placeholder="">
+    				<label>账号：</label><input type="text" name="searchEmail" placeholder="">
+    				<label>状态：</label>
+    				<select class="searchStatus">
+    					<option value="启用">启用</option>
+    					<option value="禁用">禁用</option>
+    				</select>
+    				<label>级别：</label>
+    				<select class="rank">
+    					<option value="一级代理">一级代理</option>
+    					<option value="二级代理">二级代理</option>
+    				</select>
+                </div>
+				<input type="button" value="搜索" name="search" class="blue-btn" id="searchBtn">
+				<input type="button" value="清空" name="clear" class="white-btn">
+			</form>
+        <!--表格模块开始-->
+        <div class="table-wrap">
+            <div class="table-head">
+                <div class="table-head-wrap">
+                    <table class="grid">
+                        <colgroup>
+                            <col style="width:10%">
+                            <col style="width:12%">
+                            <col style="width:20%">
+                            <col style="width:10%">
+                            <col style="width:8%">
+                            <col style="width:15%">
+                            <col style="width:10%">
+                            <col style="width:15%">
+                        </colgroup>
+                        <thead>
+							<tr>
+								<th>代理商名称</th>
+								<th>联系电话</th>
+								<th>账号</th>
+								<th>代理商所在区域</th>
+								<th>状态</th>
+								<th>专属推荐码</th>
+								<th>级别</th>
+								<th>操作</th>
+							</tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div class="table-content table-content3">
+                <table class="grid">
+                    <colgroup>
+                        <col style="width:10%">
+                        <col style="width:12%">
+                        <col style="width:20%">
+                        <col style="width:10%">
+                        <col style="width:8%">
+                        <col style="width:15%">
+                        <col style="width:10%">
+                        <col style="width:15%">
+                    </colgroup>
+                    <tbody class="table_ctbody">
+						<tr>
+							<td>陈凯文</td>
+							<td>15612345678</td>
+							<td>chenkaiwen@527so.com</td>
+							<td>广东广州天河</td>
+							<td>通过</td>
+							<td>YSSLDKGAJ123123</td>
+							<td>一级代理</td>
+							<td class="tda3">
+								<a href="javascript:;" class="adminDetails fl">查看</a>
+								<a href="javascript:;" class="passAgent">通过</a>
+								<a href="javascript:;" class="nopassAgent fr">拒绝</a>
+							</td>
+						</tr>
+						<tr>
+							<td>陈凯文</td>
+							<td>15612345678</td>
+							<td>chenkaiwen@527so.com</td>
+							<td>广东广州天河</td>
+							<td>不通过</td>
+							<td>YSSLDKGAJ123123</td>
+							<td>一级代理</td>
+							<td class="tda3">
+								<a href="javascript:;" class="adminDetails fl">查看</a>
+								<a href="javascript:;" class="passAgent">通过</a>
+								<a href="javascript:;" class="nopassAgent fr">拒绝</a>
+							</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--表格模块结束-->
+        <!--分页器开始-->
+        <div class="xiansuo_Page_Div">
+            <!--<div class="xiansuo_Page_border"></div>-->
+            <div class="xiansuo_Page_div">
+                <div class="fl">
+                    <span style="margin-right: 5px;">每页显示</span>
+                    <select class="xiansuo_Page_Three">
+                        <option value="10">10</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <span style="margin-left: 5px;">条</span><span style="margin-left: 10px;">共</span><span class="xiansuo_Sizes">1500</span><span>条/</span><span class="xiansuo_Pages">50页</span>
+                    <img class="first_page" title="第一页" src="../Images/icon_sanjiao_01.png" alt="" />
+                    <img class="prev_page" title="上一页" src="../Images/icon_sanjiao_02.png" alt="" />
+                </div>
+                <ul class="xiansuo_Page_list">
+                    <li class="active">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+                <img class="next_page" title="下一页" style="margin-left: 15px;" src="../Images/icon_sanjiao_03.png" alt="" />
+                <img class="last_page" title="最后一页" src="../Images/icon_sanjiao_04.png" alt="" />
+                <span style="margin: 0 5px;">跳转</span><input type="text" value="0" class="that_Page" maxlength="10" /><span style="margin-left: 5px;">页</span>
+            </div>
+        </div>
+        <!--分页器结束-->
+		<!-- 虚拟弹窗开始 -->
+        <!-- 背景 -->
+        <div class="moni-box" style="display: none;"></div>
+		<!-- 代理商详情 -->
+		<div class="admin-details moni-lbox" style="display: none;">
+			<div class="moni-head">
+				<p class="fl">代理商详情</p>
+				<em class="DataCenterBox-cols cleanAll fr">&#215;</em>
+			</div>
+			<div class="moni-main">
+				<label>姓名</label><i>：</i>
+				<span class="name">姓名A</span><br />
+				<label>账号</label><i>：</i>
+				<span class="ID">chengaiwen@527so.com</span><br />
+				<label>电话号码</label><i>：</i>
+				<span class="phone">15612345678</span><br />
+				<label>区域</label><i>：</i>
+				<span class="area">广东广州天河</span><br />
+				<label>详细地址</label><i>：</i>
+				<span class="address">大观中路95号407-408</span><br />
+				<label>状态</label><i>：</i>
+				<span class="status">启用</span><br />
+				<label>推荐码</label><i>：</i>
+				<span class="referralCode">YGSGE110010</span><br />
+				<label>银行账号</label><i>：</i>
+				<span class="bankName">中国银行</span><br />
+				<label>&nbsp;</label><i>&nbsp;</i>
+				<span class="bankCode">6223458974586541235</span><br />
+				<label>&nbsp;</label><i>&nbsp;</i>
+				<span class="peopleName">XXX公司</span><br />
+				<label class="vit-top">企业资质</label><i class="vit-top">：</i>
+				<span class="file1"><img src="../Images/file0.png" class="big-img"><img src="../Images/file0.png" class="bbig-img" style="display: none;"><a href="javascript:;">点击图片查看大图</a></span><br />
+				<label>备注</label><i>：</i>
+				<span class="tips">无</span><br />
+				<label>创建日期</label><i>：</i>
+                <span class="addTime">2017-10-30 11：48</span><br />
+				<label>更新日期</label><i>：</i>
+                <span class="updateTime">2017-10-30 18：48</span><br />
+			</div>
+		</div>
+		<!-- 审核通过 -->
+        <div class="passAgent-box moni-lbox" style="display: none;">
+            <p>审核通过？</p>
+            <div class="btn-box">
+                <input type="button" value="确认" class="blue-btn" id="passAgent">
+                <input type="button" value="取消" name="cancel" class="cancel white-btn">
+            </div>
+        </div>
+		<!-- 拒绝通过 -->
+        <div class="nopassAgent-box moni-lbox" style="display: none;">
+            <p>拒绝通过？</p>
+            <div class="btn-box">
+                <input type="button" value="确认" class="blue-btn" id="nopassAgent">
+                <input type="button" value="取消" name="cancel" class="cancel white-btn">
+            </div>
+        </div>
+		<!-- 虚拟弹窗结束 -->
+	</div>
+</div>
+<script>var pages = "角色管理";var index1 = 3; var index2 = 2;</script>
+<script src="../js/jquery.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/role.js"></script>
+<script type="text/javascript">
+    //后台提交
+    //搜索按钮
+    $(document).on("click","#searchBtn",function(){
+        var searchName = $("input[name=searchName]").val(),
+        searchEmail = $("input[name=searchEmail]").val(),
+        status = $(".searchStatus:visible").val(),
+        rank = $(".rank:visible").val(),
+        emailreg = /^[a-z0-9-_.]+@[\da-z][\.\w-]+\.[a-z]{2,4}$/i;
+        if (searchName == "" || searchEmail == "") {
+            alert("搜索项不能为空");
+        } else if (!emailreg.test(searchEmail)) {
+            alert("请输入正确的账号（邮箱格式如：quesou@527so.com）");
+        } else {
+            console.log(searchName,searchEmail,status,rank);
+        }
+    });
+
+    //审核详情
+    $(function(){
+        var ziliaojson;//ajax获取数据
+        $(".name").text(ziliaojson);
+        $(".phone").text(ziliaojson);
+        $(".ID").text(ziliaojson);
+        $(".area").text(ziliaojson);
+        $(".address").text(ziliaojson);
+        $(".status").text(ziliaojson);
+        $(".referralCode").text(ziliaojson);
+        $(".file1 img").attr("src",ziliaojson);
+        $(".bankName").text(ziliaojson);
+        $(".bankCode").text(ziliaojson);
+        $(".peopleName").text(ziliaojson);
+        $(".tips").text(ziliaojson);
+        $(".addTime").text(ziliaojson);
+        $(".updateTime").text(ziliaojson);
+    });
+
+    // //通过代理商
+    $(document).on("click",".passAgent",function(){
+        $(this).addClass("passbox");
+        var passId = $(".passbox").parent().parent().attr("name");
+        $(".passAgent-box,.moni-box").fadeIn();
+        $(document).on("click","#passAgent",function(){
+            $(".passAgent-box,.moni-box").fadeOut();
+            $(".passbox").replaceWith("<a style='color:#898989'>已通过</a>");
+            console.log(passId);//发起ajax
+        })
+    })
+    // //拒绝代理商
+    $(document).on("click",".nopassAgent",function(){
+        $(this).addClass("nopassbox");
+        var passId = $(".nopassbox").parent().parent().attr("name");
+        $(".nopassAgent-box,.moni-box").fadeIn();
+        $(document).on("click","#nopassAgent",function(){
+            $(".nopassAgent-box,.moni-box").fadeOut();
+            $(".nopassbox").replaceWith("<a class='fr' style='color:#898989'>已拒绝</a>");
+            console.log(passId);//发起ajax
+        })
+    })
+</script>
+</body>
+</html>

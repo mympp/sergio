@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册会员数据统计</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/data-daili.css" />
+    <style>
+        .daili_all {
+            float: none;
+        }
+        .filtrate .daili-true {
+            width:4% ;!important;
+        }
+        .filtrate .daili-daili {
+            width: 9%;
+        }
+        .table_ctbody>tr>td:last-child {
+            padding: 8px 8px;
+        }
+        .DataCenterBox {
+            width: 572px;
+            height: 356px;
+        }
+        .DataCenterBox-body {
+            height: 282px;
+        }
+    </style>
+</head>
+<body  style="min-width: 1280px">
+<div class="outer_div">
+    <div class="left_template"></div>
+    <div class="right_template"></div>
+    <div class="messageCenter">
+        <p>注册会员数据统计</p>
+        <h2>注册会员人数：<span class="daili-number">563</span></h2>
+        <span class="tiaojian">按条件筛选：</span>
+        <div class="filtrate">
+            <span>会员名称：</span><input class="daili-text" type="text">
+            <span>会员手机：</span><input class="daili-iphone" type="text" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');">
+            <span>是否认证：</span>
+            <select class="daili-area daili-true">
+                <option value="1">是</option>
+                <option value="2">否</option>
+            </select>
+            <span>代理商：</span>
+            <input class="daili-text" type="text">
+            <span>从属：</span>
+            <select class="daili-area daili-daili">
+                <option value="1">平台</option>
+                <option value="2">一级代理商</option>
+                <option value="3">二级代理商</option>
+            </select>
+            <div class="daili_all"><em class="daili_searchBtn">搜索</em><em class="daili_clearBtn">清空</em></div>
+        </div>
+        <!--表格模块开始-->
+        <div class="table-wrap">
+            <div class="table-head">
+                <div class="table-head-wrap">
+                    <table class="grid">
+                        <colgroup>
+                            <col style="width:10%">
+                            <col style="width:12%">
+                            <col style="width:12%">
+                            <col style="width:20%">
+                            <col style="width:10%">
+                            <col style="width:10%">
+                            <col style="width:16%">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>
+                                <span class="tab-link">注册日期</span>
+                            </th>
+                            <th>
+                                <span class="tab-link">会员名称</span>
+                            </th>
+                            <th>
+                                <span class="tab-link">联系电话</span>
+                            </th>
+                            <th>
+                                <span class="tab-link">来源</span>
+                            </th>
+                            <th>
+                                <span class="tab-link">详情</span>
+                            </th>
+                            <th>
+                                <span class="tab-link">是否认证</span>
+                            </th>
+                            <th>
+                                <span class="tab-link">指派给代理商</span>
+                            </th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div class="table-content">
+                <table class="grid">
+                    <colgroup>
+                        <col style="width:10%">
+                        <col style="width:12%">
+                        <col style="width:12%">
+                        <col style="width:20%">
+                        <col style="width:10%">
+                        <col style="width:10%">
+                        <col style="width:16%">
+                    </colgroup>
+                    <tbody class="table_ctbody">
+                    <tr name="11">
+                        <td>
+                            <div>2017-10-08</div>
+                        </td>
+                        <td>
+                            <div>贾少华</div>
+                        </td>
+                        <td>
+                            <div>13122222222</div>
+                        </td>
+
+                        <td>
+                            <div>平台>二级代理商XX>业务员b</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>否</div>
+                        </td>
+                        <td>
+                            <div class="data-div"><span class="data-btn">设置</span></div>
+                        </td>
+                    </tr>
+                    <tr name="22">
+                        <td>
+                            <div>2017-10-08</div>
+                        </td>
+                        <td>
+                            <div>贾少华</div>
+                        </td>
+                        <td>
+                            <div>13122222222</div>
+                        </td>
+
+                        <td>
+                            <div>平台>二级代理商XX>业务员b</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>否</div>
+                        </td>
+                        <td>
+                            <div class="data-div"><span class="data-btn">设置</span></div>
+                        </td>
+                    </tr>
+                    <tr name="33">
+                        <td>
+                            <div>2017-10-08</div>
+                        </td>
+                        <td>
+                            <div>贾少华</div>
+                        </td>
+                        <td>
+                            <div>13122222222</div>
+                        </td>
+
+                        <td>
+                            <div>平台>二级代理商XX>业务员b</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>否</div>
+                        </td>
+                        <td>
+                            <div class="data-div">已指派</div>
+                        </td>
+                    </tr>
+                    <tr name="44">
+                        <td>
+                            <div>2017-10-08</div>
+                        </td>
+                        <td>
+                            <div>贾少华</div>
+                        </td>
+                        <td>
+                            <div>13122222222</div>
+                        </td>
+
+                        <td>
+                            <div>平台>二级代理商XX>业务员b</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>否</div>
+                        </td>
+                        <td>
+                            <div class="data-div"><span class="data-btn">设置</span></div>
+                        </td>
+                    </tr>
+                    <tr name="55">
+                        <td>
+                            <div>2017-10-08</div>
+                        </td>
+                        <td>
+                            <div>贾少华</div>
+                        </td>
+                        <td>
+                            <div>13122222222</div>
+                        </td>
+
+                        <td>
+                            <div>平台>二级代理商XX>业务员b</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>否</div>
+                        </td>
+                        <td>
+                            <div class="data-div"><span class="data-btn">设置</span></div>
+                        </td>
+                    </tr>
+                    <tr name="66">
+                        <td>
+                            <div>2017-10-08</div>
+                        </td>
+                        <td>
+                            <div>贾少华</div>
+                        </td>
+                        <td>
+                            <div>13122222222</div>
+                        </td>
+
+                        <td>
+                            <div>平台>二级代理商XX>业务员b</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>否</div>
+                        </td>
+                        <td>
+                            <div class="data-div"><span class="data-btn">设置</span></div>
+                        </td>
+                    </tr>
+                    <tr name="77">
+                        <td>
+                            <div>2017-10-08</div>
+                        </td>
+                        <td>
+                            <div>贾少华</div>
+                        </td>
+                        <td>
+                            <div>13122222222</div>
+                        </td>
+
+                        <td>
+                            <div>平台>二级代理商XX>业务员b</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>否</div>
+                        </td>
+                        <td>
+                            <div class="data-div">已指派</div>
+                        </td>
+                    </tr>
+                    <tr name="88">
+                        <td>
+                            <div>2017-10-08</div>
+                        </td>
+                        <td>
+                            <div>贾少华</div>
+                        </td>
+                        <td>
+                            <div>13122222222</div>
+                        </td>
+
+                        <td>
+                            <div>平台>二级代理商XX>业务员b</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>否</div>
+                        </td>
+                        <td>
+                            <div class="data-div"><span class="data-btn">设置</span></div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--表格模块结束-->
+        <!--分页器开始-->
+        <div class="xiansuo_Page_Div">
+            <div class="xiansuo_Page_div">
+                <div class="fl">
+                    <span style="margin-right: 5px;">每页显示</span>
+                    <select class="xiansuo_Page_Three">
+                        <option value="10">10</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <span style="margin-left: 5px;">条</span><span style="margin-left: 10px;">共</span><span class="xiansuo_Sizes">1500</span><span>条/</span><span class="xiansuo_Pages">50页</span>
+                    <img class="first_page" title="第一页" src="../Images/icon_sanjiao_01.png" alt="" />
+                    <img class="prev_page" title="上一页" src="../Images/icon_sanjiao_02.png" alt="" />
+                </div>
+                <ul class="xiansuo_Page_list">
+                    <li class="active">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+                <img class="next_page" title="下一页" style="margin-left: 15px;" src="../Images/icon_sanjiao_03.png" alt="" />
+                <img class="last_page" title="最后一页" src="../Images/icon_sanjiao_04.png" alt="" />
+                <span style="margin: 0 5px;">跳转</span><input type="text" value="0" class="that_Page" maxlength="10" /><span style="margin-left: 5px;">页</span>
+            </div>
+        </div>
+        <!--分页器结束-->
+
+
+        <!--操作提示模态框开始-->
+        <div class="right_center">
+            <p><em></em><i>复制成功</i></p>
+        </div>
+        <!--操作提示模态框结束-->
+    </div>
+</div>
+<!--查看详情模态框开始-->
+<div class="data-model">
+    <div class="DataCenterBox">
+        <div class="DataCenterBox-top">
+            <i class="data-vip-title">会员信息</i>
+            <em class="DataCenterBox-cols">&#215;</em>
+        </div>
+        <div class="DataCenterBox-body">
+            <div class="DataCenterBox-text">会&nbsp;员&nbsp;名&nbsp;称&ensp;&ensp;&ensp;：<span>贾少华</span></div>
+            <div class="DataCenterBox-text">性&ensp;&ensp;&nbsp;&ensp;&nbsp;&ensp;&nbsp;别&ensp;&ensp;&ensp;：<span>男</span></div>
+            <div class="DataCenterBox-text">电&nbsp;话&nbsp;号&nbsp;码&ensp;&ensp;&ensp;：<span>15625011111</span></div>
+            <div class="DataCenterBox-text">是&nbsp;否&nbsp;认&nbsp;证&ensp;&ensp;&ensp;：<span>否</span></div>
+            <div class="DataCenterBox-text">注&nbsp;册&nbsp;日&nbsp;期&ensp;&ensp;&ensp;：<span>2017-11-15&ensp;&ensp;09:58</span></div>
+            <div class="DataCenterBox-text">所&nbsp;在&nbsp;区&nbsp;域&ensp;&ensp;&ensp;：<span>广东省广州市天河区</span></div>
+            <div class="DataCenterBox-text">公&nbsp;司&nbsp;地&nbsp;址&ensp;&ensp;&ensp;：<span>广东省广州市天河区大观中路95号A栋407-408</span></div>
+        </div>
+
+    </div>
+</div>
+<!--查看详情模态框结束-->
+
+<!--指派代理商模态框开始-->
+<div class="data-model1">
+    <div class="DataVip">
+        <div class="DataVip-top">
+            <i class="DataVip-title">指派给代理商</i>
+            <em class="DataVip-cols">&#215;</em>
+        </div>
+            <div class="DataVipBox-1-top">
+                <span>系统自动指派</span>
+                <em class="DataVipBtn"></em>
+                <p>设置后，系统按照区域，将注册会员就近原则派送给代理商</p>
+                <div class="data-xian"></div>
+                <span class="data-block">手动指派</span>
+                <i>代理商</i>
+                <input class="data-input" type="text" >
+                <div class="dava-vip-btn">确认</div>
+            </div>
+    </div>
+</div>
+<!--指派代理商模态框结束-->
+<script>var pages = "数据管理";var index1 = 2; var index2 = 3;</script>
+<script src="../js/jquery.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/laydate.js"></script>
+<script src="../js/data-vip.js"></script>
+</body>
+</html>
