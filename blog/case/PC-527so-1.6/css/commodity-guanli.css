@@ -1,6 +1,36 @@
 @charset "UTF-8";
 
 /*商品管理开始*/
+.xiansuo_List_title{
+	margin-left: 133px;
+}
+
+.xiansuo_List_state{
+	margin-left: 8px;
+    position: relative;
+    top: 1px;
+}
+
+.xiansuo_List li{
+	position: relative;
+}
+
+.shopping-img1{
+	position: absolute;
+    display: block;
+    width: 85px;
+    height: 78px;
+    top: 18px;
+    left: 60px;
+    z-index: 100;
+}
+
+.shopping-img1 img{
+	width: 100%;
+	height: 100%;
+	/*object-fit: contain;*/
+}
+
 .xiansuo_hdleft_1{
 	float: left;
     width: 50%;
@@ -76,14 +106,15 @@
 }
 
 .commodity_dets_lf{
-	display: inline-block;
+    display: inline-block;
     vertical-align: middle;
+    margin-left: 83px;
 }
 
 .state_t1{
     font-size: 14px;
     color: #aaaaaa;
-    min-width: 115px;
+    width: 230px;
     display: inline-block;
 }
 
@@ -94,13 +125,14 @@
 
 .state_time{
 	font-size: 14px;
-    color: #494949;
-    margin: 0 130px;
+	color: #494949;
 }
 
 .state_count1{
-	font-size: 14px;
+    font-size: 14px;
     color: #aaaaaa;
+    position: relative;
+    top: -2px;
 }
 
 .state_count2{
@@ -110,9 +142,10 @@
 
 .state_price{
 	font-size: 16px;
-    color: #f3870d;
-    margin-top: 10px;
-    display: inline-block;
+	color: #f3870d;
+	margin-top: 10px;
+	display: inline-block;
+	width: 230px;
 }
 
 .commodity_dets_rt{
@@ -120,16 +153,17 @@
     vertical-align: middle;
     float: right;
     position: relative;
-    right: 10%;
+    right: 8%;
     top: -10px;
 }
 
 .commodity_dets_rt_cell{
-	cursor: pointer;
+    cursor: pointer;
     display: inline-block;
     vertical-align: middle;
     text-align: center;
-    margin-left: 40px;
+    margin-left: 5px;
+    min-width: 56px;
 }
 
 .commodity_dets_rt_cell p{
@@ -643,6 +677,7 @@
     border-top: 1px solid #dcdcdc;
     bottom: 0;
     text-align: center;
+    z-index: 9999;
 }
 
 .btn_reset_1{

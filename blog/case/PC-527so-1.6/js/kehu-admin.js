@@ -1,16 +1,25 @@
-/**
- * Created by Administrator on 2017/10/24 0024.
- */
 $(function(){
     getHeight(); //动态设置高度
 
     $(window).resize(function(){
         getHeight();
     })
+    
+	if($(".xiansuo_List li").length == 0){//如果页面的li长度等于0
+		$("#checkall").prop("checked", false);//关闭全选
+		$("#checkall").prop("disabled", "false");//禁用全选
+		$(".xiansuo_Page_Div").hide();//隐藏分页器
+	}else{
+		$("#checkall").removeProp("checked");//移除禁用
+		$("#checkall").removeProp("disabled");//移除禁用
+		$(".xiansuo_Page_Div").show();//隐藏分页器
+	}
+   	
     //点击查看详情
     $(document).on("click",".chakan_lianxi1",function(){
-        $(".modal-box").show()
+        $(".modal-box").show();
     })
+    
     //搜索按钮点击
     $(".search-btn").on("click",function(){
         //获取input框内容
@@ -25,9 +34,11 @@ $(function(){
         $(".bj-kehu01").fadeOut();
         $(".bj-kehu03").fadeOut();
     })
+    
     $(document).on("click",".fangqi",function(){
         $(".delete-modal").fadeIn();
     })
+    
     $(document).on("click",".xz-lx",function(){
         $(".bj-kehu01>.bj-top>p").html('<p>新增联系人<span class="bj-top-span">&times;</span></p>');
         $(".modal-box-2").fadeIn();
@@ -35,6 +46,7 @@ $(function(){
         $(".bj-kehu02").fadeOut();
         $(".bj-kehu03").fadeOut();
     })
+    
     $(document).on("click",".xz-sj",function(){
         $(".modal-box-2").fadeIn();
         $(".bj-kehu03").fadeIn();
@@ -136,8 +148,8 @@ $(function(){
             },1500);
         }
     }
-
-    $(document).on("click",".TabDatails>ul li",function(){
+    //客户右边栏选项卡判断
+    $(document).on("click",".TabDatailskehu>ul li",function(){
         var index = $(this).index();
         if(index==0){
             $(".xiansuo_des_content1").fadeOut();
@@ -176,6 +188,33 @@ $(function(){
             $(".fangqi").hide();
             $(".bian").hide();
             $(".xz-lx").hide();
+            $(".xz-sj").hide();
+        }
+        console.log(index);
+        console.log($(this));
+        $(this).addClass("activeBottom").siblings().removeClass("activeBottom");
+    })
+    //拍卖右边选项卡判断
+    $(document).on("click",".TabDatailspaimai>ul li",function(){
+        var index = $(this).index();
+        if(index==0){
+            $(".xiansuo_des_content1").fadeOut();
+            $(".shangji").fadeOut();
+            $(".Contact").fadeOut();
+            $(".TextDatails").fadeIn();
+            $(".fangqi").fadeIn();
+            $(".bian").fadeIn();
+            $(".xz-lx").hide();
+            $(".xz-sj").hide();
+        }else if(index==1) {
+            $(".xiansuo_des_content1").fadeOut();
+            $(".shangji").fadeOut();
+            $(".TextDatails").fadeOut();
+            $(".Contact").fadeIn();
+            $(".bian").fadeIn();
+            $(".fangqi").hide();
+            $(".bian").hide();
+            $(".xz-lx").fadeIn();
             $(".xz-sj").hide();
         }
         console.log(index);
@@ -272,11 +311,12 @@ $(function(){
         })
 
     })
+
     //计算高度
     function getHeight() {
         var height = $(window).height();
         var TopH = 76+90;
-        var TopH1 = 76+131;
+        var TopH1 = 76+120;
         var cellH = (height-TopH)-15;
         var cellH2 = (height-TopH)-66-51-15;
         var cellH1 = (height-TopH1)-15;
@@ -289,8 +329,32 @@ $(function(){
         $(".xiansuo_List01").height(cellH-FPageH);
         $(".xiansuo_List02").height(cellH2-FPageH);
         $(".xiansuo_List03").height(cellH1-FPageH);
-
+        if($("body").height()<795){
+            $(".bj-kehu").height(height)
+        }
+        if(height<974){
+            $(".paimai_des_content").height(height-330)
+        }else {
+            $(".paimai_des_content").height(630)
+        }
     }
+    
+    //点击查看司法详情
+    $(document).on("click",".sf-paimai",function(){
+        $(".paimai_des_content_model").show();
+    })
+    
+    //盒子内X关闭按钮跟随盒子滚动条滚动
+    $(".paimai_des_content").on("scroll",function(){
+        var h = $(".paimai_des_content").scrollTop();
+        $(".close-paimai").css({
+            "top":h
+        })
+    })
+    //点击查看详情按妞页面的关闭按钮关闭操作
+    $(document).on("click",".close-paimai",function(){
+        $(".paimai_des_content_model").hide();
+    })
     //联系人界面开始
     //点击首屏编辑ico按钮
     $(document).on("click",".Contact-BJ",function(){

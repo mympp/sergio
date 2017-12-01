@@ -1,13 +1,30 @@
 $(function() {
-	var state = true; //判断用户是否会员
-	if(!state) {
-		$(".vip-valid").hide();
-	} else {
-		$(".vip-valid").show();
+
+	//引导页设置开始
+	var XianIndex = false;
+	if(XianIndex) {
+		$(".Guidance-box").show();
+	}else {
+		$(".Guidance-box").hide();
 	}
-	
-	var pageVal = $(".xiansuo_Page_Three").val();
-	$(".xiansuo_Pages").html(pageVal+"页");
+	var clicknum = 0; //记录点击次数判断上一步与下一步;
+	$(document).on("click",".GuidanceBtn",function(){
+		if(clicknum %2 == 0) {
+			$(".Guidance").attr("src","../../Images/xiaosuo2.jpg");
+		}else  {
+			$(".Guidance").attr("src","../../Images/xiaosuo1.jpg");
+		}
+
+		clicknum++
+	})
+	//引导页设置结束
+
+	var state = 0;//0为未认证会员  1为已认证会员
+	if(state == 0){
+		$(".xiansuo_hdleft_btnlist").addClass("noVip");
+	}else if(state == 1){
+		$(".xiansuo_hdleft_btnlist").removeClass("noVip");
+	}
 	
 	getHeight(); //动态设置高度
 
@@ -15,10 +32,23 @@ $(function() {
 		getHeight();
 	})
 	
+	if($(".xiansuo_List li").length == 0){//如果页面的li长度等于0
+		$("#checkall").prop("checked", false);//关闭全选
+		$("#checkall").prop("disabled", "false");//禁用全选
+		$(".xiansuo_Page_Div").hide();//隐藏分页器
+	}else{
+		$("#checkall").removeProp("checked");//移除禁用
+		$("#checkall").removeProp("disabled");//移除禁用
+		$(".xiansuo_Page_Div").show();//隐藏分页器
+	}
+	
+	var pageVal = $(".xiansuo_Page_Three").val();
+	$(".xiansuo_Pages").html(pageVal+"页");
+	
 	var time1 = new Date().Format("yyyy-MM-dd");//此处为后台传入时间的变量(最小时间)
 	var start = {
 		elem: '#inputStartTime',
-		max: time1,//此处为起始时间的值
+		min: time1,//此处为起始时间的值
 		choose: function(datas) {
 			end.min = datas;
 			end.start = datas;
@@ -27,7 +57,7 @@ $(function() {
 
 	var end = {
 		elem: '#inputEndTime',
-		max: laydate.now()//此处为结束时间的值(为今天截止最大时间)
+		min: laydate.now()//此处为结束时间的值(为今天截止最大时间)
 	};
 
 	//开始时间
@@ -40,6 +70,16 @@ $(function() {
 		laydate(end);
 	});
 
+	//未认证会员时点击按钮提示用户
+	$(document).on("click",".xiansuo_hdleft_btnlist.noVip span",function(){
+		$(".ren-zheng-Tips1").fadeIn();
+	})
+
+	//关闭未认证会员提示框
+	$(document).on("click",".closex-RZ,.ren-zheng-Tips-ct span",function(){
+		$(".ren-zheng-Tips1").fadeOut();
+	})
+	
 	$(".xiansuo_Page_Three").change(function(){
 		var checkValue = $(this).val();
 		$(".xiansuo_Pages").html(checkValue+"页");
@@ -166,7 +206,18 @@ $(function() {
 
 	//为线索标题绑定单击事件进入线索详情
 	$(document).on("click",".xiansuo_List_title",function(){
-		$(".xiansuo_des_modal").fadeIn();
+		if(state == 0){
+			$(".xiansuo_des_ul").addClass("isClick_blt");
+		}
+		$(".xiansuo_des_modal01").fadeIn();
+	})
+	
+	//为拍卖标题绑定单击事件进入线索详情
+	$(document).on("click",".xiansuo_List_title01",function(){
+		if(state == 0){
+			$(".xiansuo_des_ul").addClass("isClick_blt");
+		}
+		$(".xiansuo_des_modal02").fadeIn();
 	})
 
 	//为线索详情关闭按钮绑定单击事件
@@ -353,6 +404,14 @@ $(function() {
 			return false;
 		}
 		
+		if($("input[type='checkbox'][name='checkedres']:checked").length==0){
+			return false;
+		}
+		
+		if($(this).parent().hasClass("noVip")){
+			return false;
+		}
+		
 		//遍历每个选中的checkbox
 		$("input[type='checkbox'][name='checkedres']:checked").each(function(){
 			if($(this).parents("li").attr("data-null")=="true"){//如果含有作废数据
@@ -371,6 +430,14 @@ $(function() {
 			return false;
 		}
 		
+		if($("input[type='checkbox'][name='checkedres']:checked").length==0){
+			return false;
+		}
+		
+		if($(this).parent().hasClass("noVip")){
+			return false;
+		}
+		
 		//遍历每个选中的checkbox
 		$("input[type='checkbox'][name='checkedres']:checked").each(function(){
 			var divid1 =  $(this).parents("li").attr("name");//每条数据的id
@@ -383,6 +450,14 @@ $(function() {
 	//为恢复按钮绑定单击事件
 	$(document).on("click",".btnlist_huifu",function(){
 		if($(".xiansuo_List li").length == 0){
+			return false;
+		}
+		
+		if($("input[type='checkbox'][name='checkedres']:checked").length==0){
+			return false;
+		}
+		
+		if($(this).parent().hasClass("noVip")){
 			return false;
 		}
 		
@@ -404,6 +479,10 @@ $(function() {
 		}
 		
 		if($("input[type='checkbox'][name='checkedres']:checked").length==0){
+			return false;
+		}
+		
+		if($(this).parent().hasClass("noVip")){
 			return false;
 		}
 		
@@ -484,12 +563,28 @@ $(function() {
 //定义获取高度方法
 function getHeight() {
 	var height = $(window).height();
-	var TopH = 76 + 131;
+	var TopH = 76 + 120;
 	var cellH = (height - TopH) - 15;
 	var FPageH = $(".xiansuo_Page_Div").height();
 	$(".left_template,.right_template,.xiansuo_des").height(height);
 	$(".xiansuo_main,.xiansuo_vessel").height(cellH);
 	$(".xiansuo_List").height(cellH-FPageH);
+	if(height<974){
+		$(".paimai_des_content").height(height-330);
+		$(".php_hy_list").css({
+			"height": 140,
+			"overflow": "auto"
+		})
+		$(".php_hy_list li").css({
+			"marginRight":25,
+			"marginLeft":0
+		})
+	}else{
+		$(".paimai_des_content").height(630);
+		$(".php_hy_list li").css({
+			"marginLeft":10
+		})
+	}
 }
 
 //全选、反选的事件函数  

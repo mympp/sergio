@@ -10,11 +10,11 @@ $(function(){
 	
 	var jiezhi = {
 		elem: '#expiration_time',
-		max: laydate.now()//此处为截止时间的值
+		min: laydate.now()//此处为截止时间的值
 	};
 	
-	//截止时间
-	$('#expiration_time').click(function() {
+	//截止时间	
+	$(document).on("click","#expiration_time",function(){
 		laydate(jiezhi);
 	});
 	
@@ -41,10 +41,11 @@ $(function(){
 	
 	//为发布产品重置按钮绑定单击事件
 	$(document).on("click",".btn_reset_1",function(){
-		$('input:radio').removeProp('checked'); 
-		$("input,textarea").val(""); 
+		$('input:radio').prop('checked',false); 
+		$("input:not('.radius_cell'),textarea").val("");
 		$("select").val(0); 
-		$('#Baidu_editor').attr('src', $('#Baidu_editor').attr('src'));
+		$("#editor").find("#ueditor_0").contents().find("body").empty();
+		$("#edui1_iframeholder").css("height","500px");
 	})
 	
 	//为发布产品确认按钮绑定单击事件
@@ -55,7 +56,7 @@ $(function(){
 		var KeyWord = $(".msg_keyWord").val();//关键词
 		var hyVal = $(".select_hangye").val();//行业分类
 		var brand = $(".msg_brand").val();//产品品牌
-		var editHtml = $("#Baidu_editor").contents().find("#ueditor_0").contents().find("body>p").text();//获得富文本编辑器的文本值
+		var editHtml = $("#editor").find("#ueditor_0").contents().find("body").html();//获得富文本编辑器的html片段
 		var UpImg = $(".up-img");//获取上传图片的元素
 		var dieTime = $("#expiration_time").val();//过期时间
 		var str = "";
@@ -100,4 +101,5 @@ function getHeight() {
 	//console.log(cellMargin);
 	$(".left_template,.right_template").height(height);
 	$(".release-product_main").height(formH);
+	$(".tsXq-div_main").height(formH-110);
 }

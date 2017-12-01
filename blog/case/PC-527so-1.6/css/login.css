@@ -1,17 +1,27 @@
+@charset "UTF-8";
+
 /*登录界面开始*/
+html{
+    width: 100%;
+    height: 100%;
+}
 .login{
     width: 100%;
     height: 100%;
-    background: url(../Images/command_denglu_bg.png) no-repeat;
+    background: url(../Images/command_denglu_bg.png) no-repeat center;
+    background-size: cover;
 }
 .login-box{
     width: 346px;
-    height: 600px;
+    /*height: 600px;*/
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -300px;
-    margin-left: -173px;
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
 }
 .login-box .login-white{
     width: 286px;
@@ -23,7 +33,7 @@
     color: #ffb908;
     font-weight: bold;
 }
-.login-box .login-white input{
+.login-box .login-white .input_cell1{
     width: 286px;
     height: 40px;
     margin: 10px 0;
@@ -45,6 +55,14 @@
 .login-box .login-white :-ms-input-placeholder { /* Internet Explorer 10+ */
     color:    #ccc;
 }
+
+.checkedres{
+    width: 14px !important;
+    height: 14px !important;
+    position: relative;
+    top: 1px;
+}
+
 .login-box .login-check{
     width: 286px;
     height: 44px;
@@ -70,7 +88,9 @@
     font-size: 12px;
 }
 .login-box .login-white #submit{
-    margin: 25px 0 14px;
+	width: 286px;
+    height: 40px;
+    margin: 20px 0 14px;
     border: 1px solid #ffb908;
     border-radius: 22px;
     background: #ffb908;
@@ -104,13 +124,23 @@
     cursor: pointer;
 }
 .login-box .login-footer{
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 30px;
     text-align: center;
-    margin-left: 96px;
 }
-.login-box .login-footer a{
+
+.login-box .login-footer a:first-child {
     display: inline-block;
-    margin: 64px 62px 0 0;
 }
+
+.login-box .login-footer a:last-child{
+    display: inline-block;
+    margin-left: 20px;
+    position: relative;
+    left: 5px;
+}
+
 .login-box .login-footer1,
 .login-box .login-footer2{
     width: 46px;
@@ -142,17 +172,18 @@
     z-index: 999;
 
 }
-.erweima .erweima-box{
-    width: 200px;
-    height: 200px;
-}
-.erweima img{
+
+.erweima-box{
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -100px;
-    margin-left: -100px; 
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
 }
+
 #v_container{
     width: 100px;
     height: 40px;
@@ -163,6 +194,12 @@
 }
 .checkSubmit #code_input{
     border: 1px solid #ccc;
+}
+
+.err-tip{
+	position: relative;
+    top: 8px;
+    color: #ff5454;
 }
 /*登录界面结束*/
 

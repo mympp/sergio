@@ -9,7 +9,7 @@ $(function() {
         for(var i =0 ; i<data.length;i++){
             datas = data[i].SQ;
             datad = data[i].DQ;
-            console.log(datad);
+            //console.log(datad);
             arr.push(datas)
         }
         //数据排序
@@ -18,7 +18,7 @@ $(function() {
         })
         //截取前10条数据
         var long = arr.slice(0, 10);
-        console.log(long);
+        //console.log(long);
         var divEl = $("#mains>ul li div");
         //设置数据条最小宽度以及最大宽度
         divEl.css({

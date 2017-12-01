@@ -7,13 +7,25 @@
 		<link rel="stylesheet" href="../../css/common.css" />
 	    <link rel="stylesheet" href="../../css/index.css" />
 	    <link rel="stylesheet" href="../../css/consult.css" />
+	   	<script type="text/javascript" src="../RichTextEdit/ueditor.config.js"></script>
+	    <script type="text/javascript" src="../RichTextEdit/ueditor.all.js"> </script>
+	    <script type="text/javascript" src="../RichTextEdit/lang/zh-cn/zh-cn.js"></script>
+	    <style type="text/css">
+		#edui1_bottombar{
+			display: none;
+		}
+		
+		.consult-form{
+			overflow: auto;
+		}
+	    </style>
 	</head>
-	<body style="min-width: 1500px;overflow-x: auto;overflow-y: hidden;">
+	<body style="min-width: 1366px;">
 		<!--父容器开始-->
 		<div class="outer_div">
 			<!--左边导航模块-->
 			<div class="left_template">
-				<div class="user_logo"><img src="../../Images/common_logo.png" alt="" /></div>
+				<div class="user_logo"><a href="../publicity/index.html"><img src="../../Images/common_logo.png" alt="" /></a></div>
 				<p class="company_name1">广东雀鸟科技有限公司</p>
 				<!--用户导航列表-->
 				<div class="userList_bar">
@@ -99,41 +111,55 @@
 			        <!-- 资讯信息头部结束 -->
 			        <!-- 发送信息表格开始 -->
 			        <form class="consult-form">
-			        	<div style="padding: 30px;">
-				        	<span><i>*</i>收件人：</span><input type="email" class="input_cell1" placeholder="请输入您的收件人" name="email">
-				        	<a class="my_frText1">我的商友</a><br/>
-				        	<span><i>*</i>标题：</span><input type="text" class="input_cell1" placeholder="请输入关键词" name="title" /><br/>
-				        	<span style="vertical-align: top;width: 139px;"><i>*</i>内容：</span>
-				        	<iframe style="margin-top: 3px;" id="Baidu_editor" src="../RichTextEdit/index.html" frameborder="0" scrolling="no" width="750px" height="500px"></iframe>
-				        	<br/><span><i>*</i>选项：</span>
-				        	<div class="Three-cells_1">
-				        		<label class="checkbox" onselectstart="return false;">
-								<input type="checkbox" class="vam" name="checkedres" data-type="1" value="1">
-									<i></i>
-								</label>
-								<em>不发送，保存为草稿</em>
-								<label class="checkbox" onselectstart="return false;">
-								<input type="checkbox" class="vam" name="checkedres" data-type="1" value="2">
-									<i></i>
-								</label>
-								<em>保存到已发送</em>
-								<label class="checkbox" onselectstart="return false;">
-								<input type="checkbox" class="vam" name="checkedres" data-type="1" value="3">
-									<i></i>
-								</label>
-								<em>已读回执</em>
-				        	</div>
-				        	<br/>
-				        	<input type="button" value="确认" class="submit">
+			        	<span><i>*</i>收件人：</span><input type="email" class="input_cell1" placeholder="请输入您的收件人" name="email">
+			        	<a class="my_frText1">我的商友</a><br/>
+			        	<span><i>*</i>标题：</span><input type="text" class="input_cell1" placeholder="请输入关键词" name="title" /><br/>
+			        	<span style="vertical-align: top;width: 139px;"><i>*</i>内容：</span>
+			        	<!--<iframe style="margin-top: 3px;" id="Baidu_editor" src="../RichTextEdit/index.html" frameborder="0" scrolling="no" width="750px" height="500px"></iframe>-->
+			        	<script id="editor" type="text/plain" style="width:730px;height: 500px;display: inline-block;margin-left: 8px;margin-top: 12px;"></script>
+			        	<br/><span><i>*</i>选项：</span>
+			        	<div class="Three-cells_1">
+			        		<label class="checkbox" onselectstart="return false;">
+							<input type="checkbox" class="vam" name="checkedres" data-type="1" value="1">
+								<i></i>
+							</label>
+							<em>不发送，保存为草稿</em>
+							<label class="checkbox" onselectstart="return false;">
+							<input type="checkbox" class="vam" name="checkedres" data-type="2" value="2">
+								<i></i>
+							</label>
+							<em>保存到已发送</em>
+							<label class="checkbox" onselectstart="return false;">
+							<input type="checkbox" class="vam" name="checkedres" data-type="2" value="3">
+								<i></i>
+							</label>
+							<em>已读回执</em>
 			        	</div>
+			        	<br/>
+			        	<input type="button" value="确认" class="submit">
 			        </form>
 			        <!-- 发送信息表格结束 -->
 		        </div>
 			</div>
 		</div>
-
+		<!--CRM引导-->
+		<div class="Guidance-box" style="display: none">
+			<img class="Guidance" src="../../Images/zhixun01.jpg" alt="">
+			<em class="GuidanceClos"></em>
+		</div>
 		<script src="../../js/jquery.js"></script>
-		<script src="../../js/consult.js"></script>
+		<script src="../../js/crm-common.js"></script>
 		<script src="../../js/send.js"></script>
+		<script>var ue = UE.getEditor('editor');</script>
+		<script>
+			$(function(){
+				var ZinxunIndex = false;
+				if(ZinxunIndex) {
+					$(".Guidance-box").show();
+				}else {
+					$(".Guidance-box").hide();
+				}
+			})
+		</script>
 	</body>
 </html>

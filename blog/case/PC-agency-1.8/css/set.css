@@ -611,7 +611,6 @@
 	position: absolute;
 	top: 0;
 	left: -265px;
-	background: rgba(0,0,0,0.3);
 	z-index: 99;
 }
 .page-set .set-password-box .set-password{

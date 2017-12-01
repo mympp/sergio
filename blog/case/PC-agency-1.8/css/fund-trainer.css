@@ -101,26 +101,26 @@
     padding-left: 5px;
 }
 
-/*左边模块*/
+/*左边模块 11.29改*/ 
 .saixuan_divAll_lf{
     float: left;
-    width: 75%;
+    width: 50%;
 }
 
 .saixuan_divAll_cell1{
     float: left;
-    width: 30%;
+    width: 50%;
 }
 
 .saixuan_divAll_cell2{
     float: left;
-    width: 30%;
+    width: 50%;
 }
 
-.saixuan_divAll_cell3{
+/*.saixuan_divAll_cell3{
     float: left;
     width: 40%;
-}
+}*/
 
 .saixuan_divAll .label1{
 	font-size: 14px;

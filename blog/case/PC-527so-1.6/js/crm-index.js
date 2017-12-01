@@ -34,7 +34,7 @@ option = {
                 emphasis: {
                     show: true,
                     textStyle: {
-                        fontSize: '25',
+                        fontSize: '14',
                         fontWeight: 'bold'
                     }
                 }

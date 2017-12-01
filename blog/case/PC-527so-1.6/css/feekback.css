@@ -1,27 +1,28 @@
+@charset "UTF-8";
 
 .fankui_main{
     width: 98%;
     height: 860px;
-    margin: 0 1%;
+    margin: 16px 1% 0;
     float: left;
     background: #fff;
     border-radius: 5px;
-    border: 1px solid #dcdcdc;
+    border: 1px solid transparent;
+    overflow: auto;
+    padding-bottom: 20px;
 }
-.fankui_main {
-    margin-top: 16px;
-}
+
 .fankui_main>p {
-    font-size: 18px;
+    font-size: 16px;
     color: #494949;
     padding-left: 36px;
-    padding-top: 34px;
+    padding-top: 25px;
 }
 .fankui_main>span {
     display: block;
-    font-size: 18px;
+    font-size: 16px;
     color: #494949;
-    margin-top: 40px;
+    margin-top: 28px;
     margin-left: 38px;
 
 }
@@ -33,7 +34,7 @@
 .fankui_main>form>textarea {
     margin-left: 38px;
     height: 300px;
-    width: 92%;
+    width: 60%;
     resize: none;
     border-radius: 5px;
     border: 1px solid #d6d6d6;
@@ -44,10 +45,10 @@
     background: #f0f1f4;
 }
 .fankui_main>form>h3 {
-    font-size: 18px;
+    font-size: 16px;
     color: #494949;
     padding-left: 62px;
-    padding-top: 34px;
+    padding-top: 25px;
 }
 .fileinput>input {
     margin-top: 20px;
@@ -63,7 +64,7 @@
     width: 110px;
     height: 36px;
     border-radius: 20px;
-    font-size: 16px;
+    font-size: 14px;
     color: #1da1f2;
     line-height: 36px;
     text-align: center;
@@ -75,7 +76,7 @@
 }
 .fileinput>i {
     font-style: normal;
-    font-size: 16px;
+    font-size: 14px;
     color: #b6b6b6;
     position: absolute;
     top:27px;
@@ -86,13 +87,13 @@
     font-style: normal;
     width: 140px;
     height: 40px;
-    font-size: 18px;
+    font-size: 16px;
     color: #FFFFFF;
     background: #1da1f2;
     line-height: 40px;
     text-align: center;
     border-radius: 20px;
-    margin: 0 auto;
-    margin-top:130px;
+    margin-left: 29.5%;
+    margin-top:2%;
     cursor: pointer;
 }

@@ -237,9 +237,9 @@
         searchEmail = $("input[name=searchEmail]").val(),
         status = $(".searchStatus:visible").val(),
         emailreg = /^[a-z0-9-_.]+@[\da-z][\.\w-]+\.[a-z]{2,4}$/i;
-        if (searchName == "" || searchEmail == "") {
+        if (searchName == "" && searchEmail == "") {
             alert("搜索项不能为空");
-        } else if (!emailreg.test(searchEmail)) {
+        } else if (!emailreg.test(searchEmail) && searchEmail !== "") {
             alert("请输入正确的账号（邮箱格式如：quesou@527so.com）");
         } else {
             console.log(searchName,searchEmail,status);

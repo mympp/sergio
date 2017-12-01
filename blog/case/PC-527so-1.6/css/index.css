@@ -5,8 +5,17 @@
 	width: 100%;
 	background: #fff;
     height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 99999;
 }
-
+.header-box{
+    width: 100%;
+    height: 60px;
+}
 .header_box:after,.header_box:before{
 	content: "";
 	clear: both;
@@ -36,19 +45,36 @@
     font-size: 16px;
     color: #494949;
     text-align: center;
-    margin-left: 10px;
-    padding: 5px 15px;
+    margin-left: 15px;
+    padding: 5px 25px;
 }
 
-.header_box .header_div .right_h1 li .register{
+.header_box .header_div .right_h1 li .a_st1{
 	color: #fff;
-	background: #ffb909;
+	background: #f07122;
 }
 
-.header_box .header_div .right_h1 li .join_We:hover{
-	color: #ffb909;
-	border-bottom: 2px solid #ffb909;
+.header_box .header_div .right_h1 li .a_st2{
+    color: #333;
+    background: #ffffff;
+    border: 1px solid #aaa;
 }
+
+.header_box .header_div .right_h1 .join_We_li1{
+	background: url(../Images/home_icon_bcagent_nor.png) no-repeat 1%;
+	background-size: 30%;
+	position: relative;
+	left: 5px;
+}
+
+.header_box .header_div .right_h1 li .join_We{
+	color: #f07122;
+}
+
+/*.header_box .header_div .right_h1 li .join_We:hover{
+	color: #f07122;
+	border-bottom: 2px solid #f07122;
+}*/
 
 .header_box .header_div .left_h1{
 	position: relative;
@@ -69,8 +95,8 @@
 }
 
 .header_box .header_div .left_h1 li a:hover,.header_box .header_div .left_h1 li a.active{
-	color: #ffb909;
-	border-bottom: 2px solid #ffb909;
+	color: #f07122;
+	border-bottom: 2px solid #f07122;
 }
 /*页面顶部结束*/
 
@@ -416,7 +442,7 @@
 
 .index_main .kehu-pingjia-item1 .user-pjName{
     width: 40px;
-    background: #ffb908;
+    background: #f07122;
     color: #fff;
     font-size: 12px;
     padding: 0 5px;
@@ -536,25 +562,26 @@
 
 /*加入我们表单开始*/
 .join-WeAre{
-	width: 650px;
-    height: 70%;
+    width: 650px;
+    height: 80%;
     margin: 0 auto;
     display: none;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%,-50%);
     -moz-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
     -o-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);;
-    z-index: 99;
+    transform: translate(-50%,-50%);
+    z-index: 999;
+    overflow: auto;
 }
 
 .join-WeAre .join-org{
     width: 100%;
     height: 50px;
-    background: #ffb909;
+    background: #f07122;
     text-align: right;
 }
 
@@ -628,7 +655,7 @@
     line-height: 38px;
     color: #fff;
     display: inline-block;
-    background: #ffb909;
+    background: #f07122;
     cursor: pointer;
 }
 
@@ -708,7 +735,7 @@
 }
 
 .footer_div1 .footer_div1_cells .footer_div1_cell dl dd a:hover{
-	color: #ffb909;
+	color: #f07122;
 	font-size: 14px;
 }
 
@@ -932,7 +959,7 @@
 }
 .ProductStatus .ProductText {
     font-size: 18px;
-    color: #ffb908;
+    color: #f07122;
     text-align: center;
     letter-spacing:3px;
     padding-bottom: 30px;
@@ -1133,12 +1160,39 @@
 	width: 8px;
     height: 8px;
     border-radius: 100%;
-    background: #ffb909;
+    background: #f07122;
     display: inline-block;
 }
-
+.org_sm1-bbox{
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    border: 1px solid #f07122;
+    display: inline-block;
+    margin-bottom: 2px;
+    animation: 2s myanimate alternate infinite;
+}
+.org_sm1-lbox{
+    width: 26px;
+    height: 26px;
+    margin: 4px;
+    border-radius: 100%;
+    border: 1px solid #f07122;
+    display: inline-block;
+}
+@keyframes myanimate{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.org_sm1-lbox .org_sm1{
+    margin: 9px;
+}
 .org_line_border1{
-    background: #ffb909;
+    background: #f07122;
     display: inline-block;
     width: 1px;
     height: 1145px;
@@ -1244,7 +1298,7 @@
 .org_line_border2{
 	width: 208px;
     height: 1px;
-    background: #ffb909;
+    background: #f07122;
     display: inline-block;
 }
 
@@ -1393,7 +1447,7 @@
     line-height: 38px;
     color: #fff;
     display: inline-block;
-    background: #ffb909;
+    background: #f07122;
     cursor: pointer;
     text-align: center;
     font-size: 14px;
@@ -1416,7 +1470,7 @@
     width: 400px;
     height: 263px;
     text-align: center;
-    background: #eeeeee;
+    background: #f7f7f7;
 }
 
 .jiaru_weAre_lfP1{
@@ -1434,7 +1488,7 @@
 }
 
 .jiaru_weAre_lf a{
-	color: #ffb908;
+	color: #f07122;
     font-size: 14px;
 }
 
@@ -1463,11 +1517,11 @@
 .jiaru_weAre_rt thead tr {
     height: 43px;
     line-height: 43px;
-    background: #eeeeee;
+    background: #f7f7f7;
 }
 
 .jiaru_weAre_rt table>tbody>tr>td>a:last-child{
-	color: #ffb908;
+	color: #f07122;
 }
 /*加入我们结束*/
 /*联系我们结束*/
@@ -1484,7 +1538,7 @@
     margin-left: 20px;
 }
 .XQ-Big>p a {
-    color: #ffb908;
+    color: #f07122;
     font-size: 12px;
 }
 .XQ-Big>h2 {
@@ -1604,7 +1658,7 @@
     height: 38px;
     line-height: 38px;
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     color: #fff;
     background: #1499ea;
     padding: 5px 0;
@@ -1612,8 +1666,8 @@
 
 .userList_li{
     padding-left: 40px;
-    height: 56px;
-    line-height: 56px;
+    height: 48px;
+    line-height: 48px;
     font-size: 13px;
     color: #333333;
     vertical-align: middle;
@@ -1717,7 +1771,7 @@
 }
 
 .userList_li:hover .icon-text,.userList_li.active .icon-text{
-	font-size: 18px;
+	font-size: 16px;
     color: #1da1f2;
     vertical-align: middle;
 }
@@ -1731,7 +1785,7 @@
 }
 
 .userList_li .icon-text{
-	font-size: 18px;
+	font-size: 16px;
     color: #333333;
     vertical-align: middle;
 }
@@ -1775,6 +1829,7 @@
 }
 
 .icon-shopping-div p{
+	font-size: 14px;
 	padding-left: 48px;
 }
 
@@ -1787,26 +1842,28 @@
 .left_header{
 	float: left;
 	width: 50%;
-	height: 76px;
-	line-height: 76px;
+	height: 70px;
+	line-height: 70px;
     background: #ffffff;
 }
 
 .left_header .page_state{
 	float: left;
-	height: 76px;
-	line-height: 76px;
+	height: 70px;
+	line-height: 70px;
     padding-left: 40px;
-    font-size: 18px;
+    font-size: 16px;
     color: #494949;
+    position: relative;
+    top: 1px;	
 }
 
 .left_header .vip-valid{
 	float: left;
     color: #e67e19;
     font-size: 16px;
-    height: 76px;
-    line-height: 76px;
+    height: 70px;
+    line-height: 70px;
     margin-left: 30px;
     position: relative;
     top: 1px;	
@@ -1817,13 +1874,18 @@
 .right_header{
 	float: right;
 	width: 50%;
-	height: 76px;
-	line-height: 76px;
+	height: 70px;
+	line-height: 70px;
     background: #ffffff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .right_header ul{
 	float: right;
+	position: relative;
+	right: 30px;
 }
 
 .right_header ul li{
@@ -1835,19 +1897,25 @@
 .buy_xiansuoli1 a{
 	float: right;
 	color: #e67e19;
-    font-size: 16px;
-    height: 76px;
-    line-height: 76px;
+    font-size: 14px;
+    height: 70px;
+    line-height: 70px;
     position: relative;
     top: 1px;
 }
-
+/*.right_header>ul>li:first-child>a {*/
+    /*display: inline-block;*/
+    /*width: 230px;*/
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
+    /*white-space: nowrap;*/
+/*}*/
 .xiansuoli1 a{
     float: right;
     color: #494949;
-    font-size: 16px;
-    height: 76px;
-    line-height: 76px;
+    font-size: 14px;
+    height: 70px;
+    line-height: 70px;
     position: relative;
     top: 1px;
 } 
@@ -1889,7 +1957,7 @@
 .xiansuo_header{
     float: left;
     width: 100%;
-    height: 131px;
+    height: 120px;
     background: #efefef;
 }
 
@@ -1903,12 +1971,14 @@
     margin-left: 107px;
     height: 60px;
     line-height: 60px;
+    position: relative;
+    top: 5px;
 }
 
 .xiansuo_hdleft ul .saixuan_text1{
 	float: left;
     color: #494949;
-    font-size: 18px;
+    font-size: 16px;
     margin-right: 20px;
 }
 
@@ -2063,6 +2133,8 @@
 /*自定义时间结束*/
 
 .xiansuo_hdleft_divlist{
+	position: relative;
+    top: -5px;
     clear: both;
     margin-left: 88px;
     height: 60px;
@@ -2072,11 +2144,12 @@
 .xiansuo_hdleft_divlist .saixuan_text1{
 	/*float: left;*/
     color: #494949;
-    font-size: 18px;
+    font-size: 16px;
     margin-right: 15px;
 }
 
 .xiansuo_hdleft_divlist .xiansuo_hdleft_btnlist{
+	/*position: absolute;*/
 	display: inline-block;
 }
 
@@ -2090,7 +2163,7 @@ cursor: pointer;
     line-height: 32px;
     border-radius: 20px;
     width: 70px;
-    margin-right: 30px;
+    margin-right: 20px;
     text-align: center;
 }
 
@@ -2139,7 +2212,7 @@ cursor: pointer;
     -o-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     border-radius: 5px;
-    padding-bottom: 30px;
+    /*padding-bottom: 30px;*/
 }
 
 .dingyue_hy_header{
@@ -2165,7 +2238,8 @@ cursor: pointer;
 }
 
 .dingyue_hy_user_list{
-	height: 84px;
+	position: relative;
+    height: 84px;
     line-height: 84px;
     border-bottom: 1px solid #dcdcdc;
     margin: 0 44px;
@@ -2187,7 +2261,7 @@ cursor: pointer;
     text-align: center;
     color: #fff;
     border-radius: 5px;
-    margin-right: 30px;
+    margin-right: 27px;
     font-size: 14px;
 }
 
@@ -2196,10 +2270,10 @@ cursor: pointer;
 }
 
 .dingyue_hy_delete{
-	cursor: pointer;
-    position: relative;
-    top: 12px;
-    right: -12px;
+    cursor: pointer;
+    position: absolute;
+    top: 28px;
+    right: 0;
 }
 
 .php_hy_list{
@@ -2222,9 +2296,9 @@ cursor: pointer;
     margin-top: 10px;
 }
 
-.php_hy_list li:first-child,.php_hy_list li:nth-child(7),.php_hy_list li:nth-child(13),.php_hy_list li:nth-child(19),.php_hy_list li:nth-child(25),.php_hy_list li:nth-child(31),.php_hy_list li:nth-child(37),.php_hy_list li:nth-child(43),.php_hy_list li:nth-child(49),.php_hy_list li:nth-child(55){
+/*.php_hy_list li:first-child,.php_hy_list li:nth-child(7),.php_hy_list li:nth-child(13),.php_hy_list li:nth-child(19),.php_hy_list li:nth-child(25),.php_hy_list li:nth-child(31),.php_hy_list li:nth-child(37),.php_hy_list li:nth-child(43),.php_hy_list li:nth-child(49),.php_hy_list li:nth-child(55){
 	margin-left: 0 !important;
-}
+}*/
 
 .php_hy_list li.active{
 	font-size: 14px;
@@ -2233,12 +2307,14 @@ cursor: pointer;
 }
 
 .php_key_list{
-	float: left;
+    float: left;
     width: 88%;
     background: #f0f1f4;
     margin: 0 44px 30px;
     border: 1px solid #d6d6d6;
     border-radius: 5px;
+    max-height: 155px;
+    overflow: auto;
 }
 
 .php_key_list_p1{
@@ -2299,8 +2375,9 @@ cursor: pointer;
 
 .dingyue_hy_btns{
     width: 100%;
-    margin: 40px auto 0;
+    margin: 25px auto 0;
     text-align: center;
+    padding-bottom: 20px;
 }
 
 .dy_cancel_1{
@@ -2469,7 +2546,7 @@ cursor: pointer;
     float: left;
     background: #fff;
     border-radius: 5px;
-    border: 1px solid rgba(255,255, 255, 0.3);
+    border: 1px solid transparent;
     overflow: hidden;
 }
 
@@ -2479,7 +2556,7 @@ cursor: pointer;
     float: left;
     background: #fff;
     border-radius: 5px;
-    border: 1px solid  rgba(255,255, 255, 0.3) ;
+    border: 1px solid transparent;
     overflow: hidden;
 }
 
@@ -2491,7 +2568,6 @@ cursor: pointer;
 .xiansuo_List li{
     width: 100%;
     margin: 0 auto;
-    min-width: 0px;!important;
 }
 
 .xiansuo_border{
@@ -2522,6 +2598,16 @@ cursor: pointer;
 
 .xiansuo_List_title{
 	cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    color: #494949;
+    vertical-align: middle;
+    margin-left: 20px;
+    height: 30px;
+    line-height: 30px;
+}
+.xiansuo_List_title01{
+    cursor: pointer;
     display: inline-block;
     font-size: 16px;
     color: #494949;
@@ -2584,7 +2670,10 @@ cursor: pointer;
     vertical-align: top;
 	font-size: 14px;
     color: #494949;
-    width: 260px; overflow: hidden; text-overflow:ellipsis; white-space: nowrap;
+    width: 260px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 
 .chakan_lianxi1,.chakan_lianxi2{
@@ -2597,7 +2686,7 @@ cursor: pointer;
     vertical-align: middle;
     position: absolute;
     right: 8%;
-    bottom: 27%;
+    bottom: 55%;
 }
 
 .chakan_lianxi1.hide,.chakan_lianxi2.hide{
@@ -2641,6 +2730,7 @@ cursor: pointer;
 
 /*分页器开始*/
 .xiansuo_Page_Div{
+	display: none;
 	height: 100px;
 }
 
@@ -2659,12 +2749,10 @@ cursor: pointer;
 }
 
 .xiansuo_Page_div{
-    width: 665px;
+    width: 668px;
     margin: 0 auto;
     height: 74px;
     line-height: 74px;
-    position: relative;
-    right: 50px;
 }
 
 .xiansuo_Page_div span{
@@ -2710,6 +2798,9 @@ cursor: pointer;
 .xiansuo_Page_list li.active{
 	color: #fff;
 	background: #1da1f2;
+    border:0;
+    width: 26px;
+    height: 26px;
 }
 
 .that_Page{
@@ -2842,6 +2933,14 @@ cursor: pointer;
 }
 
 .xiansuo_des_content{
+    width: 100%;
+    height: 680px;
+    background: #f0f1f4;
+    border: 1px solid #d6d6d6;
+    border-radius: 5px;
+    margin-top: 25px;
+}
+.paimai_des_content{
     width: 100%;
     height: 680px;
     background: #f0f1f4;
@@ -3107,3 +3206,138 @@ cursor: pointer;
     margin-left: 15px;
 }
 /*确认删除模态框结束*/
+
+/*返回页面顶部开始*/
+#return_top{
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+	display: none;
+    position: fixed;
+    right: 2%;
+    bottom: 5%;
+}
+/*返回页面顶部结束*/
+
+/*引导页开始*/
+.Guidance-box {
+    width: 100%;
+    height: 100%;
+    min-width: 1366px;
+    position: absolute;
+    top:0;
+    left:0;
+}
+.Guidance{
+    width: 100%;
+    height: 100%;
+    min-width: 1366px;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 9999;
+}
+.GuidanceBtn {
+    position: absolute;
+    bottom: 9%;
+    right: 6%;
+    display: inline-block;
+    width: 7%;
+    height: 5%;
+    /*background: red;*/
+    z-index: 9999;
+    cursor: pointer;
+}
+.GuidanceClos {
+    position: absolute;
+    top: 4%;
+    right: 3.5%;
+    cursor: pointer;
+    font-size: 60px;
+    color: #FFFFFF;
+    z-index: 9999;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+
+}
+
+
+
+/*引导页结束*/
+/*PC引导关联微信开始*/
+.WeixinPc-Y {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10000;
+}
+
+.WeixinPc {
+    width: 446px;
+    height: 492px;
+    background: #FFFFFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    border-radius: 5px;
+}
+.WeixinPc-Top {
+    width: 100%;
+    height: 50px;
+    background: #1da1f2;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.Winxin-Clos {
+    color: #FFFFFF;
+    float:right;
+    font-size: 40px;
+    margin-top: -3px;
+    margin-right: 10px;
+    cursor: pointer;
+
+}
+.logoWin {
+    display: block;
+    width: 182px;
+    height: 182px;
+    background: url("../Images/logoWei.png");
+    margin: 0 auto;
+    margin-top: 48px;
+    margin-bottom: 15px;
+}
+.Winxin-Text {
+    font-size: 14px;
+    color: #898989;
+    text-align: center;
+    line-height: 25px;
+}
+.Winxin-Text >i {
+    font-style: normal;
+}
+.Winxin-Btn {
+    display: block;
+    width: 200px;
+    height: 36px;
+    border: 1px solid #1da1f2;
+    text-align: center;
+    line-height:36px;
+    font-size: 14px;
+    color: #1da1f2;
+    border-radius: 30px;
+    margin: 0 auto;
+    margin-top: 50px;
+    cursor: pointer;
+}
+/*PC引导关联微信结束*/

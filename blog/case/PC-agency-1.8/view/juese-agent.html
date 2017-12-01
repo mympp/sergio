@@ -179,22 +179,33 @@
                 </div><br />
                 <label>详细地址</label><i>：</i>
                 <input type="text" name="address" placeholder="请输入详细地址"><br />
-                <label>推荐码</label><i>：</i><span>YSGASD11001</span><br />
+                <label>推荐码</label><i>：</i>
+                <span>YSGASD11001</span><br />
                 <label>银行账号</label><i>：</i>
-                <select>
-                    <option value="中国银行" id="bankName">中国银行</option>
-                    <option value="建设银行">建设银行</option>
+                <select id="bankName">
+                    <option value="中国银行">中国银行</option>
+                    <option value="中国建设银行">中国建设银行</option>
+                    <option value="中国工商银行">中国工商银行</option>
+                    <option value="中国农业银行">中国农业银行</option>
+                    <option value="中国光大银行">中国光大银行</option>
+                    <option value="中国交通银行">中国交通银行</option>
+                    <option value="中国招商银行">中国招商银行</option>
+                    <option value="中国邮政储蓄银行">中国邮政储蓄银行</option>
+                    <option value="中信银行">中信银行</option>
+                    <option value="浦发银行">浦发银行</option>
+                    <option value="华夏银行">华夏银行</option>
                     <option value="其他银行">其他银行</option>
                 </select><br />
                 <label>&nbsp;</label><i>&nbsp;</i>
                 <input type="text" name="bankCode" id="bankCode" maxlength="23" placeholder="卡号"><br />
                 <label>&nbsp;</label><i>&nbsp;</i>
                 <input type="text" name="peopleName" placeholder="姓名"><br />
-                <label class="vit-top">企业资质</label><i class="vit-top">：</i><input type="file" name="" id="file0">
+                <label class="vit-top">企业资质</label><i class="vit-top">：</i>
+                <input type="file" name="" id="file0">
                 <label for="file0"><img src="../Images/file0.png" id="img0" width="74px" height="100px"></label><br />
                 <label class="vit-top">备注</label><i class="vit-top">：</i><textarea name="tips"></textarea>
                 <div class="btn-box">
-                    <input type="button" name="submit" value="确认" class="submit blue-btn" id="addAgentSub">
+                    <input type="button" name="" value="确认" class="submit blue-btn" id="addAgentSub">
                     <input type="button" name="cancel" value="取消" class="cancel white-btn">
                 </div>
             </form>
@@ -312,27 +323,19 @@
 <script src="../js/role.js"></script>
 <script src="../js/bankcard.js"></script>
 <script type="text/javascript">
-    // 银行卡验证
-    $(document).on("click","#submit",function(){
-        var bankText = $("#bankCode").val();
-        console.log(bankText);
-        var abc = bankText.substring(0,7);//获取用户输入的前四位
-
-        console.log(abc);
-        console.log(bankBin);
-        var bankBinWhere = bankBin.indexOf(abc);
-        console.log(bankBinWhere);
-        var bankNamei = bankBinWhere;
-        var bankNameHere = bankName[bankNamei];
-        if (bankBinWhere = -1) {
-            console.log(bankNameHere);
-            $("#bankName").text(bankNameHere);
-            $("option:not(#bankName)").remove();
-        }else{
-            console.log("银行卡号不存在");
+    //监听卡号输入框检查银行卡号
+    $("#bankCode").on("input propertychange",function(){
+        var abc = $("#bankCode").val().substring(0,7);//获取用户输入的前四位
+        var bankBinWhere = bankBin.indexOf(abc);//在bankcard.js库中查找
+        var bankNameHere = bankName1[bankBinWhere];//找到卡号对应的银行卡
+        if (bankNameHere == bankName1[bankBinWhere]) {
+            $("#bankName option:selected").text(bankNameHere);
+            // $("option:not(#bankName)").remove();
         }
-        
-    });
+        if (bankBinWhere == -1){
+            $("#bankName").val("其他银行");
+        }
+    })
 
     //后台提交
     //搜索按钮
@@ -341,9 +344,9 @@
         searchEmail = $("input[name=searchEmail]").val(),
         status = $(".searchStatus:visible").val(),
         emailreg = /^[a-z0-9-_.]+@[\da-z][\.\w-]+\.[a-z]{2,4}$/i;
-        if (searchName == "" || searchEmail == "") {
+        if (searchName == "" && searchEmail == "") {
             alert("搜索项不能为空");
-        } else if (!emailreg.test(searchEmail)) {
+        } else if (!emailreg.test(searchEmail) && searchEmail !== "") {
             alert("请输入正确的账号（邮箱格式如：quesou@527so.com）");
         } else {
             console.log(searchName,searchEmail,status);
@@ -362,7 +365,7 @@
         peopleName = $("input[name=peopleName]").val(),
         imgFile = $("input[type=file]").val(),
         tips = $("textarea[name=tips]").val();
-        checkForm();//表单验证函数
+        // checkForm();//表单验证函数
         console.log(name,phone,ID,password,area,address,referralCode,bankCard,peopleName,imgFile,tips);//ajax提交
     });
 

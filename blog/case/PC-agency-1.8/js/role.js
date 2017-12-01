@@ -42,58 +42,58 @@
     // 虚拟弹窗交互
     $(function(){
         //管理员
-        $(".addAdmin").click(function(){
+        $(document).on("click",".addAdmin",function(){
             $(".add-admin,.moni-box").fadeIn();
         })
-        $(".adminDetails").click(function(){
+        $(document).on("click",".adminDetails",function(){
             $(".admin-details,.moni-box").fadeIn();
         })
-        $(".passCheck").click(function(){
+        $(document).on("click",".passCheck",function(){
             $(".pass-check,.moni-box").fadeIn();
         })
-        $(".nopassCheck").click(function(){
+        $(document).on("click",".nopassCheck",function(){
             $(".nopass-check,.moni-box").fadeIn();
         })
-        $(".addSalesman").click(function(){
+        $(document).on("click",".addSalesman",function(){
             $(".add-salesman,.moni-box").fadeIn();
         })
-        $(".salesmanDetails").click(function(){
+        $(document).on("click",".salesmanDetails",function(){
             $(".salesman-details,.moni-box").fadeIn();
         })
-        $(".salesmanRedact").click(function(){
+        $(document).on("click",".salesmanRedact",function(){
             $(".salesman-redact,.moni-box").fadeIn();
         })
-        $(".addTrainer").click(function(){
+        $(document).on("click",".addTrainer",function(){
             $(".add-trainer,.moni-box").fadeIn();
         })
-        $(".trainerDetails").click(function(){
+        $(document).on("click",".trainerDetails",function(){
             $(".trainer-details,.moni-box").fadeIn();
         })
-        $(".trainerRedact").click(function(){
+        $(document).on("click",".trainerRedact",function(){
             $(".trainer-redact,.moni-box").fadeIn();
         })
-        $(".trainerAgent").click(function(){
+        $(document).on("click",".trainerAgent",function(){
             $(".trainer-agent,.moni-box").fadeIn();
         })
-        $(".trainerAllot").click(function(){
+        $(document).on("click",".trainerAllot",function(){
             $(".trainer-allot,.moni-box").fadeIn();
         })
-        $(".big-img").click(function(){
+        $(document).on("click",".big-img",function(){
             $(".bbig-img").fadeIn();
         })
-        $(".bbig-img").click(function(){
+        $(document).on("click",".bbig-img",function(){
             $(".bbig-img").fadeOut();
         })
 
         // ".add-admin,.admin-details,.admin-redact,.admin-remove,.check-details,.pass-check,.nopass-check,.add-salesman,.salesman-details,.salesman-redact,.salesman-remove,.add-trainer,.trainer-details,.trainer-redact,.trainer-remove,.trainer-agent,.trainer-allot"
         //关闭所有虚拟弹窗
         // var allClean = $(".cleanAll").parent().parent();
-        $(".cleanAll,.cancel").click(function(){
+        $(document).on("click",".cleanAll,.cancel",function(){
             // $(allClean).fadeOut();
             $(".moni-box,.moni-lbox").fadeOut();
         })
         //清空搜索框
-        $("input[name=clear]").click(function(){
+        $(document).on("click","input[name=clear]",function(){
             $("input[name=searchName],input[name=searchEmail]").val("");
         })
     });
@@ -124,21 +124,21 @@
                 val = val.replace(/(\d{4})(?=\d)/g, "$1 ");
                 $(this).val( val );
             });
-
-        // 上传图片事件代理点击事件
-        $(document).on("click", ".modal_SetUp", function() {
-            $("#file0").click();
-        })
-
-        $("#file0").change(function() {
-            var objUrl = getObjectURL(this.files[0]);
-            console.log("objUrl = " + objUrl);
-            if(objUrl) {
-                $("#img0").attr("src", objUrl);
-            }
-        });
     })
-    //上传图片保存路径函数及兼容性处理
+
+    // 上传图片事件代理点击事件
+    $(document).on("click", ".modal_SetUp", function() {
+        $("#file0").click();
+    })
+
+    $("#file0").change(function() {
+        var objUrl = getObjectURL(this.files[0]);
+        // console.log("objUrl = " + objUrl);
+        if(objUrl) {
+            $("#img0").attr("src", objUrl);
+        }
+    });
+    // 上传图片保存路径函数及兼容性处理
     function getObjectURL(file) {
         var url = null;
         if(window.createObjectURL != undefined) { // basic

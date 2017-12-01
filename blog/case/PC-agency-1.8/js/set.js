@@ -46,20 +46,20 @@
  */  
     $(function(){
         // 虚拟弹窗交互
-        $(".removeBtn").click(function(){
+        $(document).on("click",".removeBtn",function(){
             $(".remove-box,.moni-box").fadeIn();
         })
         // 用户组
-        $(".addUser").click(function(){
+        $(document).on("click",".addUser",function(){
         	$(".user-main").hide();
         	$(".add-user").fadeIn();
         })
-        $(".userRedact").click(function(){
+        $(document).on("click",".userRedact",function(){
             $(".user-main").hide();
             $(".redact-user").fadeIn();
         })
         // 发布公告
-        $(".allClean").click(function(){
+        $(document).on("click",".allClean",function(){
             var title = $(".consult-form input[type=text]").val();
             var editHtml = $("#editor").find("#ueditor_0").contents().find("body").html();//获得富文本编辑器的html片段
             if (title == "" && editHtml == "<p><br></p>" && editHtml == "<p></p>") {
@@ -69,30 +69,30 @@
             }
         })
         //公告历史
-        $(".hisRedact").click(function(){
+        $(document).on("click",".hisRedact",function(){
             $(".his-redact,.moni-box").fadeIn();
         })
-        $(".hisDetails").click(function(){
+        $(document).on("click",".hisDetails",function(){
             $(".his-details,.moni-box").fadeIn();
         })
         //分成设置
-        $(".addDivide").click(function(){
+        $(document).on("click",".addDivide",function(){
             $(".add-divide,.moni-box").fadeIn();
         })
         
         //关闭所有虚拟弹窗
         var allClean = $(".closeAll").parent().parent();
-        $(".closeAll,.cancel").click(function(){
+        $(document).on("click",".closeAll,.cancel",function(){
             $(allClean).hide();
             $(".moni-box,.moni-lbox").fadeOut();
             $(".user-main").fadeIn();
         })
-        $(".cleanAll,.cancel").click(function(){
+        $(document).on("click",".cleanAll,.cancel",function(){
                 // $(allClean).fadeOut();
                 $(".moni-box,.moni-lbox").fadeOut();
         })
         //清空
-        $(".closesubmit").click(function(){
+        $(document).on("click",".closesubmit",function(){
             $(".consult-form input[type=text]").val("");
             $(".moni-box,.send-clean").fadeOut();
             $("#editor").find("#ueditor_0").contents().find("body").empty();//

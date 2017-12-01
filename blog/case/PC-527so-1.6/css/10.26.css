@@ -1,16 +1,12 @@
-/* CSS Document 
--功能：官网首页和产品页面样式
--作者：sergiolin
--日期：2017/10/27*/
-/*首页样式*/
-/*轮播样式*/
+@charset "UTF-8";
+
 .slider, .slider-panel img, .slider-extra {
 	width: 100%;
 	height: 543px;
 }
 .slider {
 	text-align: center;
-	margin: 0px auto;
+	margin: 0px auto 50px;
 	position: relative;
 }
 .slider-panel, .slider-nav, .slider-pre, .slider-next {
@@ -27,19 +23,21 @@
 	position: relative;
 }
 .slider-nav {
-	margin-left: -51px;
-	position: absolute;
-	left: 50%;
-	bottom: 4px;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
 }
 .slider-nav li {
 	width: 15px;
 	height: 15px;
 	background: #fff;
-	border: 1px solid #ccc;
 	border-radius: 50%;
 	cursor: pointer;
-	margin: 0 2px;
+	margin: 0 5px;
 	overflow: hidden;
 	text-align: center;
 	display: inline-block;
@@ -69,9 +67,43 @@
 	margin-left: -28px;
 }
 /*内容样式*/
-.index-box{
-	width: 1200px;
-	height:600px;
+.index-video{
+	width: 100%;
+	height: auto;
+	position: relative;
+}
+.index-video .video-img{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.1);
+}
+.index-video .video-img img{
+	margin: 10% 0;
+}
+.index-img1{
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 50px 0 50px;
+	text-align: center;
+}
+.index-main .index-box{
+	max-width: 1200px;
+	height: 700px;
+	margin: 0 auto;
+	clear: both;
+}
+.index-main .index-box img{
+	width: 50%;
+	margin: 100px 0;
+}
+.index-main .index-box .index-textbox{
+	width: 40%;
+	padding: 220px 30px 0;
+}
+.product-main .index-box{
+	max-width: 1200px;
+	height:800px;
 	margin: 0 auto;
 	clear: both;
 }
@@ -79,11 +111,9 @@
 	width: 100%;
 	background: #f6f8fa;
 }
-.index-box img{
-	width: 50%;
-}
-.index-box .index-textbox{
-	padding: 180px 30px 0;
+.product-main .index-box .index-textbox{
+	width: 40%;
+	padding: 300px 30px 0;
 }
 .index-box .index-textbox h4{
 	font-size: 40px;
@@ -91,12 +121,90 @@
 	line-height: 80px;
 }
 .index-box .index-textbox p{
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 35px;
 	color:#666;
 }
 .index-box .index-textbox.fr{
 	text-align: right;
+}
+/*产品介绍图片*/
+.index-box .product-img2,
+.index-box .product-img3,
+.index-box .product-img4,
+.index-box .product-img5,
+.index-box .product-img6{
+	width: 50%;
+	position: relative;
+}
+.index-box .product-img20{
+	position: absolute;
+	top: 20px;
+	left: 0;
+}
+.index-box .product-img21{
+	width: 306px;
+	position: absolute;
+	top: 112px;
+	left: 194px;
+}
+.index-box .product-img3{
+
+	position: relative;
+	overflow-x: 
+}
+.index-box .product-img30{
+	position: absolute;
+	left: -180px;
+	top: 100px;
+}
+.index-box .product-img31{
+	position: absolute;
+	left: 100px;
+	top: 100px;
+}
+.index-box .product-img4{
+	position: relative;
+}
+.index-box .product-img40{
+	position: absolute;
+	top: 200px;
+}
+.index-box .product-img41{
+	position: absolute;
+	top: 70px;
+	left: 90px;
+}
+.index-box .product-img42{
+	position: absolute;
+	top: 190px;
+	left: 135px;
+}
+.index-box .product-img43{
+	position: absolute;
+	top: 80px;
+	left: 440px;
+}
+.index-box .product-img44{
+	position: absolute;
+	top: 190px;
+	left: 470px;
+}
+.index-box .product-img45{
+	position: absolute;
+	top: 680px;
+	left: 276px;
+}
+.index-box .product-img46{
+	position: absolute;
+	top: 430px;
+	left: 186px;
+}
+.index-box .product-img5 img{
+	width: 820px;
+}
+.index-box .product-img6{
+	padding-top: 100px;
 }
 /**箭头动画**/
 .index-boxanimate{
@@ -227,7 +335,6 @@
 	width: 270px;
 	height: 167px;
 	margin: 0 14px;
-	border: 1px solid #ccc;
 	cursor: pointer;
 }
 .footer-img{
@@ -247,7 +354,7 @@
 	height: 68px;
 	line-height: 68px;
 	margin-top: 50px;
-	background: #ffb908;
+	background: #f07122;
 	color: #fff;
 	font-size: 30px;
 }

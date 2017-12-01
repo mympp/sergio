@@ -63,6 +63,56 @@ $(function(){
 		   $(this).blur().val("");
         }
     })
+	
+	//为标题绑定单击事件查看详情
+	$(document).on("click",".inbox-tabletext",function(){
+		var id = $(this).parents("tr").attr("name");
+		console.log(id);
+		$(".inbox-nav").fadeOut();
+		$(".inbox-footer").fadeOut();
+		$(".inbox-main-dets").fadeIn();
+	})
+	
+	//为返回按钮绑定单击事件
+	$(document).on("click",".return_data",function(){
+		$(".inbox-main-dets").fadeOut();
+		$(".inbox-nav").fadeIn();
+		$(".inbox-footer").fadeIn();
+		console.log("返回");
+	})
+	
+	//为回复按钮绑定单击事件
+	$(document).on("click",".edit_data",function(){
+		var str = "";
+		console.log("回复");
+	})
+	
+	//为回收站按钮绑定单击事件
+	$(document).on("click",".delete_data1",function(){
+		console.log("回收站");
+		var id = $(".inbox-main-dets").attr("name");//该页面1条数据无需this
+		console.log(id);//发起ajax
+		success();//操作成功
+	})
+	
+	//为彻底删除按钮绑定单击事件
+	$(document).on("click",".delete_data2",function(){
+		console.log("彻底删除");
+		$(".delete-modal").fadeIn();
+	})
+	
+	//为取消删除按钮绑定单击事件
+	$(document).on("click",".de_cancel_1",function(){
+		console.log("取消删除");
+		$(".delete-modal").fadeOut();
+	})
+	
+	//为确认删除按钮绑定单击事件
+	$(document).on("click",".de_confirm_1",function(){
+		var id = $(".inbox-main-dets").attr("name");//该页面1条数据无需this
+		console.log(id);//发起ajax
+		success();//操作成功
+	})
 })
 
 //判断数据长度

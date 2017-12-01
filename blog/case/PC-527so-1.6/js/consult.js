@@ -1,78 +1,19 @@
 $(function(){
-	var state = true; //判断用户是否会员
-	if(!state) {
-		$(".vip-valid").hide();
-	} else {
-		$(".vip-valid").show();
-	}
-	
 	var pageVal = $(".xiansuo_Page_Three").val();
 	$(".xiansuo_Pages").html(pageVal+"页");
 	
 	getHeight(); //动态设置高度
 
+	if($("#inbox_table tbody tr").length == 0){//如果页面的li长度等于0
+		$(".xiansuo_Page_Div").hide();//隐藏分页器
+	}else{
+		$(".xiansuo_Page_Div").show();//隐藏分页器
+	}
+
 	$(window).resize(function(){
 		getHeight();
 	})
-	
-	//为左侧导航li绑定单击事件
-	$(document).on("click",".userList_li",function() {
-		var index = $(this).index();
-		console.log(index);
-		if(index == 0){
-			location.href = "../CRM/index.html";
-		}
-		
-		if(index == 1){
-			location.href = "../CRM/xiansuo.html";
-		}
-		
-		if(index == 2){
-			location.href = "../CRM/kehu-admin.html";
-		}
-		
-		if(index == 3){
-			location.href = "../CRM/contact.html";
-		}
-		
-		if(index == 4){
-			location.href = "../CRM/gonghai.html";
-		}
-		
-		if(index == 5) {
-			$(".icon-shopping-div").slideToggle();
-		}
-		
-		if(index == 7){
-			location.href = "../consult/send.html";
-		}
-		
-		if(index == 8){
-			location.href = "../CRM/setup.html";
-		}
-		
-		if(index == 9){
-			location.href = "../CRM/feedback.html";
-		}
-		$(this).addClass("active").siblings().removeClass("active");
-	})
 
-	//为左侧导航商品的P段落绑定单击事件
-	$(document).on("click", ".icon-shopping-div p", function(e) {
-		var index = $(this).index();
-		$(this).addClass("open").siblings().removeClass("open");
-		if($(this).hasClass("open")) {
-			if(index==0){
-				location.href="../CRM/commodity-guanli.html";
-			}
-			if(index==1){
-				location.href="../CRM/release-product.html";
-			}
-			$(this).parent().prev().addClass("active").siblings().removeClass("active");
-		}
-		e.stopPropagation();
-	})
-	
 	$(".xiansuo_Page_Three").change(function(){
 		var checkValue = $(this).val();
 		$(".xiansuo_Pages").html(checkValue+"页");
@@ -109,10 +50,18 @@ $(function(){
 //定义获取高度方法
 function getHeight() {
 	var winH = $(window).height();
-	var TopH = $(".left_header").height();
-	var cellH = winH - TopH;
+	var TopH1 = $(".left_header").height();//页面顶部高度
+	var TopH2 = $(".consult-nav").height();//咨询信息导航高度
+	var padH = parseInt($(".consult-main").css("padding"))*2;//外层容器外边距
+	var magT = parseInt($(".inbox-main").css("marginTop"));//容器盒子上外边距
+	var FPageH = $(".xiansuo_Page_Div").height();//分页器高度
+	var TopH3 = $(".inbox-nav-input").height()+$(".inbox-listnav").outerHeight(true);//内容盒子导航头部 搜索框＋导航列表
 	$(".left_template,.right_template").height(winH);
-	$(".consult-form").height(cellH-100);
+	$(".consult-main").height(winH-TopH1-padH);
+	$(".inbox-main").height(winH-TopH1-TopH2-padH-magT-4);//兼容360浏览器及火狐浏览器
+	$(".inbox-list").height(winH-TopH1-TopH2-padH-magT-4-TopH3-FPageH+30);//动态设置表格外层容器高度     16 17 18 ↘
+																								   //相差    16	 `!if(16)else{"BUG"}!`
+	$(".scroll_table").height(winH-TopH1-TopH2-padH-magT-4-TopH3-FPageH+14);//动态设置表格滚动容器高度  1 2  3    ↗
 }
 
 //全选、反选的事件函数  
@@ -131,13 +80,13 @@ function selectAll(){
 function setSelectAll(){  
     //当没有选中某个子复选框时，SelectAll取消选中  
     if (!$("input[type='checkbox'][name='checkedres']").checked) {
-    	console.log("不满足,取消全选");
-        $("#checkall").prop("checked", false);  
-    }  
-    var chsub = $("input[type='checkbox'][name='checkedres']").length;//获取subcheck的个数  
-    var checkedsub = $("input[type='checkbox'][name='checkedres']:checked").length;//获取选中的subcheck的个数  
-    if (checkedsub == chsub) {
-    	console.log("满足,开启全选");
-        $("#checkall").prop("checked", true);  
-    }  
+		console.log("不满足,取消全选");
+		$("#checkall").prop("checked", false);
+	}
+	var chsub = $("input[type='checkbox'][name='checkedres']").length;//获取subcheck的个数
+	var checkedsub = $("input[type='checkbox'][name='checkedres']:checked").length;//获取选中的subcheck的个数
+	if (checkedsub == chsub) {
+		console.log("满足,开启全选");
+		$("#checkall").prop("checked", true);
+	}
 }

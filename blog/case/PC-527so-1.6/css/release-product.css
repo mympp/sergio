@@ -437,10 +437,9 @@
 }
 
 .tsXq-div_main {
-    background: #fff;
-    padding: 20px 30px 85px;
+	background: #fff;
+    padding: 20px 30px 0;
     overflow: auto;
-    height: 750px;
 }
 
 .one-cell{
@@ -639,6 +638,7 @@
     border-top: 1px solid #dcdcdc;
     bottom: 0;
     text-align: center;
+    z-index: 9999;
 }
 
 .Two_Btn_cells_2{

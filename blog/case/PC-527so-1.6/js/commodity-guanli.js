@@ -4,11 +4,21 @@ $(function() {
 	
 	getHeight(); //动态设置高度
 	
-	wordlimit("jiequ_str",56);//截取字符串
-	
 	$(window).resize(function() {
 		getHeight();
 	})
+
+	if($(".xiansuo_List li").length == 0){//如果页面的li长度等于0
+		$("#checkall").prop("checked", false);//关闭全选
+		$("#checkall").prop("disabled", "false");//禁用全选
+		$(".xiansuo_Page_Div").hide();//隐藏分页器
+	}else{
+		$("#checkall").removeProp("checked");//移除禁用
+		$("#checkall").removeProp("disabled");//移除禁用
+		$(".xiansuo_Page_Div").show();//隐藏分页器
+	}
+
+	wordlimit("jiequ_str",56);//截取字符串
 
 	var time1 = new Date().Format("yyyy-MM-dd");//此处为后台传入时间的变量(最小时间)
 	var start = {
@@ -27,23 +37,24 @@ $(function() {
 
 	var jiezhi = {
 		elem: '#expiration_time',
-		max: laydate.now()//此处为截止时间的值
+		min: laydate.now()//此处为截止时间的值
 	};
 	
 	//开始时间
-	$('#inputStartTime').click(function() {
+	$(document).on("click","#inputStartTime",function(){
 		laydate(start);
 	});
-
-	//结束时间
-	$('#inputEndTime').click(function() {
+	
+	//结束时间	
+	$(document).on("click","#inputEndTime",function(){
 		laydate(end);
 	});
 	
-	//截止时间
-	$('#expiration_time').click(function() {
+	//截止时间	
+	$(document).on("click","#expiration_time",function(){
 		laydate(jiezhi);
 	});
+	
 	
 	//为确认筛选按钮绑定单击事件
 	$(document).on("click",".saixuan_btn",function(){
@@ -202,10 +213,30 @@ $(function() {
 	
 	//为滑动箭头a元素绑定单击事件
 	$(document).on("click",".click_sjbtn",function(){
+		var str = "";
+		var that = $(this);
 		if($(this).hasClass("open")){
-			$(this).removeClass("open").addClass("close").siblings(".slider_content1").slideUp();
+			$(this).removeClass("open").addClass("close").siblings(".slider_content1").stop(true,false).slideUp();
+			setTimeout(function(){
+				console.log(that);
+				that.next().next().remove();
+			},300);	
 		}else{
-			$(this).removeClass("close").addClass("open").siblings(".slider_content1").slideDown();
+			str+=`<div class="slider_content1">
+					<div class="slider_content1_lf">
+						<div>联系人：陈先生</div>
+						<div>手<span class="pdlf-14"></span>机：13580546695</div>
+						<div>电<span class="pdlf-14"></span>话：020-8678888</div>
+						<div>邮<span class="pdlf-14"></span>箱：642307404@qq.com</div>
+					</div>
+					<div class="slider_content1_rt">
+						<div>地<span style="padding-left: 28px;"></span>址： 陈先生</div>
+						<div class="jiequ_str">线索描述：肯德基撒恐龙当家萨洛克的撒娇快乐的撒线索描述：肯德基撒恐龙当家萨洛克的撒娇快乐的撒线索描述：肯德基撒恐龙当家萨洛克</div>
+						<div>创建时间：2017-09-13 18:15</div>
+					</div>
+				</div>`;
+			$(this).next().after(str);
+			$(this).removeClass("close").addClass("open").siblings(".slider_content1").stop(true,false).slideDown();
 		}
 	})
 	
@@ -237,10 +268,11 @@ $(function() {
 	
 	//为编辑详情重置按钮绑定单击事件
 	$(document).on("click",".btn_reset_1",function(){
-		$('input:radio').removeProp('checked'); 
-		$("input,textarea").val(""); 
+		$('input:radio').prop('checked',false); 
+		$("input:not('.radius_cell'),textarea").val("");
 		$("select").val(0); 
-		$('#Baidu_editor').attr('src', $('#Baidu_editor').attr('src'));
+		$("#editor").find("#ueditor_0").contents().find("body").empty();
+		$("#edui1_iframeholder").css("height","500px");
 	})
 	
 	//为编辑详情确认按钮绑定单击事件
@@ -251,7 +283,7 @@ $(function() {
 		var KeyWord = $(".msg_keyWord").val();//关键词
 		var hyVal = $(".select_hangye").val();//行业分类
 		var brand = $(".msg_brand").val();//产品品牌
-		var editHtml = $("#Baidu_editor").contents().find("#ueditor_0").contents().find("body>p").text();//获得富文本编辑器的文本值
+		var editHtml = $("#editor").find("#ueditor_0").contents().find("body").html();//获得富文本编辑器的html片段
 		var UpImg = $(".up-img");//获取上传图片的元素
 		var dieTime = $("#expiration_time").val();//过期时间
 		var str = "";
@@ -286,6 +318,11 @@ $(function() {
 			console.log(msgType,msgTitle,msgTitleL,KeyWord,hyVal,brand,editHtml,src,dieTime,arg_name1,arg_name2,arg_name3,arg_val1,arg_val2,arg_val3,jl_count,pd_price,smm_count1,pd_counts1);		
 		}
 	})
+	
+	//子复选框的事件函数
+	$(document).on("click","input[name=checkedres]",function(){
+		setSelectAll();
+	})
 })
 
 //为兼容其他浏览器，则需要js解决，以下为封装的方法。
@@ -308,9 +345,10 @@ function getHeight() {
 	var TopH = 76 + 131;
 	var cellH = (height - TopH) - 15;
 	var FPageH = $(".xiansuo_Page_Div").height();
-	$(".left_template,.right_template,.xiansuo_des").height(height);
-	$(".xiansuo_main,.xiansuo_vessel").height(cellH);
+	$(".left_template,.right_template").height(height);
+	$(".xiansuo_main").height(cellH+10);
 	$(".xiansuo_List").height(cellH-FPageH);
+	$(".tsXq-div_main").height(height-300);
 }
 
 //全选、反选的事件函数  

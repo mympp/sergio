@@ -7,12 +7,21 @@
 		<link rel="stylesheet" href="../../css/common.css" />
 	    <link rel="stylesheet" href="../../css/index.css" />
 	    <link rel="stylesheet" href="../../css/release-product.css" />
+	   	<script type="text/javascript" src="../RichTextEdit/ueditor.config.js"></script>
+	    <script type="text/javascript" src="../RichTextEdit/ueditor.all.js"> </script>
+	    <script type="text/javascript" src="../RichTextEdit/lang/zh-cn/zh-cn.js"></script>
+	    <style type="text/css">
+		#edui1_bottombar{
+			display: none;
+		}
+	    </style>
 	</head>
-	<body>
+	<body style="min-width: 1366px;">
+		<!--父容器开始-->
 		<div class="outer_div">
 			<!--左边导航模块-->
 			<div class="left_template">
-				<div class="user_logo"><img src="../../Images/common_logo.png" alt=""></div>
+				<div class="user_logo"><a href="../publicity/index.html"><img src="../../Images/common_logo.png" alt="" /></a></div>
 				<p class="company_name1">广东雀鸟科技有限公司</p>
 				<!--用户导航列表-->
 				<div class="userList_bar">
@@ -79,8 +88,7 @@
 							<a href="javascript:;">哟哟</a>
 						</li>
 						<li class="xiansuoli1">
-							<span class="login_out1"></span>
-							<a href="javascript:;">退出</a>
+							<a href="javascript:;"><span class="login_out1"></span>退出</a>
 						</li>
 					</ul>
 				</div>
@@ -164,7 +172,8 @@
 								<label>详细说明：</label>
 							</span>
 							<div class="one-cell_rt" style="margin-left: 9px;vertical-align: top;position: relative;top: -6px;">
-								<iframe id="Baidu_editor" src="../RichTextEdit/index.html" frameborder="0" scrolling="no" width="750px" height="500px"></iframe>
+								<!--<iframe id="Baidu_editor" src="../RichTextEdit/index.html" frameborder="0" scrolling="no" width="750px" height="500px"></iframe>-->
+								<script id="editor" type="text/plain" style="width:730px;height: 500px;margin-left: 8px;margin-top: 5px;"></script>
 								<div class="tips_Text1_div">
 									<p class="tips_Text1_P1">1、建议您描述一下方面：产品的性能及优点、用途、售后服务、包装等；</p>
 									<p class="tips_Text1_P1">2、未避免不必要的纷争，请使用本企业图片；</p>
@@ -260,6 +269,7 @@
 				<!--发布产品结束-->
 			</div>
 		</div>
+		<!--父容器结束-->
 		
 		<!--上传图片删除模态框-->
 		<aside class="mask works-mask">
@@ -268,11 +278,26 @@
 				<p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
 			</div>
 		</aside>
-		
+		<!--CRM引导-->
+		<div class="Guidance-box" style="display: none">
+			<img class="Guidance" src="../../Images/fabu01.jpg" alt="">
+			<em class="GuidanceClos"></em>
+		</div>
 		<script src="../../js/jquery.js"></script>
 		<script src="../../js/crm-common.js"></script>
 		<script src="../../js/laydate.js"></script>
 		<script src="../../js/imgUp.js"></script>
 		<script src="../../js/release-product.js"></script>
+		<script>var ue = UE.getEditor('editor');</script>
+		<script>
+			$(function(){
+				var FabuIndex = false;
+				if(FabuIndex) {
+					$(".Guidance-box").show();
+				}else {
+					$(".Guidance-box").hide();
+				}
+			})
+		</script>
 	</body>
 </html>
