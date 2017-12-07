@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<!--html语言 超文本标记语言-->
+<head>
+<!--头部 规定一些信息(提供给浏览器识别) 用户看不到-->
+<!--字符编码:utf-8国际编码 gbk gb2312中文编码-->
+<meta charset="UTF-8">
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"/>
+<!--网页文档三要素-->
+<title>照片上传功能</title><!--标题-->
+<meta name="keywords" content="">
+<meta name="description" content="描述:对网页内容的大概介绍">
+<style>
+/*css样式的存放位置   企业项目中是外部样式引入*/
+		*{/* 通用选择器:选择到所有的标签元素*/
+			margin:0;/*外边距*/
+			padding:0;/*内边距*/
+		}
+		#box{/* # id选择器*/
+			position:relative;/*相对定位属性:相对于元素本身的位置定位*/
+  		height: 3.25rem;
+			background:#ffffff;}
+		#box .upload{/* .class类选择器*/
+			position:absolute;
+			background:#ffffff url(images/ho.png) 0 0 no-repeat;
+			background-size: 100% auto;
+			height: 3.25rem;
+			width: 3.25rem;
+			background-size:3.25rem 3.25rem;
+		}
+		.upload a{
+			position:relative;
+			display:block;/*显示方式:块级元素*/
+			height:3.25rem;
+      width:3.25rem;
+			background:#ffffff url(images/ho.png) 0 0 no-repeat;
+			border-radius:0.1rem;/*圆角属性*/
+			text-decoration:none;/*去除下划线*/
+			color:#fff;
+			background-size:3.25rem 3.25rem;
+		}
+		.upload p{
+			color:#ccc;/*文字颜色*/
+			text-align:center;/*文本左右对齐方式:居中*/
+			}
+		.upload a input{
+			position:absolute;
+			left:0;
+			top:0;
+			height:3.25rem;
+      width:3.25rem;
+			opacity:0;/*透明度:0 透明*/
+		}
+		.upload a span{
+			position:absolute;
+			left:2.5rem;
+			top:0.375rem;
+			font-size:0.5rem;;/*文本尺寸*/
+			font-weight:bold;/*文本加粗*/
+		}
+		.imgBox{
+			float:left;/*浮动:左浮动 与父元素左端对齐依次往右端显示*/
+			width:3.25rem;
+			height:3.25rem;
+			margin-right: 0.5rem;
+		}
+		.imgBox .bg{
+			height:3.25rem;
+      width:3.25rem;
+			margin-right:0.5rem;
+		}
+		.imgBox p{
+			text-align:center;
+		}
+		.newUpload{
+			position:relative;
+			height:3.25rem;
+      width:3.25rem;
+			background:#ffffff url(images/ho.png) 0 0 no-repeat;
+			background-position:center;
+			float:left;
+			background-size:3.25rem 3.25rem;
+		}
+		.newUpload input{
+			position:absolute;
+			left:0;
+			top:0;
+			height:3.25rem;
+      width:3.25rem;
+			opacity:0;
+		}
+		.imgs{
+			width:100%;
+		}
+</style>
+</head>
+<body>
+<!--身体 用户能够看到的-->
+<!--盒子模型标签 div 高度 宽度  位置  边框-->
+<div id="box">
+	<!--id="自定义名称" 唯一的(身份证) 见名知意(企业项目开发中)-->
+	<div class="upload">
+		<!--class=“自定义名称” 可重复的(姓名) -->
+		<a href="javascript:;"><!--超链接标签-->
+		<input type="file" multiple onchange="uploads(this)"><!--上传文件-->
+		</a>
+	</div>
+	<div class="imgs">
+	</div>
+</div>
+<script src="js/jquery.js"></script>
+<script src="js/vw-simulate.js"></script>
+<script>
+			//alert($);//js弹出jquery的代理函数$
+			var n = 0;
+			function uploads(obj){
+				//把上传进来的文件的数量赋值给n然后循环的获取文件
+				n = obj.files.length;
+				var html = '';
+				for (var i=0;i < n ;i++ )
+				{
+					//循环获取每个上传进来的图片路劲
+					var url = window.URL.createObjectURL(obj.files[i]);
+					console.log(url);
+					//获取上传进来的文件的名称
+					html += "<div class='imgBox'><div class='bg' style='background:url("+url+") no-repeat center;background-size:contain'></div></div>"
+				}
+				//移除原来的添加元素
+				$(".upload").remove();
+				$(".newUpload").remove();
+				//添加节点
+				$(".imgs").append(html+"<div class='newUpload'><input type='file' multiple='true' onchange='uploads(this)'></div>");
+				console.log($(".imgs>.imgBox>.bg"));
+				//发起ajax将图片传到后台
+			}
+		</script>
+</body>
+</html>
+<!--
+	自适应居中方法：
+	方法一、
+	margin:百分比
+	方法二、
+	position定位  百分比设置方位值 
+	方法三、
+	定位和margin同时使用 需要计算
+		position:absolute;
+		left:50%;
+		top:50%;
+		margin-left:-元素宽度的一半
+		margin-top:-元素高度的一半
+	方法四、
+	定位和margin同时使用 不需要计算
+		position:absolute;
+		left:0px;top:0px;right:0px;bottom:0px;margin:auto;
+-->

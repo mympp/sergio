@@ -93,38 +93,6 @@
      <em>日均有效广告展现次数</em>
   </div>
 </div>
-<script src="js/countUp.js" type="text/javascript" type="text/javascript"></script>
-<script>
-function checkstart() {
-    var xtop = $("#xyCountUp").offset().top - $(window).scrollTop();
-    if ((xtop + 100) < $(window).height()) {
-        xflag = 1;
-        var options = {
-            useEasing : true, 
-            useGrouping : true, 
-            separator : ',', 
-            decimal : '.'
-        };
-        var autoCount = new CountUp("xyCountUp", 799999000, 800000000, 0, 3, options);
-        autoCount.start();
-    }
-}
-var xflag = 0;
-$(document).ready(function(){
-    $(window).scroll(function() {
-        if (xflag) return true;
-        checkstart();
-    });
-    checkstart();
-    var xvideo = document.getElementById('header_video');
-
-    xvideo.loop = false;
-    xvideo.onended = function() {
-        xvideo.style="display: none";
-        $('#header_img').show();
-    };
-});
-</script>
 <!-- 数据 -->
 <div class="w100 index_3 clearfix">
   <div class="box_1054 clearfix">
@@ -279,7 +247,40 @@ $(document).ready(function(){
 <div id="zhezhao_b" class="we_NewPeoplc_b" style="display: none"></div>	
 
 </body>
- 
+ <!-- 展现次数 -->
+<script src="js/countUp.js" type="text/javascript" type="text/javascript"></script>
+<script>
+function checkstart() {
+    var xtop = $("#xyCountUp").offset().top - $(window).scrollTop();
+    if ((xtop + 100) < $(window).height()) {
+        xflag = 1;
+        var options = {
+            useEasing : true, 
+            useGrouping : true, 
+            separator : ',', 
+            decimal : '.'
+        };
+        var autoCount = new CountUp("xyCountUp", 799999000, 800000000, 0, 3, options);
+        autoCount.start();
+    }
+}
+var xflag = 0;
+$(document).ready(function(){
+    $(window).scroll(function() {
+        if (xflag) return true;
+        checkstart();
+    });
+    checkstart();
+    var xvideo = document.getElementById('header_video');
+
+    xvideo.loop = false;
+    xvideo.onended = function() {
+        xvideo.style="display: none";
+        $('#header_img').show();
+    };
+});
+</script>
+
 <script type="text/javascript">
 function trackurl(url) {
     var img = new Image();
