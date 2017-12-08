@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="baidu-site-verification" content="AD8f8NwkHq" />
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/css/common.css" />
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/css/index.css" />
+		<title>求购信息</title>
+	</head>
+	<body>
+		<div id="wrapper" style="min-height: 900px;">
+			<!--页面顶部开始-->
+			<include file="Common/header"/>
+			<!--页面顶部结束-->
+			<!--搜索框开始-->
+			<div class="user-search"></div>
+			<!--搜索框结束-->
+			<!--导航-->
+			<section id="tobuy_nav"><span>当前位置：</span>
+				<a href="../index/index.html">首页</a> > 用户中心</section>
+			<section id="tobuy_list">
+				<!--左边列表-->
+				<aside class="leftTemplate"></aside>
+				<!--右边列表-->
+				<article class="tobuy_info_right">
+					<div class="tobuy_info_prompt">发布产品求购信息，页面将跳转雀搜网</div>
+					<div class="tobuy_info_btn">进入</div>
+				</article>
+			</section>
+			<!--页面底部开始-->
+			<include file="Common/footer"/>
+			<!--页面底部结束-->
+		</div>
+		<script type="text/javascript" src="STYLE_DOMAIN/Home/js/jquery.js"></script>
+		<script type="text/javascript" src="STYLE_DOMAIN/Home/js/common.js"></script>
+		<script>
+			$('.tobuy_info_btn').on('click',function(){
+				alert('点击跳转');
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="baidu-site-verification" content="AD8f8NwkHq" />
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/css/common.css" />
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/css/index.css" />
+		<title>会员概况</title>
+	</head>
+	<body>
+		<div id="wrapper" style="min-height: 900px;">
+			<!--页面顶部开始-->
+			<include file="Common/header"/>
+			<!--页面顶部结束-->
+			<!--搜索框开始-->
+			<div class="user-search"></div>
+			<!--搜索框结束-->
+			<!--导航-->
+			<section id="tobuy_nav"><span>当前位置：</span><a href="../index/index.html">首页</a> > 用户中心</section>
+			<section id="tobuy_list">
+				<!--左边列表-->
+				<aside class="leftTemplate"></aside>
+				<!--右边列表-->
+				<article class="memberOverview_right">
+					<div class="memberOverview_right_prompt">您还没认证成为雀搜会员<a href="#">立即认证</a></div>
+					<div class="indCertified">已认证行业</div>
+					<table class="indCertified_table" border="0" cellspacing="0" cellpadding="0">
+					  <thead>
+					    <tr>
+					      <th>行业</th>
+					      <th>关键词</th>
+					      <th>推送</th>
+					    </tr>
+					  </thead>
+					  <tfoot class="tfoot">
+					    <tr>
+					      <td>箱包/箱包/配饰建材箱包/箱包/配饰建材</td>
+					      <td>衣服，袜子，鞋子，衣服，衣服袜子，鞋子，衣服，衣服</td>
+					      <td>接收求购信息</td>
+					    </tr>
+					    <tr>
+					      <td>箱包/箱包/配饰建材箱包/箱包/配饰建材</td>
+					      <td>衣服，袜子，鞋子，衣服，衣服袜子，鞋子，衣服，衣服</td>
+					      <td>接收求购信息</td>
+					    </tr>
+					  </tfoot>
+					</table>
+					
+					<div class="loginRecord">登录记录</div>
+					<div class="passwordHint">如确定非您本人登录，建议您<a href="#">立即修改密码</a></div>
+					<table class="loginRecord_table" border="0" cellspacing="0" cellpadding="0">
+					  <thead>
+					    <tr>
+					      <th>登录时间</th>
+					      <th>登录IP</th>
+					      <th>参考地点</th>
+					    </tr>
+					  </thead>
+					  <tfoot class="tfoot">
+					    <tr>
+					      <td>2017-06-29 15:45:34</td>
+					      <td>121.49.154.252</td>
+					      <td>广东广州</td>
+					    </tr>
+					    <tr>
+					      <td>2017-06-29 15:45:34</td>
+					      <td>121.49.154.252</td>
+					      <td>广东广州</td>
+					    </tr>
+					    <tr>
+					      <td>2017-06-29 15:45:34</td>
+					      <td>121.49.154.252</td>
+					      <td>广东广州</td>
+					    </tr>
+					    <tr>
+					      <td>2017-06-29 15:45:34</td>
+					      <td>121.49.154.252</td>
+					      <td>广东广州</td>
+					    </tr>
+					    <tr>
+					      <td>2017-06-29 15:45:34</td>
+					      <td>121.49.154.252</td>
+					      <td>广东广州</td>
+					    </tr>
+					  </tfoot>
+					</table>
+				</article>
+			</section>
+			<!--页面底部开始-->
+			<include file="Common/footer"/>
+			<!--页面底部结束-->
+		</div>
+		<script type="text/javascript" src="STYLE_DOMAIN/Home/js/jquery.js"></script>
+		<script type="text/javascript" src="STYLE_DOMAIN/Home/js/common.js"></script>
+		<script type="text/javascript" src="STYLE_DOMAIN/Home/js/Vip-gaikuang.js" ></script>
+		<script type="text/javascript">
+			$(".user-search").load("{:U('common/search_box')}");//异步加载搜索框
+			$(".leftTemplate").load("{:U('common/leftTemplate')}");//异步加载左边列表
+		</script>
+	</body>
+</html>

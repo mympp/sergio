@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="雀搜,雀鸟科技,采购大数据,采购平台,采购信息网,采购云平台,中国采购平台">
+		<title>常见问题</title>
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/common.css" />
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/index.css" />
+		<style>
+			.JoinCenter {
+				margin-top: 78px;
+			}
+			
+			.JoinText .JoinText-Center {
+				padding-top: 0;
+				padding-bottom: 45px;
+			}
+			
+			.JoinText-Center p {
+				color: #f07122;
+				font-size: 18px;
+				padding-top: 45px;
+			}
+		</style>
+	</head>
+	<body style="min-width: 1200px;overflow-x: auto;" class="1 pages">
+		<!--页面顶部开始-->
+		<header class="header_box"></header>
+		<!--页面顶部结束-->
+
+		
+		<!--头部背景图开始-->
+		<div class="JoinImg">
+			<img src="STYLE_DOMAIN/Home/1.6/Images/FAQbanner.png" alt="" width="100%">
+		</div>
+		<!--头部背景图结束-->
+		
+		<!--内容区域开始-->
+		<div class="JoinCenter">
+			<div class="JoinText">
+				<div class="JoinText-Top">
+					<p>常见问题</p>
+				</div>
+				<div class="JoinText-Top-Bottom">尊敬的用户您好，感谢您选择我们的产品，如您在使用的过程中遇到任何疑问，请致电客服咨询：020-37362495</div>
+				<div class="JoinText-Center">
+					<p>问：没有收到验证码？</p>
+					答：验证码通常会在 10 至 30 秒内发送到您的手机上。如果一直没有收到验证码，请按以下步骤操作：
+					<br>1、您的手机系统可能错误的将我们的短信识别为垃圾短信，请检查您的手机系统中的垃圾短信屏蔽历史，或关闭屏蔽功能后，在我们的官网页面上重新发送验证码；
+					<br>2、您有可能曾经通过短信、电话、网站等方式向您的手机服务运营商或相关监管部门设置屏蔽或者投诉过垃圾短信。您可以尝试联系您的手机服务运营商关闭此屏蔽功能后，在我们的官网页面上重新发送验证码；
+					<br>3、如果您尝试以上方法后依然无法收到验证码，请致电客服咨询：020-37362495
+					<p>问：没有收到激活邮件？</p>
+					答：激活邮件通常会在一到两分钟内发送到您的邮箱。如果您没有收到，可能是邮件系统错误地将激活邮件识别为垃圾邮件。请检查您的垃圾邮件目录，如果找到激活邮件，请将邮件地址设为可信的发件人，并点击激活链接。
+					
+				</div>
+			</div>
+		</div>
+		<!--内容区域结束-->
+		
+		<!--页面底部开始-->
+		<footer class="footer_box"></footer>
+		<!--页面底部结束-->
+		
+		<script src="STYLE_DOMAIN/Home/1.6/js/jquery.js"></script>
+		<script src="STYLE_DOMAIN/Home/1.6/js/common.js"></script>
+	</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>加盟代理商</title>
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/common.css" />
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/index.css" />
+		<link rel="stylesheet" type="text/css" href="STYLE_DOMAIN/Home/1.6/css/publicity1130.css">
+	</head>
+
+	<body style="min-width: 1200px;overflow-x: auto;" class="3 pages">
+		<!--页面顶部开始-->
+		<header class="header_box"></header>
+		<div class="header-box"></div>
+		<!--页面顶部结束-->
+
+		<!--头部背景图开始-->
+		<div class="JoinImg join_We_li1">
+			<a href="javascript:;" class="join_We"><img src="STYLE_DOMAIN/Home/1.6/Images/join us_banner.png" alt="" width="100%"></a>
+		</div>
+		<!--头部背景图结束-->
+
+		<!--内容区域开始-->
+		<main class="join-main">
+			<div class="join-box1">
+				<div class="join-box1-left fl">
+					<div class="join-box1-leftbox">
+						<img src="STYLE_DOMAIN/Home/1.6/Images/join us_logo_results_000.png">
+						<h1>代理商收获</h1>
+					</div>
+				</div>
+				<div class="join-box1-right fr">
+					<div class="join-box1-lbox">
+						<img src="STYLE_DOMAIN/Home/1.6/Images/join us_type_results_001.png">
+						<h4>分成</h4>
+						<div class="join-box1-text">
+							<h5>获得平台分成</h5>
+							<p>与供应商交流并成功开发其成为雀搜平台认证会员，将获得平台认证及后续业务分成。</p>
+						</div>
+					</div>
+					<div class="join-box1-lbox">
+						<img src="STYLE_DOMAIN/Home/1.6/Images/join us_type_results_002.png">
+						<h4>资源</h4>
+						<div class="join-box1-text">
+							<h5>掌握大量行业资源及人脉</h5>
+							<p>通过认识不同的客户群体，获得海量的行业资源及高端人脉资源，方便您的业务全方位发展。</p>
+						</div>
+					</div>
+					<div class="join-box1-lbox">
+						<img src="STYLE_DOMAIN/Home/1.6/Images/join us_type_results_003.png">
+						<h4>制度</h4>
+						<div class="join-box1-text">
+							<h5>完善的代理商扶持</h5>
+							<p>完善的代理制度，代理商签约后将享受一定的优惠代理折旧；有序的代理商级别升级制度，代理商随业绩提高级别；不断完善平台体系，为你创造持续的利益增高点。</p>
+						</div>
+					</div>
+					<div class="join-box1-lbox">
+						<img src="STYLE_DOMAIN/Home/1.6/Images/join us_type_results_004.png">
+						<h4>推广</h4>
+						<div class="join-box1-text">
+							<h5>全面的市场推广支持</h5>
+							<p>通过树立全国品牌，促进代理商业务开展；为各大代理商提供公司海报，会议礼物，激励礼物等物件支持；有计划对各大代理商进行会议培训，会议策划及支持；梳理区域标杆代理商，借助平台宣传优秀代理商。</p>
+						</div>
+					</div>
+					<div class="join-box1-lbox">
+						<img src="STYLE_DOMAIN/Home/1.6/Images/join us_type_results_005.png">
+						<h4>培训</h4>
+						<div class="join-box1-text">
+							<h5>完善的业务培训支持</h5>
+							<p>针对代理商提供定期或不定期的免费业务培训；提供代理商相互分享各自成功经验的平台，并协商进行客户资源维护。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="join-box2">
+				<div class="join-title join-title1">
+					<div class="join-title-box"><h2>选择加入雀搜</h2><div class="join-title-lbox"></div></div>
+				</div>
+				<div class="join-box2-lbox">
+					<img src="STYLE_DOMAIN/Home/1.6/Images/join us_type_choose_001.png">
+					<div class="join-box2-text">
+						<h5>针对创业难出狠招</h5>
+						<p>用户刚需产品</p>
+						<p>销售对象精准</p>
+						<p>核心技术领先</p>
+					</div>
+				</div>
+				<div class="join-box2-lbox">
+					<img src="STYLE_DOMAIN/Home/1.6/Images/join us_type_choose_002.png">
+					<div class="join-box2-text">
+						<h5>雀搜全国经销商模式</h5>
+						<p>技术输出</p>
+						<p>业务输出</p>
+						<p>轻松创业</p>
+					</div>
+				</div>
+				<div class="join-box2-lbox">
+					<img src="STYLE_DOMAIN/Home/1.6/Images/join us_type_choose_003.png">
+					<div class="join-box2-text">
+						<h5>对于客户 业务清晰</h5>
+						<p>找客户精选</p>
+						<p>客户推广，全面高效</p>
+						<p>客户管理，一体化</p>
+					</div>
+				</div>
+				<div class="join-box2-lbox">
+					<img src="STYLE_DOMAIN/Home/1.6/Images/join us_type_choose_004.png">
+					<div class="join-box2-text">
+						<h5>雀搜产品体系</h5>
+						<p>免费会员</p>
+						<p>认证会员</p>
+					</div>
+				</div>
+				<div class="join-box2-lbox">
+					<img src="STYLE_DOMAIN/Home/1.6/Images/join us_type_choose_005.png">
+					<div class="join-box2-text">
+						<h5>加盟雀搜4大赢利点</h5>
+						<p>软件销售收益</p>
+						<p>就近分配客户</p>
+						<p>客户永久分成</p>
+						<p>日后还有海外版本</p>
+					</div>
+				</div>
+				<div class="join-box2-lbox">
+					<img src="STYLE_DOMAIN/Home/1.6/Images/join us_type_choose_006.png">
+					<div class="join-box2-text">
+						<h5>对于代理商，众多优势</h5>
+						<p>平台数据源大</p>
+						<p>业务受众面广</p>
+						<p>技术雄厚，售后无忧</p>
+						<p>标准输出，业务简单化</p>
+					</div>
+				</div>
+			</div>
+			<div class="join-box3">
+				<div class="join-title join-title2">
+					<div class="join-title-box"><h2>加盟代理商的流程</h2><div class="join-title-lbox"></div></div>
+				</div>
+				<div class="join-box3-bbox">
+					<div class="join-box3-bg"></div>
+					<div class="join-box3-lbox">
+						<div class="join-box3-num">1</div>
+						<div class="join-box3-text">
+							<h6>step1:免费注册</h6>
+							<p>点击顶部“欢迎合作”按钮</p>
+						</div>
+					</div>
+					<div class="join-box3-lbox">
+						<div class="join-box3-num">2</div>
+						<div class="join-box3-text">
+							<h6>step2:填写资料</h6>
+							<p>填写代理商姓名，公司名称，简单介绍</p>
+						</div>
+					</div>
+					<div class="join-box3-lbox">
+						<div class="join-box3-num">3</div>
+						<div class="join-box3-text">
+							<h6>step3:等待审核</h6>
+							<p>提交申请，等待工作人员审核</p>
+						</div>
+					</div>
+					<div class="join-box3-lbox">
+						<div class="join-box3-num">4</div>
+						<div class="join-box3-text">
+							<h6>step4:客服沟通</h6>
+							<p>平台工作人员在审核后一天时间内联系申请者并指导培训等相关事宜</p>
+						</div>
+					</div>
+					<div class="join-box3-lbox">
+						<div class="join-box3-num">5</div>
+						<div class="join-box3-text">
+							<h6>step5:成为代理商</h6>
+							<p>经过培训的相关事宜之后成为代理商，行使代理商的权益</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<!--内容区域结束-->
+
+		<!--页面底部开始-->
+		<footer class="footer_box"></footer>
+		<!--页面底部结束-->
+
+		<script src="STYLE_DOMAIN/Home/1.6/js/jquery.js"></script>
+		<script src="STYLE_DOMAIN/Home/1.6/js/common.js"></script>
+	</body>
+</html>

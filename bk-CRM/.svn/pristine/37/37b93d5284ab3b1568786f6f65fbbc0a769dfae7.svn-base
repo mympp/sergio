@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>登录页面</title>
+	<link rel="stylesheet" type="text/css" href="STYLE_DOMAIN/Home/1.6/css/common.css">
+	<link rel="stylesheet" type="text/css" href="STYLE_DOMAIN/Home/1.6/css/login.css">
+</head>
+<body class="login">
+	<div class="login-box">
+		<div class="login-white">
+			<h4>账号登录</h4>
+			<div class="err-tip"></div>
+			<input type="text" name="user_zh" class="input_cell1" placeholder="账户名/登录名">
+			<input type="password" name="user_pwd" class="input_cell1" minlength="6" maxlength="20" placeholder="密码由6-20位字母，数字和符号组合">
+			<!-- 验证开始 -->
+			<div class="checkSubmit" style="display: none;">
+					<img class="yzm-weizhi" src="{:U('Common/verify')}" title="刷新"/>
+	　　　　<input type="text" name="user_yzm" value="" placeholder="请输入验证码"/>
+			</div>
+			<!-- 验证结束 -->
+			<input type="checkbox" class="vam checkedres" name="checkedres" value="1">
+			<em class="vam">记住雀搜账号</em>
+			<input type="submit" value="登录" name="login_btn" id="submit">
+			<div class="login-forget">
+				<a href="{:U('Login/register')}">注册账号</a>
+				<span>|</span>
+				<a href="{:U('Login/setpwd1')}">忘记密码</a>
+			</div>
+			<div class="login-another">
+				<img src="STYLE_DOMAIN/Home/1.6/Images/thirdLine_left.png">
+				<span>其他方式登录</span>
+				<img src="STYLE_DOMAIN/Home/1.6/Images/thirdLine_right.png">
+			</div>
+			<div class="wechat" style="display: back;">
+				<span class="weixinLogin">
+					<!-- <a href="{$Think.config.MALL_DOMAIN}/api/oauth/wechat/callback.php"> -->
+					<a href="javascript:;">
+						<img src="STYLE_DOMAIN/Home/1.6/Images/wechat.png">
+					</a>
+				</span>
+			</div>
+		</div>
+		<div class="login-footer">
+			<a href="{:U('Login/register')}">
+				<div class="login-footer1"><img src="STYLE_DOMAIN/Home/1.6/Images/command_denglu_more_001.png"></div>
+				<p>注册</p>
+			</a>
+			<a href="http://www.5276mall.com/">
+				<div class="login-footer2"><img src="STYLE_DOMAIN/Home/1.6/Images/command_denglu_shangchengshouye_002.png"></div>
+				<p>商城首页</p>
+			</a>
+		</div>
+	</div>
+	<div class="erweima" style="display: none;">
+		<div class="erweima-box" >
+			<div id="weixin_login" >
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+			var url="{:U('login')}";
+			var index_url="{:U('CrmIndex/index')}";
+	</script>
+	<script src="STYLE_DOMAIN/Home/1.6/js/jquery.js"></script>
+	<script src="STYLE_DOMAIN/Home/1.6/js/login.js"></script>
+	<script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+	<script type="text/javascript">
+	 		var obj = new WxLogin({
+                id:"weixin_login", 
+                appid: "wx49f2c7e3a7bd696d", 
+                scope: "snsapi_login", 
+                redirect_uri: encodeURI("http://www.527so.com/Login/curl_weixin.html"),
+                state: "",
+                style: "",
+                href: ""
+            });
+			//微信二维码遮罩
+			$(".wechat img").click(function(){
+				$(".erweima").fadeIn();//show()
+			});
+			
+			$(".erweima").click(function(){
+				$(".erweima").fadeOut();//hide()
+			});
+			$(".yzm-weizhi").click(function() {
+            	var newimg=$(".yzm-weizhi").attr("src")+"?"+Math.random();
+            	$(".yzm-weizhi").attr("src",newimg);
+            });
+		$(function(){	
+			var url="{:U('Login/sso')}";
+			var res=$.ajax({  
+				type:"get", 
+				dataType:"jsonp",/*-----------------------*/  
+				url: url,  
+				crossDomain:true,/*-----------------------*/  
+				success: function(data){  
+					console.log(data);
+				}
+			});  
+		})
+    </script>
+</body>
+</html>

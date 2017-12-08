@@ -1,0 +1,486 @@
+@charset "utf-8";
+
+.messageCenter>p {
+    font-size: 14px;
+    font-weight:700;
+    color: #494949;
+    padding-top: 1.3%;
+    margin-left: 34px;
+    padding-bottom:1.4%;
+}
+.messageCenter>h2 {
+    font-size: 14px;
+    color: #898989;
+    font-weight:700;
+    margin-left: 34px;
+    margin-right: 34px;
+    padding-bottom: 2%;
+    border-bottom: 1px solid #dcdcdc;
+
+}
+.daili-number {
+    font-size: 34px;
+    margin-left: 30px;
+    color: #1da1f2;
+    font-weight:700;
+    position: relative;
+    top:7px;
+
+}
+.messageCenter>.tiaojian {
+    display: block;
+    font-size: 14px;
+    color: #898989;
+    padding-top: 1.2%;
+    margin-left: 34px;
+    font-weight:700;
+
+}
+.saixuan_divAll_cell3 {
+    display: inline-block;
+    width:34%;
+}
+.filtrate {
+    margin-left: 4.2%;
+    padding-top: 2.1%;
+}
+.filtrate input {
+	margin-left: 1.2%;
+    margin-right: 1.9%;
+    width: 12.7%;
+    height: 30px;
+    box-sizing: border-box;
+    color: #494949;
+    border: 1px solid #d0d0d0;
+    padding-left: 12px;
+    background: #f5f5f5;
+}
+.filtrate span {
+    font-size: 14px;
+    color: #898989;
+}
+.saixuan_divAll_cell3 input {
+    margin-right: 0;
+    margin-left:0;
+    width: 120px;
+}
+.label1 {
+    margin-right: 5px;
+}
+.filtrate  .daili-area {
+    width: 11.6%;
+    height: 30px;
+    margin-left: 1.2%;
+    margin-right: 1.9%;
+    background: #f5f5f5;
+}
+.filtrate .daili-iphone {
+    width: 11.6%;
+    height: 30px;
+}
+.this_udate1, .this_udate2 {
+    width:38% !important;
+    padding-left: 3% !important;
+    background: url(../Images/icon_date1.png) no-repeat 97% #f5f5f5 !important;
+}
+.input_cell1 {
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #d0d0d0;
+    box-sizing: border-box;
+    padding-left: 3%;
+    font-size: 14px;
+    color: #898989;
+}
+.daili_all{
+    float: left;
+    width: 25%;
+}
+.daili_searchBtn{
+    display: inline-block;
+    width: 40%;
+    height: 32px;
+    line-height: 30px;
+    border: 1px solid #2e86e0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    text-align: center;
+    background: rgba(29,161,242,1);
+    font-size: 13px;
+    color: #ffffff;
+    cursor: pointer;
+    margin-right: 5%;
+    margin-top: 6%;
+
+}
+
+.daili_searchBtn:active{
+    background: rgba(29,161,242,.8);
+}
+
+.daili_clearBtn{
+    display: inline-block;
+    width: 40%;
+    height: 32px;
+    line-height: 30px;
+    border: 1px solid #cecece;
+    box-sizing: border-box;
+    border-radius: 5px;
+    text-align: center;
+    background: #e4e6e8;
+    font-size: 13px;
+    color: #494949;
+    cursor: pointer;
+}
+
+.daili_clearBtn:active{
+    background: #dbdbdb;
+}
+/*表格样式开始*/
+.table-wrap {
+    float: left;
+    width: 96%;
+    margin: 20px 2% 0;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0px 2px 12px #e3e3e3;
+    overflow: hidden;
+}
+
+.table-head {
+    background-color: #54b4ee;
+}
+
+.table-head-wrap {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+#laydate_box {
+    position: relative;
+    top:0;
+    left: -200px;!important;
+}
+.grid {
+    margin: 0px;
+    table-layout: fixed;
+    width: 100%;
+    max-width: none;
+    border-spacing: 0px;
+    empty-cells: show;
+    border-width: 0px;
+    outline: 0px none;
+    border-collapse: collapse;
+}
+
+.grid tr th {
+    padding: 10px 8px;
+    vertical-align: bottom;
+    overflow: hidden;
+    font-weight: normal;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.grid tr td {
+    padding: 10px 8px;
+    font-size: 13px;
+    color: #898989;
+    overflow: hidden;
+    line-height: 1.6em;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.table_ctbody tr {
+    border-bottom: 1px solid #ececec;
+}
+
+.tab-link {
+    display: block;
+    font-size: 13px;
+    color: #ffffff;
+    min-height: 18px;
+    line-height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.table-content {
+    position: relative;
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #fff;
+}
+.Click-Span {
+    text-decoration:underline;
+    color: #1da1f2;
+    cursor: pointer;
+}
+/*表格样式结束*/
+
+/*查看详情模态框开始*/
+.data-model {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 123;
+    background: rgba(0,0,0,.3);
+    display: none;
+}
+.data-model1 {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 123;
+    /*display: none;*/
+    background: rgba(0,0,0,.3);
+}
+.clear{clear:both}
+
+.DataCenterBox {
+    width: 796px;
+    height:586px;
+    background: #FFFFFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    border-radius: 5px;
+
+}
+.DataCenterBox-top {
+    width: 100%;
+    height: 46px;
+    background: #1da1f2;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-bottom: 28px;
+}
+.DataCenterBox-body {
+    width: 100%;
+    height: 512px;
+    padding-left: 52px;
+    box-sizing: border-box;
+}
+.data-vip-title {
+    font-size: 16px;
+    float: left;
+    font-style: normal;
+    margin-left: 20px;
+    margin-top: 11px;
+    color: #FFFFFF;
+}
+.DataCenterBox-cols {
+    cursor: pointer;
+    font-size: 40px;
+    float: right;
+    margin-right: 20px;
+    margin-top: -5px;
+    color: #FFFFFF;
+}
+.DataVip-cols {
+    cursor: pointer;
+    font-size: 40px;
+    float: right;
+    margin-right: 20px;
+    margin-top: -5px;
+    color: #FFFFFF;
+}
+.DataVip-title {
+    font-style: normal;
+    font-size: 14px;
+    display: inline-block;
+    color: #FFFFFF;
+    padding-top: 14px;
+    margin-left: 24px;
+}
+.DataCenterBox-text {
+    font-size: 14px;
+    font-weight:700;
+    color: #494949;
+    margin-bottom: 18px;
+}
+.DataCenterBox-text>span {
+    margin-left: 20px;
+    font-weight:100;
+}
+.DataCenterBox-padding {
+    padding-top: 12px;
+}
+/*查看详情表格开始*/
+.DataTable {
+    width: 696px;
+    height: 230px;
+    border:1px solid #dfdfdf;
+}
+.DataTable-haed {
+    width: 100%;
+    height: 36px;
+    border-bottom: 1px solid #dfdfdf;
+}
+.DataTable-haed span {
+    display: inline-block;
+    font-size: 14px;
+    font-weight:700;
+    color: #898989;
+    line-height: 36px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
+
+}
+.DataTable-body {
+    width: 100%;
+    height: 195px;
+    overflow-y: auto;
+    overflow-x:hidden;
+}
+.DataTable-body>.DataTable-haed span {
+    font-weight:100;
+}
+.DataTable-haed span:nth-child(1) {
+    width:17.2% ;
+}
+.DataTable-haed span:nth-child(2) {
+     width:28% ;
+ }
+.DataTable-haed span:nth-child(3) {
+     width:25% ;
+ }
+.DataTable-haed span:nth-child(4) {
+     width:28% ;
+ }
+/*查看详情表格结束*/
+/*查看详情模态框结束*/
+
+/*注册会员指派按钮开始*/
+.data-btn {
+    display: inline-block;
+    cursor: pointer;
+    width: 45%;
+    font-size: 12px;
+    color: #54b4ee;
+    border: 1px solid #54b4ee;
+    vertical-align: middle;
+    height: 22px;
+    line-height: 20px;
+}
+/*注册会员指派按钮结束*/
+
+/*注册会员指派代理商操作窗口开始*/
+.DataVip {
+    width: 520px;
+    height: 338px;
+    border-radius: 5px;
+    background: #FFFFFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+.DataVip-top {
+    width: 100%;
+    height: 46px;
+    background: #1da1f2;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.DataVipBox-1-top {
+    margin-top: 32px;
+    margin-left: 54px;
+
+}
+.DataVipBox-1-top>span {
+    font-size: 16px;
+    color: #494949;
+}
+
+.DataVipBtn {
+    float: right;
+    display: inline-block;
+    vertical-align: bottom;
+    width: 48px;
+    height: 24px;
+    cursor: pointer;
+    margin-right: 70px;
+    background: url("../Images/icon_shuju_zhipai_sel.png");
+}
+.DataVipBox-1-top>p {
+    padding-top: 22px;
+    font-size: 12px;
+    color:#898989;
+    padding-bottom: 25px;
+}
+.data-xian {
+    width: 404px;
+    height: 1px;
+    background: #dedede;
+    margin-bottom: 20px;
+}
+.data-block {
+    display: block;
+    margin-bottom: 24px;
+}
+.DataVipBox-1-top>i {
+    display: inline-block;
+    font-style: normal;
+    font-size: 14px;
+    color: #494949;
+}
+.data-input {
+    margin-left: 20px;
+    width: 336px;
+    height: 30px;
+    border: 1px solid #dcdcdc;
+    background: #FFFFFF;
+    box-sizing: border-box;
+}
+.dava-vip-btn {
+    margin-left: 155px;
+    height: 32px;
+    width: 100px;
+    line-height: 30px;
+    border: 1px solid #2e86e0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    text-align: center;
+    background: rgba(29,161,242,1);
+    font-size: 13px;
+    color: #ffffff;
+    cursor: pointer;
+    margin-top: 25px;
+}
+.data-btn:active{
+    background: #e0faf7;
+}
+/*大于1600px以上的屏幕适配*/
+@media (min-width: 1601px){
+    .daili_searchBtn{
+        width: 28%;
+    }
+
+    .daili_clearBtn{
+        width: 28%;
+    }
+}
+/*媒体查询结束*/
+/*注册会员指派代理商操作窗口结束*/

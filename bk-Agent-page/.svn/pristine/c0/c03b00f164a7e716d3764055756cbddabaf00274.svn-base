@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>代理商管理</title>
+	<link rel="stylesheet" type="text/css" href="STYLE_DOMAIN/Agent/css/index.css">
+	<link rel="stylesheet" type="text/css" href="STYLE_DOMAIN/Agent/css/common.css">
+    <link rel="stylesheet" type="text/css" href="STYLE_DOMAIN/Agent/css/set.css">
+</head>
+<body style="min-width: 1280px;">
+<!--父容器开始-->
+<div class="outer_div">
+	<<div class="left_template">
+       <include file="Common:left_nav"/>
+    </div>
+    <div class="right_template">
+    <include file="Common:right_nav"/>
+    </div>
+    <div class="page-set">
+    	<h2>代理商设置</h2>
+    	<form class="agent-head">
+    		<p>按条件筛选：</p>
+        	<div class="agent-input">
+            	<label>姓名：</label><input type="text" name="searchName" placeholder="">
+        		<label>账号：</label><input type="text" name="searchEmail" placeholder="">
+                <label>状态：</label>
+        		<select class="searchStatus">
+        			<option value="0">启用</option>
+        			<option value="1">禁用</option>
+        		</select>
+            </div>
+    		<input type="button" value="搜索" name="search" class="blue-btn" id="searchBtn">
+    		<input type="button" value="清空" name="clear" class="white-btn">
+    	</form>
+        <a href="javascript:;" class="addAdmin blue-btn fr">新增</a>
+        <!--表格模块开始-->
+        <div class="table-wrap">
+            <div class="table-head">
+                <div class="table-head-wrap">
+                    <table class="grid">
+                        <colgroup>
+                            <col style="width:10%">
+                            <col style="width:15%">
+                            <col style="width:20%">
+                            <col style="width:15%">
+                            <col style="width:5%">
+                            <col style="width:15%">
+                            <col style="width:10%">
+                            <col style="width:10%">
+                        </colgroup>
+                        <thead>
+                			<tr>
+                				<th>代理商名称</th>
+                				<th>联系电话</th>
+                				<th>账号</th>
+                				<th>代理商所在区域</th>
+                				<th>状态</th>
+                				<th>专属推荐码</th>
+                				<th>级别</th>
+                				<th>操作</th>
+                			</tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div class="table-content table-content2">
+                <table class="grid">
+                    <colgroup>
+                        <col style="width:10%">
+                        <col style="width:15%">
+                        <col style="width:20%">
+                        <col style="width:15%">
+                        <col style="width:5%">
+                        <col style="width:15%">
+                        <col style="width:10%">
+                        <col style="width:10%">
+                    </colgroup>
+                    <tbody class="table_ctbody">
+
+            			<!-- <tr>
+            				<td><a href="javascript:;" class="adminDetails">名称A</a></td>
+            				<td>15612345678</td>
+            				<td>chenkaiwen@527so.com</td>
+            				<td>广东广州天河</td>
+            				<td>启用</td>
+            				<td>YSSLDKGAJ123123</td>
+            				<td>一级代理</td>
+            				<td class="tda2">
+            					<a href="javascript:;" class="agentRedact fl">编辑</a>
+            					<a href="javascript:;" class="removeBtn fr">删除</a>
+            				</td>
+            			</tr> -->
+            			
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--表格模块结束-->
+        <!--分页器开始-->
+        <div class="xiansuo_Page_Div">
+            <!--<div class="xiansuo_Page_border"></div>-->
+            <div class="xiansuo_Page_div">
+                
+            </div>
+        </div>
+        <!--分页器结束-->
+        <!-- 虚拟弹窗开始 -->
+        <!-- 背景 -->
+        <div class="moni-box" style="display: none;"></div>
+        <!-- 新增代理商 -->
+        <div class="add-admin moni-lbox" style="display: none;">
+            <div class="moni-head">
+                <p class="fl">新增代理商</p>
+                <em class="DataCenterBox-cols cleanAll fr">&#215;</em>
+            </div>
+            <form class="moni-main">
+                <label>姓名</label><i>：</i>
+                <input type="text" name="name" placeholder="代理商名称"><br />
+                <label>电话</label><i>：</i>
+                <input type="text" name="phone" placeholder="代理商电话"><br />
+                <label>账号</label><i>：</i>
+                <input type="text" name="ID" placeholder="代理商账号"><br />
+                <label>密码</label><i>：</i>
+                <input type="password" name="password"><br />
+                <label>区域</label><i>：</i>
+                <div class="moni-area">
+                    <!-- 省 -->
+                    <select>
+                        <option value="1">请选择</option>
+                        <option value="2">22-25</option>
+                        <option value="3">26-29</option>
+                        <option value="4">30-35</option>
+                        <option value="5">35-40</option>
+                    </select>
+                    <!-- 市 -->
+                    <select>
+                        <option value="1">请选择</option>
+                        <option value="2">22-25</option>
+                        <option value="3">26-29</option>
+                        <option value="4">30-35</option>
+                        <option value="5">35-40</option>
+                    </select>
+                    <!-- 县 -->
+                    <select>
+                        <option value="1">请选择</option>
+                        <option value="2">22-25</option>
+                        <option value="3">26-29</option>
+                        <option value="4">30-35</option>
+                        <option value="5">35-40</option>
+                    </select>
+                </div><br />
+                <label>详细地址</label><i>：</i>
+                <input type="text" name="address" placeholder="请输入详细地址"><br />
+                <label>推荐码</label><i>：</i><span>YSGASD11001</span><br />
+                <label>银行账号</label><i>：</i>
+                <select>
+                    <option value="中国银行" id="bankName">中国银行</option>
+                    <option value="建设银行">建设银行</option>
+                    <option value="其他银行">其他银行</option>
+                </select><br />
+                <label>&nbsp;</label><i>&nbsp;</i>
+                <input type="text" name="bankCode" id="bankCode" maxlength="23" placeholder="卡号"><br />
+                <label>&nbsp;</label><i>&nbsp;</i>
+                <input type="text" name="peopleName" placeholder="姓名"><br />
+                <label class="vit-top">企业资质</label><i class="vit-top">：</i><input type="file" name="" id="file0">
+                <label for="file0"><img src="STYLE_DOMAIN/Agent/Images/file0.png" id="img0" width="74px" height="100px"></label><br />
+                <label class="vit-top">备注</label><i class="vit-top">：</i><textarea name="tips"></textarea>
+                <div class="btn-box">
+                    <input type="button" name="submit" value="确认" class="submit blue-btn" id="addAgentSub">
+                    <input type="button" name="cancel" value="取消" class="cancel white-btn">
+                </div>
+            </form>
+        </div>
+        <!-- 代理商详情 -->
+        <div class="admin-details moni-lbox" style="display: none;">
+            <div class="moni-head">
+                <p class="fl">代理商详情</p>
+                <em class="DataCenterBox-cols cleanAll fr">&#215;</em>
+            </div>
+            <div class="moni-main">
+                <label>姓名</label><i>：</i>
+                <span class="name"></span><br />
+                <label>账号</label><i>：</i>
+                <span class="ID"></span><br />
+                <label>电话号码</label><i>：</i>
+                <span class="phone"></span><br />
+            	<label>区域</label><i>：</i>
+            	<span class="area"></span><br />
+            	<label>详细地址</label><i>：</i>
+            	<span class="address"></span><br />
+                <label>状态</label><i>：</i>
+                <span class="status"></span><br />
+            	<label>推荐码</label><i>：</i>
+                <span class="referralCode"></span><br />
+            	<label>银行账号</label><i>：</i>
+                <span class="bankName"></span><br />
+                <label>&nbsp;</label><i>&nbsp;</i>
+                <span class="bankCode"></span><br />
+                <label>&nbsp;</label><i>&nbsp;</i>
+                <span class="peopleName"></span><br />
+            	<label>备注</label><i>：</i>
+            	<span class="tips"></span><br />
+                <label>创建日期</label><i>：</i>
+                <span class="addTime"></span><br />
+                <label>更新日期</label><i>：</i>
+                <span class="updateTime"></span>
+            </div>
+        </div>
+        <!-- 编辑代理商 -->
+        <div class="agent-redact moni-lbox" style="display: none;">
+            <div class="moni-head">
+                <p class="fl">编辑代理商</p>
+                <em class="DataCenterBox-cols cleanAll fr">&#215;</em>
+            </div>
+            <form class="moni-main">
+                <label class="long-text">姓名</label><i>：</i>
+                <input type="text" name="bjname" placeholder=""><br />
+                <label class="long-text">电话</label><i>：</i>
+                <input type="text" name="bjphone" placeholder=""><br />
+                <label class="long-text">账号</label><i>：</i>
+                <input type="text" name="bjID" placeholder=""><br />
+                <label class="long-text">密码</label><i>：</i>
+                <input type="password" name="bjpassword" placeholder=""><br />
+                <label class="long-text">区域</label><i>：</i>
+                <div class="moni-area bj_area">
+                    <!-- 省 -->
+                   <!--  <select>
+                        <option value="1">请选择</option>
+                        <option value="2">22-25</option>
+                        <option value="3">26-29</option>
+                        <option value="4">30-35</option>
+                        <option value="5">35-40</option>
+                    </select> -->
+                    <!-- 市 -->
+                    <!-- <select>
+                        <option value="1">请选择</option>
+                        <option value="2">22-25</option>
+                        <option value="3">26-29</option>
+                        <option value="4">30-35</option>
+                        <option value="5">35-40</option>
+                    </select> -->
+                    <!-- 县 -->
+                    <!-- <select>
+                        <option value="1">请选择</option>
+                        <option value="2">22-25</option>
+                        <option value="3">26-29</option>
+                        <option value="4">30-35</option>
+                        <option value="5">35-40</option>
+                    </select> -->
+                </div><br />
+                <label class="long-text">详细地址</label><i>：</i>
+                <input type="text" name="bjaddress" placeholder="请输入详细地址" class="bj_address"><br />
+                <label class="long-text">启动状态</label><i>：</i>
+                <select class="status">
+                    <option value="启用">启用</option>
+                    <option value="禁用">禁用</option>
+                </select><br />
+        		<label class="vit-top long-text">备注</label><i class="vit-top">：</i>
+        		<textarea name="tips" class="agent_memo">150个字内</textarea><br />
+                <label class="long-text">创建日期</label><i>：</i>
+                <span class="addTime">2017-10-30 17:50</span><br />
+                <label class="long-text">更新日期</label><i>：</i>
+                <span class="updateTime">2017-10-30 18：59</span><br />
+                <div class="btn-box">
+                    <input type="button" name="submit" value="确认" class="submit blue-btn" id="agentRedactSub">
+                    <input type="hidden" name="bj_agent_id" value="">
+                    <input type="button" name="cancel" value="取消" class="cancel white-btn">
+                </div>
+            </form>
+        </div>
+        <!-- 删除按钮 -->
+        <div class="remove-box moni-lbox" style="display: none;">
+            <p>确认删除？</p>
+            <div class="btn-box">
+                <input type="button" value="确认" name="remove" class="removeSubmit blue-btn">
+                <input type="button" value="取消" name="cancel" class="cancel white-btn">
+            </div>
+        </div>
+        <!-- 虚拟弹窗结束 -->
+    </div>
+</div>
+<script>var pages = "角色管理";var index1 = 3; var index2 = 1;</script>
+<script src="STYLE_DOMAIN/Agent/js/jquery.js"></script>
+<script src="STYLE_DOMAIN/Agent/js/common.js"></script>
+<script src="STYLE_DOMAIN/Agent/js/role-agent.js"></script>
+<script src="STYLE_DOMAIN/Agent/js/bankcard.js"></script>
+<script type="text/javascript">
+    var agent_list = "{:U('Role/agent_list_get')}";
+    var agent_details = "{:U('Role/get_agent_details')}";
+    var edit_agent = "{:U('Role/edit_agent')}";
+    var edit_agent_ok="{:U('Role/edit_agent_ok')}";
+    function load_area(areaid){
+        $.ajax({
+            type:'POST',
+            dataType:'json',
+            data:{'areaid':areaid},
+            url:'/Role/get_area_houxu',
+            success:function(res){
+                $('#areaid').val(areaid);
+                $('.bj_area').html('');
+                $('.bj_area').append(res);
+            }
+        })
+      }
+    $(function(){
+       LoadDownFn(1,10);
+    })
+    function LoadDownFn(page,size,name='',user='',sta=''){
+        $('.table_ctbody').empty();
+        $('.xiansuo_Page_div').empty();
+        $.post(agent_list,{'page':page,'size':size,'name':name,'user':user,'sta':sta},function(data){
+            var reult = '';
+            if(data.code != 1){
+                alert(data.message);
+                return;
+            }else{
+                var length = data.data.length;
+                for(var i=0;i<length;i++){
+                    reult +=
+                    '<tr>'+
+                        '<td><a href="javascript:;" class="adminDetails">'+data.data[i].m_agent_company+'</a></td>'+
+                        '<input type="hidden" name="agent_id" value="'+data.data[i].m_agent_id+'">'+
+                        '<td>'+data.data[i].m_agent_tel+'</td>'+
+                        '<td>'+data.data[i].m_user_mail+'</td>'+
+                        '<td>'+data.data[i].m_agent_areaid+'</td>';
+                        if(data.data[i].m_user_void_flag == '0'){
+                            reult +=
+                            '<td>启用</td>';
+                        }else{
+                            reult +=
+                            '<td>禁用</td>';
+                        }
+                        reult +=
+                        '<td>'+data.data[i].m_user_code+'</td>';
+                        if(data.data[i].m_agent_level == 1){
+                            reult +=
+                            '<td>一级代理</td>';
+                        }else{
+                            reult +=
+                            '<td>二级代理</td>';
+                        }
+                        reult +=
+                        '<td class="tda2">'+
+                            '<a href="javascript:;" class="agentRedact fl">编辑</a>'+
+                            '<a href="javascript:;" class="removeBtn fr">删除</a>'+
+                        '</td>'+
+                    '</tr>';
+                }
+                $('.table_ctbody').append(reult);
+                $('.xiansuo_Page_div').append(data.page);
+            }
+        },'json');
+    }
+    //为分页器每个li绑定单击事件
+    $(document).on("click",".xiansuo_Page_list li",function(){
+        var index = $(this).index();
+        var page = $(this).html();
+        $(this).addClass("active").siblings().removeClass("active");
+        $(".that_Page").val(page);              
+        var page_size= $('.xiansuo_Page_Three').val();
+        var name = $("input[name=searchName]").val();
+        var user = $("input[name=searchEmail]").val(); 
+        var status = '';  
+        if(name != '' || user!=''){
+            var status = $(".searchStatus:visible").val();      
+        }
+        LoadDownFn(page,page_size,name,user,status);  
+    })
+
+    //为跳转至输入框监听键盘事件
+    $(document).on("keydown",".that_Page",function(e){
+        var page = $(this).val();
+        var num = $('#xiansuo_pages_count').html();
+        if(page>num){
+            page=1;
+        }               
+        var page_size= $('.xiansuo_Page_Three').val();
+        var name = $("input[name=searchName]").val();
+        var user = $("input[name=searchEmail]").val(); 
+        if(e.keyCode==13){
+            LoadDownFn(page,page_size,name,user);            
+        }
+    })
+
+    //为首页判定事件
+    $(document).on('click','.first_page',function(e){
+        var page = 1;               
+        var page_size= $('.xiansuo_Page_Three').val();
+        var name = $("input[name=searchName]").val();
+        var user = $("input[name=searchEmail]").val(); 
+        var status = '';  
+        if(name != '' || user!=''){
+            var status = $(".searchStatus:visible").val();      
+        }
+        LoadDownFn(page,page_size,name,user,status);
+        e.stopPropagation();
+    })
+
+    //为上一页绑定事件
+    $(document).on('click','.prev_page',function(e){
+        var page = $(this).attr('name');                
+        var page_size= $('.xiansuo_Page_Three').val();
+        var name = $("input[name=searchName]").val();
+        var user = $("input[name=searchEmail]").val(); 
+        var status = '';  
+        if(name != '' || user!=''){
+            var status = $(".searchStatus:visible").val();      
+        }
+        LoadDownFn(page,page_size,name,user,status);
+        e.stopPropagation();
+    })
+
+    //为下一页绑定事件
+    $(document).on('click','.next_page',function(e){
+        var page = $(this).attr('name');            
+        var page_size= $('.xiansuo_Page_Three').val();
+        var name = $("input[name=searchName]").val();
+        var user = $("input[name=searchEmail]").val(); 
+        var status = '';  
+        if(name != '' || user!=''){
+            var status = $(".searchStatus:visible").val();      
+        }
+        LoadDownFn(page,page_size,name,user,status);
+        e.stopPropagation();
+    })
+
+    //为尾页绑定事件
+    $(document).on('click','.last_page',function(e){
+        var page = $(this).attr('name');                
+        var page_size= $('.xiansuo_Page_Three').val();
+        var name = $("input[name=searchName]").val();
+        var user = $("input[name=searchEmail]").val(); 
+        var status = '';  
+        if(name != '' || user!=''){
+            var status = $(".searchStatus:visible").val();      
+        }
+        LoadDownFn(page,page_size,name,user,status);
+        e.stopPropagation();
+    })
+
+
+    // 银行卡验证
+    $(document).on("click","#submit",function(){
+        var bankText = $("#bankCode").val();
+        console.log(bankText);
+        var abc = bankText.substring(0,7);//获取用户输入的前四位
+
+        console.log(abc);
+        console.log(bankBin);
+        var bankBinWhere = bankBin.indexOf(abc);
+        console.log(bankBinWhere);
+        var bankNamei = bankBinWhere;
+        var bankNameHere = bankName[bankNamei];
+        if (bankBinWhere = -1) {
+            console.log(bankNameHere);
+            $("#bankName").text(bankNameHere);
+            $("option:not(#bankName)").remove();
+        }else{
+
+            console.log("银行卡号不存在");
+        }
+        
+    });
+
+    //后台提交
+    //搜索按钮
+    $(document).on("click","#searchBtn",function(){
+        var searchName = $("input[name=searchName]").val(),
+        searchEmail = $("input[name=searchEmail]").val(),
+        status = $(".searchStatus:visible").val(),
+        emailreg = /^[a-z0-9-_.]+@[\da-z][\.\w-]+\.[a-z]{2,4}$/i;
+        if (searchName == "" && searchEmail == "") {
+            alert("搜索项不能为空");
+        } else if (!emailreg.test(searchEmail) && searchEmail !== "") {
+            alert("请输入正确的账号（邮箱格式如：quesou@527so.com）");
+        } else {
+            var page = 1;
+            var page_size= $('.xiansuo_Page_Three').val();
+            LoadDownFn(page,page_size,searchName,searchEmail,status);
+            console.log(searchName,searchEmail,status);
+        }
+    });
+    $("input[name=clear]").click(function(){
+        $("input[name=searchName],input[name=searchEmail]").val("");
+        LoadDownFn(1,10);
+    })
+
+    //新增代理商
+    $(document).on("click","#addAgentSub",function(){
+        var name = $("input[name=name]:visible").val(),
+        phone = $("input[name=phone]:visible").val(),
+        ID = $("input[name=ID]:visible").val(),
+        password = $("input[name=password]:visible").val(),
+        area = $(".area").val(),
+        address = $(".address").val(),
+        referralCode,//ajax获取推荐码 
+        bankCard = $("input[bankCode]").val(),
+        peopleName = $("input[name=peopleName]").val(),
+        imgFile = $("input[type=file]").val(),
+        tips = $("textarea[name=tips]").val();
+        checkForm();//表单验证函数
+        console.log(name,phone,ID,password,area,address,referralCode,bankCard,peopleName,imgFile,tips);//ajax提交
+    });
+    //代理商详情
+    $(document).on("click",".adminDetails",function(){
+        var id = $(this).parents('tr').find('input[name=agent_id]').val();
+        $.post(agent_details,{'id':id},function(data){
+            data.data.m_user_void_flag = data.data.m_user_void_flag==0?"启用":'禁用';
+            data.data.m_agent_address = data.data.m_agent_address?data.data.m_agent_address:'暂无';
+            data.data.m_agent_bankname = data.data.m_agent_bankname?data.data.m_agent_bankname:'暂无';
+            data.data.m_agent_accountno = data.data.m_agent_accountno?data.data.m_agent_accountno:'暂无';
+            data.data.m_agent_accountname = data.data.m_agent_accountname?data.data.m_agent_accountname:'暂无';
+            $(".name").text(data.data.m_agent_company);
+            $(".phone").text(data.data.m_agent_tel);
+            $(".ID").text(data.data.m_user_mail);
+            $(".area").text(data.data.m_agent_areaid);
+            $(".address").text(data.data.m_agent_address);
+            $(".status").text(data.data.m_user_void_flag);
+            $(".referralCode").text(data.data.m_user_code);
+            $(".bankName").text(data.data.m_agent_bankname);
+            $(".bankCode").text(data.data.m_agent_accountno);
+            $(".peopleName").text(data.data.m_agent_accountname);
+            $(".tips").text(data.data.m_agent_memo);
+            $(".addTime").text(data.data.m_agent_createtime);
+            $(".updateTime").text(data.data.m_agent_updatetime);
+
+            $(".admin-details,.moni-box").fadeIn();
+        },'json');
+    })
+
+    //编辑代理商
+    $(document).on("click",".agentRedact",function(){
+        $('.moni-area').html('');
+        var id = $(this).parents('tr').find('input[name=agent_id]').val();
+        //弹出虚拟窗
+        $(".agent-redact,.moni-box").fadeIn();
+        //显示已有数据
+        $.post(edit_agent,{'id':id},function(data){
+            console.log(data);
+            data.data.m_agent_address = data.data.m_agent_address?data.data.m_agent_address:'暂无';
+            data.data.m_user_void_flag = data.data.m_user_void_flag ==0?'启用':'禁用';
+            $("input[name=bjname]").val(data.data.m_agent_company);
+            $("input[name=bjphone]").val(data.data.m_agent_tel);
+            $("input[name=bjID]").val(data.data.m_user_mail);
+            // $("input[name=password]").val(ziliaojson);
+            $(".bj_area").append(data.data.m_agent_areaid);
+            $("input[name=bjaddress]").val(data.data.m_agent_address);
+            $(".status").val(data.data.m_user_void_flag);
+            $(".agent_memo").val(data.data.m_agent_memo);
+            $(".addTime").text(data.data.m_agent_createtime);
+            $(".updateTime").text(data.data.m_agent_updatetime);
+            $('input[name=bj_agent_id]').val(data.data.m_agent_id);
+        },'json');
+    });
+        //提交修改
+    $("#agentRedactSub").click(function(){
+        var name = $("input[name=bjname]:visible").val(),
+        phone = $("input[name=bjphone]:visible").val(),
+        ID = $("input[name=bjID]:visible").val(),
+        password = $("input[name=bjpassword]:visible").val(),
+        address = $(".bj_address").val(),
+        sta = $(".status :selected").val(),
+        memo = $(".agent_memo").val();
+        numreg = /^1[3|4|5|8][0-9]\d{4,8}$/,
+        emailreg = /^[a-z0-9-_.]+@[\da-z][\.\w-]+\.[a-z]{2,4}$/i;
+        var agent_id = $(this).next().val();
+        var i = $(".bj_area").find('.message-area').length;
+        var area = $($(".bj_area").find('.message-area')[i-1]).find(':selected').val();
+        if (name == "" || phone == "" || ID == "") {
+            alert("选项不能为空");
+        } else if(!numreg.test(phone)){
+            alert("请输入正确的电话号码");
+        } else if(!emailreg.test(ID)){
+            alert("请输入正确的账号（邮箱格式如：quesou@527so.com）");
+        } else {
+            var data = {'agent_id':agent_id,'company':name,'tel':phone,'user_mail':ID,'pwd':password,'address':address,'sta':sta,'memo':memo,'area':area}
+            $.post(edit_agent_ok,data,function(data){
+                if(data.code != 1){
+                    alert(data.message);
+                }else{
+                    alert(data.message);
+                    $(".moni-box,.moni-lbox").fadeOut();
+                    $(".user-main").fadeIn();
+                }
+            },'json');
+        }
+    });
+
+
+    //删除代理商
+    // 删除按钮
+    $(document).on("click",".removeBtn",function(){
+        $(this).parents("tr").addClass("remove");
+        var trId = $(this).parents("tr").attr("name");//取得删除那一行的name值
+        $(".remove-box,.moni-box").fadeIn();
+        $(document).on("click",".removeSubmit",function(){
+            $(".remove").remove(); 
+            $(".remove-box,.moni-box").fadeOut();
+            console.log(trId);//发起ajax
+        })
+    })
+
+</script>
+</body>
+</html>

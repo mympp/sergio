@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="雀搜,雀鸟科技,采购大数据,采购平台,采购信息网,采购云平台,中国采购平台">
+		<title>视频介绍</title>
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/common.css" />
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/index.css" />
+	</head>
+	<body style="min-width: 1200px;overflow-x: auto;" class="1 pages">
+		<!--页面顶部开始-->
+		<header class="header_box"></header>
+		<!--页面顶部结束-->
+		
+		<!--video列表开始-->
+		<div class="VideoBigBox">
+			<div class="VideoBox">
+				<ul class="VideoList">
+					<li>
+						<div class="VideoListBox">
+							<div class="VideoLeft">
+								<a>
+									<div class="VideoImg">
+										<img src="STYLE_DOMAIN/Home/1.6/Images/01.png" alt="" vd-src="http://www.527so.com/Public/video/ad.mp4">
+										<i></i>
+									</div>
+								</a>
+
+							</div>
+							<div class="VideoRight">
+								<h4>雀搜-采购商的大数据平台</h4>
+								<p>2017年10月16日，9:30</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="VideoListBox">
+							<div class="VideoLeft">
+								<a>
+									<div class="VideoImg">
+										<img src="STYLE_DOMAIN/Home/1.6/Images/02.png" alt="" vd-src="http://www.527so.com/Public/video/visit.mp4">
+										<i></i>
+									</div>
+								</a>
+
+							</div>
+							<div class="VideoRight">
+								<h4>零售行业,雀搜与其他平台相比的优势在哪里？</h4>
+								<p>2017年09月26日，11:00</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="VideoListBox">
+							<div class="VideoLeft">
+								<a>
+									<div class="VideoImg">
+										<img src="STYLE_DOMAIN/Home/1.6/Images/41.png" alt="" vd-src="http://www.527so.com/Public/video/visit2.mp4">
+										<i></i>
+									</div>
+								</a>
+
+							</div>
+							<div class="VideoRight">
+								<h4>雀搜大数据平台的诞生与发展</h4>
+								<p>2017年09月23日，10:30</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--video列表结束-->
+		
+		<!--播放器容器-->
+		<div class="modal_video">
+			<div class="video-div">
+				<div class="close-vx">&times;</div>
+				<video src="" width="100%" height="100%" controls="controls"></video>
+			</div>
+		</div>
+
+		<!--页面底部开始-->
+		<footer class="footer_box"></footer>
+		<!--页面底部结束-->
+		
+		<script src="STYLE_DOMAIN/Home/1.6/js/jquery.js"></script>
+		<script src="STYLE_DOMAIN/Home/1.6/js/common.js"></script>
+		<script>
+			$(function(){
+				//为关闭按钮绑定单击事件
+				$(document).on("click",".close-vx",function(){
+					$(".modal_video").fadeOut();
+					$(".video-div video").attr("src","");
+				})
+				
+				//为视频img绑定单击事件
+				$(document).on("click",".VideoLeft .VideoImg>i",function(){
+					var vdsrc = $(this).prev().attr("vd-src");
+					$(".modal_video").fadeIn();
+					$(".video-div video").attr("src",vdsrc);
+					$(".video-div video")[0].play();
+					console.log(vdsrc);
+				})
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/common.css" />
+    <link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/register.css" />
+    <style>
+        .one-cell1 {
+            width: 348px;
+            margin: 15px auto 0;
+            position: relative;
+            padding: 5px 0;
+            height: 42px;
+            box-sizing: border-box;
+        }
+
+        .error_code1{
+            display: none;
+            border: 1px solid #ea1111;
+            margin-bottom: 3px;
+        }
+
+        .error_code1_bg{
+            width: 30px;
+            height: 30px;
+            background: url("STYLE_DOMAIN/Home/1.6/Images/passage_onewrong.png") no-repeat;
+            background-size: 100% 100%;
+            display: inline-block;
+            float: left;
+            vertical-align: middle;
+            margin-left: 15px;
+        }
+        .error_msg1_tips {
+            display: inline-block;
+            line-height: 32px;
+            color: #ea1e1e;
+            font-size: 14px;
+            float: left;
+            margin-left: 50px;
+        }
+
+        .vcode_1.focus,.vcode_2.focus{
+            border: 1px solid #ffb908;
+        }
+
+        .vcode_1.error,.vcode_2.error{
+            border: 1px solid #ea1e1e;
+        }
+        
+        .jy_btn_1{
+		    opacity: 0.8;
+		    pointer-events: none;
+		    border: 1px solid #ccc;
+		    color: #ccc;
+        }
+        
+        .yzm-weizhi{
+		    display: inline-block;
+		    width: 90px;
+		    height: 44px;
+		    line-height: 44px;
+		    text-align: center;
+		    box-sizing: border-box;
+		    vertical-align: top;
+		    cursor: pointer;
+		    font-size: 14px;
+		    margin-left: 4px;
+        }
+        
+        .input-vcode1,.input-vcode2{
+        	width: 250px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="RegBigBox">
+        <!--头部开始-->
+        <div class="RegTop">
+            <a class="logo" href="{:U('Publicity/index')}"></a>
+            <p>用户注册</p>
+        </div>
+        <!--导航开始-->
+       <div class="RegNav">
+            <span class="VipReg active">会员注册</span>
+            <span class="EmailReg">邮箱注册</span>
+            <span class="login">已有雀搜账号&nbsp;&nbsp;<i><a href="/Login/login" style="font-size: 14px;color: #0d6be0;">登录></a></i></span>
+        </div>
+        <!--表单开始-->
+        <!--手机注册表单-->
+        <div class="RgeForm" id="RegPhone">
+            <div class="one-cell1 error_code1 err01" style="margin-bottom: 18px;">
+                <span class="error_code1_bg"></span>
+                <div class="error_msg1_tips"></div>
+            </div>
+            <div class="RgeForm-Box">
+                <i></i>
+                <input class="input-phone vcode_1" type="text" placeholder="请输入您的手机号码"  maxlength="11"/>
+                <input type="hidden" name="referral" value="{$referral}">
+            </div>
+            <div class="RgeForm-Box">
+                <span></span>
+                <input class="input-ph1 vcode_1" maxlength="20" type="password" placeholder="密码由6-20位字母、数字和符号组合">
+            </div>
+            <div class="RgeForm-Box">
+                <span></span>
+                <input class="input-ph2 vcode_1" maxlength="20" type="password" placeholder="确认密码">
+            </div>
+            <div class="RgeForm-Box">
+                <input class="input-vcode1 vcode_1" maxlength="4" type="text" placeholder="请输入图文验证码"/>
+                <img class="yzm-weizhi" src="{:U('Common/verify')}" title="刷新"/>
+                <!--<em class="UpData-Code Code01">获取验证码</em>-->
+            </div>
+            <div class="RgeForm-Box">
+                <span></span>
+                <input class="input-4 input-vcode11 vcode_1" maxlength="4" type="text" placeholder="请输入短信验证码"/>
+                <input type="hidden" name="yanzhentoken" value="{$token}">
+                <em class="UpData-Code Code01">获取验证码</em>
+            </div>
+            <!--注册按钮-->
+            <div class="RgeForm-Box">
+                <input class="input-5 subiphone" type="button" value="立即注册" >
+            </div>
+            <input class="CheckBox CheckBox11" type="checkbox" checked>
+            <span>我已同意<i class="sever"> 服务协议 </i></span>
+        </div>
+        <!--邮箱注册表单-->
+        <div class="RgeForm" id="RegEmail">
+            <div class="one-cell1 error_code1 err02" style="margin-bottom: 18px;">
+                <span class="error_code1_bg"></span>
+                <div class="error_msg1_tips"></div>
+            </div>
+            <div class="RgeForm-Box">
+                <i></i>
+                <input class="input-email vcode_2" type="text" placeholder="请输入您的邮箱号码"/>
+                <input type="hidden" name="referral" value="{$referral}">
+                <input type="hidden" class="defaultVal1"/>
+            </div>
+            <div class="RgeForm-Box">
+                <span></span>
+                <input class="input-ep1 vcode_2" type="password" maxlength="20" placeholder="密码由6-20位字母、数字和符号组合"/>
+            </div>
+            <div class="RgeForm-Box">
+                <span></span>
+                <input class="input-ep2 vcode_2" maxlength="20" type="password" placeholder="确认密码"/>
+            </div>
+            <div class="RgeForm-Box">
+                <input class="input-vcode2 vcode_2" maxlength="4" type="text" placeholder="请输入图文验证码"/>
+                <img class="yzm-weizhi img_vcode2" src="{:U('Common/verify')}" title="刷新"/>
+            </div>
+            <div class="RgeForm-Box">
+                <span></span>
+                <input class="input-4 input-vcode21 vcode_2" type="text" placeholder="请输入邮箱验证码"/>
+                <input type="hidden" name="yanzhentoken" value="{$token}">
+                <em class="UpData-Code Code02">获取验证码</em>
+            </div>
+            <!--注册按钮-->
+            <div class="RgeForm-Box">
+                <input class="input-5 subemail" type="button" value="立即注册"/>
+            </div>
+            <input class="CheckBox CheckBox22" type="checkbox" checked/>
+            <span>我已同意<i class="sever"> 服务协议 </i></span>
+        </div>
+    </div>
+    <!--底部-->
+    <div class="RegBottom">
+        <ul>
+            <li class="li1"><span><i>客服电话： 400-8088770 | 9:00-18:30</i></span></li>
+            <li class="li2"><span><i>关于我们</i></span></li>
+            <li class="li3"><span><i>雀搜微信公众号 : 雀搜</i></span></li>
+        </ul>
+    </div>
+    <!--异步加载模态框-->
+    <div class="ajax_loadModal">
+        <div class="ajax_load_img">
+            <img src="STYLE_DOMAIN/Home/1.6/Images/load-1.gif" width="35" alt="" />
+        </div>
+    </div>
+<script src="STYLE_DOMAIN/Home/1.6/js/jquery.js"></script>
+<script src="STYLE_DOMAIN/Home/1.6/js/register.js"></script>
+<script>
+    var verify = "{:U('Login/check_yzm')}";
+    var index = "{:U('Publicity/index')}";
+    var regMob = "{:U('Login/register')}";
+    var regYz  = "{:U('Login/yanzheng')}";
+    var regmeail = "{:U('Login/mail')}";
+    var regmobile = "{:U('Login/mobile')}";
+    $(".yzm-weizhi").click(function() {
+        var mobile = $('.input-phone').val();
+        var email = $(".input-email").val();
+        var newimg=$(".yzm-weizhi").attr("src")+"?"+Math.random();
+        $(".yzm-weizhi").attr("src",newimg);
+        $.post(verify,{'yzm':1,'email':email,'mobile':mobile},function(){});
+    });
+</script>
+</body>
+</html>

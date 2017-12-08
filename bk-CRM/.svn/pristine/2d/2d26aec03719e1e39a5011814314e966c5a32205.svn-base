@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>忘记密码</title>
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/common.css" />
+	    <link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/setPassword.css" />
+	</head>
+	<body class="setBody" style="min-height: 850px;">
+		<div class="Setpwd-box">
+			<!--头部开始-->
+	        <div class="SetpwdTop">
+	            <a href="{:U('Publicity/index')}" class="logo"></a>
+	            <p>修改成功</p>
+	        </div>
+	        <!--头部结束-->
+	        <div class="Setpwd_status_box">
+	        	<div class="Setpwd_status">
+	        		<ul class="fl">
+	        			<li class="fl">
+	        				<span class="span_cr1">1</span>
+	        				<span class="span_tips1">填写用户名</span>
+	        				<span class="span_lineboder1"></span>
+	        			</li>
+	        			<li class="fl">
+	        				<span class="span_cr1">2</span>
+	        				<span class="span_tips1">验证身份</span>
+	        				<span class="span_lineboder1"></span>
+	        			</li>
+	        			<li class="fl">
+	        				<span class="span_cr1">3</span>
+	        				<span class="span_tips1">设置新密码</span>
+	        				<span class="span_lineboder1"></span>
+	        			</li>
+	        			<li class="fl active">
+	        				<span class="span_cr1">4</span>
+	        				<span class="span_tips1">完成</span>
+	        			</li>
+	        		</ul>
+	        	</div>
+	        	<div class="login_Tips">
+	        		<span>已有雀搜账号</span>
+	        		<a href="login.html">登录></a>
+	        	</div>
+	        </div>
+	        
+        	<!--操作成功提示-->
+        	<div class="success_Tips">
+        		<img src="STYLE_DOMAIN/Home/1.6/Images/common_icon_success_four.png" alt="" />
+        		<p>操作成功！<span class="timer_count1">3</span>秒后跳转至登录页</p>
+        	</div>
+        	<!--操作成功结束-->
+		</div>
+	    
+       	<!--底部开始-->
+	    <div class="RegBottom">
+	        <ul>
+	            <li class="li1"><span><i>客服电话： 400-8088770 | 9:00-18:30</i></span></li>
+	            <a href="{:U('Publicity/about')}"><li class="li2"><span><i>关于我们</i></span></li></a>
+	            <li class="li3"><span><i>雀搜微信公众号 : 雀搜</i></span></li>
+	        </ul>
+	    </div>
+	    <!--底部结束-->
+		<script src="STYLE_DOMAIN/Home/1.6/js/jquery.js"></script>
+		<script>
+			$(function(){			
+				getHeight();//获取高度
+				
+				$(window).resize(function(){
+					getHeight();//获取高度
+				})
+				
+				//3秒后跳转至登录页
+				var count = 3;
+				setInterval(function(){
+					count--;
+					$(".timer_count1").text(count);
+					if(count == 1){
+						setTimeout(function(){
+							location.href="{:U('Login/login')}";
+						},500)
+					}
+				},1000)
+			})
+			
+			function getHeight(){
+				var winH = $(window).height();
+				$(".setBody").height(winH);
+			}
+		</script>
+	</body>
+</html>

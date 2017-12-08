@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="雀搜,雀鸟科技,采购大数据,采购平台,采购信息网,采购云平台,中国采购平台">
+		<title>联系我们</title>
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/common.css" />
+	    <link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/index.css" />
+	</head>
+	<body style="min-width: 1200px;overflow-x: auto;">
+		<!--页面顶部开始-->
+		<header class="header_box"></header>
+		<!--页面顶部结束-->
+		
+		<div style="font-size: 0;"><img class="slider-banner" src="STYLE_DOMAIN/Home/1.6/Images/lianxi_banner.png" alt="" /></div>
+		
+		<!--主题内容开始-->
+		<main class="contact_us">
+			<div class="contact_us_cell">
+				<div class="index-title1">
+					<p class="index-titleP1">联系我们</p>
+					<p class="index-titleP2">CONTACT US</p>
+				</div>
+				<div class="contact_us_items">
+					<div class="contact_us_item">
+						<a class="contact_us_item_a1">
+							<img src="STYLE_DOMAIN/Home/1.6/Images/address.png" alt="" />
+						</a>
+						<p class="contact_us_item_p1">公司地址</p>
+						<p class="contact_us_item_p2">广东省广州市天河区大观中路95号科汇园A栋407-408</p>
+					</div><div class="contact_us_item">
+						<a class="contact_us_item_a1">
+							<img src="STYLE_DOMAIN/Home/1.6/Images/phone.png" alt="" />
+						</a>
+						<p class="contact_us_item_p1">联系电话</p>
+						<p class="contact_us_item_p2">020-37362495</p>
+					</div><div class="contact_us_item">
+						<a class="contact_us_item_a1">
+							<img src="STYLE_DOMAIN/Home/1.6/Images/mess.png" alt="" />
+						</a>
+						<p class="contact_us_item_p1">电子邮箱</p>
+						<p class="contact_us_item_p2">cs@527so.com</p>
+					</div>
+				</div>
+				<div class="index-title1">
+					<p class="index-titleP1">评论反馈</p>
+					<p class="index-titleP2">COMMENT</p>
+				</div>
+				<div class="Personal_Critique">
+					<div class="fl Personal_Critique_lf">
+						<img src="STYLE_DOMAIN/Home/1.6/Images/map.png" alt="" />
+					</div>
+					<div class="fl Personal_Critique_rt">
+						<div class="Personal_form_onecell1">
+							<p class="label_cell1">姓名</p>
+							<input class="input_cell1" type="text" name="user_name" placeholder="请输入您的姓名"/>	
+						</div>
+						<div class="Personal_form_onecell1">
+							<p class="label_cell1">联系方式</p>
+							<input class="input_cell1" type="text" name="user_tel" placeholder="请输入您的联系方式"/>
+						</div>
+						<div class="Personal_form_onecell1">
+							<p class="label_cell1">评论内容</p>
+							<textarea class="pl-content" name="content" maxlength="200" placeholder="请输入您的评论内容"></textarea>
+							<div class="Personal_form_submit">
+								<span class="Personal_form_submit_btn">提交评论</span>
+							</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</main>
+		<!--主题内容结束-->
+		
+		<!--加入我们开始-->
+		<div class="jiaru_weAre">
+			<div class="fl jiaru_weAre_lf">
+				<p class="jiaru_weAre_lfP1">加入我们</p>
+				<p class="jiaru_weAre_lfP2">我们正在寻找才华横溢的你，广大网罗合作伙伴，和我们一起做充满热情的事业。</p>
+				<a href="{:U('joinus')}">查看更多职位>></a>
+			</div>
+			<div class="fl jiaru_weAre_rt">
+				<table>
+					<thead>
+						<th>职位名称</th>
+						<th>人数</th>
+						<th>工作性质</th>
+						<th>发布时间</th>
+						<th>职位描述</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>爬虫开发工程师</td>
+							<td>2</td>
+							<td>全职</td>
+							<td>【2017-10-12】</td>
+							<td><a href="{:U('joinus')}">查看详情</a></td>
+						</tr>
+						<tr>
+							<td>数据分析工程师</td>
+							<td>1</td>
+							<td>全职</td>
+							<td>【2017-10-12】</td>
+							<td><a href="{:U('joinus')}">查看详情</a></td>
+						</tr>
+						<tr>
+							<td>PHP开发工程师</td>
+							<td>若干人</td>
+							<td>全职</td>
+							<td>【2017-10-12】</td>
+							<td><a href="{:U('joinus')}">查看详情</a></td>
+						</tr>
+						<tr>
+							<td>招商专员</td>
+							<td>若干人</td>
+							<td>全职</td>
+							<td>【2017-10-12】</td>
+							<td><a href="{:U('joinus')}">查看详情</a></td>
+						</tr>
+						<tr>
+							<td>网站运营专员/主管</td>
+							<td>若干人</td>
+							<td>全职</td>
+							<td>【2017-10-12】</td>
+							<td><a href="{:U('joinus')}">查看详情</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!--加入我们结束-->
+		
+		<!--页面底部开始-->
+		<footer class="footer_box"></footer>
+		<!--页面底部结束-->
+		
+		<script src="STYLE_DOMAIN/Home/1.6/js/jquery.js"></script>
+		<script src="STYLE_DOMAIN/Home/1.6/js/common.js"></script>
+		<script>
+			$(function(){
+				//为申请按钮绑定单击事件
+				$(document).on("click",".Personal_form_submit_btn",function(){
+					var userName = $("input[name='user_name']").val();
+					var userTel = $("input[name='user_tel']").val();
+					var content = $("textarea[name='content']").val();
+					if(userName == ""){
+						alert("请输入您的姓名");
+					}else if(userTel == ""){
+						alert("请输入您的联系方式");
+					}else if(content == ""){
+						alert("请输入您的评论内容");
+					}else{
+						var datas = {'username':userName,'feed-phone':userTel,'content':content};
+						$.post('add_guestbook',datas,function(data){
+							if(data.code=='1'){
+								alert(data.message);
+								$("input[name='user_name']").val('');
+								$("input[name='user_tel']").val('');
+								$("textarea[name='content']").val('');
+							}else{
+								alert(data.message);
+							}
+
+						},'json');
+					}
+				})
+			})
+		</script>
+	</body>
+</html>

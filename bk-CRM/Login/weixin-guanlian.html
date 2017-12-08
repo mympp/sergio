@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="baidu-site-verification" content="AD8f8NwkHq" />
+		<title>关联账户</title>
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/css/common.css" />
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/css/index.css" />
+	</head>
+	<body>
+		<div id="wrapper" style="min-height:850px;">
+			<!--页面顶部开始-->
+			<include file="Common/header"/>
+			<!--页面顶部结束-->
+			<!--微信关联开始-->
+			<div class="weixin-guanlian">
+				<div class="Login-Box-wx">
+					<div class="Login-Box-cell">
+						<h4 class="login-titel" style="text-align: center;">关联账户</h4>
+						<div class="err-tip"></div>
+						<form>
+							<div class="one-line">
+								<div class="one-line-cell">
+									<img class="vam usn-img" src="STYLE_DOMAIN/Home/Images/user-name.png" alt=""/>
+									<input class="vam login-input" type="text" name="user_zh" placeholder="请输入用户名/邮箱/手机"/>
+								</div>
+							</div>
+							<div class="one-line">
+								<div class="one-line-cell">
+									<img class="vam usn-img" src="STYLE_DOMAIN/Home/Images/user-pwd.png" alt=""/>
+									<input class="vam login-input" type="password" name="user_pwd" placeholder="请输入密码"/>
+								</div>
+							</div>
+							<div class="one-line" style="width:56%;">
+								<div class="one-line-cell" style="height:36px;">
+									<img class="vam usn-img" src="STYLE_DOMAIN/Home/Images/user-yzm.png" alt=""/>
+									<input class="vam login-input" type="text" placeholder="请输入验证码" maxlength="4" name="user_yzm" style="width:85px;"/>
+									<img class="yzm-weizhi" src="{:U('Common/verify')}" title="刷新"/>
+									<!-- <img class="update-yzm" src="STYLE_DOMAIN/Home/Images/Refresh.png"title="刷新"/> -->
+								</div>
+							</div>
+							<!--关联按钮-->
+							<!-- <div class="login-submit-glwx">
+								<input class="btn btn-primary btn-block" type="button" name="login_btn_wx" value="关 联"/>
+							</div> -->
+							<!--两个链接-->
+							<div class="Two-Link">
+								<!-- <a href="{$Think.config.MALL_DOMAIN}/member/register.php" class="fl">快速注册</a> -->
+								<a href="{:U('Index/index')}" class="fr skip">跳过</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!--微信关联开始-->
+			<!--页面底部开始-->
+			<include file="Common/footer"/>
+			<!--页面顶部结束-->
+		</div>
+		<script src="STYLE_DOMAIN/Home/js/jquery.js"></script>
+		<script src="STYLE_DOMAIN/Home/js/common.js"></script>
+		<script src="STYLE_DOMAIN/Home/js/weixin-guanlian.js"></script>
+		<script type="text/javascript">
+			var url="{:U('login')}";
+			var index_url="{:U('User/index')}";
+		    $(".yzm-weizhi").click(function() {
+            	var newimg=$(".yzm-weizhi").attr("src")+"?"+Math.random();
+            	$(".yzm-weizhi").attr("src",newimg);
+            });
+			// $(".leftTemplate").load("{:U('Common/leftTemplate')}");//异步加载左边列表
+			// 
+		</script>
+	</body>
+</html>

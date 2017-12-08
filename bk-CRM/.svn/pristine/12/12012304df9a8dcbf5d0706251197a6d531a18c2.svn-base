@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>产品介绍</title>
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/common.css" />
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/animate.css">
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/index.css" />
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/10.26.css">
+	</head>
+	<body style="min-width: 1200px;overflow-x: auto;" class="1 pages">
+		<!--页面顶部开始-->
+		<header class="header_box"></header>
+		<div class="header-box"></div>
+		<!--页面顶部结束-->
+
+		<!--头部背景图开始-->
+		<div class="product-img1">
+			<img src="STYLE_DOMAIN/Home/1.6/Images/product_banner.png" alt="" width="100%">
+		</div>
+		<!--头部背景图结束-->
+
+		<!--内容区域开始-->
+		<main class="product-main">
+			<div class="index-box">
+				<div class="index-textbox fr">
+					<h4 class="wow fadeInUp" data-wow-delay="0.25s">智能营销，精准推送</h4>
+					<p class="wow fadeInUp" data-wow-delay="0.5s">发布商品，无需人工运营推广，操作简单</p>
+					<p class="wow fadeInUp" data-wow-delay="0.75s">一键推送，雀搜将从数千万采购商中为您精准找</p>
+					<p class="wow fadeInUp" data-wow-delay="1s">到采购客户，建立您们沟通的桥梁</p>
+				</div>
+				<div class="product-img2">
+					<img src="STYLE_DOMAIN/Home/1.6/Images/product_screen01.png" class="product-img20 fl">
+					<img src="STYLE_DOMAIN/Home/1.6/Images/product-gif.gif" class="product-img21">
+				</div>
+			</div>
+			<div class="index-gbox" style="height: 850px;">
+				<div class="index-box">
+					<div class="index-textbox fl">
+						<h4 class="wow fadeInUp" data-wow-delay="0.75s">集商城+CRM系统一体</h4>
+						<p class="wow fadeInUp" data-wow-delay="1s">轻松商品管理</p>
+						<p class="wow fadeInUp" data-wow-delay="1.25s">一键智能推广</p>
+						<p class="wow fadeInUp" data-wow-delay="1.5s">轻松联系采购商</p>
+					</div>
+					<div class="fr product-img3">
+						<img src="STYLE_DOMAIN/Home/1.6/Images/product_screen02_pic001.png" class="fr product-img30 wow fadeInLeft" height="500px" width="auto">
+						<img src="STYLE_DOMAIN/Home/1.6/Images/product_screen02_pic002.png" class="fr product-img31 wow fadeInRight" height="500px" width="auto">
+					</div>
+				</div>
+			</div>
+			<div class="index-box">
+				<div class="index-textbox fr">
+					<h4 class="wow fadeInUp" data-wow-delay="0.25s">稳抓商机，轻松获取</h4>
+					<p class="wow fadeInUp" data-wow-delay="0.5s">客户资料全网采集，自动匹配，主动推送</p>
+					
+				</div>
+				<div class="fl product-img4">
+					<img src="STYLE_DOMAIN/Home/1.6/Images/product_screen03_pic001.png" class="product-img40">
+					<img src="STYLE_DOMAIN/Home/1.6/Images/product_screen03_pic01.png" class="product-img41 wow fadeIn" data-wow-delay="0.5s">
+					<img src="STYLE_DOMAIN/Home/1.6/Images/product_screen03_pic1.png" class="product-img42 wow fadeIn" data-wow-delay="0.5s">
+					<img src="STYLE_DOMAIN/Home/1.6/Images/product_screen03_pic02.png" class="product-img43 wow fadeIn" data-wow-delay="1s">
+					<img src="STYLE_DOMAIN/Home/1.6/Images/product_screen03_pic2.png" class="product-img44 wow fadeIn" data-wow-delay="1s">
+					<img src="STYLE_DOMAIN/Home/1.6/Images/product_screen03_pic03.png" class="product-img45 wow fadeIn" data-wow-delay="1.5s">
+					<img src="STYLE_DOMAIN/Home/1.6/Images/product_screen03_pic3.png" class="product-img46 wow fadeIn" data-wow-delay="1.5s">
+				</div>
+			</div>
+			<div class="index-gbox">
+				<div class="index-box">
+					<div class="index-textbox fl">
+						<h4 class="wow fadeInUp" data-wow-delay="0.25s">订阅行业</h4>
+						<h4 class="wow fadeInUp" data-wow-delay="0.25s" style="position: relative;top: 5px">实时掌握最新行情</h4>
+						<p class="wow fadeInUp" data-wow-delay="0.5s">政府/医院招标、司法拍卖、各类求购信息</p>
+						<p class="wow fadeInUp" data-wow-delay="0.75s">每天准时推送，不错过任何一个商机</p>
+					</div>
+					<div class="fr product-img5">
+						<img src="STYLE_DOMAIN/Home/1.6/Images/product_screen04_pic.png" class="fr" >
+					</div>
+				</div>
+			</div>
+			<div class="index-box">
+				<div class="index-textbox fr">
+					<h4 class="wow fadeInUp" data-wow-delay="0.25s">推送日志，一目了然</h4>
+					<p class="wow fadeInUp" data-wow-delay="0.5s">自动营销，商品在什么时候用哪种</p>
+					<p class="wow fadeInUp" data-wow-delay="0.75s">方式推送给哪个采购商，一目了然</p>
+				</div>
+				<div class="fl product-img6">
+					<img src="STYLE_DOMAIN/Home/1.6/Images/product_screen05_pic.png" class="fl" width="780px">
+				</div>
+			</div>
+		</main>
+		<!--内容区域结束-->
+
+		<!--页面底部开始-->
+		<footer class="footer_box"></footer>
+		<!--页面底部结束-->
+
+		<script src="STYLE_DOMAIN/Home/1.6/js/jquery.js"></script>
+		<script src="STYLE_DOMAIN/Home/1.6/js/wow.min.js"></script>
+		<script src="STYLE_DOMAIN/Home/1.6/js/common.js"></script>
+		<script type="text/javascript">
+			var wow = new WOW({
+			    boxClass: 'wow',
+			    animateClass: 'animated',
+			    offset: 50,
+			    mobile: true,
+			    live: true
+			});
+			wow.init();
+			if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){//兼容IE下面板消失
+				new WOW().init();
+			};
+		</script>
+	</body>
+
+</html>

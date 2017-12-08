@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>消息中心</title>
+		<link rel="stylesheet" href="STYLE_DOMAIN/Agent/css/common.css" />
+		<link rel="stylesheet" href="STYLE_DOMAIN/Agent/css/index.css" />
+	</head>
+
+	<body style="min-width: 1280px;">
+		<!--父容器开始-->
+		<div class="outer_div">
+			<div class="left_template"><include file="Common:left_nav"/></div>
+			<div class="right_template"><include file="Common:right_nav"/></div>
+			<div class="messageCenter">
+				<div class="message-head">
+					<label class="checkbox checkboxAll1" onselectstart="return false;" onclick="selectAll()" />
+					<input id="checkall" type="checkbox" name="checkall" />
+					<i></i>
+					</label>
+					<span class="allmessage">全选：</span>
+					<em class="DeleteMessage">删除</em>
+				</div>
+				<div class="message-body">
+				<!-- <foreach name="list" item="vo" key="k" > -->
+					<!-- <div name="{$vo['m_message_id']}" class="message-list">
+						<div class="xxaa">
+							<label class="checkbox" onselectstart="return false;">
+                        <input type="checkbox" name="checkedres" />
+                        <i></i>
+                    </label>
+							<span class="message-title  <?php if($vo['m_message_isread'] == 1){echo ColorMessage;}?>">{$vo['m_message_title']}</span>
+							<em class="message-text">{$vo['m_message_content']}</em>
+							<i>{$vo['m_message_addtime']|date="Y-m-d H:i:s",###}<em class="UpDown"></em></i>
+						</div>
+						<div class="xian"></div>
+						<div class="list-max">
+						</div>
+					</div> -->
+				<!-- </foreach> -->
+				</div>
+				<div class="messageCenter">
+					<div class="xiansuo_Page_Div">
+						<div class="xiansuo_Page_border"></div>
+						<div class="xiansuo_Page_div">
+						</div>
+						</div>
+					</div>
+				</div>
+				<!--确认删除模态框-->
+				<div class="delete-modal">
+					<div class="delete-modal-cell">
+						<p>确认要删除吗？</p>
+						<div class="delete_modal_btns">
+							<span class="de_confirm_1">确定</span>
+							<span class="de_cancel_1">取消</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!--父容器结束-->
+		
+		<script>var pages = "消息中心"; var index1;var index2;</script>
+		<script src="STYLE_DOMAIN/Agent/js/jquery.js"></script>
+		<script src="STYLE_DOMAIN/Agent/js/common.js"></script>
+		<script>
+			var show = "{:U('AgentIndex/news_show')}";
+			var news_del = "{:U('AgentIndex/news_del')}";
+			var news_list = "{:U('AgentIndex/news_list')}";
+			$(function() {
+				getHeight(); //获取高度
+				
+				LoadDownFn(1,15);
+				$(window).resize(function() {
+					getHeight();
+				})
+				
+				//点击展示收起
+//				var clickNumber = 0; //记录点击
+
+				$(document).on("click", ".message-list>.xxaa>i>em", function() {
+					var id = $(this).parents(".message-list").attr('name')
+					var sub = $(this).parent().parent().parent().find($(".message-text")).text()
+					var has = $(this).hasClass("UpDown");
+					console.log(has);
+					if(has == true) {
+						$.post(show,{'id':id},function(data){
+							console.log(data);
+						},'json');
+						$(this).addClass("UpDown02").removeClass("UpDown")
+						$(this).parent().parent().parent().find($(".message-title")).css({
+							"font-weight": 700
+						})
+						$(this).parent().parent().parent().find($(".list-max")).text(sub);
+						$(this).parent().parent().parent().find($(".message-text")).fadeOut();
+						$(this).parent().parent().parent().find($(".xian")).stop(true, false).slideDown()
+						$(this).parent().parent().parent().find($(".list-max")).stop(true, false).slideDown()
+					}else{
+						$(this).addClass("UpDown").removeClass("UpDown02")
+						$(this).parent().parent().parent().find($(".message-title")).css({
+							"font-weight": 100,
+						})
+						$(this).parent().parent().parent().find($(".message-title")).addClass("ColorMessage");
+						$(this).parent().parent().parent().find($(".message-text")).fadeIn();
+						$(this).parent().parent().parent().find($(".xian")).stop(true, false).slideUp();
+						$(this).parent().parent().parent().find($(".list-max")).stop(true, false).slideUp();
+					}
+				})
+
+			})
+				function LoadDownFn(page,page_size){
+					$('.message-body').empty();
+					$('.xiansuo_Page_div').empty();
+					$.post(news_list,{'size':page_size,'page':page},function(data){
+						var res = '';
+						length = data['list'].length;
+						for(var i=0;i<length;i++){
+							res +=
+							'<div name="'+data['list'][i].m_message_id+'" class="message-list">'+
+								'<div class="xxaa">'+
+									'<label class="checkbox" onselectstart="return false;">'+
+		                        '<input type="checkbox" name="checkedres" />'+
+		                        '<i></i>'+
+		                    '</label>';
+									if(data['list'][i].m_message_isread == 1){
+										res +=
+										'<span class="message-title ColorMessage">'+data['list'][i].m_message_title+'</span>';
+									}else{
+										res +=
+										'<span class="message-title">'+data['list'][i].m_message_title+'</span>';
+									}
+									res +=
+									'<em class="message-text">'+data['list'][i].m_message_content+'</em>'+
+									'<i>'+data['list'][i].m_message_addtime+'<em class="UpDown"></em></i>'+
+								'</div>'+
+								'<div class="xian"></div>'+
+								'<div class="list-max">'+
+								'</div>'+
+							'</div>';
+						}
+						$('.message-body').append(res);
+						$('.xiansuo_Page_div').append(data['page'])
+					},'json');
+				}
+			//为分页器每个li绑定单击事件
+			$(document).on("click",".xiansuo_Page_list li",function(){
+				var index = $(this).index();
+				var page = $(this).html();
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".that_Page").val(page);																		
+				var page_size= $('.xiansuo_Page_Three').val();
+				// LoadDownFn(kewode='',str='addtime',px='desc',page='1',size='10')
+				LoadDownFn(page,page_size);				
+			})
+			$(document).on("click", ".de_confirm_1", function() {
+				var id = '';
+				//遍历每个选中的checkbox
+				$("input[type='checkbox'][name='checkedres']:checked").each(function() {
+					//divids =  $(this).parent().siblings().find($(".message-body")).children("div").attr("name");//每条数据的id
+					divids = $(this).parent().parent().parent().attr("name");
+					id += divids+",";
+					// $("[name= '" + divids + "' ]").remove(); //发起ajax
+					console.log($(".message-body").children().length);
+					if($(".message-body").children().length == 0) { //如果list长度等于0
+						// $("#checkall").prop("checked", false); //关闭全选
+						$("#checkall").prop("disabled", "false"); //禁用全选
+					}
+				})
+				$(".delete-modal").fadeOut();
+				var url = news_del;
+		        $.post(url,{'id':id},function(data){
+		            var leng = data.divids.length;
+		            if(data.status != 1){
+		                alert(data.data);
+		            }else{
+		                for(var i=0;i<leng;i++){
+						$("#checkall").prop("checked", false);//关闭全选
+		                    $("[name= '"+ data.divids[i] +"' ]").remove();//发起ajax
+		                }
+		            }
+		        },'json');
+			})
+			//为跳转至输入框监听键盘事件
+			$(document).on("keydown",".that_Page",function(e){
+				var page = $(this).val();
+				var num = $('#xiansuo_pages_count').html();
+				if(page>num){
+					page=1;
+				}																		
+				var page_size= $('.xiansuo_Page_Three').val();
+				if(e.keyCode==13){
+					LoadDownFn(page,page_size);				
+				}
+			})
+
+			//为首页判定事件
+			$(document).on('click','.first_page',function(e){
+				var page = 1;																		
+				var page_size= $('.xiansuo_Page_Three').val();
+				LoadDownFn(page,page_size);	
+				e.stopPropagation();
+			})
+
+			//为上一页绑定事件
+			$(document).on('click','.prev_page',function(e){
+				var page = $(this).attr('name');																		
+				var page_size= $('.xiansuo_Page_Three').val();
+				LoadDownFn(page,page_size);	
+				e.stopPropagation();
+			})
+
+			//为下一页绑定事件
+			$(document).on('click','.next_page',function(e){
+				var page = $(this).attr('name');																	
+				var page_size= $('.xiansuo_Page_Three').val();
+				LoadDownFn(page,page_size);
+				e.stopPropagation();
+			})
+
+			//为尾页绑定事件
+			$(document).on('click','.last_page',function(e){
+				var page = $(this).attr('name');																		
+				var page_size= $('.xiansuo_Page_Three').val();
+				LoadDownFn(page,page_size);
+				e.stopPropagation();
+			})
+			
+			//动态获取高度
+			function getHeight() {
+				var winH = $(window).height();
+
+				// setTimeout(function(){
+				// 	var headerH = $('.left_header').height();
+				// 	$(".messageCenter").height(winH - headerH);
+				// },100)
+				var headH = $(".message-head").height();
+				var pageH = $(".xiansuo_Page_Div").outerHeight(true);
+				var WinBodyH = winH - (90+headH+pageH);
+				$(".message-body").height(WinBodyH);
+				$(".left_template").height(winH);
+			}
+
+		</script>
+	</body>
+
+</html>

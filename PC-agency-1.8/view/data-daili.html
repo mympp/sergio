@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>代理商数据统计</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/data-daili.css" />
+</head>
+<body  style="min-width: 1280px">
+<div class="outer_div">
+    <div class="left_template"></div>
+    <div class="right_template"></div>
+    <div class="messageCenter">
+        <p>代理商数据统计</p>
+        <h2>代理商总数：<span class="daili-number">563</span></h2>
+        <span class="tiaojian">按条件筛选：</span>
+        <div class="filtrate">
+            <span>代理商：</span><input class="daili-text" type="text">
+            <span>代理商手机：</span><input class="daili-iphone" type="text" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');">
+            <div class="saixuan_divAll_cell3">
+                <span class="label1">日期：</span>
+                <input type="datetime" id="inputStartTime" class="this_udate1 input_cell1"/><span class="tobe_str1">-</span><input type="datetime" id="inputEndTime" class="this_udate2 input_cell1"/>
+            </div>
+            <span>级别：</span>
+            <select class="daili-area">
+            <option value="1">一级代理商</option>
+            <option value="2">二级代理商</option>
+            </select>
+            <div class="daili_all"><em class="daili_searchBtn">搜索</em><em class="daili_clearBtn">清空</em></div>
+        </div>
+        <!--表格模块开始-->
+        <div class="table-wrap">
+            <div class="table-head">
+                <div class="table-head-wrap">
+                    <table class="grid">
+                        <colgroup>
+                            <col style="width:16%">
+                            <col style="width:12%">
+                            <col style="width:12%">
+                            <col style="width:9%">
+                            <col style="width:10%">
+                            <col style="width:10%">
+                            <col style="width:11%">
+                            <col style="width:11%">
+                            <col style="width:9%">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>
+                                <span class="tab-link">代理商名称</span>
+                            </th>
+                            <th>
+                                <span class="tab-link">联系电话</span>
+                            </th>
+                            <th>
+                                <span class="tab-link">代理商所在区域</span>
+                            </th>
+                            <th>
+                                <span class="tab-link">级别</span>
+                            </th>
+                            <th>
+                                <span class="tab-link">开通时间</span>
+                            </th>
+                            <th>
+                                <span class="tab-link">专属推荐码</span>
+                            </th>
+                            <th>
+                                <span class="tab-link">累积开发代理商</span>
+                            </th>
+                            <th>
+                                <span class="tab-link">开发代理商明细</span>
+                            </th>
+                            <th>
+                                <span class="tab-link">直属业务员</span>
+                            </th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div class="table-content">
+                <table class="grid">
+                    <colgroup>
+                        <col style="width:16%">
+                        <col style="width:12%">
+                        <col style="width:12%">
+                        <col style="width:9%">
+                        <col style="width:10%">
+                        <col style="width:10%">
+                        <col style="width:11%">
+                        <col style="width:11%">
+                        <col style="width:9%">
+                    </colgroup>
+                    <tbody class="table_ctbody">
+                    <tr>
+                        <td>
+                            <div>广东问果科技有限公司</div>
+                        </td>
+                        <td>
+                            <div>13268036998</div>
+                        </td>
+                        <td>
+                            <div>广东广州天河</div>
+                        </td>
+                        <td>
+                            <div>一级代理商</div>
+                        </td>
+                        <td>
+                            <div>2017-10-30</div>
+                        </td>
+                        <td>
+                            <div>YGSGE110001</div>
+                        </td>
+                        <td>
+                            <div>100</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>50</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>广东问果科技有限公司</div>
+                        </td>
+                        <td>
+                            <div>13268036998</div>
+                        </td>
+                        <td>
+                            <div>广东广州天河</div>
+                        </td>
+                        <td>
+                            <div>一级代理商</div>
+                        </td>
+                        <td>
+                            <div>2017-10-30</div>
+                        </td>
+                        <td>
+                            <div>YGSGE110001</div>
+                        </td>
+                        <td>
+                            <div>100</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>50</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>广东问果科技有限公司</div>
+                        </td>
+                        <td>
+                            <div>13268036998</div>
+                        </td>
+                        <td>
+                            <div>广东广州天河</div>
+                        </td>
+                        <td>
+                            <div>一级代理商</div>
+                        </td>
+                        <td>
+                            <div>2017-10-30</div>
+                        </td>
+                        <td>
+                            <div>YGSGE110001</div>
+                        </td>
+                        <td>
+                            <div>100</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>50</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>广东问果科技有限公司</div>
+                        </td>
+                        <td>
+                            <div>13268036998</div>
+                        </td>
+                        <td>
+                            <div>广东广州天河</div>
+                        </td>
+                        <td>
+                            <div>一级代理商</div>
+                        </td>
+                        <td>
+                            <div>2017-10-30</div>
+                        </td>
+                        <td>
+                            <div>YGSGE110001</div>
+                        </td>
+                        <td>
+                            <div>100</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>50</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>广东问果科技有限公司</div>
+                        </td>
+                        <td>
+                            <div>13268036998</div>
+                        </td>
+                        <td>
+                            <div>广东广州天河</div>
+                        </td>
+                        <td>
+                            <div>一级代理商</div>
+                        </td>
+                        <td>
+                            <div>2017-10-30</div>
+                        </td>
+                        <td>
+                            <div>YGSGE110001</div>
+                        </td>
+                        <td>
+                            <div>100</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>50</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>广东问果科技有限公司</div>
+                        </td>
+                        <td>
+                            <div>13268036998</div>
+                        </td>
+                        <td>
+                            <div>广东广州天河</div>
+                        </td>
+                        <td>
+                            <div>一级代理商</div>
+                        </td>
+                        <td>
+                            <div>2017-10-30</div>
+                        </td>
+                        <td>
+                            <div>YGSGE110001</div>
+                        </td>
+                        <td>
+                            <div>100</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>50</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>广东问果科技有限公司</div>
+                        </td>
+                        <td>
+                            <div>13268036998</div>
+                        </td>
+                        <td>
+                            <div>广东广州天河</div>
+                        </td>
+                        <td>
+                            <div>一级代理商</div>
+                        </td>
+                        <td>
+                            <div>2017-10-30</div>
+                        </td>
+                        <td>
+                            <div>YGSGE110001</div>
+                        </td>
+                        <td>
+                            <div>100</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>50</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>广东问果科技有限公司</div>
+                        </td>
+                        <td>
+                            <div>13268036998</div>
+                        </td>
+                        <td>
+                            <div>广东广州天河</div>
+                        </td>
+                        <td>
+                            <div>一级代理商</div>
+                        </td>
+                        <td>
+                            <div>2017-10-30</div>
+                        </td>
+                        <td>
+                            <div>YGSGE110001</div>
+                        </td>
+                        <td>
+                            <div>100</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>50</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>广东问果科技有限公司</div>
+                        </td>
+                        <td>
+                            <div>13268036998</div>
+                        </td>
+                        <td>
+                            <div>广东广州天河</div>
+                        </td>
+                        <td>
+                            <div>一级代理商</div>
+                        </td>
+                        <td>
+                            <div>2017-10-30</div>
+                        </td>
+                        <td>
+                            <div>YGSGE110001</div>
+                        </td>
+                        <td>
+                            <div>100</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>50</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>广东问果科技有限公司</div>
+                        </td>
+                        <td>
+                            <div>13268036998</div>
+                        </td>
+                        <td>
+                            <div>广东广州天河</div>
+                        </td>
+                        <td>
+                            <div>一级代理商</div>
+                        </td>
+                        <td>
+                            <div>2017-10-30</div>
+                        </td>
+                        <td>
+                            <div>YGSGE110001</div>
+                        </td>
+                        <td>
+                            <div>100</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>50</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>广东问果科技有限公司</div>
+                        </td>
+                        <td>
+                            <div>13268036998</div>
+                        </td>
+                        <td>
+                            <div>广东广州天河</div>
+                        </td>
+                        <td>
+                            <div>一级代理商</div>
+                        </td>
+                        <td>
+                            <div>2017-10-30</div>
+                        </td>
+                        <td>
+                            <div>YGSGE110001</div>
+                        </td>
+                        <td>
+                            <div>100</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>50</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>广东问果科技有限公司</div>
+                        </td>
+                        <td>
+                            <div>13268036998</div>
+                        </td>
+                        <td>
+                            <div>广东广州天河</div>
+                        </td>
+                        <td>
+                            <div>一级代理商</div>
+                        </td>
+                        <td>
+                            <div>2017-10-30</div>
+                        </td>
+                        <td>
+                            <div>YGSGE110001</div>
+                        </td>
+                        <td>
+                            <div>100</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>50</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>广东问果科技有限公司</div>
+                        </td>
+                        <td>
+                            <div>13268036998</div>
+                        </td>
+                        <td>
+                            <div>广东广州天河</div>
+                        </td>
+                        <td>
+                            <div>一级代理商</div>
+                        </td>
+                        <td>
+                            <div>2017-10-30</div>
+                        </td>
+                        <td>
+                            <div>YGSGE110001</div>
+                        </td>
+                        <td>
+                            <div>100</div>
+                        </td>
+                        <td>
+                            <div><span class="Click-Span">查看详情</span></div>
+                        </td>
+                        <td>
+                            <div>50</div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--表格模块结束-->
+        <!--分页器开始-->
+        <div class="xiansuo_Page_Div">
+            <!--<div class="xiansuo_Page_border"></div>-->
+            <div class="xiansuo_Page_div">
+                <div class="fl">
+                    <span style="margin-right: 5px;">每页显示</span>
+                    <select class="xiansuo_Page_Three">
+                        <option value="10">10</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <span style="margin-left: 5px;">条</span><span style="margin-left: 10px;">共</span><span class="xiansuo_Sizes">1500</span><span>条/</span><span class="xiansuo_Pages">50页</span>
+                    <img class="first_page" title="第一页" src="../Images/icon_sanjiao_01.png" alt="" />
+                    <img class="prev_page" title="上一页" src="../Images/icon_sanjiao_02.png" alt="" />
+                </div>
+                <ul class="xiansuo_Page_list">
+                    <li class="active">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+                <img class="next_page" title="下一页" style="margin-left: 15px;" src="../Images/icon_sanjiao_03.png" alt="" />
+                <img class="last_page" title="最后一页" src="../Images/icon_sanjiao_04.png" alt="" />
+                <span style="margin: 0 5px;">跳转</span><input type="text" value="0" class="that_Page" maxlength="10" /><span style="margin-left: 5px;">页</span>
+            </div>
+        </div>
+        <!--分页器结束-->
+        <!--查看详情模态框结束-->
+
+        <!--操作提示模态框开始-->
+        <div class="right_center">
+            <p><em></em><i>复制成功</i></p>
+        </div>
+        <!--操作提示模态框结束-->
+    </div>
+</div>
+<!--查看详情模态框开始-->
+<div class="data-model">
+    <div class="DataCenterBox">
+        <div class="DataCenterBox-top">
+            <em class="DataCenterBox-cols">&#215;</em>
+        </div>
+        <div class="DataCenterBox-body">
+            <div class="DataCenterBox-text">代&ensp;&nbsp;理&ensp;&nbsp;商&ensp;&nbsp;&ensp;&ensp;：<span>贾少华</span></div>
+            <div class="DataCenterBox-text">级&ensp;&ensp;&nbsp;&ensp;&nbsp;&ensp;别&nbsp;&ensp;&ensp;&ensp;：<span>一级代理商</span></div>
+            <div class="DataCenterBox-text">电&nbsp;话&nbsp;号&nbsp;码&ensp;&ensp;&ensp;：<span>15625011111</span></div>
+            <div class="DataCenterBox-text">专属推荐码&ensp;&ensp;&ensp;：<span>YGSGE110001</span></div>
+            <div class="DataCenterBox-text">专属推荐链接&ensp;：<span>www.527so.com</span></div>
+            <div class="DataCenterBox-text DataCenterBox-padding">开发代理商明细&ensp;：</div>
+            <div class="DataTable">
+                <div class="DataTable-haed">
+                    <span>时间</span>
+                    <span>代理商名称</span>
+                    <span>级别</span>
+                    <span>代理商所在区域</span>
+                </div>
+                <div class="DataTable-body">
+                    <div class="DataTable-haed">
+                        <span>2017-10-30</span>
+                        <span>广州少华有限公司</span>
+                        <span>二级代理</span>
+                        <span>广东广州天河</span>
+                    </div>
+                    <div class="DataTable-haed">
+                        <span>2017-10-30</span>
+                        <span>广州少华有限公司</span>
+                        <span>二级代理</span>
+                        <span>广东广州天河</span>
+                    </div>
+                    <div class="DataTable-haed">
+                        <span>2017-10-30</span>
+                        <span>广州少华有限公司</span>
+                        <span>二级代理</span>
+                        <span>广东广州天河</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>var pages = "数据管理";var index1 = 2; var index2 = 0;</script>
+<script src="../js/jquery.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/laydate.js"></script>
+<script src="../js/data-daili.js"></script>
+</body>
+</html>

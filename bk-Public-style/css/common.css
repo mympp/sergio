@@ -1,0 +1,15 @@
+@charset "UTF-8";
+html,body{height:100%}
+body{margin:0;padding:0;color:#333;font:12px "microsoft yahei",Arial,Helvetica,sans-serif}
+a{color:#333;text-decoration:none} 
+a:hover{color:#ff0700} a:active,a:focus,a:hover,input{outline:0}
+address,caption,cite,code,dfn,em,th,var{font-weight:500;font-style:normal}
+b, h1, h2, h3, h4, h5, h6{font-weight: 500;font-size:100%}
+dd,dl,h1,h2,h3,h4,h5,h6,ol,p,ul{margin:0;padding:0;list-style:none}
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:none}
+.ziti0{font-size:10px}.ziti1{font-size:12px}.ziti2{font-size:13px}.ziti3{font-size:15px}.ziti4{font-size:18px}.ziti5{font-size:20px}.ziti6{font-size:22px}.ziti7{font-size:24px}.ziti8{font-size:26px}.ziti9{font-size:28px}.ziti10{font-size:30px}
+.hr-1,.hr-10,.hr-15,.hr-2,.hr-20,.hr-22,.hr-25,.hr-3,.hr-30,.hr-32.hr-35,.hr-4,.hr-40,.hr-45,.hr-5,.hr-50,.hr-55,.hr-60,.hr-65,.hr-7,.hr-70,.hr-75,.hr-80,.hr-85,.hr-9,.hr-90{clear:both;font-size:1px;line-height:1px}
+.hr-1{height:1px}.hr-2{height:2px}.hr-3{height:3px}.hr-4{height:4px}.hr-5{height:5px}.hr-7{height:7px}.hr-9{height:9px}.hr-10{height:10px}.hr-15{height:15px}.hr-16{height:16px}.hr-20{height:20px}.hr-22{height:22px}.hr-25{height:25px}.hr-30{height:30px}.hr-32{height:32px}.hr-35{height:35px}.hr-40{height:40px}.hr-45{height:45px}.hr-50{height:50px}.hr-55{height:55px}.hr-60{height:60px}.hr-65{height:65px}.hr-70{height:70px}.hr-75{height:75px}.hr-80{height:80px}.hr-85{height:85px}.hr-90{height:90px}
+.white{color:#fff}.green{color:#090}.bg{background:#1983d1}.bg2{background:#fff}.bg3{background:#ff9326}.bg4{background:#fa6463}.bg5{background:#fff}.yellow{color:#ff0}.blue{color:#2489ce}.red{color:red}.gray1{color:#333}.gray2{color:#666}.gray3{color:#999}
+input,select,textarea{font-weight:inherit;font-size:inherit;font-family:inherit} .vam{vertical-align: middle;}
+.fl{float:left} .fr{float:right} .clear{clear:both} .center{text-align: center;}

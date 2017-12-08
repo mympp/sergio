@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>历史记录</title>
+	<link rel="stylesheet" href="../css/common.css" />
+	<link rel="stylesheet" href="../css/index.css" />
+	<link rel="stylesheet" type="text/css" href="../css/set.css">
+    <script type="text/javascript" src="../RichTextEdit/ueditor.config.js"></script>
+    <script type="text/javascript" src="../RichTextEdit/ueditor.all.js"> </script>
+    <script type="text/javascript" src="../RichTextEdit/lang/zh-cn/zh-cn.js"></script>
+</head>
+<body style="min-width: 1280px;">
+	<!--父容器开始-->
+	<div class="outer_div">
+		<div class="left_template"></div>
+		<div class="right_template"></div>
+		<div class="page-set">
+            <h2>公告历史</h2>
+            <a href="set-send.html" class="history-btn fr blue-btn">发布公告</a>
+	        <!--表格模块开始-->
+	        <div class="table-wrap">
+	            <div class="table-head">
+	                <div class="table-head-wrap">
+	                    <table class="grid">
+                            <colgroup>
+                                <col style="width:10%">
+                                <col style="width:10%">
+                                <col style="width:25%">
+                                <col style="width:20%">
+                                <col style="width:10%">
+                                <col style="width:25%">
+                            </colgroup>
+	                        <thead>
+	                        	<tr>
+	                        		<th>编号</th>
+	                        		<th>标题</th>
+	                        		<th>内容</th>
+	                        		<th>发布时间</th>
+	                        		<th>发布状态</th>
+	                        		<th>操作</th>
+	                        	</tr>
+	                        </thead>
+	                    </table>
+	                </div>
+	            </div>
+	            <div class="table-content table-content1">
+	                <table class="grid">
+                        <colgroup>
+                            <col style="width:10%">
+                            <col style="width:10%">
+                            <col style="width:25%">
+                            <col style="width:20%">
+                            <col style="width:10%">
+                            <col style="width:25%">
+                        </colgroup>
+	                    <tbody class="table_ctbody">
+	                    	<tr>
+	                    		<td>1</td>
+	                    		<td>公告1</td>
+	                    		<td>内容内容内容内容内容内容内容内容内容内容内容内容</td>
+	                    		<td>2017-10-30 13:45</td>
+	                    		<td>待发布</td>
+	                    		<td class="last-td">
+	                    			<a href="javascript:;" class="hisRedact">编辑</a>
+	                    			<a href="javascript:;" class="hisDetails">详情</a>
+	                    			<a href="javascript:;" class="removeBtn">删除</a>
+	                    		</td>
+	                    	</tr>
+	                    		<td>1</td>
+	                    		<td>公告1</td>
+	                    		<td>内容内容内容内容内容内容内容内容内容内容内容内容</td>
+	                    		<td>2017-10-30 13:45</td>
+	                    		<td>已发布</td>
+	                    		<td class="last-td">
+	                    			<a href="javascript:;"></a>
+	                    			<a href="javascript:;" class="hisDetails">详情</a>
+	                    			<a href="javascript:;" class="removeBtn">删除</a>
+	                    		</td>
+	                    	</tr>
+	                    		<td>1</td>
+	                    		<td>公告1</td>
+	                    		<td>内容内容内容内容内容内容内容内容内容内容内容内容</td>
+	                    		<td>2017-10-30 13:45</td>
+	                    		<td>待发布</td>
+	                    		<td class="last-td">
+	                    			<a href="javascript:;" class="hisRedact">编辑</a>
+	                    			<a href="javascript:;" class="hisDetails">详情</a>
+	                    			<a href="javascript:;" class="removeBtn">删除</a>
+	                    		</td>
+	                    	</tr>
+	                    </tbody>
+	                </table>
+	            </div>
+	        </div>
+	        <!--表格模块结束-->
+	        <!--分页器开始-->
+	        <div class="xiansuo_Page_Div">
+	            <!--<div class="xiansuo_Page_border"></div>-->
+	            <div class="xiansuo_Page_div">
+	                <div class="fl">
+	                    <span style="margin-right: 5px;">每页显示</span>
+	                    <select class="xiansuo_Page_Three">
+	                        <option value="10">10</option>
+	                        <option value="50">50</option>
+	                        <option value="100">100</option>
+	                    </select>
+	                    <span style="margin-left: 5px;">条</span><span style="margin-left: 10px;">共</span><span class="xiansuo_Sizes">1500</span><span>条/</span><span class="xiansuo_Pages">50页</span>
+	                    <img class="first_page" title="第一页" src="../Images/icon_sanjiao_01.png" alt="" />
+	                    <img class="prev_page" title="上一页" src="../Images/icon_sanjiao_02.png" alt="" />
+	                </div>
+	                <ul class="xiansuo_Page_list">
+	                    <li class="active">1</li>
+	                    <li>2</li>
+	                    <li>3</li>
+	                    <li>4</li>
+	                    <li>5</li>
+	                </ul>
+	                <img class="next_page" title="下一页" style="margin-left: 15px;" src="../Images/icon_sanjiao_03.png" alt="" />
+	                <img class="last_page" title="最后一页" src="../Images/icon_sanjiao_04.png" alt="" />
+	                <span style="margin: 0 5px;">跳转</span><input type="text" value="0" class="that_Page" maxlength="10" /><span style="margin-left: 5px;">页</span>
+	            </div>
+	        </div>
+	        <!--分页器结束-->
+	        <!-- 模拟弹窗开始 -->
+	        <!-- 背景 -->
+	        <div class="moni-box" style="display: none;"></div>
+		    <!-- 编辑公告 -->
+		    <div class="his-redact moni-lbox" style="display: none;">
+	            <div class="moni-head">
+	            	<p class="fl">编辑公告</p>
+					<em class="DataCenterBox-cols cleanAll fr">&#215;</em>
+	            </div>
+	            <div class="moni-main">
+			        <form class="redact-form">
+			            <span><i>*</i>公告标题：</span><input type="text" class="input_cell1" placeholder="请输入公告标题" name="title"><br />
+			            <span style="vertical-align: top;width: 139px;"><i>*</i>公告内容：</span>
+			            <!--<iframe style="margin-top: 3px;" id="Baidu_editor" src="../RichTextEdit/index.html" frameborder="0" scrolling="no" width="750px" height="500px"></iframe>-->
+			            <script id="editor" type="text/plain"></script>
+			            <br/>
+			            <span><i>*</i>发布时间：</span>
+			            <div class="laydate-div">
+			                <input type="text" class="input_cell_sm1 date_icon_1" id="expiration_time" placeholder="请选择到期时间"/><label for="expiration_time"></label>
+			            </div>
+			            
+			            <br/>
+			            <div class="btn-box">
+				            <input type="button" value="确认" class="hisRedactSub blue-btn">
+				            <input type="button" value="取消" class="cancel white-btn">
+				        </div>
+			        </form>
+			    </div>
+		    </div>
+		    <!-- 详细公告 -->
+		    <div class="his-details moni-lbox" style="display: none;">
+	            <div class="moni-head">
+	            	<p class="fl">公告详情</p>
+					<em class="DataCenterBox-cols cleanAll fr">&#215;</em>
+	            </div>
+	            <div class="moni-main">
+			        <form class="details-form">
+			            <span>公告标题：</span>
+			            <p class="sendTitle">公告1</p>
+			            <br />
+			            <span style="vertical-align: top;width: 100px;line-height: 22px;">公告内容：</span>
+			            <p class="details-main editHtml">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
+			            <br/>
+			            <span>发布时间：</span>
+			            <p class="sendTime">2017/11/6 12:45</p>
+			            <br/>
+			            <span>发布状态：</span>
+			            <p class="sendStatus">已发布</p>
+			        </form>
+			    </div>
+		    </div>
+	        <!-- 删除按钮 -->
+	        <div class="remove-box moni-lbox" style="display: none;">
+	            <p>确认删除？</p>
+	            <div class="btn-box">
+	                <input type="button" value="确认" name="remove" class="removeSubmit blue-btn">
+	                <input type="button" value="取消" name="cancel" class="cancel white-btn">
+	            </div>
+	        </div>
+	        <!-- 模拟弹窗结束 -->
+	    </div>
+	</div>
+	<!--父容器结束-->
+	<script>var pages = "系统设置";var index1 = 4; var index2 = 2;</script>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="../js/laydate/laydate.js"></script>
+	<script src="../js/set.js"></script>
+	<script type="text/javascript">
+        //发布公告富文本编辑器和发布时间
+        $(function(){
+            var ue = UE.getEditor('editor');//富文本编辑器
+            laydate.render({//发布时间
+              elem: '#expiration_time', //指定元素
+              type: 'datetime'
+            });
+        })
+		//提交到后台
+		//编辑公告
+	    $(document).on("click",".hisRedactSub",function(){
+	        var sendTitle = $("input[name=title]").val();//获得公告标题
+	        var editHtml = $("#editor").find("#ueditor_0").contents().find("body").html();//获得富文本编辑器的html片段
+	        var sendTime = $("#expiration_time").val();
+	        if (sendTitle == "" || sendTitle == undefined){
+	            alert("请输入正确的公告标题");
+	        } else if (editHtml == "<p><br></p>" || editHtml == "<p></p>" || editHtml == undefined){
+	            alert("请输入正确的公告内容");
+	        } else if (sendTime == "" || sendTime == undefined) {
+	            alert("请输入正确的发布时间");
+	        } else {
+	            //发起ajax请求
+	            console.log(sendTitle,editHtml,sendTime);
+	        }
+	    })
+
+	    //公告详情
+	    $(function(){
+	        var ziliaojson;//ajax获取数据
+	        $(".sendTitle").text(ziliaojson);
+	        $(".editHtml").text(ziliaojson);
+	        $(".sendTime").text(ziliaojson);
+	        $(".sendStatus").text(ziliaojson);
+	    })
+	    // 删除按钮
+	    $(document).on("click",".removeBtn",function(){
+	        $(this).parents("tr").addClass("remove");
+	        var trId = $(this).parents("tr").attr("name");//取得删除那一行的name值
+	        $(".remove-box,.moni-box").fadeIn();
+	        $(document).on("click",".removeSubmit",function(){
+	            $(".remove").remove(); 
+	            $(".remove-box,.moni-box").fadeOut();
+	            console.log(trId);//发起ajax
+	        })
+	    })		
+	</script>
+</body>
+</html>

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>培训师管理</title>
+	<link rel="stylesheet" type="text/css" href="STYLE_DOMAIN/Agent/css/index.css">
+	<link rel="stylesheet" type="text/css" href="STYLE_DOMAIN/Agent/css/common.css">
+	<link rel="stylesheet" type="text/css" href="STYLE_DOMAIN/Agent/css/set.css">
+</head>
+<body style="min-width: 1280px;">
+<!--父容器开始-->
+<div class="outer_div">
+	<div class="left_template">
+       <include file="Common:left_nav"/>
+    </div>
+    <div class="right_template">
+    <include file="Common:right_nav"/>
+    </div>
+	<div class="page-set">
+		<h2>培训师设置</h2>
+		<form class="agent-head">
+			<p>按条件筛选：</p>
+			<div class="agent-input">
+				<label>姓名：</label><input type="text" name="searchName" placeholder="">
+				<label>账号：</label><input type="text" name="searchEmail" placeholder="">
+				<!-- <div class="fl"> -->
+					<label>状态：</label>
+					<select class="searchStatus">
+						<option value="0">有效</option>
+						<option value="1">无效</option>
+					</select>
+				<!-- </div> -->
+			</div>
+			<!-- <div class="cb"></div> -->
+			<input type="button" value="搜索" name="search" class="blue-btn" id="searchBtn">
+			<input type="button" value="清空" name="clear" class="white-btn">
+		</form>
+		<a href="javascript:;" class="addTrainer blue-btn fr">新增</a>
+		<!--表格模块开始-->
+        <div class="table-wrap">
+            <div class="table-head">
+                <div class="table-head-wrap">
+                    <table class="grid">
+                        <colgroup>
+                            <col style="width:10%">
+                            <col style="width:10%">
+                            <col style="width:15%">
+                            <col style="width:20%">
+                            <col style="width:15%">
+                            <col style="width:10%">
+                            <col style="width:20%">
+                        </colgroup>
+                        <thead>
+							<tr>
+								<th>编号</th>
+								<th>培训师</th>
+								<th>联系电话</th>
+								<th>账号</th>
+								<th>培训代理商明细</th>
+								<th>状态</th>
+								<th>操作</th>
+							</tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div class="table-content table-content2">
+                <table class="grid">
+                    <colgroup>
+                        <col style="width:10%">
+                        <col style="width:10%">
+                        <col style="width:15%">
+                        <col style="width:20%">
+                        <col style="width:15%">
+                        <col style="width:10%">
+                        <col style="width:20%">
+                    </colgroup>
+                    <tbody class="table_ctbody">
+						<!-- <tr>
+							<td>01</td>
+							<td>
+								<a href="javascript:;" class="trainerAgent">名称A</a>
+							</td>
+							<td>15612345678</td>
+							<td>chenkaiwen@527so.com</td>
+							<td>
+								<a href="javascript:;" class="trainerDetails">查看详情</a>
+							</td>
+							<td>有效</td>
+							<td class="tda3">
+								<a href="javascript:;" class="trainerRedact fl">编辑</a>
+								<a href="javascript:;" class="trainerAllot">分配</a>
+								<a href="javascript:;" class="removeBtn fr">删除</a>
+							</td>
+						</tr> -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--表格模块结束-->
+        <!--分页器开始-->
+        <div class="xiansuo_Page_Div">
+            <!--<div class="xiansuo_Page_border"></div>-->
+            <div class="xiansuo_Page_div">
+                <!-- <div class="fl">
+                    <span style="margin-right: 5px;">每页显示</span>
+                    <select class="xiansuo_Page_Three">
+                        <option value="10">10</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <span style="margin-left: 5px;">条</span><span style="margin-left: 10px;">共</span><span class="xiansuo_Sizes">1500</span><span>条/</span><span class="xiansuo_Pages">50页</span>
+                    <img class="first_page" title="第一页" src="STYLE_DOMAIN/Agent/Images/icon_sanjiao_01.png" alt="" />
+                    <img class="prev_page" title="上一页" src="STYLE_DOMAIN/Agent/Images/icon_sanjiao_02.png" alt="" />
+                </div>
+                <ul class="xiansuo_Page_list">
+                    <li class="active">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+                <img class="next_page" title="下一页" style="margin-left: 15px;" src="STYLE_DOMAIN/Agent/Images/icon_sanjiao_03.png" alt="" />
+                <img class="last_page" title="最后一页" src="STYLE_DOMAIN/Agent/Images/icon_sanjiao_04.png" alt="" />
+                <span style="margin: 0 5px;">跳转</span><input type="text" value="0" class="that_Page" maxlength="10" /><span style="margin-left: 5px;">页</span> -->
+            </div>
+        </div>
+        <!--分页器结束-->
+	    <!-- 虚拟弹窗开始 -->
+	    <!-- 背景 -->
+	    <div class="moni-box" style="display: none;"></div>
+		<!-- 新增培训师 -->
+		<div class="add-trainer moni-lbox" style="display: none;">
+			<div class="moni-head">
+				<p class="fl">新增培训师</p>
+				<em class="DataCenterBox-cols cleanAll fr">&#215;</em>
+			</div>
+			<form class="moni-main">
+				<label>姓名</label><i>：</i>
+				<input type="text" name="addname" placeholder="培训师名称"><br />
+				<label>电话</label><i>：</i>
+				<input type="text" name="addphone" placeholder="培训师电话"><br />
+				<label>账号</label><i>：</i>
+				<input type="text" name="addID" placeholder="培训师账号"><br />
+				<label>密码</label><i>：</i>
+				<input type="password" name="addpassword" placeholder="培训师密码"><br />
+				<label>启动状态</label><i>：</i>
+				<select class="addStatus">
+					<option value="1" checked="checked">有效</option>
+					<option value="0">无效</option>
+				</select><br />
+				<label>银行账号</label><i>：</i>
+				<select class="addbankName" id="bankName">
+					<option value="请选择">请选择</option>}
+                    <option value="中国银行">中国银行</option>
+                    <option value="中国建设银行">中国建设银行</option>
+                    <option value="中国工商银行">中国工商银行</option>
+                    <option value="中国农业银行">中国农业银行</option>
+                    <option value="中国光大银行">中国光大银行</option>
+                    <option value="中国交通银行">中国交通银行</option>
+                    <option value="中国招商银行">中国招商银行</option>
+                    <option value="中国邮政储蓄银行">中国邮政储蓄银行</option>
+                    <option value="中信银行">中信银行</option>
+                    <option value="浦发银行">浦发银行</option>
+                    <option value="华夏银行">华夏银行</option>
+                    <option value="其他银行">其他银行</option>
+				</select><br />
+				<label>&nbsp;</label><i>&nbsp;</i>
+				<input type="text" name="addbankCode" id="bankCode" maxlength="23" placeholder="卡号"><br />
+				<label>&nbsp;</label><i>&nbsp;</i>
+				<input type="text" name="addpeopleName" placeholder="姓名"><br />
+				<div class="btn-box">
+					<input type="button" name="submit" value="确认" class="submit blue-btn" id="addTrainerSub">
+					<input type="button" name="cancel" value="取消" class="cancel white-btn">
+				</div>
+			</form>
+		</div>
+		<!-- 培训师详情 -->
+		<div class="trainer-details moni-lbox" style="display: none;">
+			<div class="moni-head">
+				<p class="fl">培训师详情</p>
+				<em class="DataCenterBox-cols cleanAll fr">&#215;</em>
+			</div>
+			<div class="moni-main">
+				<label>姓名</label><i>：</i>
+				<span class="name"></span><br />
+				<label>账号</label><i>：</i>
+				<span class="ID"></span><br />
+				<label>电话号码</label><i>：</i>
+				<span class="phone"></span><br />
+				<label>状态</label><i>：</i>
+				<span class="detailsStatus"></span><br />
+				<label>银行账号</label><i>：</i>
+				<span class="bankName"></span><br />
+				<label>&nbsp;</label><i>&nbsp;</i>
+				<span class="bankCode"></span><br />
+				<label>&nbsp;</label><i>&nbsp;</i>
+				<span class="peopleName"></span><br />
+				<label>创建日期</label><i>：</i>
+				<span class="addTime"></span><br />
+				<label>更新日期</label><i>：</i>
+				<span class="updateTime"></span>
+			</div>
+		</div>
+		<!-- 培训代理商明细 -->
+		<div class="trainer-agent moni-lbox" style="display: none;">
+			<div class="moni-head">
+				<p class="fl">培训代理商明细</p>
+				<em class="DataCenterBox-cols cleanAll fr">&#215;</em>
+			</div>
+			<div class="moni-main">
+				<table>
+					<thead>
+						<tr>
+							<th>代理商名称</th>
+							<th>联系电话</th>
+							<th>代理商所在区域</th>
+							<th>级别</th>
+						</tr>
+					</thead>
+					<tbody class="agent_trainer_list">
+						<!-- <tr>
+							<td>广州哇哈哈哈科技有限公司</td>
+							<td>135654654112</td>
+							<td>广东广州天河</td>
+							<td>一级代理</td>
+						</tr>
+						<tr>
+							<td>广州哇哈哈哈科技有限公司</td>
+							<td>135654654112</td>
+							<td>广东广州天河</td>
+							<td>二级代理</td>
+						</tr>
+						<tr>
+							<td>广州哇哈哈哈科技有限公司</td>
+							<td>135654654112</td>
+							<td>广东广州天河</td>
+							<td>一级代理</td>
+						</tr> -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- 编辑培训师 -->
+		<div class="trainer-redact moni-lbox" style="display: none;">
+			<div class="moni-head">
+				<p class="fl">编辑培训师</p>
+				<em class="DataCenterBox-cols cleanAll fr">&#215;</em>
+			</div>
+			<form class="moni-main">
+				<input type="hidden" name="tid" value="">
+				<label>姓名</label><i>：</i>
+				<input type="text" name="name" placeholder=""><br />
+				<label>电话</label><i>：</i>
+				<input type="text" name="phone" placeholder=""><br />
+				<label>账号</label><i>：</i>
+				<input type="text" name="ID" placeholder=""><br />
+				<label>密码</label><i>：</i>
+				<input type="password" name="password" placeholder=""><br />
+				<label>启动状态</label><i>：</i>
+				<select class="redactStatus">
+					<option value="0">有效</option>
+					<option value="1">无效</option>
+				</select><br />
+				<label>银行账号</label><i>：</i>
+				<span class="bjbankName"></span><br />
+				<label>&nbsp;</label><i>&nbsp;</i>
+				<span class="bjbankCode"></span><br />
+				<label>&nbsp;</label><i>&nbsp;</i>
+				<span class="bjpeopleName"></span><br />
+				<label>创建日期</label><i>：</i>
+				<span class="bjaddTime"></span><br />
+				<label>更新日期</label><i>：</i>
+				<span class="bjupdateTime"></span>
+				<div class="btn-box">
+					<input type="button" name="submit" value="确认" class="submit blue-btn" id="trainerRedactSub">
+					<input type="button" name="cancel" value="取消" class="cancel white-btn">
+				</div>
+			</form>
+		</div>
+		<!-- 分配代理商 -->
+		<div class="trainer-allot moni-lbox" style="display: none;">
+			<div class="moni-head">
+				<p class="fl">分配代理商</p>
+				<em class="DataCenterBox-cols cleanAll fr">&#215;</em>
+			</div>
+			<div class="moni-main">
+				<p>将代理商分配给培训师培训，培训后代理商所开发的认证会员，培训师都有相应的提成。</p>
+				<label>代理商</label><i>：</i>
+				<input type="text" name="allotAgent">
+				<div class="btn-box">
+					<input type="hidden" name="agnet_trainer" value="">
+					<input type="button" name="submit" value="确认" class="submit blue-btn" id="trainerAllotSub">
+					<input type="button" name="cancel" value="取消" class="cancel white-btn">
+				</div>
+			</div>
+		</div>
+        <!-- 删除按钮 -->
+        <div class="remove-box moni-lbox" style="display: none;">
+            <p>确认删除？</p>
+            <div class="btn-box">
+                <input type="button" value="确认" name="remove" class="removeSubmit blue-btn">
+                <input type="button" value="取消" name="cancel" class="cancel white-btn">
+            </div>
+        </div>
+		<!-- 虚拟弹窗结束 -->
+	</div>
+</div>
+<script>var pages = "角色管理";var index1 = 3; var index2 = 4;</script>
+<script src="STYLE_DOMAIN/Agent/js/jquery.js"></script>
+<script src="STYLE_DOMAIN/Agent/js/common.js"></script>
+<script src="STYLE_DOMAIN/Agent/js/role-agent.js"></script>
+<script src="STYLE_DOMAIN/Agent/js/bankcard.js"></script>
+<script type="text/javascript">
+	var trainer_list = "{:U('Role/trainer_list')}";
+	var trainer_details = "{:U('Role/trainer_details')}";
+	var upd_trainer = "{:U('Role/upd_trainer')}";
+	var del_trainer = "{:U('Role/del_trainer')}";
+	var add_trainer = "{:U('Role/add_trainer')}";
+	var trAgent = "{:U('Role/trAgent')}";
+	var assignAgent = "{:U('Role/assignAgent')}";
+	$(function(){
+       LoadDownFn(1,10);
+    })
+	function LoadDownFn(page,size,name='',user='',sta=''){
+		$('.table_ctbody').empty();
+		$('.xiansuo_Page_div').empty();
+		$.post(trainer_list,{'page':page,'size':size,'name':name,'user':user,'sta':sta},function(data){
+			var reult = '';
+            if(data.code != 1){
+                alert(data.message);
+                return;
+            }else{
+            	var length = data.data.length;
+                for(var i=0;i<length;i++){
+	            	reult +=
+	            	'<tr>'+
+	            		'<input type="hidden" name="trainerid" value="'+data.data[i].m_trainer_id+'">'+
+						'<td>'+data.data[i].m_trainer_id+'</td>'+
+						'<td>'+
+							'<a href="javascript:;" class="trainerAgent">'+data.data[i].m_user_name+'</a>'+
+						'</td>'+
+						'<td>'+data.data[i].m_trainer_tel+'</td>'+
+						'<td>'+data.data[i].m_user_mail+'</td>'+
+						'<td>'+
+							'<a href="javascript:;" class="trainerDetails">查看详情</a>'+
+						'</td>';
+						if(data.data[i].m_user_void_flag == '0'){
+                            reult +=
+                            '<td>有效</td>';
+                        }else{
+                            reult +=
+                            '<td>无效</td>';
+                        }
+                        reult +=
+						'<td class="tda3">'+
+							'<a href="javascript:;" class="trainerRedact fl">编辑</a>'+
+							'<a href="javascript:;" class="trainerAllot">分配</a>'+
+							'<a href="javascript:;" class="removeBtn fr">删除</a>'+
+						'</td>'+
+					'</tr>';
+				}
+			$('.table_ctbody').append(reult);
+			$('.xiansuo_Page_div').append(data.page);
+            }
+		},'json');
+	}
+	//为分页器每个li绑定单击事件
+    $(document).on("click",".xiansuo_Page_list li",function(){
+        var index = $(this).index();
+        var page = $(this).html();
+        $(this).addClass("active").siblings().removeClass("active");
+        $(".that_Page").val(page);              
+        var page_size= $('.xiansuo_Page_Three').val();
+        var name = $("input[name=searchName]").val();
+        var user = $("input[name=searchEmail]").val(); 
+        var status = '';  
+        if(name != '' || user!=''){
+            var status = $(".searchStatus:visible").val();      
+        }
+        LoadDownFn(page,page_size,name,user,status);  
+    })
+
+    //为跳转至输入框监听键盘事件
+    $(document).on("keydown",".that_Page",function(e){
+        var page = $(this).val();
+        var num = $('#xiansuo_pages_count').html();
+        if(page>num){
+            page=1;
+        }               
+        var page_size= $('.xiansuo_Page_Three').val();
+        var name = $("input[name=searchName]").val();
+        var user = $("input[name=searchEmail]").val(); 
+        if(e.keyCode==13){
+            LoadDownFn(page,page_size,name,user);            
+        }
+    })
+
+    //为首页判定事件
+    $(document).on('click','.first_page',function(e){
+        var page = 1;               
+        var page_size= $('.xiansuo_Page_Three').val();
+        var name = $("input[name=searchName]").val();
+        var user = $("input[name=searchEmail]").val(); 
+        var status = '';  
+        if(name != '' || user!=''){
+            var status = $(".searchStatus:visible").val();      
+        }
+        LoadDownFn(page,page_size,name,user,status);
+        e.stopPropagation();
+    })
+
+    //为上一页绑定事件
+    $(document).on('click','.prev_page',function(e){
+        var page = $(this).attr('name');                
+        var page_size= $('.xiansuo_Page_Three').val();
+        var name = $("input[name=searchName]").val();
+        var user = $("input[name=searchEmail]").val(); 
+        var status = '';  
+        if(name != '' || user!=''){
+            var status = $(".searchStatus:visible").val();      
+        }
+        LoadDownFn(page,page_size,name,user,status);
+        e.stopPropagation();
+    })
+
+    //为下一页绑定事件
+    $(document).on('click','.next_page',function(e){
+        var page = $(this).attr('name');            
+        var page_size= $('.xiansuo_Page_Three').val();
+        var name = $("input[name=searchName]").val();
+        var user = $("input[name=searchEmail]").val(); 
+        var status = '';  
+        if(name != '' || user!=''){
+            var status = $(".searchStatus:visible").val();      
+        }
+        LoadDownFn(page,page_size,name,user,status);
+        e.stopPropagation();
+    })
+
+    //为尾页绑定事件
+    $(document).on('click','.last_page',function(e){
+        var page = $(this).attr('name');                
+        var page_size= $('.xiansuo_Page_Three').val();
+        var name = $("input[name=searchName]").val();
+        var user = $("input[name=searchEmail]").val(); 
+        var status = '';  
+        if(name != '' || user!=''){
+            var status = $(".searchStatus:visible").val();      
+        }
+        LoadDownFn(page,page_size,name,user,status);
+        e.stopPropagation();
+    })
+
+    //后台提交
+    //搜索按钮
+    $(document).on("click","#searchBtn",function(){
+        var searchName = $("input[name=searchName]").val(),
+        searchEmail = $("input[name=searchEmail]").val(),
+        status = $(".searchStatus:visible").val(),
+        emailreg = /^[a-z0-9-_.]+@[\da-z][\.\w-]+\.[a-z]{2,4}$/i;
+        if (searchName == "" && searchEmail == "") {
+            alert("搜索项不能为空");
+        } else if (!emailreg.test(searchEmail) && searchEmail !== "") {
+            alert("请输入正确的账号（邮箱格式如：quesou@527so.com）");
+        } else {
+        	page = 1;
+        	page_size=10;
+            LoadDownFn(page,page_size,searchName,searchEmail,status);
+        }
+    });
+
+    //银行卡号
+    $("#bankCode").on("input propertychange",function(){
+        var abc = $("#bankCode").val();//获取用户输入的前四位
+        if(abc.length == 7){
+            abc = $("#bankCode").val().substring(0,7);
+            var bankBinWhere = bankBin.indexOf(abc);//在bankcard.js库中查找
+            var bankNameHere = bankName1[bankBinWhere];//找到卡号对应的银行卡
+            if (bankNameHere == bankName1[bankBinWhere]) {
+                // var reult = '<option value="'+bankNameHere+' selected="selected" ">'+bankNameHere+'</option>';
+                // $('#bankName').append(reult);
+                $("#bankName option:selected").text(bankNameHere).attr('value',bankNameHere);
+                // $("option:not(#bankName)").remove();
+            }
+            if (bankBinWhere == -1){
+                $("#bankName option:selected").text('其他银行').attr('value','其他银行');
+            }
+        }
+    })
+
+    //新增培训师
+    $(document).on("click","#addTrainerSub",function(){
+        var name = $("input[name=addname]").val(),
+        phone = $("input[name=addphone]").val(),
+        ID = $("input[name=addID]").val(),
+        password = $("input[name=addpassword]").val(),
+        status = $(".addStatus").val(),
+        bankName = $("#bankName :selected").val(),
+        bankCode = $("input[name=addbankCode]").val(),
+        peopleName = $("input[name=addpeopleName]").val();
+        numreg = /^1(3|4|5|7|8)\d{9}$/,
+        emailreg = /^[a-z0-9-_.]+@[\da-z][\.\w-]+\.[a-z]{2,4}$/i;
+        if (name == "" || phone == "" || ID == "" || password == "") {
+            alert("选项不能为空");
+        } else if(!numreg.test(phone)){
+            alert("请输入正确的电话号码");
+        } else if(!emailreg.test(ID)){
+            alert("请输入正确的账号（邮箱格式如：quesou@527so.com）");
+        } else {
+        	var data = {'name':name,'phone':phone,'username':ID,'pwd':password,'bankName':bankName,'bankCard':bankCode,'peopleName':peopleName}
+            $.post(add_trainer,data,function(data){
+            	if(data.code != 1){
+            		alert(data.message);
+            	}else{
+            		alert(data.message);
+            		$(".add-trainer,.moni-box").fadeOut();
+            	}
+            },'json');
+        };
+    });
+
+    //培训代理商明细
+    $(document).on("click",".trainerAgent",function(){
+    	$('.agent_trainer_list').empty();
+    	var id = $(this).parents('tr').find('input[name=trainerid]').val();
+        $(".trainer-agent,.moni-box").fadeIn();
+        $.post(trAgent,{'id':id},function(data){
+        	if(data.code != 1){
+        		alert(data.message);
+        	}else{
+        		var leng = data.data.length;
+        		var reult = '';
+        		for(var i=0;i<leng;i++){
+        			reult +=
+        			'<tr>'+
+						'<td>'+data.data[i].m_agent_company+'</td>'+
+						'<td>'+data.data[i].m_agent_tel+'</td>'+
+						'<td>'+data.data[i].m_agent_areaid+'</td>'+
+						'<td>'+data.data[i].m_agent_level+'</td>'+
+					'</tr>';
+        		}
+        		$('.agent_trainer_list').append(reult);
+        	}
+        },'json');
+    })
+
+    //培训师详情
+    $(document).on("click",".trainerDetails",function(){
+        var id = $(this).parents('tr').find('input[name=trainerid]').val();
+        $(".trainer-details,.moni-box").fadeIn();
+        $.post(trainer_details,{'id':id},function(data){
+        	data.data.m_user_void_flag = data.data.m_user_void_flag==0?"有效":'无效';
+	        $(".name").text(data.data.m_user_name);
+	        $(".phone").text(data.data.m_trainer_tel);
+	        $(".ID").text(data.data.m_user_mail);
+	        $(".detailsStatus").text(data.data.m_user_void_flag);
+	        $(".bankName").text(data.data.m_trainer_bankname);
+	        $(".bankCode").text(data.data.m_trainer_accountno);
+	        $(".peopleName").text(data.data.m_trainer_accountname);
+	        $(".addTime").text(data.data.m_trainer_createtime);
+	        $(".updateTime").text(data.data.m_trainer_updatetime);
+        },'json');
+    })
+
+    //编辑培训师
+    $(document).on("click",".trainerRedact",function(){
+    	var id = $(this).parents('tr').find('input[name=trainerid]').val();
+    	 $.post(trainer_details,{'id':id},function(data){
+	        $("input[name=name]:visible").val(data.data.m_user_name);
+	        $("input[name=phone]:visible").val(data.data.m_trainer_tel);
+	        $("input[name=ID]:visible").val(data.data.m_user_mail);
+	        $(".redactStatus").val(data.data.m_user_void_flag);
+	        $(".bjbankName").text(data.data.m_trainer_bankname);
+	        $(".bjbankCode").text(data.data.m_trainer_accountno);
+	        $(".bjpeopleName").text(data.data.m_trainer_accountname);
+	        $(".bjaddTime").text(data.data.m_trainer_createtime);
+	        $(".bjupdateTime").text(data.data.m_trainer_updatetime);
+	        $("input[name=tid]").val(data.data.m_trainer_id);
+        },'json');
+        //显示已有数据
+       
+    });
+    //提交修改
+    $("#trainerRedactSub").click(function(){
+        var name = $("input[name=name]:visible").val(),
+        phone = $("input[name=phone]:visible").val(),
+        ID = $("input[name=ID]:visible").val(),
+        password = $("input[name=password]:visible").val(),
+        status = $(".redactStatus").val();
+        var trainerId = $("input[name=tid]").val();
+        numreg = /^1(3|4|5|7|8)\d{9}$/,
+        emailreg = /^[a-z0-9-_.]+@[\da-z][\.\w-]+\.[a-z]{2,4}$/i;
+        if (name == "" || phone == "" || ID == "") {
+            alert("选项不能为空");
+        } else if(!numreg.test(phone)){
+            alert("请输入正确的电话号码");
+        } else if(!emailreg.test(ID)){
+            alert("请输入正确的账号（邮箱格式如：quesou@527so.com）");
+        } else {
+        	var data = {'name':name,'phone':phone,'user':ID,'pwd':password,'sta':status,'id':trainerId};
+            $.post(upd_trainer,data,function(data){
+            	if(data.code != 1){
+            		alert(data.message);
+            	}else{
+            		alert(data.message);
+                    $(".moni-box,.moni-lbox").fadeOut();
+                    $(".user-main").fadeIn();
+            	}
+            },'json');
+        };
+    });
+    $(document).on("click",".trainerAllot",function(){
+        $(".trainer-allot,.moni-box").fadeIn();
+        var id = $(this).parents('tr').find('input[name=trainerid]').val();
+        $('input[name=agnet_trainer]').val(id);
+    })
+    //分配代理商
+    $(document).on("click","#trainerAllotSub",function(){
+    	var id = $(this).prev().val();
+    	var allotAgent = $("input[name=allotAgent]").val();
+    	$.post(assignAgent,{'id':id,'account':allotAgent},function(data){
+    		if(data.code != 1 ){
+    			alert(data.message);
+    		}else{
+    			alert(data.message);
+    			$(".trainer-allot,.moni-box").fadeOut();
+    			$("input[name=allotAgent]").val('');
+    		}
+    	},'json');
+    })
+    
+    //删除培训师
+    // 删除按钮
+    $(document).on("click",".removeBtn",function(){
+    	var thi = $(this);
+        var id = $(this).parents('tr').find('input[name=trainerid]').val();
+        $(".remove-box,.moni-box").fadeIn();
+        $(document).on("click",".removeSubmit",function(){
+            $(".remove-box,.moni-box").fadeOut();
+            $.post(del_trainer,{'id':id},function(data){
+            	if(data.code != 1){
+            		alert(data.message);
+            	}else{
+        			thi.parents("tr").addClass("remove");
+            		$(".remove").remove(); 
+            		alert(data.message);
+            	}
+            },'json');
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>设置</title>
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/common.css" />
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/index.css" />
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/setup.css" />
+	</head>
+	<body style="min-width: 1366px;">
+		<!--父容器开始-->
+		<div class="outer_div">
+			<!--左边导航模块-->
+			<div class="left_template">
+				<div class="user_logo">
+					<a href="/Publicity/index"><img src="STYLE_DOMAIN/Home/1.6/Images/common_logo.png" alt="" /></a>
+				</div>
+				<p class="company_name1">{$crm_data.company}</p>
+				<!--用户导航列表-->
+				<div class="userList_bar">
+					<ul class="userList_ul">
+						<li class="userList_li">
+							<span class="icon-01"></span>
+							<span class="icon-text">概览</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-02"></span>
+							<span class="icon-text">线索</span>
+							<if condition="$search_look eq 0">
+								<if condition="$one_sum neq 0">
+									<span class="xiansuo_count">{$one_sum}</span>
+								</if>
+							</if>
+						</li>
+						<li class="userList_li">
+							<span class="icon-03"></span>
+							<span class="icon-text">客户管理</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-04"></span>
+							<span class="icon-text">联系人</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-05"></span>
+							<span class="icon-text">公海</span>
+						</li>
+						<li class="userList_li icon-shopping">
+							<span class="icon-06"></span>
+							<span class="icon-text">商品</span>
+							<span class="icon-shopping-1"></span>
+						</li>
+						<div class="icon-shopping-div">
+							<p>商品管理</p>
+							<p>发布产品</p>
+						</div>
+						<li class="userList_li">
+							<span class="icon-07"></span>
+							<span class="icon-text">咨询信息</span>
+						</li>
+						<li class="userList_li active">
+							<span class="icon-08"></span>
+							<span class="icon-text">设置</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-09"></span>
+							<span class="icon-text">反馈</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--右边主题内容-->
+			<div class="right_template">
+				<div class="left_header">
+					<div class="page_state">设置</div>
+					<if condition="$crm_vip.code eq 1">
+						<div class="vip-valid">会员有效日期：
+							<?php echo date("Y-m-d",$crm_vip['data']['totime']);?>
+						</div>
+					</if>
+				</div>
+				<div class="right_header">
+					<ul>
+						<if condition="$crm_vip.code eq 3">
+							<li class="buy_xiansuoli1">
+								<span class="buy_vip_icon1"></span>
+								<a href="javascript:;">购买会员</a>
+							</li>
+							<elseif condition="$crm_vip.code eq 2" />
+							<li class="buy_xiansuoli1" style="cursor: default;">
+								<span class="buy_vip_icon1"></span>
+								<a href="javascript:;" style="cursor: default;">会员认证中</a>
+							</li>
+						</if>
+						<li class="xiansuoli1">
+							<span class="user_icon1"></span>
+							<a href="javascript:;">
+								<?php echo ($crm_data['username'].'('.$crm_data['passport'].')') ;?>
+							</a>
+						</li>
+						<li class="xiansuoli1">
+							<a href="/Login/logout"><span class="login_out1"></span>退出</a>
+						</li>
+					</ul>
+				</div>
+
+				<!--设置内容开始-->
+				<div class="SetupCenter">
+					<!--头部开始-->
+					<div class="SetupCenter-top">
+						<form name="form0" id="form0" method="post" action="" enctype="multipart/form-data">
+							<input type="file" name="file0" id="file0" accept="image/png,image/jpeg" multiple="multiple" /><br>
+							<div class="toppost">
+								<img src="{$userimg}" id="img0">
+								<!--头像模态框-->
+								<div class="modal_SetUp">
+									修改头像
+								</div>
+								<!--头像模态框结束-->
+							</div>
+						</form>
+						<h2>用户名：{$crm_data['username']}
+                <notempty name="crm_data.passport">
+                ({$crm_data['passport']})
+                </notempty>
+                </h2>
+						<p><span>用户类型：<if condition="$crm_vip.code eq 1">vip会员<else/>普通会员</if></span>
+							<if condition="$crm_vip.code eq 1"><i>有效期：<?php echo date("Y-m-d",$crm_vip['data']['totime']);?></i></if>
+						</p>
+						<div class="SetUp-btns">
+							<span>安全设置</span>
+							<i class="Updata-Password">修改密码</i>
+							<!--   <i class="Updata-Phone">修改手机</i> -->
+							<i class="Updata-message">消息管理</i>
+						</div>
+					</div>
+					<!--中部开始-->
+					<div class="SetupCenter-center">
+						<p>基本信息</p>
+						<!--表单部分-->
+						<div class="SetupCenter-center-form">
+							<div class="message">
+								<span>姓&ensp;&ensp;&ensp;&ensp;名</span><input type="text" value="{$mem_data['truename']}" class="truename" placeholder="请输入姓名">
+							</div>
+							<div class="message">
+								<span>昵&ensp;&ensp;&ensp;&ensp;称</span><input type="text" value="{$mem_data['passport']}" class="passport" placeholder="请输入昵称">
+							</div>
+							<div class="message">
+								<span class="name-messge">性&ensp;&ensp;&ensp;&ensp;别</span>
+								<select class="message-sex gender">
+									<option value="0" <?php if($mem_data[ 'gender']==0){echo 'selected="selected"';}?> >保密</option>
+									<option value="1" <?php if($mem_data[ 'gender']==1){echo 'selected="selected"';}?>>男</option>
+									<option value="2" <?php if($mem_data[ 'gender']==2){echo 'selected="selected"';}?>>女</option>
+								</select>
+							</div>
+							<div class="message">
+								<span>公司名称</span><input type="text" value="{$com_data['company']}" class="company" placeholder="请输入公司名称">
+							</div>
+							<div class="message">
+								<span>手机号码</span><input class="MessPhone" type="text" value="{$mem_data['mobile']}" placeholder="请输入手机号码">
+							</div>
+							<div class="message">
+								<span>邮&ensp;&ensp;&ensp;&ensp;箱</span><input class="MessEmail" value="{$mem_data['email']}" type="text" placeholder="请输入邮箱">
+							</div>
+							<div class="message">
+								<span class="name-messge">行&ensp;&ensp;&ensp;&ensp;业</span>
+								<select class="message-sex cat_data">
+									<option value="0">请选择</option>
+									<foreach name="cat_data" item="vo">
+										<if condition="$vo.catid eq $catid">
+											<option value="{$vo.catid}" selected="selected">{$vo.catname}</option>
+											<else/>
+											<option value="{$vo.catid}">{$vo.catname}</option>
+										</if>
+									</foreach>
+								</select>
+							</div>
+							<div class="message">
+								<span>主营产品</span><input type="text" value="{$com_data['business']}" class="business" placeholder="请输入主营产品">
+							</div>
+							<div class="message" id='area'>
+								{$data}
+							</div>
+							<input type="hidden" name="areaid" id="areaid" value="" />
+							<div class="message">
+								<span>详细地址</span><input type="text" value="{$com_data['address']}" class="address" placeholder="请输入详细地址">
+							</div>
+						</div>
+						<!--表单部分结束-->
+						<!--保存按钮-->
+						<span class="Updata">保存</span>
+						<!--保存结束-->
+					</div>
+					<!--模态框加修改操作框开始-->
+					<!--模态框开始-->
+					<div class="modal_Bigbox">
+						<!--修改密码框-->
+						<div class="UpPassword">
+							<div class="UpPassword-top"><span>修改密码</span><i>&#215;</i></div>
+							<div class="UpPassword-center">
+								<div class="input-name">
+									<em>旧密码</em>
+									<input id="password-1" type="password" name="" class="old-pwd" maxlength="20" />
+									<i class="password-NO">密码不正确！</i>
+								</div>
+								<div class="input-password">
+									<em>新密码</em>
+									<input id="password-2" type="password" maxlength="20" class="new-pwd" />
+									<i class="ShowPassword" state="off"></i>
+								</div>
+								<span class="password-off">取消</span>
+								<span class="password-save">确认</span>
+							</div>
+						</div>
+						<!--修改密码框结束-->
+						<!--修改手机number开始-->
+						<div class="Updata-Phonenumber">
+							<div class="UpPhone-top"><span>修改手机</span><i>&#215;</i></div>
+							<div class="UpPhone-center">
+								<div class="input01">
+									<em>手机号码</em>
+									<input type="text" id="IphoneNumber" value="{$mem_data['mobile']}" disabled="disabled" maxlength="11" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" />
+									<i class="UpPhone-send01">发送验证码</i>
+								</div>
+								<div class="input02">
+									<em>动态码</em>
+									<input type="text" placeholder="请输入动态验证码" class="old_code" maxlength="11" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" />
+									<input type="hidden" id="code_type" value='0' />
+									<span class="iphoneNO1">验证码不正确！</span>
+								</div>
+								<div class="input03">
+									<em>修改手机号码</em>
+									<input id="uppass" type="text" placeholder="请输入需要修改的手机号码" class="new_moblie" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" />
+									<i class="UpPhone-send02">发送验证码</i>
+
+								</div>
+								<div class="input04">
+									<em>动态码</em>
+									<input type="text" placeholder="请输入动态验证码" class="new_code" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" />
+									<span class="iphoneNO2">验证码不正确！</span>
+								</div>
+								<span class="Phone-off">取消</span>
+								<span class="Phone-save">确认</span>
+							</div>
+						</div>
+						<!--修改手机number结束-->
+						<!--消息管理开始-->
+						<div class="Updata-Message">
+							<div class="Updata-Message-top"><span>消息设置</span><i>&#215;</i></div>
+							<div class="Updata-Message-center">
+								<h3>接受推送时间</h3>
+								<div class="xian"></div>
+								<div class="center01">
+									<span>每天统一10点接收推送信息</span><i class="back01"></i>
+								</div>
+								<div class="center02">
+									<span>取消接收推送消息</span><i class="back02"></i>
+								</div>
+								<h2>接受推送方式</h2>
+								<div class="xian"></div>
+								<div class="center03">
+									<span>微信提醒</span><i class="back03"></i>
+								</div>
+								<div class="center04">
+									<span>邮件提醒</span><i class="back04"></i>
+								</div>
+								<div class="xian"></div>
+								<span class="Message-off">取消</span>
+								<span class="Message-no">确定</span>
+							</div>
+						</div>
+						<!--消息管理结束-->
+					</div>
+					<!--模态框结束-->
+					<!--模态框加修改操作框结束-->
+				</div>
+				<!--内容结束-->
+			</div>
+			<!--右边主题内容结束-->
+		</div>
+		<!--父容器结束-->
+		<!--CRM引导-->
+		<div class="Guidance-box" style="display: none">
+			<img class="Guidance" src="STYLE_DOMAIN/Home/1.6/Images/shezhi01.jpg" alt="">
+			<em class="GuidanceClos"></em>
+		</div>
+		<!--绑定手机窗口-->
+		<div class="My-Iphone-model">
+			<div class="My-Iphone">
+				<div class="My-Iphone-Top"><em>&#215;</em></div>
+				<div class="My-Iphone-center">
+					<p>请确保您输入的手机能正常接收验证码，手机号码才能生效。绑定后，您可以用手机号码直接登录雀搜网站。</p>
+					<input class="MyIphoneInput" type="text" placeholder="请输入手机号码" maxlength="11">
+					<em class="My-Iphone-logo"></em>
+					<i class="My-Iphone-clos" style="display: none"></i>
+					<input class="MyCodeInput" type="text" placeholder="请输入验证码" maxlength="4">
+					<em class="My-Code-logo"></em>
+					<span class="MyIphoneBtn">获取验证码</span>
+					<span class="MyIphoneText-T"></span>
+					<span class="MyIphoneAffirm">确认</span>
+				</div>
+			</div>
+		</div>
+		<!--绑定邮箱窗口-->
+		<div class="My-Email-model">
+			<div class="My-Email">
+				<div class="My-Email-Top"><em>&#215;</em></div>
+				<div class="My-Email-center">
+					<p>请确保您输入的邮箱能正常接收验证码，邮箱才能生效。绑定后，您可以用邮箱直接登录雀搜网站。</p>
+					<input class="MyEmailInput" type="text" placeholder="请输入邮箱">
+					<em class="My-Email-logo"></em>
+					<i class="My-Email-clos" style="display: none"></i>
+					<input class="MyEmailCodeInput" type="text" placeholder="请输入验证码" maxlength="4">
+					<em class="My-Code-logo"></em>
+					<span class="MyEmailBtn">获取验证码</span>
+					<span class="MyEmailText-T"></span>
+					<span class="MyEmailAffirm">确认</span>
+				</div>
+			</div>
+		</div>
+
+		<script src="STYLE_DOMAIN/Home/1.6/js/jquery.js"></script>
+		<script src="STYLE_DOMAIN/Home/1.6/js/crm-common.js"></script>
+		<script type="text/javascript">
+			var url_str = "http://<?php echo $_SERVER['HTTP_HOST'];?>/Wechat";
+			var is_user = "{:U('CrmSettings/user_login')}";
+			var email_code = "{:U('CrmSettings/get_email_code')}";
+			var phone_code = "{:U('CrmSettings/get_phone_code')}";
+			var binding = "{:U('CrmSettings/bindings')}";
+		</script>
+		<script src="STYLE_DOMAIN/Home/1.6/js/setup.js"></script>
+		<script src="STYLE_DOMAIN/Home/1.6/js/jquery-form.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				var SetupIndex = {$look} == 1 ? true : false;
+				if(SetupIndex) {
+					$(".Guidance-box").show();
+				} else {
+					$(".Guidance-box").hide();
+				}
+				
+				//点击保存表单
+				$(".Updata").on("click", function(e) {
+					var truename = $('.truename').val();
+					var passport = $('.passport').val();
+					var gender = $('.gender').val();
+					var company = $('.company').val();
+					var catid = $('.cat_data').val();
+					var business = $('.business').val();
+					var address = $('.address').val();
+					var areaid = $('#areaid').val();
+					ajax_message('show');
+					$.ajax({
+						type: 'POST',
+						dataType: 'json',
+						data: {
+							'truename': truename,
+							'passport': passport,
+							'gender': gender,
+							'company': company,
+							'catid': catid,
+							'business': business,
+							'address': address,
+							'areaid': areaid
+						},
+						url: '/CrmSettings/change_data',
+						success: function(res) {
+							ajax_message('hide');
+							if(res.code == 1) {
+								success('保存成功');
+							} else {
+								error('系统繁忙');
+							}
+							return false;
+						}
+					})
+					e.stopPropagation();
+				})
+	
+				//更换头像事件代理点击事件
+				$(document).on("click", ".modal_SetUp", function(e) {
+					$("#file0").click();
+					e.stopPropagation();
+				})
+	
+				$("#file0").change(function(e) {
+					var objUrl = getObjectURL(this.files[0]);
+					console.log("objUrl = " + objUrl);
+					if(objUrl) {
+						$("#img0").attr("src", objUrl);
+						ajaxSubmitForm();
+					}
+					e.stopPropagation();
+				});
+	
+				//修改密码
+				$('.password-save').on('click', function() {
+					var new_password = $('.new-pwd').val();
+					var old_password = $('.old-pwd').val();
+					var p = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,10}$/;
+					if(old_password == undefined || old_password == "" || old_password == null) {
+						error('密码不能为空');
+						return false;
+					}
+					if(!p.test(new_password)) {
+						error('密码只能6-10位的数字与字母组合');
+						return false;
+					}
+					$.ajax({
+						type: "POST",
+						url: "{:U('change_password')}",
+						data: {
+							"new_password": new_password,
+							"old_password": old_password
+						},
+						dataType: "json",
+						success: function(res) {
+							if(res.code == '1') {
+								success('修改成功');
+								$(".modal_Bigbox").hide();
+								$(".UpPassword").hide();
+							} else {
+								error('修改失败');
+	
+							}
+						}
+					})
+				})
+	
+				//失去焦点验证验证码
+				$(".old_code").blur(function() {
+					var code = $('.old_code').val();
+					$.ajax({
+						type: 'POST',
+						dataType: 'json',
+						data: {
+							'code': code
+						},
+						url: '/CrmSettings/chang_old_code',
+						success: function(res) {
+							if(res.code == 1) {
+								$('#code_type').val('1');
+							} else {
+								$('#code_type').val('0');
+								error(res.message);
+							}
+						}
+					})
+				});
+			})
+			
+			function ajaxSubmitForm() {　　　　
+				var option = {　　
+					url: '/CrmSettings/change_imges',
+					　　type: 'POST',
+					　　dataType: 'json',
+					　　headers: {
+						"ClientCallMode": "ajax"
+					}, //添加请求头部
+					　　success: function(data) {　　
+						if("1" == data.code) {　　
+							success("头像修改成功");
+						} else {
+							error("图片上传失败");
+							return false;
+						}
+					},
+					error: function(data) {
+						error("图片上传失败");
+					}
+				};
+				$("#form0").ajaxSubmit(option);
+				return false; //最好返回false，因为如果按钮类型是submit,则表单自己又会提交一次;返回false阻止表单再次提交
+			}
+
+			//上传图片保存路径函数及兼容性处理
+			function getObjectURL(file) {
+				var url = null;
+				if(window.createObjectURL != undefined) { // basic
+					url = window.createObjectURL(file);
+				} else if(window.URL != undefined) { // mozilla(firefox)
+					url = window.URL.createObjectURL(file);
+				} else if(window.webkitURL != undefined) { // webkit or chrome
+					url = window.webkitURL.createObjectURL(file);
+				}
+				return url;
+			}
+		</script>
+	</body>
+
+</html>

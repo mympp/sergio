@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>雀搜代理商管理系统登录页面</title>
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/login.css">
+</head>
+<body class="login">
+	<div class="login-bbox">
+		<div class="login-title">
+			<img src="../Images/icon_login_hegnxian_zuo.png">
+			<h1>雀搜代理商管理系统</h1>
+			<img src="../Images/icon_login_hegnxian_you.png">
+		</div>
+		<div class="login-box">
+			<h4>账号登录</h4>
+			<div class="err-tip"></div>
+			<input type="text" name="user_zh" class="input_cell1" placeholder="账户名/登录名">
+			<input type="password" name="user_pwd" class="input_cell2" minlength="6" maxlength="20" placeholder="密码由6-20位字母，数字和符号组合">
+			<!-- 验证开始 -->
+			<div class="checkSubmit" style="display: none;">
+				<img class="yzm-weizhi" src="{:U('Common/verify')}" title="刷新"/>
+		　　　　<input type="text" name="user_yzm" value="" placeholder="请输入验证码" class="input_cell3"/>
+			</div><br />
+			<!-- 验证结束 -->
+			<input type="checkbox" class="vam checkedres" name="checkedres" value="1">
+			<em class="vam">记住雀搜账号</em><br />
+			<input type="submit" value="登录" name="login_btn" id="submit">
+			<div class="login-forget">
+				<a href="{:U('')}" class="fl">忘记密码</a>
+				<a href="{:U('')}" class="fr">免费注册</a>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+			var url="{:U('login')}";
+			var index_url="{:U('CrmIndex/index')}";
+	</script>
+	<script src="../js/jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//为登录按钮绑定单击事件并验证用户输入的信息
+				var count = 0;
+			$("#submit").on('click',function(){
+				var username = $("input[name='user_zh']").val();
+				var userpwd = $("input[name='user_pwd']").val();
+				var useryzm = $("input[name='user_yzm']").val();
+				var jl 		= $("input:checkbox:checked").val();
+				if(username == ""){
+					$(".err-tip").html("请输入您的用户名");
+					return;
+				}else if(userpwd == ""){
+					$(".err-tip").html("请输入您的密码");
+					return;
+				}else if(count >= 3){
+					if(useryzm == ''){
+						$(".err-tip").html("请输入验证码");
+						return;
+					};
+				}
+		            var data={"username":username,"password":userpwd,"useryzm":useryzm,'count':count,'jl':jl};
+					$.ajax({
+						type: 'POST',
+						data:data,
+						dataType:"Json",
+						url: url, //此处需传page&size到后台
+						success: function(data) { 
+		                    console.log(data);
+		                    if(data.code==0){
+		                    	count++;
+		                    	console.log(count);
+		                    	if(count>=3){
+									$(".checkSubmit").show();
+								}
+		                       var newimg=$(".yzm-weizhi").attr("src")+"?"+Math.random();
+		            		   $(".yzm-weizhi").attr("src",newimg);
+		                       $(".err-tip").html(data.message);
+		                    }
+		                    if(data.code==1){
+		                       $(".err-tip").html("");
+		                       location.href=index_url;
+		                    }
+						},
+					});
+			});
+			$('.login-box').keypress(function(event){//按下回车建  
+			    var keycode = (event.keyCode ? event.keyCode : event.which);  
+			    if(keycode == '13'){  
+			        var username = $("input[name='user_zh']").val();
+					var userpwd = $("input[name='user_pwd']").val();
+					var useryzm = $("input[name='user_yzm']").val();
+					var jl 		= $("input:checkbox:checked").val();
+					if(username == ""){
+						$(".err-tip").html("请输入您的用户名");
+						return;
+					}else if(userpwd == ""){
+						$(".err-tip").html("请输入您的密码");
+						return;
+					}else if(count >= 3){
+						if(useryzm == ''){
+							$(".err-tip").html("请输入验证码");
+							return;
+						}
+					}
+						var data={"username":username,"password":userpwd,"useryzm":useryzm,'count':count,'jl':jl};
+						$.ajax({
+							type: 'POST',
+							data:data,
+							dataType:"json",
+							url: url, //此处需传page&size到后台
+							success: function(data) { 
+								console.log(data);
+								if(data.code==0){
+									count++;
+			                    	console.log(count);
+			                    	if(count>=3){
+										$(".checkSubmit").show();
+									}
+								   var newimg=$(".yzm-weizhi").attr("src")+"?"+Math.random();
+								   $(".yzm-weizhi").attr("src",newimg);
+								   $(".err-tip").html(data.message);
+								}
+								if(data.code==1){
+								   $(".err-tip").html("");
+								   location.href=index_url;
+								}
+							},
+						});
+			    }  
+			});
+		});
+		$(".yzm-weizhi").click(function() {
+        	var newimg=$(".yzm-weizhi").attr("src")+"?"+Math.random();
+        	$(".yzm-weizhi").attr("src",newimg);
+        });
+		$(function(){	
+			var url="{:U('Login/sso')}";
+			var res=$.ajax({  
+				type:"get", 
+				dataType:"jsonp",/*-----------------------*/  
+				url: url,  
+				crossDomain:true,/*-----------------------*/  
+				success: function(data){  
+					console.log(data);
+				}
+			});  
+		})
+    </script>
+</body>
+</html>

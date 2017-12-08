@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>发布产品</title>
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/common.css" />
+	    <link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/index.css" />
+	    <link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/release-product.css" />
+		<script type="text/javascript" charset="utf-8" src="http://<?php echo $_SERVER['SERVER_NAME'];?>/Public/Home/1.6/RichTextEdit/ueditor.config.js"></script>
+	    <script type="text/javascript" charset="utf-8" src="http://<?php echo $_SERVER['SERVER_NAME'];?>/Public/Home/1.6/RichTextEdit/ueditor.all.js"> </script>
+	    <script type="text/javascript" charset="utf-8" src="http://<?php echo $_SERVER['SERVER_NAME'];?>/Public/Home/1.6/RichTextEdit/lang/zh-cn/zh-cn.js"></script>
+	    <style type="text/css">
+		#edui1_bottombar{
+			display: none;
+		}
+    	</style>
+	</head>
+	<body style="min-width: 1366px;">
+		<div class="outer_div">
+			<!--左边导航模块-->
+			<div class="left_template">
+				<div class="user_logo"><a href="/Publicity/index"><img src="STYLE_DOMAIN/Home/1.6/Images/common_logo.png" alt="" /></a></div>
+				<p class="company_name1">{$crm_data.company}</p>
+				<!--用户导航列表-->
+				<div class="userList_bar">
+					<ul class="userList_ul">
+						<li class="userList_li">
+							<span class="icon-01"></span>
+							<span class="icon-text">概览</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-02"></span>
+							<span class="icon-text">线索</span>
+							<if condition="$search_look eq 0">
+								<if condition="$one_sum neq 0">
+									<span class="xiansuo_count">{$one_sum}</span>
+								</if>
+		                    </if>
+						</li>
+						<li class="userList_li">
+							<span class="icon-03"></span>
+							<span class="icon-text">客户管理</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-04"></span>
+							<span class="icon-text">联系人</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-05"></span>
+							<span class="icon-text">公海</span>
+						</li>
+						<li class="userList_li icon-shopping active">
+							<span class="icon-06"></span>
+							<span class="icon-text">商品</span>
+							<span class="icon-shopping-1"></span>
+						</li>
+						<div class="icon-shopping-div" style="display: block;">
+							<p><a href='{:U("CrmGoods/index")}'>商品管理</a></p>
+							<p class="open">发布产品</p>
+						</div>
+						<li class="userList_li">
+							<span class="icon-07"></span>
+							<span class="icon-text">咨询信息</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-08"></span>
+							<span class="icon-text">设置</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-09"></span>
+							<span class="icon-text">反馈</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--右边主题内容-->
+			<div class="right_template">
+				<div class="left_header">
+					<div class="page_state">发布产品</div>
+					<if condition="$crm_vip.code eq 1">
+		            <div class="vip-valid">会员有效日期：<?php echo date("Y-m-d",$crm_vip['data']['totime']);?></div>
+		            </if>
+		        </div>
+		        <div class="right_header">
+		            <ul>
+		               <if condition="$crm_vip.code eq 3">
+		                    <li class="buy_xiansuoli1">
+		                        <span class="buy_vip_icon1"></span>
+		                        <a href="javascript:;">购买会员</a>
+		                    </li>
+		                    <elseif condition="$crm_vip.code eq 2"/>
+												<li class="buy_xiansuoli1" style="cursor: default;">
+														<span class="buy_vip_icon1"></span>
+														<a href="javascript:;" style="cursor: default;">会员认证中</a>
+												</li>
+		                </if>   
+		                    <li class="xiansuoli1">
+		                        <span class="user_icon1"></span>
+		                        <a href="javascript:;"><?php echo ($crm_data['username'].'('.$crm_data['passport'].')') ;?></a>
+		                    </li>
+		                    <li class="xiansuoli1">
+		                        <a href="/Login/logout"><span class="login_out1"></span>退出</a>
+		                    </li>
+		            </ul>
+				</div>
+				<!--发布产品开始-->
+				<div class="release-product_main">
+					<div class="tsXq-div_main">
+						<div class="one-cell">
+							<span class="one-cell_lf">
+								<em>*</em>
+								<label>信息类型：</label>
+							</span>
+							<div class="one-cell_rt">
+								<input type="radio" class="gongying1 radius_cell vam" name="typeid" value="0"/>
+								<span class="first-cellSpan1 vam">供应</span>
+								<input type="radio" class="tg_fuwu radius_cell vam" name="typeid" value="1"/>
+								<span class="first-cellSpan1 vam">提供服务</span>
+								<input type="radio" class="gy_ershou radius_cell vam" name="typeid" value="2"/>
+								<span class="first-cellSpan1 vam">供应二手</span>
+								<input type="radio" class="tg_jg radius_cell vam" name="typeid" value="3"/>
+								<span class="first-cellSpan1 vam">提供加工</span>
+								<input type="radio" class="tg_hezuo radius_cell vam" name="typeid" value="4"/>
+								<span class="first-cellSpan1 vam">提供合作</span>
+								<input type="radio" class="kucun radius_cell vam" name="typeid" value="5"/>
+								<span class="first-cellSpan1 vam">库存</span>
+							</div>
+						</div>
+						<div class="one-cell">
+							<span class="one-cell_lf">
+								<em>*</em>
+								<label>信息标题：</label>
+							</span>
+							<div class="one-cell_rt">
+								<input type="text" class="input_1cell msg_title" name="title" placeholder="请输入信息标题"/>
+								<select class="msg_level" name="level">
+									<option value="0">级别</option>
+									<option value="1">1级</option>
+									<option value="2">2级</option>
+									<option value="3">3级</option>
+									<option value="4">4级</option>
+									<option value="5">5级</option>
+								</select>
+							</div>
+						</div>
+						<div class="one-cell">
+							<span class="one-cell_lf">
+								<em>*</em>
+								<label>关<span style="padding-left: 8px;"></span>键<span style="padding-left: 8px;"></span>词<span></span>：</label>
+							</span>
+							<div class="one-cell_rt">
+								<input type="text" class="input_1cell msg_keyWord" name="keyword" placeholder="请输入关键词（多个关键词用英文逗号分隔）"/>
+							</div>
+						</div>
+						<div class="one-cell">
+							<span class="one-cell_lf">
+								<em>*</em>
+								<label>行业分类：</label>
+							</span>
+							<div class="one-cell_rt category">
+								{$category}
+								<!-- <select class="select_hangye">
+									<option value="0">请选择行业分类</option>
+								<?php foreach($hydata as $k=>$v ):?>	
+									<option value="<?php echo $v['m_trade_id']?>"><?php echo $v['m_trade_name']?></option>
+								<?php endforeach ?> -->
+									<!-- <option value="2">建材行业</option>
+									<option value="3">食品行业</option>
+									<option value="4">医药行业</option>
+									<option value="5">塑料行业</option> -->
+								</select>
+							</div>
+						</div>
+						<div class="one-cell">
+							<span class="one-cell_lf">
+								<em style="visibility: hidden;">*</em>
+								<label>产品品牌：</label>
+							</span>
+							<div class="one-cell_rt">
+								<input type="text" class="input_1cell msg_brand" placeholder="请输入产品品牌"/>
+							</div>
+						</div>
+						<div class="one-cell">
+							<span class="one-cell_lf" style="vertical-align: top;height: 30px;display: inline-block;">
+								<em style="visibility: hidden;">*</em>
+								<label>详细说明：</label>
+							</span>
+							<div class="one-cell_rt" style="margin-left: 9px;vertical-align: top;position: relative;top: -6px;">
+								<script id="editor" type="text/plain" style="width:730px;height: 500px;margin-left: 8px;"></script>
+								<div class="tips_Text1_div">
+									<p class="tips_Text1_P1">1、建议您描述一下方面：产品的性能及优点、用途、售后服务、包装等；</p>
+									<p class="tips_Text1_P1">2、未避免不必要的纷争，请使用本企业图片；</p>
+								</div>
+							</div>
+						</div>
+						<div class="one-cell">
+							<span class="one-cell_lf" style="vertical-align: top;height: 30px;display: inline-block;">
+								<em style="visibility: hidden;">*</em>
+								<label>上传图片：</label>
+							</span>
+							<div class="one-cell_rt">
+								<!--上传照片开始-->
+								<div class="img-box full">
+									<section class=" img-section">
+										<div class="z_photo upimg-div">
+											<section class="z_file fl">
+												<img src="STYLE_DOMAIN/Home/1.6/Images/a11.png" class="add-img">
+												<input type="file" name="file" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple />
+											</section>
+										</div>
+									</section>
+								</div>
+								<!--上传照片结束-->
+							</div>
+						</div>
+						<div class="one-cell" style="margin-top: 25px;">
+							<span class="one-cell_lf">
+								<em style="visibility: hidden;">*</em>
+								<label>过期时间：</label>
+							</span>
+							<div class="one-cell_rt">
+								<input type="text" class="input_cell_sm1 date_icon_1" id="expiration_time" placeholder="请选择到期时间"/>
+							</div>
+						</div>
+						<div class="one-cell">
+							<span class="one-cell_lf" style="vertical-align: top;">
+								<em style="visibility: hidden;">*</em>
+								<label>主要参数：</label>
+							</span>
+							<div class="one-cell_rt" style="vertical-align: top;">
+								<span class="arg_name1T">参数名称</span>
+								<span class="arg_val1T">参数值</span>
+								<!--自定义输入框列表-->
+								<div class="zdy_inputList">
+									<div class="zdy_input_cell">
+										<input type="text" class="input_cell_sm1 arg_name1" placeholder="自定义标签"/>
+										<input type="text" class="input_cell_md1 arg_val1" placeholder="自定义标签内容"/>
+									</div>
+									<div class="zdy_input_cell">
+										<input type="text" class="input_cell_sm1 arg_name2" placeholder="自定义标签"/>
+										<input type="text" class="input_cell_md1 arg_val2" placeholder="自定义标签内容"/>
+									</div>
+									<div class="zdy_input_cell">
+										<input type="text" class="input_cell_sm1 arg_name3" placeholder="自定义标签"/>
+										<input type="text" class="input_cell_md1 arg_val3" placeholder="自定义标签内容"/>
+									</div>
+								</div>
+								<p class="zdytips-text1">例如：规格<span></span>例如：10CM*20CM</p>
+							</div>
+						</div>
+						<div class="one-cell" style="margin-top: 20px;">
+							<span class="one-cell_lf" style="vertical-align: top;">
+								<em style="visibility: hidden;">*</em>
+								<label>交易条件：</label>
+							</span>
+							<div class="one-cell_rt" style="vertical-align: top;position: relative;bottom: 4px;">
+								<div class="compute_dets1">
+									<span class="Cspan-text1">计量单位</span>
+									<input type="text" class="input_cell_smm1 jl_count" placeholder="个数"/>
+									<sapn class="Cspan-text1" style="margin-left: 20px;">产品价格</sapn>
+									<input type="text" class="input_cell_smm1 pd_price" placeholder="0.00"/>
+								</div>
+								<div class="compute_dets2">
+									<span class="Cspan-text1">最小起订量</span>
+									<input type="text" class="input_cell_smm1 smm_count1" placeholder="个数"/>
+									<span style="font-size: 14px;color: #494949;margin-left: 5px;">单位</span>
+									<sapn class="Cspan-text1" style="margin-left: 20px;">供货总量</sapn>
+									<input type="text" class="input_cell_smm1 pd_counts1" placeholder="0.00"/>
+									<span style="font-size: 14px;color: #494949;margin-left: 5px;">单位</span>
+								</div>
+								<div class="compute_dets3">
+									<span class="Cspan-text1">发货期限&nbsp;&nbsp;&nbsp;&nbsp;自买家付款之日起<input type="text" class="input_cell_smm2 start_time1" placeholder="天数"/>天内发货</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--重置及确认按钮-->
+					<div class="Two_Btn_cells_1">
+						<div class="Two_Btn_cells_2">
+							<span class="btn_reset_1">重置</span>
+							<span class="btn_yes_1">确认</span>
+						</div>
+					</div>
+				</div>
+				<!--发布产品结束-->
+			</div>
+		</div>
+		<!--上传图片删除模态框-->
+		<aside class="mask works-mask">
+			<div class="mask-content">
+				<p class="del-p">您确定要删除图片吗？</p>
+				<p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+			</div>
+		</aside>
+		<!--完善资料-->
+		<form name="form0" id="form0" method="post" action="" enctype="multipart/form-data">
+		<div class="Complete-model">
+			<div class="Complete-box">
+				<div class="Complete-box-top"><span>完善资料</span><i>&#215;</i></div>
+				<div class="Complete-box-head">
+					<img class="head-img" src="{$v_data.image}" alt="">
+					<span class="head-text">
+						<span class="head-text-name">HI，<em>{$v_data.username}</em></span>
+						<span class="head-text-2">请完善信息资料，完善后您就可以发布产品免费推广啦~`</span>
+					</span>
+
+
+				</div>
+				<div class="Complete-box-body">
+					<div class="Complete-box-body-input">
+						<em class="Complete-box-ICO">*</em>
+						<span class="Complete-box-type">名&ensp;&ensp;&ensp;&ensp;称</span>
+						<input class="Complete-box-input Name" name='name' type="text" placeholder="请输入个人真实姓名或公司名称">
+						<span class="input-text i-name"></span>
+					</div>
+					<div class="Complete-box-body-input">
+						<em class="Complete-box-ICO">*</em>
+						<span class="Complete-box-type">证件类型</span>
+						<!--<input class="Complete-box-input" type="text" placeholder="请输入个人真实姓名或公司名称">-->
+						<select class="Complete-box-input genre" name="type">
+							<option value="请选择" style="color: #b6b6b6" disabled selected>请选择</option>
+							<option value="身份证">身份证</option>
+							<option value="营业执照">营业执照</option>
+						</select>
+						<span class="input-text i-sf"></span>
+					</div>
+					<div class="Complete-box-body-input">
+						<em class="Complete-box-ICO">*</em>
+						<span class="Complete-box-type">证&ensp;件&ensp;号</span>
+						<input class="Complete-box-input code-yzm" name="code" type="text" placeholder="请输入证件号" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" maxlength="18">
+						<span class="input-text i-zj"></span>
+					</div>
+					<div class="Complete-box-body-input">
+						<em class="Complete-box-ICO">*</em>
+						<span class="Complete-box-type">手机号码</span>
+						<input class="Complete-box-input Phone" name="tel" type="text" placeholder="请输入手机号码" onkeyup="value=value.replace(/[^\d]/g,'')" maxlength="11">
+						<span class="input-text i-phone"></span>
+					</div>
+					<div class="Complete-box-body-input">
+						<em class="Complete-box-ICO">&ensp;</em>
+						<span class="Complete-box-type">邮&ensp;&ensp;&ensp;&ensp;箱</span>
+						<input class="Complete-box-input Email" name="email" type="text" placeholder="请填写邮箱号码">
+						<span class="input-text i-email"></span>
+					</div>
+					<div class="Complete-box-body-input">
+						<em class="Complete-box-ICO">&ensp;</em>
+						<span class="Complete-box-type">联系地址</span>
+						<input class="Complete-box-input companyAddress" name="address" type="text" placeholder="请填写联系地址">
+					</div>
+					<div class="Complete-box-body-input Complete-box-IMG">
+						<em class="Complete-box-ICO">&ensp;</em>
+						<em class="Complete-box-ICO" style="position: absolute; left: 1px">*</em>
+						<span class="Complete-box-type" style="vertical-align: top">证件照片</span>
+						<span class="Complete-box-MinBOX"></span>
+						<em class="Complete-box-cloe"></em>
+						
+						<input type="file"  style="display: none"  name="file0" id="file0" multiple="multiple"  accept="image/*" />
+						<span class="input-text i-img" style="top: 88px;"></span>
+					</div>
+					<div style="margin-left: 21.5%;margin-top: -10px;position: relative;">
+						<input class="checkbox-zl" type="checkbox" checked="true">
+						<span class="check-img"></span>
+						<em class="check-em">我已阅读并同意 <i class="check-i">《雀搜服务协议》</i></em>
+						<span class="input-text i-checkbox" style="left: 0px;top: 23px;"></span>
+					</div>
+
+				</div>
+				<div class="Complete-box-btn">提交</div>
+			</div>
+
+		</div>
+		</form>
+		<!--完善资料提交成功提示-->
+		<div class="Complete-model-wan">
+			<div class="wan-box">
+				<div class="wan-text">
+					您的资料已经提交，请上传您要推广的商品，审核通过后，雀搜平台将为您商品免费全网推广啦~
+				</div>
+			</div>
+		</div>
+		<!--异步加载模态框-->
+		<div class="ajax_loadModal">
+			<div class="ajax_load_img">
+				<img src="STYLE_DOMAIN/Home/1.6/Images/load-1.gif" alt="" />
+			</div>
+		</div>
+		<!--CRM引导-->
+		<div class="Guidance-box" style="display: none">
+			<img class="Guidance" src="STYLE_DOMAIN/Home/1.6/Images/fabu01.jpg" alt="">
+			<em class="GuidanceClos"></em>
+		</div>
+		<script src="STYLE_DOMAIN/Home/1.6/js/jquery.js"></script>
+		<script src="STYLE_DOMAIN/Home/1.6/js/jquery-form.js"></script>
+		<script>
+			var pcGoodsAdd = "{:U('CrmGoods/pc_add_goods')}";
+			var pc_img_add = "{:U('CrmGoods/pc_img_add')}";
+			var pc_img_del = "{:U('CrmGoods/pc_img_del')}";
+			var pcGoodsIndex="{:U('CrmGoods/index')}";
+
+			$(function(){
+				status = "{$v_data.status}";
+				var v_status = "{$v_data.vipstatus}";
+				if (v_status==1){
+					vipstatus =false;
+				}else{
+					vipstatus =true;
+				}
+	
+		        $(".tsXq-div_main").show();
+		        $(".Two_Btn_cells_1").show();
+		        if(vipstatus){
+		            $(".Complete-model").show();
+		        }else {
+		            $(".Complete-model").hide();
+		        }
+		    
+
+			})
+
+			
+		</script>
+		
+		<script src="STYLE_DOMAIN/Home/1.6/js/crm-common.js"></script>
+		<script src="STYLE_DOMAIN/Home/1.6/js/laydate.js"></script>
+		<script src="STYLE_DOMAIN/Home/1.6/js/imgPlugin.js"></script>
+		<script src="STYLE_DOMAIN/Home/1.6/js/release-product.js"></script>
+		<script src="STYLE_DOMAIN/Home/1.6/js/release-wan.js"></script>
+		<script>
+		$(document).on("click",".btn_reset_1",function(){
+			load_area(0);
+			$('input:radio').prop('checked',false); 
+			$("input:not('.radius_cell'),textarea").val("");
+			$("select").val(0); 
+			$("#editor").find("#ueditor_0").contents().find("body").empty();
+			$("#edui1_iframeholder").css("height","500px");
+		})
+			function load_area(areaid){
+		        $.ajax({
+		            type:'POST',
+		            dataType:'json',
+		            data:{'catid':areaid},
+		            url:'/CrmGoods/pc_category',
+		            success:function(res){
+		                $('#areaid').val(areaid);
+		                $('.category').html('');
+		                $('.category').append(res);
+		            }
+		        })
+		      }
+			var ue = UE.getEditor('editor');
+			$("#file").takungaeImgup({
+			      formData: {
+			          "name": "file_name"
+			      },
+			      url: pc_img_add,
+			      success: function(data) {
+			      	alert(data);
+			      },
+			      error: function(err) {
+			        alert(err);
+			      }
+			});
+		</script>
+		<script>
+			$(function(){
+				var FabuIndex = {$look}==1?true:false;
+				if(FabuIndex) {
+					$(".Guidance-box").show();
+				}else {
+					$(".Guidance-box").hide();
+				}
+			})
+		</script>		
+	</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>业务员管理</title>
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/set.css">
+</head>
+<body style="min-width: 1280px;">
+<!--父容器开始-->
+<div class="outer_div">
+	<div class="left_template"></div>
+	<div class="right_template"></div>
+	<div class="page-set">
+		<h2>业务员设置</h2>
+        <a href="javascript:;" class="addSalesman blue-btn add-btn">新增</a>
+    	<form class="agent-head border-top">
+    		<p>按条件筛选：</p>
+        	<div class="agent-input">
+            	<label>姓名：</label><input type="text" name="searchName" placeholder="">
+        		<label>账号：</label><input type="text" name="searchEmail" placeholder="">
+        		<!-- <div class="fl"> -->
+                    <label>状态：</label>
+            		<select class="searchStatus">
+            			<option value="启用">启用</option>
+            			<option value="禁用">禁用</option>
+            		</select>
+                <!-- </div> -->
+                <!-- <div class="cb"></div> -->
+            </div>
+    		<input type="button" value="搜索" name="search" class="blue-btn" id="searchBtn">
+    		<input type="button" value="清空" name="clear" class="white-btn">
+    	</form>
+		<!--表格模块开始-->
+        <div class="table-wrap">
+            <div class="table-head">
+                <div class="table-head-wrap">
+                    <table class="grid">
+                        <colgroup>
+                            <col style="width:10%">
+                            <col style="width:10%">
+                            <col style="width:20%">
+                            <col style="width:10%">
+                            <col style="width:20%">
+                            <col style="width:10%">
+                            <col style="width:20%">
+                        </colgroup>
+                        <thead>
+							<tr>
+								<th>业务员</th>
+								<th>联系电话</th>
+								<th>账号</th>
+								<th>所属代理商</th>
+								<th>最后登录日期</th>
+								<th>状态</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+                    </table>
+                </div>
+            </div>
+            <div class="table-content table-content2">
+                <table class="grid">
+                    <colgroup>
+                        <col style="width:10%">
+                        <col style="width:10%">
+                        <col style="width:20%">
+                        <col style="width:10%">
+                        <col style="width:20%">
+                        <col style="width:10%">
+                        <col style="width:20%">
+                    </colgroup>
+                    <tbody class="table_ctbody">
+						<tr>
+							<td>
+								<a href="javascript:;" class="salesmanDetails">名称A</a>
+							</td>
+							<td>15612345678</td>
+							<td>chenkaiwen@527so.com</td>
+							<td>XX代理商</td>
+							<td>2017-10-30 18：59</td>
+							<td>有效</td>
+							<td class="tda2">
+								<a href="javascript:;" class="salesmanRedact fl">编辑</a>
+								<a href="javascript:;" class="removeBtn fr">删除</a>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="javascript:;" class="salesmanDetails">名称B</a>
+							</td>
+							<td>15612345678</td>
+							<td>chenkaiwen@527so.com</td>
+							<td>XX代理商</td>
+							<td>2017-10-30 18：59</td>
+							<td>无效</td>
+							<td class="tda2">
+								<a href="javascript:;" class="salesmanRedact fl">编辑</a>
+								<a href="javascript:;" class="removeBtn fr">删除</a>
+							</td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--表格模块结束-->
+        <!--分页器开始-->
+        <div class="xiansuo_Page_Div">
+            <!--<div class="xiansuo_Page_border"></div>-->
+            <div class="xiansuo_Page_div">
+                <div class="fl">
+                    <span style="margin-right: 5px;">每页显示</span>
+                    <select class="xiansuo_Page_Three">
+                        <option value="10">10</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <span style="margin-left: 5px;">条</span><span style="margin-left: 10px;">共</span><span class="xiansuo_Sizes">1500</span><span>条/</span><span class="xiansuo_Pages">50页</span>
+                    <img class="first_page" title="第一页" src="../Images/icon_sanjiao_01.png" alt="" />
+                    <img class="prev_page" title="上一页" src="../Images/icon_sanjiao_02.png" alt="" />
+                </div>
+                <ul class="xiansuo_Page_list">
+                    <li class="active">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+                <img class="next_page" title="下一页" style="margin-left: 15px;" src="../Images/icon_sanjiao_03.png" alt="" />
+                <img class="last_page" title="最后一页" src="../Images/icon_sanjiao_04.png" alt="" />
+                <span style="margin: 0 5px;">跳转</span><input type="text" value="0" class="that_Page" maxlength="10" /><span style="margin-left: 5px;">页</span>
+            </div>
+        </div>
+        <!--分页器结束-->
+        <!-- 虚拟弹窗开始 -->
+        <!-- 背景 -->
+        <div class="moni-box" style="display: none;"></div>
+		<!-- 新增业务员 -->
+		<div class="add-salesman moni-lbox" style="display: none;">
+			<div class="moni-head">
+				<p class="fl">新增业务员</p>
+				<em class="DataCenterBox-cols cleanAll fr">&#215;</em>
+			</div>
+			<form class="moni-main">
+				<label>姓名</label><i>：</i>
+                <input type="text" name="name" placeholder="业务员名称"><br />
+				<label>电话</label><i>：</i>
+                <input type="text" name="phone" placeholder="业务员电话"><br />
+				<label>账号</label><i>：</i>
+                <input type="text" name="ID" placeholder="业务员账号"><br />
+				<label>密码</label><i>：</i>
+                <input type="password" name="password"><br />
+				<label>启动状态</label><i>：</i>
+				<select class="addStatus">
+					<option value="有效">有效</option>
+					<option value="无效">无效</option>
+				</select>
+				<div class="btn-box">
+                    <input type="button" name="submit" value="确认" class="submit blue-btn" id="addSalesmanSub">
+					<input type="button" name="cancel" value="取消" class="cancel white-btn">
+				</div>
+			</form>
+		</div>
+		<!-- 业务员详情 -->
+		<div class="salesman-details moni-lbox" style="display: none;">
+			<div class="moni-head">
+				<p class="fl">业务员详情</p>
+				<em class="DataCenterBox-cols cleanAll fr">&#215;</em>
+			</div>
+			<div class="moni-main">
+				<label>姓名</label><i>：</i>
+				<span class="name">姓名A</span><br />
+				<label>账号</label><i>：</i>
+				<span class="ID">chengaiwen@527so.com</span><br />
+				<label>电话号码</label><i>：</i>
+				<span class="phone">15612345678</span><br />
+				<label>状态</label><i>：</i>
+				<span class="status">有效</span><br />
+				<label>创建日期</label><i>：</i>
+				<span class="addTime">2017-10-30 11：48</span><br />
+				<label>更新日期</label><i>：</i>
+				<span class="updateTime">2017-10-30 18：48</span><br />
+			</div>
+		</div>
+		<!-- 编辑业务员 -->
+		<div class="salesman-redact moni-lbox" style="display: none;">
+			<div class="moni-head">
+				<p class="fl">编辑业务员</p>
+				<em class="DataCenterBox-cols cleanAll fr">&#215;</em>
+			</div>
+			<form class="moni-main">
+				<label>姓名</label><i>：</i>
+                <input type="text" name="name"><br />
+				<label>电话</label><i>：</i>
+                <input type="text" name="phone"><br />
+				<label>账号</label><i>：</i>
+                <input type="text" name="ID"><br />
+				<label>密码</label><i>：</i>
+                <input type="password" name="password"><br />
+				<label>启动状态</label><i>：</i>
+				<select class="salesRedactStatus">
+					<option value="有效">有效</option>
+					<option value="无效">无效</option>
+				</select><br />
+				<label>创建日期</label><i>：</i>
+                <span class="addTime">2017-10-30 17:50</span><br />
+				<label>更新日期</label><i>：</i>
+                <span class="updateTime">2017-10-30 18：59</span><br />
+				<div class="btn-box">
+                    <input type="button" name="submit" value="确认" class="submit blue-btn" id="salesmanRedactSub">
+					<input type="button" name="cancel" value="取消" class="cancel white-btn">
+				</div>
+			</form>
+		</div>
+        <!-- 删除按钮 -->
+        <div class="remove-box moni-lbox" style="display: none;">
+            <p>确认删除？</p>
+            <div class="btn-box">
+                <input type="button" value="确认" name="remove" class="removeSubmit blue-btn">
+                <input type="button" value="取消" name="cancel" class="cancel white-btn">
+            </div>
+        </div>
+		<!-- 虚拟弹窗结束 -->
+	</div>
+</div>
+<script>var pages = "角色管理";var index1 = 3; var index2 = 3;</script>
+<script src="../js/jquery.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/role.js"></script>
+<script type="text/javascript">
+    //后台提交
+    //搜索按钮
+    $(document).on("click","#searchBtn",function(){
+        var searchName = $("input[name=searchName]").val(),
+        searchEmail = $("input[name=searchEmail]").val(),
+        status = $(".searchStatus:visible").val(),
+        emailreg = /^[a-z0-9-_.]+@[\da-z][\.\w-]+\.[a-z]{2,4}$/i;
+        if (searchName == "" && searchEmail == "") {
+            alert("搜索项不能为空");
+        } else if (!emailreg.test(searchEmail) && searchEmail !== "") {
+            alert("请输入正确的账号（邮箱格式如：quesou@527so.com）");
+        } else {
+            console.log(searchName,searchEmail,status);
+        }
+    });
+    //新增业务员
+    $(document).on("click","#addSalesmanSub",function(){
+        var name = $("input[name=name]:visible").val(),
+        phone = $("input[name=phone]:visible").val(),
+        ID = $("input[name=ID]:visible").val(),
+        password = $("input[name=password]:visible").val(),
+        status = $(".addStatus").val();
+        checkForm();//表单验证函数
+        console.log(name,phone,ID,password,status);//ajax提交
+    });
+
+    //业务员详情
+    $(function(){
+        var ziliaojson;//ajax获取数据
+        $(".name").text(ziliaojson);
+        $(".phone").text(ziliaojson);
+        $(".ID").text(ziliaojson);
+        $(".status").text(ziliaojson);
+        $(".addTime").text(ziliaojson);
+        $(".updateTime").text(ziliaojson);
+    });
+
+    //编辑业务员
+    $(document).on("click",".salesmanRedact",function(){
+        //弹出虚拟窗
+        $(".agent-redact,.moni-box").fadeIn();
+        //显示已有数据
+        var ziliaojson;//ajax获取数据
+        $("input[name=name]:visible").val(ziliaojson);
+        $("input[name=phone]:visible").val(ziliaojson);
+        $("input[name=ID]:visible").val(ziliaojson);
+        $("input[name=password]:visible").val(ziliaojson);
+        $(".salesRedactStatus").val(ziliaojson);
+        $(".addTime").text(ziliaojson);
+        $(".updateTime").text(ziliaojson);
+        //提交修改
+        $("#salesmanRedactSub").click(function(){
+	        var name = $("input[name=name]:visible").val(),
+	        phone = $("input[name=phone]:visible").val(),
+	        ID = $("input[name=ID]:visible").val(),
+	        password = $("input[name=password]:visible").val(),
+	        status = $(".salesRedactStatus").val();
+	        checkForm();//表单验证函数
+	        console.log(name,phone,ID,password,status);//ajax提交
+        });
+    });
+
+    //删除业务员
+    // 删除按钮
+    $(document).on("click",".removeBtn",function(){
+        $(this).parents("tr").addClass("remove");
+        var trId = $(this).parents("tr").attr("name");//取得删除那一行的name值
+        $(".remove-box,.moni-box").fadeIn();
+        $(document).on("click",".removeSubmit",function(){
+            $(".remove").remove(); 
+            $(".remove-box,.moni-box").fadeOut();
+            console.log(trId);//发起ajax
+        })
+    })
+</script>
+</body>
+</html>

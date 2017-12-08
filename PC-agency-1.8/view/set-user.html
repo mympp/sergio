@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>用户组设置</title>
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" type="text/css" href="../css/set.css">
+</head>
+<body style="min-width: 1280px;">
+<!--父容器开始-->
+<div class="outer_div">
+    <div class="left_template"></div>
+    <div class="right_template"></div>
+    <div class=" page-set">
+        <div class="user-main">
+            <h2>用户组设置</h2>
+            <a href="javascript:;" class="addUser fr blue-btn">新增</a>
+            <!--表格模块开始-->
+            <div class="table-wrap">
+                <div class="table-head">
+                    <div class="table-head-wrap">
+                        <table class="grid">
+                            <thead>
+                                <colgroup>
+                                    <col style="width:10%">
+                                    <col style="width:10%">
+                                    <col style="width:20%">
+                                    <col style="width:20%">
+                                    <col style="width:10%">
+                                    <col style="width:10%">
+                                    <col style="width:20%">
+                                </colgroup>
+                                <tr>
+                                    <th>ID编号</th>
+                                    <th>用户组</th>
+                                    <th>创建时间</th>
+                                    <th>更新时间</th>
+                                    <th>创建人</th>
+                                    <th>修改人</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <div class="table-content table-content1">
+                    <table class="grid">
+                        <colgroup>
+                            <col style="width:10%">
+                            <col style="width:10%">
+                            <col style="width:20%">
+                            <col style="width:20%">
+                            <col style="width:10%">
+                            <col style="width:10%">
+                            <col style="width:20%">
+                        </colgroup>
+                        <tbody class="table_ctbody">
+                            <tr>
+                                <td>1</td>
+                                <td>管理员</td>
+                                <td>2017-10-16 10:45</td>
+                                <td>2017-10-16 56:45</td>
+                                <td>A</td>
+                                <td>C</td>
+                                <td>
+                                    <a href="javascript:;" class="userRedact fl">编辑</a>
+                                    <a href="javascript:;" class="removeBtn fr">删除</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>代理商</td>
+                                <td>2017-10-16 10:45</td>
+                                <td>2017-10-16 56:45</td>
+                                <td>A</td>
+                                <td>C</td>
+                                <td>
+                                    <a href="javascript:;" class="userRedact fl">编辑</a>
+                                    <a href="javascript:;" class="removeBtn fr">删除</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>业务员</td>
+                                <td>2017-10-16 10:45</td>
+                                <td>2017-10-16 56:45</td>
+                                <td>A</td>
+                                <td>C</td>
+                                <td>
+                                    <a href="javascript:;" class="userRedact fl">编辑</a>
+                                    <a href="javascript:;" class="removeBtn fr">删除</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>培训师</td>
+                                <td>2017-10-16 10:45</td>
+                                <td>2017-10-16 56:45</td>
+                                <td>A</td>
+                                <td>C</td>
+                                <td>
+                                    <a href="javascript:;" class="userRedact fl">编辑</a>
+                                    <a href="javascript:;" class="removeBtn fr">删除</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--表格模块结束-->
+            <!--分页器开始-->
+            <div class="xiansuo_Page_Div">
+                <!--<div class="xiansuo_Page_border"></div>-->
+                <div class="xiansuo_Page_div">
+                    <div class="fl">
+                        <span style="margin-right: 5px;">每页显示</span>
+                        <select class="xiansuo_Page_Three">
+                            <option value="10">10</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                        <span style="margin-left: 5px;">条</span><span style="margin-left: 10px;">共</span><span class="xiansuo_Sizes">1500</span><span>条/</span><span class="xiansuo_Pages">50页</span>
+                        <img class="first_page" title="第一页" src="../Images/icon_sanjiao_01.png" alt="" />
+                        <img class="prev_page" title="上一页" src="../Images/icon_sanjiao_02.png" alt="" />
+                    </div>
+                    <ul class="xiansuo_Page_list">
+                        <li class="active">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                    </ul>
+                    <img class="next_page" title="下一页" style="margin-left: 15px;" src="../Images/icon_sanjiao_03.png" alt="" />
+                    <img class="last_page" title="最后一页" src="../Images/icon_sanjiao_04.png" alt="" />
+                    <span style="margin: 0 5px;">跳转</span><input type="text" value="0" class="that_Page" maxlength="10" /><span style="margin-left: 5px;">页</span>
+                </div>
+            </div>
+            <!--分页器结束-->
+        </div>
+        <!-- 模拟弹窗开始 -->
+        <!-- 背景 -->
+        <div class="moni-box" style="display: none;"></div>
+        <!-- 新增按钮 -->
+        <div class="add-user white-bg" style="display: none;">
+            <div class="moni-head">
+                <a href="javascript:;" class="closeAll"></a><!-- 关闭按钮 -->
+            </div>
+            <h2 class="fl">用户组名称</h2>
+            <!-- 搜索框 -->
+            <div class="user-search">
+                <input type="text" id="search-input1" placeholder="请输入用户组名称" />
+                <label for="search-input1" class="search-btn2"></label>
+            </div>
+            <!-- 列表设置 -->
+            <div class="user-bbox">
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="" id="user10" class="input-head"><label for="user10">首页展示</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user11"><label for="user11">本月新增代理商数</label><br />
+                            <input type="checkbox" name="" id="12"><label for="12">累计代理商数</label>
+                        </div>
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user13"><label for="user13">本月新增认证会员数</label><br />
+                            <input type="checkbox" name="" id="user14"><label for="user14">累计认证会员数</label>
+                        </div>
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user15"><label for="user15">本月新增业务员</label><br />
+                            <input type="checkbox" name="" id="user16"><label for="user16">业务团队队员</label>
+                        </div>
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user17"><label for="user17">本月成交金额</label><br />
+                            <input type="checkbox" name="" id="user18"><label for="user18">累计成交金额</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="" id="user20" class="input-head"><label for="user20">消息管理</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user21"><label for="user21">消息列表</label><br />
+                            <input type="checkbox" name="" id="user22"><label for="user22">删除消息</label>
+                        </div>
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user23"><label for="user23">发布公告消息</label><br />
+                            <input type="checkbox" name="" id="user24"><label for="user24">删除公告消息</label><br />
+                            <input type="checkbox" name="" id="user25"><label for="user25">取消公告消息发布</label><br />
+                            <input type="checkbox" name="" id="user26"><label for="user26">查看公告消息列表</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="" id="user30" class="input-head"><label for="user30">管理员管理</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user31"><label for="user31">新增管理员</label><br />
+                            <input type="checkbox" name="" id="user32"><label for="user32">搜索管理员</label><br />
+                            <input type="checkbox" name="" id="user33"><label for="user33">编辑管理员</label><br />
+                            <input type="checkbox" name="" id="user34"><label for="user34">删除管理员</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="" id="user40" class="input-head"><label for="user40">代理商管理</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user41"><label for="user41">新增代理商</label><br />
+                            <input type="checkbox" name="" id="user42"><label for="user42">搜索代理商</label><br />
+                            <input type="checkbox" name="" id="user43"><label for="user43">编辑代理商</label><br />
+                            <input type="checkbox" name="" id="user44"><label for="user44">删除代理商</label>
+                        </div>
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user45"><label for="user45">审核代理商</label><br />
+                            <input type="checkbox" name="" id="user46"><label for="user46">查看代理商详情</label><br />
+                            <input type="checkbox" name="" id="user47"><label for="user47">搜索代理商</label><br />
+                            <input type="checkbox" name="" id="user48"><label for="user48">通过代理商</label><br />
+                            <input type="checkbox" name="" id="user49"><label for="user49">拒绝代理商</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="50" id="user50" class="input-head"><label for="user">业务员管理</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user51"><label for="user51">新增业务员</label><br />
+                            <input type="checkbox" name="" id="user52"><label for="user52">搜索业务员</label><br />
+                            <input type="checkbox" name="" id="user53"><label for="user53">编辑业务员</label><br />
+                            <input type="checkbox" name="" id="user54"><label for="user54">删除业务员</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="" id="user60" class="input-head"><label for="user60">培训师管理</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user61"><label for="user61">新增培训师</label><br />
+                            <input type="checkbox" name="" id="user62"><label for="user62">搜索培训师</label><br />
+                            <input type="checkbox" name="" id="user63"><label for="user63">编辑培训师</label><br />
+                            <input type="checkbox" name="" id="user64"><label for="user64">删除培训师</label><br />
+                            <input type="checkbox" name="" id="user65"><label for="user65">分配代理商</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="" id="user70" class="input-head"><label for="user70">资金管理</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user71"><label for="user71">平台累计收入</label><br />
+                            <input type="checkbox" name="" id="user72"><label for="user72">平台代理商可提现金额</label><br />
+                            <input type="checkbox" name="" id="user73"><label for="user73">平台冻结金额</label><br />
+                            <input type="checkbox" name="" id="user74"><label for="user74">平台累计已被提现金额</label><br />
+                            <input type="checkbox" name="" id="user75"><label for="user75">资金来源明细</label><br />
+                            <input type="checkbox" name="" id="user76"><label for="user76">平台分成</label><br />
+                            <input type="checkbox" name="" id="user77"><label for="user77">培训师分成</label><br />
+                            <input type="checkbox" name="" id="user78"><label for="user78">代理商分成</label>
+                        </div>
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user79"><label for="user79">代理商申请提现</label><br />
+                            <input type="checkbox" name="" id="user710"><label for="user710">代理商可提现金额</label><br />
+                            <input type="checkbox" name="" id="user711"><label for="user711">代理商冻结金额</label><br />
+                            <input type="checkbox" name="" id="user712"><label for="user712">代理商可提现金额</label><br />
+                            <input type="checkbox" name="" id="user713"><label for="user713">代理商资金来源</label>
+                        </div>
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user714"><label for="user714">培训师申请提现</label><br />
+                            <input type="checkbox" name="" id="user715"><label for="user715">培训师可提现金额</label><br />
+                            <input type="checkbox" name="" id="user716"><label for="user716">培训师冻结金额</label><br />
+                            <input type="checkbox" name="" id="user717"><label for="user717">培训师可提现金额</label><br />
+                            <input type="checkbox" name="" id="user718"><label for="user718">培训师资金来源</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="" id="user80" class="input-head"><label for="user80">申请提现管理人</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user81"><label for="user81">搜索体现人</label><br />
+                            <input type="checkbox" name="" id="user82"><label for="user82">提现明细</label><br />
+                            <input type="checkbox" name="" id="user83"><label for="user83">审核提现</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="" id="user90" class="input-head"><label for="user90">数据管理</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user91"><label for="user91">代理商数据统计</label><br />
+                            <input type="checkbox" name="" id="user92"><label for="user92">查看开发代理商明细</label><br />
+                            <input type="checkbox" name="" id="user93"><label for="user93">过滤代理商数据</label>
+                        </div>
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user94"><label for="user94">业务员数据统计</label><br />
+                            <input type="checkbox" name="" id="user95"><label for="user95">查看认证会员明细</label><br />
+                            <input type="checkbox" name="" id="user96"><label for="user96">过滤代理商数据</label>
+                        </div>
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user97"><label for="user97">培训师数据统计</label><br />
+                            <input type="checkbox" name="" id="user98"><label for="user98">查看培训代理商明细</label><br />
+                            <input type="checkbox" name="" id="user99"><label for="user99">过滤代理商数据</label>
+                        </div>
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user910"><label for="user910">注册会员数据统计</label><br />
+                            <input type="checkbox" name="" id="user911"><label for="user911">查看会员详情</label><br />
+                            <input type="checkbox" name="" id="user912"><label for="user912">过滤代理商数据</label><br />
+                            <input type="checkbox" name="" id="user913"><label for="user913">指派给代理商</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="" id="user10" class="input-head"><label for="user10">用户组管理</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user101"><label for="user101">新增用户组</label><br />
+                            <input type="checkbox" name="" id="user102"><label for="user102">设置用户组权限</label><br />
+                            <input type="checkbox" name="" id="user103"><label for="user103">编辑用户组信息</label><br />
+                            <input type="checkbox" name="" id="user104"><label for="user104">删除用户组</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="" id="user110" class="input-head"><label for="user110">账号信息管理</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="user111"><label for="user111">个人信息管理</label><br />
+                            <input type="checkbox" name="" id="user112"><label for="user112">修改密码</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-box">
+                <input type="button" name="submit" value="确认" class="addUserSubmit blue-btn">
+                <input type="button" name="cancel" value="取消" class="cancel white-btn">
+            </div>
+            <p id="show"></p>
+        </div>
+
+        <!-- 编辑按钮 -->
+        <div class="redact-user white-bg" style="display: none;"> 
+            <div class="moni-head">
+                <a href="javascript:;" class="closeAll"></a><!-- 关闭按钮 -->
+            </div>
+            <h2 class="fl">用户组名称</h2>
+            <!-- 搜索框 -->
+            <div class="user-search">
+                <input type="text" id="search-input2" placeholder="请输入用户组名称" />
+                <label for="search-input2" class="search-btn2"></label>
+            </div>
+            <!-- 列表设置 -->
+            <div class="user-bbox">
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="" id="reuser10" class="input-head"><label for="reuser10">首页展示</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser11"><label for="reuser11">本月新增代理商数</label><br />
+                            <input type="checkbox" name="" id="re12"><label for="re12">累计代理商数</label>
+                        </div>
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser13"><label for="reuser13">本月新增认证会员数</label><br />
+                            <input type="checkbox" name="" id="reuser14"><label for="reuser14">累计认证会员数</label>
+                        </div>
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser15"><label for="reuser15">本月新增业务员</label><br />
+                            <input type="checkbox" name="" id="reuser16"><label for="reuser16">业务团队队员</label>
+                        </div>
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser17"><label for="reuser17">本月成交金额</label><br />
+                            <input type="checkbox" name="" id="reuser18"><label for="reuser18">累计成交金额</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="3" id="reuser20" class="input-head"><label for="reuser20">消息管理</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser21"><label for="reuser21">消息列表</label><br />
+                            <input type="checkbox" name="" id="reuser22"><label for="reuser22">删除消息</label>
+                        </div>
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser23"><label for="reuser23">发布公告消息</label><br />
+                            <input type="checkbox" name="" id="reuser24"><label for="reuser24">删除公告消息</label><br />
+                            <input type="checkbox" name="" id="reuser25"><label for="reuser25">取消公告消息发布</label><br />
+                            <input type="checkbox" name="" id="reuser26"><label for="reuser26">查看公告消息列表</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="" id="reuser30" class="input-head"><label for="reuser30">管理员管理</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser31"><label for="reuser31">新增管理员</label><br />
+                            <input type="checkbox" name="" id="reuser32"><label for="reuser32">搜索管理员</label><br />
+                            <input type="checkbox" name="" id="reuser33"><label for="reuser33">编辑管理员</label><br />
+                            <input type="checkbox" name="" id="reuser34"><label for="reuser34">删除管理员</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="" id="reuser40" class="input-head"><label for="reuser40">代理商管理</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser41"><label for="reuser41">新增代理商</label><br />
+                            <input type="checkbox" name="" id="reuser42"><label for="reuser42">搜索代理商</label><br />
+                            <input type="checkbox" name="" id="reuser43"><label for="reuser43">编辑代理商</label><br />
+                            <input type="checkbox" name="" id="reuser44"><label for="reuser44">删除代理商</label>
+                        </div>
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser45"><label for="reuser45">审核代理商</label><br />
+                            <input type="checkbox" name="" id="reuser46"><label for="reuser46">查看代理商详情</label><br />
+                            <input type="checkbox" name="" id="reuser47"><label for="reuser47">搜索代理商</label><br />
+                            <input type="checkbox" name="" id="reuser48"><label for="reuser48">通过代理商</label><br />
+                            <input type="checkbox" name="" id="reuser49"><label for="reuser49">拒绝代理商</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="50" id="reuser50" class="input-head"><label for="reuser">业务员管理</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser51"><label for="reuser51">新增业务员</label><br />
+                            <input type="checkbox" name="" id="reuser52"><label for="reuser52">搜索业务员</label><br />
+                            <input type="checkbox" name="" id="reuser53"><label for="reuser53">编辑业务员</label><br />
+                            <input type="checkbox" name="" id="reuser54"><label for="reuser54">删除业务员</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="" id="reuser60" class="input-head"><label for="reuser60">培训师管理</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser61"><label for="reuser61">新增培训师</label><br />
+                            <input type="checkbox" name="" id="reuser62"><label for="reuser62">搜索培训师</label><br />
+                            <input type="checkbox" name="" id="reuser63"><label for="reuser63">编辑培训师</label><br />
+                            <input type="checkbox" name="" id="reuser64"><label for="reuser64">删除培训师</label><br />
+                            <input type="checkbox" name="" id="reuser65"><label for="reuser65">分配代理商</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="" id="reuser70" class="input-head"><label for="reuser70">资金管理</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser71"><label for="reuser71">平台累计收入</label><br />
+                            <input type="checkbox" name="" id="reuser72"><label for="reuser72">平台代理商可提现金额</label><br />
+                            <input type="checkbox" name="" id="reuser73"><label for="reuser73">平台冻结金额</label><br />
+                            <input type="checkbox" name="" id="reuser74"><label for="reuser74">平台累计已被提现金额</label><br />
+                            <input type="checkbox" name="" id="reuser75"><label for="reuser75">资金来源明细</label><br />
+                            <input type="checkbox" name="" id="reuser76"><label for="reuser76">平台分成</label><br />
+                            <input type="checkbox" name="" id="reuser77"><label for="reuser77">培训师分成</label><br />
+                            <input type="checkbox" name="" id="reuser78"><label for="reuser78">代理商分成</label>
+                        </div>
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser79"><label for="reuser79">代理商申请提现</label><br />
+                            <input type="checkbox" name="" id="reuser710"><label for="reuser710">代理商可提现金额</label><br />
+                            <input type="checkbox" name="" id="reuser711"><label for="reuser711">代理商冻结金额</label><br />
+                            <input type="checkbox" name="" id="reuser712"><label for="reuser712">代理商可提现金额</label><br />
+                            <input type="checkbox" name="" id="reuser713"><label for="reuser713">代理商资金来源</label>
+                        </div>
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser714"><label for="reuser714">培训师申请提现</label><br />
+                            <input type="checkbox" name="" id="reuser715"><label for="reuser715">培训师可提现金额</label><br />
+                            <input type="checkbox" name="" id="reuser716"><label for="reuser716">培训师冻结金额</label><br />
+                            <input type="checkbox" name="" id="reuser717"><label for="reuser717">培训师可提现金额</label><br />
+                            <input type="checkbox" name="" id="reuser718"><label for="reuser718">培训师资金来源</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="" id="reuser80" class="input-head"><label for="reuser80">申请提现管理人</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser81"><label for="reuser81">搜索体现人</label><br />
+                            <input type="checkbox" name="" id="reuser82"><label for="reuser82">提现明细</label><br />
+                            <input type="checkbox" name="" id="reuser83"><label for="reuser83">审核提现</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="" id="reuser90" class="input-head"><label for="reuser90">数据管理</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser91"><label for="reuser91">代理商数据统计</label><br />
+                            <input type="checkbox" name="" id="reuser92"><label for="reuser92">查看开发代理商明细</label><br />
+                            <input type="checkbox" name="" id="reuser93"><label for="reuser93">过滤代理商数据</label>
+                        </div>
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser94"><label for="reuser94">业务员数据统计</label><br />
+                            <input type="checkbox" name="" id="reuser95"><label for="reuser95">查看认证会员明细</label><br />
+                            <input type="checkbox" name="" id="reuser96"><label for="reuser96">过滤代理商数据</label>
+                        </div>
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser97"><label for="reuser97">培训师数据统计</label><br />
+                            <input type="checkbox" name="" id="reuser98"><label for="reuser98">查看培训代理商明细</label><br />
+                            <input type="checkbox" name="" id="reuser99"><label for="reuser99">过滤代理商数据</label>
+                        </div>
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser910"><label for="reuser910">注册会员数据统计</label><br />
+                            <input type="checkbox" name="" id="reuser911"><label for="reuser911">查看会员详情</label><br />
+                            <input type="checkbox" name="" id="reuser912"><label for="reuser912">过滤代理商数据</label><br />
+                            <input type="checkbox" name="" id="reuser913"><label for="reuser913">指派给代理商</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="" id="reuser10" class="input-head"><label for="reuser10">用户组管理</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser101"><label for="reuser101">新增用户组</label><br />
+                            <input type="checkbox" name="" id="reuser102"><label for="reuser102">设置用户组权限</label><br />
+                            <input type="checkbox" name="" id="reuser103"><label for="reuser103">编辑用户组信息</label><br />
+                            <input type="checkbox" name="123" id="reuser104"><label for="reuser104">删除用户组</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-lbox">
+                    <div class="lbox-left fl"><input type="checkbox" name="" id="reuser110" class="input-head"><label for="reuser110">账号信息管理</label></div>
+                    <div class="lbox-right fr">
+                        <div class="lbox-right1 fl">
+                            <input type="checkbox" name="" id="reuser111"><label for="reuser111">个人信息管理</label><br />
+                            <input type="checkbox" name="" id="reuser112"><label for="reuser112">修改密码</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-box">
+                <input type="button" name="submit" value="保存" class="reUserSubmit blue-btn">
+                <input type="button" name="cancel" value="取消" class="cancel white-btn">
+            </div>
+            <p id="show"></p>
+        </div>
+        <!-- 删除按钮 -->
+        <div class="remove-box moni-lbox" style="display: none;">
+            <p>确认删除？</p>
+            <div class="btn-box">
+                <input type="button" value="确认" name="remove" class="removeSubmit blue-btn">
+                <input type="button" value="取消" name="cancel" class="cancel white-btn">
+            </div>
+        </div>
+        <!-- 模拟弹窗结束 -->
+    </div>
+</div>
+<!--父容器结束-->
+<script>var pages = "系统设置";var index1 = 4; var index2 = 0;</script>
+<script src="../js/jquery.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/set.js"></script>
+<script>
+    //提交到后台
+    //提交打钩项
+    $(document).on("click",".addUserSubmit",function(){
+        var addCheck = $(".add-user .user-lbox input:checked");
+        for (var i = 0; i < addCheck.length; i++) {
+            console.log(addCheck[i].name);//提交打钩项的name值
+        }
+    })
+    
+    //编辑已有打钩项
+    $(function(){
+        var ziliaojson;//ajax获得打钩项的name值
+        var redactInput = $(".redact-user .user-lbox input");
+        // 赋予已有的打钩项
+        for (var i = 0; i < redactInput.length; i++) {
+            if(redactInput[i].name == ziliaojson){
+                $(redactInput[i]).prop("checked",true);
+            }
+        }
+    })
+    //保存新的更改的打钩项
+    $(document).on("click",".reUserSubmit",function(){
+        var reCheck = $(".redact-user .user-lbox input:checked");
+        for (var i = 0; i < reCheck.length; i++) {
+            console.log(reCheck[i].name);//提交打钩项的name值
+        }
+    })
+    
+    // 删除按钮
+    $(document).on("click",".removeBtn",function(){
+        $(this).parents("tr").addClass("remove");
+        var trId = $(this).parents("tr").attr("name");//取得删除那一行的name值
+        $(".remove-box,.moni-box").fadeIn();
+        $(document).on("click",".removeSubmit",function(){
+            $(".remove").remove(); 
+            $(".remove-box,.moni-box").fadeOut();
+            console.log(trId);//发起ajax
+        })
+    })
+
+</script>
+</body>
+</html>

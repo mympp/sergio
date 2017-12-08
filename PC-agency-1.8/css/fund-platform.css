@@ -1,0 +1,332 @@
+@charset "utf-8";
+
+/*资金管理开始*/
+.fund-platform-warp{
+	width: 100%;
+    float: left;
+    background: #efefef;
+    box-sizing: border-box;
+    padding-left: 265px;
+}
+
+.fund-platform-header{
+    float: left;
+    width: 96%;
+    margin: 20px 2%;
+}
+
+.fund-platform-header ul{
+	float: left;
+	width: 100%;
+}
+
+.fund-platform-header ul li{
+    float: left;
+    width: 24%;
+    height: 100px;
+    border-radius: 5px;
+}
+
+.fund_blue_bg{
+    background: linear-gradient(45deg,#32c5ee 0%,#38adf5 100%);
+    box-shadow: 1px 4px 4px #cadde8;
+}
+
+.fund_green_bg{
+    background: linear-gradient(45deg,#8bcb94 0%,#70c07a 100%);
+    box-shadow: 1px 4px 4px #c9d9cb;
+    margin: 0 1.25%;
+}
+
+.fund_red_bg{
+    background: linear-gradient(45deg,#ec8f98 0%,#df7b92 100%);
+    box-shadow: 1px 4px 4px #e3c8cd;
+    margin-right: 1.5%;
+}
+
+.fund_lgblue_bg{
+	background: linear-gradient(45deg,#3dddd0 0%,#3bc5d0 100%);
+    box-shadow: 1px 4px 4px #c9e3e5;
+}
+
+.fund-platform-cell1{
+    padding-top: 25px;
+    padding-left: 28px;
+}
+
+.fund-platform-cell1 p{
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+}
+
+.fund-platform-cell1 span{
+    font-size: 24px;
+    color: #fff;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.fund-platform-cell1 em{
+    font-size: 27px;
+    color: #fff;
+    margin-left: 12px;
+    font-weight: bold;
+}
+
+.fund-platform-header_border{
+	clear: both;
+    width: 100%;
+    padding-top: 20px;
+    margin: 0 auto;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.saixuan_div{
+	float: left;
+    width: 96%;
+    margin: 0 2%;
+}
+
+.saixuan_div .p1_text{
+	float: left;
+	font-size: 14px;
+    font-weight: 600;
+    color: #898989;
+    padding-left: 5px;
+}
+
+.saixuan_divAll{
+	float: left;
+    width: 100%;
+    margin-top: 12px;
+    padding-left: 5px;
+}
+
+/*左边模块*/
+.saixuan_divAll_lf{
+    float: left;
+    width: 75%;
+}
+
+.saixuan_divAll_cell1{
+    float: left;
+    width: 30%;
+}
+
+.saixuan_divAll_cell2{
+    float: left;
+    width: 30%;
+}
+
+.saixuan_divAll_cell3{
+    float: left;
+    width: 40%;
+}
+
+.saixuan_divAll .label1{
+	font-size: 14px;
+    color: #898989;
+}
+
+.saixuan_divAll .input_cell1{
+    width: 50%;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #d0d0d0;
+    box-sizing: border-box;
+    padding-left: 3%;
+    background: #f5f5f5;
+    font-size: 14px;
+    color: #666666;
+}
+
+.this_udate1, .this_udate2 {
+    width: 39% !important;
+    padding-left: 3% !important;
+    /* text-align: center !important; */
+    background: url(../Images/icon_date1.png) no-repeat 97% #f5f5f5 !important;
+}
+
+.tobe_str1{
+    display: inline-block;
+    margin: 0 2%;
+    color: #666666;
+}
+
+.mglf_30{
+	margin-left: 30px;
+}
+
+/*右边模块*/
+.saixuan_divAll_rt{
+    float: left;
+    width: 25%;
+}
+
+.fund_searchBtn{
+    display: inline-block;
+    width: 40%;
+    height: 32px;
+    line-height: 30px;
+    border: 1px solid #2e86e0;
+    box-sizing: border-box;
+    border-radius: 5px;
+    text-align: center;
+    background: rgba(29,161,242,1);
+    font-size: 13px;
+    color: #ffffff;
+    cursor: pointer;
+    margin-left: 10%;
+    margin-right: 5%;
+    position: relative;
+    top: -2px;
+}
+
+.fund_searchBtn:active{
+	background: rgba(29,161,242,.8);
+}
+
+.fund_clearBtn{
+	display: inline-block;
+    width: 40%;
+    height: 32px;
+    line-height: 30px;
+    border: 1px solid #cecece;
+    box-sizing: border-box;
+    border-radius: 5px;
+    text-align: center;
+    background: #e4e6e8;
+    font-size: 13px;
+    color: #494949;
+    cursor: pointer;
+    position: relative;
+    top: -2px;
+}
+
+.fund_clearBtn:active{
+	background: #dbdbdb;
+}
+/*资金管理结束*/
+
+/*表格样式开始*/
+.table-wrap {
+    float: left;
+    width: 96%;
+    margin: 20px 2% 0;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0px 2px 12px #e3e3e3;
+    overflow: hidden;
+}
+
+.table-head {
+	background-color: #54b4ee;
+}
+
+.table-head-wrap {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.grid {
+	margin: 0px;
+	table-layout: fixed;
+	width: 100%;
+	max-width: none;
+	border-spacing: 0px;
+	empty-cells: show;
+	border-width: 0px;
+	outline: 0px none;
+	border-collapse: collapse;
+}
+
+.grid tr th {
+	padding: 10px 8px;
+	vertical-align: bottom;
+	overflow: hidden;
+	font-weight: normal;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-align: center;
+}
+
+.grid tr td {
+	padding: 10px 8px;
+	font-size: 13px;
+	color: #898989;
+	overflow: hidden;
+	line-height: 1.6em;
+	vertical-align: middle;
+	text-overflow: ellipsis;
+	text-align: center;
+}
+
+.table_ctbody tr {
+	border-bottom: 1px solid #ececec;
+}
+
+.tab-link {
+	display: block;
+	font-size: 13px;
+	color: #ffffff;
+	min-height: 18px;
+	line-height: 18px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.table-content {
+    position: relative;
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #fff;
+}
+/*表格样式结束*/
+
+/*媒体查询开始*/
+/*大于1366px以上的屏幕适配*/
+@media (min-width: 1367px){
+    .fund-platform-header ul li{
+    	height: 120px;
+    }
+    
+    .fund-platform-cell1{
+    	padding-top: 35px;
+    	padding-left: 35px;
+    }
+    
+    .fund-platform-cell1 p{
+    	font-size: 16px;
+    	margin-bottom: 5px;
+    }
+}
+
+/*大于1600px以上的屏幕适配*/
+@media (min-width: 1601px){
+    .fund-platform-header ul li{
+    	height: 130px;
+    }
+    
+    .fund-platform-cell1{
+	    padding-top: 40px;
+	    padding-left: 40px;
+    }
+    
+    .fund-platform-cell1 p{
+    	font-size: 16px;
+    	margin-bottom: 5px;
+    }
+    
+    .fund_searchBtn{
+		width: 28%;
+		margin-left: 18%;
+    }
+    
+    .fund_clearBtn{
+    	width: 28%;
+    }
+}
+/*媒体查询结束*/

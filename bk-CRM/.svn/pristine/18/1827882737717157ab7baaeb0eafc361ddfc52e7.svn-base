@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="雀搜,雀鸟科技,采购大数据,采购平台,采购信息网,采购云平台,中国采购平台">
+		<title>新闻详情</title>
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/common.css" />
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/index.css" />
+	</head>
+	<body style="min-width: 1200px;overflow-x: auto;" class="2 pages">
+		<!--页面顶部开始-->
+		<header class="header_box"></header>
+		<div class="header-box"></div>
+		<!--页面顶部结束-->
+		
+		<!--开始-->
+		<div class="XQ-Big">
+		<!--<p><a href="index.html">雀搜首页</a> &nbsp;>&nbsp; <a href="press.html">新闻中心</a> &nbsp;> &nbsp;<span>雀搜采购平台颠覆传统的采购模式，传统表示质疑</span></p>-->
+		<h2>{$data.title}</h2>
+		<p class="XQ-Text">作者：{$data.author}&nbsp;&nbsp;&nbsp;发布时间：{$data.addtime}</p>
+		<div class="XQ-Center">
+			{$data.content}
+		</div>
+		</div>
+		<!--结束-->
+		
+		<!--页面底部开始-->
+		<footer class="footer_box"></footer>
+		<!--页面底部结束-->
+		
+		<script src="STYLE_DOMAIN/Home/1.6/js/jquery.js"></script>
+		<script src="STYLE_DOMAIN/Home/1.6/js/common.js"></script>
+	</body>
+</html>

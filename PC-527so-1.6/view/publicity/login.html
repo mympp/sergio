@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>登录页面</title>
+	<link rel="stylesheet" type="text/css" href="../../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../../css/login.css">
+</head>
+<body class="login">
+	<div class="login-box">
+		<div class="login-white">
+			<h4>账号登录</h4>
+			<div class="err-tip"></div>
+			<input type="text" name="loginName" class="input_cell1" placeholder="账户名/登录名">
+			<input type="password" name="loginPassworld"  class="input_cell1" minlength="6" maxlength="20" placeholder="密码由6-20位字母，数字和符号组合">
+			<!-- 验证开始 -->
+			<div class="checkSubmit" style="display: none;">
+				<div id="v_container">
+	　　　　　　　　<canvas id="verifyCanvas" width="100" height="40"></canvas>
+	　　　　　　</div>
+	　　　　　　<input type="text" id="code_input" placeholder="请输入验证码"/>
+			</div>
+			<!-- 验证结束 -->
+			<input type="checkbox" class="vam checkedres" name="checkedres" value="1">
+			<em class="vam">记住雀搜账号</em>
+			<input type="submit" value="登录" id="submit">
+			<div class="login-forget">
+				<a href="register.html">注册账号</a>
+				<span>|</span>
+				<a href="set-password1.html">忘记密码</a>
+			</div>
+			<div class="login-another">
+				<img src="../../Images/thirdLine_left.png">
+				<span>其他方式登录</span>
+				<img src="../../Images/thirdLine_right.png">
+			</div>
+			<div class="wechat">
+				<img src="../../Images/wechat.png">
+			</div>
+		</div>
+		<div class="login-footer">
+			<a href="register.html">
+				<div class="login-footer1"><img src="../../Images/command_denglu_more_001.png"></div>
+				<p>注册</p>
+			</a>
+			<a href="http://www.5276mall.com">
+				<div class="login-footer2"><img src="../../Images/command_denglu_shangchengshouye_002.png"></div>
+				<p>商城首页</p>
+			</a>
+		</div>
+	</div>
+	<div class="erweima" style="display: none;">
+		<div class="erweima-box">
+			<img src="../../Images/erweima.png" width="200px">
+		</div>
+	</div>
+	<script src="../../js/jquery.js"></script>
+    <script src="../../js/gVerify.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var verifyCode = new GVerify("v_container");
+			
+			//微信二维码遮罩
+			$(".wechat img").click(function(){
+				$(".erweima").fadeIn();//show()
+			});
+			
+			$(".erweima").click(function(){
+				$(".erweima").fadeOut();//hide()
+			});
+		
+			//验证表单以及验证码
+			var state = true;//假设登录失败状态
+			var count = 0;//密码错误登录次数
+	        $("#submit").on("click",function(){
+	        	var loginName = $("input[name='loginName']").val();
+				var loginPassworld = $("input[name='loginPassworld']").val();
+	            var res = verifyCode.validate($("#code_input").val());//取得验证码并验证
+	            if (loginName == "" || loginName == undefined) {
+//					alert("请输入您的账号");
+					$(".err-tip").html("请输入您的用户名");
+				} else if(loginPassworld == "" || loginPassworld == undefined){
+//					alert("请输入您的密码");
+					$(".err-tip").html("请输入您的密码");
+				} else if(state){
+					count++;
+//					alert("登陆失败，请确认您的账号密码");
+					$(".err-tip").html("登陆失败，请确认您的账号密码");
+					if(count==3){
+						$(".checkSubmit").show();
+						//一分钟后重置
+						if($(".checkSubmit").css("display")=="block"){
+							setTimeout(function(){
+								count = 0;
+								$(".checkSubmit").hide();
+							},60000);
+						}
+					}
+				} else if(!res){
+					alert("验证错误");
+				} else{
+					alert("登录成功");
+				}
+	       })
+		})
+    </script>
+</body>
+</html>

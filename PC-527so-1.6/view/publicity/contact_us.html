@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>联系我们</title>
+		<link rel="stylesheet" href="../../css/common.css" />
+	    <link rel="stylesheet" href="../../css/index.css" />
+	</head>
+	<body style="min-width: 1200px;overflow-x: auto;">
+		<!--页面顶部开始-->
+		<header class="header_box"></header>
+		<div class="header-box"></div>
+		<!--页面顶部结束-->
+		
+		<div style="font-size: 0;"><img class="slider-banner" src="../../Images/lianxi_banner.png" alt="" /></div>
+		
+		<!--主题内容开始-->
+		<main class="contact_us">
+			<div class="contact_us_cell">
+				<div class="index-title1">
+					<p class="index-titleP1">联系我们</p>
+					<p class="index-titleP2">CONTACT US</p>
+				</div>
+				<div class="contact_us_items">
+					<div class="contact_us_item">
+						<a class="contact_us_item_a1">
+							<img src="../../Images/address.png" alt="" />
+						</a>
+						<p class="contact_us_item_p1">公司地址</p>
+						<p class="contact_us_item_p2">广东省广州市天河区大观中路95号科汇园A栋</p>
+					</div><div class="contact_us_item">
+						<a class="contact_us_item_a1">
+							<img src="../../Images/phone.png" alt="" />
+						</a>
+						<p class="contact_us_item_p1">联系电话</p>
+						<p class="contact_us_item_p2">020-37362495</p>
+					</div><div class="contact_us_item">
+						<a class="contact_us_item_a1">
+							<img src="../../Images/mess.png" alt="" />
+						</a>
+						<p class="contact_us_item_p1">电子邮箱</p>
+						<p class="contact_us_item_p2">example@mail.com</p>
+					</div>
+				</div>
+				<div class="index-title1">
+					<p class="index-titleP1">评论反馈</p>
+					<p class="index-titleP2">COMMENT</p>
+				</div>
+				<div class="Personal_Critique">
+					<div class="fl Personal_Critique_lf">
+						<img src="../../Images/map.png" alt="" />
+					</div>
+					<div class="fl Personal_Critique_rt">
+						<div class="Personal_form_onecell1">
+							<p class="label_cell1">姓名</p>
+							<input class="input_cell1" type="text" name="user_name" placeholder="请输入您的姓名"/>	
+						</div>
+						<div class="Personal_form_onecell1">
+							<p class="label_cell1">联系方式</p>
+							<input class="input_cell1" type="text" name="user_tel" placeholder="请输入您的联系方式"/>
+						</div>
+						<div class="Personal_form_onecell1">
+							<p class="label_cell1">评论内容</p>
+							<textarea class="pl-content" name="pl_content" maxlength="200" placeholder="请输入您的评论内容"></textarea>
+							<div class="Personal_form_submit">
+								<span class="Personal_form_submit_btn">提交评论</span>
+							</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</main>
+		<!--主题内容结束-->
+		
+		<!--加入我们开始-->
+		<div class="jiaru_weAre">
+			<div class="fl jiaru_weAre_lf">
+				<p class="jiaru_weAre_lfP1">加入我们</p>
+				<p class="jiaru_weAre_lfP2">我们正在寻找才华横溢的你，广大网罗合作伙伴，和我们一起做充满热情的事业。</p>
+				<a href="JoinUs.html">查看更多职位>></a>
+			</div>
+			<div class="fl jiaru_weAre_rt">
+				<table>
+					<thead>
+						<th>职位名称</th>
+						<th>人数</th>
+						<th>工作性质</th>
+						<th>发布时间</th>
+						<th>职位描述</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>爬虫开发工程师</td>
+							<td>2</td>
+							<td>全职</td>
+							<td>【2017-10-12】</td>
+							<td><a href="JoinUs.html">查看详情</a></td>
+						</tr>
+						<tr>
+							<td>数据分析工程师</td>
+							<td>1</td>
+							<td>全职</td>
+							<td>【2017-10-12】</td>
+							<td><a href="JoinUs.html">查看详情</a></td>
+						</tr>
+						<tr>
+							<td>PHP开发工程师</td>
+							<td>若干人</td>
+							<td>全职</td>
+							<td>【2017-10-12】</td>
+							<td><a href="JoinUs.html">查看详情</a></td>
+						</tr>
+						<tr>
+							<td>招商专员</td>
+							<td>若干人</td>
+							<td>全职</td>
+							<td>【2017-10-12】</td>
+							<td><a href="JoinUs.html">查看详情</a></td>
+						</tr>
+						<tr>
+							<td>网站运营专员/主管</td>
+							<td>若干人</td>
+							<td>全职</td>
+							<td>【2017-10-12】</td>
+							<td><a href="JoinUs.html">查看详情</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!--加入我们结束-->
+		
+		<!--页面底部开始-->
+		<footer class="footer_box"></footer>
+		<!--页面底部结束-->
+		
+		<script src="../../js/jquery.js"></script>
+		<script src="../../js/common.js"></script>
+		<script>
+			$(function(){
+				//为申请按钮绑定单击事件
+				$(document).on("click",".Personal_form_submit_btn",function(){
+					var user_name = $("input[name='user_name']").val();
+					var user_tel = $("input[name='user_tel']").val();
+					var pl_content = $("textarea[name='pl_content']").val();
+					if(user_name == ""){
+						alert("请输入您的姓名");
+					}else if(user_tel == ""){
+						alert("请输入您的联系方式");
+					}else if(pl_content == ""){
+						alert("请输入您的评论内容");
+					}else{
+						alert("信息完善，可以申请！");
+//						$("#join-form").submit();
+					}
+				})
+			})
+		</script>
+	</body>
+</html>

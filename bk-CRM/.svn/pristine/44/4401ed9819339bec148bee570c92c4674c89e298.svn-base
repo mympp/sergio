@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>收件箱</title>
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/common.css" />
+	    <link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/index.css" />
+	    <link rel="stylesheet" href="STYLE_DOMAIN/Home/1.6/css/consult.css" />
+	    <script type="text/javascript">
+	    	http_host="http://<?php echo $_SERVER['HTTP_HOST'];?>";
+	    </script>
+	    <script type="text/javascript" src="STYLE_DOMAIN/Home/1.6/RichTextEdit/ueditor.config.js"></script>
+	    <script type="text/javascript" src="STYLE_DOMAIN/Home/1.6/RichTextEdit/ueditor.all.js"> </script>
+	    <script type="text/javascript" src="STYLE_DOMAIN/Home/1.6/RichTextEdit/lang/zh-cn/zh-cn.js"></script>
+	    <style type="text/css">
+		#edui1_bottombar{
+			display: none;
+		}
+		
+		.consult-form{
+			overflow: auto;
+		}
+	    </style>
+	</head>
+	<body style="min-width: 1366px;">
+		<!--父容器开始-->
+		<div class="outer_div">
+			<!--左边导航模块-->
+			<div class="left_template">
+				<div class="user_logo"><a href="/Publicity/index"><img src="STYLE_DOMAIN/Home/1.6/Images/common_logo.png" alt="" /></a></div>
+				<p class="company_name1">{$crm_data.company}</p>
+				<!--用户导航列表-->
+				<div class="userList_bar">
+					<ul class="userList_ul">
+						<li class="userList_li">
+							<span class="icon-01"></span>
+							<span class="icon-text">概览</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-02"></span>
+							<span class="icon-text">线索</span>
+							<if condition="$search_look eq 0">
+								<if condition="$one_sum neq 0">
+									<span class="xiansuo_count">{$one_sum}</span>
+								</if>
+							</if>
+						</li>
+						<li class="userList_li">
+							<span class="icon-03"></span>
+							<span class="icon-text">客户管理</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-04"></span>
+							<span class="icon-text">联系人</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-05"></span>
+							<span class="icon-text">公海</span>
+						</li>
+						<li class="userList_li icon-shopping">
+							<span class="icon-06"></span>
+							<span class="icon-text">商品</span>
+							<span class="icon-shopping-1"></span>
+						</li>
+						<div class="icon-shopping-div">
+							<p>商品管理</p>
+							<p>发布产品</p>
+						</div>
+						<li class="userList_li active">
+							<span class="icon-07"></span>
+							<span class="icon-text">咨询信息</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-08"></span>
+							<span class="icon-text">设置</span>
+						</li>
+						<li class="userList_li">
+							<span class="icon-09"></span>
+							<span class="icon-text">反馈</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--右边主题内容-->
+			<div class="right_template">
+		        <div class="left_header">
+		            <div class="page_state">咨询信息</div>
+		            <if condition="$crm_vip.code eq 1">
+					<div class="vip-valid">会员有效日期：<?php echo date("Y-m-d",$crm_vip['data']['totime']);?></div>
+					</if>
+		        </div>
+		        <div class="right_header">
+		            <ul>
+		                <if condition="$crm_vip.code eq 3">
+						<li class="buy_xiansuoli1">
+							<span class="buy_vip_icon1"></span>
+							<a href="javascript:;">购买会员</a>
+						</li>
+						<elseif condition="$crm_vip.code eq 2"/>
+						<li class="buy_xiansuoli1" style="cursor: default;">
+								<span class="buy_vip_icon1"></span>
+								<a href="javascript:;" style="cursor: default;">会员认证中</a>
+						</li>
+					</if>	
+						<li class="xiansuoli1">
+							<span class="user_icon1"></span>
+							<a href="javascript:;"><?php echo ($crm_data['username'].'('.$crm_data['passport'].')') ;?></a>
+						</li>
+						<li class="xiansuoli1">
+							<a href="/Login/logout"><span class="login_out1"></span>退出</a>
+						</li>
+		            </ul>
+		        </div>
+		        <div class="consult-main">
+			        <!-- 资讯信息头部开始 -->
+			        <div class="fl consult-nav">
+			        	<ul class="fl ziti4">
+			        		<li class="fl selected" name="send"><a href="javascript:;">发送信息</a></li>
+			        		<li class="fl " name="inbox"><a href="/CrmSend/index">收件箱</a></li>
+			        		<li class="fl" name="sent"><a href="/CrmSend/index/action/sent">已发送</a></li>
+			        		<li class="fl" name="drafts"><a href="/CrmSend/index/action/drafts">草稿箱</a></li>
+			        		<li class="fl" name="recycle"><a href="/CrmSend/index/action/recycle">回收站</a></li>
+			        	</ul>
+			        </div>
+			        <!-- 资讯信息头部结束 -->
+					<form class="consult-form" method="post" enctype="multipart/form-data">
+						<span><i>*</i>收件人：</span><input type="email" class="input_cell1" value="{$touser}" placeholder="请输入您的收件人" name="email">
+						<a class="my_frText1"></a><br/>
+						<span><i>*</i>标题：</span><input type="text" class="input_cell1" value="{$title}" placeholder="请输入关键词" name="title" /><br/>
+						<span style="vertical-align: top;width: 139px;"><i>*</i>内容：</span>
+						<script id="editor" type="text/plain" style="width:730px;height: 500px;display: inline-block;margin-left: 8px;margin-top: 15px;"></script>
+						<br/><span>选项：</span>
+						<div class="Three-cells_1">
+							<label class="checkbox" onselectstart="return false;">
+								<input type="checkbox" class="vam" name="checkedres" data-type="1" value="1">
+								<i></i>
+							</label>
+							<em>不发送，保存为草稿</em>
+							<label class="checkbox" onselectstart="return false;">
+								<input type="checkbox" class="vam" name="checkedres" data-type="2" value="2">
+								<i></i>
+							</label>
+							<em>保存到已发送</em>
+							<label class="checkbox" onselectstart="return false;">
+								<input type="checkbox" class="vam" name="checkedres" data-type="2" value="3">
+								<i></i>
+							</label>
+							<em>已读回执</em>
+						</div>
+						<br/>
+						<input type="button" value="确认" class="submit">
+					</form>
+			    </div>
+			</div>
+		</div>
+		
+		<!--确认删除模态框1-->
+		<div class="delete-modal">
+			<div class="delete-modal-cell">
+				<p>您确认删除吗？</p>
+				<div class="delete_modal_btns">	
+					<span class="de_cancel_1">取消</span>
+					<span class="de_confirm_1">确定</span>
+				</div>
+			</div>
+		</div>
+		<!-- 异步加载模态框 -->
+	    <div class="ajax_loadModal">
+			<div class="ajax_load_img">
+				<img src="STYLE_DOMAIN/Home/1.6/Images/load-1.gif" alt="" />
+			</div>
+		</div>
+		<!--搜索条件-->
+		<!--CRM引导-->
+		<div class="Guidance-box" style="display: none">
+			<img class="Guidance" src="STYLE_DOMAIN/Home/1.6/Images/zhixun01.jpg" alt="">
+			<em class="GuidanceClos"></em>
+		</div>
+		<input type="hidden" class="xj_lx" value='inbox'>
+		<script src="STYLE_DOMAIN/Home/1.6/js/jquery.js"></script>
+		<script src="STYLE_DOMAIN/Home/1.6/js/crm-common.js"></script>
+		<script src="STYLE_DOMAIN/Home/1.6/js/send.js"></script>
+		<script>
+			$(function(){
+				var ZinxunIndex = {$look}==1?true:false;
+				if(ZinxunIndex) {
+					$(".Guidance-box").show();
+				}else {
+					$(".Guidance-box").hide();
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="baidu-site-verification" content="AD8f8NwkHq" />
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/css/common.css" />
+		<link rel="stylesheet" href="STYLE_DOMAIN/Home/css/index.css" />
+		<title>个人中心</title>
+		<style> 
+			.footer{
+				position: static;
+				padding-top: 30px;
+				padding-bottom: 10px;
+				clear: both;
+			}
+		</style>
+		<script> var urlPath = "STYLE_DOMAIN/Home"</script>
+	</head>
+	<body>
+		<div id="wrapper" style="min-height: 850px;">
+			<!--页面顶部开始-->
+			<include file="Common/header"/>
+			<!--页面顶部结束-->
+			<!--搜索框开始-->
+			<div class="user-search"  style="margin: 35px auto;">
+			<include file="Common/search-box"/>
+			</div>
+			<!--搜索框结束-->
+			<!--导航-->
+			<section id="tobuy_nav"><span>当前位置：</span>
+				<a href="../index/index.html">首页</a> > <i>用户概况</i></section>
+			<section id="tobuy_list">
+				<!--左边列表-->
+				<aside class="leftTemplate" onselectstart="return false">
+					<article class="tobuy_list_left">
+						<div class="personalInformation">
+							<!--左上边个人信息-->
+							<div class="personalInformation_left" title="头像"><img class="headImg" src="{$userimg}" alt="" /></div>
+							<div class="personalInformation_right">
+								<p class="nikename">{$username}</p>
+
+								<span class="tel" title="手机认证"><img src="STYLE_DOMAIN/Home/Images/tel.png" alt=""/></span>
+								<span class="email" title="邮箱认证"><img src="STYLE_DOMAIN/Home/Images/email.png" alt=""/></span>
+							</div>
+						</div>
+						<div class="userList">
+							<!--左下边列表-->
+							<ul id="userList_ul">
+								<li>
+									<div class="link">用户中心
+									</div>
+									<ul class="submenu">
+										<li class="submenu_yongh blue">
+											<span class="icon1"></span><i class="vam">用户概况</i>
+										</li>
+										<li class="submenu_huiy">
+											<span class="icon2"></span><i class="vam">会员认证</i>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<div class="link">行业管理
+									</div>
+									<ul class="submenu">
+										<li class="submenu_hangy">
+											<span class="icon3"></span><i class="vam">行业管理</i>
+										</li>
+										<li class="submenu_tuis">
+											<span class="icon4"></span><i class="vam">推送设置</i>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<div class="link">供应管理
+									</div>
+									<ul class="submenu">
+										<li class="submenu_gyInfo">
+											<span class="icon5"></span><i class="vam">供应信息</i>
+										</li>
+										<li class="submenu_gyList">
+											<span class="icon6"></span><i class="vam">供应列表</i>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<div class="link">采购管理
+									</div>
+									<ul class="submenu">
+										<li class="submenu_cgInfo">
+											<span class="icon7"></span><i class="vam">发布采购</i>
+										</li>
+										<li class="submenu_cgList">
+											<span class="icon8"></span><i class="vam">采购列表</i>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</article>
+				</aside>
+				<!--右边列表-->
+				<aside class="rightTemlate"></aside>
+			</section>
+			<!--页面底部开始-->
+			<include file="Common/footer"/>
+			<!--页面底部结束-->
+		</div>
+		
+		<section class="tips">
+			<div class="tips_mask"></div>
+			<aside class="tips_boxs">
+				<!--关联微信弹出-->
+				<article class="tips_boxs_weixin">
+					<h3><span>绑定微信</span></h3>
+					<p>设定微信接收信息需要绑定微信是否马上进行设置？</p>
+					<em class="weixin_btn">是</em>
+					<em class="weixin_close">否</em>
+				</article>
+				<!--关联邮箱弹出-->
+				<article class="tips_boxs_email">
+					<h3><span>填写邮箱</span></h3>
+					<input type="text" name="email" id="email" value="" placeholder="请填入邮箱" />
+					<p>填写邮箱方可接收邮件推送</p>
+					<p class="email_p">你输入的邮箱格式不正确。</p>
+					<em class="email_btn">确定</em>
+					<em class="email_close">取消</em>
+				</article>
+			</aside>	
+		</section>
+		
+		<!--点击新增和或者编辑弹出的模态框-->
+		<section class="tips_hygl">
+			<div class="tips_mask_hygl"></div>
+			<div class="tips_box_hygl">
+				<article class="tips_box_top"><div class="tips_box_title">新增行业</div><div class="tips_box_close">X</div></article>
+				<!-- <article class="tips_box_prompt"><i></i>备注：一个账号最多可设置3个行业，设置关键词可更精准地推送信息。一个行业最多可设置20个关键词。</article> -->
+				<article class="tips_selectIndustry">
+					<div>选择行业</div>
+					<select class="indSelect">
+						<volist name="hangyue_data" id='val'>
+						  <option value ="{$val.m_trade_id}">{$val.m_trade_name}</option>
+						</volist> 
+					</select>
+				</article>
+				<article class="tips_keyWords">
+					<div>设置关键词</div>
+					<textarea class="indKeywords" rows="3" cols="20" placeholder="多个关键字请以英文逗号隔开" value=""></textarea>
+					<p></p>
+				</article>
+				<article class="tips_indType">
+					<div>接收推送类型</div>
+					<input name="radio" type="radio" checked="true" value="0"/>接收求购信息
+					<input name="radio" type="radio"  value="1"/>接收供应信息
+				</article>
+				<article class="indSubmit">提交</article>
+			</div>
+		</section>
+		<section class="success_tips">
+			<aside class="success_box">
+				<img src="STYLE_DOMAIN/Home/Images/success.png" alt="" />
+				<div id="success">保存成功</div>
+			</aside>
+		</section>
+		<section class="fail_tips">
+			<aside class="fail_box">
+				<img src="STYLE_DOMAIN/Home/Images/fail.png" alt="" />
+				<div id="message">保存失败</div>
+			</aside>
+		</section>
+	</body>
+	<script type="text/javascript" src="STYLE_DOMAIN/Home/js/jquery.js"></script>
+	<script type="text/javascript" src="STYLE_DOMAIN/Home/js/common.js"></script>
+	
+	<script type="text/javascript">
+	       var gaikuang_url="{:U('get_user_information')}";
+	       var destoon="<?php echo C('MALL_DOMAIN');?>";
+	       var get_rz_url="{:U('get_rz_information')}";
+	       var get_user_hy="{:U('get_user_hy')}";
+		   var hy_del="{:U('hy_del')}"; 
+		   var add_hy="{:U('add_hy')}";                        
+		   var hangyue_edit="{:U('hangyue_edit')}";   
+		   var hy_edit_ok ="{:U('hy_edit_ok')}"; 
+		   var charge_wx_em ="{:U('charge_wx_em')}"; 
+		   var set_email="{:U('set_email')}"; 
+		   var ts_shezhi_ajax="{:U('ts_shezhi_ajax')}";
+		   var vemail="{$user_data.vemail}"   
+		   var vtel="{$user_data.vmobile}"   
+		   if(vemail==0){
+		   	vemail=false;
+		   }else{
+            vemail=true;
+		   }
+		   if(vtel==0){
+		   	vtel=false;
+		   }else{
+		   	vtel=true;
+		   }               
+		   var tel="{$user_data.vmobile}";
+		   var status="{$status}";
+		   //微信绑定跳转参数
+		   var type="{$type}";
+		   var action="{$action}";
+
+	</script>
+	<script type="text/javascript" src="STYLE_DOMAIN/Home/js/user-center.js" ></script>
+	<script type="text/javascript">
+	$(document).on('click','.bind-wx',function(){
+		//http://www.5276mall.com/api/oauth/wechat/connect.php
+		location.href=destoon+'api/oauth/wechat/my_connect.php';
+	});
+		$(function(){
+			var ticket="{$ticket}";
+			//触发jsonp
+			if(ticket == "on"){
+		       	var url="{:U('Common/sso')}";
+					var res=$.ajax({  
+					  type:"get", 
+					  dataType:"jsonp",/*-----------------------*/  
+					  url: url,  
+					  crossDomain:true,/*-----------------------*/  
+					  success: function(data){  
+					  	    console.log(data);
+					  }
+					});  
+			}
+		})	
+	</script>
+</html>
