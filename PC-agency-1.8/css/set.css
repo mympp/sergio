@@ -30,7 +30,7 @@
 	vertical-align: top;
 }
 .page-set .white-bg{
-	padding: 0px 20px;
+	padding: 0px 20px 20px;
 	background: #fff;
 	border: 1px solid #fff;
 	border-radius: 8px;
@@ -162,7 +162,6 @@
     font-size: 18px;
     color: #494949;
     font-weight: bold;
-    margin-top: 60px;
 }
 .page-set .btn-box{
 	width: 100%;
@@ -173,12 +172,11 @@
 	margin-left: 26px;
 }
 .page-set .DataCenterBox-cols{
-
     cursor: pointer;
     font-size: 40px;
     float: right;
-    margin-right: 20px;
-    margin-top: -5px;
+    margin-right: 5px;
+    margin-top: -8px;
     color: #FFFFFF;
 }
 /*input内文字样式*/
@@ -198,7 +196,89 @@
 	color: #898989;
 	font-size: 14px;
 }
-/*表格样式开始*/
+/*模拟弹窗公共样式 Begin*/
+.page-set .moni-lbox{
+	width: 600px;
+	height: auto;
+}
+.page-set .nopassAgent-box.moni-lbox,
+.page-set .passAgent-box.moni-lbox,
+.page-set .send-clean.moni-lbox,
+.page-set .stop-box.moni-lbox,
+.page-set .remove-box.moni-lbox{
+    width: 375px;
+    padding: 30px 0 25px;
+}
+
+.page-set .moni-lbox .moni-main label{
+	font-size: 14px;
+	font-weight: bold;
+	width: 70px;
+	text-align: justify;
+	text-align-last: justify;
+	display: inline-block;
+}
+.page-set .moni-lbox .moni-main i{
+	width: 5px;
+	font-style: normal;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: bold;
+	margin-right: 30px;
+	margin-bottom: 15px;
+}
+.page-set .moni-lbox .moni-main .long-text{
+	width: 85px;
+}
+.page-set .moni-lbox .moni-main input[type=text],
+.page-set .moni-lbox .moni-main input[type=password]{
+	width: 310px;
+	height: 34px;
+	position: relative;
+	line-height: 30px;
+	background: #f5f5f5;
+	padding: 1px 1px 1px 17px;
+	border: 1px solid #d0d0d0;
+	box-sizing: border-box;
+}
+.page-set .moni-lbox .moni-main select{
+	width: 310px;
+	height: 34px;
+	vertical-align: middle;
+	display: inline-block;
+	line-height: 30px;
+	background: url("../Images/arrow.png") no-repeat scroll #f5f5f5;
+	background-position: 97% 50%;
+	border: 1px solid #d0d0d0;
+	padding-left: 15px;
+}
+.page-set .moni-lbox .moni-main input[type=radio]{
+	margin-right: 14px;
+}
+.page-set .moni-lbox .moni-main span{
+	font-size: 14px;
+    color: #494949;
+    position: relative;
+    top: 1px;
+}
+.page-set .moni-lbox .moni-main div span{
+	line-height: 40px;
+}
+.page-set .moni-lbox .moni-main .moni-area{
+	width: 310px;
+	height: 34px;
+	line-height: 30px;
+}
+.page-set .moni-lbox .moni-main .moni-area{
+	display: inline-block;
+}
+.page-set .moni-lbox .moni-area select{
+	width: 100.6px;
+	padding-left: 5px;
+	margin: 0 0 5px 0 ;
+}
+/*模拟弹窗公共样式 End*/
+/*表格样式 Begin*/
 .page-set .table-wrap {
     float: left;
     width: 96%;
@@ -267,13 +347,140 @@
     overflow-y: auto;
     background: #fff;
 }
-/*表格样式结束*/
+/*表格样式 End*/
 .page-set .table-content1{
 	overflow: auto;
 	overflow-x: hidden;
 }
 /*
-系统设置模块
+角色管理模块 Begin
+ */
+/*管理员管理*/
+/*代理商管理*/
+.page-set .agent-head{
+	width: 96%;
+	margin: 0px 2% 10px;
+	padding-top: 26px;
+	padding-bottom: 10px;
+}
+.page-set .add-btn{
+	margin: 26px 0 22px 74px;
+}
+.page-set .border-top{
+	border-top: 1px solid #dcdcdc;
+}
+.page-set .border-bottom{
+	border-bottom: 1px solid #dcdcdc;
+}
+.page-set .agent-head p{
+	font-size: 14px;
+	color: #898989;
+	font-weight: bold;
+}
+.page-set .agent-head .agent-input{
+	width: 100%;
+	margin: 10px 0px 0px;
+}
+.page-set .agent-head label{
+	font-size: 14px;
+	color: #494949;
+	margin-right: 20px;
+}
+.page-set .agent-head input[type=text]{
+	width: 15%;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 20px;
+	margin-bottom: 20px;
+	border: 1px solid #d0d0d0;
+	margin-right: 10px;
+}
+.page-set .agent-head select{
+	width: 15%;
+	height: 34px;
+	line-height: 34px;
+	color: #898989;
+	margin-right: 10px;
+	padding-left: 20px;
+	border: 1px solid #d0d0d0;
+}
+.page-set .agent-head .blue-btn{
+	margin-left: 68px;
+	margin-top: 20px;
+}
+.page-set .agent-head .white-btn{
+	margin-left: 25px;
+}
+.page-set .add-admin #file0{
+	position: absolute;
+	opacity: 0;
+}
+.page-set .add-admin #img0{
+	cursor: pointer;
+}
+/*培训师管理*/
+.page-set .trainer-allot .moni-main p{
+	font-size: 14px;
+	color: #aaa;
+	width:410px;
+	margin: 26px 0;
+	line-height: 25px;
+}
+.page-set .trainer-agent{
+	width: 760px;
+}
+.page-set .trainer-agent .moni-main{
+	width: 760px;
+	height: auto;
+	margin: 0;
+	padding: 28px 0;
+	background: #fff;
+}
+.page-set .trainer-agent .moni-main table{
+	width: 680px;
+	margin: 0px 40px;
+	border: 1px solid #dfdfdf;
+	text-align: center;
+	border-collapse: collapse;
+}
+.page-set .trainer-agent .moni-main td,
+.page-set .trainer-agent .moni-main th{
+	height: 36px;
+	font-size: 14px;
+	line-height: 36px;
+	border-bottom: 1px solid #dfdfdf;
+}
+.page-set .trainer-agent .moni-main td{
+	color: #898989;
+}
+.page-set .trainer-agent .moni-main th{
+	color: #494949;
+	font-weight: bold;
+}
+.page-set .big-img{
+	width: 74px;
+	height: 100px;
+	cursor:pointer;
+}
+.page-set .bbig-img{
+	width: 300px;
+	height: auto;
+	cursor:pointer;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	z-index: 99999;
+}
+/*
+角色管理模块 End
+ */
+/*
+系统设置模块 Begin
  */
 /*管理员管理*/
 /*新增编辑用户组*/
@@ -287,20 +494,39 @@
     margin-left: 30px;
 	margin-top: 22px;
     position: relative;
-    top: -10px;
+    top: -8px;
     border: 1px solid #d6d6d6;
     box-sizing: border-box;
     display: inline-block;
 }
+
+.grouptitle_user1,.grouptitle_user2{
+	width: 400px;
+	height: 40px;
+	line-height: 40px;
+	margin-left: 30px;
+	margin-bottom: 10px;
+    padding-left: 20px;
+    font-weight: normal;
+    font-size: 14px;
+    color: #494949;
+    border: 1px solid #d6d6d6;
+    border-radius: 20px;
+    background: #f0f1f4;
+}
+
 .page-set .redact-user #search-input2,
 .page-set .add-user #search-input1{
-    width: 325px;
+	width: 325px;
     color: #494949;
     background: none;
     border: none;
-    height: 40px;
-    line-height: 40px;
+    height: 38px;
+    line-height: 38px;
     padding-left: 25px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 .page-set .redact-user .search-btn2,
 .page-set .add-user .search-btn2{
@@ -338,20 +564,22 @@
 .page-set .user-lbox .lbox-right1{
 	width: 25%;
 	text-align: left;
+	margin-bottom: 30px;
 }
 .page-set .user-lbox .lbox-left input,
 .page-set .user-lbox .lbox-right1 input{
-	width: 16px;
-	height: 16px;
-	margin-bottom: 30px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-right: 5px;
 }
 .page-set .user-lbox .lbox-left label,
 .page-set .user-lbox .lbox-right1 label{
 	font-size: 14px;
 	color: #494949;
-	vertical-align: top;
-	text-indent: 10px;
 	cursor: pointer;
+	vertical-align: middle;
 }
 /*.add-user .cancel,
 .page-set .add-user .userSubmit{
@@ -505,7 +733,8 @@
 	display: inline-block;
 }
 .page-set .his-redact.moni-lbox{
-	width: 800px;
+	width: 1000px;
+	height: 630px;
 }
 .page-set .his-redact span{
 	display: inline-block;
@@ -520,7 +749,7 @@
 	float: left;
 }
 .page-set .his-redact #editor{
-	width:436px;
+	width: 670px;
 	height: 305px;
 	display: inline-block;
 	margin-left: 8px;
@@ -572,8 +801,8 @@
     display: none;
 } 
 .page-set .his-details{
-	width: 500px;
-	height: 364px;
+	width: 1000px !important;
+	height: 630px !important;
 }
 .page-set .his-details span{
 	display: inline-block;
@@ -587,15 +816,18 @@
 .page-set .his-details p{
 	font-size: 14px;
 	display: inline-block;
+	position: relative;
+	top: 1px;
 }
 .page-set .his-details .details-main{
-	width: 280px;
-	height: 180px;
+	width: 670px;
+	height: 380px;
 	line-height: 24px;
 	overflow: auto;
 	overflow-x: hidden;
     border: 1px solid #ccc;
     padding: 5px;
+    margin-top: 5px;
 }
 /*个人设置*/
 .page-set .set-password-box{
@@ -617,22 +849,24 @@
 }
 .page-set .set-password-box .set-password .password-box{
 	position: relative;
+	margin-top: 10px;
 }
 .page-set .password-p{
-	font-size: 12px;
-	color: red;
-	position: absolute;
-	left: 104px;
-	bottom: -10px;
+	font-size: 13px;
+    color: #FF0000;
+    position: absolute;
+    left: 123px;
+    top: -10px;
 }
 .page-set .passwordSue{
-	width: 260px;
-	height: 120px;
-	margin-left: 132px;
-	background: #fff;
-	border: 1px solid #fff;
-	border-radius: 5px;
-	text-align: center;
+    width: 260px !important;
+    height: 120px !important;
+    margin-left: 168px;
+    margin-top: 35px;
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    text-align: center;
 }
 .page-set .passwordSue img{
 	vertical-align: middle;	
@@ -654,11 +888,18 @@
 	-webkit-transform: translate(-50%,-50%);
 }
 /*代理商分成设置*/
+.page-set .moni-lbox.add-divide{
+	width: 690px;
+}
+.page-set .moni-lbox.add-divide .moni-main input[type=text]{
+	width: 415px;
+}
+}
 .page-set .add-divide .moni-main label{
 	width: 100px;
 }
 .page-set .add-divide .input_cell_sm1{
-    width: 310px;
+    width: 196px;
     height: 34px;
     position: relative;
     line-height: 30px;
@@ -668,208 +909,29 @@
     box-sizing: border-box;
     cursor: pointer;
 }
+.page-set .add-divide .moni-main .long-text{
+	width: 115px;
+}
 .page-set .add-divide .laydate-div{
 	display: inline;
 }
-/*
-角色管理模块
- */
-.page-set .moni-lbox{
-	width: 600px;
-	height: auto;
-}
-.page-set .nopassAgent-box.moni-lbox,
-.page-set .passAgent-box.moni-lbox,
-.page-set .send-clean.moni-lbox,
-.page-set .stop-box.moni-lbox,
-.page-set .remove-box.moni-lbox{
-	width: 375px;
-	padding-bottom: 20px;
-}
-/*管理员管理*/
-.page-set .moni-lbox .moni-main label{
-	font-size: 14px;
-	font-weight: bold;
-	width: 70px;
-	text-align: justify;
-	text-align-last: justify;
+.page-set .add-divide .laydate-div small{
+	color: #d0d0d0;
 	display: inline-block;
-}
-.page-set .moni-lbox .moni-main i{
-	width: 5px;
-	font-style: normal;
-	display: inline-block;
-	font-size: 14px;
-	font-weight: bold;
-	margin-right: 30px;
-	margin-bottom: 15px;
-}
-.page-set .moni-lbox .moni-main .long-text{
-	width: 85px;
-}
-.page-set .moni-lbox .moni-main input[type=text],
-.page-set .moni-lbox .moni-main input[type=password]{
-	width: 310px;
-	height: 34px;
-	position: relative;
-	line-height: 30px;
-	background: #f5f5f5;
-	padding: 1px 1px 1px 17px;
-	border: 1px solid #d0d0d0;
-	box-sizing: border-box;
-}
-.page-set .moni-lbox .moni-main select{
-	width: 310px;
-	height: 34px;
-	vertical-align: middle;
-	display: inline-block;
-	line-height: 30px;
-	background: url("../Images/arrow.png") no-repeat scroll #f5f5f5;
-	background-position: 97% 50%;
-	border: 1px solid #d0d0d0;
-	padding-left: 15px;
-}
-.page-set .moni-lbox .moni-main input[type=radio]{
-	margin-right: 14px;
-}
-.page-set .moni-lbox .moni-main span{
-	font-size: 14px;
-	color: #494949;
-	margin-right: 4	0px;
-}
-.page-set .moni-lbox .moni-main div span{
-	line-height: 40px;
-}
-.page-set .moni-lbox .moni-main .moni-area{
-	width: 310px;
-	height: 34px;
-	line-height: 30px;
-}
-.page-set .moni-lbox .moni-main .moni-area{
-	display: inline-block;
-}
-.page-set .moni-lbox .moni-area select{
-	width: 100.6px;
-	padding-left: 5px;
-	margin: 0 0 5px 0 ;
-}
-/*代理商设置*/
-.page-set .agent-head{
-	width: 96%;
-	margin: 0px 2% 10px;
-	padding-top: 26px;
-	padding-bottom: 10px;
-}
-.page-set .add-btn{
-	margin: 26px 0 22px 74px;
-}
-.page-set .border-top{
-	border-top: 1px solid #dcdcdc;
-}
-.page-set .border-bottom{
-	border-bottom: 1px solid #dcdcdc;
-}
-.page-set .agent-head p{
-	font-size: 14px;
-	color: #898989;
-	font-weight: bold;
-}
-.page-set .agent-head .agent-input{
-	width: 100%;
-	margin: 10px 0px 0px;
-}
-.page-set .agent-head label{
-	font-size: 14px;
-	color: #494949;
-	margin-right: 20px;
-}
-.page-set .agent-head input[type=text]{
-	width: 15%;
-	height: 30px;
-	line-height: 30px;
-	padding-left: 20px;
-	margin-bottom: 20px;
-	border: 1px solid #d0d0d0;
-	margin-right: 10px;
-}
-.page-set .agent-head select{
-	width: 15%;
-	height: 34px;
-	line-height: 34px;
-	color: #898989;
-	margin-right: 10px;
-	padding-left: 20px;
-	border: 1px solid #d0d0d0;
-}
-.page-set .agent-head .blue-btn{
-	margin-left: 68px;
-	margin-top: 20px;
-}
-.page-set .agent-head .white-btn{
-	margin-left: 25px;
-}
-.page-set .add-admin #file0{
-	position: absolute;
-	opacity: 0;
-}
-.page-set .add-admin #img0{
-	cursor: pointer;
-}
-/**/
-.page-set .trainer-allot .moni-main p{
-	font-size: 14px;
-	color: #aaa;
-	width:410px;
-	margin: 26px 0;
-	line-height: 25px;
-}
-.page-set .trainer-agent{
-	width: 760px;
-}
-.page-set .trainer-agent .moni-main{
-	width: 760px;
-	height: auto;
-	margin: 0;
-	padding: 28px 0;
-	background: #fff;
-}
-.page-set .trainer-agent .moni-main table{
-	width: 680px;
-	margin: 0px 40px;
-	border: 1px solid #dfdfdf;
+	width: 15px;
 	text-align: center;
-	border-collapse: collapse;
 }
-.page-set .trainer-agent .moni-main td,
-.page-set .trainer-agent .moni-main th{
-	height: 36px;
-	font-size: 14px;
-	line-height: 36px;
-	border-bottom: 1px solid #dfdfdf;
+.page-set .add-divide .divide-tips{
+	font-size: 12px;
+	color: #aaa;
+	display: block;
+	margin-left: 154px;
+	margin-bottom: 10px;
 }
-.page-set .trainer-agent .moni-main td{
-	color: #898989;
+#expiration_time1,
+#expiration_time2{
+    background: url(../Images/icon_date1.png) no-repeat 97% #f5f5f5 !important;
 }
-.page-set .trainer-agent .moni-main th{
-	color: #494949;
-	font-weight: bold;
-}
-.page-set .big-img{
-	width: 74px;
-	height: 100px;
-	cursor:pointer;
-}
-.page-set .bbig-img{
-	width: 300px;
-	height: auto;
-	cursor:pointer;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-	-o-transform: translate(-50%,-50%);
-	-ms-transform: translate(-50%,-50%);
-	-moz-transform: translate(-50%,-50%);
-	-webkit-transform: translate(-50%,-50%);
-	z-index: 99999;
-}
+/*
+系统设置模块 End
+ */

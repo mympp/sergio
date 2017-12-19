@@ -71,7 +71,7 @@
     width: 100%;
     height: auto;
     position: relative;
-    top: -60px;
+    top: -20px;
 }
 .index-video .video-text{
 	position: absolute;
@@ -114,11 +114,11 @@
 	background: #f07122;
 }
 .goTo_link1{
-	position: absolute;
-    width: 15%;
+    position: absolute;
+    width: 13.5%;
     height: 8%;
     left: 18%;
-    bottom: 46.3%;
+    bottom: 54.5%;
 }
 
 .home_banner_1{
@@ -127,11 +127,11 @@
 }
 
 .video_wrap_1{
-	position: absolute;
-    width: 43.7%;
-    height: 51%;
-    right: 10.4%;
-    bottom: 15.8%;
+    position: absolute;
+    width: 43.2%;
+    height: 50.8%;
+    right: 10.75%;
+    bottom: 21.6%;
     z-index: 100;
 }
 .video_wrap_1 p{
@@ -206,6 +206,7 @@
 	margin: 0 auto;
 	padding-top: 70px;
 	clear: both;
+	overflow: hidden;
 }
 .index-gbox{
 	width: 100%;

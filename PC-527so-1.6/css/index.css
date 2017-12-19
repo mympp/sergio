@@ -1841,7 +1841,7 @@
 /*左边头部开始*/
 .left_header{
 	float: left;
-	width: 50%;
+	width: 30%;
 	height: 70px;
 	line-height: 70px;
     background: #ffffff;
@@ -1866,14 +1866,15 @@
     line-height: 70px;
     margin-left: 30px;
     position: relative;
-    top: 1px;	
+    top: 1px;
+    display: none;
 }
 /*左边头部结束*/
 
 /*右边头部开始*/
 .right_header{
 	float: right;
-	width: 50%;
+	width: 70%;
 	height: 70px;
 	line-height: 70px;
     background: #ffffff;
@@ -1922,18 +1923,35 @@
 
 .buy_vip_icon1{
     display: inline-block;
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     vertical-align: middle;
     background: url(../Images/common_nav_member_nor.png) no-repeat;
     background-size: 100% 100%;
     margin-right: 5px;
 }
-
+.shopping-index {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    background: url(../Images/common_nav_home_nor.png) no-repeat;
+    background-size: 100% 100%;
+    margin-right: 5px;
+}
+.cbd-center {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    background: url(../Images/common_cbd_center.png) no-repeat;
+    background-size: 100% 100%;
+    margin-right: 5px;
+}
 .user_icon1{
     display: inline-block;
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     vertical-align: middle;
     background: url(../Images/common_nav_user_nor.png) no-repeat;
     background-size: 100% 100%;
@@ -1942,8 +1960,8 @@
 
 .login_out1{
     display: inline-block;
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     vertical-align: middle;
     background: url(../Images/common_nav_out_nor.png) no-repeat;
     background-size: 100% 100%;
@@ -2205,7 +2223,7 @@ cursor: pointer;
     background: #fff;
     position: relative;
     top: 50%;
-    left: 45%;
+    left: 40%;
     -webkit-transform: translate(-50%,-50%);
     -moz-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
@@ -2213,6 +2231,11 @@ cursor: pointer;
     transform: translate(-50%,-50%);
     border-radius: 5px;
     /*padding-bottom: 30px;*/
+}
+
+.dingyue_hy_contentbox{
+    height: 85%;
+    overflow: auto;
 }
 
 .dingyue_hy_header{
@@ -2377,7 +2400,6 @@ cursor: pointer;
     width: 100%;
     margin: 25px auto 0;
     text-align: center;
-    padding-bottom: 20px;
 }
 
 .dy_cancel_1{

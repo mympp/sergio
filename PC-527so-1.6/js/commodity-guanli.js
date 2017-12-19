@@ -18,8 +18,6 @@ $(function() {
 		$(".xiansuo_Page_Div").show();//隐藏分页器
 	}
 
-	wordlimit("jiequ_str",56);//截取字符串
-
 	var time1 = new Date().Format("yyyy-MM-dd");//此处为后台传入时间的变量(最小时间)
 	var start = {
 		elem: '#inputStartTime',
@@ -223,7 +221,7 @@ $(function() {
 			},300);	
 		}else{
 			str+=
-			'<div class="slider_content1">'+
+			'<div class="slider_content1" name="111">'+
 					'<div class="slider_content1_lf">'+
 						'<div>联系人：陈先生</div>'+
 						'<div>手<span class="pdlf-14"></span>机：13580546695</div>'+
@@ -232,13 +230,29 @@ $(function() {
 					'</div>'+
 					'<div class="slider_content1_rt">'+
 						'<div>地<span style="padding-left: 28px;"></span>址： 陈先生</div>'+
-						'<div class="jiequ_str">线索描述：肯德基撒恐龙当家萨洛克的撒娇快乐的撒线索描述：肯德基撒恐龙当家萨洛克的撒娇快乐的撒线索描述：肯德基撒恐龙当家萨洛克</div>'+
+						'<div class="jiequ_str">线索描述：肯德基撒恐龙当家萨洛克的撒娇快乐的撒肯德基撒恐龙当家萨洛克的撒娇快乐的撒肯德基撒恐龙当家萨洛克的撒娇快乐的撒肯德基撒恐龙当家萨洛克的撒娇快乐的撒肯德基撒恐龙当家萨洛克的撒娇快乐的撒肯德基撒恐龙当家萨洛克的撒娇快乐的撒</div>'+
 						'<div>创建时间：2017-09-13 18:15</div>'+
 					'</div>'+
+					'<span class="shift_kehu">转为客户</span>'+
 			'</div>';
 			$(this).next().after(str);
+			wordlimit("jiequ_str",23);//截取字符串
 			$(this).removeClass("close").addClass("open").siblings(".slider_content1").stop(true,false).slideDown();
 		}
+	})
+	
+	//为转为客户按钮绑定单击事件
+	$(document).on("click",".shift_kehu",function(){
+		if($(this).text=="已转客户"){
+			return false;
+		}
+		var id = $(this).parents(".slider_content1").attr("name");
+		$(this).addClass("active");
+		console.log(id+" 发起ajax");
+		$(".sucuess-modal").fadeIn();//ajax成功回调
+		setTimeout(function(){
+			$(".sucuess-modal").fadeOut();
+		},1500);
 	})
 	
 	//为推送日志图片绑定单击事件

@@ -63,10 +63,95 @@ input,select,textarea{font-weight:inherit;font-size:inherit;font-family:inherit}
 	z-index: 99999;
 	
 }
+/*支付媒体查询*/
+@media screen and (max-width: 1880px){
+	.PayMoney {
+		width: 426px!important;
+		height: 400px!important;
+	}
+	.payCenter {
+		width: 370px!important;
+		margin-top: 19px!important;
+	}
+	.payServe>i {
+		font-size: 12px!important;
+	}
+	.payServe {
+		margin-top: 16px!important;
+	}
+	.pay-check {
+		width: 12px !important;
+		height: 12px !important;
+		margin-left: 30px !important;
+		margin-right: 5px !important;
+	}
+	.PayMoney>p {
+		font-size: 12px!important;
+		margin-left: 47px!important;
+		margin-top: 2px!important;
+	}
+	.PayTop {
+		width: 100%!important;
+		height: 30px!important;
+		line-height: 30px!important;
+		font-size: 12px!important;
+	}
+	.PayTop>i {
+		font-size: 30px!important;
+		margin-top: -3px;
+	}
+	.payCenter>h2 {
+		padding-top: 10px!important;
+		font-size: 12px!important;
+		margin-left: 18px!important;
+	}
+	.payCenter>p {
+		padding-top: 8px !important;
+		font-size: 12px !important;
+		margin-left: 23px !important;;
+	}
+	.pay-open {
+		width: 100px!important;
+		height: 30px!important;
+		font-size: 12px!important;
+		line-height: 30px!important;
+		margin-top: 16px!important;
+	}
+	.PayXuan {
+		width: 88%!important;
+		margin-top: 25px!important;
+	}
+	.fang{
+		font-size: 14px!important;
+		padding-top: 26px!important;
+	}
+	.pay-affirm {
+		margin-top: 65px!important;
+		width: 120px!important;
+		height: 35px!important;
+		font-size: 14px!important;
+		line-height: 35px!important;
+	}
+	.PayText {
+		margin-top: 13px!important;
+		font-size: 14px!important;
+	}
+	.PayText>em {
+		font-size: 24px!important;
+		margin-right: 6px!important;
+	}
+	.PayText>i {
+		margin-left: 5px!important;
+	}
+	.payCenter>p:last-child {
+		padding-bottom: 8px!important;
+	}
+}
+
 /*模态框结束*/
 /*外层big盒子开始*/
 .PayMoney {
-	height: 500px;
+	height: 596px;
 	width: 640px;
 	border-radius: 5px;
 	background: #FFF;
@@ -81,16 +166,34 @@ input,select,textarea{font-weight:inherit;font-size:inherit;font-family:inherit}
 }
 /*盒子结束*/
 /*头部开始*/
+.PayText {
+	margin-top: 35px;
+	text-align: center;
+	font-size: 23px;
+	color: #494949;
+	margin-left: -30px;
+	/*font-weight:700;*/
+}
+.PayText>em {
+	font-size: 34px;
+	margin-right: 8px;
+}
+.PayText>i {
+	font-style: normal;
+	margin-left: 10px;
+
+}
+/*修改支付后的样式*/
 .PayTop {
 	font-size: 18px;
 	color: #ffffff;
 	background: #1da1f2;
 	display: block;
-	height: 60px;
+	height: 44px;
 	width: 640px;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
-	line-height: 60px;
+	line-height: 44px;
 	padding-left: 22px;
 	box-sizing: border-box;
 }
@@ -104,31 +207,53 @@ input,select,textarea{font-weight:inherit;font-size:inherit;font-family:inherit}
 }
 /*头部结束*/
 /*中部开始*/
+/*修改后支付样式*/
 .payCenter {
 	display: block;
 	width: 556px;
-	height: 176px;
+	height: auto;
 	background: #f0f1f4;
 	border-radius: 5px;
-	margin:0 auto;
-	margin-top: 34px;
+	margin: 0 auto;
+	margin-top: 24px;
 }
+/*修改后支付样式*/
+.HuiDian {
+	width: 5px;
+	height: 5px;
+	display: inline-block;
+	background: #c4c5c7;
+	border-radius: 50%;
+	line-height: 5px;
+	margin-right: 10px;
+
+}
+/*修改后支付样式*/
 .payCenter>h2 {
-	padding-top: 58px;
-	font-size: 24px;
-	font-weight:700;
-	text-align: center;
-}
-.payCenter>p {
-	padding-top: 14px;
+	padding-top:24px;
 	font-size: 16px;
+	font-weight:700;
+	margin-left: 28px;
+	color: #494949;
+}
+/*修改后支付样式*/
+.payCenter>p {
+	padding-top: 13px;
+	font-size: 14px;
 	color: #898989;
-	text-align: center;
+	margin-left: 36px;
+}
+.payCenter>p:last-child {
+	padding-bottom: 24px;
+}
+/*修改后支付样式*/
+.payCenter>p>span {
+	vertical-align: middle;
 }
 /*中部结束*/
 /*服务条例开始*/
 .payServe {
-	margin-top: 30px;
+	margin-top: 24px;
 
 }
 .pay-check {
@@ -159,18 +284,18 @@ input,select,textarea{font-weight:inherit;font-size:inherit;font-family:inherit}
 	font-style: normal;
 }
 .pay-open {
-	width: 200px;
-	height: 46px;
-	font-size: 18px;
+	width:150px;
+	height: 40px;
+	font-size: 16px;
 	background: #1da1f2;
 	color: #ffffff;
-	line-height: 46px;
+	line-height: 40px;
 	text-align: center;
 	display: block;
 	border-radius: 30px;
 	margin: 0 auto;
-	margin-top: 54px;
 	cursor: pointer;
+	margin-top: 20px;
 }
 /*服务条例结束*/
 
@@ -243,12 +368,12 @@ input,select,textarea{font-weight:inherit;font-size:inherit;font-family:inherit}
 }
 .pay-affirm {
 	font-style: normal;
-	width: 200px;
-	height: 46px;
-	font-size: 18px;
+	width: 150px;
+	height: 40px;
+	font-size: 16px;
 	background: #1da1f2;
 	color: #ffffff;
-	line-height: 46px;
+	line-height: 40px;
 	text-align: center;
 	display: block;
 	border-radius: 30px;

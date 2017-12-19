@@ -63,6 +63,7 @@
     color: #333333;
     vertical-align: middle;
     cursor: pointer;
+    display: block;
 }
 
 .userList_li:hover,
@@ -207,17 +208,18 @@
     cursor: pointer;
 }
 
-.icon-money-div p,
-.icon-data-div p,
-.icon-person-div p,
-.icon-shopping-div p {
+.icon-money-div a,
+.icon-data-div a,
+.icon-person-div a,
+.icon-shopping-div a {
+	display: block;
     padding-left: 48px;
 }
 
-.icon-money-div  p.open,
-.icon-data-div  p.open,
-.icon-person-div  p.open,
-.icon-shopping-div p.open {
+.icon-money-div  a.open,
+.icon-data-div  a.open,
+.icon-person-div  a.open,
+.icon-shopping-div a.open {
     color: #1da1f2;
 }
 /*右边主题内容开始*/
@@ -261,20 +263,16 @@
     height: 70px;
     line-height: 70px;
     margin-left: 38px;
-    /*position: relative;
-    top: 1px;*/
 }
 .vip-valid>input {
+	width: 140px;
     border: 0px;
+    background: none;
     color: #ff7977;
     font-size: 16px;
-    height: 70px;
-    line-height: 70px;
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
-    /*width: 205px;*/
-    width: 140px;
 }
 .left_header>em {
     font-style: normal;
@@ -715,3 +713,76 @@
     line-height: 28px;
 }
 /*无数据样式结束*/
+
+.show{
+	display: block;
+}
+
+/*操作成功模态框开始*/
+.sucuess-modal{
+    width: 100%;
+    height: 100%;
+    display: none;
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10000;
+}
+
+.sucuess-modal-cell{
+    width: 250px;
+    height: 200px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.sucuess-modal-cell img{
+    margin-top: 40px;
+}
+
+.sucuess-modal-cell p{
+    font-size: 18px;
+    color: #494949;
+    font-weight: 600;
+    margin-top: 20px;
+    padding-left: 5px;
+}
+/*操作成功模态框结束*/
+
+.ajax_loadModal{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    background: rgba(0,0,0,.3);
+    z-index: 99999;
+    display: none;
+}
+.ajax_load_img{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+/*异步加载模态框结束*/

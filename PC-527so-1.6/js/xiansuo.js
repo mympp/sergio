@@ -360,6 +360,7 @@ $(function() {
 	//打开订阅采购商信息
 	$(document).on("click",".dingyue_cgMsgBtn",function(){
 		$(".dingyue_hy_modal").fadeIn();
+		getHeight();
 	})
 
 	//关闭订阅采购商信息
@@ -584,6 +585,27 @@ function getHeight() {
 		$(".php_hy_list li").css({
 			"marginLeft":10
 		})
+	}
+	
+	if(height<700){
+		//console.log("小于700");
+		$(".dingyue_hy").css({
+			"height": "85%"
+		});
+		
+		$(".dingyue_hy_btns").css({
+			"paddingBottom": "10px",
+		});
+	}else{
+		//console.log("大于700");
+		$(".dingyue_hy").css({
+			"height": "",
+			"overflow": ""
+		});
+		
+		$(".dingyue_hy_btns").css({
+			"paddingBottom": "20px",
+		});
 	}
 }
 

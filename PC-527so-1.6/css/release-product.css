@@ -1001,7 +1001,7 @@
     display: inline-block;
     width: 90px;
     height: 90px;
-    background: url("../Images/set_portrait_nor.png") no-repeat;
+    /*background: url("../Images/set_portrait_nor.png") no-repeat;*/
 
 }
 .head-text {

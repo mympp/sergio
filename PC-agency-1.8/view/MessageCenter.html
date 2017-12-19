@@ -326,18 +326,23 @@
 		</div>
 		<!--父容器结束-->
 		
-		<script>var pages = "消息中心"; index1 = '' ;index2 = '' ;</script>
 		<script src="../js/jquery.js"></script>
 		<script src="../js/common.js"></script>
 		<script>
 			$(function() {
+				if(sessionStorage['html_left']){
+					$(".left_template").html(sessionStorage['html_left']);
+				}
+				
 				getHeight(); //获取高度
 				
 				$(window).resize(function() {
 					getHeight();
 				})
+
 				//点击展示收起
 //				var clickNumber = 0; //记录点击
+
 				$(document).on("click", ".message-list>.xxaa>i>em", function() {
 //					$(this).parent().parent().parent().find($(".message-title")).addClass("ColorMessage");
 					var sub = $(this).parent().parent().parent().find($(".message-text")).text()

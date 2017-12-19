@@ -1,21 +1,14 @@
-/*
-公共js
- */
-    //动态获取高度
+	//动态获取高度
     $(function(){
         $(window).on("load",function(){
             getHeight();//设置动态高度
-            
         })
         
         $(window).resize(function(){
             getHeight();//设置动态高度
         });
-
-
     })
   
-
     //定义获取高度方法
     function getHeight(){
         var winH = $(window).height();
@@ -27,12 +20,12 @@
         $(".white-bg").height(winH-112);
         $(".set-send").height(winH-140);
         $(".editor-box").height(winH-430);
-        $(".user-bbox").height(winH-295);
+        $(".user-bbox").height(winH-256);
         $("#edui1_iframeholder").height(editorHeight-33);
         $(".set-password-box").height(winH-70);
         //console.log(winH-topH);
         //表格内容高度
-        $(".table-content1").height(winH-300);
+        $(".table-content1").height(winH-275);
         //虚拟弹窗高度超出屏幕高度时滚动
         var mainH = $(".moni-main").height();
         if (mainH >= winH) {
@@ -75,6 +68,7 @@
         $(document).on("click",".hisDetails",function(){
             $(".his-details,.moni-box").fadeIn();
         })
+        
         //分成设置
         $(document).on("click",".addDivide",function(){
             $(".add-divide,.moni-box").fadeIn();
@@ -88,8 +82,8 @@
             $(".user-main").fadeIn();
         })
         $(document).on("click",".cleanAll,.cancel",function(){
-                // $(allClean).fadeOut();
-                $(".moni-box,.moni-lbox").fadeOut();
+            // $(allClean).fadeOut();
+            $(".moni-box,.moni-lbox").fadeOut();
         })
         //清空
         $(document).on("click",".closesubmit",function(){
@@ -135,16 +129,4 @@
                 }
             })
         })
-    })
-    
-/*
-发布公告页面
- */
-    //发布公告富文本编辑器和发布时间
-    $(function(){
-        var ue = UE.getEditor('editor');//富文本编辑器
-        laydate.render({//发布时间
-          elem: '#expiration_time', //指定元素
-          type: 'datetime'
-        });
     })

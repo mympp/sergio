@@ -7,7 +7,7 @@ $(function(){
 	})
 	
 	//页面头部会员状态
-	var state = 1; //用户状态  0为未认证会员 1为会员认证中 2为以认证会员
+	var state = 0; //用户状态  0为未认证会员 1为会员认证中 2为以认证会员
 	if(state == 0){
 		$(".vip-valid").hide();
 	}else if(state == 1){
@@ -16,9 +16,10 @@ $(function(){
 		$(".buy_xiansuoli1>a").text("会员认证中");
 	}else if(state == 2){
 		$(".vip-valid").show();
+		$(".buy_xiansuoli1").hide();
 	}
 
-	var explorer =navigator.userAgent ;
+	var explorer =navigator.userAgent;
 	//判断浏览器内核兼容火狐浏览器
 	//修复一系列火狐浏览器bug
 	if (explorer.indexOf("Firefox") >= 0) {
@@ -49,12 +50,12 @@ $(function(){
 
 	}
 	//判断用户名长度超过指定长度超出隐藏
-	var aH = $(".right_header>ul>li:eq(1)>a").width();
+	var aH = $(".right_header>ul>li:eq(3)>a").width();
 	console.log(aH+"宽度");
-	if(aH>230){
-		$(".right_header>ul>li:eq(1)>a").css({
+	if(aH>200){
+		$(".right_header>ul>li:eq(3)>a").css({
 			"display": "inline-block",
-			"width": "230",
+			"width": "200",
 			"overflow": "hidden",
 			"text-overflow": "ellipsis",
 			"-o-text-overflow": "ellipsis",
@@ -267,12 +268,18 @@ function PayCRM(){
 		<!--会员购买-->
 		'<div class="PayMoney pay01" style="display: none">'+
 		'<span class="PayTop">购买会员 <i>&#215;</i></span>'+
+		'<div class="PayText">认证服务费：<i>￥</i><em>500</em>元/1年</div>'+
 	'<span class="payCenter">'+
-		'<h2>标准版&nbsp;&nbsp;500元/1年</h2>'+
-	'<p>含3个行业，可订阅15个关键词</p>'+
+		'<h2>认证会员有以下权利：</h2>'+
+	'<p><em class="HuiDian"></em><span>基础客户管理功能</span></p>'+
+	'<p><em class="HuiDian"></em><span>可以订阅一个行业，<em>5</em>个关键词</span></p>'+
+	'<p><em class="HuiDian"></em><span>支持查看采购线索的联系方式</span></p>'+
+	'<p><em class="HuiDian"></em><span>每月可选<em>5</em>个商品一键推送，自动开发客户，自动邮件营销</span></p>'+
+	'<p><em class="HuiDian"></em><span>公司宣传主页一个（基础版），有<em>200</em>多套模板可供选择</span></p>'+
+	'<p><em class="HuiDian"></em><span>商城基础版一个</span></p>'+
 	'</span>'+
 	'<div class="payServe">'+
-		'<input class="pay-check" type="checkbox">'+
+		'<input class="pay-check" type="checkbox" checked="checked">'+
 		'<i>购买即为同意'+'<em class="QueSever">《雀搜服务条例》</em>'+'</i>'+
 	'</div>'+
 	'<p>应付金额：<i>500</i>元</p>'+
