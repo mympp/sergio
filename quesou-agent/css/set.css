@@ -254,12 +254,13 @@
 }
 .page-set .moni-lbox .moni-main input[type=radio]{
 	margin-right: 14px;
+	margin-bottom: 10px;
 }
 .page-set .moni-lbox .moni-main span{
 	font-size: 14px;
     color: #494949;
     position: relative;
-    top: 1px;
+    top: -2px;
 }
 .page-set .moni-lbox .moni-main div span{
 	line-height: 40px;
