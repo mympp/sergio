@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+<pre class="brush:php;toolbar:false">&lt;?php
+$img&nbsp;=&nbsp;isset($_POST['img'])?&nbsp;$_POST['img']&nbsp;:&nbsp;'';
+//&nbsp;获取图片
+list($type,&nbsp;$data)&nbsp;=&nbsp;explode(',',&nbsp;$img);
+//&nbsp;判断类型
+if(strstr($type,'image/jpeg')!==''){
+&nbsp;&nbsp;&nbsp;&nbsp;$ext&nbsp;=&nbsp;'.jpg';
+}elseif(strstr($type,'image/gif')!==''){
+&nbsp;&nbsp;&nbsp;&nbsp;$ext&nbsp;=&nbsp;'.gif';
+}elseif(strstr($type,'image/png')!==''){
+&nbsp;&nbsp;&nbsp;&nbsp;$ext&nbsp;=&nbsp;'.png';
+}
+//&nbsp;生成的文件名
+$photo&nbsp;=&nbsp;time().$ext;
+//&nbsp;生成文件
+file_put_contents($photo,&nbsp;base64_decode($data),&nbsp;true);
+//&nbsp;返回
+header('content-type:application/json;charset=utf-8');
+$ret&nbsp;=&nbsp;array('img'=&gt;$photo);
+echo&nbsp;json_encode($ret);
+?&gt;</pre>
+ </body>
+</html>
