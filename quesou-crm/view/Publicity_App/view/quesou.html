@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+		<meta name="format-detection" content="telephone=no, email=no"/>
+		<link rel="stylesheet" href="../css/weuix.css"/>
+		<link rel="stylesheet" href="../css/publicity.css"/>
+		<title>雀搜官网</title>
+		<style>
+			@media screen and (max-width: 321px){
+				.ping1-p {
+					font-size: 20px!important;
+				}
+				.ping1-imgcenter4 {
+					top:29%!important;
+				}
+				.ping3-imgbox {
+					margin-top: 3%!important;
+				}
+				.ping2-imgbox {
+					margin-top: 2%!important;
+				}
+			}
+			body,html{
+				height: 100%;
+			    -webkit-tap-highlight-color: transparent;
+			}
+
+			.page-wrap {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.page {
+				width: 100%;
+				height: 100%;
+				-webkit-backface-visibility: hidden;
+				-webkit-perspective: 1000;
+				padding-top: 50px;
+				font-size: 0;
+			}
+			
+			.arrow {
+				position: absolute;
+				left: 50%;
+				bottom: 10px;
+				width: 33px;
+				height: 18px;
+				margin-left: -16px;
+				background: url("../Images/wap_qs_icon_upthrust@2x.png") no-repeat;
+				background-size: 33px auto;
+				opacity: 1;
+			}
+			
+			.arrow-h {
+				position: absolute;
+				right: 10px;
+				top: 50%;
+				width: 33px;
+				height: 18px;
+				margin-top: -9px;
+				opacity: 0;
+			}
+			
+			.arrow-h i {
+				display: block;
+				width: 33px;
+				height: 18px;
+				background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAAAkBAMAAADP1/GcAAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAACnRSTlMA7THqZCykIw4N2Qp8/wAAAKJJREFUOMuF0yEOwkAQheEJhmArUUu4ARIFFgUSh+YUOM7R4PaU0FS8hD/5O6KdmX37ua2/2txrofaf5oHVtg+e2PU+NifGcx+cGH6hpkSbUkrMMSPmnBJAQAiSgyAkkhUiYSGSJiFIdskbQYQbIlnwSmbcwUgEkyAZgKAnktaQdERAEAEBJD9BQAC5TR9BrvWcCEEedTnoUz+eav0qq3ct1xewUzlrRHoptQAAAABJRU5ErkJggg==) no-repeat;
+				background-size: 33px auto;
+				-webkit-transform: rotate(-90deg);
+			}
+			
+			.current .arrow {
+				-webkit-animation: swipeMoveTop 1.5s 1s ease infinite;
+			}
+			
+			.current .arrow-h {
+				-webkit-animation: swipeMoveLeft 1.5s 1s ease infinite;
+			}
+			/*上滑提示*/
+			
+			@-webkit-keyframes swipeMoveTop {
+				0% {
+					opacity: 0;
+					-webkit-transform: translate3d(0, 10px, 0);
+				}
+				70% {
+					opacity: 1;
+					-webkit-transform: translate3d(0, 0, 0);
+				}
+				100% {
+					opacity: 0;
+					-webkit-transform: translate3d(0, -10px, 0);
+				}
+			}
+			/*左滑提示*/
+			
+			@-webkit-keyframes swipeMoveLeft {
+				0% {
+					opacity: 0;
+					-webkit-transform: translate3d(10px, 0, 0);
+				}
+				70% {
+					opacity: 1;
+					-webkit-transform: translate3d(0, 0, 0);
+				}
+				100% {
+					opacity: 0;
+					-webkit-transform: translate3d(-10px, 0, 0);
+				}
+			}
+			
+			@-webkit-keyframes slideToTop {
+				0% {
+					opacity: 0;
+					-webkit-transform: translate3d(0, 100px, 0);
+				}
+				100% {
+					opacity: 1;
+					-webkit-transform: translate3d(0, 0, 0);
+				}
+			}
+			
+			/*自定义*/
+			.page_inner {
+				opacity: 0;
+			}
+			
+			.current .page_inner {
+				opacity: 1;
+				-webkit-transition: opacity 0.1 linear;
+				-moz-transition: opacity 0.1 linear;
+				-ms-transition: opacity 0.1 linear;
+				-o-transition: opacity 0.1 linear;
+				transition: opacity 0.1 linear;
+				width: 100%;
+				height: 100%;
+				-webkit-animation: slideToTop 0.5s 0.3s ease both;
+			}
+			
+			.header_box{
+			    position: fixed;
+			    top: 0;
+			    left: 0;
+			    right: 0;
+			    background: #f59542;
+			    height: 50px;
+			    line-height: 50px;
+			    z-index: 100;
+			}
+			
+			.header_box .header_logo{
+			    display: inline-block;
+			    height: 36px;
+			    line-height: 50px;
+			    position: relative;
+			    top: 10px;
+			    left: 15px;
+			}
+			
+			.header_box .header_logo img{
+			    width: 74px;
+			    height: 32px;
+			}
+			
+			.jiaru_daili_btn{
+			    display: inline-block;
+			    cursor: pointer;
+			    float: right;
+			    width: 74px;
+			    height: 30px;
+			    line-height: 28px;
+			    text-align: center;
+			    border: 1px solid #fff;
+			    border-radius: 23px;
+			    font-size: 12px;
+			    color: #fff;
+			    position: relative;
+			    top: 10px;
+			    right: 13px;
+			}
+			
+			.img-100{
+				width: 100%;
+				/*height: 100%;*/
+			}
+			.weixin-code {
+				display: inline-block;
+				background: url("../Images/wap_qs_weweimabig.png")no-repeat;
+				width: 83px;
+				height: 83px;
+				background-size: contain;
+				position: fixed;
+				bottom:33px;
+				right:9px;
+				z-index: 999;
+			}
+			.code-model {
+				width: 100%;
+				height: 100%;
+				background: rgba(0,0,0,0.6);
+				position: fixed;
+				top:0;
+				left:0;
+				z-index: 999;
+				display: none;
+			}
+			.code-img {
+				/*background: url("../Images/wap_qs_weweimabig.png") no-repeat;*/
+				width: 60%;
+				height: 60%;
+				background-size: contain;
+				position: absolute;
+				top:50%;
+				left:50%;
+				-webkit-transform: translate(-50%, -50%);
+				-moz-transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+				-o-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+				color: #fff;
+			}
+			.code-img1 {
+				margin-top: -40%;
+				width: 100%;
+				position: absolute;
+				top:50%;
+				left:50%;
+				-webkit-transform: translate(-50%, -50%);
+				-moz-transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+				-o-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+				z-index: 999;
+			}
+			.text1 {
+				margin-top:105%;
+				color: #FFFFFF;
+				font-size: 15px;
+			}
+			.text2 {
+				margin-top: 15px;
+				font-size: 12px;
+			}
+			.text3 {
+				margin-top: 9px;
+				font-size: 12px;
+			}
+			.ping1-box {
+				width:100%;
+				height:100%;
+				position: relative;
+			}
+			.ping1-p {
+				text-align: center;
+				font-size:25px;
+				color: #f59242;
+				margin-top: 30px;
+			}
+			.ping1-p2 {
+				font-size: 12px;
+				color: #696969;
+				margin-top:1px;
+				text-align: center;
+			}
+			.ping1-imgtop {
+				width: 7%;
+				position: absolute;
+				top: -2%;
+				left: 34%;
+			}
+			.ping1-imgbox {
+				width: 60%;
+				margin: 0 auto;
+				z-index: 999;
+			}
+			.ping1-img {
+				width: 100%;
+			}
+			.ping1-imgcenter1 {
+				position: absolute;
+				top: 20%;
+				left: 8%;
+				z-index: -999;
+				width: 20%;
+			}
+			.ping1-imgcenter2 {
+				position: absolute;
+				top: 40%;
+				right: 9%;
+				z-index: -999;
+				width: 21%;
+			}
+			.ping1-imgcenter3 {
+				position: absolute;
+				top: 45%;
+				left: 5%;
+				z-index: -999;
+				width: 26%;
+			}
+			.ping1-imgcenter4 {
+				position: absolute;
+				top: 23%;
+				left: 26.5%;
+				z-index: 999;
+				width: 47%;
+			}
+			.ping2-p {
+				margin-top: 15px;
+			}
+			.ping2-imgbox {
+				width: 93%;
+				margin:0 auto;
+				margin-top: 5%;
+			}
+			.ping2-img {
+				width: 100%;
+			}
+			.ping3-p {
+				margin-top: 20px;
+				margin-bottom: 12px;
+			}
+			.ping3-p2 {
+				font-size: 12px;
+				color: #696969;
+				/*margin-bottom:12px;*/
+				text-align: center;
+				margin-bottom:3px;
+			}
+			.ping3-imgbox {
+				width: 99%;
+				margin:0 auto;
+				margin-top:2%;
+			}
+			.ping4-imgbox {
+				width: 93%;
+				margin:0 auto;
+				margin-top: 10%;
+			}
+			.ping4-p {
+				margin-top: 35px;
+				margin-bottom: 12px;
+			}
+			.ping4-p {
+				margin-top: 20px;
+				margin-bottom: 12px;
+			}
+			.ping5-imgbox {
+				width: 93%;
+				margin:0 auto;
+				margin-top: 17%;
+			}
+			.ping6-imgbox {
+				width: 80%;
+				margin:0 auto;
+				margin-top: 4%;
+			}
+			.bottombox {
+				width: 100%;
+				height:28px;
+				background: #f59242;
+				position: absolute;
+				bottom:0;
+				left:0;
+				line-height: 28px;
+			}
+			.span-text1 {
+				margin-left: 9%;
+				font-size: 15px;
+				font-weight: 700;
+				color:#fff;
+				margin-right:5%;
+			}
+			.span-img1 {
+				display: inline-block;
+				background: url("../Images/wap_qs_icon_call@2x.png") no-repeat;
+				width: 13px;
+				height: 13px;
+				background-size: cover;
+				vertical-align:sub;
+			}
+			.span-text2 {
+				padding-left: 5px;
+				font-size: 12px;
+				color: #fedabd;
+			}
+			.span-text2>em {
+				color:#FFFFFF;
+				font-style:italic;
+			}
+		</style>
+	</head>
+	<body ontouchstart>
+		<header class="header_box">
+			<a href="#" class="header_logo"><img src="../Images/wap_qs_logo.png" alt="" /></a>
+			<a href="join.html" class="jiaru_daili_btn">加盟代理</a>
+		</header>
+		<div class="weixin-code"></div>
+		<div class="code-model">
+			<div class="code-img">
+				<img class="code-img1" src="../Images/wap_qs_weweimabig.png" alt="">
+				<div class="text1">关注公众号，实得商机</div>
+				<div class="text2">操作步骤</div>
+				<div class="text3">1.保存图片到手机相册</div>
+				<div class="text3">2.微信扫一扫，选择相册</div>
+				<div class="text3">3.在手机的相册中选择保存的二维码</div>
+			</div>
+		</div>
+		<div class="page-wrap">
+			<!--第一屏-->
+			<div class="page">
+				<div class="page_inner">
+					<!--1屏-->
+					<div class="ping1-box">
+						<img class="ping1-imgtop" src="../Images/wap_qs_T_h2.png" alt="">
+						<p class="ping1-p">上传商品，自动精准推送客户</p>
+						<p class="ping1-p2">数千万采购商数据等你来挖掘，7天免费体验，认证只需500元</p>
+						<div class="ping1-imgbox">
+							<img class="ping1-img" src="../Images/wap_qs_body_gifdiv.png" alt="">
+							<img class="ping1-imgcenter1" src="../Images/wap_qs_body_gifdiv_left01.png" alt="">
+							<img class="ping1-imgcenter2" src="../Images/wap_qs_body_gifdiv_right03.png" alt="">
+							<img class="ping1-imgcenter3" src="../Images/wap_qs_body_gifdiv_left02.png" alt="">
+							<img class="ping1-imgcenter4" src="../Images/product-gif.gif" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="arrow"></div>
+			</div>
+			<!--第二屏-->
+			<div class="page">
+				<div class="page_inner">
+					<!--2屏-->
+					<div class="ping2-box">
+						<p class="ping1-p ping2-p">精心挖掘的采购数据</p>
+						<p class="ping1-p2">采购需求智能匹配精准推送</p>
+						<div class="ping2-imgbox">
+							<img class="ping2-img" src="../Images/wap_qs_002@2x.png" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="arrow"></div>
+			</div>
+			<!--第三屏-->
+			<div class="page">
+				<div class="page_inner">
+					<!--3屏-->
+					<div class="ping2-box">
+						<p class="ping1-p ping3-p">大数据营销</p>
+						<p class="ping3-p2">成千万的采购商信息库</p>
+						<p class="ping3-p2">每日采购商信息库增长超10万</p>
+						<p class="ping3-p2">人工确认，信息高价值，高精制度</p>
+						<div class="ping3-imgbox">
+							<img class="ping2-img" src="../Images/wap_qs_003@2x.png" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="arrow"></div>
+			</div>
+			<!--第四屏-->
+			<div class="page">
+				<div class="page_inner">
+					<div class="ping2-box">
+						<p class="ping1-p ping3-p">数据匹配智能化</p>
+						<p class="ping3-p2">实时精准给您推送相应采购商</p>
+						<p class="ping3-p2">全网营销，让企业营销效果最大化</p>
+						<p class="ping3-p2">产品上线，系统自动推送给全网的需求方</p>
+						<div class="ping3-imgbox">
+							<img class="ping2-img" src="../Images/wap_qs_004@2x.png" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="arrow"></div>
+			</div>
+			<!--第五屏-->
+			<div class="page">
+				<div class="page_inner">
+					<div class="ping2-box">
+						<p class="ping1-p ping3-p">saasCRM</p>
+						<p class="ping3-p2">一体化的客户管理模式</p>
+						<p class="ping3-p2">销售机会实现跟踪</p>
+						<p class="ping3-p2">随时随地的移动销售管理，高效，方便，节省时间</p>
+						<div class="ping4-imgbox">
+							<img class="ping2-img" src="../Images/wap_qs_005@2x.png" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="arrow"></div>
+			</div>
+			<!--第六屏-->
+			<div class="page">
+				<div class="page_inner">
+					<div class="ping2-box">
+						<p class="ping1-p ping4-p">改变中小微企业管理模式</p>
+						<p class="ping3-p2">移动端、PC端相结合，彻底改变工作方式，</p>
+						<p class="ping3-p2">随时随地办公，不错过任何一个商机。</p>
+						<div class="ping5-imgbox">
+							<img class="ping2-img" src="../Images/wap_qs_006_first@2x.png" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="arrow"></div>
+			</div>
+			<!--第七屏-->
+			<div class="page">
+				<div class="page_inner">
+					<div class="ping2-box">
+						<p class="ping1-p ping5-p">一搜即现，真实可靠</p>
+						<p class="ping3-p2">提供高效便捷的信息服务</p>
+						<p class="ping3-p2">数据规范化，价值化，精确化</p>
+						<p class="ping3-p2">供求商机转化成一个个真实有效发的订单</p>
+						<div class="ping6-imgbox">
+							<img class="ping2-img" src="../Images/wap_qs_007@2x.png" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="bottombox">
+					<span class="span-text1">立即关注公众号</span><span class="span-img1"></span>
+					<span class="span-text2">免费咨询电话：<em>400-8088-770</em></span>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../js/zepto.js"></script>
+		<script type="text/javascript" src="../js/fullpage.js"></script>
+	    <script type="text/javascript" src="../js/pub_common.js"></script>
+	    <script>
+			$(function(){
+				$(document).on("touchstart",".weixin-code",function(e){
+					e.preventDefault();
+					$(".code-model").fadeIn();
+				})
+				
+				$(document).on("touchstart",".code-model",function(e){
+					e.preventDefault();
+					$(".code-model").hide();
+				})
+
+				$(".code-img1").on("touchstart",function(e){
+					e.stopPropagation();
+				})
+			})
+			
+	    	var PageSlider = new PageSlider({
+				pages: $('.page-wrap .page'),
+				animationPlayOnce: false, //翻页动画只执行一次
+				direction: 'v', //水平h  垂直v 修改类 arrow-h
+				gestureFollowing: 'true' //可选，如果为 true，则开启手势跟随模式
+			});
+	    </script>
+	</body>
+</html>

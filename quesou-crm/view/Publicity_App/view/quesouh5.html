@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+		<meta name="format-detection" content="telephone=no, email=no"/>
+		<link rel="stylesheet" href="../css/weuix.css"/>
+		<link rel="stylesheet" href="../css/publicity.css"/>
+		<title>雀搜</title>
+		<style>
+			body,html{
+				height: 100%;
+			    -webkit-tap-highlight-color: transparent;
+			}
+			
+			.page-wrap {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.page {
+				width: 100%;
+				height: 100%;
+				-webkit-backface-visibility: hidden;
+				-webkit-perspective: 1000;
+				font-size: 0;
+				position: relative;
+			}
+
+			.arrow {
+				position: absolute;
+				left: 50%;
+				bottom: 30px;
+				width: 33px;
+				height: 18px;
+				margin-left: -16px;
+				background: url("../Images/wap_qs_icon_upthrust@2x.png") no-repeat;
+				background-size: 33px auto;
+				opacity: 1;
+			}
+			
+			.arrow-h {
+				position: absolute;
+				right: 10px;
+				top: 50%;
+				width: 33px;
+				height: 18px;
+				margin-top: -9px;
+				opacity: 0;
+			}
+			
+			.arrow-h i {
+				display: block;
+				width: 33px;
+				height: 18px;
+				background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAAAkBAMAAADP1/GcAAAAIVBMVEUAAAD////////////////////////////////////////PIev5AAAACnRSTlMA7THqZCykIw4N2Qp8/wAAAKJJREFUOMuF0yEOwkAQheEJhmArUUu4ARIFFgUSh+YUOM7R4PaU0FS8hD/5O6KdmX37ua2/2txrofaf5oHVtg+e2PU+NifGcx+cGH6hpkSbUkrMMSPmnBJAQAiSgyAkkhUiYSGSJiFIdskbQYQbIlnwSmbcwUgEkyAZgKAnktaQdERAEAEBJD9BQAC5TR9BrvWcCEEedTnoUz+eav0qq3ct1xewUzlrRHoptQAAAABJRU5ErkJggg==) no-repeat;
+				background-size: 33px auto;
+				-webkit-transform: rotate(-90deg);
+			}
+			
+			.current .arrow {
+				-webkit-animation: swipeMoveTop 1.5s 1s ease infinite;
+			}
+			
+			.current .arrow-h {
+				-webkit-animation: swipeMoveLeft 1.5s 1s ease infinite;
+			}
+			
+			/*上滑提示*/
+			@-webkit-keyframes swipeMoveTop {
+				0% {
+					opacity: 0;
+					-webkit-transform: translate3d(0, 10px, 0);
+				}
+				70% {
+					opacity: 1;
+					-webkit-transform: translate3d(0, 0, 0);
+				}
+				100% {
+					opacity: 0;
+					-webkit-transform: translate3d(0, -10px, 0);
+				}
+			}
+			
+			/*左滑提示*/
+			@-webkit-keyframes swipeMoveLeft {
+				0% {
+					opacity: 0;
+					-webkit-transform: translate3d(10px, 0, 0);
+				}
+				70% {
+					opacity: 1;
+					-webkit-transform: translate3d(0, 0, 0);
+				}
+				100% {
+					opacity: 0;
+					-webkit-transform: translate3d(-10px, 0, 0);
+				}
+			}
+			
+			@-webkit-keyframes slideToTop {
+				0% {
+					opacity: 0;
+					-webkit-transform: translate3d(0, 100px, 0);
+				}
+				100% {
+					opacity: 1;
+					-webkit-transform: translate3d(0, 0, 0);
+				}
+			}
+			
+			.page_inner {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.page_inner img{
+				position: absolute;
+				top: 50%;
+			    left: 50%;
+			    -webkit-transform: translate(-50%,-50%);
+			    -moz-transform: translate(-50%,-50%);
+			    -ms-transform: translate(-50%,-50%);
+			    -o-transform: translate(-50%,-50%);
+			    transform: translate(-50%,-50%);
+			}
+			
+			.current .page_inner {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.page-box1{
+				background: #ff8e48;
+			}
+			
+			.page-box2{
+				background: #35b5d2;
+			}
+			
+			.page-box3{
+				background: #f87d7d;
+			}
+			
+			.page-box4 .page-box4-left{
+				position: absolute;
+				width: 50%;
+				height: 100%;
+				background: #afd67c;
+			}
+			
+			.page-box4 .page-box4-right{
+				position: absolute;
+				width: 50%;
+				height: 100%;
+				background: #f8b462;
+				left: 50%;
+			}
+			
+			.page-box5 .page-box5-top{
+				position: absolute;
+				width: 100%;
+				height: 50%;
+				background: #06acd6;
+			}
+			
+			.page-box5 .page-box5-bottom{
+				position: absolute;
+				width: 100%;
+				height: 50%;
+				background: #e0e0e0;
+				top: 50%;
+			}
+			
+			.page-box6{
+				background: #9f785f;
+			}
+			
+			.page-box7{
+				background: #fdf5a6;
+			}
+			
+			.page-box8{
+				background: #51db98;
+			}
+			
+			.page-box9{
+				background: #f9c852;
+			}
+			
+			.page-box10{
+				background: #f59242;
+			}
+			
+			.page-box10 .page-gif{
+				width: 57%;
+				margin-top: 26%;
+				margin-left: 2.55%;
+			}
+		</style>
+	</head>
+	<body ontouchstart>
+		<div class="page-wrap">
+			<!--第一屏-->
+			<div class="page">
+				<div class="page_inner page-box1">
+					<!--1屏-->
+					<img src="../Images/wap_product_001@2x.png" width="100%">
+				</div>
+				<div class="arrow"></div>
+			</div>
+			<!--第二屏-->
+			<div class="page">
+				<div class="page_inner page-box2">
+					<!--2屏-->
+					<img src="../Images/wap_product_002@2x.png" width="100%">
+				</div>
+				<div class="arrow"></div>
+			</div>
+			<!--第三屏-->
+			<div class="page">
+				<div class="page_inner page-box3">
+					<!--3屏-->
+					<img src="../Images/wap_product_003@2x.png" width="100%">
+				</div>
+				<div class="arrow"></div>
+			</div>
+			<!--第四屏-->
+			<div class="page">
+				<div class="page_inner page-box4">
+					<div class="page-box4-left"></div>
+					<div class="page-box4-right"></div>
+					<img src="../Images/wap_product_004@2x.png" width="100%">
+				</div>
+				<div class="arrow"></div>
+			</div>
+			<!--第五屏-->
+			<div class="page">
+				<div class="page_inner page-box5">
+					<div class="page-box5-top"></div>
+					<div class="page-box5-bottom"></div>
+					<img src="../Images/wap_product_005@2x.png" width="100%">
+				</div>
+				<div class="arrow"></div>
+			</div>
+			<!--第六屏-->
+			<div class="page">
+				<div class="page_inner page-box6">
+					<img src="../Images/wap_product_006@2x.png" width="100%">
+				</div>
+				<div class="arrow"></div>
+			</div>
+			<!--第七屏-->
+			<div class="page">
+				<div class="page_inner page-box7">
+					<img src="../Images/wap_product_007@2x.png" width="100%">
+				</div>
+				<div class="arrow"></div>
+			</div>
+			<!--第八屏-->
+			<div class="page">
+				<div class="page_inner page-box8">
+					<img src="../Images/wap_product_008@2x.png" width="100%">
+				</div>
+				<div class="arrow"></div>
+			</div>
+			<!--第九屏-->
+			<div class="page">
+				<div class="page_inner page-box9">
+					<img src="../Images/wap_product_009@2x.png" width="100%">
+				</div>
+				<div class="arrow"></div>
+			</div>
+			<!--第十屏-->
+			<div class="page">
+				<div class="page_inner page-box10">
+					<img src="../Images/wap_product_video_001@2x.png" width="100%">
+					<img src="../Images/product-gif.gif" class="page-gif">
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../js/zepto.js"></script>
+		<script type="text/javascript" src="../js/fullpage.js"></script>
+	    <script type="text/javascript" src="../js/pub_common.js"></script>
+	    <script>
+	    	var PageSlider = new PageSlider({
+				pages: $('.page-wrap .page'),
+				animationPlayOnce: false, //翻页动画只执行一次
+				direction: 'v', //水平h  垂直v 修改类 arrow-h
+				gestureFollowing: 'true'//可选，如果为 true，则开启手势跟随模式
+			});
+	    </script>
+	</body>
+</html>
