@@ -1,0 +1,16 @@
+<!--pages/wxml2/wxml2.wxml-->
+<text>条件渲染</text>
+
+<!-- wx:if判断 -->
+<view wx:if="{{condition}}"> True </view>
+<view wx:if="{{length > 5}}"> 1 </view>
+<view wx:elif="{{length > 2}}"> 2 </view>
+<view wx:else> 3 </view>
+
+<!-- 一次性判断多个组件标签 -->
+<block wx:if="{{true}}">
+  <view> view1 </view>
+  <view> view2 </view>
+</block>
+<text><block/> 并不是一个组件，它仅仅是一个包装元素，不会在页面中做任何渲染，只接受控制属性。</text> 
+<text>一般来说，wx:if 有更高的切换消耗而 hidden 有更高的初始渲染消耗。因此，如果需要频繁切换的情景下，用 hidden 更好，如果在运行时条件不大可能改变则 wx:if 较好。</text>

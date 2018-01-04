@@ -1,6 +1,11 @@
 {
   "pages":[
-    "pages/index1/index1",
+    "pages/wxml5/wxml5",
+    "pages/wxml4/wxml4",
+    "pages/wxml3/wxml3",
+    "pages/wxml2/wxml2",
+    "pages/wxml1/wxml1",
+    "pages/wxml0/wxml0",
     "pages/shoppingcart/shoppingcart",
     "pages/user/user"
   ],

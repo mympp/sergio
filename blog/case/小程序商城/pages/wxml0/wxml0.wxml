@@ -1,0 +1,42 @@
+<!--index.wxml-->
+<p>数据绑定</p>
+<!-- 内容 -->
+<view>-1, + {{message}}</view>
+<!-- 组件属性 -->
+<view id="item-{{id}}">0, + 选择器</view>
+<!-- 控制属性 -->
+<view wx:if="{{condition}}">true</view>
+<!-- 关键字 -->
+<checkbox checked='{{true}}'></checkbox>
+<!-- 三元运算 -->
+<view hidden='{{flag ? true : false}}'>简单计算</view>
+<!-- 算数运算 -->
+<view>{{a + b}} + {{c}} + d</view>
+<!-- 逻辑判断 -->
+<view wx:if="{{length > 5}}"></view>
+
+<!-- 字符串元算 -->
+<view>{{"hello" + name}}</view>
+
+<!-- 数据路径元算 -->
+<view>{{object.key}} {{array[0]}}</view>
+
+<!-- 数组 -->
+<view wx:for="{{[zero,1,2,3,4]}}">{{item}}</view>
+
+<!-- 对象 -->
+<template is="objectCombine" data="{{for: a,bar: b}}"> this.data</template>  
+
+<!-- 拓展运算符...展开 -->
+<template is="objectCombine" data="{{...obj1,...obj2,e:5}}"></template> 
+
+<!-- 对象的key和value相同，可以间接表达 -->
+<template is="objectCombine" data="{{foo,bar}}"></template> 
+
+<!-- 变量名相同将覆盖 -->
+<template is="objectCombine" data="{{...obj1,...obj2,a,c:6}}"></template> 
+
+<!-- 花括号和引号之间的空格会被解析称字符串 -->
+<view wx:for="15 + {{[1,2,3]}} ">{{item}}</view>
+<view>等同于</view>
+<view wx:for="15 + {{[1,2,3] + ' '}}">{{item}}</view>

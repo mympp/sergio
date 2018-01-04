@@ -1,0 +1,43 @@
+<view>列表渲染</view>
+
+<!-- 数组当前元素的变量名 -->
+<view wx:for="{{array}}">
+  {{index}}:{{item.message}}
+</view>
+
+<!-- 数组当前下标的变量名 -->
+<view wx:for="{{array}}" wx:for-index="idx" wx:for-item="itemName">
+  {{idx}}:{{itemName.message}}
+</view>
+
+<!-- 九九乘法表 -->
+<view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="i">
+  <view wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}" wx:for-item="j">
+    <view wx:if="{{i <= j}}">
+      {{i}} * {{j}} = {{i * j}}
+    </view>
+  </view>
+</view>
+
+<!-- 多节点的结构块 -->
+<block wx:for="{{[1, 2, 3]}}">
+  <view> {{index}}: </view>
+  <view> {{item}} </view>
+</block>
+
+<switch wx:for="{{objectArray}}" wx:key="unique" style="display: block;"> 
+  {{item.id}} 
+</switch>
+<button bindtap="switch"> Switch </button>
+<button bindtap="addToFront"> Add to the front </button>
+
+<switch wx:for="{{numberArray}}" wx:key="*this" style="display: block;"> {{item}} </switch>
+<button bindtap="addNumberToFront"> Add to the front </button>
+
+<view wx:for="array">
+  {{item}}
+</view>
+<view>等同于</view>
+<view wx:for="{{['a','r','r','a','y']}}">
+  {{item}}
+</view>

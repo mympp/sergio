@@ -1,0 +1,4 @@
+<!--pages/wxml4/wxml4.wxml-->
+<text>事件</text>
+
+<view id="tapTest" data-hi="WeChat" bindtap="tapName"> Click me! </view>
