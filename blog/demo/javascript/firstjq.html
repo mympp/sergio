@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body style="">
+<div id="haveAttr">获取我的属性</div>
+<div id="second">定时器</div>
+<script src="../../../js/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var haveId = $("#haveAttr").attr("id");
+		console.log(haveId);
+	});
+	$(function(){
+		var count = 60;
+		if (count == 0) {
+			$("#setTime").html("");
+		} else {
+			count --;
+			$("#setTime").val(count+"秒");
+		}
+	});
+
+	//定时器
+</script>
+</body>
+</html>
