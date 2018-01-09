@@ -1,4 +1,4 @@
-<view>列表渲染</view>
+<text>列表渲染</text>
 
 <!-- 数组当前元素的变量名 -->
 <view wx:for="{{array}}">
