@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <!-- React 组件支持很多事件，除了 Click 事件以外，还有 KeyDown 、Copy、Scroll 等，完整的事件清单请查看官方文档。http://facebook.github.io/react/docs/events.html#supported-events -->
+    <script type="text/babel">
+    var MyComponent = React.createClass({
+      handleClick: function() {
+        this.refs.myTextInput.focus();
+      },
+      render: function() {
+        return (
+          <div>
+            <input type="text" ref="myTextInput" />
+            <input type="button" value="Focus the text input" onClick={this.handleClick} />
+          </div>
+        );
+      }
+    });
+
+    ReactDOM.render(
+      <MyComponent />,
+      document.getElementById('example')
+    );
+    </script>
+  </body>
+</html>

@@ -9,6 +9,8 @@
     <div id="example"></div>
     <!-- PropTypes验证别人使用组件时，提供的参数是否符合要求。 -->
     <!-- 更多设置查看官方文档http://facebook.github.io/react/docs/reusable-components.html -->
+    <!-- Mytitle组件有一个title属性。PropTypes 告诉 React，这个 title 属性是必须的，而且它的值必须是字符串。 -->
+    <!-- 设置组件属性的默认值。 -->
     <script type="text/babel">
       var data = 123;
 
@@ -27,6 +29,25 @@
         document.getElementById('example')
       );
 
+
+
+
+      var MyTitle = React.createClass({
+        getDefaultProps : function () {
+          return {
+            title : 'Hello World'
+          };
+        },
+
+        render: function() {
+           return <h1> {this.props.title} </h1>;
+         }
+      });
+
+      ReactDOM.render(
+        <MyTitle />,
+        document.body
+      );
     </script>
   </body>
 </html>
