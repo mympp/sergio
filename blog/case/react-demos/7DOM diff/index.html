@@ -7,16 +7,18 @@
   </head>
   <body>
     <div id="example"></div>
+    <!-- 获取真实的DOM -->
+    <!-- handleClick在这里似乎只是一个自定义的函数名。refs的介绍查看https://doc.react-china.org/docs/glossary.html#refs。-->
     <script type="text/babel">
     var MyComponent = React.createClass({
-      handleClick: function() {
+      handleClick1: function() {
         this.refs.myTextInput.focus();
       },
       render: function() {
         return (
           <div>
             <input type="text" ref="myTextInput" />
-            <input type="button" value="Focus the text input" onClick={this.handleClick} />
+            <input type="button" value="Focus the text input" onClick={this.handleClick1} />
           </div>
         );
       }

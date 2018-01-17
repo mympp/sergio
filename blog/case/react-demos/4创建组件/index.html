@@ -7,6 +7,7 @@
   </head>
   <body>
     <div id="example"></div>
+    <!-- this.props.name获取组件的属性值 --><!-- 
     <script type="text/babel">
       var HelloMessage = React.createClass({
         render: function() {
@@ -18,6 +19,105 @@
         <HelloMessage name="John" />,
         document.getElementById('example')
       );
+    </script> -->
+    <!-- 可以输出组件可以输出多次 -->
+<!--     <script type="text/babel">
+      var HelloMessage = React.createClass({
+        render: function() {
+          return (
+          <div>
+            <h1>Hello {this.props.name}</h1>
+            <h2>{this.props.name1}</h2>
+          </div>
+          )
+        }
+      });
+      function Test() {
+        return (
+          <div>
+            <HelloMessage name="name1" />
+            <hr />
+            <HelloMessage name1="name2" />
+            <hr />
+            <HelloMessage name="name3" />
+          </div>
+        );
+      }
+      ReactDOM.render(
+        <Test />,
+        document.getElementById('example')
+      );
+    </script> -->
+    <!-- 也可以多个组件，但是注意要用一个顶级标签包起来 -->
+    <script type="text/babel">
+      var HelloMessage = React.createClass({
+        render: function() {
+          return (
+          <div>
+            <h1>Hello {this.props.name}</h1>
+            <h2>{this.props.name1}</h2>
+          </div>
+          )
+        }
+      });
+      var HelloMessage1 = React.createClass({
+        render: function() {
+          return (
+          <div>
+            <span>Hello {this.props.name}</span>
+            <span>{this.props.name1}</span>
+          </div>
+          )
+        }
+      });
+      function Test() {
+        return (
+          <div>
+            <HelloMessage name="name1" />
+            <hr />
+            <HelloMessage name1="name2" />
+            <hr />
+            <HelloMessage name="name3" />
+          </div>
+        );
+      }
+      function Test2() {
+        return (
+          <div>
+            <HelloMessage1 name="name1" />
+            <hr />
+            <HelloMessage1 name1="name2" />
+            <hr />
+            <HelloMessage1 name="name3" />
+          </div>
+        );
+      }
+      ReactDOM.render(
+        <div>
+          <Test />
+          <Test2 />
+        </div>,
+        document.getElementById('example')
+      );
     </script>
+    <!-- getDefaultProps方法暂时未知 -->
+    <!-- <script type="text/babel">
+      var MyTitle = React.createClass({
+        getDefaultProps : function () {
+          return {
+            title : 'Hello World'
+          };
+        },
+
+        render: function() {
+           return <h1> {this.props.title} </h1>;
+         }
+      });
+
+      ReactDOM.render(
+        <MyTitle />,
+        document.body
+      );
+    </script> -->
   </body>
 </html>

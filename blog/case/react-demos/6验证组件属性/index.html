@@ -7,6 +7,7 @@
   </head>
   <body>
     <div id="example"></div>
+    <!-- React.PropTypes.string.isRequired用于验证组件属性是否为字符串。更多验证API请查看官网http://facebook.github.io/react/docs/reusable-components.html -->
     <script type="text/babel">
       var data = 123;
 
@@ -25,26 +26,6 @@
         document.getElementById('example')
       );
 
-    </script>
-    <script type="text/babel">
-
-
-      var MyTitle = React.createClass({
-        getDefaultProps : function () {
-          return {
-            title : 'Hello World'
-          };
-        },
-
-        render: function() {
-           return <h1> {this.props.title} </h1>;
-         }
-      });
-
-      ReactDOM.render(
-        <MyTitle />,
-        document.body
-      );
     </script>
   </body>
 </html>

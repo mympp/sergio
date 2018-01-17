@@ -7,6 +7,7 @@
   </head>
   <body>
     <div id="example"></div>
+    <!-- 下面代码是一个 LikeButton 组件，它的 getInitialState 方法用于定义初始状态，也就是一个对象，这个对象可以通过 this.state 属性读取。当用户点击组件，导致状态变化，this.setState 方法就修改状态值，每次修改以后，自动调用 this.render 方法，再次渲染组件。 -->
     <script type="text/babel">
       var Input = React.createClass({
         getInitialState: function() {
@@ -26,7 +27,10 @@
         }
       });
 
-      ReactDOM.render(<Input/>, document.getElementById('example'));
+      ReactDOM.render(
+        <Input/>, 
+        document.getElementById('example')
+      );
     </script>
   </body>
 </html>

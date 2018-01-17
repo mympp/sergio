@@ -7,7 +7,8 @@
   </head>
   <body>
     <div id="example"></div>
-    <script type="text/babel">
+    <!-- this.props.children获取组件的子元素,即<NotesList />写成<NotesList></NotesList>就需要通过this.props.children来获取组件子元素 -->
+    <!-- <script type="text/babel">
       var NotesList = React.createClass({
         render: function() {
           return (
@@ -24,6 +25,35 @@
 
       ReactDOM.render(
         <NotesList>
+          <span>hello</span>
+          <span>world</span>
+        </NotesList>,
+        document.getElementById('example')
+      );
+      
+    </script> -->
+    <!-- 定义组件或者应用组件的时候，都必须只有一个顶级标签。定义组件时的HTML决定了实际的HTML，应用组件<NotesList>时的HTML主要的是数据，标签无关紧要的。 -->
+    <script type="text/babel">
+      var NotesList = React.createClass({
+        render: function() {
+          return (
+            <div>
+              <h6>L,{this.props.name}</h6>
+              <ol>
+                <li>L,{this.props.name}</li>
+                {
+                  React.Children.map(this.props.children, function (child) {
+                    return <li>{child}</li>;
+                  })
+                }
+              </ol>
+            </div>
+          );
+        }
+      });
+
+      ReactDOM.render(
+        <NotesList name="here">
           <span>hello</span>
           <span>world</span>
         </NotesList>,
