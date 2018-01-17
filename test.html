@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<img src="images/test.jpg" width="100px" id="img1">
+	<img src="images/moment.jpg" width="100px" id="img2">
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+	$(document).on("click","img",function(){
+		console.log("yes");
+		$(this).css({
+			"width": "200px",
+			"position": "absolute"
+		});
+	})
+</script>
+</body>
+</html>
