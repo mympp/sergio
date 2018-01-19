@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<title>rem 布局</title>
 <style type="text/css">
 * {
@@ -98,6 +99,11 @@ a {
 .img-responsive {
 	width: 100%;
 }
+article{
+	width: 3rem;
+	height: 2rem;
+	border: 1px solid #000;
+}
 footer{
 	width: 5rem;
 	height: 2rem;
@@ -107,7 +113,7 @@ footer{
 </head>
 <body>
 <!-- 阿里高清方案 -->
-<script>
+<!-- <script>
 	!function(e){
 		function t(a){
 			if(i[a])return i[a].exports;
@@ -141,42 +147,68 @@ footer{
 		e.exports=t["default"]
 		}]);
 	flex(100, 1);
-</script>
+</script> -->
 <!-- 魅族高清方案 -->
 <script type="text/javascript">
-// 控制dpr
-// viewport也是固定的： <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">。
-// !function (d) {
-// 	var c = d.document;
-// 	var a = c.documentElement;
-// 	var b = d.devicePixelRatio;
-// 	var f;
-// 	function e() {
-// 		var h = a.getBoundingClientRect().width, g;
-// 		if (b === 1) {
-// 			h = 720
-// 		}
-// 		if(h>720) h = 720;//设置基准值的极限值
-// 		g = h / 7.2;
-// 		a.style.fontSize = g + "px"
-// 	}
-// 	if (b > 2) {
-// 		b = 3
-// 	} else {
-// 		if (b > 1) {
-// 			b = 2
-// 		} else {
-// 			b = 1
-// 		}
-// 	}
-// 	a.setAttribute("data-dpr", b);
-// 	d.addEventListener("resize", function () {
-// 		clearTimeout(f);
-// 		f = setTimeout(e, 200)
-// 	}, false);
-// 	e()
-// }(window);
+	// 控制dpr
+	// viewport也是固定的： <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">。
+	!function (d) {
+		var c = d.document;
+		var a = c.documentElement;
+		var b = d.devicePixelRatio;
+		var f;
+		function e() {
+			var h = a.getBoundingClientRect().width, g;
+			if (b === 1) {
+				h = 720
+			}
+			if(h>720) h = 720;//设置基准值的极限值
+			g = h / 7.2;
+			a.style.fontSize = g + "px"
+		}
+		if (b > 2) {
+			b = 3
+		} else {
+			if (b > 1) {
+				b = 2
+			} else {
+				b = 1
+			}
+		}
+		a.setAttribute("data-dpr", b);
+		d.addEventListener("resize", function () {
+			clearTimeout(f);
+			f = setTimeout(e, 200)
+		}, false);
+		e()
+	}(window);
+	window.onresize = function (){location.reload();}
 </script>
+<!-- <script type="text/javascript">
+	// 控制html默认大小
+	function adapt(designWidth, rem2px){
+		var d = window.document.createElement('div');
+		d.style.width = '1rem';
+		d.style.display = "none";
+		var head = window.document.getElementsByTagName('head')[0];
+		head.appendChild(d);
+		var defaultFontSize = parseFloat(window.getComputedStyle(d, null).getPropertyValue('width'));
+		d.remove();
+		document.documentElement.style.fontSize = window.innerWidth / designWidth * rem2px / defaultFontSize * 100 + '%';
+		var st = document.createElement('style');
+		var portrait = "@media screen and (min-width: "+window.innerWidth+"px) {html{font-size:"+((window.innerWidth/(designWidth/rem2px)/defaultFontSize)*100) +"%;}}";
+		var landscape = "@media screen and (min-width: "+window.innerHeight+"px) {html{font-size:"+((window.innerHeight/(designWidth/rem2px)/defaultFontSize)*100) +"%;}}"
+		st.innerHTML = portrait + landscape;
+		head.appendChild(st);
+		return defaultFontSize
+	};
+	var defaultFontSize = adapt(640, 100);//设计稿的宽度以及HTML的默认大小
+	window.onresize = function (){location.reload();}
+	// 控制dpr实现高清,但是显示meta underfind
+	var meta1 = document.getElementsByTagName('meta');
+	var dpr = document.devicePixelRatio;
+	meta1.setAttribute('content','initial-scale='+1/dpr+', maximum-scale='+1/dpr+', minimum-scale='+1/dpr+', user-scalable=no');
+</script> -->
 <!-- 字形图标 -->
 <script src="https://use.fontawesome.com/f47f4563cb.js"></script>
 
@@ -214,6 +246,9 @@ footer{
 	<main>
 
 	</main>
+	<article>
+		
+	</article>
 	<footer>
 
 	</footer>
