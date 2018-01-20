@@ -1,0 +1,248 @@
+@charset "utf-8";
+
+* {
+	box-sizing: border-box;
+}
+
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+	margin: 0;
+	padding: 0;
+	max-height: 100000px;
+	border: none;
+}
+
+body,
+html {
+	/*background-color: #efefef;*/
+	color: #333;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: normal;
+	font-size: 0.15rem;
+}
+
+em,
+strong {
+	font-style: normal;
+}
+
+ul,
+ol,
+li {
+	list-style: none;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.vam {
+	vertical-align: middle;
+}
+
+.center {
+	text-align: center;
+}
+
+input,
+select,
+textarea,
+.btn,
+.btn-icon,
+.btn2 {
+	border-radius: 3px;
+}
+
+.white {
+	color: rgb(255, 255, 255);
+}
+
+.green {
+	color: rgb(0, 153, 0);
+}
+
+.bg {
+	background: rgb(25, 131, 209);
+}
+
+.bg2 {
+	background: rgb(255, 255, 255);
+}
+
+.bg3 {
+	background: rgb(255, 147, 38);
+}
+
+.bg4 {
+	background: rgb(250, 100, 99);
+}
+
+.bg5 {
+	background: #fff;
+}
+
+.bg-qn {
+	background: #2587F5;
+}
+
+.yellow {
+	color: rgb(255, 255, 0);
+}
+
+.blue {
+	color: rgb(36, 137, 206);
+}
+
+.red {
+	color: rgb(255, 0, 0);
+}
+
+.org {
+	color: #FE9D34;
+}
+
+.gray1 {
+	color: rgb(51, 51, 51);
+}
+
+.gray2 {
+	color: rgb(102, 102, 102);
+}
+
+.gray3 {
+	color: rgb(153, 153, 153);
+}
+
+.yj {
+	border-radius: 3px;
+}
+
+img {
+	border: none;
+}
+
+a {
+	color: #333;
+	text-decoration: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a:focus,
+a:active,
+a:hover,
+input,
+button {
+	outline: 0;
+}
+
+.ziti0 {
+	font-size: 10px;
+}
+
+.ziti1 {
+	font-size: 12px;
+}
+
+.ziti2 {
+	font-size: 14px;
+}
+
+.ziti3 {
+	font-size: 16px;
+}
+
+.ziti4 {
+	font-size: 18px;
+}
+
+.ziti5 {
+	font-size: 20px;
+}
+
+.weui_cell:before {
+	border: none;
+}
+
+.ios-default {
+	-webkit-appearance: none;
+}
+
+.ovfHiden{
+	overflow: hidden;
+	height: 100%;
+}

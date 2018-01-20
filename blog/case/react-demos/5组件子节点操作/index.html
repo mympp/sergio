@@ -7,10 +7,8 @@
   </head>
   <body>
     <div id="example"></div>
-    <!-- this.props.children 属性表示组件的所有子节点 -->
-    <!-- 这里需要注意， this.props.children 的值有三种可能：如果当前组件没有子节点，它就是 undefined ;如果有一个子节点，数据类型是 object ；如果有多个子节点，数据类型就是 array 。所以，处理 this.props.children 的时候要小心。
-      React 提供一个工具方法 React.Children 来处理 this.props.children 。我们可以用 React.Children.map 来遍历子节点，而不用担心 this.props.children 的数据类型是 undefined 还是 object。更多的 React.Children 的方法，请参考官方文档https://facebook.github.io/react/docs/top-level-api.html#react.children。 -->
-    <script type="text/babel">
+    <!-- this.props.children获取组件的子元素,即<NotesList />写成<NotesList></NotesList>就需要通过this.props.children来获取组件子元素 -->
+    <!-- <script type="text/babel">
       var NotesList = React.createClass({
         render: function() {
           return (
@@ -27,6 +25,35 @@
 
       ReactDOM.render(
         <NotesList>
+          <span>hello</span>
+          <span>world</span>
+        </NotesList>,
+        document.getElementById('example')
+      );
+      
+    </script> -->
+    <!-- 定义组件或者应用组件的时候，都必须只有一个顶级标签。定义组件时的HTML决定了实际的HTML，应用组件<NotesList>时的HTML主要的是数据，标签无关紧要的。 -->
+    <script type="text/babel">
+      var NotesList = React.createClass({
+        render: function() {
+          return (
+            <div>
+              <h6>L,{this.props.name}</h6>
+              <ol>
+                <li>L,{this.props.name}</li>
+                {
+                  React.Children.map(this.props.children, function (child) {
+                    return <li>{child}</li>;
+                  })
+                }
+              </ol>
+            </div>
+          );
+        }
+      });
+
+      ReactDOM.render(
+        <NotesList name="here">
           <span>hello</span>
           <span>world</span>
         </NotesList>,
