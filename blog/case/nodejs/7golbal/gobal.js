@@ -1,43 +1,27 @@
-//main.js
-//获得hello.js的对象 	模块接口的唯一变化是使用 module.exports = Hello 代替了exports.world = function(){}。 
-//在外部引用该模块时，其接口对象就是要输出的 Hello 对象本身，而不是原先的 exports。
-//上面这句话看不懂，详见笔记
-var Hello = require('./hello');//./为当前目录node.js默认后缀为js
-hello = new Hello();
-hello.setName('BYVoid');
-hello.sayHello();
-//Node.js 提供了exports 和 require 两个对象，其中 exports 是模块公开的接口，
-//require 用于从外部获取一个模块的接口，即所获取模块的 exports 对象。
-//require方法接受以下几种参数的传递：
-// ● http、fs、path等，原生模块。
-// ● ./mod或../mod，相对路径的文件模块。
-// ● /pathtomodule/mod，绝对路径的文件模块。
-// ● mod，非原生模块的文件模块。
-
 //__filename表示当前正在执行的脚本的文件名，含路径
 //输出全局变量 __filename的值
-console.log(__filename);
+console.log("全局文件名：" + __filename);
 
 //__dirname表示当前执行脚本所在的目录
 //输出全局变量__dirname的值
-console.log(__dirname);
+console.log("当前脚本所在的目录：" + __dirname);
 
 //setTimeout(cb,ms)全局函数在指定的毫秒(ms)数后执行指定函数(cb)，只执行一次。返回一个代表定时器的句柄值。
 function printHello(){
-	console.log("Hello,world");
+    console.log("Hello,world");
 }
 setTimeout(printHello,2000);
 
 //clearTimeout(t)全局函数用于停止一个之前通过setTimeout()创建的定时器(t)
 function printHello(){
-	console.log("Hello,world");
+    console.log("Hello,world");
 }
 var t = setTimeout(printHello,2000);
 clearTimeout(t);
 
 //setInterval(cb,ms);全局函数在指定的毫秒(ms)数后执行指定函数(cb)。无限次。返回一个代表定时器的句柄值。
 function printHello(){
-	console.log("I am L");
+    console.log("I am L");
 }
 setInterval(printHello,2000);
 /*
@@ -52,6 +36,7 @@ console
 // console.timeEnd(label)结束时间，表示计时结束。
 // console.trace(message[, ...])当前执行的代码在堆栈中的调用路径，这个测试函数运行很有帮助，只要给想测试的函数里面加入 console.trace 就行了。
 // console.assert(value[, message][, ...])用于判断某个表达式或变量是否为真，接手两个参数，第一个参数是表达式，第二个参数是字符串。只有当第一个参数为false，才会输出第二个参数，否则不会有任何结果。
+
 /*
 process 描述当前node.js进程状态的对象
  */
@@ -60,13 +45,14 @@ process 描述当前node.js进程状态的对象
 // uncaughtException当一个异常冒泡回到事件循环，触发这个事件。如果给异常添加了监视器，默认的操作（打印堆栈跟踪信息并退出）就不会发生。
 // Signal 事件当进程接收到信号时就触发。信号列表详见标准的 POSIX 信号名，如 SIGINT、SIGUSR1 等。
 process.on('exit', function(code) {
-	// 以下代码永远不会执行
-	setTimeout(function() {
-	console.log("该代码不会执行");
-	}, 0);
-	console.log('退出码为:', code);
+    // 以下代码永远不会执行
+    setTimeout(function() {
+    console.log("该代码不会执行");
+    }, 0);
+    console.log('退出码为:', code);
 });
 console.log("程序执行结束");
+
 /*
 退出状态码
  */
@@ -82,6 +68,7 @@ console.log("程序执行结束");
 // Internal JavaScript Run-Time FailureJavaScript的源码启动 Node 进程时抛出错误，非常罕见，仅会在开发 Node 时才会有。
 // Invalid Debug Argument 设置了参数--debug 和/或 --debug-brk，但是选择了错误端口。
 // Signal Exits如果 Node 接收到致命信号，比如SIGKILL 或 SIGHUP，那么退出代码就是128 加信号代码。这是标准的 Unix 做法，退出信号代码放在高位。
+
 /*
 process属性
  */
@@ -113,9 +100,9 @@ process.argv.forEach(function(val, index, array) {
 // 获取执行路局
 console.log(process.execPath);
 
-
 // 平台信息
 console.log(process.platform);
+
 /*
 process方法
  */
