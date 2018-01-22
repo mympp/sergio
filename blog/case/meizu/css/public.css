@@ -7,3 +7,133 @@
 	*page.css是单个页面的精细样式
 */
 /*通用样式*/
+.clearboth{
+	clear: both;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+/*通用头部样式开始*/
+.public-header{
+	width: 1240px;
+	height: 82px;
+	padding: 0 20px;
+	margin: 0 auto;
+	font-size: 14px;
+	border: 1px solid #ccc;
+}
+.public-header .logo-box{
+	float: left;
+	height: 82px;
+	line-height: 82px;
+}
+.public-header .nav-box ul li a,
+.public-header .nav-box ul li{
+	width: 104px;
+	height: 82px;
+	line-height: 82px;
+	text-align: center;
+	float: left;
+	cursor: pointer;
+}
+.public-header .nav-box ul li.nav-user{
+	width: 22px;
+	height: 82px;
+	line-height: 82px;
+}
+.public-header .nav-hide{
+	width: 1240px;
+	height: 136px;
+	margin: 0 auto;
+	position: absolute;
+	text-align: center;
+	background-color: #fff;
+	border: 1px solid #ccc;
+}
+.public-header .nav-hide span{
+	width: 139px;
+	height: 136px;
+	font-size: 12px;
+	display: inline-block;
+	text-align: center;
+	z-index: 99;
+}
+.public-header .nav-hide span a{
+	width: 139px;
+	height: 108px;
+	display: block;
+	background-repeat: no-repeat;
+	background-position: center 15px;
+}
+.public-header .nav-hide .pro7-img{
+	background-image: url(../images/header/pro7_f7e8bc6.png);
+}
+.public-header .nav-hide .pro6plus-img{
+	background-image: url(../images/header/pro6plus_891092c.png);
+}
+.public-header .nav-hide .pro6s-img{
+	background-image: url(../images/header/pro6s_8526ddc.png);
+}
+.public-header .nav-hide .mlx-img{
+	background-image: url(../images/header/m3x_a5bf92e.png);
+}
+.public-header .nav-hide .mlnote5-img{
+	background-image: url(../images/header/m5note_38872e7.png);
+}
+.public-header .nav-hide .ml5s-img{
+	background-image: url(../images/header/m5s_b7da536.png);
+}
+.public-header .nav-hide .mle2-img{
+	background-image: url(../images/header/m3e2_5a9ed19.png);
+}
+.public-header .nav-hide .mla5-img{
+	background-image: url(../images/header/m5a_1a473b1.png);
+}
+.public-header .nav-hide .mlnote6-img{
+	background-image: url(../images/header/note6_03e9537.png);
+}
+.public-header .nav-hide .ml6-img{
+	background-image: url(../images/header/m6_e8ab337.png);
+}
+.public-header .nav-hide .mls6-img{
+	background-image: url(../images/header/s6_e866334.png);
+}
+.public-header .nav-hide .mzlive-img{
+	background-image: url(../images/header/live_d97dee9.png);
+}
+.public-header .nav-hide .mzflowbass-img{
+	background-image: url(../images/header/flowbass_54b7afe.png);
+}
+.public-header .nav-hide .mzflow-img{
+	background-image: url(../images/header/flow_2f193f8.png);
+}
+.public-header .nav-hide .mlep52-img{
+	background-image: url(../images/header/ep52_6381fe8.png);
+}
+.public-header .nav-hide .mzlyxyx-img{
+	background-image: url(../images/header/a20@2x_a79a1ef.png);
+}
+.public-header .nav-hide .mzhd50-img{
+	background-image: url(../images/header/hd50_b6250f4.png);
+}
+.public-header .nav-hide .sxscyddy-img{
+	background-image: url(../images/header/m20_5a64aaa.png);
+}
+.public-header .nav-hide .morepj-img{
+	background-image: url(../images/header/more_5aeac43.png);
+}
+.public-header .nav-box .nav-user-down{
+	position: absolute;
+	width: 98px;
+	height: 200px;
+	border: 1px solid #ccc;
+}
+.public-header .nav-box .nav-user-down ul li a{
+	width: 98px;
+	height:14px;
+	line-height: 14px;
+}
+/*通用头部样式结束*/
