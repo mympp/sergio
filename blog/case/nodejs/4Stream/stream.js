@@ -39,8 +39,7 @@ function first(){
     console.log("程序执行完毕");
 }
 
-//写入流	
-//将 data 变量的数据写入到 output.txt 文件中
+//写入流   将 data 变量的数据写入到 output.txt 文件中
 function input(){
     var fs = require("fs");
     var data = '前端';
