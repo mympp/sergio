@@ -48,52 +48,50 @@
     <!---PC导航 End--> 
     <!---幻灯 begin-->  
     <div class="hero-bceno huan clearfix lyn">
-      <div class="hero-scenario hero-scenario_02">
-        <div class="content-wrap">
-          <div class="tlei">Join Us</div>
-          <span  class="tl tle">聚派，邀请你一起山水与共</span>
-          <!-- <p class="mappd tl" style="text-indent:176px;">加盟聚派&nbsp;拥抱场景大数据未来</p> -->
+        <div class="hero-scenario hero-scenario_02">
+            <div class="content-wrap">
+                <div class="tlei">Join Us</div>
+                <span  class="tl tle">聚派，邀请你一起山水与共</span>
+                <!-- <p class="mappd tl" style="text-indent:176px;">加盟聚派&nbsp;拥抱场景大数据未来</p> -->
+            </div>
         </div>
-      </div>
     </div>
     <!---幻灯 End-->   
     <!---内容 begin-->
     <div class="join">
         <h2>合作流程</h2>
-      <div style="width:300px;margin:0 auto;position:relative;top:-50px;"><img src="images/auth.jpg"></div>
-      <div class="joinbox"> 
-        <div class="joinbox1"><img src="images/join1.png"><h3>代理申请</h3></div>
-        <div class="joinbox1"><img src="images/join2.png"><h3>资质审核</h3></div>
-        <div class="joinbox1"><img src="images/join3.png"><h3>洽谈签约</h3></div>
-        <div class="joinbox1"><img src="images/join4.png"><h3>合作运营</h3></div>
-      </div>
+        <div style="width:300px;margin:0 auto;position:relative;top:-50px;"><img src="images/auth.jpg"></div>
+        <div class="joinbox"> 
+            <div class="joinbox1"><img src="images/join1.png"><h3>代理申请</h3></div>
+            <div class="joinbox1"><img src="images/join2.png"><h3>资质审核</h3></div>
+            <div class="joinbox1"><img src="images/join3.png"><h3>洽谈签约</h3></div>
+            <div class="joinbox1"><img src="images/join4.png"><h3>合作运营</h3></div>
+        </div>
     </div>
     <div class="join1">
-      <img src="images/join5.png">
-      <h3>代理咨询</h3>
-      <p>CEO谭小姐 微信：15622271812</p>
+        <img src="images/join5.png">
+        <h3>代理咨询</h3>
+        <p>CEO谭小姐 微信：15622271812</p>
     </div>
     <!---bottom begin-->
     <div class="w100 bottom clearfix">
-       <div class="box_1054 box_bot">
-           <a href="index.html">
-              <div class="bott_logo"><img src="images/bott_logo.png"></div>
-           </a>
-           <div class="bottom_qr"><img src="images/33818.jpg"></div>
-           <div class="about">
-              <em>其他帮助</em>
-              <p>聚派热线：020-28171011&nbsp;&nbsp;&nbsp;邮箱：987777227@qq.com</p>
-              <p>全国客服QQ：987777227&nbsp;&nbsp;<a href="law.html" style="display:line; ">法律声明</a></p>
-              <p>聚派广州地址：天河区林和西路167号威尼国际大厦634-635室</p>
+        <div class="box_1054 box_bot">
+            <a href="index.html">
+                <div class="bott_logo"><img src="images/bott_logo.png"></div>
+            </a>
+            <div class="bottom_qr"><img src="images/33818.jpg"></div>
+            <div class="about">
+                <em>其他帮助</em>
+                <p>聚派热线：020-28171011&nbsp;&nbsp;&nbsp;邮箱：987777227@qq.com</p>
+                <p>全国客服QQ：987777227&nbsp;&nbsp;<a href="law.html" style="display:line; ">法律声明</a></p>
+                <p>聚派广州地址：天河区林和西路167号威尼国际大厦634-635室</p>
+            </div>
+
+            <div class="bottom_lt">
+                <a href="http://www.miitbeian.gov.cn/" style="text-decoration:none;" target="_blank" class="beian">
+                    <span style="color:#666666">粤ICP备16128841号</span>
+                </a>&nbsp;&nbsp;聚派移动&nbsp;版权所有
            </div>
-
-           <div class="bottom_lt">
-              <a href="http://www.miitbeian.gov.cn/" style="text-decoration:none;" target="_blank" class="beian">
-                 <span style="color:#666666">粤ICP备16128841号</span>
-               </a>&nbsp;&nbsp;聚派移动&nbsp;版权所有
-          </div>
-           
-
        </div>
     </div>    
     <!---bottom End--> 	
@@ -118,6 +116,14 @@
             $('.nav_right').click(function(){
                 $('#nav').slideToggle("show");
             })
+        })
+        $('.data-show-nav').click(function(){
+          $('.data-nav').show();
+          $('#zhezhao_b').show();
+        })
+        $('#zhezhao_b,#close-nav').click(function(){
+          $('.data-nav').hide();
+          $('#zhezhao_b').hide();
         })
 
         function trackurl(url) {
@@ -146,15 +152,6 @@
             url = "http://conversion.pro.cn/arrive/enter?accountID=4e87eb53d155b9b657cf&amp;conversionID=c40602cf015746a0ab58&amp;info=关于我们,关于我们";
             trackurl(url);
             window.location.href = $('#nav_mn_P16').href;
-        })
-        $('.data-show-nav').click(function(){
-          $('.data-nav').show();
-          $('#zhezhao_b').show();
-        })
-
-        $('#zhezhao_b,#close-nav').click(function(){
-          $('.data-nav').hide();
-          $('#zhezhao_b').hide();
         })
         
         (function(doc, win) {
