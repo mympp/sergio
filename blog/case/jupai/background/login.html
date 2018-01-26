@@ -11,12 +11,12 @@
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=IE8">
-	<link rel="stylesheet" href="../css/newLogin.css">
-	<link rel="stylesheet" type="text/css" href="../css/progressButton/component.css">
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/font-awesome.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link type="text/css" rel="stylesheet" href="../css/newLogin.css" />
+	<link type="text/css" rel="stylesheet" href="../css/progressButton/component.css" />
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="css/font-awesome.css" />
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<link type="text/css" rel="stylesheet" href="css/index.css" />
 	<script>
         if (window.top !== window.self) {
             window.top.location = window.location;
@@ -80,13 +80,13 @@
 	<div class="foo"><p>欢迎访问广东聚派数据科技系统</p></div>
 	<!--[if !IE]>
 	-->
-	<script src="/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<!-- <![endif]-->
 	<!--[if IE]>
-	<script src="/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 	<![endif]-->
-	<script src="/js/layer.js?v=2.3"></script>
-	<!-- <script src="/js/particles/particles.min.js"></script>-->
+	<script type="text/javascript" src="js/layer.js?v=2.3"></script>
+	<!-- <script type="text/javascript" src="js/particles/particles.min.js"></script>-->
 	<script type="text/javascript">
 		var BASEURL = "http://www.soundtooth.cn/";
 		$(document).ready(function() {
@@ -101,7 +101,7 @@
 		    	})
 		    	.done(function(json) {;
 		    		if(json.errCode=='200'){
-		    			window.location.href="/background/index.do";
+		    			window.location.href="index.do";
 		    		}else{
 		    			layer.alert(json.errMsg);
 		    		}

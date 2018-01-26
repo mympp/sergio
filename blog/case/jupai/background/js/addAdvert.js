@@ -28,7 +28,6 @@ var price = 0;
 var putprices = new Array();
 var putpricesscenes = new Array();
 var putpricesscenesarea = new Array();
-var putpricesscenescg = new Array();
 var finalprice = 0;
 addAdvert.zoneTypes = {};
 addAdvert.sceneTypes = {};
@@ -909,17 +908,17 @@ addAdvert.getSceneSelector = function(dom, data) {
 	for (var i = 0, ilen = parents.length; i < ilen; i++) {
 		var lv2 = data[i].children;
 		circle_class = lv2 ? "fa-plus-circle pointer" : "fa-circle";
-		html += '<li class="tree-select tree-lv1-select"><div class="tree-parent tree-lv1-parent"><span class="tree-toggle fa ' + circle_class + '"></span><span class="parent-name" id="scene-' + parents[i].id + '" data-key="' + parents[i].key + '">' + parents[i].name + '</span></div>';
+		html += '<li class="tree-select tree-lv1-select"><div class="tree-parent tree-lv1-parent"><span class="tree-toggle fa ' + circle_class + '"></span><span class="parent-name" id="scene-' + parents[i].id + '">' + parents[i].name + '</span></div>';
 		if (lv2 != null) {
 			html += '<ul class="tree-children tree-lv1-children">';
 			for (var j = 0, jlen = lv2.length; j < jlen; j++) {
 				var lv3 = lv2[j].children;
 				circle_class = lv3 ? "fa-plus-circle pointer" : "fa-circle";
-				html += '<li class="tree-select tree-lv2-select"><div class="tree-parent tree-lv2-parent"><span class="tree-toggle fa ' + circle_class + '"></span><span class="parent-name" id="scene-' + lv2[j].id + '" data-key="' + lv2[j].key + '">' + lv2[j].name + '</span></div>';
+				html += '<li class="tree-select tree-lv2-select"><div class="tree-parent tree-lv2-parent"><span class="tree-toggle fa ' + circle_class + '"></span><span class="parent-name" id="scene-' + lv2[j].id + '">' + lv2[j].name + '</span></div>';
 				if (lv3 != null) {
 					html += '<ul class="tree-children tree-lv2-children">';
 					for (var k = 0, klen = lv3.length; k < klen; k++) {
-						html += '<li class="tree-select tree-lv3-select"><div class="tree-parent tree-lv3-parent"><span class="tree-toggle fa fa-circle"></span><span class="parent-name" id="scene-' + lv3[k].id + '" data-key="' + lv3[k].key + '">' + lv3[k].name + '</span></div></li>';
+						html += '<li class="tree-select tree-lv3-select"><div class="tree-parent tree-lv3-parent"><span class="tree-toggle fa fa-circle"></span><span class="parent-name" id="scene-' + lv3[k].id + '">' + lv3[k].name + '</span></div></li>';
 					}
 					html += "</ul>";
 				}
@@ -1019,47 +1018,24 @@ addAdvert.bindSceneEvent = function() {
 			var html = '';
 			var lv1Li = $(this).parent(".tree-select");
 			var lv1Dom = lv1Li.children(".tree-parent").children(".parent-name");
-			// console.log('lv1Li.children(".tree-parent"):'+lv1Li.children(".parent-name").html());
-			var lv1key = lv1Dom.data("key");
-			// console.log("scenelv1key:" + lv1key);
-			// if (priceconfigs[lv1key]) {
-			// 	console.log("key:"+priceconfigs[lv1key]);
-			// 	putpricesscenesarea.push(lv1key);
-			// }
-			// console.log(lv1Dom.html());
 			var lv1Sid = lv1Dom.attr("id").replace(/scene-/g, "");
 			var lv1Name = lv1Dom.text();
 			var lv2len = lv1Li.children(".tree-children").children(".tree-select").length;
-			htmlOuter += '<li data-sid="' + lv1Sid + '"  data-key="' + lv1key + '">';
+			htmlOuter += '<li data-sid="' + lv1Sid + '">';
 			html += '<p class="parent-name">' + lv1Name + '<span class="fa fa-close pointer fr"></span></p><ul class="scene-children-review-list">';
 			for (var i = 0; i < lv2len; i++) {
 				var lv2Li = lv1Li.children(".tree-children").children(".tree-select").eq(i);
 				var lv2Dom = lv2Li.children(".tree-parent").children(".parent-name");
-				// console.log('lv2Li.children(".tree-parent"):'+lv2Li.html());
-				// console.log('lv2Li.children(".tree-parent"):'+lv2Li.children(".parent-name").data("key"));
-				var lv2key = lv2Dom.data("key");
-				// console.log("scenelv2key:" + lv2key);
-				// if (priceconfigs[lv2key]) {
-				// 	console.log("key:"+priceconfigs[lv2key]);
-				// 	putpricesscenesarea.push(lv2key);
-				// }
 				var lv2Sid = lv2Dom.attr("id").replace(/scene-/g, "");
-				// console.log("scenelv2lv2Sid:" + lv2Sid);
 				var lv2Name = lv2Dom.text();
 				var lv3len = lv2Li.children(".tree-children").children(".tree-select").length;
-				html += '<li data-sid="' + lv2Sid + '" data-key="' + lv2key + '"><p class="parent-name">' + lv2Name + '<span class="fa fa-close pointer fr"></span></p><ul class="scene-children-review-list">';
+				html += '<li data-sid="' + lv2Sid + '"><p class="parent-name">' + lv2Name + '<span class="fa fa-close pointer fr"></span></p><ul class="scene-children-review-list">';
 				for (var j = 0; j < lv3len; j++) {
 					var lv3Li = lv2Li.children(".tree-children").children(".tree-select").eq(j);
 					var lv3Dom = lv3Li.children(".tree-parent").children(".parent-name");
-					var lv3key = lv3Dom.data("key");
-					// console.log("scenelv3key:" + lv3key);
-					// if (priceconfigs[lv3key]) {
-					// 	console.log("key:"+priceconfigs[lv3key]);
-					// 	putpricesscenesarea.push(lv3key);
-					// }
 					var lv3Sid = lv3Dom.attr("id").replace(/scene-/g, "");
 					var lv3Name = lv3Dom.text();
-					html += '<li title="' + lv3Name + '" data-sid="' + lv3Sid + '" data-key="' + lv3key + '"><p class="parent-name">' + lv3Name + '<span class="fa fa-close pointer fr"></span></p></li>';
+					html += '<li title="' + lv3Name + '" data-sid="' + lv3Sid + '"><p class="parent-name">' + lv3Name + '<span class="fa fa-close pointer fr"></span></p></li>';
 				}
 				html += '</ul></li>';
 			}
@@ -1077,39 +1053,24 @@ addAdvert.bindSceneEvent = function() {
 			var html2Outer = '';
 			var lv1Li = $(this).parents(".tree-lv1-select");
 			var lv1Dom = lv1Li.children(".tree-parent").children(".parent-name");
-			var lv1key = lv1Dom.data("key");
-			// console.log("scenelv1key:" + lv1key);
-			// if (priceconfigs[lv1key]) {
-			// 	putpricesscenesarea.push(lv1key);
-			// }
 			var lv1Sid = lv1Dom.attr("id").replace(/scene-/g, "");
 			var lv1Name = lv1Dom.text();
 			var lv2len = lv1Li.children(".tree-children").children(".tree-select").length;
-			html1 += '<li data-sid="' + lv1Sid + '" data-key="' + lv1key + '"><p class="parent-name">' + lv1Name + '<span class="fa fa-close pointer fr"></span></p><ul class="scene-children-review-list">';
+			html1 += '<li data-sid="' + lv1Sid + '"><p class="parent-name">' + lv1Name + '<span class="fa fa-close pointer fr"></span></p><ul class="scene-children-review-list">';
 
 			var lv2Li = $(this).parent(".tree-select");
 			var lv2Dom = lv2Li.children(".tree-parent").children(".parent-name");
-			var lv2key = lv2Dom.data("key");
-			// console.log("scenelv2key:" + lv2key);
-			// if (priceconfigs[lv2key]) {
-			// 	putpricesscenesarea.push(lv2key);
-			// }
 			var lv2Sid = lv2Dom.attr("id").replace(/scene-/g, "");
 			var lv2Name = lv2Dom.text();
 			var lv3len = lv2Li.children(".tree-children").children(".tree-select").length;
-			html2Outer += '<li data-sid="' + lv2Sid + '" data-key="' + lv2key + '">';
+			html2Outer += '<li data-sid="' + lv2Sid + '">';
 			html2 += '<p class="parent-name">' + lv2Name + '<span class="fa fa-close pointer fr"></span></p><ul class="scene-children-review-list">';
 			for (var j = 0; j < lv3len; j++) {
 				var lv3Li = lv2Li.children(".tree-children").children(".tree-select").eq(j);
 				var lv3Dom = lv3Li.children(".tree-parent").children(".parent-name");
-				var lv3key = lv3Dom.data("key");
-				// console.log("scenelv3key:" + lv3key);
-				// if (priceconfigs[lv3key]) {
-				// 	putpricesscenesarea.push(lv3key);
-				// }
 				var lv3Sid = lv3Dom.attr("id").replace(/scene-/g, "");
 				var lv3Name = lv3Dom.text();
-				html2 += '<li title="' + lv3Name + '" data-sid="' + lv3Sid + '" data-key="' + lv3key + '"><p class="parent-name">' + lv3Name + '<span class="fa fa-close pointer fr"></span></p></li>';
+				html2 += '<li title="' + lv3Name + '" data-sid="' + lv3Sid + '"><p class="parent-name">' + lv3Name + '<span class="fa fa-close pointer fr"></span></p></li>';
 			}
 			html2 += '</ul>';
 			html2Outer += html2 + '</li>';
@@ -1133,23 +1094,13 @@ addAdvert.bindSceneEvent = function() {
 			var html3Outer = "";
 			var lv1Li = $(this).parents(".tree-lv1-select");
 			var lv1Dom = lv1Li.children(".tree-parent").children(".parent-name");
-			var lv1key = lv1Dom.data("key");
-			// console.log("scenelv1key:" + lv1key);
-			// if (priceconfigs[lv1key]) {
-			// 	putpricesscenesarea.push(lv1key);
-			// }
 			var lv1Sid = lv1Dom.attr("id").replace(/scene-/g, "");
 			var lv1Name = lv1Dom.text();
 			var lv2len = lv1Li.children(".tree-children").children(".tree-select").length;
-			html1 += '<li data-sid="' + lv1Sid + '" data-key="' + lv1key + '"><p class="parent-name">' + lv1Name + '<span class="fa fa-close pointer fr"></span></p><ul class="scene-children-review-list">';
+			html1 += '<li data-sid="' + lv1Sid + '"><p class="parent-name">' + lv1Name + '<span class="fa fa-close pointer fr"></span></p><ul class="scene-children-review-list">';
 
 			var lv2Li = $(this).parents(".tree-lv2-select");
 			var lv2Dom = lv2Li.children(".tree-parent").children(".parent-name");
-			var lv2key = lv2Dom.data("key");
-			// console.log("scenelv2key:" + lv2key);
-			// if (priceconfigs[lv2key]) {
-			// 	putpricesscenesarea.push(lv2key);
-			// }
 			var lv2Sid = lv2Dom.attr("id").replace(/scene-/g, "");
 			var lv2Name = lv2Dom.text();
 			var lv3len = lv2Li.children(".tree-children").children(".tree-select").length;
@@ -1157,11 +1108,6 @@ addAdvert.bindSceneEvent = function() {
 
 			var lv3Li = $(this).parent(".tree-select");
 			var lv3Dom = lv3Li.children(".tree-parent").children(".parent-name");
-			var lv3key = lv3Dom.data("key");
-			// console.log("scenelv3key:" + lv3key);
-			// if (priceconfigs[lv3key]) {
-			// 	putpricesscenesarea.push(lv3key);
-			// }
 			var lv3Sid = lv3Dom.attr("id").replace(/scene-/g, "");
 			var lv3Name = lv3Dom.text();
 			html3Outer += '<li title="' + lv3Name + '" data-sid="' + lv3Sid + '">';
@@ -1188,9 +1134,6 @@ addAdvert.bindSceneEvent = function() {
 				}
 			}
 		}
-		addAdvert.reviewData();
-		// $.each($("#scene-review-list li"),function(i,v){
-
 	});
 
 	$("#scene-selector-box").find(".tree-select>.tree-parent>.tree-toggle:not(.fa-circle)").on("click", function(event) {
@@ -1637,12 +1580,12 @@ addAdvert.bindDataEvent = function() {
 		}
 		fd = $.extend({}, fd, whiteListData);
 	}
-	var pricejson = {
-		"payType": $("input[name='pay-type']:checked").val(),
-		"showType": $("input[name='show-type']:checked").val(),
-		"putType": $("input[name='put-type']:checked").val(),
-		"pushType2": $("input[name='push-type2']:checked").val(),
-		"finalprice": finalprice.toFixed(2)
+	var pricejson={
+		"payType":$("input[name='pay-type']:checked").val(),
+		"showType":$("input[name='show-type']:checked").val(),
+		"putType":$("input[name='put-type']:checked").val(),
+		"pushType2":$("input[name='push-type2']:checked").val(),
+		"finalprice":finalprice.toFixed(2)
 	}
 	fd = $.extend({}, fd, pricejson);
 	// console.log(fd);
@@ -1665,9 +1608,9 @@ addAdvert.bindDataEvent = function() {
 					$(".step-process-flex").children("li").last().removeClass("active").addClass("done");
 					setTimeout(function() {
 						if (window.location.href.indexOf('agentAddAdvert') > 0) {
-							window.location.href = "/background/";
+							window.location.href = "";
 						} else {
-							window.location.href = "/background/AdvertList.html";
+							window.location.href = "AdvertList.html";
 						}
 					}, 3000);
 					layer.msg("发布成功！3秒后跳转到广告列表页面", {
@@ -1837,8 +1780,7 @@ addAdvert.reviewData = function() {
 	var html = '';
 	var result = {};
 	putprices = new Array();
-	putpricesscenesarea = new Array();
-
+	putpricesscenesarea=new Array();
 	var dateHtml = '<p class="clearfix"><span class="summary-title">推广日期</span><span class="summary-con">' + $("#startDate").val();
 	if ($("input[name='pay-type']:checked").val() && $("input[name='put-type']:checked").val() && $("input[name='show-type']:checked").val()) {
 		var id = $("input[name='pay-type']:checked").val() + ":" + $("input[name='show-type']:checked").val() + ":" + $("input[name='put-type']:checked").val();
@@ -1846,7 +1788,7 @@ addAdvert.reviewData = function() {
 			id += ":" + $("input[name='push-type2']:checked").val()
 		}
 		price = prices[id];
-		console.log("id:" + id + "---" + price);
+		console.log("id:"+id+"---"+price);
 	}
 	dateHtml += '</span></p>';
 
@@ -1863,13 +1805,7 @@ addAdvert.reviewData = function() {
 	$.each($("li.review-show"), function(i, v) {
 		console.log("areskey:" + $(this).data("key"));
 		if (priceconfigs[$(this).data("key")]) {
-			putpricesscenesarea.push(priceconfigs[$(this).data("key")]);
-		}
-	});
-	$(".scene-review-list li").each(function() {
-		console.log("scenekey:" + $(this).attr("data-key"));
-		if (priceconfigs[$(this).data("key")]) {
-			putpricesscenesarea.push(priceconfigs[$(this).data("key")]);
+			putpricesscenesarea.push($(this).data("key"));
 		}
 	});
 
@@ -1879,7 +1815,7 @@ addAdvert.reviewData = function() {
 			return;
 		}
 		var key = $(this).data("key");
-		// console.log("key:" + key);
+				console.log("key:"+key);
 
 		if (key && $(this).is(":checked")) {
 			if (priceconfigs[$(this).data("key")]) {
@@ -1896,7 +1832,7 @@ addAdvert.reviewData = function() {
 		}
 		var name = $(this).attr("name");
 		var value = $(this).val();
-		// console.log("type:" + type + " " + $(this).data("key"));
+		console.log("type:"+type+" "+$(this).data("key"));
 
 		if (name) {
 			if (type.toLocaleLowerCase() == "checkbox") {
@@ -1924,21 +1860,19 @@ addAdvert.reviewData = function() {
 
 
 	var level = 0;
-	putprices=putprices.concat(putpricesscenes);
-	putprices=putprices.concat(putpricesscenesarea);
-	console.log("putprices:"+putprices+"   length:"+putprices.length);
+	putprices.push(putpricesscenes);
+	putprices.push(putpricesscenesarea);
+	// console.log("putprices:"+putprices+"   length:"+putprices.length);
 	for (var i = 0; i < putprices.length; i++) {
-		console.log("i:" + i + " putprices:" + putprices[i]);
-		if(putprices[i]){
-			level += putprices[i]?putprices[i]:0;
-		}
+		// console.log("i:" + i + " putprices:" + putprices[i]);
+		level += putprices[i];
 	}
 	if (level != 0) {
 		level = 1 + (level / putprices.length);
 	}
 	// console.log("level:"+level);
 	finalprice = (level != 0 ? level * price : price);
-	html += '<p class="clearfix"><span class="summary-title">广告</span><span class="summary-con">' + (finalprice ? finalprice.toFixed(2) : 0) + '元</span></p>';
+	html += '<p class="clearfix"><span class="summary-title">广告</span><span class="summary-con">' + (finalprice?finalprice.toFixed(2):0) + '元</span></p>';
 	$("#ad-summary>p").remove();
 	$("#ad-summary").append(html);
 }

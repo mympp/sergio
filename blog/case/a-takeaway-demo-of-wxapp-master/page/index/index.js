@@ -9,13 +9,13 @@ Page({
 				id: 3,
 				img: 'http://wxapp.im20.com.cn/impublic/waimai/imgs/index/banner_3.jpg',
 				url: '',
-				name: '百亿巨惠任你抢'
+				name: '新春优惠'
 			},
 			{
 				id: 1,
 				img: 'http://wxapp.im20.com.cn/impublic/waimai/imgs/index/banner_1.jpg',
 				url: '',
-				name: '告别午高峰'
+				name: '学前钜惠'
 			},
 			{
 				id: 2,
@@ -29,49 +29,49 @@ Page({
 				{
 					id: 1,
 					img: '/imgs/index/icon_1.jpg',
-					name: '美食',
+					name: '北海道',
 					url: ''
 				},
 				{
 					id: 2,
 					img: '/imgs/index/icon_2.jpg',
-					name: '超市',
+					name: '营养健康',
 					url: ''
 				},
 				{
 					id: 3,
 					img: '/imgs/index/icon_3.jpg',
-					name: '鲜果购',
+					name: '大卷',
 					url: ''
 				},
 				{
 					id: 4,
 					img: '/imgs/index/icon_4.jpg',
-					name: '下午茶',
+					name: '中卷',
 					url: ''
 				},
 				{
 					id: 5,
 					img: '/imgs/index/icon_5.jpg',
-					name: '正餐优选',
+					name: '小卷',
 					url: ''
 				},
 				{
 					id: 6,
 					img: '/imgs/index/icon_6.jpg',
-					name: '外卖专送',
+					name: '免外送费',
 					url: ''
 				},
 				{
 					id: 7,
 					img: '/imgs/index/icon_7.jpg',
-					name: '饮品站',
+					name: '管饱',
 					url: ''
 				},
 				{
 					id: 8,
 					img: '/imgs/index/icon_8.jpg',
-					name: '小吃馆',
+					name: '不长肉',
 					url: ''
 				}
 			],

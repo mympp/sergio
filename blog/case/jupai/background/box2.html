@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta charset="UTF-8">
-<meta name="csrf-token" content="4XzkgqSk0cnSBHtfsjuNgtj3Oaf7p2aNQJTzMqGl" />
-<meta name="renderer" content="webkit">
-<meta name="description" content="声牙科技，国内首家移动场景营销广告平台。广告sdk流量变现联盟，ios、android广告插件sdk，新型互联网app流量变现模式；场景营销广告联盟，cpa cpm cpc cps cpt等。声牙-简单连接一切，开启智慧生活。">
-<meta name="keywords" content="流量变现、app流量变现、广告sdk、sdk广告、场景营销、cpm广告联盟、app广告联盟、广告联盟">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=IE8">
-<title>聚派-客流分析</title>
-<link href="//www.soundtooth.cn/images/soundTooth.ico" rel="bookmark" type="image/x-icon">
-<link href="//www.soundtooth.cn/images/soundTooth.ico" rel="icon" type="image/x-icon">
-<link href="//www.soundtooth.cn/images/soundTooth.ico" rel="shortcut icon" type="image/x-icon">
-	<link rel="stylesheet" href="/css/metisMenu.min.css">
-	<link type="text/css" rel="stylesheet" href="/css/tipso.min.css">
-	<link rel="stylesheet" href="/css/newAgent/dateRange.css">
-	<link rel="stylesheet" href="/css/newAgent/index.css">
+	<meta charset="UTF-8">
+	<meta name="csrf-token" content="4XzkgqSk0cnSBHtfsjuNgtj3Oaf7p2aNQJTzMqGl" />
+	<meta name="renderer" content="webkit">
+	<meta name="description" content="声牙科技，国内首家移动场景营销广告平台。广告sdk流量变现联盟，ios、android广告插件sdk，新型互联网app流量变现模式；场景营销广告联盟，cpa cpm cpc cps cpt等。声牙-简单连接一切，开启智慧生活。">
+	<meta name="keywords" content="流量变现、app流量变现、广告sdk、sdk广告、场景营销、cpm广告联盟、app广告联盟、广告联盟">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=IE8">
+	<title>聚派-客流分析</title>
+	<link type="text/css" rel="stylesheet" href="css/metisMenu.min.css" />
+	<link type="text/css" rel="stylesheet" href="css/tipso.min.css" />
+	<link type="text/css" rel="stylesheet" href="css/newAgent/dateRange.css" />
+	<link type="text/css" rel="stylesheet" href="css/newAgent/index.css" />
 </head>
 <body>
 	
@@ -22,8 +19,8 @@
 	<div class="part part-border index-part1">
 		<div class="container">
 			<p class="crumbs-nav">
-								<a href="//www.soundtooth.cn/scenesList">场景列表</a>
-								<span class="angle-double-right"></span><span></span>客流分析
+				<a href="//www.soundtooth.cn/scenesList">场景列表</a>
+				<span class="angle-double-right"></span><span></span>客流分析
 			</p>
 			<div class="search-box clearfix">
 				<div class="fl">
@@ -216,12 +213,12 @@
 		<div class="loading-icon"></div>
 	</div>
 	<!--[if !IE]> -->
-	<script src="/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
 	<!-- <![endif]-->
 	<!--[if IE]>
-	<script src="//www.soundtooth.cn/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="//www.soundtooth.cn/js/jquery-1.11.3.min.js"></script>
 	<![endif]-->
-	<script src="/js/newAgent/metisMenu.min.js"></script>
+	<script type="text/javascript" src="js/newAgent/metisMenu.min.js"></script>
 	<script>
 		$(function() {
 			 $('#menu').metisMenu({
@@ -258,45 +255,45 @@
 		// });
 	});
 	</script>
-		<script src="/js/layer.js?v=2.3"></script>
+	<script type="text/javascript" src="js/layer.js?v=2.3"></script>
 	 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=hd0lXCZZrZFqLG7RrGABOtNbaqeieKwh"></script>
-	<script type="text/javascript" src="/js/Heatmap_min.js"></script>
-	<script type="text/javascript" src="/js/echarts.common.min.js"></script>
-	<script src="/js/newAgent/dateRange.js"></script>
-	<script src="js/index2.js"></script>
-	<script type="text/javascript" src="/js/tipso.min.js"></script>
+	<script type="text/javascript" src="js/Heatmap_min.js"></script>
+	<script type="text/javascript" src="js/echarts.common.min.js"></script>
+	<script type="text/javascript" src="js/newAgent/dateRange.js"></script>
+	<script type="text/javascript" src="js/index2.js"></script>
+	<script type="text/javascript" src="js/tipso.min.js"></script>
 	<script type="text/javascript">
 	var BASEURL = "/";
 	
 
 	$(function () {
-   //方法二：
-   (function ($) {
-    $.getUrlParam = function (name) {
-     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-     var r = window.location.search.substr(1).match(reg);
-     if (r != null) return decodeURI(r[2]); return null;
-    }
-   })(jQuery);
-   //方法二：
-  
+	   //方法二：
+	   (function ($) {
+	    $.getUrlParam = function (name) {
+	     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+	     var r = window.location.search.substr(1).match(reg);
+	     if (r != null) return decodeURI(r[2]); return null;
+	    }
+	   })(jQuery);
+	   //方法二：
+	  
 
-		var chip_id = $.getUrlParam('chip_id');
-		$("#chip-id").val(chip_id);
-		var chip_no = $.getUrlParam('chip_no');
-		$("#chip-no").val(chip_no);
-		var scene_name = $.getUrlParam('scene_name');
-		// alert(scene_name);
-		$("#scene-name").val(scene_name);
-		var show_name = $.getUrlParam('show_name');
-		$("#show-name").val(show_name);
+			var chip_id = $.getUrlParam('chip_id');
+			$("#chip-id").val(chip_id);
+			var chip_no = $.getUrlParam('chip_no');
+			$("#chip-no").val(chip_no);
+			var scene_name = $.getUrlParam('scene_name');
+			// alert(scene_name);
+			$("#scene-name").val(scene_name);
+			var show_name = $.getUrlParam('show_name');
+			$("#show-name").val(show_name);
 
-		$(document).ready(function() {
-		$("#nav-scenesList").addClass("open");
-		passenger.init();
-	});
-	    
-})
+			$(document).ready(function() {
+			$("#nav-scenesList").addClass("open");
+			passenger.init();
+		});
+		    
+	})
 	</script>
 </body>
 </html>

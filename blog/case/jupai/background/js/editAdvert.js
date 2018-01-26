@@ -1590,9 +1590,9 @@ editAdvert.bindDataEvent = function() {
 					$(".step-process-flex").children("li").last().removeClass("active").addClass("done");
 					setTimeout(function() {
 						if (window.location.href.indexOf('agentAddAdvert') > 0) {
-							window.location.href = "/background/";
+							window.location.href = "";
 						} else {
-							window.location.href = "/background/AdvertList.html";
+							window.location.href = "AdvertList.html";
 						}
 					}, 3000);
 					layer.msg("修改成功！3秒后跳转到广告列表页面", {

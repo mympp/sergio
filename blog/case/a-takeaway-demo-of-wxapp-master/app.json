@@ -26,6 +26,12 @@
 				"text": "首页"
 			},
 			{
+				"pagePath": "page/shop/shop",
+				"iconPath": "imgs/tabBar/home_2.png",
+				"selectedIconPath": "imgs/tabBar/home_1.png",
+				"text": "下单"
+			},
+			{
 				"pagePath": "page/mine/mine",
 				"iconPath": "imgs/tabBar/mine_2.png",
 				"selectedIconPath": "imgs/tabBar/mine_1.png",
