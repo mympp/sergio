@@ -1013,8 +1013,8 @@ HTML 事件的例子：
 		document.getElementById("twoDate").innerHTML = Date();
 	};
 	function threeDate(){
-		alert("test")
-	};//为什么是threeDate函数先执行呢？先弹出？
+		document.getElementById("twoDate").innerHTML = "1";
+	};
 
 	//向window对象添加事件句柄
 	window.addEventListener("resize",function(){//重置浏览器的窗口触发 "resize" 事件句柄
@@ -1042,6 +1042,11 @@ HTML 事件的例子：
 	<script type="text/javascript">
 	//在 冒泡 中，内部元素的事件会先被触发，然后再触发外部元素，即： <p> 元素的点击事件先触发，然后会触发 <div> 元素的点击事件。
 	document.getElementById("divpDemo1").addEventListener("click",function(){alert("你点击了p元素！");},false);//默认值为 false, 即冒泡传递，当值为 true 时, 事件使用捕获传递。
+	// 阻止事件冒泡，只点击了P元素。下面的三个事件包括捕获都无法点击了。
+	stopHandler();
+	function stopHandler(event)  {
+	    window.event?window.event.cancelBubble=true:event.stopPropagation();  
+	}
 	document.getElementById("divDemo1").addEventListener("click",function(){alert("你点击了div元素！");},false);
 
 	//在 捕获 中，外部元素的事件会先被触发，然后才会触发内部元素的事件，即： <div> 元素的点击事件先触发 ，然后再触发 <p> 元素的点击事件。
