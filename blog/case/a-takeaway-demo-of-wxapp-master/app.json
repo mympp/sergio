@@ -11,7 +11,7 @@
 		"navigationBarTextStyle": "white",
 		"backgroundColor": "#efefef",
 		"backgroundTextStyle": "dark",
-		"navigationBarTitleText": "外卖订餐"
+		"navigationBarTitleText": "点点私厨"
 	},
 	"tabBar": {
 		"color": "#878787",

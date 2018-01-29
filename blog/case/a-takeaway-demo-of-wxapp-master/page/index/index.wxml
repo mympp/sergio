@@ -1,4 +1,5 @@
 <view class="container">
+    <!-- 头部搜索 -->
 	<view class="header {{scrollDown?'scrolled':''}}">
 		<view class="location ellipsis" bindtap="toNearby">
 			<image class="icon" src="/imgs/index/icon_location.png"/>
@@ -7,11 +8,13 @@
 		<view class="search" bindtap="tapSearch">
 			<image class="icon" src="/imgs/index/icon_search.png"/>
 			<i class="fa fa-home"></i>
-			烤鸭
+			北海道
 		</view>
 	</view>
 
+    <!-- 滚动主体 -->
 	<scroll-view scroll-y="true" scroll-into-view="{{scrollIntoView}}" bindscroll="onScroll">
+        <!-- 轮播banner -->
 		<swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="500">
 			<block wx:for="{{banners}}" wx:key="id">
 				<swiper-item>
@@ -20,6 +23,7 @@
 			</block>
 		</swiper>
 
+        <!-- 导航icon -->
 		<swiper class="section icons" indicator-dots="true" autoplay="" interval="" duration="500">
 			<swiper-item wx:for="{{icons}}" wx:for-item="list" wx:key="id">
 				<view class="icon" wx:for="{{list}}" wx:for-item="icon" wx:key="id" bindtap="toNearby">
@@ -29,6 +33,7 @@
 			</swiper-item>
 		</swiper>
 
+        <!-- 优惠分区 -->
 		<view class="section section-big discount">
 			<view class="title">优惠专区</view>
 			<image class="content" bindtap="toNearby" src="http://wxapp.im20.com.cn/impublic/waimai/imgs/index/dicount.jpg"/>
@@ -44,6 +49,7 @@
 			<image class="content" bindtap="toNearby" src="http://wxapp.im20.com.cn/impublic/waimai/imgs/index/special.jpg"/>
 		</view>
 
+        <!-- 商家排名 -->
 		<view id="nearby" class="section section-big nearby">
 			<view class="title">附近商家</view>
 			<view class="filters">
