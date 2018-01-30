@@ -27,8 +27,8 @@
 			},
 			{
 				"pagePath": "page/shop/shop",
-				"iconPath": "imgs/tabBar/home_2.png",
-				"selectedIconPath": "imgs/tabBar/home_1.png",
+				"iconPath": "imgs/tabBar/cart_2.png",
+				"selectedIconPath": "imgs/tabBar/cart_1.png",
 				"text": "下单"
 			},
 			{
