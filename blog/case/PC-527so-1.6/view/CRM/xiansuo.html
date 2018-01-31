@@ -3,12 +3,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>线索</title>
+		<title>淘客户</title>
 		<link rel="stylesheet" href="../../css/common.css" />
 	    <link rel="stylesheet" href="../../css/index.css" />
 	    <link rel="stylesheet" href="../../css/xiansuo.css" />
 		<style>
-			h1 { margin: 0; }
+			h1 { margin: 0;}
 
 			table
 			{
@@ -22,6 +22,35 @@
 				border: 1px solid #DCDCDC;
 				background: #f3f3f3;
 				font-size: 16px;
+			}
+			
+			.zdy_timer_div {
+				z-index: 999;
+			}
+			
+			.btn_aiv {
+				border: 1px solid #1da1f2;
+				background: #fff;
+				color:#1da1f2;
+			}
+			
+			.nodata_Tips{
+				margin: 150px auto;
+			    text-align: center;
+			    position: relative;
+			    right: 46px;
+			    display: none;
+			}
+			
+			.nodata_Tips img{
+				width: 180px;
+				height: 130px;
+			}
+			
+			.nodata_Tips p{
+			    font-size: 14px;
+			    color: #898989;
+			    margin-top: 15px;
 			}
 		</style>
 	</head>
@@ -93,6 +122,14 @@
 							<a href="javascript:;">购买会员</a>
 						</li>
 						<li class="xiansuoli1">
+							<span class="shopping-index"></span>
+							<a href="javascript:;">商城首页</a>
+						</li>
+						<li class="xiansuoli1">
+							<span class="cbd-center"></span>
+							<a href="javascript:;">商务中心</a>
+						</li>
+						<li class="xiansuoli1">
 							<span class="user_icon1"></span>
 							<a href="javascript:;">哟哟</a>
 						</li>
@@ -107,19 +144,83 @@
 					<div class="xiansuo_hdleft">
 						<!--第一列表-->
 						<ul>
-							<span class="saixuan_text1">筛选：</span>
-							<li>建筑建材</li>
+							<!--<span class="saixuan_text1">筛选：</span>-->
+							<!--<li>建筑建材</li>-->
 							<!--<li>手机数码</li>
 							<li>母婴玩具</li>-->
-							<li class="More_Actions">更多操作
-								<div class="More_Actions_ul">
-									<p>标记</p>
-									<p>作废</p>
-									<p>今日</p>
-									<p>本周</p>
-									<p>本月</p>
-									<p>自定义时间</p>
+							<li class="More_Actions">
+								<span class="M-G">筛选</span>
+								<!--旧开始-->
+								<!--<div class="More_Actions_ul">-->
+									<!--<p>标记</p>-->
+									<!--<p>作废</p>-->
+									<!--<p>今日</p>-->
+									<!--<p>本周</p>-->
+									<!--<p>本月</p>-->
+									<!--<p>自定义时间</p>-->
+								<!--</div>-->
+								<!--旧结束-->
+								<!--新开始-->
+								<div class="More-X">
+									<span class="More-title">按订阅关键词筛选：</span>
+									<span class="More-coles"></span>
+									<div class="More-bigbox hy-box">
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品阿萨德撒多萨达</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+										<span class="More-bigbox-btn" data-ids="car">汽车用品</span>
+									</div>
+									<span class="More-title">按时间筛选：</span>
+									<div class="More-bigbox time-box">
+										<span class="More-bigbox-btn" name="day">今日</span>
+										<span class="More-bigbox-btn" name="week">本周</span>
+										<span class="More-bigbox-btn" name="mouth">本月</span>
+										<span class="More-bigbox-btn Time-btn">自定义时间</span>
+									</div>
+									<span class="More-title">按操作记录筛选：</span>
+									<div class="More-bigbox mk-box">
+										<span class="More-bigbox-btn" name="mark">标记</span>
+										<span class="More-bigbox-btn" name="unuseful">作废</span>
+										<div class="con-box">
+											<span class="More-bigbox-confirm">确定</span>
+										</div>
+									</div>
 								</div>
+								<!--新结束-->
 								<div class="zdy_timer_div">
 									<div class="zdy_timer_cell1">
 										<span class="zdy_timer_cell1_s1">自定义时间筛选</span>
@@ -183,7 +284,7 @@
 								<div class="xiansuo_List_dets_rt">
 									<div class="xiansuo_List_dets_div1">发布时间：<span class="xiansuo_List_dets_span1">2017-09-13 14:50</span></div>
 									<div class="xiansuo_List_dets_div1">截止时间：<span class="xiansuo_List_dets_span1">2017-09-30 17:00</span></div>
-									<div class="xiansuo_List_dets_div1">供货地址：<span class="xiansuo_List_dets_span1">广州市天河区体育东路115号羊城花园A栋XXX号</span></div>
+									<div class="xiansuo_List_dets_div1">联系地址：<span class="xiansuo_List_dets_span1">广州市天河区体育东路115号羊城花园A栋XXX号</span></div>
 								</div>
 								<div class="chakan_lianxi1" onselectstart="return false;">
 									<span class="ck-phone-icon"></span>
@@ -248,7 +349,7 @@
 								<div class="xiansuo_List_dets_rt">
 									<div class="xiansuo_List_dets_div1">发布时间：<span class="xiansuo_List_dets_span1">2017-09-13 14:50</span></div>
 									<div class="xiansuo_List_dets_div1">截止时间：<span class="xiansuo_List_dets_span1">2017-09-30 17:00</span></div>
-									<div class="xiansuo_List_dets_div1">供货地址：<span class="xiansuo_List_dets_span1">广州市天河区体育东路115号羊城花园A栋XXX号</span></div>
+									<div class="xiansuo_List_dets_div1">联系地址：<span class="xiansuo_List_dets_span1">广州市天河区体育东路115号羊城花园A栋XXX号</span></div>
 								</div>
 								<div class="chakan_lianxi1" onselectstart="return false;">
 									<span class="ck-phone-icon"></span>
@@ -281,7 +382,7 @@
 								<div class="xiansuo_List_dets_rt">
 									<div class="xiansuo_List_dets_div1">发布时间：<span class="xiansuo_List_dets_span1">2017-09-13 14:50</span></div>
 									<div class="xiansuo_List_dets_div1">截止时间：<span class="xiansuo_List_dets_span1">2017-09-30 17:00</span></div>
-									<div class="xiansuo_List_dets_div1">供货地址：<span class="xiansuo_List_dets_span1">广州市天河区体育东路115号羊城花园A栋XXX号</span></div>
+									<div class="xiansuo_List_dets_div1">联系地址：<span class="xiansuo_List_dets_span1">广州市天河区体育东路115号羊城花园A栋XXX号</span></div>
 								</div>
 								<div class="chakan_lianxi1 hide" onselectstart="return false;">
 									<span class="ck-phone-icon"></span>
@@ -314,7 +415,7 @@
 								<div class="xiansuo_List_dets_rt">
 									<div class="xiansuo_List_dets_div1">发布时间：<span class="xiansuo_List_dets_span1">2017-09-13 14:50</span></div>
 									<div class="xiansuo_List_dets_div1">截止时间：<span class="xiansuo_List_dets_span1">2017-09-30 17:00</span></div>
-									<div class="xiansuo_List_dets_div1">供货地址：<span class="xiansuo_List_dets_span1">广州市天河区体育东路115号羊城花园A栋XXX号</span></div>
+									<div class="xiansuo_List_dets_div1">联系地址：<span class="xiansuo_List_dets_span1">广州市天河区体育东路115号羊城花园A栋XXX号</span></div>
 								</div>
 								<div class="chakan_lianxi1" onselectstart="return false;">
 									<span class="ck-phone-icon"></span>
@@ -329,6 +430,10 @@
 							<input type="hidden" value="13268036998" class="tel_val"/>
 							<input type="hidden" value="642307404@qq.com" class="email_val"/>
 						</li>
+						<!--<div class="nodata_Tips">
+							<img src="../../Images/taokehu_icon_ndata_nor.png" alt="" />
+							<p>温馨提示：暂无相关数据</p>
+						</div>-->
 					</ul>
 					<!--线索列表结束-->
 					
@@ -362,6 +467,22 @@
 					<!--分页器结束-->
 				</div>
 				<!--线索内容结束-->
+
+				<!--首次进入不显示数据-->
+				<div class="One-Tao">
+					<h3 class="One-Tao-Top">雀搜，一个智能的采购商数据邮件营销平台！</h3>
+					<span class="close-One-Tao"></span>
+					<div class="One-Tao-xian"></div>
+					<div class="one-one">
+						<div class="one-one-left"></div>
+						<div class="one-one-right">1、为什么通过采购平台找来的采购商电话无法和对方无法联系。因为采购商同时受到无数个电话推销，已经产生电话推销恐惧，所以你极大可能通过电话无法联系到对方。但对方的邮箱却不会出现关闭状态。雀搜接入全国500多个采购平台，上千万的采购商数据，精准匹配相应的产品采购商，供应商可实现一键将产品推送至相应采购商邮箱！</div>
+					</div>
+					<div class="zhuduan"></div>
+					<div class="two-two">
+						<div class="two-two-left"></div>
+						<div class="two-two-right">2、雀搜同时通过需求方单位全网(人脉网、工商行政、企业黄页、搜索引擎等)匹配相应的负责人。满足供应商有效的把信息推送至需求方。</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<!--父容器结束-->
@@ -452,8 +573,6 @@
 						<!--客户服务结束-->
 					</div>
 					<!--客户信息结束-->
-					</div>
-
 				</div>
 			</div>
 		</div>
@@ -690,130 +809,215 @@
 
 						</div>
 						<!--拍卖信息结束-->
-
 					</div>
 					<!--拍卖信息结束-->
 				</div>
-
 			</div>
 		</div>
 		<!--拍卖详情结束-->
-		
-		<!--订阅行业采购商信息开始-->
-		<div class="dingyue_hy_modal">
-			<div class="dingyue_hy">
-				<div class="dingyue_hy_header">
-					订阅行业采购商信息
-					<span class="dingyue_hy_header_close">&times;</span>
+		<!--新版订阅行业开始-->
+		<div class="dy_hy_modal">
+			<div class="dy_hy_box">
+				<div class="dy_hy_top">
+					<span class="dy_hy_top_text">订阅行业采购商信息</span><span class="dy_hy_top_close"></span>
 				</div>
-				<div class="dingyue_hy_user_list">
-					<ul>
-						<li>建材建筑</li>
-						<li>母婴用品</li>
-						<li>汽车维修</li>
-						<li>电子应用</li>
-						<li>床上用品</li>
-					</ul>
-					<img class="dingyue_hy_delete" src="../../Images/common_icon_det_nor.png" alt="" />
-				</div>
-				<ul class="php_hy_list">
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-					<li>建材建筑</li>
-				</ul>
-				<div class="php_key_list">
-					<p class="php_key_list_p1">选择订阅关键词</p>
-					<ul>
-						<li>水泥</li>
-						<li>挖掘机</li>
-						<li>钢筋</li>
-						<li>挖掘机</li>
-						<li>水泥</li>
-						<li>挖掘机</li>
-						<li>钢筋</li>
-						<li>挖掘机</li>
-						<li>水泥</li>
-						<li>挖掘机</li>
-						<li>水泥</li>
-						<li>挖掘机</li>
-						<li>钢筋</li>
-						<li>挖掘机</li>
-						<li>水泥</li>
-						<li>挖掘机</li>
-						<li>钢筋</li>
-						<li>挖掘机</li>
-						<li>水泥</li>
-						<li>挖掘机</li>
-					</ul>
-				</div>
-				<!--自定义关键词-->
-				<div class="zdy_keyWord">
-					<p class="zdy_keyWord_p1">自定义关键词</p>
-					<textarea class="zdy_keyWord_form" placeholder="多个关键词用英语逗号隔开"></textarea>
-				</div>
-				<div class="dingyue_hy_btns">	
-					<span class="dy_cancel_1">取消</span>
-					<span class="dy_save_1">保存</span>
-				</div>
-				<!--用户行业删除列表-->
-				<div class="user_dyhy_list">
-					<p class="user_dyhy_list_p1">
-						<span class="close_span">&times;</span>
-					</p>
-					<ul>
-						<li>
-							<div>建筑建材1</div>
-							<span class="delete_btn1">删除</span>
-						</li>
-						<li>
-							<div>建筑建材2</div>
-							<span class="delete_btn1">删除</span>
-						</li>
-						<li>
-							<div>建筑建材3</div>
-							<span class="delete_btn1">删除</span>
-						</li>
-						<li>
-							<div>建筑建材4</div>
-							<span class="delete_btn1">删除</span>
-						</li>
-						<li>
-							<div>建筑建材5</div>
-							<span class="delete_btn1">删除</span>
-						</li>
-					</ul>
-					<!--<span class="submit-save">保存</span>-->
+				<div class="dy_hy_center">
+					<!--勾选行业界面-->
+					<!--<div class="dy_hy_name" style="display: none">-->
+						<!--<span class="dy_hy_name_close"></span>-->
+						<!--<div class="dy_hy_name_top">为了更精准的筛选您的采购商，请选择想订阅与“<span>苹果</span>”相关的行业（可多选）</div>-->
+						<!--<div class="dy_check_box">-->
+							<!--<div class="checkbox_list">-->
+								<!--<input type="checkbox" class="checkbox_input" >-->
+								<!--<span class="checkbox_text">手机数码</span>-->
+							<!--</div>-->
+							<!--<div class="checkbox_list">-->
+								<!--<input type="checkbox" class="checkbox_input">-->
+								<!--<span class="checkbox_text">家具家电</span>-->
+							<!--</div>-->
+							<!--<div class="checkbox_list">-->
+								<!--<input type="checkbox" class="checkbox_input">-->
+								<!--<span class="checkbox_text">牛奶水饮</span>-->
+							<!--</div>-->
+							<!--<div class="checkbox_list">-->
+								<!--<input type="checkbox" class="checkbox_input">-->
+								<!--<span class="checkbox_text">飞机坦克</span>-->
+							<!--</div>-->
+							<!--<div class="checkbox_list">-->
+								<!--<input type="checkbox" class="checkbox_input">-->
+								<!--<span class="checkbox_text">飞机坦克</span>-->
+							<!--</div>-->
+							<!--<div class="checkbox_list">-->
+								<!--<input type="checkbox" class="checkbox_input">-->
+								<!--<span class="checkbox_text">飞机坦克</span>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="dy_check_btn">-->
+							<!--<span class="dy_check_btn_affirm">确认</span>-->
+						<!--</div>-->
+					<!--</div>-->
+					<div class="dy_hy_title">设置关键词，系统将根据您所设置的关键词为您匹配对应的求购信息，每天定时推送给您。</div>
+					<!--填写订阅关键词界面-->
+					<div class="dy_hy_input_box">
+						<div class="dy_big_box">
+							<input type="text" class="hy_input" placeholder="订阅关键词（至少两位字符）">
+							<span class="hy_empty"></span>
+						</div>
+						<div class="dy_big_box">
+							<input type="text" class="hy_input" placeholder="订阅关键词（至少两位字符）">
+							<span class="hy_empty"></span>
+						</div>
+						<div class="dy_big_box">
+							<input type="text" class="hy_input" placeholder="订阅关键词（至少两位字符）">
+							<span class="hy_empty"></span>
+						</div>
+						<div class="dy_big_box">
+							<input type="text" class="hy_input" placeholder="订阅关键词（至少两位字符）">
+							<span class="hy_empty"></span>
+						</div>
+						<div class="dy_big_box">
+							<input type="text" class="hy_input" placeholder="订阅关键词（至少两位字符）">
+							<span class="hy_empty"></span>
+						</div>
+					</div>
+					<!--未绑定邮箱绑定邮箱界面-->
+					<div class="dy_Email_Bigbox" style="display: none">
+						<span class="dy_hy_center_text">绑定邮箱，系统会将最新的采购商信息第一时间发送到您的邮箱</span>
+						<div class="Email_box">
+							<input type="text" class="hy_input hy_Email" style="width: 400px;display: block" placeholder="邮箱">
+							<span class="hy_error">邮箱不能为空</span>
+						</div>
+						<div class="Code_box">
+							<input type="text" class="hy_input hy_Code" style="width: 270px" placeholder="邮箱验证码">
+							<span class="hy_btn">发送验证码</span>
+							<span class="hy_error">邮箱验证码不能为空</span>
+						</div>
+					</div>
+					<div class="hy_affirm_box"><span class="hy_affirm_btn">提交</span></div>
 				</div>
 			</div>
 		</div>
-		<!--订阅行业采购商信息结束-->
+		<!--新版订阅行业结束-->
+		<!--&lt;!&ndash;订阅行业采购商信息开始&ndash;&gt;-->
+		<!--<div class="dingyue_hy_modal">-->
+			<!--<div class="dingyue_hy">-->
+				<!--<div class="dingyue_hy_header">-->
+					<!--订阅行业采购商信息-->
+					<!--<span class="dingyue_hy_header_close">&times;</span>-->
+				<!--</div>-->
+				<!--<div class="dingyue_hy_contentbox">-->
+					<!--<div class="dingyue_hy_user_list">-->
+						<!--<ul>-->
+							<!--<li>建材建筑</li>-->
+							<!--<li>母婴用品</li>-->
+							<!--<li>汽车维修</li>-->
+							<!--<li>电子应用</li>-->
+							<!--<li>床上用品</li>-->
+						<!--</ul>-->
+						<!--<img class="dingyue_hy_delete" src="../../Images/common_icon_det_nor.png" alt="" />-->
+					<!--</div>-->
+					<!--<ul class="php_hy_list">-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+						<!--<li>建材建筑</li>-->
+					<!--</ul>-->
+					<!--<div class="php_key_list">-->
+						<!--<p class="php_key_list_p1">选择订阅关键词</p>-->
+						<!--<ul>-->
+							<!--<li>水泥</li>-->
+							<!--<li>挖掘机</li>-->
+							<!--<li>钢筋</li>-->
+							<!--<li>挖掘机</li>-->
+							<!--<li>水泥</li>-->
+							<!--<li>挖掘机</li>-->
+							<!--<li>钢筋</li>-->
+							<!--<li>挖掘机</li>-->
+							<!--<li>水泥</li>-->
+							<!--<li>挖掘机</li>-->
+							<!--<li>水泥</li>-->
+							<!--<li>挖掘机</li>-->
+							<!--<li>钢筋</li>-->
+							<!--<li>挖掘机</li>-->
+							<!--<li>水泥</li>-->
+							<!--<li>挖掘机</li>-->
+							<!--<li>钢筋</li>-->
+							<!--<li>挖掘机</li>-->
+							<!--<li>水泥</li>-->
+							<!--<li>挖掘机</li>-->
+						<!--</ul>-->
+					<!--</div>-->
+					<!--&lt;!&ndash;自定义关键词&ndash;&gt;-->
+					<!--<div class="zdy_keyWord">-->
+						<!--<p class="zdy_keyWord_p1">自定义关键词</p>-->
+						<!--<textarea class="zdy_keyWord_form" placeholder="多个关键词用英语逗号隔开"></textarea>-->
+					<!--</div>-->
+					<!--<div class="dingyue_hy_btns">	-->
+						<!--<span class="dy_cancel_1">取消</span>-->
+						<!--<span class="dy_save_1">保存</span>-->
+					<!--</div>-->
+					<!--&lt;!&ndash;用户行业删除列表&ndash;&gt;-->
+					<!--<div class="user_dyhy_list">-->
+						<!--<p class="user_dyhy_list_p1">-->
+							<!--<span class="close_span">&times;</span>-->
+						<!--</p>-->
+						<!--<ul>-->
+							<!--<li>-->
+								<!--<div>建筑建材1</div>-->
+								<!--<span class="delete_btn1">删除</span>-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<div>建筑建材2</div>-->
+								<!--<span class="delete_btn1">删除</span>-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<div>建筑建材3</div>-->
+								<!--<span class="delete_btn1">删除</span>-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<div>建筑建材4</div>-->
+								<!--<span class="delete_btn1">删除</span>-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<div>建筑建材5</div>-->
+								<!--<span class="delete_btn1">删除</span>-->
+							<!--</li>-->
+						<!--</ul>-->
+						<!--&lt;!&ndash;<span class="submit-save">保存</span>&ndash;&gt;-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--&lt;!&ndash;订阅行业采购商信息结束&ndash;&gt;-->
+
+
+
 
 		<!--编辑线索开始-->
 		<div class="modal-box-2">
@@ -904,6 +1108,14 @@
 		</div>
 		<!--编辑线索结束-->
 		
+		<!--不能为空模态框-->
+		<div class="More-model" style="display: none;">
+			<div class="sucuess-modal-cell">
+				<img src="../../Images/common_icon_gantan_nor.png" alt="">
+				<p class="is_state1">请选择筛选项！</p>
+			</div>
+		</div>
+		
 		<!--异步加载模态框-->
 		<div class="ajax_loadModal">
 			<div class="ajax_load_img">
@@ -912,10 +1124,22 @@
 		</div>
 		
 		<!--操作成功模态框-->
-		<div class="sucuess-modal">
+		<div class="sucuess-modal sucuess-modalnew1">
 			<div class="sucuess-modal-cell">
 				<img src="../../Images/common_icon_success_nor.png" alt="" />
 				<p class="is_state1">操作成功!</p>
+			</div>
+		</div>
+		<div class="sucuess-modal sucuess-modalnew">
+			<div class="sucuess-modal-cell">
+				<img src="../../Images/common_icon_gantan_nor.png" alt="" />
+				<p class="is_state1">请输入至少一个关键词!</p>
+			</div>
+		</div>
+		<div class="sucuess-modal sucuess-modalnew2">
+			<div class="sucuess-modal-cell">
+				<img src="../../Images/common_icon_gantan_nor.png" alt="" />
+				<p class="is_state1">请勾选至少一个行业!</p>
 			</div>
 		</div>
 		
@@ -969,11 +1193,28 @@
 		<div class="Guidance-box" style="display: none">
 			<img class="Guidance" src="../../Images/xiaosuo1.jpg" alt="">
 			<span class="GuidanceBtn"></span>
-			<em class="GuidanceClos"></em>
+			<em class="GuidanceClos GuidanceClos01"></em>
 		</div>
+
 		<script src="../../js/jquery.js"></script>
-		<script src="../../js/crm-common.js"></script>
 		<script src="../../js/laydate.js"></script>
+		<script src="../../js/crm-common.js"></script>
 		<script src="../../js/xiansuo.js"></script>
+		<script>
+			var nodata = 0;//仅仅做模拟测试 加载后台数据为准
+			if(nodata == 0){
+				$('.xiansuo_List').html('');
+				$('.xiansuo_Page_div').html('');
+				var str = 
+				'<div class="nodata_Tips">'+
+					'<img src="../../Images/taokehu_icon_ndata_nor.png" alt="" />'+
+					'<p>温馨提示：暂无相关数据</p>'+
+				'</div>';
+				$(".xiansuo_List").css("overflow","initial").append(str);
+				$(".nodata_Tips").show();
+			}else{
+				$(".xiansuo_List").css("overflow","auto");
+			}
+		</script>
 	</body>
 </html>

@@ -14,10 +14,6 @@
 		#edui1_bottombar{
 			display: none;
 		}
-		
-		.consult-form{
-			overflow: auto;
-		}
 	    </style>
 	</head>
 	<body style="min-width: 1366px;">
@@ -87,6 +83,14 @@
 		                    <span class="buy_vip_icon1"></span>
 		                    <a href="javascript:;">购买会员</a>
 		                </li>
+						<li class="xiansuoli1">
+							<span class="shopping-index"></span>
+							<a href="javascript:;">商城首页</a>
+						</li>
+						<li class="xiansuoli1">
+							<span class="cbd-center"></span>
+							<a href="javascript:;">商务中心</a>
+						</li>
 		                <li class="xiansuoli1">
 		                    <span class="user_icon1"></span>
 		                    <a href="javascript:;">哟哟</a>
@@ -117,7 +121,7 @@
 			        	<span style="vertical-align: top;width: 139px;"><i>*</i>内容：</span>
 			        	<!--<iframe style="margin-top: 3px;" id="Baidu_editor" src="../RichTextEdit/index.html" frameborder="0" scrolling="no" width="750px" height="500px"></iframe>-->
 			        	<script id="editor" type="text/plain" style="width:730px;height: 500px;display: inline-block;margin-left: 8px;margin-top: 12px;"></script>
-			        	<br/><span><i>*</i>选项：</span>
+			        	<br/><span><i style="visibility: hidden;">*</i>选项：</span>
 			        	<div class="Three-cells_1">
 			        		<label class="checkbox" onselectstart="return false;">
 							<input type="checkbox" class="vam" name="checkedres" data-type="1" value="1">
@@ -150,9 +154,10 @@
 		<script src="../../js/jquery.js"></script>
 		<script src="../../js/crm-common.js"></script>
 		<script src="../../js/send.js"></script>
-		<script>var ue = UE.getEditor('editor');</script>
 		<script>
 			$(function(){
+				var ue = UE.getEditor('editor');
+				
 				var ZinxunIndex = false;
 				if(ZinxunIndex) {
 					$(".Guidance-box").show();

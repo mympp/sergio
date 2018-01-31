@@ -11,17 +11,59 @@
 <body style="min-width: 1280px;">
 <!--父容器开始-->
 <div class="outer_div">
-	<div class="left_template"></div>
+	<div class="left_template">
+		<div class="user_logo">
+			<a href="#"><img src="../Images/common_logo.png" alt=""></a>
+		</div>
+		<p class="company_name1">代理商管理系统</p>
+		<div class="userList_bar">
+			<ul class="userList_ul">
+				<a href="index.html" class="userList_li"><span class="icon-01"></span><span class="icon-text">首页</span></a>
+				<div class="slider_List">
+					<a href="javascript:;" class="userList_li icon-shopping"><span class="icon-02"></span><span class="icon-text">资金管理</span><span class="icon-shopping-1"></span></a>
+					<div class="icon-money-div">
+						<a href="fund-platform.html">资金管理</a>
+						<a href="fund-money.html">申请提现</a>
+					</div>
+					<a href="javascript:;" class="userList_li icon-shopping"><span class="icon-03"></span><span class="icon-text">数据管理</span><span class="icon-shopping-1"></span></a>
+					<div class="icon-data-div">
+						<a href="data-daili.html">代理商数据统计</a>
+						<a href="data-market.html">业务员数据统计</a>
+						<a href="data-train.html">培训师数据统计</a>
+						<a href="data-vip.html">注册会员数据统计</a>
+					</div>
+					<a href="javascript:;" class="userList_li icon-shopping active"><span class="icon-04"></span><span class="icon-text">角色管理</span><span class="icon-shopping-1"></span></a>
+					<div class="icon-person-div show">
+						<a href="juese-admin.html">管理员管理</a>
+						<a href="juese-agent.html" class="open">代理商管理</a>
+						<a href="juese-check.html">审核代理商</a>
+						<a href="juese-salesman.html">业务员管理</a>
+						<a href="juese-trainer.html">培训师管理</a>
+					</div>
+					<a href="javascript:;" class="userList_li icon-shopping"><span class="icon-05"></span><span class="icon-text">系统设置</span><span class="icon-shopping-1"></span></a>
+					<div class="icon-shopping-div">
+						<a href="set-user.html">用户组</a>
+						<a href="set-send.html">发布公告</a>
+						<a href="set-history.html">历史公告</a>
+						<a href="set-password.html">个人设置</a>
+						<a href="set-divide.html">代理商分成设置</a>
+					</div>
+				<div class="slider_List">
+			</ul>
+		</div>
+	</div>
 	<div class="right_template"></div>
     <div class="page-set">
     	<h2>代理商设置</h2>
-    	<form class="agent-head">
+        <a href="javascript:;" class="addAdmin blue-btn add-btn">新增</a>
+    	<form class="agent-head border-top">
     		<p>按条件筛选：</p>
         	<div class="agent-input">
             	<label>姓名：</label><input type="text" name="searchName" placeholder="">
         		<label>账号：</label><input type="text" name="searchEmail" placeholder="">
                 <label>状态：</label>
         		<select class="searchStatus">
+                    <option value="全部">全部</option>
         			<option value="启用">启用</option>
         			<option value="禁用">禁用</option>
         		</select>
@@ -29,7 +71,6 @@
     		<input type="button" value="搜索" name="search" class="blue-btn" id="searchBtn">
     		<input type="button" value="清空" name="clear" class="white-btn">
     	</form>
-        <a href="javascript:;" class="addAdmin blue-btn fr">新增</a>
         <!--表格模块开始-->
         <div class="table-wrap">
             <div class="table-head">
@@ -136,21 +177,23 @@
         <!-- 背景 -->
         <div class="moni-box" style="display: none;"></div>
         <!-- 新增代理商 -->
-        <div class="add-admin moni-lbox" style="display: none;">
+        <div class="add-admin moni-lbox scroHide-father" style="display: none;">
             <div class="moni-head">
                 <p class="fl">新增代理商</p>
                 <em class="DataCenterBox-cols cleanAll fr">&#215;</em>
             </div>
-            <form class="moni-main">
-                <label>姓名</label><i>：</i>
+            <form class="moni-main scroHide">
+                <span class="red-bitian">*</span><h5>姓名</h5><i>：</i>
                 <input type="text" name="name" placeholder="代理商名称"><br />
-                <label>电话</label><i>：</i>
+                <span class="red-bitian">*</span><h5>电话</h5><i>：</i>
                 <input type="text" name="phone" placeholder="代理商电话"><br />
-                <label>账号</label><i>：</i>
+                <span class="red-bitian">*</span><h5>账号</h5><i>：</i>
                 <input type="text" name="ID" placeholder="代理商账号"><br />
-                <label>密码</label><i>：</i>
-                <input type="password" name="password"><br />
-                <label>区域</label><i>：</i>
+                <span class="red-bitian">*</span><h5>密码</h5><i>：</i>
+                <input type="text" placeholder="密码由6-20位字母、数字或符号组成" class="input-showPwd" />
+                <input type="password" name="password" class="input-password" style="display: none"/><br />
+                <!-- <input type="password" name="password" placeholder="密码由6-20位字母、数字或符号组成"><br /> -->
+                <span class="red-bitian">*</span><h5>区域</h5><i>：</i>
                 <div class="moni-area">
                     <!-- 省 -->
                     <select>
@@ -177,33 +220,153 @@
                         <option value="5">35-40</option>
                     </select>
                 </div><br />
-                <label>详细地址</label><i>：</i>
+                <span class="no-bitian">*</span><h5>详细地址</h5><i>：</i>
                 <input type="text" name="address" placeholder="请输入详细地址"><br />
-                <label>推荐码</label><i>：</i>
+                <span class="no-bitian">*</span><h5>推荐码</h5><i>：</i>
                 <span>YSGASD11001</span><br />
-                <label>银行账号</label><i>：</i>
-                <select id="bankName">
-                    <option value="中国银行">中国银行</option>
-                    <option value="中国建设银行">中国建设银行</option>
-                    <option value="中国工商银行">中国工商银行</option>
-                    <option value="中国农业银行">中国农业银行</option>
-                    <option value="中国光大银行">中国光大银行</option>
-                    <option value="中国交通银行">中国交通银行</option>
-                    <option value="中国招商银行">中国招商银行</option>
-                    <option value="中国邮政储蓄银行">中国邮政储蓄银行</option>
-                    <option value="中信银行">中信银行</option>
-                    <option value="浦发银行">浦发银行</option>
-                    <option value="华夏银行">华夏银行</option>
-                    <option value="其他银行">其他银行</option>
-                </select><br />
-                <label>&nbsp;</label><i>&nbsp;</i>
-                <input type="text" name="bankCode" id="bankCode" maxlength="23" placeholder="卡号"><br />
-                <label>&nbsp;</label><i>&nbsp;</i>
-                <input type="text" name="peopleName" placeholder="姓名"><br />
-                <label class="vit-top">企业资质</label><i class="vit-top">：</i>
-                <input type="file" name="" id="file0">
-                <label for="file0"><img src="../Images/file0.png" id="img0" width="74px" height="100px"></label><br />
-                <label class="vit-top">备注</label><i class="vit-top">：</i><textarea name="tips"></textarea>
+                <span id="admin_yinhanka">
+                    <span class="red-bitian">*</span><h5>银行账号</h5><i>：</i>
+                    <input type="text" name="addbankCode" id="bankCode" placeholder="卡号"><br />
+                    <span class="no-bitian">*</span><h5>&nbsp;</h5><i>&nbsp;</i>
+                    <span>
+                        <input type="text" name="" id="bankName" class="register-yh" readonly="readonly" placeholder="开户银行"><br />
+                        <div class="register-yh-box" style="display: none">
+                            <div class="yh-box-nav">
+                                <span class="list-name navadd">热门银行</span>
+                                <span class="list-name">ABCDEF</span>
+                                <span class="list-name">GHJ</span>
+                                <span class="list-name">MN</span>
+                                <span class="list-name">PQRST</span>
+                                <span class="list-name">WXYZ</span>
+                                <span class="ico-close"></span>
+                            </div>
+                            <div class="yh-box-01">
+                                <div class="yh-box-01-center">
+                                    <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                    <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+
+
+                                </div>
+                            </div>
+                            <div class="yh-box-02" style="display: none">
+                                <div class="yh-box-02-center">
+                                    <div class="yh-02-text"><span class="text-02-left">A</span><div class="text-big"><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span></div></div>
+                                    <div class="yh-02-text"><span class="text-02-left">A</span><div class="text-big"><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span></div></div>
+                                    <div class="yh-02-text"><span class="text-02-left">A</span><div class="text-big"><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span></div></div>
+                                    <div class="yh-02-text"><span class="text-02-left">A</span><div class="text-big"><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span></div></div>
+                                    <div class="yh-02-text"><span class="text-02-left">A</span><div class="text-big"><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span></div></div>
+                                    <div class="yh-02-text"><span class="text-02-left">A</span><div class="text-big"><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                    <span class="no-bitian">*</span><h5>&nbsp;</h5><i>&nbsp;</i>
+                    <input type="text" name="" id="bankName" placeholder="开户支行信息"><br />
+                    <span class="no-bitian">*</span><h5>&nbsp;</h5><i>&nbsp;</i>
+                    <input type="text" name="peopleName" placeholder="账户名称"><br />
+                    <!-- <select id="bankName">
+                        <option value="请选择">请选择</option>
+                        <option value="中国银行">中国银行</option>
+                        <option value="中国建设银行">中国建设银行</option>
+                        <option value="中国工商银行">中国工商银行</option>
+                        <option value="中国农业银行">中国农业银行</option>
+                        <option value="中国光大银行">中国光大银行</option>
+                        <option value="中国交通银行">中国交通银行</option>
+                        <option value="中国招商银行">中国招商银行</option>
+                        <option value="中国邮政储蓄银行">中国邮政储蓄银行</option>
+                        <option value="中信银行">中信银行</option>
+                        <option value="浦发银行">浦发银行</option>
+                        <option value="华夏银行">华夏银行</option>
+                        <option value="其他银行">其他银行</option>
+                    </select><br /> -->
+                    <!-- <input type="text" name="" id="bankName" placeholder="银行名称"><br />
+                    <span class="no-bitian">*</span><h5>&nbsp;</h5><i>&nbsp;</i>
+                    <input type="text" name="addbankCode" id="bankCode" placeholder="卡号"><br />
+                    <span class="no-bitian">*</span><h5>&nbsp;</h5><i>&nbsp;</i>
+                    <input type="text" name="peopleName" placeholder="账户名称"><br /> -->
+                </span>
+                <span class="red-bitian vit-top">*</span><h5 class="vit-top">企业资质</h5><i class="vit-top">：</i>
+                <!-- <input type="file" name="" id="file0">
+                <h5 for="file0"><img src="../Images/file0.png" id="img0" width="74px" height="100px"></h5><br /> -->
+                <!--上传照片开始-->
+                <div class="img-box full">
+                    <section class="img-section">
+                        <div class="z_photo upimg-div">
+                            <section class="z_file fl">
+                                <img src="../Images/icon_registerl_photo_add6.png" class="add-img">
+                                <input type="file" name="file" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple />
+                            </section>
+                        </div>
+                    </section>
+                </div><br />
+                <!--上传照片结束-->
+                <span class="no-bitian">*</span><h5 class="vit-top">备注</h5><i class="vit-top">：</i><textarea name="tips"></textarea>
                 <div class="btn-box">
                     <input type="button" name="" value="确认" class="submit blue-btn" id="addAgentSub">
                     <input type="button" name="cancel" value="取消" class="cancel white-btn">
@@ -211,57 +374,61 @@
             </form>
         </div>
         <!-- 代理商详情 -->
-        <div class="admin-details moni-lbox" style="display: none;">
+        <div class="admin-details moni-lbox scroHide-father" style="display: none;">
             <div class="moni-head">
                 <p class="fl">代理商详情</p>
                 <em class="DataCenterBox-cols cleanAll fr">&#215;</em>
             </div>
-            <div class="moni-main">
-                <label>姓名</label><i>：</i>
+            <div class="moni-main scroHide">
+                <h5>姓名</h5><i>：</i>
                 <span class="name">姓名A</span><br />
-                <label>账号</label><i>：</i>
+                <h5>账号</h5><i>：</i>
                 <span class="ID">chengaiwen@527so.com</span><br />
-                <label>电话号码</label><i>：</i>
+                <h5>电话号码</h5><i>：</i>
                 <span class="phone">15612345678</span><br />
-            	<label>区域</label><i>：</i>
+            	<h5>区域</h5><i>：</i>
             	<span class="area">广东广州天河</span><br />
-            	<label>详细地址</label><i>：</i>
+            	<h5>详细地址</h5><i>：</i>
             	<span class="address">大观中路95号407-408</span><br />
-                <label>状态</label><i>：</i>
+                <h5>状态</h5><i>：</i>
                 <span class="status">启用</span><br />
-            	<label>推荐码</label><i>：</i>
+            	<h5>推荐码</h5><i>：</i>
                 <span class="referralCode">YGSGE110010</span><br />
-            	<label>银行账号</label><i>：</i>
+            	<h5>银行账号</h5><i>：</i>
                 <span class="bankName">中国银行</span><br />
-                <label>&nbsp;</label><i>&nbsp;</i>
+                <h5>&nbsp;</h5><i>&nbsp;</i>
                 <span class="bankCode">6223458974586541235</span><br />
-                <label>&nbsp;</label><i>&nbsp;</i>
+                <h5>&nbsp;</h5><i>&nbsp;</i>
                 <span class="peopleName">XXX公司</span><br />
-            	<label>备注</label><i>：</i>
-            	<span class="tips">无</span><br />
-                <label>创建日期</label><i>：</i>
+            	<h5 class="vit-top">备注</h5><i class="vit-top">：</i>
+            	<span class="tips">无阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬阿斯顿发生的发斯蒂芬</span><br />
+                <h5>创建日期</h5><i>：</i>
                 <span class="addTime">2017-10-30 11：48</span><br />
-                <label>更新日期</label><i>：</i>
+                <h5>更新日期</h5><i>：</i>
                 <span class="updateTime">2017-10-30 18：48</span>
             </div>
         </div>
         <!-- 编辑代理商 -->
-        <div class="agent-redact moni-lbox" style="display: none;">
+        <div class="agent-redact moni-lbox moni-lbox-agent scroHide-father" style="display: none;">
             <div class="moni-head">
                 <p class="fl">编辑代理商</p>
                 <em class="DataCenterBox-cols cleanAll fr">&#215;</em>
             </div>
-            <form class="moni-main">
-                <label class="long-text">姓名</label><i>：</i>
-                <input type="text" name="name" placeholder=""><br />
-                <label class="long-text">电话</label><i>：</i>
-                <input type="text" name="phone" placeholder=""><br />
-                <label class="long-text">账号</label><i>：</i>
-                <input type="text" name="ID" placeholder=""><br />
-                <label class="long-text">密码</label><i>：</i>
-                <input type="password" name="password" placeholder=""><br />
-                <label class="long-text">区域</label><i>：</i>
-                <div class="moni-area">
+            <form class="moni-main scroHide">
+                <span class="red-bitian">*</span><h5>公司名称</h5><i>：</i>
+                <input type="text" name="bjcompany" placeholder="发票抬头/营业执照名称"><br /><!-- 新增的输入框 -->
+                <span class="red-bitian">*</span><h5>姓名</h5><i>：</i>
+                <input type="text" name="bjname" placeholder=""><br />
+                <span class="red-bitian">*</span><h5>账号</h5><i>：</i>
+                <input type="text" name="bjID" placeholder=""><br />
+                <span class="red-bitian">*</span><h5>密码</h5><i>：</i>
+                <input type="password" name="bjpassword" placeholder="密码由6-20位字母、数字或符号组成"><br />
+                <span class="red-bitian">*</span><h5>手机号码</h5><i>：</i>
+                <input type="text" name="bjphone" placeholder=""><br />
+                <span class="red-bitian">*</span><h5>邮箱</h5><i>：</i>
+                <input type="text" name="bjemail" placeholder=""><br /><!-- 新增的 -->
+                <span class="red-bitian">*</span><h5>区域</h5><i>：</i>
+                <div class="moni-area bj_area">
                     <!-- 省 -->
                     <select>
                         <option value="1">请选择</option>
@@ -287,18 +454,128 @@
                         <option value="5">35-40</option>
                     </select>
                 </div><br />
-                <label class="long-text">详细地地址</label><i>：</i>
+                <span class="red-bitian">*</span><h5>详细地址</h5><i>：</i>
                 <input type="text" name="address" placeholder="请输入详细地址"><br />
-                <label class="long-text">启动状态</label><i>：</i>
+                <span id="admin_yinhanka">
+                    <span class="red-bitian">*</span><h5>银行账号</h5><i>：</i>
+                    <input type="text" name="addbankCode" id="bankCode" placeholder="卡号"><br />
+                    <span class="no-bitian">*</span><h5>&nbsp;</h5><i>&nbsp;</i>
+                    <span>
+                        <input type="text" name="" id="bankName" class="register-yh" readonly="readonly" placeholder="开户银行"><br />
+                            
+                        
+                        
+                        <div class="register-yh-box" style="display: none">
+                            <div class="yh-box-nav">
+                                <span class="list-name navadd">热门银行</span>
+                                <span class="list-name">ABCDEF</span>
+                                <span class="list-name">GHJ</span>
+                                <span class="list-name">MN</span>
+                                <span class="list-name">PQRST</span>
+                                <span class="list-name">WXYZ</span>
+                                <span class="ico-close"></span>
+                            </div>
+                            <div class="yh-box-01">
+                                <div class="yh-box-01-center">
+                                    <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                    <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+
+
+                                </div>
+                            </div>
+                            <div class="yh-box-02" style="display: none">
+                                <div class="yh-box-02-center">
+                                    <div class="yh-02-text"><span class="text-02-left">A</span><div class="text-big"><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span></div></div>
+                                    <div class="yh-02-text"><span class="text-02-left">A</span><div class="text-big"><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span></div></div>
+                                    <div class="yh-02-text"><span class="text-02-left">A</span><div class="text-big"><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span></div></div>
+                                    <div class="yh-02-text"><span class="text-02-left">A</span><div class="text-big"><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span></div></div>
+                                    <div class="yh-02-text"><span class="text-02-left">A</span><div class="text-big"><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span></div></div>
+                                    <div class="yh-02-text"><span class="text-02-left">A</span><div class="text-big"><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                    <span class="no-bitian">*</span><h5>&nbsp;</h5><i>&nbsp;</i>
+                    <input type="text" name="" id="bankName" placeholder="开户支行信息"><br />
+                    <span class="no-bitian">*</span><h5>&nbsp;</h5><i>&nbsp;</i>
+                    <input type="text" name="peopleName" placeholder="账户名称"><br />
+                </span>
+                <span class="red-bitian">*</span><h5>启动状态</h5><i>：</i>
                 <select class="status">
                     <option value="">启用</option>
                     <option value="">禁用</option>
                 </select><br />
-        		<label class="vit-top long-text">备注</label><i class="vit-top">：</i>
+        		<span class="no-bitian vit-top">*</span><h5 class="vit-top">备注</h5><i class="vit-top">：</i>
         		<textarea name="tips">150个字内</textarea><br />
-                <label class="long-text">创建日期</label><i>：</i>
+                <span class="red-bitian">*</span><h5>创建日期</h5><i>：</i>
                 <span class="addTime">2017-10-30 17:50</span><br />
-                <label class="long-text">更新日期</label><i>：</i>
+                <span class="red-bitian">*</span><h5>更新日期</h5><i>：</i>
                 <span class="updateTime">2017-10-30 18：59</span><br />
                 <div class="btn-box">
                     <input type="button" name="submit" value="确认" class="submit blue-btn" id="agentRedactSub">
@@ -314,15 +591,57 @@
                 <input type="button" value="取消" name="cancel" class="cancel white-btn">
             </div>
         </div>
+        <!--上传图片删除模态框-->
+        <aside class="mask works-mask">
+            <div class="mask-content">
+                <p class="del-p">您确定要删除图片吗？</p>
+                <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+            </div>
+        </aside>
         <!-- 虚拟弹窗结束 -->
     </div>
 </div>
-<script>var pages = "角色管理";var index1 = 3; var index2 = 1;</script>
+
 <script src="../js/jquery.js"></script>
 <script src="../js/common.js"></script>
 <script src="../js/role.js"></script>
 <script src="../js/bankcard.js"></script>
+<script src="../js/imgUp.js"></script>
 <script type="text/javascript">
+    //点击开启银行选项框
+    $(document).on("click",".register-yh",function(){
+        $(".register-yh-box").stop(false,false).slideToggle();
+    })
+    //点击银行nav切换tab切换
+    $(document).on("click",".list-name",function(){
+        $(this).addClass('navadd').siblings().removeClass('navadd')
+        var indexNav = $(this).index();
+        if (indexNav == 0) {
+            $(".yh-box-01").show();
+            $(".yh-box-02").hide();
+        }else {
+            $(".yh-box-02").show();
+            $(".yh-box-01").hide();
+        }
+    })
+    //关闭银行卡选项
+    $(document).on("click",".ico-close",function(){
+        $(".register-yh-box").slideUp();
+    })
+    //ABC选项银行点击获取
+    $(document).on("click",".text-02-center",function(){
+        var yh02 = $(this).text();
+        $(".register-yh").val(yh02)
+        $(".register-yh-box").hide();
+    })
+    //热门银行点击获取
+    $(document).on("click",".yh-01-btn",function(){
+        var yh02 = $(this).children().eq(1).text()
+        console.log(yh02);
+        $(".register-yh").val(yh02)
+        $(".register-yh-box").hide();
+    })
+
     //监听卡号输入框检查银行卡号
     $("#bankCode").on("input propertychange",function(){
         var abc = $("#bankCode").val().substring(0,7);//获取用户输入的前四位
@@ -345,9 +664,9 @@
         status = $(".searchStatus:visible").val(),
         emailreg = /^[a-z0-9-_.]+@[\da-z][\.\w-]+\.[a-z]{2,4}$/i;
         if (searchName == "" && searchEmail == "") {
-            alert("搜索项不能为空");
+            error("搜索项不能为空");
         } else if (!emailreg.test(searchEmail) && searchEmail !== "") {
-            alert("请输入正确的账号（邮箱格式如：quesou@527so.com）");
+            error("请输入正确的账号（邮箱格式如：quesou@527so.com）");
         } else {
             console.log(searchName,searchEmail,status);
         }
@@ -365,7 +684,7 @@
         peopleName = $("input[name=peopleName]").val(),
         imgFile = $("input[type=file]").val(),
         tips = $("textarea[name=tips]").val();
-        // checkForm();//表单验证函数
+        checkForm();//表单验证函数
         console.log(name,phone,ID,password,area,address,referralCode,bankCard,peopleName,imgFile,tips);//ajax提交
     });
 
@@ -431,6 +750,7 @@
             $(".remove").remove(); 
             $(".remove-box,.moni-box").fadeOut();
             console.log(trId);//发起ajax
+            success("操作成功");
         })
     })
 </script>

@@ -68,9 +68,78 @@
 }
 /*内容样式*/
 .index-video{
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: -20px;
+}
+.index-video .video-text{
+	position: absolute;
+	top: 22%;
+	left: 18.5%;
+	font-family: -apple-system, BlinkMacSystemFont,
+	"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+	"Fira Sans", "Droid Sans", "Helvetica Neue",sans-serif;
+}
+.index-video .video-text h2{
+	font-size: 30px;
+	color: #fff;
+	text-shadow: 1.5px .5px 6px #222;
+}
+.index-video .video-text h4{
+	font-size: 18px;
+	color: #eee;
+	letter-spacing: 4px;
+	margin: 12px 0;
+	font-weight: 500;
+}
+.index-video .video-text p{
+	font-size: 18px;
+	color: #ccc;
+	letter-spacing: 3px;
+	font-weight: 100;
+}
+.index-video .video-text a{
+	font-size: 16px;
+	color: #fff;
+	display: inline-block;
+	width: 145px;
+	height: 45px;
+	line-height: 45px;
+	margin-top: 25px;
+	letter-spacing: 2px;
+	text-align: center;
+	border-radius: 5px;
+	box-shadow: .5px .5px 8px #333;
+	background: #f07122;
+}
+.goTo_link1{
+    position: absolute;
+    width: 13.5%;
+    height: 8%;
+    left: 18%;
+    bottom: 54.5%;
+}
+
+.home_banner_1{
 	width: 100%;
-	height: auto;
-	position: relative;
+	height: 100%;
+}
+
+.video_wrap_1{
+    position: absolute;
+    width: 43.2%;
+    height: 50.8%;
+    right: 10.75%;
+    bottom: 21.6%;
+    z-index: 100;
+}
+.video_wrap_1 p{
+	color: #ccc;
+	font-size: 16px;
+	text-align: center;
+	margin: 0 auto;
+	line-height: 20px;
 }
 .index-video .video-img{
 	position: absolute;
@@ -87,25 +156,57 @@
 	padding: 50px 0 50px;
 	text-align: center;
 }
+
+.index-img1 .index_data_text1{
+	font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #696969;
+}
+
+.index-img1 .index_data_text2{
+	font-size: 20px;
+    color: #898989;
+    margin-bottom: 40px;
+}
+
 .index-main .index-box{
 	max-width: 1200px;
-	height: 700px;
+	height: 950px;
+	margin: 0 auto;
+	clear: both;
+}
+.index-main .index-box{
+	max-width: 1200px;
 	margin: 0 auto;
 	clear: both;
 }
 .index-main .index-box img{
-	width: 50%;
 	margin: 100px 0;
 }
+.index-main .index-box2 img{
+	margin: 60px 0;
+}
+.index-main .index-box4 img{
+	margin: 150px 0;
+}
+.index-main .index-box5 img{
+	margin: 180px 0;
+}
+.index-main .index-box6 .index-textbox{
+	width: 30%!important;
+}
 .index-main .index-box .index-textbox{
-	width: 40%;
-	padding: 220px 30px 0;
+	width: 25%;
+	padding: 350px 30px 0;
 }
 .product-main .index-box{
 	max-width: 1200px;
-	height:800px;
+	height:880px;
 	margin: 0 auto;
+	padding-top: 70px;
 	clear: both;
+	overflow: hidden;
 }
 .index-gbox{
 	width: 100%;
@@ -116,18 +217,20 @@
 	padding: 300px 30px 0;
 }
 .index-box .index-textbox h4{
-	font-size: 40px;
-	font-weight: bold;
-	line-height: 80px;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #696969;
 }
 .index-box .index-textbox p{
 	font-size: 18px;
 	line-height: 35px;
-	color:#666;
+	color:#898989;
 }
 .index-box .index-textbox.fr{
 	text-align: right;
 }
+
 /*产品介绍图片*/
 .index-box .product-img2,
 .index-box .product-img3,
@@ -143,10 +246,10 @@
 	left: 0;
 }
 .index-box .product-img21{
-	width: 306px;
-	position: absolute;
-	top: 112px;
-	left: 194px;
+    width: 351px;
+    position: absolute;
+    top: 74px;
+    left: 242px;
 }
 .index-box .product-img3{
 
@@ -219,8 +322,13 @@
 	position: relative;
 	text-align: center;
 	display: inline-block;
+	transition: all .3s ease-out;
+	-ms-transition: all .3s ease-out;
+	-moz-transition: all .3s ease-out;
+	-webkit-transition: all .3s ease-out;
 }
 .rotate-box:hover{
+	cursor: default;
 	transition: all .3s ease-in;
 	-ms-transition: all .3s ease-in;
 	-moz-transition: all .3s ease-in;
@@ -255,7 +363,7 @@
 	position: absolute;
 	top: 21px;
 	left: -54px;
-	background: #f6f8fa;
+	background: #fff;
 }
 .rotate-box .rotate{
 	position: absolute;
@@ -297,7 +405,8 @@
 	font-size: 40px;
 	font-weight: bold;
 	line-height: 168px;
-	margin: 166px 0 8px;
+	color: #696969;
+	margin: 100px 0 8px;
 }
 .index-boxanimate .index-boxanimate1{
 	background: url(../Images/home_secondscreen_bottom01.png) no-repeat;
@@ -323,13 +432,14 @@
 }
 .main-footer h3{
 	font-size: 30px;
-	color: #000;
+	color: #696969;
 	font-weight: bold;
+	margin-top: 100px;
 }
 .main-footer .footer-movie{
 	width: 1200px;
-	height: 350px;
-	margin: 76px 0 0;
+	height: 320px;
+	margin-top: 76px;
 }
 .main-footer .footer-movie .fl{
 	width: 270px;
@@ -359,3 +469,10 @@
 	font-size: 30px;
 }
 /*产品信息样式*/
+
+@media screen and (max-width:1218px){
+	.header_div .right_h1{
+		position: relative;
+		right: 100px;
+	} 
+}

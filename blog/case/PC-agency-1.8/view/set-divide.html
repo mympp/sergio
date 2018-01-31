@@ -1,17 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>分成设置</title>
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/index.css" />
-    <link rel="stylesheet" type="text/css" href="../css/set.css">
+    <link rel="stylesheet" href="../css/set.css" />
+    <title>分成设置</title>
 </head>
 <body style="min-width: 1280px;">
 <!--父容器开始-->
 <div class="outer_div">
-    <div class="left_template"></div>
+    <div class="left_template">
+		<div class="user_logo">
+			<a href="#"><img src="../Images/common_logo.png" alt=""></a>
+		</div>
+		<p class="company_name1">代理商管理系统</p>
+		<div class="userList_bar">
+			<ul class="userList_ul">
+				<a href="index.html" class="userList_li"><span class="icon-01"></span><span class="icon-text">首页</span></a>
+				<div class="slider_List">
+					<a href="javascript:;" class="userList_li icon-shopping"><span class="icon-02"></span><span class="icon-text">资金管理</span><span class="icon-shopping-1"></span></a>
+					<div class="icon-money-div">
+						<a href="fund-platform.html">资金管理</a>
+						<a href="fund-money.html">申请提现</a>
+					</div>
+					<a href="javascript:;" class="userList_li icon-shopping"><span class="icon-03"></span><span class="icon-text">数据管理</span><span class="icon-shopping-1"></span></a>
+					<div class="icon-data-div">
+						<a href="data-daili.html">代理商数据统计</a>
+						<a href="data-market.html">业务员数据统计</a>
+						<a href="data-train.html">培训师数据统计</a>
+						<a href="data-vip.html">注册会员数据统计</a>
+					</div>
+					<a href="javascript:;" class="userList_li icon-shopping"><span class="icon-04"></span><span class="icon-text">角色管理</span><span class="icon-shopping-1"></span></a>
+					<div class="icon-person-div">
+						<a href="juese-admin.html">管理员管理</a>
+						<a href="juese-agent.html">代理商管理</a>
+						<a href="juese-check.html">审核代理商</a>
+						<a href="juese-salesman.html">业务员管理</a>
+						<a href="juese-trainer.html">培训师管理</a>
+					</div>
+					<a href="javascript:;" class="userList_li icon-shopping active"><span class="icon-05"></span><span class="icon-text">系统设置</span><span class="icon-shopping-1"></span></a>
+					<div class="icon-shopping-div show">
+						<a href="set-user.html">用户组</a>
+						<a href="set-send.html">发布公告</a>
+						<a href="set-history.html">历史公告</a>
+						<a href="set-password.html">个人设置</a>
+						<a href="set-divide.html" class="open">代理商分成设置</a>
+					</div>
+				</div>
+			</ul>
+		</div>
+    </div>
     <div class="right_template"></div>
     <div class=" page-set">
         <div class="user-main">
@@ -23,23 +63,35 @@
                     <div class="table-head-wrap">
                         <table class="grid">
                             <thead>
-                                <colgroup>
-                                    <col style="width:10%">
-                                    <col style="width:10%">
-                                    <col style="width:10%">
-                                    <col style="width:10%">
-                                    <col style="width:10%">
-                                    <col style="width:20%">
-                                    <col style="width:10%">
-                                    <col style="width:20%">
-                                </colgroup>
+                                <colgro>
+                                    <col style="width:6%">
+                                    <col style="width:6%">
+                                    <col style="width:6%">
+                                    <col style="width:6%">
+                                    <col style="width:8%">
+                                    <col style="width:8%">
+                                    <col style="width:8%">
+                                    <col style="width:8%">
+                                    <col style="width:6%">
+                                    <col style="width:6%">
+                                    <col style="width:8%">
+                                    <col style="width:8%">
+                                    <col style="width:8%">
+                                    <col style="width:8%">
+                                </colgro>
                                 <tr>
                                     <th>角色</th>
+                                    <th>类型</th>
                                     <th>认证费</th>
                                     <th>培训师提成</th>
-                                    <th>上级代理商提成</th>
-                                    <th>终极代理商提成</th>
+                                    <th>一级代理商提成</th>
+                                    <th>二级代理商提成</th>
+                                    <th>一级开发二级提成</th>
+                                    <th>二级开发二级提成</th>
+                                    <th>推送商品数量</th>
+                                    <th>订阅关键词数量</th>
                                     <th>开始执行时间</th>
+                                    <th>结束执行时间</th>
                                     <th>状态</th>
                                     <th>操作</th>
                                 </tr>
@@ -49,49 +101,73 @@
                 </div>
                 <div class="table-content table-content1">
                     <table class="grid">
-                        <colgroup>
-                            <col style="width:10%">
-                            <col style="width:10%">
-                            <col style="width:10%">
-                            <col style="width:10%">
-                            <col style="width:10%">
-                            <col style="width:20%">
-                            <col style="width:10%">
-                            <col style="width:20%">
-                        </colgroup>
+                        <colgro>
+                            <col style="width:6%">
+                            <col style="width:6%">
+                            <col style="width:6%">
+                            <col style="width:6%">
+                            <col style="width:8%">
+                            <col style="width:8%">
+                            <col style="width:8%">
+                            <col style="width:8%">
+                            <col style="width:6%">
+                            <col style="width:6%">
+                            <col style="width:8%">
+                            <col style="width:8%">
+                            <col style="width:8%">
+                            <col style="width:8%">
+                        </colgro>
                         <tbody class="table_ctbody">
                             <tr>
                                 <td>认证会员</td>
+                                <td>类型</td>
                                 <td>999.00</td>
                                 <td>999.00</td>
                                 <td>999.00</td>
                                 <td>999.00</td>
+                                <td>999.00</td>
+                                <td>999.00</td>
+                                <td>4</td>
+                                <td>5</td>
                                 <td>2017-11-06 10:45</td>
+                                <td>2017-11-06 10:46</td>
                                 <td class="gray">已失效</td>
                                 <td class="gray">已停止</td>
                             </tr>
                             <tr>
                                 <td>认证会员</td>
+                                <td>类型</td>
                                 <td>999.00</td>
                                 <td>999.00</td>
                                 <td>999.00</td>
                                 <td>999.00</td>
+                                <td>999.00</td>
+                                <td>999.00</td>
+                                <td>4</td>
+                                <td>5</td>
                                 <td>2017-11-06 10:45</td>
+                                <td>2017-11-06 10:46</td>
                                 <td>执行中</td>
                                 <td>
-                                    <a href="javascript:;" class="stopBtn">停止</a>
+                                    <a href="javascript:;" class="stopBtn under-line">停止</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>认证会员</td>
+                                <td>类型</td>
                                 <td>999.00</td>
                                 <td>999.00</td>
                                 <td>999.00</td>
                                 <td>999.00</td>
+                                <td>999.00</td>
+                                <td>999.00</td>
+                                <td>4</td>
+                                <td>5</td>
                                 <td>2017-11-06 10:45</td>
+                                <td>2017-11-06 10:46</td>
                                 <td>未执行</td>
                                 <td>
-                                    <a href="javascript:;" class="removeBtn">删除</a>
+                                    <a href="javascript:;" class="removeBtn under-line">删除</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -131,31 +207,241 @@
         <!-- 模拟弹窗开始 -->
         <!-- 背景 -->
         <div class="moni-box" style="display: none;"></div>
-        <!-- 新增费用 -->
-        <div class="add-divide moni-lbox" style="display: none;">
+        <!-- 新增费用选项卡 -->
+        <div class="add-divide add-divide0 moni-lbox" style="display: none;">
             <div class="moni-head">
                 <p class="fl">费用设置</p>
                 <em class="DataCenterBox-cols cleanAll fr">&#215;</em>
             </div>
-            <form class="moni-main">
-                <label class="long-text">认证费用年费</label><i>：</i>
-                <input type="text" name="annualFee"><br />
-                <label class="long-text">培训师提成</label><i>：</i>
-                <input type="text" name="trainerFee"><br />
-                <label class="long-text">上级代理提成</label><i>：</i>
-                <input type="text" name="parentFee"><br />
-                <label class="long-text">终极代理提成</label><i>：</i>
-                <input type="text" name="bossFee"><br />
-                <label class="long-text">开始执行时间</label><i>：</i>
+            <div class="moni-main divide-moni-main">
+                <a href="javascript:;" class="add-divide-box divide-box1">会员年费设置</a>
+                <a href="javascript:;" class="add-divide-box divide-box2">黄金套餐设置</a>
+                <a href="javascript:;" class="add-divide-box divide-box3">钻石套餐设置</a>
+                <a href="javascript:;" class="add-divide-box divide-box4">月套餐费用设置</a>
+                <a href="javascript:;" class="add-divide-box divide-box5">黄金套餐升级钻石套餐设置</a>
+            </div>
+        </div>
+        <!-- 新增费用 -->
+        <!-- 认证会员 -->
+        <div class="add-divide add-divide1 moni-lbox scroHide-father" style="display: none;">
+            <div class="moni-head">
+                <p class="fl">认证会员年费费用设置</p>
+                <em class="DataCenterBox-cols cleanAll1 fr">&#215;</em>
+            </div>
+            <form class="moni-main scroHide">
+                <span class="red-bitian">*</span><h5 class="long-text">认证会员年费</h5><i>：</i>
+                <input type="text" name="annualFee">
+                <small class="divide-tips">会员一年的认证费用</small>
+                <span class="red-bitian">*</span><h5 class="long-text">培训师提成</h5><i>：</i>
+                <input type="text" name="trainerFee">
+                <small class="divide-tips">培训师培训代理商，代理商每开发一个会员，培训师所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">一级代理提成</h5><i>：</i>
+                <input type="text" name="firstFee">
+                <small class="divide-tips">一级代理商直接开发认证会员所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">二级代理提成</h5><i>：</i>
+                <input type="text" name="bossFee">
+                <small class="divide-tips">二级代理商直接开发认证会员所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">一级开发二级提成</h5><i>：</i>
+                <input type="text" name="parentBossFee">
+                <small class="divide-tips">一级代理开发二级代理商，二级代理商成功开发会员，一级代理商所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">二级开发二级提成</h5><i>：</i>
+                <input type="text" name="firstBossFee">
+                <small class="divide-tips">二级代理A开发二级代理商B，B代理商成功开发会员，A代理商所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">推送商品的个数</h5><i class="tuisong-b">：</i>
+                <input type="text" name="Tuisong">
+                <small class="divide-tips"></small>
+                <span class="red-bitian">*</span><h5 class="long-text">订阅关键词的个数</h5><i class="tuisong-b">：</i>
+                <input type="text" name="Dingyue">
+                <small class="divide-tips"></small>
+
+                <span class="red-bitian">*</span><h5 class="long-text">开始执行时间</h5><i>：</i>
                 <div class="laydate-div">
-                    <input type="text" name="beginTime" class="input_cell_sm1 date_icon_1" id="expiration_time1"/>
+                    <input type="datetime" name="beginTime" readonly="readonly" class="input_cell_sm1 date_icon_1 add-divide-date" id="expiration_time1"/>
+                    <small>—</small>
+                    <input type="datetime" name="endTime" readonly="readonly" class="input_cell_sm1 date_icon_1 add-divide-date" id="expiration_time2"/>
                 </div>
                 <div class="btn-box btn-box">
-                    <input type="button" name="submit" value="确认" class="submit blue-btn" id="addDivideSub">
-                    <input type="button" name="cancel" value="取消" class="cancel white-btn">
+                    <input type="button" name="submit" value="确认" class="submit blue-btn" id="addDivideSub1">
                 </div>
             </form>
         </div>
+        
+        <!-- 黄金套餐 -->
+        <div class="add-divide add-divide2 moni-lbox scroHide-father" style="display: none;">
+            <div class="moni-head">
+                <p class="fl">黄金套餐费用设置</p>
+                <em class="DataCenterBox-cols cleanAll1 fr">&#215;</em>
+            </div>
+            <form class="moni-main scroHide">
+                <span class="red-bitian">*</span><h5 class="long-text">黄金套餐费用</h5><i>：</i>
+                <input type="text" name="annualFee">
+                <small class="divide-tips">会员期间，升级为钻石会员套餐费用，单位/元</small>
+                <span class="red-bitian">*</span><h5 class="long-text">培训师提成</h5><i>：</i>
+                <input type="text" name="trainerFee">
+                <small class="divide-tips">培训师培训代理商，代理商每开发一个会员，培训师所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">一级代理提成</h5><i>：</i>
+                <input type="text" name="firstFee">
+                <small class="divide-tips">一级代理商直接开发认证会员所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">二级代理提成</h5><i>：</i>
+                <input type="text" name="bossFee">
+                <small class="divide-tips">二级代理商直接开发认证会员所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">一级开发二级提成</h5><i>：</i>
+                <input type="text" name="parentBossFee">
+                <small class="divide-tips">一级代理开发二级代理商，二级代理商成功开发会员，一级代理商所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">二级开发二级提成</h5><i>：</i>
+                <input type="text" name="firstBossFee">
+                <small class="divide-tips">二级代理A开发二级代理商B，B代理商成功开发会员，A代理商所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">推送商品的个数</h5><i class="tuisong-b">：</i>
+                <input type="text" name="Tuisong">
+                <small class="divide-tips"></small>
+                <span class="red-bitian">*</span><h5 class="long-text">订阅关键词的个数</h5><i class="tuisong-b">：</i>
+                <input type="text" name="Dingyue">
+                <small class="divide-tips"></small>
+
+                <span class="red-bitian">*</span><h5 class="long-text">开始执行时间</h5><i>：</i>
+                <div class="laydate-div">
+                    <input type="datetime" name="beginTime" readonly="readonly" class="input_cell_sm1 date_icon_1 add-divide-date" id="expiration_time3"/>
+                    <small>—</small>
+                    <input type="datetime" name="endTime" readonly="readonly" class="input_cell_sm1 date_icon_1 add-divide-date" id="expiration_time4"/>
+                </div>
+                <div class="btn-box btn-box">
+                    <input type="button" name="submit" value="确认" class="submit blue-btn" id="addDivideSub2">
+                </div>
+            </form>
+        </div>
+        
+        <!-- 钻石套餐 -->
+        <div class="add-divide add-divide3 moni-lbox scroHide-father" style="display: none;">
+            <div class="moni-head">
+                <p class="fl">钻石套餐费用设置</p>
+                <em class="DataCenterBox-cols cleanAll1 fr">&#215;</em>
+            </div>
+            <form class="moni-main scroHide">
+                <span class="red-bitian">*</span><h5 class="long-text">钻石套餐费用</h5><i>：</i>
+                <input type="text" name="annualFee">
+                <small class="divide-tips">会员期间，升级为钻石会员套餐费用，单位/元</small>
+                <span class="red-bitian">*</span><h5 class="long-text">培训师提成</h5><i>：</i>
+                <input type="text" name="trainerFee">
+                <small class="divide-tips">培训师培训代理商，代理商每开发一个会员，培训师所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">一级代理提成</h5><i>：</i>
+                <input type="text" name="firstFee">
+                <small class="divide-tips">一级代理商直接开发认证会员所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">二级代理提成</h5><i>：</i>
+                <input type="text" name="bossFee">
+                <small class="divide-tips">二级代理商直接开发认证会员所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">一级开发二级提成</h5><i>：</i>
+                <input type="text" name="parentBossFee">
+                <small class="divide-tips">一级代理开发二级代理商，二级代理商成功开发会员，一级代理商所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">二级开发二级提成</h5><i>：</i>
+                <input type="text" name="firstBossFee">
+                <small class="divide-tips">二级代理A开发二级代理商B，B代理商成功开发会员，A代理商所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">推送商品的个数</h5><i class="tuisong-b">：</i>
+                <input type="text" name="Tuisong">
+                <small class="divide-tips"></small>
+                <span class="red-bitian">*</span><h5 class="long-text">订阅关键词的个数</h5><i class="tuisong-b">：</i>
+                <input type="text" name="Dingyue">
+                <small class="divide-tips"></small>
+
+                <span class="red-bitian">*</span><h5 class="long-text">开始执行时间</h5><i>：</i>
+                <div class="laydate-div">
+                    <input type="datetime" name="beginTime" readonly="readonly" class="input_cell_sm1 date_icon_1 add-divide-date" id="expiration_time5"/>
+                    <small>—</small>
+                    <input type="datetime" name="endTime" readonly="readonly" class="input_cell_sm1 date_icon_1 add-divide-date" id="expiration_time6"/>
+                </div>
+                <div class="btn-box btn-box">
+                    <input type="button" name="submit" value="确认" class="submit blue-btn" id="addDivideSub3">
+                </div>
+            </form>
+        </div>
+
+        <!-- 月套餐 -->
+        <div class="add-divide add-divide4 moni-lbox scroHide-father" style="display: none;">
+            <div class="moni-head">
+                <p class="fl">月套餐费用设置</p>
+                <em class="DataCenterBox-cols cleanAll1 fr">&#215;</em>
+            </div>
+            <form class="moni-main scroHide">
+                <span class="red-bitian">*</span><h5 class="long-text">月套餐费用</h5><i>：</i>
+                <input type="text" name="annualFee">
+                <small class="divide-tips">会员期间，升级当月套餐费用，单位/元</small>
+                <span class="red-bitian">*</span><h5 class="long-text">培训师提成</h5><i>：</i>
+                <input type="text" name="trainerFee">
+                <small class="divide-tips">培训师培训代理商，代理商每开发一个会员，培训师所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">一级代理提成</h5><i>：</i>
+                <input type="text" name="firstFee">
+                <small class="divide-tips">一级代理商直接开发认证会员所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">二级代理提成</h5><i>：</i>
+                <input type="text" name="bossFee">
+                <small class="divide-tips">二级代理商直接开发认证会员所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">一级开发二级提成</h5><i>：</i>
+                <input type="text" name="parentBossFee">
+                <small class="divide-tips">一级代理开发二级代理商，二级代理商成功开发会员，一级代理商所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">二级开发二级提成</h5><i>：</i>
+                <input type="text" name="firstBossFee">
+                <small class="divide-tips">二级代理A开发二级代理商B，B代理商成功开发会员，A代理商所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">推送商品的个数</h5><i class="tuisong-b">：</i>
+                <input type="text" name="Tuisong">
+                <small class="divide-tips"></small>
+                <span class="red-bitian">*</span><h5 class="long-text">订阅关键词的个数</h5><i class="tuisong-b">：</i>
+                <input type="text" name="Dingyue">
+                <small class="divide-tips"></small>
+
+                <span class="red-bitian">*</span><h5 class="long-text">开始执行时间</h5><i>：</i>
+                <div class="laydate-div">
+                    <input type="datetime" name="beginTime" readonly="readonly" class="input_cell_sm1 date_icon_1 add-divide-date" id="expiration_time7"/>
+                    <small>—</small>
+                    <input type="datetime" name="endTime" readonly="readonly" class="input_cell_sm1 date_icon_1 add-divide-date" id="expiration_time8"/>
+                </div>
+                <div class="btn-box btn-box">
+                    <input type="button" name="submit" value="确认" class="submit blue-btn" id="addDivideSub4">
+                </div>
+            </form>
+        </div>
+        
+        <!-- 黄金套餐升级钻石套餐费用设置 -->
+        <div class="add-divide add-divide5 moni-lbox scroHide-father" style="display: none;">
+            <div class="moni-head">
+                <p class="fl">黄金套餐升级钻石套餐费用设置</p>
+                <em class="DataCenterBox-cols cleanAll1 fr">&#215;</em>
+            </div>
+            <form class="moni-main scroHide">
+                <span class="red-bitian">*</span><h5 class="long-text">黄金升级钻石费用</h5><i>：</i>
+                <input type="text" name="annualFee">
+                <small class="divide-tips">会员期间，升级当月套餐费用，单位/元</small>
+                <span class="red-bitian">*</span><h5 class="long-text">培训师提成</h5><i>：</i>
+                <input type="text" name="trainerFee">
+                <small class="divide-tips">培训师培训代理商，代理商每开发一个会员，培训师所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">一级代理提成</h5><i>：</i>
+                <input type="text" name="firstFee">
+                <small class="divide-tips">一级代理商直接开发认证会员所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">二级代理提成</h5><i>：</i>
+                <input type="text" name="bossFee">
+                <small class="divide-tips">二级代理商直接开发认证会员所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">一级开发二级提成</h5><i>：</i>
+                <input type="text" name="parentBossFee">
+                <small class="divide-tips">一级代理开发二级代理商，二级代理商成功开发会员，一级代理商所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">二级开发二级提成</h5><i>：</i>
+                <input type="text" name="firstBossFee">
+                <small class="divide-tips">二级代理A开发二级代理商B，B代理商成功开发会员，A代理商所得提成</small>
+                <span class="red-bitian">*</span><h5 class="long-text">推送商品的个数</h5><i class="tuisong-b">：</i>
+                <input type="text" name="mounthTuisong">
+                <small class="divide-tips"></small>
+                <span class="red-bitian">*</span><h5 class="long-text">订阅关键词的个数</h5><i class="tuisong-b">：</i>
+                <input type="text" name="mounthDingyue">
+                <small class="divide-tips"></small>
+
+                <span class="red-bitian">*</span><h5 class="long-text">开始执行时间</h5><i>：</i>
+                <div class="laydate-div">
+                    <input type="datetime" name="beginTime" readonly="readonly" class="input_cell_sm1 date_icon_1 add-divide-date" id="expiration_time9"/>
+                    <small>—</small>
+                    <input type="datetime" name="endTime" readonly="readonly" class="input_cell_sm1 date_icon_1 add-divide-date" id="expiration_time10"/>
+                </div>
+                <div class="btn-box btn-box">
+                    <input type="button" name="submit" value="确认" class="submit blue-btn" id="addDivideSub5">
+                </div>
+            </form>
+        </div>
+        
         <!-- 停止按钮 -->
         <div class="stop-box moni-lbox" style="display: none;"> 
             <p>确认停止？</p>
@@ -176,34 +462,156 @@
     </div>
 </div>
 <!--父容器结束-->
-<script>var pages = "系统设置";var index1 = 4; var index2 = 4;</script>
+
 <script src="../js/jquery.js"></script>
-<script src="../js/common.js"></script>
 <script src="../js/laydate/laydate.js"></script>
+<script src="../js/common.js"></script>
 <script src="../js/set.js"></script>
 <script>
     //提交到后台
-
     //时间选择插件
     $(function(){
-        laydate.render({//发布时间
-            elem: '#expiration_time1', //指定元素
+    	var nowTime = new Date().Format("yyyy-MM-dd");
+        laydate.render({
+            elem: '#expiration_time1', 
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#expiration_time2',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#expiration_time3',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#expiration_time4',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#expiration_time5',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#expiration_time6',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#expiration_time7',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#expiration_time8',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#expiration_time9',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#expiration_time10',
             type: 'datetime'
         });
     })
+    
     //新增费用
-    $(document).on("click","#addDivideSub",function(){
-        var annualFee = $("input[name=annualFee]").val(),
-        trainerFee = $("input[name=trainerFee]").val(),
-        parentFee = $("input[name=parentFee]").val(),
-        bossFee = $("input[name=bossFee]").val(),
-        beginTime = $("input[name=beginTime]").val();
-        if (annualFee == "" || trainerFee == "" || parentFee == "" || bossFee == "" || beginTime == "") {
-            alert("选项不能为空");
+    $(document).on("click","#addDivideSub1",function(){
+        //认证会员
+        var annualFee = $("input[name=annualFee]:visible").val(),
+            trainerFee = $("input[name=trainerFee]:visible").val(),
+            firstFee = $("input[name=firstFee]:visible").val(),
+            bossFee = $("input[name=bossFee]:visible").val(),
+            parentBossFee = $("input[name=parentBossFee]:visible").val(),
+            firstBossFee = $("input[name=firstBossFee]:visible").val();
+        var beginTime = $("input[name=beginTime]:visible").val(),
+            endTime = $("input[name=endTime]:visible").val();
+        if (annualFee == "" || trainerFee == "" || bossFee == "" || firstFee == "" || parentBossFee == "" || beginTime == "" || endTime == "") {
+            message("选项不能为空");
+        }else{
+            console.log(annualFee,trainerFee,bossFee,firstFee,parentBossFee,beginTime,endTime);//ajax提交数据
+            $(".add-divide,.moni-box").fadeOut();
+            success("操作成功！");
         }
-        console.log(annualFee,trainerFee,parentFee,bossFee,beginTime);//ajax提交数据
     })
-    // 删除按钮
+    
+    $(document).on("click","#addDivideSub2",function(){
+        // 黄金套餐
+        var annualFee = $("input[name=annualFee]:visible").val(),
+            trainerFee = $("input[name=trainerFee]:visible").val(),
+            firstFee = $("input[name=firstFee]:visible").val(),
+            bossFee = $("input[name=bossFee]:visible").val(),
+            parentBossFee = $("input[name=parentBossFee]:visible").val(),
+            firstBossFee = $("input[name=firstBossFee]:visible").val();
+        var beginTime = $("input[name=beginTime]:visible").val(),
+            endTime = $("input[name=endTime]:visible").val();
+        if (annualFee == "" || trainerFee == "" || firstFee == "" || firstBossFee == "" || parentBossFee == "" || beginTime == "" || endTime == "") {
+            message("选项不能为空");
+        }else{
+            console.log(annualFee == "" || trainerFee,firstFee,firstBossFee,parentBossFee,beginTime,endTime);//ajax提交数据
+            $(".add-divide,.moni-box").fadeOut();
+            success("操作成功！");
+        }
+    })
+    
+    $(document).on("click","#addDivideSub3",function(){
+        // 钻石套餐
+        var annualFee = $("input[name=annualFee]:visible").val(),
+            trainerFee = $("input[name=trainerFee]:visible").val(),
+            firstFee = $("input[name=firstFee]:visible").val(),
+            bossFee = $("input[name=bossFee]:visible").val(),
+            parentBossFee = $("input[name=parentBossFee]:visible").val(),
+            firstBossFee = $("input[name=firstBossFee]:visible").val();
+        var beginTime = $("input[name=beginTime]:visible").val(),
+            endTime = $("input[name=endTime]:visible").val();
+        if (annualFee == "" || trainerFee == "" || firstFee == "" || firstBossFee == "" || parentBossFee == "" || beginTime == "" || endTime == "") {
+            message("选项不能为空");
+        }else{
+            console.log(annualFee,trainerFee,firstFee,firstBossFee,parentBossFee,beginTime,endTime);//ajax提交数据
+            $(".add-divide,.moni-box").fadeOut();
+            success("操作成功！");
+        }
+    })
+    
+    $(document).on("click","#addDivideSub4",function(){
+        // 月套餐
+        var annualFee = $("input[name=annualFee]:visible").val(),
+            trainerFee = $("input[name=trainerFee]:visible").val(),
+            firstFee = $("input[name=firstFee]:visible").val(),
+            bossFee = $("input[name=bossFee]:visible").val(),
+            parentBossFee = $("input[name=parentBossFee]:visible").val(),
+            firstBossFee = $("input[name=firstBossFee]:visible").val();
+        var beginTime = $("input[name=beginTime]:visible").val(),
+            endTime = $("input[name=endTime]:visible").val();
+        if (annualFee == "" || trainerFee == "" || firstFee == "" || firstBossFee == "" || parentBossFee == "" || beginTime == "" || endTime == "") {
+            message("选项不能为空");
+        }else{
+            console.log(annualFee,trainerFee,firstFee,firstBossFee,parentBossFee,beginTime,endTime);//ajax提交数据
+            $(".add-divide,.moni-box").fadeOut();
+            success("操作成功！");
+        }
+    })
+    
+    $(document).on("click","#addDivideSub5",function(){
+        // 黄金升级钻石套餐
+        var annualFee = $("input[name=annualFee]:visible").val(),
+            trainerFee = $("input[name=trainerFee]:visible").val(),
+            firstFee = $("input[name=firstFee]:visible").val(),
+            bossFee = $("input[name=bossFee]:visible").val(),
+            parentBossFee = $("input[name=parentBossFee]:visible").val(),
+            firstBossFee = $("input[name=firstBossFee]:visible").val();
+        
+        var beginTime = $("input[name=beginTime]:visible").val(),
+            endTime = $("input[name=endTime]:visible").val();
+        if (annualFee == "" || trainerFee == "" || firstFee == "" || firstBossFee == "" || parentBossFee == "" || beginTime == "" || endTime == "") {
+            message("选项不能为空");
+        }else{
+	       	console.log(annualFee,trainerFee,firstFee,firstBossFee,parentBossFee,beginTime,endTime);//ajax提交数据
+	        $(".add-divide,.moni-box").fadeOut();
+        	success("操作成功");
+        }
+    })
+    
+    //删除按钮
     $(document).on("click",".removeBtn",function(){
         $(this).parents("tr").addClass("remove");
         var trId = $(this).parents("tr").attr("name");//取得删除那一行的name值
@@ -212,10 +620,11 @@
             $(".remove").remove(); 
             $(".remove-box,.moni-box").fadeOut();
             console.log(trId);//发起ajax
+            success("操作成功");
         })
     })
 
-    // 停止按钮
+    //停止按钮
     $(document).on("click",".stopBtn",function(){
         $(this).addClass("stop");
         var trId = $(this).parents("tr").attr("name");//取得删除那一行的name值
@@ -227,9 +636,10 @@
             console.log($(".stop").parent().prev().html());
             $(".stop-box,.moni-box").fadeOut();
             console.log(trId);//发起ajax
+            success("操作成功");
         })
     })
-
+    
 </script>
 </body>
 </html>

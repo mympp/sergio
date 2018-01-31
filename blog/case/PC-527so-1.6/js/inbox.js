@@ -11,7 +11,7 @@ $(function(){
 			$("[name= '"+ id1 +"' ]").remove();//发起ajax
 			console.log(id1);
 			setTimeout(function(){
-				success();//操作成功提示
+				success("操作成功");//操作成功提示
 				ResetForm();//初始化表格
 			},300);	
 		})
@@ -42,7 +42,7 @@ $(function(){
 			$("[name= '"+ id1 +"' ]").remove();//发起ajax
 			console.log(id1);
 			setTimeout(function(){
-				success();//操作成功提示
+				success("操作成功");//操作成功提示
 				ResetForm();//初始化表格
 			},300)			
 		})
@@ -71,6 +71,7 @@ $(function(){
 		$(".inbox-nav").fadeOut();
 		$(".inbox-footer").fadeOut();
 		$(".inbox-main-dets").fadeIn();
+		$(".inbox-main").css("overflow","auto");
 	})
 	
 	//为返回按钮绑定单击事件
@@ -78,6 +79,7 @@ $(function(){
 		$(".inbox-main-dets").fadeOut();
 		$(".inbox-nav").fadeIn();
 		$(".inbox-footer").fadeIn();
+		$(".inbox-main").css("overflow","hidden");
 		console.log("返回");
 	})
 	
@@ -92,7 +94,7 @@ $(function(){
 		console.log("回收站");
 		var id = $(".inbox-main-dets").attr("name");//该页面1条数据无需this
 		console.log(id);//发起ajax
-		success();//操作成功
+		success("操作成功");//操作成功
 	})
 	
 	//为彻底删除按钮绑定单击事件
@@ -111,7 +113,7 @@ $(function(){
 	$(document).on("click",".de_confirm_1",function(){
 		var id = $(".inbox-main-dets").attr("name");//该页面1条数据无需this
 		console.log(id);//发起ajax
-		success();//操作成功
+		success("操作成功");//操作成功
 	})
 })
 
@@ -133,10 +135,10 @@ function ResetForm(){
 }
 
 //操作成功提示
-function success(text='操作成功',time=1500){
+function success(text){
 	 $(document.body).append('<div class="sucuess-modal"><div class="sucuess-modal-cell"><img src="../../Images/common_icon_success_nor.png" alt="" /><p class="is_state1">'+text+'</p></div></div>');
 	 $(".sucuess-modal").fadeIn();
 	 setTimeout(function(){
 	 	$(".sucuess-modal").remove();	
-    },time);
+    },150);
 }

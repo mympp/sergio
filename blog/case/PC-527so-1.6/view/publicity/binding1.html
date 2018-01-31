@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>账号绑定</title>
+		<link rel="stylesheet" href="../../css/common.css" />
+	    <link rel="stylesheet" href="../../css/setPassword.css" />
+	    <style type="text/css">
+	    .setpwd-head{
+	    	width: 100%;
+	    	border-bottom: 1px solid #dcdcdc;
+	    }
+	    .SetpwdTop{
+	    	width: 1200px;
+	    	margin: 0 auto;
+	    }
+		.Setpwd_form{
+			width: 1200px;
+			margin: 220px auto 0;
+		}
+		.Setpwd-text{
+			text-align: center;
+		}
+		.Setpwd-text p{
+			font-size: 16px;
+			color: #494949;
+			margin-bottom: 10px;
+		}
+		.agreement,
+		.Setpwd-text{
+			width: 350px;
+			margin: 20px auto;
+		}
+		.agreement>.CheckBox {
+		    width: 14px;
+		    height: 14px;
+		}
+		.agreement>span>i,.agreement>span {
+		    font-size: 14px;
+		    vertical-align: top;
+		    font-style: normal;
+		}
+		.agreement>span>i {
+		    color:#ffb908;
+		}
+		.error1{
+			border: 1px solid red;
+		}
+		.RegBottom{
+	    	border-top: 1px solid #dcdcdc;
+		}
+	    </style>
+	</head>
+	<body class="setBody" style="min-height: 850px;">
+		<!--头部开始-->
+		<div class="setpwd-head">
+	        <div class="SetpwdTop">
+	           	<a href="index.html" class="logo"></a>
+	            <p>账号绑定</p>
+	        </div>
+	    </div>
+        <!--头部结束-->
+		<div class="Setpwd-box">
+        	<!--表单开始-->
+        	<div class="Setpwd_form" id="RegPhone">
+        		<div class="Setpwd-text">
+        			<p>为了您的账号安全，请验证一个手机号码</p>
+        		</div>
+        		<div class="one-cell1 error_code1">
+        			<span class="error_code1_bg"></span>
+        			<div class="error_msg1_tips"></div>
+        		</div>
+        		<div class="one-cell1">
+        			<span class="username_code1_bg"></span>
+        			<i class="line_bdr"></i>
+        			<input type="text" class="input_cell_1 user_name1" placeholder="请输入您的手机号码"/>
+        		</div>
+        		<div class="code-cell1">
+        			<input type="text" class="input_cell_1 vcode_1" maxlength="4" placeholder="请输入验证码"/>
+        			<input type="button" class="newcode-cell1_rt getvcode_1" value="获取验证码"/>
+        			<input type="hidden" value="1234" class="vcode_val1"/>
+        		</div>
+        		<!--下一步按钮-->
+        		<div class="Next_button">
+        			下一步
+        		</div>
+        		<div class="agreement">
+		            <input class="CheckBox CheckBox22" type="checkbox" checked/>
+		            <span>我已同意<i class="sever"> 服务协议 </i></span>
+		        </div>
+        	</div>
+        	<!--表单结束-->
+		</div>
+	    
+       	<!--底部开始-->
+	    <div class="RegBottom">
+	        <ul>
+	            <li class="li1"><span><i>客服电话： 400-8088770 | 9:00-18:30</i></span></li>
+	            <li class="li2"><span><i>关于我们</i></span></li>
+	            <li class="li3"><span><i>雀搜微信公众号 : 雀搜</i></span></li>
+	        </ul>
+	    </div>
+	    <!--底部结束-->
+		<script src="../../js/jquery.js"></script>
+		<script>
+
+			$(function(){
+
+				//为手机验证码按钮绑定单击事件
+				$(document).on("click", ".getvcode_1", function() {
+					var user_name = $(".user_name1").val();
+				    var numreg = /^1(3|4|5|7|8)\d{9}$/;
+					if(user_name == "" || user_name == undefined){
+						$(".error_code1").show().find(".error_msg1_tips").text("请输入您的手机号码");
+						$(".user_name1").parents(".one-cell1").addClass("error");
+					}else if(!numreg.test(user_name)){
+						$(".error_code1").show().find(".error_msg1_tips").text("请输入正确的手机号码");
+					}else{
+						$(".error_code1").hide().find(".error_msg1_tips").text("");
+						$(".user_name1").parents(".one-cell1").removeClass("error");
+						var InterValObj; //timer变量，控制时间
+						var count = 60; //间隔函数，1秒执行
+						var curCount; //当前剩余秒数
+						var Ele = $(this);
+						var userName = "135****6995";//ajax回调手机号码
+						sendMessage(Ele);
+						if ($(".Setpwd-text p").length > 1) {
+							console.log("has");
+						} else {
+							$(".Setpwd-text").append('<p>验证码已发于<span>' + userName + '</span>,请查收</p>');
+						}
+					
+						//发送消息函数
+						function sendMessage(Ele) {　
+							curCount = count; //设置button效果，开始计时
+							Ele.attr("disabled", "true");
+							Ele.val(curCount + "秒").addClass('active');
+							InterValObj = window.setInterval(function() {
+								SetRemainTime(Ele);
+							}, 1000);
+						}
+					
+						//timer处理函数
+						function SetRemainTime(Ele) {
+							if(curCount == 0) {
+								window.clearInterval(InterValObj); //停止计时器
+								Ele.removeAttr("disabled"); //启用按钮
+								Ele.val("重新获取").removeClass('active');
+							} else {
+								curCount--;
+								Ele.val(curCount + "秒").addClass('active');
+							}
+						}
+					}
+				})
+
+				
+			})
+			$(function(){
+				getHeight();//获取高度
+				
+				$(window).resize(function(){
+					getHeight();//获取高度
+				})
+				
+				//为下一步按钮绑定单击事件
+				$(document).on("click",".Next_button",function(){
+					checkAll();
+				})
+				//键盘回车事件
+				$(document).on("keydown", "#RegPhone", function(e) {
+					if(e.keyCode==13){
+						checkAll();
+					}
+				})
+				
+				//为用户输入获取焦点事件监听（用户名）
+				$(document).on("focus",".input_cell_1",function(){
+					$(this).parents(".one-cell1").addClass("focus");
+				})
+				
+				//为用户输入失去焦点事件监听（用户名）
+				$(document).on("blur",".input_cell_1",function(){
+					$(this).parents(".one-cell1").removeClass("focus");
+				})
+				
+				//为用户输入获取焦点事件监听（验证码）
+				$(document).on("focus",".vcode_1",function(){
+					$(this).addClass("focus");
+				})
+				
+				//为用户输入失去焦点事件监听（验证码）
+				$(document).on("blur",".vcode_1",function(){
+					$(this).removeClass("focus");
+				})
+			})
+			
+			function checkAll(){
+				var user_name = $(".user_name1").val();
+				var vcode_num = $(".vcode_1").val();
+				var vcode_val = 1234;
+			    var numreg = /^1(3|4|5|7|8)\d{9}$/;
+				if(user_name.length > 0) {
+					console.log(111);
+					$(".user_name1").parents(".one-cell1").removeClass("error");
+				}
+				if(vcode_num.length > 0) {
+					console.log(222);
+					$(".vcode_1").removeClass("error");
+				}
+				if(user_name == "" || user_name == undefined){
+					$(".error_code1").show().find(".error_msg1_tips").text("请输入您的手机号码");
+					$(".user_name1").parents(".one-cell1").addClass("error");
+				}else if(!numreg.test(user_name)){
+					$(".error_code1").show().find(".error_msg1_tips").text("请输入正确的手机号码");
+					$(".user_name1").parents(".one-cell1").addClass("error");
+				}else if(vcode_num == "" || vcode_num == undefined){
+					$(".error_code1").show().find(".error_msg1_tips").text("请输入您的验证码");
+					$(".vcode_1").addClass("error");
+				}else if(vcode_num!=vcode_val){
+					$(".error_code1").show().find(".error_msg1_tips").text("您输入的验证码有误");
+					$(".vcode_1").addClass("error");
+				} else if(!$('.CheckBox22').is(':checked')) {
+					$(".error_code1").show().find(".error_msg1_tips").text("请点击同意服务协议");
+					$(".agreement").addClass("error1");
+				}else{
+					$(".error_code1").hide().find(".error_msg1_tips").text("");
+					$(".agreement").removeClass("error1");
+					console.log(user_name,vcode_num,vcode_val);//发起ajax
+					location.href="binding2.html";
+				}
+			}
+			
+			function getHeight(){
+				var winH = $(window).height();
+				$(".setBody").height(winH);
+			}
+		</script>
+	</body>
+</html>

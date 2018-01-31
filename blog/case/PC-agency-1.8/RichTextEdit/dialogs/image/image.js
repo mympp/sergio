@@ -367,10 +367,10 @@
                     id: '#filePickerReady',
                     label: lang.uploadSelectFile
                 },
-                accept: {
-                    title: 'Images',
-                    extensions: acceptExtensions,
-                    mimeTypes: 'image/*'
+                accept: {   
+                	title: 'Images',   
+                	extensions: 'jpg,jpeg,png',   
+                	mimeTypes: 'image/gif,image/jpeg,image/png,image/jpg,image/bmp'  
                 },
                 swf: '../../third-party/webuploader/Uploader.swf',
                 server: actionUrl,

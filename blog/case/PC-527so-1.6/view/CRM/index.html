@@ -192,6 +192,14 @@
 							<a href="javascript:;">购买会员</a>
 						</li>
 						<li class="xiansuoli1">
+							<span class="shopping-index"></span>
+							<a href="javascript:;">商城首页</a>
+						</li>
+						<li class="xiansuoli1">
+							<span class="cbd-center"></span>
+							<a href="javascript:;">商务中心</a>
+						</li>
+						<li class="xiansuoli1">
 							<span class="user_icon1"></span>
 							<a href="javascript:;">哟哟</a>
 						</li>
@@ -368,6 +376,7 @@
 
 				$(window).resize(function(){
 					var winH = $(window).height();
+					window.top.location.reload();
 					if(winH > 730){
 						window.top.location.reload();
 						getHeight();//检测屏幕宽度

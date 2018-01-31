@@ -74,6 +74,7 @@ $(function(){
 		var pd_price = $(".pd_price").val();//获取产品价格
 		var smm_count1 = $(".smm_count1").val();//获取最小起订量
 		var pd_counts1 = $(".pd_counts1").val();//获取供货总量
+		var stratTime = $(".start_time1").val();//获取发货期限
 		
 		//判断用户输入的值
 		if( msgType == "" || msgType == undefined){
@@ -88,7 +89,7 @@ $(function(){
 			alert("请选择行业分类");
 		}else{
 			//发起ajax
-			console.log(msgType,msgTitle,msgTitleL,KeyWord,hyVal,brand,editHtml,src,dieTime,arg_name1,arg_name2,arg_name3,arg_val1,arg_val2,arg_val3,jl_count,pd_price,smm_count1,pd_counts1);		
+			console.log(msgType,msgTitle,msgTitleL,KeyWord,hyVal,brand,editHtml,src,dieTime,arg_name1,arg_name2,arg_name3,arg_val1,arg_val2,arg_val3,jl_count,pd_price,smm_count1,pd_counts1,stratTime);		
 		}
 	})
 })
@@ -96,10 +97,11 @@ $(function(){
 //定义获取高度方法
 function getHeight() {
 	var height = $(window).height();
-	var cellMg = parseInt($(".release-product_main").css("margin"));
+	var cellMg = parseInt($(".release-product_main").css("marginTop"));//IE 火狐天大巨坑 margin需分开设置css样式 否则js无法获取到其属性值
 	var formH = height - 76 - (cellMg*2) - 5;
-	//console.log(cellMargin);
 	$(".left_template,.right_template").height(height);
 	$(".release-product_main").height(formH);
 	$(".tsXq-div_main").height(formH-110);
+//	console.log(typeof height,typeof cellMg,typeof formH);
+//	console.log(height,cellMg,formH);
 }

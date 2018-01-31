@@ -1,4 +1,28 @@
-
+@media screen and (max-width: 1765px){
+	iframe {
+		width: 1120px;
+	}
+}
+@media screen and (max-width: 1665px){
+	iframe {
+		width: 1100px;
+	}
+}
+@media screen and (max-width: 1565px){
+	iframe {
+		width: 970px;
+	}
+}
+@media screen and (max-width: 1461px){
+	iframe {
+		width: 960px;
+	}
+}
+@media screen and (max-width: 1300px){
+	iframe {
+		width: 950px;
+	}
+}
 .about-title{
     width:100%;
     text-align:center;
@@ -59,7 +83,7 @@
 
 .about-map{
     width: 100%;
-    margin: 30px auto 0;
+    margin: 25px auto 0;
 }
 .about-mapleft{
     width: 50%;
@@ -79,6 +103,7 @@
 .about-mapright-lbox{
 	margin-left: 60px;
 	line-height: 32px;
+	margin-bottom: 5px;
 }
 .about-mapright-lbox img{
 	width: 25px;
@@ -86,6 +111,7 @@
 	position: relative;
 	top: -3px;
 	display: inline-block;
+	margin-right: 10px;
 }
 .about-mapright-lbox span{
 	font-size: 18px;
@@ -102,8 +128,8 @@ form .about-mapright-lbox label{
 }
 form .about-mapright-lbox label{
 	display: inline-block;
-	width: 80px;
-	margin-left: 20px;	
+	width: 13.5%;
+	margin-left: 2.8%;
 }
 form .about-mapright-lbox input{
 	width: 25.7%;
@@ -112,21 +138,22 @@ form .about-mapright-lbox input{
 	background: #fff;
 	margin-top: 10px;
 	margin-bottom: 20px;
+	box-sizing: border-box;
 }
 form .textarea-label{
 	vertical-align: top;
 }
 form .about-mapright-lbox textarea{
 	width: 67.8%;
-	height: 140px;
+	height: 120px;
 	background: #fff;
 	border: 1px solid #ccc;
+	resize : none;
 }
 form a{
 	display: inline-block;
 	width: 126px;
 	height: 42px;
-	margin-top: 1%;
 	margin-left: 48%;
 	line-height: 40px;
 	text-align: center;
@@ -165,6 +192,7 @@ form a{
 	width: 105px;
 }
 .join-box1 .join-box1-leftbox h1{
+	margin-top: 10px;
 	font-size: 36px;
 	color: #494949;
 }

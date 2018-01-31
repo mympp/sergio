@@ -11,7 +11,47 @@
 <body style="min-width: 1280px;">
 <!--父容器开始-->
 <div class="outer_div">
-	<div class="left_template"></div>
+	<div class="left_template">
+		<div class="user_logo">
+			<a href="#"><img src="../Images/common_logo.png" alt=""></a>
+		</div>
+		<p class="company_name1">代理商管理系统</p>
+		<div class="userList_bar">
+			<ul class="userList_ul">
+				<a href="index.html" class="userList_li"><span class="icon-01"></span><span class="icon-text">首页</span></a>
+				<div class="slider_List">
+					<a href="javascript:;" class="userList_li icon-shopping"><span class="icon-02"></span><span class="icon-text">资金管理</span><span class="icon-shopping-1"></span></a>
+					<div class="icon-money-div">
+						<a href="fund-platform.html">资金管理</a>
+						<a href="fund-money.html">申请提现</a>
+					</div>
+					<a href="javascript:;" class="userList_li icon-shopping"><span class="icon-03"></span><span class="icon-text">数据管理</span><span class="icon-shopping-1"></span></a>
+					<div class="icon-data-div">
+						<a href="data-daili.html">代理商数据统计</a>
+						<a href="data-market.html">业务员数据统计</a>
+						<a href="data-train.html">培训师数据统计</a>
+						<a href="data-vip.html">注册会员数据统计</a>
+					</div>
+					<a href="javascript:;" class="userList_li icon-shopping active"><span class="icon-04"></span><span class="icon-text">角色管理</span><span class="icon-shopping-1"></span></a>
+					<div class="icon-person-div show">
+						<a href="juese-admin.html" class="open">管理员管理</a>
+						<a href="juese-agent.html">代理商管理</a>
+						<a href="juese-check.html">审核代理商</a>
+						<a href="juese-salesman.html">业务员管理</a>
+						<a href="juese-trainer.html">培训师管理</a>
+					</div>
+					<a href="javascript:;" class="userList_li icon-shopping"><span class="icon-05"></span><span class="icon-text">系统设置</span><span class="icon-shopping-1"></span></a>
+					<div class="icon-shopping-div">
+						<a href="set-user.html">用户组</a>
+						<a href="set-send.html">发布公告</a>
+						<a href="set-history.html">历史公告</a>
+						<a href="set-password.html">个人设置</a>
+						<a href="set-divide.html">代理商分成设置</a>
+					</div>
+				<div class="slider_List">
+			</ul>
+		</div>
+	</div>
 	<div class="right_template"></div>
     <div class="page-set">
         <div>
@@ -156,27 +196,25 @@
                 <em class="DataCenterBox-cols cleanAll fr">&#215;</em>
             </div>
             <form class="moni-main">
-                <label class="long-text">姓名</label><i>：</i>
+                <h5 class="long-text">姓名</h5><i>：</i>
                 <input type="text" name="name" placeholder="管理员名称"><br />
-                <label class="long-text">电话</label><i>：</i>
+                <h5 class="long-text">电话</h5><i>：</i>
                 <input type="text" name="phone" placeholder="管理员电话"><br />
-                <label class="long-text">账号</label><i>：</i>
+                <h5 class="long-text">账号</h5><i>：</i>
                 <input type="text" name="ID" placeholder="管理员账号"><br />
-                <label class="long-text">密码</label><i>：</i>
-                <input type="password" name="password" placeholder="管理员密码"><br />
-                <label class="long-text">部门</label><i>：</i>
-                <select class="add-section">
-                    <option class="select-box" value="研发部">研发部</option>
-                    <option class="select-box" value="运营部">运营部</option>
-                </select>
-                <br />
-                <label class="long-text">启动状态</label><i>：</i>
+                <h5 class="long-text">密码</h5><i>：</i>
+                <input type="text" placeholder="密码由6-20位字母、数字或符号组成" class="input-showPwd" />
+                <input type="password" name="password" class="input-password" style="display: none"/><br />
+                <!-- <input type="password" name="password" placeholder="管理员密码"><br /> -->
+                <h5 class="long-text">部门</h5><i>：</i>
+                <input type="text" name="bumen" class="add-section" placeholder="所在部门"><br />
+                <h5 class="long-text">启动状态</h5><i>：</i>
                 <select class="add-status">
                     <option class="select-box" value="有效">有效</option>
                     <option class="select-box" value="无效">无效</option>
                 </select>
                 <br />
-                <label class="long-text">所属权限组</label><i>：</i><br />
+                <h5 class="long-text">所属权限组</h5><i>：</i><br />
                 <input type="radio" value="管理员" name="quanxian"><span>管理员</span>
                 <input type="radio" value="研发部" name="quanxian"><span>研发部</span>
                 <input type="radio" value="运营部" name="quanxian"><span>运营部</span><br />
@@ -194,31 +232,31 @@
             </div>
             <div class="moni-main">
                 <div>
-                    <label>姓名</label><i>：</i>
+                    <h5>姓名</h5><i>：</i>
                     <span class="name">姓名A</span>
                 </div>
                 <div>
-                    <label>账号</label><i>：</i>
+                    <h5>账号</h5><i>：</i>
                     <span class="ID">chengaiwen@527so.com</span>
                 </div>
                 <div>
-                    <label>电话号码</label><i>：</i>
+                    <h5>电话号码</h5><i>：</i>
                     <span class="phone">15612345678</span>
                 </div>
                 <div>
-                    <label>部门</label><i>：</i>
+                    <h5>部门</h5><i>：</i>
                     <span class="section">研发部</span>
                 </div>
                 <div>
-                    <label>状态</label><i>：</i>
+                    <h5>状态</h5><i>：</i>
                     <span class="status">有效</span>
                 </div>
                 <div>
-                    <label>创建日期</label><i>：</i>
+                    <h5>创建日期</h5><i>：</i>
                     <span class="addTime">2017-10-30 11：48</span>
                 </div>
                 <div>
-                    <label>更新日期</label><i>：</i>
+                    <h5>更新日期</h5><i>：</i>
                     <span class="updateTime">2017-10-30 18：48</span>
                 </div>
             </div>
@@ -230,29 +268,31 @@
                 <em class="DataCenterBox-cols cleanAll fr">&#215;</em>
             </div>
             <form class="moni-main">
-                <label class="long-text">姓名</label><i>：</i>
+                <h5 class="long-text">姓名</h5><i>：</i>
                 <input type="text" name="name" value="姓名A"><br />
-                <label class="long-text">电话</label><i>：</i>
+                <h5 class="long-text">电话</h5><i>：</i>
                 <input type="text" name="phone" value="15603078635"><br />
-                <label class="long-text">账号</label><i>：</i>
+                <h5 class="long-text">账号</h5><i>：</i>
                 <input type="text" name="ID" value="chenkaiwen@527so.com"><br />
-                <label class="long-text">密码</label><i>：</i>
-                <input type="password" name="password" value="123456"><br />
-                <label class="long-text">部门</label><i>：</i>
+                <h5 class="long-text">密码</h5><i>：</i>
+                <input type="text" placeholder="密码由6-20位字母、数字或符号组成" class="input-showPwd" />
+                <input type="password" name="password" value="123456" class="input-password" style="display: none"/><br />
+                <!-- <input type="password" name="password" value="123456"><br /> -->
+                <h5 class="long-text">部门</h5><i>：</i>
                 <select class="re-section">
                     <option class="select-box" value="研发部">研发部</option>
                     <option class="select-box" value="运营部">运营部</option>
                 </select><br />
-                <label class="long-text">启动状态</label><i>：</i>
+                <h5 class="long-text">启动状态</h5><i>：</i>
                 <select class="re-status">
                     <option class="select-box" value="有效">有效</option>
                     <option class="select-box" value="无效">无效</option>
                 </select><br />
-                <label class="long-text">所属权限组</label><i>：</i>
+                <h5 class="long-text">所属权限组</h5><i>：</i>
                 <span class="quanxian">管理员</span><br />
-                <label class="long-text">创建日期</label><i>：</i>
+                <h5 class="long-text">创建日期</h5><i>：</i>
                 <span class="addTime">2017-10-30 17:50</span><br />
-                <label class="long-text">更新日期</label><i>：</i>
+                <h5 class="long-text">更新日期</h5><i>：</i>
                 <span class="updateTime">2017-10-30 18：59</span><br />
                 <div class="btn-box">
                     <input type="button" name="submit" value="确认" class="submit blue-btn" id="adminRedactSub">
@@ -272,7 +312,7 @@
     </div>
 </div>
 <!--父容器结束-->
-<script>var pages = "角色管理";var index1 = 3; var index2 = 0;</script>
+
 <script src="../js/jquery.js"></script>
 <script src="../js/common.js"></script>
 <script src="../js/role.js"></script>
@@ -289,6 +329,7 @@
         quanxian = $("input[name=quanxian]:checked").val();
         checkForm();//表单验证函数
         console.log(name,phone,ID,password,bumen,zhuangtai,quanxian);//验证密码并提交
+        // success("操作成功");
     });
 
     //管理员详情
@@ -341,6 +382,7 @@
             $(".remove").remove(); 
             $(".remove-box,.moni-box").fadeOut();
             console.log(trId);//发起ajax
+            success("操作成功");
         })
     })
 </script>

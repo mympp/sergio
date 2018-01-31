@@ -355,7 +355,7 @@
 }
 
 .tixian_bank2_dets{
-	width: 300px;
+	/*width: 300px;*/
     display: inline-block;
     vertical-align: middle;
     margin-left: 24px;
@@ -382,10 +382,18 @@
     color: #aaaaaa;
 }
 
-.ketixian_p .get_money{
+/*.ketixian_p .get_money{
 	font-size: 14px;
     color: #1da1f2;
     cursor: pointer;
+}*/
+
+.get_money{
+	font-size: 14px;
+    color: #1da1f2;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-left: 15px;
 }
 
 .tixian_btn1{

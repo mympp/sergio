@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>代理商注册</title>
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/agency-register.css" />
+    <style>
+        .register-yh-number {
+            margin-top: 18px;
+            margin-bottom: 18px;
+            vertical-align: middle;
+            margin-left: -3px;
+        }
+        /*操作成功模态框开始*/
+        .sucuess-modal{
+            width: 100%;
+            height: 100%;
+            display: none;
+            background: rgba(0,0,0,.3);
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 10000;
+        }
+
+        .sucuess-modal-cell{
+            width: 250px;
+            height: 200px;
+            background: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%,-50%);
+            -moz-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+            -o-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .sucuess-modal-cell img{
+            margin-top: 61px;
+        }
+
+        .sucuess-modal-cell p{
+            font-size: 18px;
+            color: #494949;
+            font-weight: 600;
+            margin-top: 31px;
+            padding-left: 5px;
+        }
+        .sucuess-close {
+            display: inline-block;
+            background: url("../Images/common_icon_close_nor2.png") no-repeat;
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body style="min-width: 1200px;overflow-x: auto;" >
+<div class="register-head">
+    <!--头部开始-->
+    <div class="register-head-top">
+        <a class="register-head-logo" href="http://www.527so.com/Publicity/index"></a>
+        <span class="register-head-login">已有雀搜账号？<em>快捷登录></em></span>
+    </div>
+    <!--头部结束-->
+    <!--中间内容区开始-->
+    <form name="form1" id="form1" method="post" action="" enctype="multipart/form-data">
+    <div class="register-center-bigbox">
+        <div class="register-body">
+            <div class="register-body-top">
+                <p class="p1">注册代理商</p>
+                <p class="p2">服务须知：我们的审核时限为24小时（工作日），遇法定假期日顺延，如有疑问，请联系客服：400-8088-770</p>
+            </div>
+            <div class="register-body-center">
+                <p class="register-body-p">账户信息</p>
+                <div class="register-body-minbox">
+                    <div class="register-body-input">
+                        <em>*</em><span>用&ensp;户&ensp;名：</span><input name="rename" class="register-name"  type="text" maxlength="20" >
+                        <i class="register-pass0"></i>
+                        <span class="register-error error-name"><em></em><span></span></span>
+                        <h5 class="qipao qipao1"><span class="qipaotext">4-20个字符，只能使用小写字母(a-z)、数字(0-9)、下划线(_)、中划线(-)，且以字母或数字开头和结尾</span></h5>
+                    </div>
+                    <div class="register-body-input">
+                        <em>*</em><span>设置密码：</span><input name="repass1" class="register-password1" type="password" maxlength="20">
+                        <i class="register-pass1"></i>
+                        <span class="register-error error-pass1"><em></em><span></span></span>
+                        <h5 class="qipao qipao2"><span class="qipaotext">6-20个字符，区分大小写，推荐使用数字、字母和特殊符号组合</span></h5>
+                    </div>
+                    <div class="register-body-input">
+                        <em>*</em><span>密码确认：</span><input name="repass2" class="register-password2" type="password" maxlength="20">
+                        <i class="register-pass2"></i>
+                        <span class="register-error error-pass2"><em></em><span></span></span>
+                        <h5 class="qipao qipao3"><span class="qipaotext">6-20个字符，区分大小写，推荐使用数字、字母和特殊符号组合</span></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="register-center-bigbox-xian"></div>
+        <div class="register-body" style="margin-top: 40px">
+            <div class="register-body-center" style="margin-top: 40px">
+                <p class="register-body-p">公司信息</p>
+                <div class="register-body-minbox">
+                    <div class="register-body-input">
+                        <em>*</em><span>公司名称：</span><input name="regsname" class="register-gs-name" type="text" placeholder="发票抬头/营业执照名称">
+                        <span class="register-error error-pass3"><em></em><span></span></span>
+                    </div>
+                    <div class="register-body-input">
+                        <em>*</em><span>区&ensp;&ensp;&ensp;&ensp;域：</span>
+                        <div>
+                            <span class="select-bg"></span>
+                            <select name="resheng">
+                                <option>请选择</option>
+                                <option>请选择1</option>
+                            </select>
+                        </div>
+                        <div>
+                            <span class="select-bg"></span>
+                            <select name="requ">
+                                <option>请选择</option>
+                                <option>请选择1</option>
+                            </select>
+                        </div>
+                        <div>
+                            <span class="select-bg select-bg3"></span>
+                            <select name="redi">
+                                <option>请选择</option>
+                                <option>请选择2</option>
+                                <option>请选择1</option>
+                            </select>
+                        </div>
+                        <span class="register-error error-pass98"><em></em><span></span></span>
+                    </div>
+                    <div class="register-body-input">
+                        <em>*</em><span>详细地址：</span><input name="rexdz" class="register-dz" type="type">
+                        <span class="register-error error-pass99"><em></em><span></span></span>
+                    </div>
+                    <div class="register-body-input">
+                        <em>*</em><span>银行账户：</span> <input name="rekh" class="register-yh-number" type="type" placeholder="卡号">
+                        <span class="register-error error-pass4"><em></em><span></span></span>
+                    </div>
+                    <div class="register-body-input">
+                        <em></em><span></span> <input  type="text" class="register-yh" style="margin-left: 78px;cursor: pointer"  readonly="readonly" placeholder="开户银行" >
+                        <span class="register-error error-pass14"><em></em><span></span></span>
+                        <span class="xia-logo"></span>
+                        <div class="register-yh-box" style="display: none">
+                            <div class="yh-box-nav">
+                                <span class="list-name navadd">热门银行</span>
+                                <span class="list-name">ABCDEF</span>
+                                <span class="list-name">GHJ</span>
+                                <span class="list-name">MN</span>
+                                <span class="list-name">PQRST</span>
+                                <span class="list-name">WXYZ</span>
+                                <span class="ico-close"></span>
+                            </div>
+                            <div class="yh-box-01">
+                                <div class="yh-box-01-center">
+                                    <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                    <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+                                     <span class="yh-01-btn">
+                                      <img src="../Images/icon_jianse.png" alt="">
+                                        <span class="yh-01-text">中国建设银行</span>
+                                    </span>
+
+
+                                </div>
+                            </div>
+                            <div class="yh-box-02" style="display: none">
+                                <div class="yh-box-02-center">
+                                    <div class="yh-02-text"><span class="text-02-left">A</span><div class="text-big"><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span></div></div>
+                                    <div class="yh-02-text"><span class="text-02-left">A</span><div class="text-big"><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span><span class="text-02-center">奥地利中央国际银行</span></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="register-body-input">
+                        <em></em><span></span> <input  type="text" class="register-yh-zh" style="margin-left: 78px;margin-top: 18px" placeholder="开户行支行信息">
+                        <span class="register-error error-pass94"><em></em><span></span></span>
+                    </div>
+                    <div class="register-body-input">
+                        <em></em><span></span><input name="reyhname" class="register-yh-name" style="margin-left: 78px"type="type" placeholder="姓名">
+                        <span class="register-error error-pass5"><em></em><span></span></span>
+                    </div>
+                    <div class="register-body-input">
+                        <em>*</em><span>公司资质：</span><span class="register-dz">（营业执照、组织机构代码证、税务登记证、开户行资料）</span>
+                        <span class="register-error error-pass6"><em></em><span></span></span>
+                    </div>
+                    <div class="register-body-img">
+                        <!--<input type="file"  style="display: none"  name="file[]" id="file0"  multiple="multiple" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" />-->
+                        <!--<input type="file"  style="display: none"  name="file[]" id="file1"  multiple="multiple" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" />-->
+                        <!--<input type="file"  style="display: none"  name="file[]" id="file2"  multiple="multiple" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" />-->
+                        <!--<input type="file"  style="display: none"  name="file[]" id="file3"  multiple="multiple" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" />-->
+                        <!--<ul class="body-img-ul">-->
+                            <!--<li class="img-up img-up01"></li>-->
+                        <!--</ul>-->
+                        <!--dom结构部分-->
+                        <div class="one-cell">
+                            <div class="one-cell_rt">
+                                <!--上传照片开始-->
+                                <div class="img-box full">
+                                    <section class="img-section">
+                                        <div class="z_photo upimg-div">
+                                            <section class="z_file fl">
+                                                <img src="../Images/icon_registerl_photo_add6.png" class="add-img">
+                                                <input type="file" name="file" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple />
+                                            </section>
+                                        </div>
+                                    </section>
+                                </div>
+                                <!--上传照片结束-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="register-center-bigbox-xian"></div>
+        <div class="register-body">
+            <div class="register-body-center">
+                <p class="register-body-p">联系人信息</p>
+                <div class="register-body-minbox">
+                    <div class="register-body-input">
+                        <em>*</em><span>姓&ensp;&ensp;&ensp;&ensp;名：</span><input name="relxname" class="register-lx-name" type="text">
+                        <span class="register-error error-pass7"><em></em><span></span></span>
+                    </div>
+                    <div class="register-body-input">
+                        <em>*</em><span>手机号码：</span><input name="reiphone" class="register-iphone" type="text" onkeyup="value=value.replace(/[^\d]/g,'')" maxlength="11">
+                        <span class="register-error error-pass8"><em></em><span></span></span>
+                    </div>
+                    <div class="register-body-input">
+                        <em>&ensp;</em><span>邮&ensp;&ensp;&ensp;&ensp;箱：</span><input name="reemail" class="register-email" type="text">
+                        <span class="register-error error-pass9"><em></em><span></span></span>
+                    </div>
+                    <div class="register-body-input">
+                        <em>*</em><span>验&ensp;证&ensp;码：</span><input name="reimgcode" class="register-code" type="text" maxlength="4"><img class="img-code" src="../Images/yanzhengma.png" alt="" img-val="1234">
+                        <span class="register-error error-pass10"><em></em><span></span></span>
+                    </div>
+                    <div class="register-body-input">
+                        <em>*</em><span  style="padding-right: 8px;">短信验证码：</span><input name="rephonecode" class="register-phone-code" type="text" maxlength="4"><span class="register-phone-code-btn">获取验证码</span>
+                        <span class="register-error error-pass11"><em></em><span></span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center;margin-top: 52px">
+            <input class="checkbox-zl" type="checkbox" checked="true">
+            <span class="check-img"></span>
+            <em class="check-em">我已阅读并同意 <i class="check-i">《雀搜服务协议》</i></em>
+            <span class="input-text i-checkbox" style="left: 0px;top: 23px;"></span><br>
+            <span class="register-error error-pass12" style="margin-left: -46px"><em></em><span></span></span>
+        </div>
+        <span class="register-sub-btn">立即注册</span>
+        <div class="register-center-bigbox-xian"></div>
+        <div class="register-body-bottom">
+            <span class="register-bottom-img1"><p class="register-body-bottom-p1">关于我们</p></span>
+            <span class="register-bottom-img2"><p class="register-body-bottom-p2">客服电话：400-8088770 | 9:00-18:30</p></span>
+            <span class="register-bottom-img3"><p class="register-body-bottom-p3">雀鸟微信公众号</p></span>
+        </div>
+        <p class="register-body-bottom-pp">©2015-2017 527SO.COM 版权所有 粤ICP备16023140号-7 | 广东雀鸟科技有限公司</p>
+    </div>
+    </form>
+    <!--上传图片删除模态框-->
+    <aside class="mask works-mask">
+        <div class="mask-content">
+            <p class="del-p">您确定要删除图片吗？</p>
+            <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+        </div>
+    </aside>
+    <!--中间内容区结束-->
+
+
+</div>
+<script src="../js/jquery.js"></script>
+<!--<script src="../js/bankcard.js"></script>-->
+<script src="../js/agency-register.js"></script>
+<script src="../js/imgUp.js"></script>
+</body>
+</html>

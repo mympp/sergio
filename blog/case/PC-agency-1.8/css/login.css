@@ -1,0 +1,239 @@
+@charset "UTF-8";
+
+/*登录界面开始*/
+html{
+    width: 100%;
+    height: 100%;
+}
+.login{
+    width: 100%;
+    height: 100%;
+    background: url(../Images/img_bg.jpg) no-repeat center;
+    background-size: cover;
+}
+.login-bbox{
+    width: 504px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+.login-title{
+    width: 100%;
+    margin-bottom: 28px;
+}
+.login-title h1{
+    font-size: 26px;
+    color: #fff;
+    font-weight: bold;
+    display: inline-block;
+    margin: 0 20px;
+}
+.login-title img{
+    display: inline-block;
+    vertical-align: middle;
+}
+.login-box{
+    width: 356px;
+    /*height: 600px;*/
+    border: 1px solid #fff;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 38px 30px 30px;
+    background: #fff;
+}
+.login-box h4{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.login-box .input_cell1,
+.login-box .input_cell3,
+.login-box .input_cell2{
+    width: 300px;
+    height: 40px;
+    color: #000;
+    font-size: 12px;
+    border: none;
+    border-radius: none;
+    box-shadow: none;
+    background: transparent;
+    background-repeat: no-repeat;
+}
+/*.login-box .input_cell1{
+    background-image: url(../Images/icon_login_name.png);
+    background-position: 18px 11px;
+}
+.login-box .input_cell2{
+    background-image: url(../Images/icon_login_code.png);
+    background-position: 18px 11px;
+}*/
+input:-webkit-autofill{ 
+    -webkit-box-shadow: 0 0 0 1000px white inset; 
+}
+input[type=text]:focus, input[type=password]:focus{
+    -webkit-box-shadow: 0 0 0 1000px white inset; 
+}
+.input-box1,
+.input-box2{
+    box-sizing: border-box;
+    display: inline-block;
+    width: 360px;
+    height: 46px;
+    margin: 10px 0;
+    color: #000;
+    text-indent: 50px;
+    font-size: 12px;
+    border: 1px solid #d5d5d5;
+    background-repeat: no-repeat;
+    background-position: 18px 9px;
+
+}
+.input-box1{
+    background-image: url(../Images/icon_login_name.png);
+}
+.input-box2{
+    background-image: url(../Images/icon_login_code.png);
+}
+.login-box ::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #ccc;
+}
+.login-box :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #ccc;
+}
+.login-box ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #ccc;
+}
+.login-box :-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #ccc;
+}
+input
+.checkedres{
+    width: 14px !important;
+    height: 14px !important;
+    position: relative;
+    top: 1px;
+}
+
+.login-box .login-check{
+    width: 286px;
+    height: 44px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+}
+.login-box .login-check{
+    font-size: 14px;
+    line-height: 44px;
+    color: #999;
+}
+.login-box .login-check i{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid blue;
+    border-radius: 50%;
+    background: blue;
+    margin: 0 12px;
+}
+.login-box>em{
+    color: #898989;
+    font-size: 12px;
+}
+.login-box #submit{
+	width: 360px;
+    height: 46px;
+    margin: 35px 0 20px;
+    border: 1px solid #1da1f3;
+    border-radius: 5px;
+    background: #1da1f3;
+    color: #fff;
+    text-indent: 0;
+    font-size: 16px;
+    letter-spacing: 5px;
+    cursor: pointer;
+}
+.login-box .login-forget{
+    text-align: center;    
+    color: #ccc;
+    margin-bottom: 25px;
+}
+.login-box .login-forget a{
+    font-size: 14px;
+    color: #898989;
+}
+.login-box .login-another{
+    text-align: center;
+    color: #ccc;
+}
+.login-box .login-another img{
+    vertical-align: middle;
+}
+.login-box .login-footer{
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 30px;
+    text-align: center;
+}
+
+#v_container{
+    width: 100px;
+    height: 40px;
+    position: relative;
+}
+#v_container canvas{
+    cursor: pointer;
+}
+.checkSubmit #code_input{
+    border: 1px solid #ccc;
+}
+
+.err-tip{
+	position: relative;
+    top: 8px;
+    color: #ff5454;
+}
+/*登录界面结束*/
+
+/*复选框自定义样式开始*/
+.checkbox input {
+    display: none;
+}
+	
+.checkbox i {
+    border: none;
+    -webkit-appearance: none;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: url(../Images/check_default.png) no-repeat;
+    background-size: 100%;
+    vertical-align: middle;
+}
+
+.checkbox *:checked+i {
+	border: none;
+	-webkit-appearance: none;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: url(../Images/check_blue.png) no-repeat;
+    background-size: 100%;
+    vertical-align: middle;
+}
+
+.allSpan1{
+    font-size: 14px;
+    color: #898989;
+    margin-left: 5px;
+}
+
+.checkboxAll1{
+    position: relative;
+    top: -3px;
+    right: 20px;
+}
+/*复选框自定义样式结束*/

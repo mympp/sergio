@@ -52,7 +52,7 @@ option =  {
             ]
         }
     ]
-};
+}
 option2 = {
     tooltip : {
         trigger: 'axis',

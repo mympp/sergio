@@ -8,7 +8,7 @@
 	    <link rel="stylesheet" href="../../css/index.css" />
 	    <link rel="stylesheet" type="text/css" href="../../css/publicity1130.css">
 		<!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=nPGCcSQigL0kzX1CG8cvzSsGOhGBWMFm"></script> -->
-		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=b2kFhZ5ZjpTLgbacGrexud12xXc6glet"></script>
+		<!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=b2kFhZ5ZjpTLgbacGrexud12xXc6glet"></script>-->
 	</head>
 	<body style="min-width: 1200px;overflow-x: auto;" class="4 pages">
 		<!--页面顶部开始-->
@@ -178,7 +178,11 @@
 			<div class="about-map">
 				<div class="fl about-mapleft">
 					<!-- <img src="../../Images/map.png" alt="" /> -->
-					<div id="allmap"></div>
+					<div id="allmap">
+						<div style="width:400px;height:420px;margin:0px 0px 0px -309px;">
+							<iframe width='1250px' height='440px' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='https://yuntu.amap.com/share/2myMZn'></iframe>
+						</div>
+					</div>
 				</div>
 				<div class="fr about-mapright">
 					<div class="about-mapright-lbox">
@@ -200,15 +204,15 @@
 					<form>
 						<div class="about-mapright-lbox">
 							<label>姓名</label>
-							<input type="text" name="">
+							<input class="name" type="text" name="">
 							<label>联系方式</label>
-							<input type="phone" name="">
+							<input class="tel" type="phone" name="">
 						</div>
 						<div class="about-mapright-lbox">
 							<label class="textarea-label">留言内容</label>
-							<textarea></textarea>
+							<textarea class="text-val"></textarea>
 						</div>
-						<a href="javascript:;">提交留言</a>
+						<a class="AboutSubmit" href="javascript:;">提交留言</a>
 					</form>
 				</div>
 				<!-- <div class="fl Personal_Critique_rt">
@@ -236,7 +240,6 @@
 		<!--页面底部开始-->
 		<footer class="footer_box"></footer>
 		<!--页面底部结束-->
-		
 		<script src="../../js/jquery.js"></script>
 		<script src="../../js/wow.min.js"></script>
 		<script src="../../js/common.js"></script>
@@ -252,22 +255,44 @@
 			if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){//兼容IE下面板消失
 				new WOW().init();
 			};
+			$(function(){
+				//提交按钮
+				$(document).on("click",".AboutSubmit",function(){
+					//表单验证
+					var AboutNaem = $(".name").val();
+					var AboutTel = $(".tel").val();
+					var Abouttext = $(".text-val").val();
+					if(AboutNaem == ""){
+						alert("姓名不能为空")
+					}else if(AboutTel == ""){
+						alert("联系方式不能为空")
+					}else if(Abouttext == ""){
+						alert("留言内容不能为空")
+					}else {
+						alert("成功提交")
+					}
 
-			// 百度地图API功能
-			var map = new BMap.Map("allmap");
-			var point = new BMap.Point(116.331398,39.897445);
-			map.centerAndZoom(point,12);
-			// 创建地址解析器实例
-			var myGeo = new BMap.Geocoder();
-			// 将地址解析结果显示在地图上,并调整地图视野
-			myGeo.getPoint("广州市科汇园", function(point){
-				if (point) {
-					map.centerAndZoom(point, 16);
-					map.addOverlay(new BMap.Marker(point));
-				}else{
-					alert("您选择地址没有解析到结果!");
-				}
-			}, "广州市");
+				})
+
+
+			})
+
+
+//			// 百度地图API功能
+//			var map = new BMap.Map("allmap");
+//			var point = new BMap.Point(116.331398,39.897445);
+//			map.centerAndZoom(point,12);
+//			// 创建地址解析器实例
+//			var myGeo = new BMap.Geocoder();
+//			// 将地址解析结果显示在地图上,并调整地图视野
+//			myGeo.getPoint("广州市科汇园", function(point){
+//				if (point) {
+//					map.centerAndZoom(point, 16);
+//					map.addOverlay(new BMap.Marker(point));
+//				}else{
+//					alert("您选择地址没有解析到结果!");
+//				}
+//			}, "广州市");
 		</script>
 	</body>
 </html>

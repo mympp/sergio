@@ -6,9 +6,6 @@ $(function(){
 		if($(".table-content").scrollTop()>0){
 			$(".table-head").css("paddingRight","17px");
 		}
-
-//		$(".icon-shopping").eq(0).addClass("active").siblings().removeClass("active");
-//		$(".icon-money-div").css("display","block").find("p").eq(0).addClass("open");
 	})
 	
 	$(window).resize(function(){
@@ -87,42 +84,42 @@ $(function(){
 	
 	//打开申请提现
 	$(document).on("click",".tixian_btn",function(){
-		var str =`
-			<div class="tixian_modal">
-				<div class="tixian_div">
-					<div class="tixian_hd">
-						<em>申请提现</em>
-						<span class="close-span1">&times;</span>
-					</div>
-					<div class="tixian_content">
-						<div class="tixian_bank1">
-							<span class="span1">提现到银行卡：</span>
-							<div class="tixian_bank1_dets" onselectstart="return false;">
-								<span class="bank1_Type">中国银行</span>
-								<span class="bank1_lastText">尾号：</span>
-								<span class="bank1_lastnum">5276</span>
-							</div>
-						</div>
-						<div class="tixian_bank2">
-							<span class="span1">提现金额：</span>
-							<div class="tixian_bank2_dets" onselectstart="return false;">
-								<input type="text" class="tixian_money" placeholder="输入金额"/><span class="span2">元</span>
-								<br>
-								<p class="ketixian_p"><span class="span-1">可提现金额&yen;<span class="All_money">100000.00</span></span><span class="span-1">，</span><span class="get_money">全部提现</span></p>
-								<span class="tixian_btn1">提现</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		`;
+		var str =
+		'<div class="tixian_modal">'+
+			'<div class="tixian_div">'+
+				'<div class="tixian_hd">'+
+					'<em>申请提现</em>'+
+					'<span class="close-span1">&times;</span>'+
+				'</div>'+
+				'<div class="tixian_content">'+
+					'<div class="tixian_bank1">'+
+						'<span class="span1">提现到银行卡：</span>'+
+						'<div class="tixian_bank1_dets" onselectstart="return false;">'+
+							'<span class="bank1_Type">中国银行</span>'+
+							'<span class="bank1_lastText">尾号：</span>'+
+							'<span class="bank1_lastnum">5276</span>'+
+						'</div>'+
+					'</div>'+
+					'<div class="tixian_bank2">'+
+						'<span class="span1">提现金额：</span>'+
+						'<div class="tixian_bank2_dets" onselectstart="return false;">'+
+							'<input type="text" class="tixian_money" placeholder="输入金额"/><span class="span2">元</span>'+
+							'<span class="get_money">全部提现</span>'+
+							'<br>'+
+							'<p class="ketixian_p"><span class="span-1">可提现金额：<span class="All_money">0.00</span>（提现后，7个工作日内审核转账）</span></p>'+
+							'<span class="tixian_btn1">提现</span>'+
+						'</div>'+
+					'</div>'+
+				'</div>'+
+			'</div>'+
+		'</div>';
 		$(document.body).append(str);//ajax成功回调
 		$(".tixian_modal").fadeIn();
 	})
 	
 	//为全部提现按钮绑定单击事件
 	$(document).on("click",".get_money",function(){
-		if($(".tixian_money").val().length>0){
+		if($(".All_money").text()=="0.00"){
 			return false;
 		}
 		$(".tixian_money").val($(".All_money").text());

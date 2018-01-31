@@ -11,11 +11,52 @@
 <body style="min-width: 1280px;">
 <!--父容器开始-->
 <div class="outer_div">
-	<div class="left_template"></div>
+	<div class="left_template">
+		<div class="user_logo">
+			<a href="#"><img src="../Images/common_logo.png" alt=""></a>
+		</div>
+		<p class="company_name1">代理商管理系统</p>
+		<div class="userList_bar">
+			<ul class="userList_ul">
+				<a href="index.html" class="userList_li"><span class="icon-01"></span><span class="icon-text">首页</span></a>
+				<div class="slider_List">
+					<a href="javascript:;" class="userList_li icon-shopping"><span class="icon-02"></span><span class="icon-text">资金管理</span><span class="icon-shopping-1"></span></a>
+					<div class="icon-money-div">
+						<a href="fund-platform.html">资金管理</a>
+						<a href="fund-money.html">申请提现</a>
+					</div>
+					<a href="javascript:;" class="userList_li icon-shopping"><span class="icon-03"></span><span class="icon-text">数据管理</span><span class="icon-shopping-1"></span></a>
+					<div class="icon-data-div">
+						<a href="data-daili.html">代理商数据统计</a>
+						<a href="data-market.html">业务员数据统计</a>
+						<a href="data-train.html">培训师数据统计</a>
+						<a href="data-vip.html">注册会员数据统计</a>
+					</div>
+					<a href="javascript:;" class="userList_li icon-shopping active"><span class="icon-04"></span><span class="icon-text">角色管理</span><span class="icon-shopping-1"></span></a>
+					<div class="icon-person-div show">
+						<a href="juese-admin.html">管理员管理</a>
+						<a href="juese-agent.html">代理商管理</a>
+						<a href="juese-check.html">审核代理商</a>
+						<a href="juese-salesman.html" class="open">业务员管理</a>
+						<a href="juese-trainer.html">培训师管理</a>
+					</div>
+					<a href="javascript:;" class="userList_li icon-shopping"><span class="icon-05"></span><span class="icon-text">系统设置</span><span class="icon-shopping-1"></span></a>
+					<div class="icon-shopping-div">
+						<a href="set-user.html">用户组</a>
+						<a href="set-send.html">发布公告</a>
+						<a href="set-history.html">历史公告</a>
+						<a href="set-password.html">个人设置</a>
+						<a href="set-divide.html">代理商分成设置</a>
+					</div>
+				<div class="slider_List">
+			</ul>
+		</div>
+	</div>
 	<div class="right_template"></div>
 	<div class="page-set">
 		<h2>业务员设置</h2>
-    	<form class="agent-head">
+        <a href="javascript:;" class="addSalesman blue-btn add-btn">新增</a>
+    	<form class="agent-head border-top">
     		<p>按条件筛选：</p>
         	<div class="agent-input">
             	<label>姓名：</label><input type="text" name="searchName" placeholder="">
@@ -23,6 +64,7 @@
         		<!-- <div class="fl"> -->
                     <label>状态：</label>
             		<select class="searchStatus">
+                        <option value="all">全部</option>
             			<option value="启用">启用</option>
             			<option value="禁用">禁用</option>
             		</select>
@@ -32,7 +74,6 @@
     		<input type="button" value="搜索" name="search" class="blue-btn" id="searchBtn">
     		<input type="button" value="清空" name="clear" class="white-btn">
     	</form>
-		<a href="javascript:;" class="addSalesman blue-btn fr">新增</a>
 		<!--表格模块开始-->
         <div class="table-wrap">
             <div class="table-head">
@@ -45,7 +86,7 @@
                             <col style="width:10%">
                             <col style="width:20%">
                             <col style="width:10%">
-                            <col style="width:20%">
+                            <!-- <col style="width:20%"> -->
                         </colgroup>
                         <thead>
 							<tr>
@@ -55,7 +96,7 @@
 								<th>所属代理商</th>
 								<th>最后登录日期</th>
 								<th>状态</th>
-								<th>操作</th>
+								<!-- <th>操作</th> -->
 							</tr>
 						</thead>
                     </table>
@@ -70,7 +111,7 @@
                         <col style="width:10%">
                         <col style="width:20%">
                         <col style="width:10%">
-                        <col style="width:20%">
+                        <!-- <col style="width:20%"> -->
                     </colgroup>
                     <tbody class="table_ctbody">
 						<tr>
@@ -82,10 +123,10 @@
 							<td>XX代理商</td>
 							<td>2017-10-30 18：59</td>
 							<td>有效</td>
-							<td class="tda2">
+							<!-- <td class="tda2">
 								<a href="javascript:;" class="salesmanRedact fl">编辑</a>
 								<a href="javascript:;" class="removeBtn fr">删除</a>
-							</td>
+							</td> -->
 						</tr>
 						<tr>
 							<td>
@@ -96,10 +137,10 @@
 							<td>XX代理商</td>
 							<td>2017-10-30 18：59</td>
 							<td>无效</td>
-							<td class="tda2">
+							<!-- <td class="tda2">
 								<a href="javascript:;" class="salesmanRedact fl">编辑</a>
 								<a href="javascript:;" class="removeBtn fr">删除</a>
-							</td>
+							</td> -->
 						</tr>
                     </tbody>
                 </table>
@@ -144,15 +185,17 @@
 				<em class="DataCenterBox-cols cleanAll fr">&#215;</em>
 			</div>
 			<form class="moni-main">
-				<label>姓名</label><i>：</i>
+				<h5>姓名</h5><i>：</i>
                 <input type="text" name="name" placeholder="业务员名称"><br />
-				<label>电话</label><i>：</i>
+				<h5>电话</h5><i>：</i>
                 <input type="text" name="phone" placeholder="业务员电话"><br />
-				<label>账号</label><i>：</i>
+				<h5>账号</h5><i>：</i>
                 <input type="text" name="ID" placeholder="业务员账号"><br />
-				<label>密码</label><i>：</i>
-                <input type="password" name="password"><br />
-				<label>启动状态</label><i>：</i>
+				<h5>密码</h5><i>：</i>
+                <input type="text" placeholder="密码由6-20位字母、数字或符号组成" class="input-showPwd" />
+                <input type="password" name="password" class="input-password" style="display: none"/><br />
+                <!-- <input type="password" name="password"><br /> -->
+				<h5>启动状态</h5><i>：</i>
 				<select class="addStatus">
 					<option value="有效">有效</option>
 					<option value="无效">无效</option>
@@ -170,17 +213,17 @@
 				<em class="DataCenterBox-cols cleanAll fr">&#215;</em>
 			</div>
 			<div class="moni-main">
-				<label>姓名</label><i>：</i>
+				<h5>姓名</h5><i>：</i>
 				<span class="name">姓名A</span><br />
-				<label>账号</label><i>：</i>
+				<h5>账号</h5><i>：</i>
 				<span class="ID">chengaiwen@527so.com</span><br />
-				<label>电话号码</label><i>：</i>
+				<h5>电话号码</h5><i>：</i>
 				<span class="phone">15612345678</span><br />
-				<label>状态</label><i>：</i>
+				<h5>状态</h5><i>：</i>
 				<span class="status">有效</span><br />
-				<label>创建日期</label><i>：</i>
+				<h5>创建日期</h5><i>：</i>
 				<span class="addTime">2017-10-30 11：48</span><br />
-				<label>更新日期</label><i>：</i>
+				<h5>更新日期</h5><i>：</i>
 				<span class="updateTime">2017-10-30 18：48</span><br />
 			</div>
 		</div>
@@ -191,22 +234,24 @@
 				<em class="DataCenterBox-cols cleanAll fr">&#215;</em>
 			</div>
 			<form class="moni-main">
-				<label>姓名</label><i>：</i>
+				<h5>姓名</h5><i>：</i>
                 <input type="text" name="name"><br />
-				<label>电话</label><i>：</i>
+				<h5>电话</h5><i>：</i>
                 <input type="text" name="phone"><br />
-				<label>账号</label><i>：</i>
+				<h5>账号</h5><i>：</i>
                 <input type="text" name="ID"><br />
-				<label>密码</label><i>：</i>
-                <input type="password" name="password"><br />
-				<label>启动状态</label><i>：</i>
+				<h5>密码</h5><i>：</i>
+                <input type="text" placeholder="密码由6-20位字母、数字或符号组成" class="input-showPwd" />
+                <input type="password" name="password" class="input-password" style="display: none"/><br />
+                <!-- <input type="password" name="password"><br /> -->
+				<h5>启动状态</h5><i>：</i>
 				<select class="salesRedactStatus">
 					<option value="有效">有效</option>
 					<option value="无效">无效</option>
 				</select><br />
-				<label>创建日期</label><i>：</i>
+				<h5>创建日期</h5><i>：</i>
                 <span class="addTime">2017-10-30 17:50</span><br />
-				<label>更新日期</label><i>：</i>
+				<h5>更新日期</h5><i>：</i>
                 <span class="updateTime">2017-10-30 18：59</span><br />
 				<div class="btn-box">
                     <input type="button" name="submit" value="确认" class="submit blue-btn" id="salesmanRedactSub">
@@ -225,7 +270,7 @@
 		<!-- 虚拟弹窗结束 -->
 	</div>
 </div>
-<script>var pages = "角色管理";var index1 = 3; var index2 = 3;</script>
+
 <script src="../js/jquery.js"></script>
 <script src="../js/common.js"></script>
 <script src="../js/role.js"></script>
@@ -238,9 +283,9 @@
         status = $(".searchStatus:visible").val(),
         emailreg = /^[a-z0-9-_.]+@[\da-z][\.\w-]+\.[a-z]{2,4}$/i;
         if (searchName == "" && searchEmail == "") {
-            alert("搜索项不能为空");
+            error("搜索项不能为空");
         } else if (!emailreg.test(searchEmail) && searchEmail !== "") {
-            alert("请输入正确的账号（邮箱格式如：quesou@527so.com）");
+            error("请输入正确的账号（邮箱格式如：quesou@527so.com）");
         } else {
             console.log(searchName,searchEmail,status);
         }
@@ -289,6 +334,7 @@
 	        status = $(".salesRedactStatus").val();
 	        checkForm();//表单验证函数
 	        console.log(name,phone,ID,password,status);//ajax提交
+            success("操作成功");
         });
     });
 
@@ -302,6 +348,7 @@
             $(".remove").remove(); 
             $(".remove-box,.moni-box").fadeOut();
             console.log(trId);//发起ajax
+            success("操作成功");
         })
     })
 </script>

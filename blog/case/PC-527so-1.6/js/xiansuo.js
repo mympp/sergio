@@ -1,12 +1,46 @@
 $(function() {
+	wordlimit("More-bigbox-btn",5);//调用方法
+
+	//用户是否绑定邮箱状态
+	var vipEmail = false;
+	if(vipEmail == true){
+		$(".dy_Email_Bigbox").hide();
+	}else {
+		$(".dy_Email_Bigbox").show();
+	}
+	//用户是否进入订阅关键词修改界面
+	var antistop = false;
+	if(antistop == true){
+		$(".hy_input").css({
+			"padding-right": 40
+		})
+		$(".dy_hy_box").height(560)
+		$(".dy_hy_title").width(560);
+		$(".dy_hy_title").text("设置关键词，系统将根据您所设置的关键词为您匹配对应的求购信息，每天定时推送给您。您本月还有N次修改关键词的机会（修改一个关键词算一次）。")
+		$(".dy_Email_Bigbox").hide();
+		$(".hy_empty").show();
+	}
 
 	//引导页设置开始
 	var XianIndex = false;
 	if(XianIndex) {
 		$(".Guidance-box").show();
+		$(".xiansuo_header").hide();
+		$(".xiansuo_main").hide();
+		$(".One-Tao").show();
 	}else {
 		$(".Guidance-box").hide();
+		$(".xiansuo_header").show();
+		$(".xiansuo_main").show();
+		$(".One-Tao").hide();
 	}
+	//首次进入不显示数据页面XX关闭点击事件
+	$(".close-One-Tao").on("click",function(){
+		$(".One-Tao").hide();
+		$(".xiansuo_header").show();
+		$(".xiansuo_main").show();
+	})
+
 	var clicknum = 0; //记录点击次数判断上一步与下一步;
 	$(document).on("click",".GuidanceBtn",function(){
 		if(clicknum %2 == 0) {
@@ -14,11 +48,9 @@ $(function() {
 		}else  {
 			$(".Guidance").attr("src","../../Images/xiaosuo1.jpg");
 		}
-
-		clicknum++
+		clicknum++;
 	})
 	//引导页设置结束
-
 	var state = 0;//0为未认证会员  1为已认证会员
 	if(state == 0){
 		$(".xiansuo_hdleft_btnlist").addClass("noVip");
@@ -84,11 +116,12 @@ $(function() {
 		var checkValue = $(this).val();
 		$(".xiansuo_Pages").html(checkValue+"页");
 	})
-	
+	var startTime;
+	var endTime;
 	//为自定义时间绑定单击事件
 	$(document).on("click",".zdy_timer_btn",function(){
-		var startTime = $("#inputStartTime").val();
-		var endTime = $("#inputEndTime").val();
+		startTime = $("#inputStartTime").val();
+		endTime = $("#inputEndTime").val();
 		if(startTime==""){
 			alert("请选择起始时间");
 			return false;
@@ -101,7 +134,7 @@ $(function() {
 			console.log(startTime,endTime);	
 		}
 	})
-
+    //
 	//为线索头部导航li绑定单击事件
 	$(document).on("click", ".xiansuo_hdleft ul li", function() {
 		var index = $(this).index();
@@ -117,7 +150,8 @@ $(function() {
 
 	//为更多操作绑定单击事件
 	$(document).on("click",".More_Actions",function(){
-		$(".More_Actions_ul").slideToggle();
+		//$(".More_Actions_ul").slideToggle();旧
+		$(".More-X").slideToggle();
 	})
 
 	//阻止下拉菜单父元素事件冒泡
@@ -184,6 +218,7 @@ $(function() {
 	$(document).on("click", ".zdy_timer_cell1_s2", function(e) {
 		console.log(111);
 		$(".zdy_timer_div").fadeOut();
+		$(".Time-btn").removeClass("btn_aiv")
 		e.stopPropagation();
 	})
 
@@ -357,9 +392,10 @@ $(function() {
 		$(".dingyue_hy_modal").fadeOut();
 	})
 
-	//打开订阅采购商信息
+	//新-打开订阅采购商信息
 	$(document).on("click",".dingyue_cgMsgBtn",function(){
-		$(".dingyue_hy_modal").fadeIn();
+		$(".dy_hy_modal").fadeIn();
+		getHeight();
 	})
 
 	//关闭订阅采购商信息
@@ -511,22 +547,22 @@ $(function() {
 		$(".delete-modal3").fadeOut();
 	})
 	
-	//为订阅行业删除按钮绑定单击事件
-	$(document).on("click",".delete_btn1",function(){
-		yizhu = $(this).parents("li");
-		$(".delete-modal1").fadeIn();
-	})
-	
-	//为订阅行业取消按钮绑定单击事件
-	$(document).on("click",".de_cancel_11",function(){
-		$(".delete-modal1").fadeOut();
-	})
-	
-	//为订阅行业确认按钮绑定单击事件
-	$(document).on("click",".de_confirm_11",function(){
-		$(".delete-modal1").fadeOut();
-		yizhu.remove();//发起ajax
-	})
+	////为订阅行业删除按钮绑定单击事件
+	//$(document).on("click",".delete_btn1",function(){
+	//	yizhu = $(this).parents("li");
+	//	$(".delete-modal1").fadeIn();
+	//})
+	//
+	////为订阅行业取消按钮绑定单击事件
+	//$(document).on("click",".de_cancel_11",function(){
+	//	$(".delete-modal1").fadeOut();
+	//})
+	//
+	////为订阅行业确认按钮绑定单击事件
+	//$(document).on("click",".de_confirm_11",function(){
+	//	$(".delete-modal1").fadeOut();
+	//	yizhu.remove();//发起ajax
+	//})
 	
 	//为编辑线索关闭按钮绑定单击事件
 	$(document).on("click",".bj-top-span,.bj-btn1",function(){
@@ -558,11 +594,285 @@ $(function() {
 			},1500)
 		}
 	})
+	
+	//新-点击自定义时间
+	$(document).on("click",".Time-btn",function(event){
+		event.stopPropagation();
+		$(".zdy_timer_div").fadeIn();
+	})
+	
+	//新-阻止冒泡
+	$(document).on("click",".More-X",function(event){
+		event.stopPropagation();
+		//$(".zdy_timer_div").fadeIn();
+	})
+	
+	//新-增加筛选所有选项点击添加效果
+	$(document).on("click",".More-bigbox-btn",function(event){
+		event.stopPropagation();
+		//$(this).toggleClass("btn_aiv");
+		//$(this).addClass("btn_aiv").siblings().removeClass("btn_aiv")
+		$(this).toggleClass("btn_aiv").siblings().removeClass("btn_aiv");
+		//$(this).addClass("btn_aiv");
+		//$(this).parent().parent().find($(".More-bigbox-btn")).not($(this)).removeClass("btn_aiv");
+	})
+	
+	//新-XX关闭按钮
+	$(document).on("click",".More-coles",function(event){
+		event.stopPropagation();
+		$(".More-X").hide();
+	})
+	
+	//新-增加筛选确定按钮
+	$(document).on("click",".More-bigbox-confirm",function(){
+		//获取选项状态
+		var frombtn =  $(this).parent().parent().parent().find($(".More-bigbox-btn")).not($(this)).hasClass("btn_aiv");
+		var zdy_Time = $(".zdy_timer_div").is(':hidden'); //获取自定义时间框状态
+		if(frombtn == false) {
+			$(".More-model").fadeIn();
+			setTimeout(function(){
+				$(".More-model").fadeOut();
+			},1500);
+		}else {
+			$(".More-X").fadeOut();
+			//这里发送请求
+			//获取第一个属性名
+			var ids = $(".hy-box .btn_aiv").attr("data-ids");
+			console.log(ids);
+			//获取属性名
+			var time =  $(".time-box .btn_aiv").attr("name")
+			var mk =  $(".mk-box .btn_aiv").attr("name")
+			console.log(time);
+			console.log(mk);
+			//获取文本名
+			var idsT =  $(".hy-box .btn_aiv").text();
+			var timeT =  $(".time-box .btn_aiv").text();
+			console.log(timeT);
+			console.log(idsT);
+			console.log(startTime,endTime);
+			$(".sucuess-modalnew1").fadeIn();
+			setTimeout(function(){
+				$(".sucuess-modalnew1").fadeOut();
+			},1500);
+		}
+	})
+	//新-修改关键词清空点击事件
+	$(document).on("click",".hy_empty",function(){
+		$(this).prev().val("")
+	})
+	//新-订阅行业
+	//实时获取邮箱输输入情况
+	$(".hy_Email").on("input propertychange",function(){
+		var hy_Email = $(".hy_Email").val().length;
+		if(hy_Email != 0){
+			$(".hy_btn").css({
+				"background": "#1da1f2",
+				"cursor": "pointer",
+				"pointer-events": "auto"
+			})
+		}else {
+			$(".hy_btn").css({
+				"background": "#dcdcdc",
+				"pointer-events": "none"
+			})
+		}
+	})
+	//关闭订阅行业窗口
+	$(document).on("click",".dy_hy_top_close",function(){
+		$(".dy_hy_modal").hide();
+	})
+	//多行业勾选确定点击事件
+	$(document).on("click",".dy_check_btn_affirm",function(){
+
+
+		var inputC = $(".checkbox_input")
+		var addcheck = 0;
+		$(".checkbox_input").each(function(){
+			if(this.checked == true){
+				addcheck = 1;
+				var inputtext = $(this).next().text();
+				console.log($(this));
+				console.log(inputtext);
+				$(".hy_list_model").remove();
+			}
+		});
+		if(addcheck == 0) {
+			alert(1)
+			$(".sucuess-modalnew2").show();
+			setTimeout(function(){
+				$(".sucuess-modalnew2").hide();
+			},1000)
+		}
+	})
+	//开启模糊搜索
+	$(".dy_hy_input_box>.dy_big_box>.hy_input").keyup(function(){
+		//动态插入模糊搜索代码段
+		$(this).parents(".dy_big_box").siblings().children(".hy_input").attr("disabled","disabled");
+		var html = `<div class="dy_hy_List">
+								<div class="List_center">
+									<div class="list_num">富士山红苹果</div>
+									<div class="list_num">苹果7p</div>
+									<div class="list_num">苹果6p</div>
+									<div class="list_num">苹果X</div>
+									<div class="list_num">小苹果video</div>
+									<div class="list_num">苹果树之恋</div>
+									<div class="list_num">苹果节</div>
+								</div>
+								<div class="List_bottom">
+									<div class="list_close">关闭</div>
+								</div>
+							</div>`
+		var inputLength = $(this).val().length;
+		console.log(inputLength);
+		if(inputLength > 1){
+			$(this).parent().append(html)
+
+		}else if(inputLength < 3) {
+			$(".dy_hy_List").remove();
+		}
+	})
+	//触发勾选框行业开始
+	var hy_html = `	<div class="hy_list_model"><div class="dy_hy_name">
+						<div class="dy_hy_name_top">为了更精准的筛选您的采购商，请选择想订阅与“<span>苹果</span>”相关的行业（可多选）</div>
+						<div class="dy_check_box">
+							<div class="checkbox_list">
+								<input type="checkbox" class="checkbox_input" >
+								<span class="checkbox_text">手机数码</span>
+							</div>
+							<div class="checkbox_list">
+								<input type="checkbox" class="checkbox_input">
+								<span class="checkbox_text">家具家电</span>
+							</div>
+							<div class="checkbox_list">
+								<input type="checkbox" class="checkbox_input">
+								<span class="checkbox_text">牛奶水饮</span>
+							</div>
+							<div class="checkbox_list">
+								<input type="checkbox" class="checkbox_input">
+								<span class="checkbox_text">飞机坦克</span>
+							</div>
+							<div class="checkbox_list">
+								<input type="checkbox" class="checkbox_input">
+								<span class="checkbox_text">飞机坦克</span>
+							</div>
+							<div class="checkbox_list">
+								<input type="checkbox" class="checkbox_input">
+								<span class="checkbox_text">飞机坦克</span>
+							</div>
+						</div>
+						<div class="dy_check_btn">
+							<span class="dy_check_btn_affirm">确认</span>
+						</div>
+					</div></div>`
+	$(document).on("click",".list_num",function(){
+		//模糊搜索选中值事件
+		var listText = $(this).text();
+		console.log(listText);
+		$(this).parents(".dy_big_box").children(".hy_input").val(listText);
+		//删除模糊搜索窗口
+		$(".dy_hy_List").remove();
+		$(".dy_hy_center").prepend(hy_html);
+		$(".hy_input").attr("disabled",false);
+	})
+	//点击关闭触发
+	$(document).on("click",".list_close",function(){
+		$(".dy_hy_List").remove();
+		$(".dy_hy_center").prepend(hy_html);
+		$(".hy_input").attr("disabled",false);
+	})
+	//触发勾选框行业结束
+
+	//模糊搜索关闭窗口事件
+	$(document).on("click",".list_close",function(){
+		$(this).parent().parent().remove();
+	})
+	//获取焦点清除错误状态
+	$(document).on("focus",".hy_input",function(){
+		$(".hy_error").hide();
+	})
+	//获取验证码按钮点击事件
+	$(document).on("click",".hy_btn",function(){
+		var hy_Email = $(".hy_Email").val()
+		var emailreg = /^[a-z0-9-_.]+@[\da-z][\.\w-]+\.[a-z]{2,4}$/i;//邮箱正则
+		if(hy_Email == ""){
+			$(".hy_error").text("请输入您的邮箱")
+			$(".Email_box>.hy_error").show();
+		}else if(!emailreg.test(hy_Email)) {
+			$(".hy_error").text("您输入的邮箱有误")
+			$(".Email_box>.hy_error").show();
+		}else {
+			sendMessage();
+		}
+
+	})
+	//点击确认提交按钮事件
+	$(document).on("click",".hy_affirm_btn",function(){
+		var hYval = $(".dy_hy_input_box>.dy_big_box>.hy_input");
+		var emali = $(".hy_Email").val();
+		var Code = $(".hy_Code").val();
+		var emailreg = /^[a-z0-9-_.]+@[\da-z][\.\w-]+\.[a-z]{2,4}$/i;//邮箱正则
+		var cat = 0;
+		for(var i=0; i<hYval.length; i++){
+			if(hYval[i].value != ""){
+				console.log('成功')
+				cat = 1;
+			}
+		}
+		if(cat == 1){
+			if(vipEmail == false){
+				if(emali == ""){
+					$(".hy_error").text("请输入您的邮箱")
+					$(".Email_box>.hy_error").show();
+				}else if(!emailreg.test(emali)) {
+					$(".hy_error").text("您输入的邮箱有误")
+					$(".Email_box>.hy_error").show();
+				}else if(Code == "")  {
+					$(".hy_error").text("请输入邮箱验证码")
+					$(".Code_box>.hy_error").show();
+				}else {
+					$(".sucuess-modalnew1").fadeIn()
+					setTimeout(function() {
+						$(".sucuess-modalnew1").fadeOut()
+					}, 1000)
+				}
+			}else {
+				$(".sucuess-modalnew1").fadeIn()
+				setTimeout(function() {
+					$(".sucuess-modalnew1").fadeOut()
+				}, 1000)
+			}
+
+		}else{
+			$(".sucuess-modalnew").fadeIn()
+			setTimeout(function() {
+				$(".sucuess-modalnew").fadeOut()
+			}, 1000)
+		}
+	})
 })
+
+//为兼容其他浏览器，则需要js解决，以下为封装的方法。
+function wordlimit(cname,wordlength){
+	var cname = $('.'+cname+'');//需要加省略符号的元素对象
+	for(var i=0;i<cname.length;i++){
+		var nowhtml=cname[i].innerHTML;//元素的内容
+		var nowlength=cname[i].innerHTML.length;//元素文本的长度
+		if(nowlength>wordlength){
+			cname[i].innerHTML=nowhtml.substr(0,wordlength)+'...';//截取元素的文本的长度并加上省略号
+		}
+	}
+}
 
 //定义获取高度方法
 function getHeight() {
 	var height = $(window).height();
+	var hy_h = height - (height*0.1);//新订阅关键词高度
+	$(".dy_hy_box").height(720)//新订阅关键词盒子高度
+	$(".hy_list_model").height(720)//新订阅关键词勾选行业盒子模态框高度
+
+	var MoreH = $(".left_header").height() + $(".xiansuo_hdleft").height() - 70; //新增筛选关键词计算高度
+	var WmoreH = height - MoreH - 45; //新增筛选关键词计算高度
+	$(".More-X").height(WmoreH); //新增筛选关键词计算高度
 	var TopH = 76 + 120;
 	var cellH = (height - TopH) - 15;
 	var FPageH = $(".xiansuo_Page_Div").height();
@@ -570,6 +880,8 @@ function getHeight() {
 	$(".xiansuo_main,.xiansuo_vessel").height(cellH);
 	$(".xiansuo_List").height(cellH-FPageH);
 	if(height<974){
+		$(".dy_hy_box").height(hy_h);
+		$(".hy_list_model").height(hy_h);
 		$(".paimai_des_content").height(height-330);
 		$(".php_hy_list").css({
 			"height": 140,
@@ -579,11 +891,40 @@ function getHeight() {
 			"marginRight":25,
 			"marginLeft":0
 		})
+		//新增筛选关键词计算高度
+		$(".More-X").css({
+			"overflow": "auto"
+		})
 	}else{
+		//新增筛选关键词计算高度
+		$(".More-X").css({
+			"overflow": "visible"
+		})
 		$(".paimai_des_content").height(630);
 		$(".php_hy_list li").css({
 			"marginLeft":10
 		})
+	}
+	
+	if(height<700){
+		//console.log("小于700");
+		$(".dingyue_hy").css({
+			"height": "85%"
+		});
+		
+		$(".dingyue_hy_btns").css({
+			"paddingBottom": "10px",
+		});
+	}else{
+		//console.log("大于700");
+		$(".dingyue_hy").css({
+			"height": "",
+			"overflow": ""
+		});
+		
+		$(".dingyue_hy_btns").css({
+			"paddingBottom": "20px",
+		});
 	}
 }
 
@@ -612,4 +953,23 @@ function setSelectAll(){
     	console.log("满足,开启全选");
         $("#checkall").prop("checked", true);  
     }  
+}
+
+//发送消息函数
+function sendMessage() {
+	curCount = 60; //设置button效果，开始计时
+	console.log(curCount);
+	$(".hy_btn").text(curCount + "秒后重获").addClass('code-state12');
+	InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+}
+
+//timer处理函数
+function SetRemainTime() {
+	if(curCount == 0) {
+		window.clearInterval(InterValObj); //停止计时器
+		$(".hy_btn").text("重新获取").removeClass('code-state12');
+	} else {
+		curCount--;
+		$(".hy_btn").text(curCount + "秒后重获").addClass('code-state12');
+	}
 }

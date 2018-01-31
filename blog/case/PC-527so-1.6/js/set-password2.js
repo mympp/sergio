@@ -75,9 +75,7 @@ $(function() {
 	
 	//为手机验证码按钮绑定单击事件
 	$(document).on("click", ".getvcode_1", function() {
-		var InterValObj; //timer变量，控制时间
-		var count = 60; //间隔函数，1秒执行
-		var curCount; //当前剩余秒数
+		var Ele = $(this);
 		var user_name = $(".user_name1").val();
 		var user_phone1 = $(".user_phone1").val();
 		var phonereg = /^1(3|4|5|7|8)\d{9}$/;
@@ -104,30 +102,7 @@ $(function() {
 			console.log("scuess");
 			$(".error_code1").hide().find(".error_msg1_tips").text("");
 			$("*").removeClass("error");
-			var Ele = $(this);
 			sendMessage(Ele);
-		}
-	
-		//发送消息函数
-		function sendMessage(Ele) {　
-			curCount = count; //设置button效果，开始计时
-			Ele.attr("disabled", "true");
-			Ele.val(curCount + "秒").addClass('active');
-			InterValObj = window.setInterval(function() {
-				SetRemainTime(Ele);
-			}, 1000);
-		}
-	
-		//timer处理函数
-		function SetRemainTime(Ele) {
-			if(curCount == 0) {
-				window.clearInterval(InterValObj); //停止计时器
-				Ele.removeAttr("disabled"); //启用按钮
-				Ele.val("重新获取").removeClass('active');
-			} else {
-				curCount--;
-				Ele.val(curCount + "秒").addClass('active');
-			}
 		}
 	})
 	
@@ -177,9 +152,7 @@ $(function() {
 	
 	//为邮箱验证码按钮绑定单击事件
 	$(document).on("click", ".getvcode_2", function() {
-		var InterValObj; //timer变量，控制时间
-		var count = 60; //间隔函数，1秒执行
-		var curCount; //当前剩余秒数
+		var Ele = $(this);
 		var user_name = $(".user_name1").val();
 		var user_email1 = $(".user_email1").val();
 		var emailreg = /^[a-z0-9-_.]+@[\da-z][\.\w-]+\.[a-z]{2,4}$/i;
@@ -206,34 +179,37 @@ $(function() {
 			console.log("scuess");
 			$(".error_code1").hide().find(".error_msg1_tips").text("");
 			$("*").removeClass("error");
-			var Ele = $(this);
 			sendMessage(Ele);
-		}
-	
-		//发送消息函数
-		function sendMessage(Ele) {　
-			curCount = count; //设置button效果，开始计时
-			Ele.attr("disabled", "true");
-			Ele.val(curCount + "秒").addClass('active');
-			InterValObj = window.setInterval(function() {
-				SetRemainTime(Ele);
-			}, 1000);
-		}
-		
-		//timer处理函数
-		function SetRemainTime(Ele) {
-			//console.log(Ele);
-			if(curCount == 0) {
-				window.clearInterval(InterValObj); //停止计时器
-				Ele.removeAttr("disabled"); //启用按钮
-				Ele.val("重新获取").removeClass('active');
-			} else {
-				curCount--;
-				Ele.val(curCount + "秒").addClass('active');
-			}
 		}
 	})
 })
+
+var InterValObj; //timer变量，控制时间
+var count = 60; //间隔函数，1秒执行
+var curCount; //当前剩余秒数
+
+//发送消息函数
+function sendMessage(Ele) {　
+	console.log(Ele);
+	curCount = count; //设置button效果，开始计时
+	Ele.attr("disabled", "true");
+	Ele.val(curCount + "秒").addClass('active');
+	InterValObj = window.setInterval(function() {
+		SetRemainTime(Ele);
+	}, 1000);
+}
+
+//timer处理函数
+function SetRemainTime(Ele) {
+	if(curCount == 0) {
+		window.clearInterval(InterValObj); //停止计时器
+		Ele.removeAttr("disabled"); //启用按钮
+		Ele.val("重新获取").removeClass('active');
+	} else {
+		curCount--;
+		Ele.val(curCount + "秒").addClass('active');
+	}
+}
 
 //定义高度获取方法
 function getHeight() {

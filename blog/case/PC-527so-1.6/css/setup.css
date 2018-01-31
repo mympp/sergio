@@ -1019,7 +1019,7 @@
 	display: inline-block;
 	width: 22px;
 	height: 22px;
-	background: url("../Images/set_icon_phone.png") no-repeat;
+	background: url("../Images/set_icon_emile.png") no-repeat;
 	position: absolute;
 	top: 40%;
 	left: 12px;
@@ -1035,7 +1035,7 @@
 	cursor: pointer;
 }
 .MyEmailCodeInput{
-	width: 250px;
+	width: 249px;
 	height: 36px;
 	border: 1px solid #e2e2e2;
 	box-sizing: border-box;

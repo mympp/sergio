@@ -1,4 +1,6 @@
 $(function() {
+	CheckDevice();//检测用户设备
+	
 	var hm = document.createElement("script");
 	hm.src = "https://hm.baidu.com/hm.js?f0cc1c21e836f7d0511c6532b183a402";
 	var s = document.getElementsByTagName("script")[0]; 
@@ -113,3 +115,20 @@ $(function() {
 	//开始轮播
 	start();
 });
+
+//检测用户设备
+function CheckDevice(){
+    var sUserAgent = navigator.userAgent.toLowerCase();
+    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+    if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+		console.log("phone");
+		location.href = "http://192.168.1.180:8080/Static-Page/Publicity_App/view/";
+    }
+}

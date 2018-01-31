@@ -6,9 +6,6 @@ $(function(){
 		if($(".table-content").scrollTop()>0){
 			$(".table-head").css("paddingRight","17px");
 		}
-		
-		$(".icon-shopping").eq(0).addClass("active").siblings().removeClass("active");
-		$(".icon-money-div").css("display","block").find("p").eq(1).addClass("open");
 	})
 	
 	$(window).resize(function(){
@@ -95,17 +92,16 @@ $(function(){
 	//为批准按钮绑定单击事件
 	$(document).on("click",".pizhun",function(){
 		that1 = $(this); 
-		var str = `
-			<div class="tixian_modal">
-				<div class="tixian_div">
-					<div class="tixian_text">
-						<p>批准体现？</p>
-						<span class="confirm_1 pizhun_0">确认</span>
-						<span class="cancel_1">取消</span>
-					</div>
-				</div>
-			</div>
-		`;
+		var str = 
+		'<div class="tixian_modal">'+
+			'<div class="tixian_div">'+
+				'<div class="tixian_text">'+
+					'<p>批准提现？</p>'+
+					'<span class="confirm_1 pizhun_0">确认</span>'+
+					'<span class="cancel_1">取消</span>'+
+				'</div>'+
+			'</div>'+
+		'</div>';
 		$(document.body).append(str);
 		$(".tixian_modal").fadeIn();
 	})
@@ -122,17 +118,16 @@ $(function(){
 	//为不批准按钮绑定单击事件
 	$(document).on("click",".bu_pizhun",function(){
 		that2 = $(this); 
-		var str = `
-			<div class="tixian_modal">
-				<div class="tixian_div">
-					<div class="tixian_text">
-						<p>不批准体现？</p>
-						<span class="confirm_1 pizhun_1">确认</span>
-						<span class="cancel_1">取消</span>
-					</div>
-				</div>
-			</div>
-		`;
+		var str =
+		'<div class="tixian_modal">'+
+			'<div class="tixian_div">'+
+				'<div class="tixian_text">'+
+					'<p>不批准提现？</p>'+
+					'<span class="confirm_1 pizhun_1">确认</span>'+
+					'<span class="cancel_1">取消</span>'+
+				'</div>'+
+			'</div>'+
+		'</div>';
 		$(document.body).append(str);
 		$(".tixian_modal").fadeIn();
 	})
@@ -171,64 +166,64 @@ $(function(){
 	$(document).on("click",".user_name",function(){
 		var id = $(this).parents("tr").attr("name");
 		console.log(id);//发起ajax
-		var str = `
-			<div class="dailiShop_dets_modal">
-				<div class="dailiShop_dets_div">
-					<div class="dailiShop_dets_hd">
-						<span class="close-span2">&times;</span>
-					</div>
-					<div class="dailiShop_dets_warp">
-						<div class="dailiShop_dets_content">
-							<div class="one-cell1">
-								<span class="left_span1">姓<span class="textck-1"></span>名：</span>
-								<span class="right_span1">嘛哩嘛哩哄</span>
-							</div>
-							<div class="one-cell1">
-								<span class="left_span1">账<span class="textck-1"></span>号：</span>
-								<span class="right_span1">zhanjunhao@527so.com</span>
-							</div>
-							<div class="one-cell1">
-								<span class="left_span1">电<span class="textck-1"></span>话：</span>
-								<span class="right_span1">13580546695</span>
-							</div>
-							<div class="one-cell1">
-								<span class="left_span1">区<span class="textck-1"></span>域：</span>
-								<span class="right_span1">广东广州天河</span>
-							</div>
-							<div class="one-cell1">
-								<span class="left_span1">详细地址：</span>
-								<span class="right_span1">广东广州天河大观中路95号A栋407-408</span>
-							</div>
-							<div class="one-cell1">
-								<span class="left_span1">状<span class="textck-1"></span>态：</span>
-								<span class="right_span1">启用</span>
-							</div>
-							<div class="one-cell1">
-								<span class="left_span1">推<span class="textck-2"></span>荐<span class="textck-2"></span>码：</span>
-								<span class="right_span1">YGSGE110001</span>
-							</div>
-							<div class="one-cell1 bank_cell1">
-								<span class="left_span1">银行账号：</span>
-								<span class="right_span1">中国银行</span><br>
-								<span class="right_span1 bank_num1">6222023602008574899</span><br>
-								<span class="right_span1 bank_name1">陈凯文</span>
-							</div>
-							<div class="one-cell1">
-								<span class="left_span1">备<span class="textck-1"></span>注：</span>
-								<span class="right_span1 user_beizhu1">打算恐龙当家阿斯利康大数据达拉斯建档立卡京东卡来点击阿萨德库拉索打了卡加大路口的骄傲离开的立刻大声就离开</span>
-							</div>
-							<div class="one-cell1">
-								<span class="left_span1">创建日期：</span>
-								<span class="right_span1">2017-10-30 11:45</span>
-							</div>
-							<div class="one-cell1">
-								<span class="left_span1">更新日期：</span>
-								<span class="right_span1">2017-10-30 18:30</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>`;
+		var str = 
+		'<div class="dailiShop_dets_modal">'+
+			'<div class="dailiShop_dets_div">'+
+				'<div class="dailiShop_dets_hd">'+
+					'<span class="close-span2">&times;</span>'+
+				'</div>'+
+				'<div class="dailiShop_dets_warp">'+
+					'<div class="dailiShop_dets_content">'+
+						'<div class="one-cell1">'+
+							'<span class="left_span1">姓<span class="textck-1"></span>名：</span>'+
+							'<span class="right_span1">嘛哩嘛哩哄</span>'+
+						'</div>'+
+						'<div class="one-cell1">'+
+							'<span class="left_span1">账<span class="textck-1"></span>号：</span>'+
+							'<span class="right_span1">zhanjunhao@527so.com</span>'+
+						'</div>'+
+						'<div class="one-cell1">'+
+							'<span class="left_span1">电<span class="textck-1"></span>话：</span>'+
+							'<span class="right_span1">13580546695</span>'+
+						'</div>'+
+						'<div class="one-cell1">'+
+							'<span class="left_span1">区<span class="textck-1"></span>域：</span>'+
+							'<span class="right_span1">广东广州天河</span>'+
+						'</div>'+
+						'<div class="one-cell1">'+
+							'<span class="left_span1">详细地址：</span>'+
+							'<span class="right_span1">广东广州天河大观中路95号A栋407-408</span>'+
+						'</div>'+
+						'<div class="one-cell1">'+
+							'<span class="left_span1">状<span class="textck-1"></span>态：</span>'+
+							'<span class="right_span1">启用</span>'+
+						'</div>'+
+						'<div class="one-cell1">'+
+							'<span class="left_span1">推<span class="textck-2"></span>荐<span class="textck-2"></span>码：</span>'+
+							'<span class="right_span1">YGSGE110001</span>'+
+						'</div>'+
+						'<div class="one-cell1 bank_cell1">'+
+							'<span class="left_span1">银行账号：</span>'+
+							'<span class="right_span1">中国银行</span><br>'+
+							'<span class="right_span1 bank_num1">6222023602008574899</span><br>'+
+							'<span class="right_span1 bank_name1">陈凯文</span>'+
+						'</div>'+
+						'<div class="one-cell1">'+
+							'<span class="left_span1">备<span class="textck-1"></span>注：</span>'+
+							'<span class="right_span1 user_beizhu1">打算恐龙当家阿斯利康大数据达拉斯建档立卡京东卡来点击阿萨德库拉索打了卡加大路口的骄傲离开的立刻大声就离开</span>'+
+						'</div>'+
+						'<div class="one-cell1">'+
+							'<span class="left_span1">创建日期：</span>'+
+							'<span class="right_span1">2017-10-30 11:45</span>'+
+						'</div>'+
+						'<div class="one-cell1">'+
+							'<span class="left_span1">更新日期：</span>'+
+							'<span class="right_span1">2017-10-30 18:30</span>'+
+						'</div>'+
+					'</div>'+
+				'</div>'+
+			'</div>'+
+		'</div>';
 		$(document.body).append(str);//ajax成功回调
 		wordlimit("user_beizhu1",25);//防止备注字符串过长
 		$(".dailiShop_dets_modal").fadeIn();

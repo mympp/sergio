@@ -8,13 +8,34 @@
 	    <link rel="stylesheet" href="../../css/index.css" />
 	    <link rel="stylesheet" href="../../css/release-product.css" />
 	   	<script type="text/javascript" src="../RichTextEdit/ueditor.config.js"></script>
-	    <script type="text/javascript" src="../RichTextEdit/ueditor.all.js"> </script>
+	    <script type="text/javascript" src="../RichTextEdit/ueditor.all.js"></script>
 	    <script type="text/javascript" src="../RichTextEdit/lang/zh-cn/zh-cn.js"></script>
 	    <style type="text/css">
-		#edui1_bottombar{
-			display: none;
-		}
-	    </style>
+			#edui1_bottombar{
+				display: none;
+			}
+			.input-code {
+				width:55%;
+				vertical-align: middle;
+			}
+			.i-code-btn {
+				display: inline-block;
+				width: 21%;
+				height: 30px;
+				background: #dcdcdc;
+				border-radius: 5px;
+				vertical-align: middle;
+				margin-left: 1%;
+				line-height: 30px;
+				text-align: center;
+				font-size: 14px;
+				color: #FFFFFF;
+			}
+			.as {
+				background: #1da1f2;
+				cursor: pointer;
+			}
+		</style>
 	</head>
 	<body style="min-width: 1366px;">
 		<!--父容器开始-->
@@ -82,6 +103,14 @@
 						<li class="buy_xiansuoli1">
 							<span class="buy_vip_icon1"></span>
 							<a href="javascript:;">购买会员</a>
+						</li>
+						<li class="xiansuoli1">
+							<span class="shopping-index"></span>
+							<a href="javascript:;">商城首页</a>
+						</li>
+						<li class="xiansuoli1">
+							<span class="cbd-center"></span>
+							<a href="javascript:;">商务中心</a>
 						</li>
 						<li class="xiansuoli1">
 							<span class="user_icon1"></span>
@@ -188,7 +217,7 @@
 							<div class="one-cell_rt">
 								<!--上传照片开始-->
 								<div class="img-box full">
-									<section class=" img-section">
+									<section class="img-section">
 										<div class="z_photo upimg-div">
 											<section class="z_file fl">
 												<img src="../../Images/a11.png" class="add-img">
@@ -255,6 +284,9 @@
 									<input type="text" class="input_cell_smm1 pd_counts1" placeholder="0.00"/>
 									<span style="font-size: 14px;color: #494949;margin-left: 5px;">单位</span>
 								</div>
+								<div class="compute_dets3">
+									<span class="Cspan-text1">发货期限&nbsp;&nbsp;&nbsp;&nbsp;自买家付款之日起<input type="text" class="input_cell_smm2 start_time1" placeholder="天数"/>天内发货</span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -265,6 +297,13 @@
 							<span class="btn_yes_1">确认</span>
 						</div>
 					</div>
+					<!--会员过期续费开始-->
+					<div class="pr-vip">
+						<span class="bg-img"></span>
+						<p class="vip-text"><span>温馨提示：</span>该功能模块只对认证会员免费使用，您的会员已过期，请续费。</p>
+						<div class="vip-btn">去续费</div>
+					</div>
+					<!--会员过期续费结束-->
 				</div>
 				<!--发布产品结束-->
 			</div>
@@ -278,6 +317,96 @@
 				<p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
 			</div>
 		</aside>
+		
+		<!--完善资料-->
+		<div class="Complete-model">
+			<div class="Complete-box">
+				<div class="Complete-box-top"><span>完善资料</span><i>&#215;</i></div>
+				<div class="Complete-box-head">
+					<img class="head-img" src="../../Images/set_portrait_nor.png" alt="">
+					<span class="head-text">
+						<span class="head-text-name">HI，<em>YOYO</em></span>
+						<span class="head-text-2">请完善信息资料，完善后您就可以发布产品免费推广啦~`</span>
+					</span>
+				</div>
+				<div class="Complete-box-body">
+					<div class="Complete-box-body-input">
+						<em class="Complete-box-ICO">*</em>
+						<span class="Complete-box-type">名&ensp;&ensp;&ensp;&ensp;称</span>
+						<input class="Complete-box-input Name" type="text" placeholder="请输入个人真实姓名或公司名称">
+						<span class="input-text i-name"></span>
+					</div>
+					<div class="Complete-box-body-input">
+						<em class="Complete-box-ICO">*</em>
+						<span class="Complete-box-type">证件类型</span>
+						<!--<input class="Complete-box-input" type="text" placeholder="请输入个人真实姓名或公司名称">-->
+						<select class="Complete-box-input genre">
+							<option value="1" style="color: #b6b6b6" disabled selected>请选择</option>
+							<option value="2">身份证</option>
+							<option value="3">营业执照</option>
+						</select>
+						<span class="input-text i-sf"></span>
+					</div>
+					<div class="Complete-box-body-input">
+						<em class="Complete-box-ICO">*</em>
+						<span class="Complete-box-type">证&ensp;件&ensp;号</span>
+						<input class="Complete-box-input code-yzm" type="text" placeholder="请输入证件号" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" maxlength="18">
+						<span class="input-text i-zj"></span>
+					</div>
+					<div class="Complete-box-body-input">
+						<em class="Complete-box-ICO">*</em>
+						<span class="Complete-box-type">手机号码</span>
+						<input class="Complete-box-input Phone" type="text" placeholder="请输入手机号码" onkeyup="value=value.replace(/[^\d]/g,'')" maxlength="11">
+						<span class="input-text i-phone"></span>
+					</div>
+					<div class="Complete-box-body-input">
+						<em class="Complete-box-ICO">*</em>
+						<span class="Complete-box-type">邮&ensp;&ensp;&ensp;&ensp;箱</span>
+						<input class="Complete-box-input Email" type="text" placeholder="请填写邮箱号码">
+						<span class="input-text i-email"></span>
+					</div>
+					<div class="Complete-box-body-input email-con">
+						<em class="Complete-box-ICO">&ensp;</em>
+						<span class="Complete-box-type">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</span>
+						<input class="Complete-box-input input-code" type="text" placeholder="请输入验证码" maxlength="4">
+						<span class="i-code-btn">获取验证码</span>
+						<span class="input-text i-code"></span>
+					</div>
+					<div class="Complete-box-body-input">
+						<em class="Complete-box-ICO">&ensp;</em>
+						<span class="Complete-box-type">联系地址</span>
+						<input class="Complete-box-input companyAddress" type="text" placeholder="请填写联系地址">
+					</div>
+					<div class="Complete-box-body-input Complete-box-IMG">
+						<em class="Complete-box-ICO">&ensp;</em>
+						<em class="Complete-box-ICO" style="position: absolute; left: 1px">*</em>
+						<span class="Complete-box-type" style="vertical-align: top">证件照片</span>
+						<span class="Complete-box-MinBOX"></span>
+						<em class="Complete-box-cloe"></em>
+						<img id="img0" class="Complete-box-MinBOX2" src="" alt="">
+						<input type="file"  style="display: none"  name="file0" id="file0" multiple accept="image/jpg,image/jpeg,image/png,image/bmp" />
+						<span class="input-text i-img" style="top: 88px;"></span>
+					</div>
+					<div style="margin-left: 21.5%;margin-top: -10px;position: relative;">
+						<input class="checkbox-zl" type="checkbox" checked="true">
+						<span class="check-img"></span>
+						<em class="check-em">我已阅读并同意 <i class="check-i">《雀搜服务协议》</i></em>
+						<span class="input-text i-checkbox" style="left: 0px;top: 23px;"></span>
+					</div>
+				</div>
+				<div class="Complete-box-btn">提交</div>
+			</div>
+
+		</div>
+		<!--完善资料提交成功提示-->
+		<div class="Complete-model-wan">
+			<div class="wan-box">
+				<div class="wan-text">
+					您的资料已经提交，请上传您要推广的商品，审核通过后，雀搜平台将为您商品免费全网推广啦~
+				</div>
+			</div>
+		</div>
+		
 		<!--CRM引导-->
 		<div class="Guidance-box" style="display: none">
 			<img class="Guidance" src="../../Images/fabu01.jpg" alt="">
@@ -288,14 +417,14 @@
 		<script src="../../js/laydate.js"></script>
 		<script src="../../js/imgUp.js"></script>
 		<script src="../../js/release-product.js"></script>
-		<script>var ue = UE.getEditor('editor');</script>
+		<script src="../../js/release-wan.js"></script>
 		<script>
 			$(function(){
-				var FabuIndex = false;
-				if(FabuIndex) {
-					$(".Guidance-box").show();
-				}else {
-					$(".Guidance-box").hide();
+				var ue = UE.getEditor('editor');
+				var html = '<section class="up-section fl"><span class="up-span"></span><img class="close-upimg" src="../../Images/a7.png"><img class="up-img" src="blob:http://192.168.1.180:8020/26a75138-0e45-4014-803b-0cf84eb43641"><p class="img-name-p">rgb颜色表.png</p><input id="taglocation" name="taglocation" value="" type="hidden"><input id="tags" name="tags" value="" type="hidden"></section>';
+				$(".upimg-div .z_file").before(html);
+				if($(".up-section").length>2){
+					$(".z_file").hide();
 				}
 			})
 		</script>

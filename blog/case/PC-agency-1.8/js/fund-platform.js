@@ -6,9 +6,6 @@ $(function(){
 		if($(".table-content").scrollTop()>0){
 			$(".table-head").css("paddingRight","17px");
 		}
-		
-//		$(".icon-shopping").eq(0).addClass("active").siblings().removeClass("active");
-//		$(".icon-money-div").css("display","block").find("p").eq(0).addClass("open");
 	})
 	
 	$(window).resize(function(){

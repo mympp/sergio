@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>账号绑定</title>
+		<link rel="stylesheet" href="../../css/common.css" />
+	    <link rel="stylesheet" href="../../css/setPassword.css" />
+	    <style type="text/css">
+	    .setpwd-head{
+	    	width: 100%;
+	    	border-bottom: 1px solid #dcdcdc;
+	    }
+	    .SetpwdTop{
+	    	width: 1200px;
+	    	margin: 0 auto;
+	    }
+		.Setpwd_form{
+			width: 1200px;
+			margin: 160px auto 0;
+		}
+	    .Setpwd-success{
+	    	text-align: center;
+	    }
+	    .Setpwd-success p{
+	    	font-size: 18px;
+	    	color: #494949;
+	    	font-weight: bold;
+	    	margin-top: 16px;
+	    }
+	    .Setpwd-text{
+	    	text-align: center;
+	    }
+	    .Setpwd-text p{
+	    	font-size: 16px;
+			color: #494949;
+			margin: 44px 0 20px;
+	    }
+		.lock_pwd_bg1,
+		.lock_pwd_bg{
+		    position: absolute;
+		    top: 15px;
+		    right: 5%;
+		    cursor: pointer;
+		    display: inline-block;
+		    width: 18px;
+		    height: 18px;
+		    background: url(../../Images/icon_login_wertyui@2x.png)no-repeat;
+		    background-size: 100% 100%;
+		    z-index: 100;
+		}
+
+		.lock_pwd_bg1.open,
+		.lock_pwd_bg.open{
+			width: 25px;
+			height: 25px;
+			top: 10px;
+			background: url(../../Images/icon_login_wertyuiiii@2x.png)no-repeat;
+		    background-size: 100% 100%;
+		}
+		.RegBottom{
+	    	border-top: 1px solid #dcdcdc;
+		}
+	    </style>
+	</head>
+	<body class="setBody" style="min-height: 850px;">
+		<!--头部开始-->
+		<div class="setpwd-head">
+	        <div class="SetpwdTop">
+	           	<a href="index.html" class="logo"></a>
+	            <p>账号绑定</p>
+	        </div>
+	    </div>
+        <!--头部结束-->
+		<div class="Setpwd-box">
+        	<!--表单开始-->
+        	<div class="Setpwd_form" id="RegPhone">
+        		<div class="Setpwd-success">
+        			<img src="../../Images/icon_success_care.png" width="30px">
+        			<p>手机号绑定成功</p>
+        		</div>
+        		<div class="Setpwd-text">
+        			<p>请设置密码，您可用手机号码+密码登录</p>
+        		</div>
+        		<div class="one-cell1 error_code1">
+        			<span class="error_code1_bg"></span>
+        			<div class="error_msg1_tips"></div>
+        		</div>
+        		<div class="one-cell1">
+        			<span class="userlock_code1_bg"></span>
+        			<i class="line_bdr"></i>
+        			<input type="password" class="input_cell_1 user_pwd1" placeholder="请输入您的新密码"/>
+					<span class="lock_pwd_bg"></span>
+        		</div>
+        		<div class="one-cell1">
+        			<span class="userlock_code1_bg"></span>
+        			<i class="line_bdr"></i>
+        			<input type="password" class="input_cell_1 user_pwd2" placeholder="请再次输入您的新密码"/>
+					<span class="lock_pwd_bg1"></span>
+        		</div>
+        		
+        		<!--提交按钮-->
+        		<div class="submit_button">
+        			提交
+        		</div>
+        	</div>
+        	<!--表单结束-->
+		</div>
+	    
+       	<!--底部开始-->
+	    <div class="RegBottom">
+	        <ul>
+	            <li class="li1"><span><i>客服电话： 400-8088770 | 9:00-18:30</i></span></li>
+	            <li class="li2"><span><i>关于我们</i></span></li>
+	            <li class="li3"><span><i>雀搜微信公众号 : 雀搜</i></span></li>
+	        </ul>
+	    </div>
+	    <!--底部结束-->
+		<script src="../../js/jquery.js"></script>
+		<script>
+			$(function(){
+				getHeight();//获取高度
+				
+				$(window).resize(function(){
+					getHeight();//获取高度
+				})
+				
+				//键盘回车事件
+				$(document).on("keydown", "#RegPhone", function(e) {
+					if(e.keyCode==13){
+						checkPassword();
+					}
+				})
+
+				//为提交按钮绑定单击事件
+				$(document).on("click",".submit_button",function(){
+					checkPassword();
+				})
+
+				function checkPassword(){
+					var pwd1 = $(".user_pwd1").val();
+					var pwd2 = $(".user_pwd2").val();
+					if(pwd1.length > 0) {
+						console.log(111);
+						$(".user_pwd1").parents(".one-cell1").removeClass("error");
+					}
+					if(pwd2.length > 0) {
+						console.log(222);
+						$(".user_pwd2").parents(".one-cell1").removeClass("error");
+					}
+					if(pwd1 == "" || pwd1 == undefined){
+						$(".error_code1").show().find(".error_msg1_tips").text("新密码不能为空");
+						$(".user_pwd1").parents(".one-cell1").addClass("error");
+					}else if(pwd2 == "" || pwd2 == undefined){
+						$(".error_code1").show().find(".error_msg1_tips").text("请再次输入您的密码");
+						$(".user_pwd2").parents(".one-cell1").addClass("error");
+					}else if(pwd1!=pwd2){
+						$(".error_code1").show().find(".error_msg1_tips").text("两次输入的密码不一致，请重输！");
+					}else{
+						$(".error_code1").hide().find(".error_msg1_tips").text("");
+						console.log(pwd1,pwd2);//发起ajax
+						location.href="../CRM/index.html";
+					}
+				}
+				//为查看密码绑定单击事件
+				$(document).on("click",".lock_pwd_bg",function(){
+					if($(this).hasClass("open")){
+						$(this).removeClass("open");
+						$(".user_pwd1").prop("type","password");
+					}else{
+						$(this).addClass("open");
+						$(".user_pwd1").prop("type","text");
+					}
+				})
+				$(document).on("click",".lock_pwd_bg1",function(){
+					if($(this).hasClass("open")){
+						$(this).removeClass("open");
+						$(".user_pwd2").prop("type","password");
+					}else{
+						$(this).addClass("open");
+						$(".user_pwd2").prop("type","text");
+					}
+				})
+			})
+			
+			function getHeight(){
+				var winH = $(window).height();
+				$(".setBody").height(winH);
+			}
+		</script>
+	</body>
+</html>

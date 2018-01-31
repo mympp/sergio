@@ -51,12 +51,5 @@ $(function(){
 //定义高度获取方法
 function getHeight(){
 	var winH = $(window).height();//浏览器高度
-	var TopH1 = $(".left_header").height();//页面顶部高度
-	var TopH2 = $(".consult-nav").height();//咨询信息导航高度
-	var padH = parseInt($(".consult-main").css("padding"))*2;//外层容器上下边距
-	var formPd = 30+parseInt($(".consult-form").css("marginTop"));//表单盒子上下内边距+上外边距
-	var formH = winH - (TopH1 + TopH2 + padH + formPd);//表单盒子的高度
 	$(".left_template,.right_template").height(winH);
-	$(".consult-main").height(winH-TopH1-padH);
-	$(".consult-form").height(formH);
 }

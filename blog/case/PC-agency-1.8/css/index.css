@@ -63,6 +63,7 @@
     color: #333333;
     vertical-align: middle;
     cursor: pointer;
+    display: block;
 }
 
 .userList_li:hover,
@@ -207,34 +208,39 @@
     cursor: pointer;
 }
 
-.icon-money-div p,
-.icon-data-div p,
-.icon-person-div p,
-.icon-shopping-div p {
+.icon-money-div a,
+.icon-data-div a,
+.icon-person-div a,
+.icon-shopping-div a {
+	display: block;
     padding-left: 48px;
 }
 
-.icon-money-div  p.open,
-.icon-data-div  p.open,
-.icon-person-div  p.open,
-.icon-shopping-div p.open {
+.icon-money-div  a.open,
+.icon-data-div  a.open,
+.icon-person-div  a.open,
+.icon-shopping-div a.open {
     color: #1da1f2;
 }
 /*右边主题内容开始*/
 /*左边头部开始*/
 .CopyText {
     display: inline-block;
-    width: 100px;
-    height: 30px;
+    width: 80px;
+    height: 26px;
     text-align: center;
-    line-height: 30px;
+    line-height: 26px;
     color: #fff;
-    font-size: 14px;
+    font-size: 12px;
     background: #ff7977;
     border-radius: 5px;
-    margin-left: 22px;
+    /*margin-left: 22px;*/
     cursor: pointer;
+    position: relative;
+    top: -52px;
+    left:0;
 }
+
 .left_header {
     float: left;
     width: 70%;
@@ -253,41 +259,65 @@
     position: relative;
     top: 1px;
 }
-
+.vip-hide {
+    margin-top: 6px;
+    display: inline-block;
+    width: 322px;
+    height: 70px;
+}
 .left_header .vip-valid {
     float: left;
     color: #ff7977;
-    font-size: 16px;
-    height: 70px;
-    line-height: 70px;
+    font-size: 14px;
+    height: 26px;
+    line-height: 26px;
     margin-left: 38px;
-    /*position: relative;
-    top: 1px;*/
+    vertical-align: bottom;
+    margin-bottom: 6px;
 }
+
 .vip-valid>input {
+	width: 140px;
     border: 0px;
+    background: none;
     color: #ff7977;
     font-size: 16px;
-    height: 70px;
-    line-height: 70px;
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
-    /*width: 205px;*/
-    width: 140px;
 }
+
 .left_header>em {
     font-style: normal;
-    font-size: 16px;
+    font-size: 14px;
     color: #494949;
-    margin-left: 50px;
-    position: relative;
-    top: 1px;
+    /*margin-left: 50px;*/
+    position: absolute;
+    top: 17px;
+    left: 740px;
+
 }
+
 .left_header>em>i {
     font-style: normal;
-    font-size: 16px;
+    font-size: 14px;
     color: #494949;
+    position: relative;
+    cursor: default;
+    /*display: inline-block;*/
+}
+
+.left_header>em>i>img{
+	position: absolute;
+	display: none;
+	width: 164px;
+	height: 164px;
+    top: 25px;
+    left: -3px;
+}
+
+.left_header>em>i:hover .agent_referral_inline{
+	display: block;
 }
 /*左边头部结束*/
 
@@ -403,7 +433,7 @@
     border:1px solid #b8e1f0;
     border-radius: 5px;
     /*box-shadow:1px 1px 10px #d8d8d8;*/
-    z-index: 999;
+    z-index: 99999;
 }
 .right_center>p>em {
     position: absolute;
@@ -674,14 +704,22 @@
 /*系统消息界面样式结束*/
 @media screen and (max-width: 1880px){
     .left_header .vip-valid {
-        margin-left: 20px;
+        margin-left: 1px;
+    }
+    .CopyText01 {
+        left: -35px;
+    }
+    .CopyText02 {
+        left: -118px!important;
     }
     .left_header>em {
-        margin-left: 20px;
+        position: absolute;
+        top: 17px;
+        left: 688px;
     }
-    .CopyText {
-        margin-left: 12px;
-    }
+    /*.CopyText {*/
+        /*margin-left: 12px;*/
+    /*}*/
     .left_header {
         width: 65%;
     }
@@ -697,3 +735,94 @@
     color: #898989!important;
 }
 /*1.8页面公用样式结束*/
+/*无数据样式开始*/
+.no-data-box{
+    width: 102px;
+    height: 100px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+.no-data-box p{
+    font-size: 14px;
+    color: #aaa;
+    line-height: 28px;
+}
+/*无数据样式结束*/
+
+.show{
+	display: block;
+}
+
+/*操作成功模态框开始*/
+.sucuess-modal{
+    width: 100%;
+    height: 100%;
+    display: none;
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10000;
+}
+
+.sucuess-modal-cell{
+    width: 350px;
+    height: 160px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.sucuess-modal-cell img{
+    margin-top: 40px;
+}
+
+.sucuess-modal-cell p{
+    font-size: 18px;
+    color: #494949;
+    font-weight: 600;
+    margin-top: 20px;
+    padding-left: 5px;
+}
+/*操作成功模态框结束*/
+
+.ajax_loadModal{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    background: rgba(0,0,0,.3);
+    z-index: 99999;
+    display: none;
+}
+.ajax_load_img{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+/*异步加载模态框结束*/

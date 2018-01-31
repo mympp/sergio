@@ -1,16 +1,8 @@
 $(function() {
-	$(".left_template").load("left_nav.html"); //异步加载左侧导航
-	$(".right_template").load("right_nav.html", function() {
-		//console.log(pages);
-		if(pages) {
-			$(".page_state").text(pages);
-		}
+	$(".right_template").load("right_nav.html",function(){
 		HeadNav();
-		
-		$(".userList_li").eq(index1).addClass("active").siblings().removeClass("active");//父层模块下标
-		$(".userList_li").eq(index1).next().show().find("p").eq(index2).addClass("open");//子层模块下标
-	}); //异步加载右侧导航
-
+	}); //异步加载左侧导航
+	
 	//有未读消息的条件下出现小红点在消息图标上方
 	var messageRed = true //为true时小红点存在表示有未读消息
 	if(messageRed) {
@@ -20,12 +12,13 @@ $(function() {
 	}
 
 	$(window).resize(function() {
-		//console.log($(window).width());
 		HeadNav();
 	})
 
 	//点击头部信息的按钮
 	$(document).on("click", ".message_button", function() {
+		var html = $(".left_template").html();
+		sessionStorage['html_left'] = html;
 		location.href = "../view/MessageCenter.html";
 	})
 
@@ -67,8 +60,8 @@ $(function() {
 		$(".delete-modal").fadeOut();
 	})
 
-	//复制文本到右键
-	$(document).on("click", ".CopyText", function() {
+	//复制文本到右键1
+	$(document).on("click", ".CopyText01", function() {
 		$("#Ctext").select();
 		document.execCommand("Copy"); //执行浏览器复制命令此命令兼容各大浏览器
 		$(".right_center>p>i").text("复制成功")
@@ -80,164 +73,24 @@ $(function() {
 			$(".right_center").fadeOut();
 		}, 1000);
 	})
-
-	//为左侧导航li绑定单击事件
-	$(document).on("click", ".userList_li", function() {
-		var index = $(this).index();
-		console.log(index);
-		if(index == 0) {
-			$(".page_state").text("首页");
-			location.href = "../view/index.html";
-
-		}
-		if(index == 1) {
-			$(".icon-money-div").stop(true, false).slideToggle();
-			$(".icon-data-div").slideUp()
-			$(".icon-person-div").slideUp()
-			$(".icon-shopping-div").slideUp()
-			$(".icon-shopping-1:eq(0)").addClass("activeDown");
-			$(".icon-shopping-1").not(".icon-shopping-1:eq(0)").removeClass("activeDown");
-			$(".page_state").text("资金管理")
-			location.href = "../view/fund-platform.html";
-			$(".icon-money-div p:eq(0)").addClass("open").siblings().removeClass("open");
-
-		}
-
-		if(index == 3) {
-			$(".icon-data-div").stop(true, false).slideToggle();
-			$(".icon-money-div").slideUp()
-			$(".icon-person-div").slideUp()
-			$(".icon-shopping-div").slideUp()
-			$(".icon-shopping-1:eq(1)").addClass("activeDown");
-			$(".icon-shopping-1").not(".icon-shopping-1:eq(1)").removeClass("activeDown");
-			$(".page_state").text("数据管理")
-			$(".icon-data-div p:eq(0)").addClass("open").siblings().removeClass("open");
-			location.href = "../view/data-daili.html";
-		}
-
-		if(index == 5) {
-			$(".icon-person-div").stop(true, false).slideToggle();
-			$(".icon-money-div").slideUp()
-			$(".icon-data-div").slideUp()
-			$(".icon-shopping-div").slideUp()
-			$(".icon-shopping-1:eq(2)").addClass("activeDown");
-			$(".icon-shopping-1").not(".icon-shopping-1:eq(2)").removeClass("activeDown");
-			$(".page_state").text("角色管理")
-			$(".icon-person-div p:eq(0)").addClass("open").siblings().removeClass("open");
-			location.href = "../view/juese-admin.html";
-		}
-
-		if(index == 7) {
-			$(".icon-shopping-div").stop(true, false).slideToggle();
-			$(".icon-money-div").slideUp()
-			$(".icon-data-div").slideUp()
-			$(".icon-person-div").slideUp()
-			$(".icon-shopping-1:eq(3)").addClass("activeDown");
-			$(".icon-shopping-1").not(".icon-shopping-1:eq(3)").removeClass("activeDown");
-			$(".page_state").text("系统管理")
-			$(".icon-shopping-div p:eq(0)").addClass("open").siblings().removeClass("open");
-			location.href = "../view/set-user.html";
-		}
-		$(this).addClass("active").siblings().removeClass("active");
+	//复制文本到右键2
+	$(document).on("click", ".CopyText02", function() {
+		$("#Ctext02").select();
+		document.execCommand("Copy"); //执行浏览器复制命令此命令兼容各大浏览器
+		$(".right_center>p>i").text("复制成功")
+		$(".right_center>p>i").css({
+			"fontSize": 18
+		})
+		$(".right_center").fadeIn();
+		setTimeout(function() {
+			$(".right_center").fadeOut();
+		}, 1000);
 	})
-
-	//为左侧导航系统设置下拉菜单绑定单击事件
-	$(document).on("click", ".icon-shopping-div p", function(e) {
-		var index = $(this).index();
-		$(this).addClass("open").siblings().removeClass("open");
-		if($(this).hasClass("open")) {
-			if(index == 0) {
-				location.href = "../view/set-user.html";
-			}
-			if(index == 1) {
-				location.href = "../view/set-send.html";
-			}
-			if(index == 2) {
-				location.href = "../view/set-history.html";
-			}
-			if(index == 3) {
-				location.href = "../view/set-password.html";
-			}
-			if(index == 4) {
-				location.href = "../view/set-divide.html";
-			}
-			$(this).parent().prev().addClass("active").siblings().removeClass("active");
-		}
-		e.stopPropagation();
-	})
-
-	//为左侧导航角色管理下拉菜单绑定单击事件
-	$(document).on("click", ".icon-person-div p", function(e) {
-		var index = $(this).index();
-		$(this).addClass("open").siblings().removeClass("open");
-		if($(this).hasClass("open")) {
-			if(index == 0) {
-				location.href = "../view/juese-admin.html";
-			}
-			if(index == 1) {
-				location.href = "../view/juese-agent.html";
-			}
-			if(index == 2) {
-				location.href = "../view/juese-check.html";
-			}
-			if(index == 3) {
-				location.href = "../view/juese-salesman.html";
-			}
-			if(index == 4) {
-				location.href = "../view/juese-trainer.html";
-			}
-			$(this).parent().prev().addClass("active").siblings().removeClass("active");
-		}
-		e.stopPropagation();
-	})
-
-	//为左侧导航数据管理下拉菜单绑定单击事件
-	$(document).on("click", ".icon-data-div p", function(e) {
-		var index = $(this).index();
-		$(this).addClass("open").siblings().removeClass("open");
-		if($(this).hasClass("open")) {
-			if(index == 0) {
-				location.href = "../view/data-daili.html";
-			}
-			if(index == 1) {
-				location.href = "../view/data-market.html";
-			}
-			if(index == 2) {
-				location.href = "../view/data-train.html";
-			}
-			if(index == 3) {
-				location.href = "../view/data-vip.html";
-			}
-			$(this).parent().prev().addClass("active").siblings().removeClass("active");
-		}
-		e.stopPropagation();
-	})
-
-	//为左侧导航资金管理下拉菜单绑定单击事件
-	$(document).on("click", ".icon-money-div p", function(e) {
-		var index = $(this).index();
-		$(this).addClass("open").siblings().removeClass("open");
-		if($(this).hasClass("open")) {
-			if(index == 0) {
-				var state = 1; //0为平台 1为代理商 2为培训师
-				if(state == 0) {
-					location.href = "fund-platform.html";
-				}
-
-				if(state == 1) {
-					location.href = "fund-daili.html";
-				}
-
-				if(state == 2) {
-					location.href = "fund-trainer.html";
-				}
-			}
-			if(index == 1) {
-				location.href = "fund-money.html";
-			}
-			$(this).parent().prev().addClass("active").siblings().removeClass("active");
-		}
-		e.stopPropagation();
+	//为展开元素绑定单击事件
+	$(document).on("click",".icon-shopping",function(){
+		$(".left_template").find("*").removeClass("active");
+		$(this).parents(".slider_List").find("div").slideUp();
+		$(this).addClass("active").next("div").stop(true, false).slideToggle();
 	})
 
 	//初始化分页器的值

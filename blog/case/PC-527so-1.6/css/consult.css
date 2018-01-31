@@ -3,7 +3,7 @@
 .consult-main{
     float: left;
     width: 98%;
-    padding: 1% 1% 0;
+    padding: 1%;
     background: #efefef;
 }
 
@@ -109,7 +109,6 @@
     background: #fff;
     border-radius: 5px;
     margin-top: 1%;
-    overflow: hidden;
 }
 
 .inbox-nav{

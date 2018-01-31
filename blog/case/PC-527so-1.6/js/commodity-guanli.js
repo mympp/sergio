@@ -1,13 +1,152 @@
 $(function() {
-	var pageVal = $(".xiansuo_Page_Three").val();
-	$(".xiansuo_Pages").html(pageVal+"页");
+	var DataThis ;//记录this;
 	
 	getHeight(); //动态设置高度
 	
 	$(window).resize(function() {
 		getHeight();
 	})
+	
+	//colse关闭窗口
+	$(document).on("click",".clos-tishi",function(){
+		$(".tishi-model").hide();
+	})
+	
+	//colse关闭采购商零窗口
+	$(document).on("click",".clos-tishi",function(){
+		$(".tishi-model-1").hide();
+	})
+	
+	//点击查看明细
+	$(document).on("click",".text-bottom",function(){
+		$(".tsRz-modal").show();
+		$(".tishi-model").hide();
+	})
+	
+	//点击蓝色标题进入页面
+	$(document).on("click",".tishi-center>p>em",function(){
+		location.href = "www.baidu.com" //这里换成商品地址
+	})
 
+	//是否认证会员
+	if(vipstate){
+		//为0第一次点击推送
+		if(numstate == 0){
+			//一键推送事件
+			$(document).on("click",".add-ts1",function(){
+				DataThis = $(this);
+				if(DataThis.find("p").html()=="一键推送") {
+					$(".HintBigBox").show();
+					$(".Hint1").show();
+
+				}
+				else if(DataThis.find("p").html()=="取消推送"){
+					$(".HintBigBox").show();
+					$(".Hint3").show();
+				}
+			})
+		}
+		
+		//为1第二次点击推送
+		if(numstate == 1){
+			$(document).on("click",".add-ts1",function(){
+				DataThis = $(this);
+				if(DataThis.find("p").html()=="一键推送"){
+					$(".HintBigBox").show();
+					$(".Hint2").show();
+				}
+				else if(DataThis.find("p").html()=="取消推送"){
+					$(".HintBigBox").show();
+					$(".Hint3").show();
+				}
+			})
+		}
+		
+		//2为体验会员过期
+		if(numstate == 2){
+			$(document).on("click",".add-ts1",function(){
+				DataThis = $(this);
+				if(DataThis.find("p").html()=="一键推送"){
+					$(".HintBigBox").show();
+					$(".Hint8").show();
+				}
+			})
+		}
+	}else{
+		//一键推送事件
+		$(document).on("click",".add-ts1",function(){
+			DataThis = $(this);
+			if(vipnum <=1) {
+				if (DataThis.find("p").html() == "一键推送") {
+					$(".HintBigBox").show();
+					$(".Hint4").show();
+				}
+				else{
+					$(".HintBigBox").show();
+					$(".Hint5").show();
+				}
+			}else if(vipnum >1&&vipnum <5) {
+				if (DataThis.find("p").html() == "一键推送") {
+					$(".HintBigBox").show();
+					$(".Hint6").show();
+				}
+				else if(DataThis.find("p").html()=="取消推送"){
+					$(".HintBigBox").show();
+					$(".Hint5").show();
+					$(".Hint6").hide();
+				}
+			}else {
+				$(".HintBigBox").show();
+				$(".Hint7").show();
+			}
+		})
+	}
+	
+	//认证会员状态一键推送提示框点击取消推送后点击事件
+	$(document).on("click",".Hint-K5",function(){
+		var id = DataThis.parents("li").attr("name");
+		if(DataThis.find("p").html()=="取消推送"){
+			console.log("取消推送");
+			DataThis.find("img").attr("src","../../Images/goods_icon_push_nor.png").siblings("p").html("一键推送").parents("li").attr("data-ts","false")/*.find(".xiansuo_List_state").removeClass("yi_tuisong").html("");*/
+			console.log(id);
+			$(".HintBigBox").fadeOut();
+			$(".Hint5").fadeOut();
+		}
+	})
+
+	//点击一键推送提示框继续推送
+	$(document).on("click",".Hint-K2",function(){
+		$(".AnimationBox").show();
+		setTimeout(function(){
+			$(".AnimationBox").hide();
+			$(".tishi-model").show();
+		},2000)
+		var id = DataThis.parents("li").attr("name");
+		if(DataThis.find("p").html()=="一键推送"){
+			console.log("一键推送");
+			DataThis.find("img").attr("src","../../Images/goods_icon_push2_pre.png").siblings("p").html("取消推送").parents("li").attr("data-ts","true")/*.find(".xiansuo_List_state").addClass("yi_tuisong").html("已加入推送");*/
+			DataThis.find("img").siblings("p").parents("li").attr("data-ts","true")/*find(".xiansuo_List_state").addClass("yi_tuisong").html("已推送8次");*/
+			$(".HintBigBox").fadeOut();
+			$(".Hint4").fadeOut();
+			console.log(id);
+		}
+	})
+
+	//点击一键推送提示框取消按钮关闭窗口
+	$(document).on("click",".Hint-D",function(){
+		$(".HintBigBox").hide();
+		$(".Hint").hide();
+	})
+	
+	//点击一键推送提示框close(X)关闭窗口事件
+	$(document).on("click",".Hint-clos",function(){
+		$(".HintBigBox").hide();
+		$(".Hint").hide();
+	})
+
+	var pageVal = $(".xiansuo_Page_Three").val();
+	$(".xiansuo_Pages").html(pageVal+"页");
+	
 	if($(".xiansuo_List li").length == 0){//如果页面的li长度等于0
 		$("#checkall").prop("checked", false);//关闭全选
 		$("#checkall").prop("disabled", "false");//禁用全选
@@ -18,9 +157,8 @@ $(function() {
 		$(".xiansuo_Page_Div").show();//隐藏分页器
 	}
 
-	wordlimit("jiequ_str",56);//截取字符串
-
 	var time1 = new Date().Format("yyyy-MM-dd");//此处为后台传入时间的变量(最小时间)
+	console.log(time1);
 	var start = {
 		elem: '#inputStartTime',
 		max: time1,//此处为起始时间的值
@@ -54,7 +192,6 @@ $(function() {
 	$(document).on("click","#expiration_time",function(){
 		laydate(jiezhi);
 	});
-	
 	
 	//为确认筛选按钮绑定单击事件
 	$(document).on("click",".saixuan_btn",function(){
@@ -184,25 +321,33 @@ $(function() {
 		$(".delete-modal3").fadeOut();
 	})
 	
-	//为加入推送按钮绑定单击事件
-	$(document).on("click",".add-ts1",function(){
-		var id = $(this).parents("li").attr("name");
-		if($(this).find("p").html()=="取消推送"){
-			console.log("取消推送");
-			$(this).find("img").attr("src","../../Images/goods_icon_push_nor.png").siblings("p").html("加入推送").parents("li").attr("data-ts","false").find(".xiansuo_List_state").removeClass("yi_tuisong").html("");
-			$(".sucuess-modal").fadeIn();
-			setTimeout(function(){
-				$(".sucuess-modal").fadeOut();
-			},1500);
+	//一键推送提示框点击确定后点击事件
+	$(document).on("click",".Hint-K0",function(){
+		$(".AnimationBox").show();
+		setTimeout(function(){
+			$(".AnimationBox").hide();
+			$(".tishi-model").show();
+		},2000)
+		var id = DataThis.parents("li").attr("name");
+		if(DataThis.find("p").html()=="一键推送"){
+			console.log("一键推送")
+			DataThis.find("img").attr("src","../../Images/goods_icon_push2_pre.png").siblings("p").html("取消推送").parents("li").attr("data-ts","true").find(".xiansuo_List_state").addClass("yi_tuisong").html("已加入推送");
+			DataThis.find("img").siblings("p").parents("li").attr("data-ts","true").find(".xiansuo_List_state").addClass("yi_tuisong").html("已推送8次");
+			$(".HintBigBox").fadeOut();
+			$(".Hint1").fadeOut();
 			console.log(id);
-		}else{
-			console.log("加入推送")
-			$(this).find("img").attr("src","../../Images/goods_icon_push_pre.png").siblings("p").html("取消推送").parents("li").attr("data-ts","true").find(".xiansuo_List_state").addClass("yi_tuisong").html("已加入推送");
-			$(".sucuess-modal").fadeIn();
-			setTimeout(function(){
-				$(".sucuess-modal").fadeOut();
-			},1500);
-			console.log(id);
+		}
+	})
+	
+	//一键推送提示框点击取消推送后点击事件
+	$(document).on("click",".Hint-K1",function(){
+		var id = DataThis.parents("li").attr("name");
+		if(DataThis.find("p").html()=="取消推送"){
+				console.log("取消推送");
+				DataThis.find("img").attr("src","../../Images/goods_icon_push_nor.png").siblings("p").html("一键推送").parents("li").attr("data-ts","false").find(".xiansuo_List_state").removeClass("yi_tuisong").html("");
+				console.log(id);
+				$(".HintBigBox").fadeOut();
+				$(".Hint3").fadeOut();
 		}
 	})
 	
@@ -212,37 +357,67 @@ $(function() {
 	})
 	
 	//为滑动箭头a元素绑定单击事件
-	$(document).on("click",".click_sjbtn",function(){
+	$(document).on("click",".tsRz-saixuan-li",function(){
 		var str = "";
 		var that = $(this);
-		if($(this).hasClass("open")){
-			$(this).removeClass("open").addClass("close").siblings(".slider_content1").stop(true,false).slideUp();
-			setTimeout(function(){
-				console.log(that);
-				that.next().next().remove();
-			},300);	
+		
+		if(that.hasClass("open")){
+			that.removeClass("open").addClass("close").children(".slider_content1").stop(true,false).slideUp();
 		}else{
-			str+=`<div class="slider_content1">
-					<div class="slider_content1_lf">
-						<div>联系人：陈先生</div>
-						<div>手<span class="pdlf-14"></span>机：13580546695</div>
-						<div>电<span class="pdlf-14"></span>话：020-8678888</div>
-						<div>邮<span class="pdlf-14"></span>箱：642307404@qq.com</div>
-					</div>
-					<div class="slider_content1_rt">
-						<div>地<span style="padding-left: 28px;"></span>址： 陈先生</div>
-						<div class="jiequ_str">线索描述：肯德基撒恐龙当家萨洛克的撒娇快乐的撒线索描述：肯德基撒恐龙当家萨洛克的撒娇快乐的撒线索描述：肯德基撒恐龙当家萨洛克</div>
-						<div>创建时间：2017-09-13 18:15</div>
-					</div>
-				</div>`;
-			$(this).next().after(str);
-			$(this).removeClass("close").addClass("open").siblings(".slider_content1").stop(true,false).slideDown();
+			that.children(".slider_content1").remove();
+			$.ajax({
+	            type: 'GET',
+	            url: '../../js/shopData.json',
+	            dataType: 'json',
+	            success: function(data) {
+	                console.log(data);
+	                var arrLen = data.dataList.length;
+	                console.log(arrLen);
+	                if(arrLen > 0 ) {
+	                    for(var i = 0; i < arrLen; i++) {
+					        str+=
+							'<div class="slider_content1" name="'+data.dataList[i].cid+'">'+
+									'<div class="slider_content1_lf">'+
+										'<div>联系人：'+data.dataList[i].username+'</div>'+
+										'<div>手<span class="pdlf-14"></span>机：'+data.dataList[i].phone+'</div>'+
+										'<div>电<span class="pdlf-14"></span>话：'+data.dataList[i].tel+'</div>'+
+										'<div>邮<span class="pdlf-14"></span>箱：'+data.dataList[i].email+'</div>'+
+									'</div>'+
+									'<div class="slider_content1_rt">'+
+										'<div>地<span style="padding-left: 28px;"></span>址：'+data.dataList[i].address+'</div>'+
+										'<div class="jiequ_str">线索描述：'+data.dataList[i].details+'</div>'+
+										'<div>创建时间：'+data.dataList[i].startTime+'</div>'+
+									'</div>'+
+									'<span class="shift_kehu">'+data.dataList[i].iskehu+'</span>'+
+							'</div>';
+	                    }
+	                }
+			        that.children(".tsRz-saixuan-lihd").after(str);
+					wordlimit("jiequ_str",23);//截取字符串
+					that.removeClass("close").addClass("open").children(".slider_content1").stop(true,false).slideDown();
+	            }
+	        });
 		}
+	})
+	
+	//为转为客户按钮绑定单击事件
+	$(document).on("click",".shift_kehu",function(){
+		if($(this).text()=="已转客户"){
+			return false;
+		}
+		var id = $(this).parents(".slider_content1").attr("name");
+		console.log(id+" 发起ajax");//发起ajax
+		$(".sucuess-modal").fadeIn();//ajax成功回调
+		$(this).addClass("active").text("已转客户");
+		setTimeout(function(){
+			$(".sucuess-modal").fadeOut();
+		},1500);
 	})
 	
 	//为推送日志图片绑定单击事件
 	$(document).on("click",".ts-rizhi1",function(){
 		$(".tsRz-modal").fadeIn();
+		getHeight();
 	})
 	
 	//为推送日志X按钮绑定单击事件
@@ -253,6 +428,7 @@ $(function() {
 	//为推送日志图片绑定单击事件
 	$(document).on("click",".edit-1",function(){
 		$(".tsXq-modal").fadeIn();
+		getHeight();
 	})
 	
 	//为编辑详情X按钮绑定单击事件
@@ -301,6 +477,7 @@ $(function() {
 		var pd_price = $(".pd_price").val();//获取产品价格
 		var smm_count1 = $(".smm_count1").val();//获取最小起订量
 		var pd_counts1 = $(".pd_counts1").val();//获取供货总量
+		var stratTime = $(".start_time1").val();//获取发货期限
 		
 		//判断用户输入的值
 		if( msgType == "" || msgType == undefined){
@@ -315,7 +492,8 @@ $(function() {
 			alert("请选择行业分类");
 		}else{
 			//发起ajax
-			console.log(msgType,msgTitle,msgTitleL,KeyWord,hyVal,brand,editHtml,src,dieTime,arg_name1,arg_name2,arg_name3,arg_val1,arg_val2,arg_val3,jl_count,pd_price,smm_count1,pd_counts1);		
+			console.log(msgType,msgTitle,msgTitleL,KeyWord,hyVal,brand,editHtml,src,dieTime,arg_name1,arg_name2,arg_name3,arg_val1,arg_val2,arg_val3,jl_count,pd_price,smm_count1,pd_counts1,stratTime);		
+			success("操作成功");
 		}
 	})
 	
@@ -327,8 +505,9 @@ $(function() {
 
 //为兼容其他浏览器，则需要js解决，以下为封装的方法。
 function wordlimit(cname,wordlength){
-    var cname = $(".jiequ_str");//需要加省略符号的元素对象
-//  console.log(111);
+    var cname = $('.'+cname+'');//需要加省略符号的元素对象
+    console.log(cname);
+    //console.log(cname);
     for(var i=0;i<cname.length;i++){　　　　　　　　　　　
        var nowhtml=cname[i].innerHTML;//元素的内容
         var nowlength=cname[i].innerHTML.length;//元素文本的长度
@@ -348,7 +527,19 @@ function getHeight() {
 	$(".left_template,.right_template").height(height);
 	$(".xiansuo_main").height(cellH+10);
 	$(".xiansuo_List").height(cellH-FPageH);
-	$(".tsXq-div_main").height(height-300);
+	if($(".tsXq-modal").css("display") === "block"){
+		var eidtDivH = $(".tsXq-div").height();
+		var eidtAllH = $(".tsXq-div_header").height() + $(".Two_Btn_cells_1").height() + 20;
+		$(".tsXq-div_main").height(eidtDivH-eidtAllH);
+		//console.log(eidtDivH,eidtDivH-eidtAllH);
+	}
+	
+	if($(".tsRz-modal").css("display") === "block"){
+		var tsRzDivH = $(".tsRz-div").height();
+		var tsRzAllH = $(".tsRz-div_header").height() + $(".tsRz-div_limain").outerHeight(true) + $(".tsRz_saixuan_hd").height() + 15;
+		$(".tsRz-saixuan-box").height(tsRzDivH-tsRzAllH);
+		//console.log(tsRzDivH-tsRzAllH);
+	}
 }
 
 //全选、反选的事件函数  
@@ -376,4 +567,15 @@ function setSelectAll() {
 		console.log("满足,开启全选");
 		$("#checkall").prop("checked", true);
 	}
+}
+
+//操作成功提示函数
+function success(text){
+	$(document.body).append('<div class="sucuess-modal" style="z-index:9999999"><div class="sucuess-modal-cell"><img src="../../Images/common_icon_success_nor.png" alt="" /><p class="is_state1">'+text+'</p></div></div>');
+	$(".sucuess-modal").fadeIn();
+	setTimeout(function(){
+		$(".tsXq-modal").fadeOut();
+	 	$(".sucuess-modal").remove();
+	 	location.href = location.href;
+    },1500);
 }

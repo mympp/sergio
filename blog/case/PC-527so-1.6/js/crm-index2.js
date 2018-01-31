@@ -51,7 +51,7 @@ option = {
                 {value:234, name:'普通客户'},
                 {value:135, name:'小客户'},
             ]
-        }
+}
     ]
 };
 myChart.setOption(option);

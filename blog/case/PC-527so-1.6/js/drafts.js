@@ -26,7 +26,7 @@ $(function(){
 			$("[name= '"+ id1 +"' ]").remove();//发起ajax
 			console.log(id1);
 			setTimeout(function(){
-				success();//操作成功提示
+				success("操作成功");//操作成功提示
 				ResetForm();//初始化表格
 			},300);	
 		})
@@ -68,10 +68,10 @@ function ResetForm(){
 }
 
 //操作成功提示
-function success(text='操作成功',time=1500){
+function success(text){
 	 $(document.body).append('<div class="sucuess-modal"><div class="sucuess-modal-cell"><img src="../../Images/common_icon_success_nor.png" alt="" /><p class="is_state1">'+text+'</p></div></div>');
 	 $(".sucuess-modal").fadeIn();
 	 setTimeout(function(){
 	 	$(".sucuess-modal").remove();	
-    },time);
+    },1500);
 }

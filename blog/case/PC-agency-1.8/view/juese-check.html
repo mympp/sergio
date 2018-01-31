@@ -11,22 +11,65 @@
 <body style="min-width: 1280px;">
 <!--父容器开始-->
 <div class="outer_div">
-	<div class="left_template"></div>
+	<div class="left_template">
+		<div class="user_logo">
+			<a href="#"><img src="../Images/common_logo.png" alt=""></a>
+		</div>
+		<p class="company_name1">代理商管理系统</p>
+		<div class="userList_bar">
+			<ul class="userList_ul">
+				<a href="index.html" class="userList_li"><span class="icon-01"></span><span class="icon-text">首页</span></a>
+				<div class="slider_List">
+					<a href="javascript:;" class="userList_li icon-shopping"><span class="icon-02"></span><span class="icon-text">资金管理</span><span class="icon-shopping-1"></span></a>
+					<div class="icon-money-div">
+						<a href="fund-platform.html">资金管理</a>
+						<a href="fund-money.html">申请提现</a>
+					</div>
+					<a href="javascript:;" class="userList_li icon-shopping"><span class="icon-03"></span><span class="icon-text">数据管理</span><span class="icon-shopping-1"></span></a>
+					<div class="icon-data-div">
+						<a href="data-daili.html">代理商数据统计</a>
+						<a href="data-market.html">业务员数据统计</a>
+						<a href="data-train.html">培训师数据统计</a>
+						<a href="data-vip.html">注册会员数据统计</a>
+					</div>
+					<a href="javascript:;" class="userList_li icon-shopping active"><span class="icon-04"></span><span class="icon-text">角色管理</span><span class="icon-shopping-1"></span></a>
+					<div class="icon-person-div show">
+						<a href="juese-admin.html">管理员管理</a>
+						<a href="juese-agent.html">代理商管理</a>
+						<a href="juese-check.html" class="open">审核代理商</a>
+						<a href="juese-salesman.html">业务员管理</a>
+						<a href="juese-trainer.html">培训师管理</a>
+					</div>
+					<a href="javascript:;" class="userList_li icon-shopping"><span class="icon-05"></span><span class="icon-text">系统设置</span><span class="icon-shopping-1"></span></a>
+					<div class="icon-shopping-div">
+						<a href="set-user.html">用户组</a>
+						<a href="set-send.html">发布公告</a>
+						<a href="set-history.html">历史公告</a>
+						<a href="set-password.html">个人设置</a>
+						<a href="set-divide.html">代理商分成设置</a>
+					</div>
+				<div class="slider_List">
+			</ul>
+		</div>
+	</div>
 	<div class="right_template"></div>
 	<div class="page-set">
 		<h2>审核代理商</h2>
-			<form class="agent-head">
+			<form class="agent-head border-bottom">
 				<p>按条件筛选：</p>
                 <div class="agent-input">
     				<label>姓名：</label><input type="text" name="searchName" placeholder="">
     				<label>账号：</label><input type="text" name="searchEmail" placeholder="">
     				<label>状态：</label>
     				<select class="searchStatus">
-    					<option value="启用">启用</option>
-    					<option value="禁用">禁用</option>
+                        <option value="all">全部</option>
+    					<option value="0">待审核</option>
+    					<option value="1">审核通过</option>
+    					<option value="2">审核不通过</option>
     				</select>
     				<label>级别：</label>
     				<select class="rank">
+                        <option value="all">全部</option>
     					<option value="一级代理">一级代理</option>
     					<option value="二级代理">二级代理</option>
     				</select>
@@ -77,7 +120,7 @@
                         <col style="width:15%">
                     </colgroup>
                     <tbody class="table_ctbody">
-						<tr>
+						<tr name="1">
 							<td>陈凯文</td>
 							<td>15612345678</td>
 							<td>chenkaiwen@527so.com</td>
@@ -91,20 +134,62 @@
 								<a href="javascript:;" class="nopassAgent fr">拒绝</a>
 							</td>
 						</tr>
-						<tr>
-							<td>陈凯文</td>
-							<td>15612345678</td>
-							<td>chenkaiwen@527so.com</td>
-							<td>广东广州天河</td>
-							<td>不通过</td>
-							<td>YSSLDKGAJ123123</td>
-							<td>一级代理</td>
-							<td class="tda3">
-								<a href="javascript:;" class="adminDetails fl">查看</a>
-								<a href="javascript:;" class="passAgent">通过</a>
-								<a href="javascript:;" class="nopassAgent fr">拒绝</a>
-							</td>
-						</tr>
+                        <tr name="2">
+                            <td>陈凯文</td>
+                            <td>15612345678</td>
+                            <td>chenkaiwen@527so.com</td>
+                            <td>广东广州天河</td>
+                            <td>不通过</td>
+                            <td>YSSLDKGAJ123123</td>
+                            <td>一级代理</td>
+                            <td class="tda3">
+                                <a href="javascript:;" class="adminDetails fl">查看</a>
+                                <a href="javascript:;" class="passAgent">通过</a>
+                                <a href="javascript:;" class="nopassAgent fr">拒绝</a>
+                            </td>
+                        </tr>
+                        <tr name="3">
+                            <td>陈凯文</td>
+                            <td>15612345678</td>
+                            <td>chenkaiwen@527so.com</td>
+                            <td>广东广州天河</td>
+                            <td>不通过</td>
+                            <td>YSSLDKGAJ123123</td>
+                            <td>一级代理</td>
+                            <td class="tda3">
+                                <a href="javascript:;" class="adminDetails fl">查看</a>
+                                <a href="javascript:;" class="passAgent">通过</a>
+                                <a href="javascript:;" class="nopassAgent fr">拒绝</a>
+                            </td>
+                        </tr>
+                        <tr name="4">
+                            <td>陈凯文</td>
+                            <td>15612345678</td>
+                            <td>chenkaiwen@527so.com</td>
+                            <td>广东广州天河</td>
+                            <td>不通过</td>
+                            <td>YSSLDKGAJ123123</td>
+                            <td>一级代理</td>
+                            <td class="tda3">
+                                <a href="javascript:;" class="adminDetails fl">查看</a>
+                                <a href="javascript:;" class="passAgent">通过</a>
+                                <a href="javascript:;" class="nopassAgent fr">拒绝</a>
+                            </td>
+                        </tr>
+                        <tr name="5">
+                            <td>陈凯文</td>
+                            <td>15612345678</td>
+                            <td>chenkaiwen@527so.com</td>
+                            <td>广东广州天河</td>
+                            <td>不通过</td>
+                            <td>YSSLDKGAJ123123</td>
+                            <td>一级代理</td>
+                            <td class="tda3">
+                                <a href="javascript:;" class="adminDetails fl">查看</a>
+                                <a href="javascript:;" class="passAgent">通过</a>
+                                <a href="javascript:;" class="nopassAgent fr">拒绝</a>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -142,39 +227,47 @@
         <!-- 背景 -->
         <div class="moni-box" style="display: none;"></div>
 		<!-- 代理商详情 -->
-		<div class="admin-details moni-lbox" style="display: none;">
+		<div class="admin-details moni-lbox scroHide-father" style="display: none;">
 			<div class="moni-head">
 				<p class="fl">代理商详情</p>
 				<em class="DataCenterBox-cols cleanAll fr">&#215;</em>
 			</div>
-			<div class="moni-main">
-				<label>姓名</label><i>：</i>
+			<div class="moni-main scroHide">
+				<h5>姓名</h5><i>：</i>
 				<span class="name">姓名A</span><br />
-				<label>账号</label><i>：</i>
+				<h5>账号</h5><i>：</i>
 				<span class="ID">chengaiwen@527so.com</span><br />
-				<label>电话号码</label><i>：</i>
+				<h5>电话号码</h5><i>：</i>
 				<span class="phone">15612345678</span><br />
-				<label>区域</label><i>：</i>
+				<h5>区域</h5><i>：</i>
 				<span class="area">广东广州天河</span><br />
-				<label>详细地址</label><i>：</i>
+				<h5>详细地址</h5><i>：</i>
 				<span class="address">大观中路95号407-408</span><br />
-				<label>状态</label><i>：</i>
+				<h5>状态</h5><i>：</i>
 				<span class="status">启用</span><br />
-				<label>推荐码</label><i>：</i>
+				<h5>推荐码</h5><i>：</i>
 				<span class="referralCode">YGSGE110010</span><br />
-				<label>银行账号</label><i>：</i>
+				<h5>银行账号</h5><i>：</i>
 				<span class="bankName">中国银行</span><br />
-				<label>&nbsp;</label><i>&nbsp;</i>
+				<h5>&nbsp;</h5><i>&nbsp;</i>
 				<span class="bankCode">6223458974586541235</span><br />
-				<label>&nbsp;</label><i>&nbsp;</i>
+				<h5>&nbsp;</h5><i>&nbsp;</i>
 				<span class="peopleName">XXX公司</span><br />
-				<label class="vit-top">企业资质</label><i class="vit-top">：</i>
-				<span class="file1"><img src="../Images/file0.png" class="big-img"><img src="../Images/file0.png" class="bbig-img" style="display: none;"><a href="javascript:;">点击图片查看大图</a></span><br />
-				<label>备注</label><i>：</i>
+				<h5 class="vit-top">企业资质</h5><i class="vit-top">：</i>
+                <span class="file1">
+                    <img src="../Images/file0.png" class="big-img">
+                    <img src="../Images/a7.png" class="big-img">
+                    <img src="../Images/agent_referra.png" class="big-img">
+                    <img src="../Images/announcement_icon_time.png" class="big-img">
+                    
+                </span>
+                <a href="javascript:;">点击图片查看大图</a><br /> 
+                
+				<h5 class="vit-top">备注</h5><i class="vit-top">：</i>
 				<span class="tips">无</span><br />
-				<label>创建日期</label><i>：</i>
+				<h5>创建日期</h5><i>：</i>
                 <span class="addTime">2017-10-30 11：48</span><br />
-				<label>更新日期</label><i>：</i>
+				<h5>更新日期</h5><i>：</i>
                 <span class="updateTime">2017-10-30 18：48</span><br />
 			</div>
 		</div>
@@ -197,7 +290,7 @@
 		<!-- 虚拟弹窗结束 -->
 	</div>
 </div>
-<script>var pages = "角色管理";var index1 = 3; var index2 = 2;</script>
+
 <script src="../js/jquery.js"></script>
 <script src="../js/common.js"></script>
 <script src="../js/role.js"></script>
@@ -211,12 +304,18 @@
         rank = $(".rank:visible").val(),
         emailreg = /^[a-z0-9-_.]+@[\da-z][\.\w-]+\.[a-z]{2,4}$/i;
         if (searchName == "" && searchEmail == "") {
-            alert("搜索项不能为空");
-        } else if (!emailreg.test(searchEmail) && searchEmail !== "") {
-            alert("请输入正确的账号（邮箱格式如：quesou@527so.com）");
+        	if($(".searchStatus option").is(":checked") || $(".rank option").is(":checked")){
+        		console.log(status,rank);
+        	}else{
+        		error("搜索项不能为空");
+        	}
         } else {
             console.log(searchName,searchEmail,status,rank);
         }
+        
+//      var page = 1;
+//      var page_size= $('.xiansuo_Page_Three').val();
+//      LoadDownFnCheck(page,page_size,searchName,searchEmail,status,leve);
     });
 
     //审核详情
@@ -240,25 +339,29 @@
 
     // //通过代理商
     $(document).on("click",".passAgent",function(){
-        $(this).addClass("passbox");
-        var passId = $(".passbox").parent().parent().attr("name");
+        that1 = $(this);
         $(".passAgent-box,.moni-box").fadeIn();
-        $(document).on("click","#passAgent",function(){
-            $(".passAgent-box,.moni-box").fadeOut();
-            $(".passbox").replaceWith("<a style='color:#898989'>已通过</a>");
-            console.log(passId);//发起ajax
-        })
+    })
+    $(document).on("click","#passAgent",function(){
+        that1.addClass("passbox");
+        var passId1 = $(".passbox").parent().parent().attr("name");
+        $(".passAgent-box,.moni-box").fadeOut();
+        $(".passbox").replaceWith("<a style='color:#898989'>已通过</a>");
+        success("操作成功");
+        console.log(passId1);//发起ajax
     })
     // //拒绝代理商
     $(document).on("click",".nopassAgent",function(){
-        $(this).addClass("nopassbox");
-        var passId = $(".nopassbox").parent().parent().attr("name");
+        that2 = $(this);
         $(".nopassAgent-box,.moni-box").fadeIn();
-        $(document).on("click","#nopassAgent",function(){
-            $(".nopassAgent-box,.moni-box").fadeOut();
-            $(".nopassbox").replaceWith("<a class='fr' style='color:#898989'>已拒绝</a>");
-            console.log(passId);//发起ajax
-        })
+    })
+    $(document).on("click","#nopassAgent",function(){
+        that2.addClass("nopassbox");
+        var passId2 = $(".nopassbox").parent().parent().attr("name");
+        $(".nopassAgent-box,.moni-box").fadeOut();
+        $(".nopassbox").replaceWith("<a class='fr' style='color:#898989'>已拒绝</a>");
+        success("操作成功");
+        console.log(passId2);//发起ajax
     })
 </script>
 </body>

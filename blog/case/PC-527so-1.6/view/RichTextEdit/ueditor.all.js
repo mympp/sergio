@@ -3261,8 +3261,8 @@ var domUtils = dom.domUtils = {
                     break;
                 case 'style':
                     node.style.cssText = '';
-                    var val = node.getAttributeNode('style');
-                    !browser.ie && val && node.removeAttributeNode(val);
+                    var val = node.getAttribute('style');
+                    !browser.ie && val && node.removeAttribute(val);
             }
             node.removeAttribute(ci);
         }
@@ -8108,7 +8108,7 @@ UE.Editor.defaultOptions = function(editor){
         });
 
         function showErrorMsg(msg) {
-            console && console.error(msg);
+            //console && console.error(msg);
             //me.fireEvent('showMessage', {
             //    'title': msg,
             //    'type': 'error'
@@ -17545,11 +17545,12 @@ UE.plugins['autofloat'] = function() {
                 flag = false;
                 toolbarBox.style.left =  domUtils.getXY(toolbarBox).x - document.documentElement.getBoundingClientRect().left+2  + 'px';
             }
-            if(toolbarBox.style.position != 'fixed'){
-                toolbarBox.style.position = 'fixed';
-                toolbarBox.style.top = topOffset +"px";
-                ((origalFloat == 'absolute' || origalFloat == 'relative') && parseFloat(origalLeft)) && (toolbarBox.style.left = toobarBoxPos.x + 'px');
-            }
+//          if(toolbarBox.style.position != 'fixed'){
+//          	//console.log("addFixed"); by:James 不要给我玩野！
+//              toolbarBox.style.position = 'fixed';
+//              toolbarBox.style.top = topOffset +"px";
+//              ((origalFloat == 'absolute' || origalFloat == 'relative') && parseFloat(origalLeft)) && (toolbarBox.style.left = toobarBoxPos.x + 'px');
+//          }
         }
     }
     function unsetFloating(){

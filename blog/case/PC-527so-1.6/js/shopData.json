@@ -1,0 +1,15 @@
+{
+	"dataList" : [
+		{
+			"cid": "111",
+			"username":"陈先生",
+			"phone":"13268036991",
+			"tel":"020-88888888",
+			"email":"123456@qq.com",
+			"address":"广州市天河区车陂XXX路n号",
+			"details":"急需采购MTK芯片MT8752V1000片带U盾静安寺考虑",
+			"startTime": "2017-12-10 12:10",
+			"iskehu":"转为客户"
+		}
+	]
+}

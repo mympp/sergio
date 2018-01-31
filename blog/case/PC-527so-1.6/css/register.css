@@ -1,25 +1,16 @@
 @charset "UTF-8";
 
 /*注册页面开始*/
-html{
-	height: 100%;
-}
-
-body{
-	position: relative;
-	height: 100%;
-	min-height: 850px;
-}
-
 .RegBigBox {
     width: 1200px;
     margin: 0 auto;
 }
 .logo {
     display: inline-block;
-    width: 85px;
-    height: 37px;
-    background: url("../Images/logo1000.png") no-repeat;
+    width: 104px;
+    height: 45px;
+    background: url(../Images/logo.png) no-repeat;
+    background-size: 100%;
     margin-top: 11px;
     margin-right: 20px;
     cursor: pointer;
@@ -73,7 +64,7 @@ body{
 	float: right;
     font-size: 14px;
     color: #666666;
-    margin-top: 18px;
+    /*margin-top: 18px;*/
 }
 .login>i {
     font-style: normal;
@@ -81,7 +72,7 @@ body{
     cursor: pointer;
 }
 .RgeForm {
-    margin-top: 116px;
+    margin-top: 100px;
     text-align: center;
 }
 .RgeForm input {
@@ -167,13 +158,10 @@ body{
 }
 /*底部开始*/
 .RegBottom {
-    min-width:1400px;
     width: 100%;
     height: 213px;
+    margin-top: 5%;
     background: #f8f8f8;
-    position: absolute;
-    bottom: 0;
-   /* margin-top: 8%;*/
 }
 .RegBottom ul {
     float: left;
@@ -210,7 +198,6 @@ body{
 }
 .RegBottom ul .li2>span {
     cursor: pointer;
-
 }
 .RegBottom ul .li1>span>i {
     margin-left: -155%;
