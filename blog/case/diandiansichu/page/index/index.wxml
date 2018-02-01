@@ -11,7 +11,7 @@
 			北海道
 		</view>
 	</view>
-
+    
     <!-- 滚动主体 -->
 	<scroll-view scroll-y="true" scroll-into-view="{{scrollIntoView}}" bindscroll="onScroll">
         <!-- 轮播banner -->

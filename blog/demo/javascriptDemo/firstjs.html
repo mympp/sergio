@@ -4,7 +4,7 @@
 	<title>My first javascrite</title>
 </head>
 <body onload="checkCookie()">
-	<h5>变量，对象，对象属性，对象方法，函数，字符串，运算符，循环语句，判断语句。</h5>
+	<h5>变量，对象，对象属性，对象方法，类，函数，字符串，运算符，循环语句，判断语句。</h5>
 
 	<h3>对象</h3>
 	<script type="text/javascript">
@@ -1164,12 +1164,12 @@ HTML 事件的例子：
 	<script type="text/javascript">
 	function navigatorBtn(){
 		var txt = "<p>浏览器代号: " + navigator.appCodeName + "</p>";
-		txt+= "<p>浏览器名称: " + navigator.appName + "</p>";
-		txt+= "<p>浏览器版本: " + navigator.appVersion + "</p>";
-		txt+= "<p>启用Cookies: " + navigator.cookieEnabled + "</p>";
-		txt+= "<p>硬件平台: " + navigator.platform + "</p>";
-		txt+= "<p>用户代理: " + navigator.userAgent + "</p>";
-		txt+= "<p>用户代理语言: " + navigator.systemLanguage + "</p>";
+		txt += "<p>浏览器名称: " + navigator.appName + "</p>";
+		txt += "<p>浏览器版本: " + navigator.appVersion + "</p>";
+		txt += "<p>启用Cookies: " + navigator.cookieEnabled + "</p>";
+		txt += "<p>硬件平台: " + navigator.platform + "</p>";
+		txt += "<p>用户代理: " + navigator.userAgent + "</p>";
+		txt += "<p>用户代理语言: " + navigator.systemLanguage + "</p>";
 		document.getElementById("navigatorDemo").innerHTML=txt;
 	}
 	//来自 navigator 对象的信息具有误导性，不应该被用于检测浏览器版本，这是因为：navigator 数据可被浏览器使用者更改。一些浏览器对测试站点会识别错误。浏览器无法报告晚于浏览器发布的新操作系统。
@@ -1206,6 +1206,7 @@ HTML 事件的例子：
 			document.getElementById("promptDemo").innerHTML = x;
 		}
 	}
+
 	</script>
 
 	<p>JavaScript计时事件，有 setInterval() 和 setTimeout() 两个方法</p>

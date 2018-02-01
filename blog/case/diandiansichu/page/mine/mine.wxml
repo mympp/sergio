@@ -5,19 +5,20 @@
 	</view>
 	<view class="section">
 		<view class="line judgement">我的评价</view>
-		<view class="line judgement">我的好友</view>
 		<view class="line judgement">我的收藏</view>
 		<view class="line judgement">我的地址</view>
 	</view>
 	<view class="section">
 		<view class="line judgement">我的钱包<text class="tl">余额：￥0</text></view><!-- 还有充值功能 -->
+		<view class="line judgement">我的优惠券</view>
 	</view>
 	<view class="section">
 		<view class="line judgement">邀请有奖</view><!-- 分享链接并成功购买将获得优惠券 -->
-		<view class="line judgement">商家入驻</view><!--  -->
+		<view class="line judgement">商家加盟</view><!-- 表单提交 -->
+        <view class='line judgement'>制作我的小程序</view><!-- 表单提交或加我的微信 -->
 	</view>
 	<view class="section">
 		<view class="line judgement">帮助与反馈</view><!-- 跳转到反馈页面，提示成功采纳将获得优惠券 -->
-		<view class="line judgement">在线客服<text class="tl">9:00 - 23:00</text></view><!-- 跳转到个人微信页面 -->
+		<view class="line judgement">在线客服<text class="tl">9:00 - 23:00</text></view><!-- 跳转到客服微信聊天页面 -->
 	</view>
 </view>
