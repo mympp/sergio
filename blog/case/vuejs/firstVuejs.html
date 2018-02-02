@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vuejs test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+</head>
+<body>
+    <a href="https://cn.vuejs.org/v2/guide/index.html">教程地址</a>
+    <div id="app">
+        <p>双大括号data：{{dataMessage}}</p>
+        <p v-bind:title="titleMessage">v-bind绑定DOM属性：鼠标悬停显示title</p>
+        <p v-if="ifMessage">v-if判断：true可以看到</p>
+        <p v-for="forM in forMessage">v-fol循环列表：{{forM.text}}</p>
+
+        <p>{{onMessage}}</p>
+        <button v-on:click="reverseMessage">逆转信息</button>
+
+        <p>{{modelMessage}}</p>
+        <input type="" name="" v-model="modelMessage">
+    </div>
+    <div>
+        <p>组件化</p>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                dataMessage: 'Hello L',
+                titleMessage: 'Hello v-bind:title',
+                ifMessage: true,
+                forMessage: [
+                    { text: '吃饭'},
+                    { text: '睡觉'},
+                    { text: '码代码'}
+                ],
+                onMessage: 'Hello v-on:click',
+                modelMessage: 'Hello v-model'
+            },
+            methods:{
+                //在这个方法中，更新了引用状态，但没有触碰DOM。
+                reverseMessage: function(){
+                    this.onMessage = this.onMessage.split('').reverse().join('')//字符串逆转
+                }
+            }
+        })
+    </script>
+</body>
+</html>

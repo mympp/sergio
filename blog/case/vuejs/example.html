@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vuejs Living Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <strong>数据属性：</strong>
+        <p>Object.freeze()，这会阻止修改现有的属性，也意味着响应系统无法再追踪变化。</p>
+        <p>{{obj.foo}}</p>
+        <!-- 这里的'obj.foo'不会更新 -->
+        <button @click="obj.foo = 'baz'">change it</button>
+    </div>
+    <script type="text/javascript">
+        var obj = {
+            foo: 'bar'
+        }
+
+        object.freeze(obj)
+
+        new Vue({
+            el: '#app',
+            data(){
+                return {
+                    obj
+                }
+            }
+        })
+    </script>
+    <div id="example">
+        <strong>方法：$</strong>
+        <p></p>
+    </div>
+    <script type="text/javascript">
+        var data = { a: 1 }
+        var vm = new Vue({
+            el: '#example',
+            data: data
+        }}
+
+        vm.$data === data // => true
+        vm.$el === document.getElementById('example') // => true
+
+        //$watch 是一个实例方法
+        vm.$watch('a', function (newValue,oldValue){
+            //这个回调将在'vm.a'改变之后调用
+
+        })
+    </script>
+    <div>
+        <strong>生命周期钩子</strong>
+        <a href="https://cn.vuejs.org/v2/guide/instance.html"></a>
+    </div>
+</body>
+</html>
