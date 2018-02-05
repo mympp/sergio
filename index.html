@@ -22,52 +22,75 @@
 </style>
 </head>
 <body class="index">
+<!-- https://lfkid.github.io/2016/12/12/JavaScript%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%EF%BC%9A%EF%BC%88%E4%B8%89%EF%BC%89%E4%BC%98%E5%8C%96DOM%E6%93%8D%E4%BD%9C/做一个银河系星系图，自成系统，在页面停留超过多久之后关闭页面提醒星系以后生命之类的。 -->
 <!-- Google Analytics start -->
 <!-- Google Analytics start End -->
 <!-- nav -->
 <nav class="index-nav"><a id="BackTop"></a>
 	<a href="index.html">
-		<img src="./images/logo2.gif" alt="logo1"><!--logo 为名字签名手写体-->
+		<img src="./images/logo2.gif" alt="logo1"><!--logo 为名字签名手写体。-->
 		<img src="./images/logo2.png" alt="logo2">
 		<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
 			<polyline points="0,10 40,0 40,20 40 20 40,180" style="fill:none;stroke:black;stroke-width:3" />
-		</svg><!-- 动画实现毛笔字书写效果 -->
+		</svg><!-- 动画实现毛笔字书写效果.（类似MX6动画通过SVG实现http://www.runoob.com/svg/svg-path.html）（http://www.akuziti.com/mb/）。首页可以不用动画 -->
 	</a>
 	<div class="menu-right"></div><!-- web端导航按钮 -->
-	<ul>
-		<!-- <li class=""><a href="index.html">首页</a></li> -->
-		<li><a href="production.html">作品集</a><!-- 
-			<ul>
-				
-				<li><a href="">小案例Demo</a></li>
-				<li><a href="">插件库</a></li>
-				<li><a href="demo/jupai/index.html">聚派系统</a></li>
-				<li><a href="demo/东风日产3/H5.html">东风日产H5</a></li>
-				<li><a href="">...</a></li>
-				<li><a href="demo/bicoolH5/wechath5.html">品库招聘H5</a></li>
-				<li><a href="demo/bimcool/index.html">品库官网</a></li>
-			 </ul>-->
-		</li>
-		<li><a href="blog/blog.html" target="_blank">程序猿博客</a></li><!--两种模式点击和键盘输入。1，纯键盘输入，页面底下代码输入，背景关键词星系旋转悬停显示“请用键盘输入”。2，鼠标正常点击。-->
+	<ul><!-- 向下滑动导航消失为左上角的鼠标悬停即动态向下弹出导航。 -->
+		<li class=""><a href="index.html">首页</a></li>
+		<li><a href="production.html">作品</a></li>
+		<li><a href="">人生经历</a></li><!-- 鼠标悬停显示简介，点击跳转。http://www.dandyweng.com/versions/2014/ -->
+		<li><a href="blog/blog.html" target="_blank">程序猿博客</a></li><!-- http://strml.net/ --><!--两种模式点击和键盘输入。1，纯键盘输入，页面底下代码输入，背景关键词星系旋转悬停显示“请用键盘输入”。2，鼠标正常点击。-->
 		<!-- <li><a href="human.html">人类</a></li> --><!--未来多条分支虚拟化，并设置投票。-->
 		<!-- <li><a href="funny.html">娱乐</a></li> --><!--包含游戏、音乐、读书-->
-		<li><a href="aboutme.html">找我</a></li>
+		<li><a href="aboutme.html">联系我</a></li>
 	</ul>
-	<div class="c-b"></div>
+	<div class="clear-both"></div>
 	<div class="head_video">
-		<div class="head_img"></div>
-		<video loop="loop" preload="auto">
+		<div class="head_img"></div><!-- 视频播完浮现图片。 -->
+		<div class="video-img"><img src=""></div><!-- 棕红色毛笔字,林少佳 -->
+		<div class="video-text">This is<br/>my Word</div><!-- 超大文字逐行浮现 -->
+		<video loop="loop" preload="auto"><!-- 谢霆锋我存在的背景视频 -->
 			<source src="images/index.mp4" type="video/mp4">
 			<source src="images/index.mp4" type="video/mp4">
 			<source src="images/index.mp4" type="video/ogg">
 		</video>
+		<div class="video-foot-text">My course of life.</div><!-- banner右下角非衬线体字体 -->
 	</div>
-	
 </nav>
-<div class="c-b"></div>
+<div class="clear-both"></div>
 <!-- nav End -->
 <!-- main -->
+<main>
+	<p>项目经验(每个知识点都需要两个以上的项目经验，并且每个项目需经过两次迭代 )</p>
+	<ul>
+		<li><a href="">雀搜代理商系统</a></li>
+		<li><a href="">雀搜企业官网PC&WEB端</a></li>
+		<li><a href="">个人宣传页面PC&WEB端</a></li>
+		<li><a href="">魅族企业官网PC&WEB端</a></li>
+		<li><a href="">迅雷企业官网PC&WEB端</a></li>
+		<li><a href="">APPLE企业官网PC&WEB端</a></li>
+		<li><a href="">魅族商城PC&WEB端</a></li>
+		<li><a href="">万和企业官网PC&WEB端</a></li>
+		<li><a href="">点点私厨、万和商城小程序</a></li>
+		<li><a href="">聚派后台系统前端</a></li>
+		<li><a href="">聚派宣传官网</a></li>
+		<li><a href="">品库官网PC&WEB端</a></li>
+	</ul>
+</main>
+promgramer做一个技能树，加点，旁边是一个游戏人物，加一个点穿一件装备。
 
+生活：类似蚂蚁窝的排版分享
+照着特效模板看自己能不能实现，然后敲一遍。录屏幕视频做成GIF放到网站上。http://cherryblog.site/css-checkbox-input-radio.html
+
+建立一个类似魅族官网的网站，有展示、有论坛博客
+
+就对着http://www.jq22.com/webinfo15jQuery插件库里面的例子一个一个写，这是jQuery的。再对着javascript模板对着写。、
+
+教程可以做成：https://try.github.io/levels/1/challenges/1
+
+一个网页形式的自我介绍，包含图片声音视频，中途用户可操作中止并点击前往感兴趣想了解的模块。
+
+深色背景，码代码的氛围色调兼并中性、自然的配色，杜绝白色背景。加入几何结构。手机打开时webAR。基本样式为“代码高亮”。要有搜索按钮，中英文翻译。加载等待是有故事的动画。尽量多的小视频，动态图。注意细节的小互动。背景舞动的色彩。加入一些app设计。点击有水纹荡开或跟魅族一样的点击效果。类似ftp上传下载界面的分多个窗口自动化工作（检测界面、编辑界面、可视化界面等）。
 <article>
 	<p>Sergio：A front-end web developer</p>
 	<p>About me：<a href="https://www.linkedin.com/in/%E5%B0%91%E4%BD%B3-%E6%9E%97-a24ba4147/">Linkedin</a>,<a href="https://codepen.io/sergiolin/">Codepen</a>,<a href="https://github.com/sergiolin">Github</a></p>
