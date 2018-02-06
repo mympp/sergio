@@ -1,0 +1,15 @@
+<div class="m_b30 con_box">
+                    <div class="r_hd">{$main_name[$HM]}</div>
+                <div class="com_image">
+				<!--{php $tags=tag("moduleid=12&condition=status>2 and username='$username'&pagesize=6&order=addtime desc&fields=itemid,title,linkurl,thumb,addtime,items,open&template=null");}-->
+                    <ul>
+						{loop $tags $i $t}
+                            <li ><a class="pic" href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=photo&itemid='.$t['itemid'], $domain)}{/if}">
+                                <img src="{imgurl($t[thumb])}" /></a>
+								<p>{$t[items]}张图片</p>
+                                <p>{$t[title]}</p>
+                            </li>
+						{/loop}
+                    </ul>
+                </div>
+            </div>

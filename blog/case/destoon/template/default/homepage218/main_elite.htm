@@ -1,0 +1,66 @@
+<div class="mainBox ">
+	<div class="title"><a href="{userurl($username, 'file=sell', $domain)}" target="_blank" class="more">更多</a><h2>{$main_name[$HM]}</h2></div>
+	<div class="con">
+		<div class="shopRecommend">
+			<a href="javascript:void(0);" class="prev"></a>
+			<div style=" _position: relative; width: 880px; overflow: hidden; height: 268px">
+				<ul style="left:0">
+				<!--{php $tags=tag("moduleid=5&condition=status>2 and username='$username' and elite=1 and thumb<>''&pagesize=".$main_num[$HM]."&order=edittime desc&fields=itemid,title,linkurl,thumb,edittime&template=null");}-->
+				{loop $tags $i $t}
+					<li>
+						<div>
+							<span class="imgBox">
+								<a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=sell&itemid='.$t['itemid'], $domain)}{/if}" target="_blank">
+								<img src="{$t[thumb]}" onerror="this.src='/images/templateOne/common/r_nopic.gif'"></a>
+							</span>
+							<h3><a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=sell&itemid='.$t['itemid'], $domain)}{/if}" target="_blank">{$t[title]}</a></h3>
+							<p>发布时间：{timetodate($t[edittime], 3)}</p>
+							<p class="m"><span>&yen;</span>面议</p>
+						</div>
+					</li>
+				{/loop}
+				</ul>
+			</div>
+			<a href="javascript:void(0);" class="next"></a>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(function(){
+	    $(".shopRecommend").each(function () {
+        var ScrollImg = $(this).find("ul");
+        var ScrollImgW = Math.ceil(ScrollImg.find("li").length / 4) * 880;
+        ScrollImg.css("width", ScrollImgW);
+        var imgWidthB = 0;
+        var rightBtn = $(this).find("a.next");
+        rightBtn.click(function () {
+            if (!ScrollImg.is(":animated")) {
+                ScrollImgW = Math.ceil($(this).siblings("div").find("li").length / 4) * 880;
+                imgWidthB = ScrollImgW - 880;
+                if (ScrollImg.css("left") != -imgWidthB + "px") {
+                    var leftNum = parseInt(ScrollImg.css("left"));
+                    leftN = leftNum - 880;
+                    ScrollImg.animate({ "left": leftN });
+                } else {
+                    ScrollImg.animate({ "left": 0 });
+                }
+            }
+        });
+        var leftBtn = $(this).find("a.prev");
+        leftBtn.click(function () {
+            if (!ScrollImg.is(":animated")) {
+                ScrollImgW = Math.ceil($(this).siblings("div").find("li").length / 4) * 880;
+                imgWidthB = ScrollImgW - 880;
+                if (ScrollImg.css("left") != 0 + "px") {
+                    var leftNum = parseInt(ScrollImg.css("left"));
+                    leftN = leftNum + 880;
+                    ScrollImg.animate({ "left": leftN });
+                } else {
+                    ScrollImg.animate({ "left": -imgWidthB });
+                }
+            }
+        });
+    });
+});
+</script>

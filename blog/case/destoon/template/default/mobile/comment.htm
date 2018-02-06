@@ -1,0 +1,201 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+<header class="aui-bar aui-bar-nav" id="aui-header">
+        <a class="aui-pull-left aui-btn" href="index.php?moduleid={$mid}&itemid={$itemid}">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+        <div class="aui-title">{$head_name}</div>
+        {if $EXT[comment_api]}
+<a class="aui-pull-right" href="javascript:window.location.reload();"><span>刷新</span></a>
+{else}
+        <a class="aui-pull-right" href="javascript:$('#box-star').show();{if $need_captcha}$('#box-captcha').show();{/if}$('#box-btn').show();Dcomment();"><span>发表</span></a>
+        {/if}
+</header>
+<div class="aui-bar-fix"></div>
+
+{if $EXT[comment_api] == 'changyan'}
+<div class="aui-content-padded aui-margin-b-15">
+	<div id="SOHUCS" sid="{$mid}-{$itemid}"></div>
+	<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" 
+		src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id={$EXT[comment_api_id]}&conf={$EXT[comment_api_key]}">
+	</script>
+</div>
+{elseif $EXT[comment_api] == 'duoshuo'}
+<div class="aui-content-padded aui-margin-b-15">
+	<div class="ds-thread" data-thread-key="{$mid}-{$itemid}" data-title="{$title}" data-url="{$linkurl}" data-image="{if $thumb}{str_replace('.thumb.'.file_ext($thumb), '', $thumb)}{/if}"></div>
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"{$EXT[comment_api_id]}"};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+	</script>
+</div>
+{else}
+<style type="text/css">
+.quote{border:1px solid #DCDCDC;background:#FFFFFF;padding:10px;margin-bottom:10px;}
+.quote_title {font-size:12px;color:#007AFF;}
+.quote_time {font-size:11px;color:#999999;}
+.quote_floor {float:right;font-size:10px;color:#999999;}
+.quote_content {clear:both;}
+.star_a {display:inline-block;margin:12px 10px 0 0;padding:2px 8px;background:#FF6600;color:#FFFFFF;font-size:12px;border-radius:6px;}
+.star_b {display:inline-block;margin:12px 10px 0 0;padding:2px 8px;background:#EEEEEE;color:#333333;font-size:12px;border-radius:6px;}
+</style>
+<div class="aui-content">
+<ul class="aui-list aui-form-list dt-border-none">
+	<form method="post" id="comment-post">
+	<input type="hidden" name="action" value="post"/>
+	<input type="hidden" name="mid" value="{$mid}"/>
+	<input type="hidden" name="itemid" value="{$itemid}"/>
+	<input type="hidden" name="star" value="3" id="star"/>
+	<li class="aui-list-item" style="margin:0; padding:0 0 0 0.5rem; padding-left:0.5rem;"><div style="width:100%;height:68px;"><textarea name="content" id="content" placeholder="我来说两句" onblur="window.scrollTo(0,0);" style="width:98%;height:48px;line-height:24px;border:none;padding:0;margin:10px 0 0 0;font-size:16px;" onfocus="$('#box-star').show();{if $need_captcha}$('#box-captcha').show();{/if}$('#box-btn').show();"></textarea></div>
+    </li>
+	<li class="aui-list-item" style="margin:0; padding:0 0 0 0.5rem; width:100%;height:44px;display:none;" id="box-star">
+    <div style="" class="bd-t">
+	<span id="star_3" class="star_a" onclick="Dstar(3);">好评</span>
+	<span id="star_2" class="star_b" onclick="Dstar(2);">中评</span>
+	<span id="star_1" class="star_b" onclick="Dstar(1);">差评</span>
+	</div>
+    </li>
+	{if $need_captcha}
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                        <div class="aui-list-item-inner" id="captcha-bar">{template 'captcha', 'chip'}</div>
+                </div>
+            </li>
+	{/if}
+	</form>	
+	            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-center aui-list-item-btn" onclick="Dcomment();">
+                    <div class="aui-btn aui-btn-info aui-margin-r-5 aui-font-size-18" style="width:95%">发表评论</div>
+                </div>
+            </li>
+</ul>
+
+</div>
+
+{if $lists}
+<div class="aui-content aui-margin-b-15">
+    <ul class="aui-list aui-media-list">
+    {loop $lists $k $v}
+        <li class="aui-list-item aui-list-item-middle">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-media" style="width: 2.5rem;">
+                    <img src="{useravatar($v[uname])}" class="aui-img-round aui-list-img-sm">
+                </div>
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title aui-font-size-14"><a href="comment.php?action=user&username={$v[uname]}&mid={$mid}&itemid={$itemid}" class="b">{$v[name]}</a></div>
+                        <div class="aui-list-item-right"><span>{$v[floor]}楼</span></div>
+                    </div>
+                    <div class="aui-list-item-text aui-font-size-12">
+                        {if $v[star]==1}差评{elseif $v[star]==2}中评{else}好评{/if} {timetodate($v[addtime], 5)}
+                    </div>
+                </div>
+            </div>
+            <div class="aui-list-item-text aui-padded-b-10">
+                        {if $v[quotation]}{$v[quotation]}{else}{$v[content]}{/if}
+	{if $v[reply]}
+	<br/><span class="aui-font-size-12 dt-text-gray">{if $v[editor]}<span style="color:red;">管理员</span>{else}<span style="color:blue;">{$v[replyer]}</span>{/if} {timetodate($v[replytime], 5)} 回复： </span>
+	<br/>{nl2br($v[reply])}
+	{/if}
+    </div>
+        </li>
+        {/loop}
+</ul>
+</div>
+
+	{else}
+	<div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-media-list">
+            <li class="aui-list-item aui-padded-t-15 aui-padded-b-10">
+            暂无评论
+            </li>
+</ul>
+</div>
+	{/if}
+</div>
+{if $pages}<div class="aui-content aui-margin-b-15 aui-text-center pageslist"><div class="pages">{$pages}</div></div>{/if}
+<script type="text/javascript">
+function Dstar(v) {
+	for(var i = 1; i < 4; i++) {
+		if(v == i) {
+			$('#star').val(i);
+			$('#star_'+i).attr('class', 'star_a');
+		} else {
+			$('#star_'+i).attr('class', 'star_b');
+		}
+	}
+}
+function Dcomment() {
+	window.scrollTo(0,0);
+	var len,va;;
+	len = $('#content').val().length;
+	if(len < {$MOD[comment_min]}) {
+		laymsg('正文最少个{$MOD[comment_min]}字，已填写'+len+'个字');
+		return false;
+	}
+	if(len > {$MOD[comment_max]}) {
+		laymsg('正文最多个{$MOD[comment_max]}字，已填写'+len+'个字');
+		return false;
+	}
+	{if $need_captcha}
+	val = $('#captcha').val();
+	if(!is_captcha(val)) {
+		laymsg('请填写验证码');
+		return false;
+	}
+	{/if}
+	$.post('comment.php', $('#comment-post').serialize(), function(data) {
+		if(data == 'ok') {
+			laymsg('评论成功');
+			setTimeout(function() {
+				if($('#page-last').length > 0) {
+					Go($('#page-last').attr('href'));
+				} else {
+					window.location.reload();
+				}
+			}, 1000);
+		} else if(data == 'check') {
+			laymsg('评论成功，请等待审核');
+			setTimeout(function() {
+				window.location.reload();
+			}, 1000);
+		} else if(data == 'captcha') {
+			laymsg('验证码错误');
+			reloadcaptcha();
+		} else if(data == 'self') {
+			laymsg('不能评论自己');
+		} else if(data == 'permission') {
+			laymsg('无评论权限');
+		} else if(data == 'login') {
+			laymsg('暂无权限，请登录再试');
+		} else if(data == 'max') {
+			laymsg('今日评论次数过多');
+			{if $need_captcha}reloadcaptcha();{/if}
+		} else if(data == 'fast') {
+			laymsg('评论发表过快');
+			{if $need_captcha}reloadcaptcha();{/if}
+		} else {
+			laymsg('评论失败，请重试');
+			setTimeout(function() {
+				window.location.reload();
+			}, 1000);
+		}
+	});
+	return;
+}
+{if $need_captcha}
+$(document).ready(function(){
+	$('#captcha').on('blur', function(){window.scrollTo(0,0);});
+	$('#captcha').css({'width':'100px','border':'none','padding':'0','font-size':'16px'});
+	showcaptcha();
+});
+{/if}
+</script>
+{/if}
+{template 'footer_v2', 'mobile'}

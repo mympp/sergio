@@ -1,0 +1,1011 @@
+{php $CSS = array('index');}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset={DT_CHARSET}" /> 
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{if $city_sitename}{$city_sitename}{else}{$DT[sitename]}{/if}{/if}</title>
+{if $head_keywords}
+<meta name="keywords" content="{$head_keywords}"/>
+{/if}
+{if $head_description}
+<meta name="description" content="{$head_description}"/>
+{/if} 
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+
+{if $head_mobile}
+<meta http-equiv="mobile-agent" content="format=html5;url={$head_mobile}">
+{/if}
+<meta name="generator" content="DESTOON B2B - www.destoon.com"/>
+<link rel="shortcut icon" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+<link rel="bookmark" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+{if $head_canonical}
+<link rel="canonical" href="{$head_canonical}"/>
+{/if}
+
+{if $EXT[archiver_enable]}
+<link rel="archives" title="{$DT[sitename]}" href="{$EXT[archiver_url]}"/>
+{/if}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}style.css"/>
+{if $moduleid>4}<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$module}.css"/>{/if}
+{if $CSS}
+{loop $CSS $css}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$css}.css"/>
+{/loop}
+{/if}
+
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}base.css"> 
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}index1.css"> 
+<link href="{DT_SKIN}jquery.autocomplete.css" type="text/css" rel="stylesheet" />
+
+<script type="text/javascript" src="{DT_SKIN}jquery-1.11.3.min.js"></script> 
+<script type="text/javascript" src="{DT_SKIN}jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript" src="{DT_SKIN}page2.js"></script>
+
+{if !DT_DEBUG}<script type="text/javascript">window.onerror=function(){return true;}</script>{/if}
+<script type="text/javascript" src="{DT_STATIC}lang/{DT_LANG}/lang.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/config.js"></script>
+<!--<script type="text/javascript" src="{DT_STATIC}file/script/jquery.js"></script>-->
+<script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/page.js"></script>
+{if $lazy}
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.lazyload.js"></script>
+{/if}
+{if $JS}
+{loop $JS $js}
+<script type="text/javascript" src="{DT_STATIC}file/script/{$js}.js"></script>
+{/loop}
+{/if}
+{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
+<script type="text/javascript">
+{if $head_mobile && $EXT[mobile_goto]}
+GoMobile('{$head_mobile}');
+{/if}
+var searchid = {$searchid};
+{if $itemid && $DT[anticopy]}
+document.oncontextmenu=function(e){return false;};
+document.onselectstart=function(e){return false;};
+{/if}
+</script>
+<style>
+.index_icon,shop_icon{ display:inline-block; padding-left:22px; float:left;}
+.index_icon a,.shop_icon a{ color:#666;}
+.index_icon{ background-position:0px 0px;}
+.index_icon{ background-position:0px 0px;}
+@font-face {font-family: 'iconfont';
+ src: url('{DT_SKIN}/iconfont.eot');
+ src: url('{DT_SKIN}/iconfont.eot?#iefix') format('embedded-opentype'),
+ url('{DT_SKIN}iconfont.woff') format('woff'),
+ url('{DT_SKIN}fonts/iconfont.ttf') format('truetype'), 
+ url('{DT_SKIN}fonts/iconfont.svg#iconfont') format('svg');
+}
+.iconfont{
+ font-family:"iconfont" !important;
+ font-size:16px;font-style:normal;
+ -webkit-font-smoothing: antialiased;
+ -webkit-text-stroke-width: 0px;
+ -moz-osx-font-smoothing: grayscale;
+ }
+</style>
+</head>
+<body>
+
+<div id="header"> 
+<div class="mo_header"> 
+	<div class="topnav">
+		<div class="moL"> 
+			<a title="首页" href="{$MODULE[1][linkurl]}" target="_blank" style="float:left;" class="index_icon">首页</a> 
+			<a title="厂家直销首页" href="{$MODULE[16][linkurl]}" target="_blank" style="float:left;" class="vonder_icon">厂家直销首页</a>
+			<div class="new" onmouseover="blockcategory(this);" onmouseout="hidecategory(this);"> 
+				<span><a href="javascript:void();" id="div1a" style="color:#f40;">热门产业</a></span> 
+				<div class="category" id="category" style="text-align: left;">
+					<ul> 
+						{php $mid = 5;}
+						{php $child = get_maincat(0, $mid, 1);}
+						{loop $child $i $c}
+						<li><a href="{$MODULE[$searchid][linkurl]}" title="产品" target="_blank">
+						{set_style($c[catname], $c[style])}</a></li> 
+						{/loop}
+					</ul>
+				</div> 
+			</div> 
+			<a title="产品" href="{$MODULE[16][linkurl]}" target="_blank">产品</a>
+			<a title="客户" href="{$MODULE[4][linkurl]}" target="_blank">客户</a>
+			<a title="采购" href="{$MODULE[5][linkurl]}" target="_blank" style="color:#f40;">采购</a> 
+		</div> 
+		<div class="moR"> 
+			<div class="f_r" id="destoon_member"></div>
+		</div> 
+	</div>
+ </div>
+{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
+{php $searchids = array(5,16,21,22);}
+{if !in_array($searchid, $searchids)}
+	{php $searchids[] = $searchid;}
+{/if}
+<script type="text/javascript">var searchid = {$searchid};</script>
+ <div class="wrapper clear"> 
+	<div class="logo left"> 
+		<a href="{$MODULE[1][linkurl]}" style="display:block;"> 
+		<img src="{if $MODULE[$moduleid][logo]}{DT_SKIN}image/logo_{$moduleid}.gif{elseif $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" width="180" height="60" alt="{$DT[sitename]}" /> </a>
+	</div> 
+	<form id="destoon_search" action="{DT_PATH}api/search.php" onsubmit="return Dsearch();">
+	<input type="hidden" name="moduleid" value="{$searchid}" id="destoon_moduleid"/>
+	<input type="hidden" name="spread" value="0" id="destoon_spread"/>
+	<div class="search left">
+		<ul id="search_moduleli" style="overflow:hidden;">
+				{loop $searchids $s}
+					{if isset($MODULE[$s])}
+					<li{if $searchid == $s} class="head_search_on"{/if} onclick="setModuleli({$s}, this);">
+					<a><span>{$MODULE[$s][name]}</span></a></li>
+					{/if}
+				{/loop}
+		</ul>	
+		<li class="searchInput">
+			<input type="text" value="{if $kw}{$kw}{else}请输入关键词{/if}" id="destoon_kw" name="kw" maxlength="30" onfocus="if(this.value=='请输入关键词') this.value='';"{if $DT[search_tips]} onkeyup="STip(this.value);" autocomplete="off"{/if} x-webkit-speech speech/>
+			<button type="submit" value=" ">搜索</button>
+		</li> 
+	</div> 
+	</form>
+	<div class="persional left"> 
+		<span class="iconfont">&#xe6d3;</span>
+		<em><a href="{$MODULE[16][linkurl]}" target="_blank">私人订制</a></em> 
+	</div> 
+</div>
+</div>
+
+ <div class="navBar"> 
+	<div class="nav"> 
+		<div class="wrapper" style="position:relative; z-index:10000;height:35px;background:#ff5500;">
+			<div class="allType left"> 
+			<h3>商品行业分类</h3> 
+				<div class="navItem"> 
+					<div class="item">
+						<span class="item01 iconfont"></span>家居用品<s>></s>
+						<div class="shadowList"></div> 
+							<div class="itemCon"> 
+							<dl>
+								{php $mid = 5;}
+								{php $child1 = get_maincat(4, $mid, 1);}
+								{loop $child1 $i $k}
+								{php $sub = get_maincat($k[catid], $mid, 1);}
+								<dt>{set_style($k[catname], $c[style])}</dt>
+								{loop $sub $j $s}
+								<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+								{/loop}
+								<div class="clear"></div>
+								<hr style="color:#dbdbdb;width:730px; margin:30px 0;">
+								{/loop} 
+							</dl> 
+							</div> 
+						</div> 
+
+						<div class="item">
+							<span class="item02 iconfont"></span>电工电气/安防<s>></s> 
+						<div class="shadowList"></div>
+							<div class="itemCon"> 
+							<dl> 
+								{php $mid = 5;}
+								{php $child1 = get_maincat(5, $mid, 1);}
+								{loop $child1 $i $k}
+								{php $sub = get_maincat($k[catid], $mid, 1);}
+								<dt>{set_style($k[catname], $c[style])}</dt>
+								{loop $sub $j $s}
+								<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+								{/loop}
+								<div class="clear"></div>
+								<hr style="color:#dbdbdb;width:730px; margin:30px 0;">
+								{/loop}
+							</dl> 
+							</div> 
+						</div> 
+								
+						<div class="item">
+							<span class="item03 iconfont"></span>照明工业<s>></s> 
+							<div class="shadowList"></div> 
+							<div class="itemCon"> 
+							<dl> 
+								{php $mid = 5;}
+								{php $child1 = get_maincat(4, $mid, 1);}
+								{loop $child1 $i $k}
+								{php $sub = get_maincat($k[catid], $mid, 1);}
+								<dt>{set_style($k[catname], $c[style])}</dt>
+								{loop $sub $j $s}
+								<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+								{/loop}
+								<div class="clear"></div>
+								<hr style="color:#dbdbdb;width:730px; margin:30px 0;">
+								{/loop}	 
+							</dl> 
+							</div> 
+						</div> 
+						<div class="item">
+							<span class="item04 iconfont"></span>机械/五金<s>></s> 
+							<div class="shadowList"></div> 
+							<div class="itemCon"> 
+							<dl> 
+								{php $mid = 5;}
+								{php $child1 = get_maincat(6, $mid, 1);}
+								{loop $child1 $i $k}
+								{php $sub = get_maincat($k[catid], $mid, 1);}
+								<dt>{set_style($k[catname], $c[style])}</dt>
+								{loop $sub $j $s}
+								<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+								{/loop}
+								<div class="clear"></div>
+								<hr style="color:#dbdbdb;width:730px; margin:30px 0;">
+								{/loop}
+							</dl> 
+							</div>
+						</div> 
+						
+						<div class="item">
+							<span class="item05 iconfont"></span>电子元器件<s>></s> 
+							<div class="shadowList"></div> 
+							<div class="itemCon"> 
+							<dl> 
+								{php $mid = 5;}
+								{php $child1 = get_maincat(4, $mid, 1);}
+								{loop $child1 $i $k}
+								{php $sub = get_maincat($k[catid], $mid, 1);}
+								<dt>{set_style($k[catname], $c[style])}</dt>
+								{loop $sub $j $s}
+								<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+								{/loop}
+								<div class="clear"></div>
+								<hr style="color:#dbdbdb;width:730px; margin:30px 0;">
+								{/loop}
+							</dl> 
+							</div> 
+						</div> 
+						
+						<div class="item">
+							<span class="item06 iconfont"></span>商务服务<s>></s> 
+							<div class="shadowList"></div> 
+							<div class="itemCon"> 
+							<dl> 
+								{php $mid = 5;}
+								{php $child1 = get_maincat(5, $mid, 1);}
+								{loop $child1 $i $k}
+								{php $sub = get_maincat($k[catid], $mid, 1);}
+								<dt>{set_style($k[catname], $c[style])}</dt>
+								{loop $sub $j $s}
+								<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+								{/loop}
+								<div class="clear"></div>
+								<hr style="color:#dbdbdb;width:730px; margin:30px 0;">
+								{/loop} 
+							</dl> 
+							</div> 
+						</div> 
+						
+						<div class="item">
+							<span class="item07 iconfont"></span>办公用品<s>></s> 
+							<div class="shadowList"></div> 
+							<div class="itemCon"> 
+							<dl> 
+								{php $mid = 5;}
+								{php $child1 = get_maincat(5, $mid, 1);}
+								{loop $child1 $i $k}
+								{php $sub = get_maincat($k[catid], $mid, 1);}
+								<dt>{set_style($k[catname], $c[style])}</dt>
+								{loop $sub $j $s}
+								<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+								{/loop}
+								<div class="clear"></div>
+								<hr style="color:#dbdbdb;width:730px; margin:30px 0;">
+								{/loop} 
+							</dl> 
+							</div> 
+						</div> 
+						
+						<div class="item">
+							<span class="item08 iconfont"></span>礼品工艺<s>></s> 
+							<div class="shadowList"></div> 
+							<div class="itemCon"> 
+							<dl> 
+								{php $mid = 5;}
+								{php $child1 = get_maincat(4, $mid, 1);}
+								{loop $child1 $i $k}
+								{php $sub = get_maincat($k[catid], $mid, 1);}
+								<dt>{set_style($k[catname], $c[style])}</dt>
+								{loop $sub $j $s}
+								<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+								{/loop}
+								<div class="clear"></div>
+								<hr style="color:#dbdbdb;width:730px; margin:30px 0;">
+								{/loop} 
+							</dl> 
+							</div>
+						</div> 
+						
+						<div class="item">
+							<span class="item09 iconfont"></span>服装配饰<s>></s> 
+							<div class="shadowList"></div> 
+							<div class="itemCon"> 
+							<dl> 
+								{php $mid = 5;}
+								{php $child1 = get_maincat(4, $mid, 1);}
+								{loop $child1 $i $k}
+								{php $sub = get_maincat($k[catid], $mid, 1);}
+								<dt>{set_style($k[catname], $c[style])}</dt>
+								{loop $sub $j $s}
+								<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+								{/loop}
+								<div class="clear"></div>
+								<hr style="color:#dbdbdb;width:730px; margin:30px 0;">
+								{/loop} 
+							</dl> 
+							</div> 
+						</div>
+						
+						<div class="item">
+							<span class="item010 iconfont"></span>包装印刷<s>></s> 
+							<div class="shadowList"></div> 
+							<div class="itemCon"> 
+							<dl> 
+								{php $mid = 5;}
+								{php $child1 = get_maincat(4, $mid, 1);}
+								{loop $child1 $i $k}
+								{php $sub = get_maincat($k[catid], $mid, 1);}
+								<dt>{set_style($k[catname], $c[style])}</dt>
+								{loop $sub $j $s}
+								<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+								{/loop}
+								<div class="clear"></div>
+								<hr style="color:#dbdbdb;width:730px; margin:30px 0;">
+								{/loop} 
+							</dl> 
+							</div> 
+						</div> 
+						
+						<div class="item">
+							<span class="item011 iconfont"></span>纺织皮革<s>></s> 
+							<div class="shadowList"></div> 
+							<div class="itemCon"> 
+							<dl> 
+								{php $mid = 5;}
+								{php $child1 = get_maincat(4, $mid, 1);}
+								{loop $child1 $i $k}
+								{php $sub = get_maincat($k[catid], $mid, 1);}
+								<dt>{set_style($k[catname], $c[style])}</dt>
+								{loop $sub $j $s}
+								<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+								{/loop}
+								<div class="clear"></div>
+								<hr style="color:#dbdbdb;width:730px; margin:30px 0;">
+								{/loop}  
+							</dl> 
+							</div> 
+						</div> 
+						
+						<div class="item">
+							<span class="item012 iconfont"></span>农林牧渔<s>></s>
+							<div class="shadowList"></div> 
+							<div class="itemCon"> 
+							<dl> 
+								{php $mid = 5;}
+								{php $child1 = get_maincat(4, $mid, 1);}
+								{loop $child1 $i $k}
+								{php $sub = get_maincat($k[catid], $mid, 1);}
+								<dt>{set_style($k[catname], $c[style])}</dt>
+								{loop $sub $j $s}
+								<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+								{/loop}
+								<div class="clear"></div>
+								<hr style="color:#dbdbdb;width:730px; margin:30px 0;">
+								{/loop}
+							</dl> 
+							</div> 
+						</div> 
+						
+						<div class="item">
+							<span class="item013 iconfont"></span>交通运输<s>></s>
+							<div class="shadowList"></div> 
+							<div class="itemCon"> 
+							<dl> 
+								{php $mid = 5;}
+								{php $child1 = get_maincat(4, $mid, 1);}
+								{loop $child1 $i $k}
+								{php $sub = get_maincat($k[catid], $mid, 1);}
+								<dt>{set_style($k[catname], $c[style])}</dt>
+								{loop $sub $j $s}
+								<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+								{/loop}
+								<div class="clear"></div>
+								<hr style="color:#dbdbdb;width:730px; margin:30px 0;">
+								{/loop} 
+							</dl> 
+							</div> 
+						</div> 
+						
+						<div class="item">
+							<span class="item014 iconfont"></span>汽车用品<s>></s> 
+							<div class="shadowList"></div> 
+							<div class="itemCon"> 
+							<dl> 
+								{php $mid = 5;}
+								{php $child1 = get_maincat(4, $mid, 1);}
+								{loop $child1 $i $k}
+								{php $sub = get_maincat($k[catid], $mid, 1);}
+								<dt>{set_style($k[catname], $c[style])}</dt>
+								{loop $sub $j $s}
+								<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+								{/loop}
+								<div class="clear"></div>
+								<hr style="color:#dbdbdb;width:730px; margin:30px 0;">
+								{/loop}  
+							</dl> 
+							</div> 
+						</div> 
+						
+						<div class="item">
+							<span class="item015 iconfont"></span>装修建材<s>></s> 
+							<div class="shadowList"></div> 
+							<div class="itemCon"> 
+							<dl> 
+								{php $mid = 5;}
+								{php $child1 = get_maincat(4, $mid, 1);}
+								{loop $child1 $i $k}
+								{php $sub = get_maincat($k[catid], $mid, 1);}
+								<dt>{set_style($k[catname], $c[style])}</dt>
+								{loop $sub $j $s}
+								<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+								{/loop}
+								<div class="clear"></div>
+								<hr style="color:#dbdbdb;width:730px; margin:30px 0;">
+								{/loop} 
+							</dl> 
+							</div> 
+						</div>
+					<div class="item">
+						<span class="item016 iconfont"></span>
+						药品信息<s></s>
+						<div class="shadowList"></div> 
+							<div class="itemCon"> 
+							<dl> 
+								{php $mid = 5;}
+								{php $child1 = get_maincat(4, $mid, 1);}
+								{loop $child1 $i $k}
+								{php $sub = get_maincat($k[catid], $mid, 1);}
+								<dt>{set_style($k[catname], $c[style])}</dt>
+								{loop $sub $j $s}
+								<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+								{/loop}
+								<div class="clear"></div>
+								<hr style="color:#dbdbdb;width:730px; margin:30px 0;">
+								{/loop} 
+							</dl> 
+							</div>
+					</div>
+				</div> 
+			</div> 
+			<ul class="navLi"> 
+				<li{if $moduleid<4} class="menuon"{/if}></li>
+				{loop $MODULE $i $m}
+					{if $i<22}
+					{if $m[ismenu]}
+					<li{if $m[moduleid]==$moduleid} class="menuon"{/if}><a href="{$m[linkurl]}"{if $m[isblank]} target="_blank"{/if}>
+					<span{if $m[style]} style="color:{$m[style]};"{/if}>{$m[name]}</span></a></li>
+					{/if}
+					{/if}
+				{/loop}
+			</ul>  
+		</div> 
+	</div> 
+	<div class="wrapper"> 
+		<div class="banner left"> 
+			<div id="slideBox" class="slideBox"> 
+				<div class="hd"> 
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul> 
+				</div> 
+				<div class="bd"> 
+				<ul> 
+					<li><img src="{DT_SKIN}image/20160603120034680.png" alt=""/></li>
+					<li><img src="{DT_SKIN}image/20160225144041374.png" alt=""/></li> 
+					<li><img src="{DT_SKIN}image/20160520094357609.png" alt=""/></li> <!--首屏连播图--> 
+				</ul> 
+				</div>
+				<!-- 下面是前/后按钮代码 --> 
+				<a class="prev" href="javascript:void(0)"></a> 
+				<a class="next" href="javascript:void(0)"></a> 
+				<script type="text/javascript">jQuery(".slideBox").slide({ mainCell: ".bd ul", effect: "fold", autoPlay: true, easing: "easeOutCirc", delayTime: 700 });</script> 
+			</div> 
+			<div class="picScroll-left"> 
+				<div class="hd"> 
+					<a class="next"></a> 
+					<a class="prev"></a> 
+				</div> 
+				<div class="bd">
+					<ul class="picList"> 
+						<li><img src="{DT_SKIN}image/20151120101228219.png" alt=""/></li> 
+						<li><img src="{DT_SKIN}image/20151120101148510.png" alt=""/></li>
+						<li><img src="{DT_SKIN}image/20151120101042176.png" alt=""/></li> 
+						<li><img src="{DT_SKIN}image/20151023160033106.png" alt=""/></li> 
+						<li><img src="{DT_SKIN}image/20151023160044831.png" alt=""/></li> 
+						<li><img src="{DT_SKIN}image/20151023160100190.png" alt=""/></li> 
+						<li><img src="{DT_SKIN}image/20151023160112232.png" alt=""/></li> 
+						<li><img src="{DT_SKIN}image/20151023160121344.png" alt=""/></li> 
+						<li><img src="{DT_SKIN}image/20151023160130236.png" alt=""/></li> <!--首屏固定多图 --> 
+					</ul> 
+				</div> 
+			</div> 
+			<script type="text/javascript">jQuery(".picScroll-left").slide({ titCell: ".hd ul", mainCell: ".bd ul", autoPage: true, effect: "leftLoop", autoPlay: true, vis: 3, pnLoop: false });</script> 
+			<div class="clear"></div> 
+		</div>
+		<div class="bannerR left"> 
+			<div class="adBan"> 
+				<img src="{DT_SKIN}image/20151211175357142.JPG" alt="">
+			</div> 
+			<div class="newPro">
+				<h4><span class="iconfont">&#xe61a;</span><i>今日产品总数</i></h4> 
+				<div class="num"> 
+					<ul> 
+						<li>{php echo $db->count($DT_PRE.'sell_5', 'status=3',1800);}</li> 
+					</ul> 
+				</div>
+				<div class="news"> 
+				<ul>
+					<!--{php $tags=tag("moduleid=21&condition=status=3&pagesize=6&order=addtime desc&template=null")}-->
+					{loop $tags $t}
+					<li><span></span><a href="{$t[linkurl]}" target="_blank">{dsubstr($t[title],32)}</a></li> 
+					{/loop}
+					<!--首屏右侧今日上线产品下方文字链 -->
+				</ul> 
+				</div> 
+			</div>
+			<div class="safety">
+				<ul> 
+					<li class="bZ"><span class="baozhang iconfont">&#xe602;</span>买家保障</li> 
+					<li><span class="renzheng iconfont">&#xe70d;</span>商家认证</li> 
+					<li class="jR"><span class="jinrong iconfont">&#xe63a;</span>金融贷款</li> 
+				</ul> 
+			</div>
+			<div class="productShow"> 
+			<h4>铭万产品</h4> 
+				<ul> 
+					<li class="bo_b_t"><span class=" iconfont">&#xe6d1;</span>金榜题名</li> 
+					<li class="bo_b_t"><span class=" iconfont">&#xe6bb;</span>八方通宝</li> 
+					<li class="no_bor bo_b_t"><span class=" iconfont">&#xe6cc;</span>会员</li> 
+					<li><span class=" iconfont">&#xe62b;</span>联盟</li> 
+					<li><span class=" iconfont">&#xe6cf;</span>铭万魔方</li> 
+					<li class="no_bor"><span class=" iconfont">&#xe70a;</span>随行</li>
+				</ul> 
+				<div class="clear"></div> 
+			</div> 
+		</div> 
+		<div class="clear"></div> 
+	</div> 
+	<div class="wrapper detailType"> 
+	<dl>
+		<dt><span class="diyu iconfont">&#xe634;</span>地域特色<span class="arrowR"></span></dt> 
+		<dd>
+			{php $mid = 5;}	
+			{php $child = get_maincat(0, $mid, 1);}
+			{loop $child $i $c}
+			{if $i<9}
+			<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+			{/if}
+			{/loop}
+		</dd> 
+		<dt><span class="chanpin iconfont">&#xe64b;</span>特色市场<span class="arrowR"></span></dt>
+		<dd> 
+			{php $mid = 5;}	
+			{php $child = get_maincat(0, $mid, 1);}
+			{loop $child $i $c}
+			{if $i<9}
+			<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+			{/if}
+			{/loop} 
+		</dd>
+		<dt><span class="rexiao iconfont">&#xe620;</span>热销品类<span class="arrowR"></span></dt> 
+		<dd> 
+			{php $mid = 5;}	
+			{php $child = get_maincat(0, $mid, 1);}
+			{loop $child $i $c}
+			{if $i<9}
+			<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+			{/if}
+			{/loop}
+		</dd> 
+	</dl>
+	<img src="{DT_SKIN}image/20160412171145372.JPG" alt="">
+	<div class="clear"></div>
+	</div> 
+</div> 
+<div class="wrapper recommend"> 
+	<h3>精彩推荐</h3> 
+	<div class="recCon"> 
+		<div class="recLeft left"> 
+			<img src="{DT_SKIN}image/20160225150226728.png" alt=""/> <!--精彩推荐左侧单图 --> 
+		</div>
+	<div class="recMid left" style="text-align:center;"> <!--精彩推荐左侧多图--> 
+		<div class="imgDiv bgColor1">
+			<img class="" src="{DT_SKIN}image/20151224165156854.png " alt="" width="208" height="168" />
+		</div> 
+		<div class="imgDiv bgColor2">
+			<img class="" src="{DT_SKIN}image/20151224171351632.png " alt="" width="208" height="168" />
+		</div> 
+		<div class="imgDiv bgColor3">
+			<img class="" src="{DT_SKIN}image/20151224171403159.png " alt="" width="208" height="168" />
+		</div>
+		<dl> 
+			<dt class="jingxuan">行业精选</dt> 
+			<dd> 
+				{php $mid = 5;}	
+				{php $child = get_maincat(0, $mid, 1);}
+				{loop $child $i $c}
+				{if $i<6}
+				<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+				{/if}
+				{/loop} 
+			</dd> 
+		</dl> 
+		<dl> 
+			<dt class="zhuanchang">行业专场</dt> 
+			<dd> 
+				{php $mid = 5;}	
+				{php $child = get_maincat(0, $mid, 1);}
+				{loop $child $i $c}
+				{if $i<6}
+				<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+				{/if}
+				{/loop} 
+			</dd> 
+		</dl> 
+		<dl> 
+			<dt class="tuijian">活动推荐</dt>
+			<dd> 
+				{php $mid = 5;}	
+				{php $child = get_maincat(0, $mid, 1);}
+				{loop $child $i $c}
+				{if $i<6}
+				<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+				{/if}
+				{/loop}
+			</dd> 
+		</dl> 
+		</div> 
+		<div class="recRight">
+			<img src="{DT_SKIN}image/20160520111717596.JPG" alt=""/>
+		</div> 
+	</div> 
+</div> 
+<div class="wrapper"> 
+	<div class="marketL left">
+		<div class="marketTit"> 
+			<h3>热门行业市场</h3>
+			<div class="activity">
+			<strong>今日活动：</strong>
+				<div title=" " class="roll_top txtScroll-top" id="rollTop">
+					<div class="bd">
+						<ul class="infoList"> 
+							<!--{php $tags=tag("table=announce&condition=1&pagesize=6&datetype=2&length=30&order=listorder desc,addtime desc&template=null");}-->
+							{loop $tags $t} 
+							<li><a href="{$t[linkurl]}">{$t[title]}</a></li>
+							{/loop} 
+						</ul> 
+					</div>
+					<script>
+					jQuery(".txtScroll-top").slide({ titCell: ".hd ul", mainCell: ".bd ul", autoPage: true, effect: "topLoop", autoPlay: true, delayTime: 500 });</script>
+				</div>
+			</div> 
+			<div class="clear"></div> 
+		</div>
+		<div class="marketCon"> 
+			<div class="marketList">
+				<img src="{DT_SKIN}image/20151201104528766.png" alt=""/> 
+				<dl>
+					<dt>
+						<h4>农林牧渔</h4>
+						<p>推广特色农渔产品，奏响生态嘉年华</p>
+					</dt>
+					<dd>
+						{php $mid = 5;}
+						{php $child1 = get_maincat(4, $mid, 1);}
+						{loop $child1 $i $k}
+						{if $i<1}
+						{php $sub = get_maincat($k[catid], $mid, 1);}
+						<!--<dt>{set_style($k[catname], $c[style])}</dt>-->
+						{loop $sub $j $s}
+						<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+						{/loop}
+						{/if}
+						{/loop}
+						<div class="clear"></div> 
+					</dd> 
+				</dl> 
+			<div class="brand"> 
+				<ul> 
+					<!--{php $tags=tag("table=link&condition=status=3 and thumb<>'' and username=''&areaid=$cityid&pagesize=4&order=listorder desc,itemid desc&lazy=$lazy&template=null")}-->
+					{loop $tags $t}
+					<li><a href="{$t[linkurl]}" target="_blank" title="{$t[introduce]}">{if $t[thumb]}<img src="{$t[thumb]}" width="80" height="31" alt="{$t[alt]}"/>{else}{$t[title]}{/if}</a></li>
+					{/loop}
+				</ul> 
+			</div> 
+		</div> 
+		<div class="marketList">
+			<img src="{DT_SKIN}image/20151201104555413.png" alt=""/>
+			<dl> 
+				<dt>
+					<h4>装修建材</h4>
+					<p>一站式建材装修基地，这里应有尽有</p>
+				</dt> 
+					{php $mid = 5;}
+					{php $child1 = get_maincat(4, $mid, 1);}
+					{loop $child1 $i $k}
+					{if $i<1}
+					{php $sub = get_maincat($k[catid], $mid, 1);}
+					<!--<dt>{set_style($k[catname], $c[style])}</dt>-->
+					{loop $sub $j $s}
+					<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+					{/loop}
+					{/if}
+					{/loop}
+					<div class="clear"></div> 
+			</dl> 
+			<div class="marketNew">
+				<ul>
+					<!--{php $tags=tag("moduleid=21&catid=54&condition=status=3&order=addtime desc&pagesize=4&template=null")}-->
+					{loop $tags $t}
+					<li><a href="{$t[linkurl]}" target="_blank">{dsubstr($t[title],34)}</a></li>
+					{/loop}
+				</ul> 
+			</div> 
+		</div>
+		<img src="{DT_SKIN}image/20160615145253693.jpg" alt="" style="margin-bottom:10px;"/>
+		<div class="marketList">
+			<img src="{DT_SKIN}image/20151201104701876.png" alt=""/>
+			<dl> 
+				<dt>
+					<h4>包装/印刷</h4>
+					<p>具有市场价值的包装印刷行业</p>
+				</dt>
+					{php $mid = 5;}
+					{php $child1 = get_maincat(4, $mid, 1);}
+					{loop $child1 $i $k}
+					{if $i<1}
+					{php $sub = get_maincat($k[catid], $mid, 1);}
+					<!--<dt>{set_style($k[catname], $c[style])}</dt>-->
+					{loop $sub $j $s}
+					<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+					{/loop}
+					{/if}
+					{/loop}
+					<div class="clear"></div> 
+			</dl>
+			<div class="marketNew">
+				<ul>
+					<!--{php $tags=tag("moduleid=21&catid=54&condition=status=3&order=addtime desc&pagesize=4&template=null")}-->
+					{loop $tags $t}
+					<li><a href="{$t[linkurl]}" target="_blank">{dsubstr($t[title],34)}</a></li>
+					{/loop}
+				</ul>
+			</div>
+		</div>
+		<div class="marketList">
+			<img src="{DT_SKIN}image/20151201104751929.png" alt=""/>
+			<dl> 
+				<dt>
+					<h4>电子/电子设备</h4>
+					<p>科技潮人推介，各种电子产品</p>
+				</dt>
+					{php $mid = 5;}
+					{php $child1 = get_maincat(4, $mid, 1);}
+					{loop $child1 $i $k}
+					{if $i<1}
+					{php $sub = get_maincat($k[catid], $mid, 1);}
+					<!--<dt>{set_style($k[catname], $c[style])}</dt>-->
+					{loop $sub $j $s}
+					<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+					{/loop}
+					{/if}
+					{/loop}
+					<div class="clear"></div>
+			</dl> 
+			<div class="brand">
+				<ul>
+					<!--{php $tags=tag("table=link&condition=status=3 and thumb<>'' and username=''&areaid=$cityid&pagesize=4&order=listorder desc,itemid desc&lazy=$lazy&template=null")}-->
+					{loop $tags $t}
+					<li><a href="{$t[linkurl]}" target="_blank" title="{$t[introduce]}">{if $t[thumb]}<img src="{$t[thumb]}" width="80" height="31" alt="{$t[alt]}"/>{else}{$t[title]}{/if}</a></li>
+					{/loop}
+				</ul>
+			</div>
+		</div>
+		<img src="{DT_SKIN}image/20160412164340729.JPG" alt="" style="margin-bottom:10px;"/>
+		<div class="marketList"> 
+			<img src="{DT_SKIN}image/20151201104858550.png" alt=""/>
+			<dl>
+				<dt>
+					<h4>机械设备/配件</h4>
+					<p>机械设备采购，这里价更低</p>
+				</dt> 
+					{php $mid = 5;}
+					{php $child1 = get_maincat(4, $mid, 1);}
+					{loop $child1 $i $k}
+					{if $i<1}
+					{php $sub = get_maincat($k[catid], $mid, 1);}
+					<!--<dt>{set_style($k[catname], $c[style])}</dt>-->
+					{loop $sub $j $s}
+					<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+					{/loop}
+					{/if}
+					{/loop}
+					<div class="clear"></div> 
+			</dl> 
+			<div class="brand"> 
+				<ul>
+					<!--{php $tags=tag("table=link&condition=status=3 and thumb<>'' and username=''&areaid=$cityid&pagesize=4&order=listorder desc,itemid desc&lazy=$lazy&template=null")}-->
+					{loop $tags $t}
+					<li><a href="{$t[linkurl]}" target="_blank" title="{$t[introduce]}">{if $t[thumb]}<img src="{$t[thumb]}" width="80" height="31" alt="{$t[alt]}"/>{else}{$t[title]}{/if}</a></li>
+					{/loop}
+				</ul>
+			</div>
+		</div> 
+		<div class="marketList">
+			<img src="{DT_SKIN}image/20151201104953296.png" alt=""/>
+			<dl>
+				<dt>
+					<h4>纺织皮革</h4>
+					<p>纺织皮革，自主创新设计</p>
+				</dt>
+					{php $mid = 5;}
+					{php $child1 = get_maincat(4, $mid, 1);}
+					{loop $child1 $i $k}
+					{if $i<1}
+					{php $sub = get_maincat($k[catid], $mid, 1);}
+					<!--<dt>{set_style($k[catname], $c[style])}</dt>-->
+					{loop $sub $j $s}
+					<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+					{/loop}
+					{/if}
+					{/loop}
+					<div class="clear"></div> 
+			</dl> 
+			<div class="marketNew">
+				<ul>
+					<!--{php $tags=tag("moduleid=21&catid=54&condition=status=3&order=addtime desc&pagesize=4&template=null")}-->
+					{loop $tags $t}
+					<li><a href="{$t[linkurl]}" target="_blank">{dsubstr($t[title],34)}</a></li>
+					{/loop}
+				</ul> 
+			</div>
+		</div>
+		<img src="{DT_SKIN}image/20151211152618762.JPG" alt="" style="margin-bottom:10px;"/>
+		<div class="marketList"> 
+			<img src="{DT_SKIN}image/20151201105031925.png" alt=""/>
+			<dl>
+				<dt>
+					<h4>办公用品</h4>
+					<p>专业的办公用品供应商</p>
+				</dt> 
+					{php $mid = 5;}
+					{php $child1 = get_maincat(4, $mid, 1);}
+					{loop $child1 $i $k}
+					{if $i<1}
+					{php $sub = get_maincat($k[catid], $mid, 1);}
+					<!--<dt>{set_style($k[catname], $c[style])}</dt>-->
+					{loop $sub $j $s}
+					<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+					{/loop}
+					{/if}
+					{/loop}
+					<div class="clear"></div> 
+			</dl> 
+			<div class="brand">
+				<ul> 
+					<!--{php $tags=tag("table=link&condition=status=3 and thumb<>'' and username=''&areaid=$cityid&pagesize=4&order=listorder desc,itemid desc&lazy=$lazy&template=null")}-->
+					{loop $tags $t}
+					<li><a href="{$t[linkurl]}" target="_blank" title="{$t[introduce]}">{if $t[thumb]}<img src="{$t[thumb]}" width="80" height="31" alt="{$t[alt]}"/>{else}{$t[title]}{/if}</a></li>
+					{/loop} 
+				</ul> 
+			</div>
+		</div>
+		<div class="marketList">
+			<img src="{DT_SKIN}image/20151201105117370.png" alt=""/>
+			<dl> 
+				<dt>
+					<h4>电工电气</h4>
+					<p>工欲善其事,必先利其器</p>
+				</dt>
+					{php $mid = 5;}
+					{php $child1 = get_maincat(4, $mid, 1);}
+					{loop $child1 $i $k}
+					{if $i<1}
+					{php $sub = get_maincat($k[catid], $mid, 1);}
+					<!--<dt>{set_style($k[catname], $c[style])}</dt>-->
+						{loop $sub $j $s}
+							<dd><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></dd>
+						{/loop}
+					{/if}
+					{/loop}
+					<!--<div class="clear"></div>-->
+			</dl> 
+			<div class="marketNew">
+				<ul>
+					<!--{php $tags=tag("moduleid=21&catid=54&condition=status=3&order=addtime desc&pagesize=4&template=null")}-->
+					{loop $tags $t}
+					<li><a href="{$t[linkurl]}" target="_blank">{dsubstr($t[title],34)}</a></li>
+					{/loop} 
+				</ul> 
+			</div> 
+		</div> 
+		<img src="{DT_SKIN}image/20160615145518351.JPG" alt="" style="margin-bottom:10px;"/>
+	</div>
+</div> 
+
+<div class="marketR left"> 
+	<div class="titleR">
+		<div class="txtScroll-top2"> 
+			<div class="bd">
+				<ul class="infoList">
+					<!--{php $tags=tag("moduleid=21&catid=54&condition=status=3&order=addtime desc&pagesize=4&template=null")}-->
+					{loop $tags $t}
+					<li><a href="{$t[linkurl]}" target="_blank">{dsubstr($t[title],34)}</a></li>
+					{/loop}
+				</ul> 
+			</div>
+			<script>
+			jQuery(".txtScroll-top2").slide({ titCell: ".hd ul", mainCell: ".bd ul", autoPage: true, effect: "topLoop", autoPlay: true, delayTime: 500 });
+			</script> 
+		</div>
+	</div>
+	<div class="consul_ting">
+		<h2>农牧/装修 资讯</h2>
+		<ul>
+			<!--{php $tags=tag("moduleid=21&condition=status=3&pagesize=10&order=addtime desc&template=null")}-->
+			{loop $tags $i $t}
+			{php ++$i;}
+			{if $i<11}
+			<li {if $i<4}class='active_num'{/if}><span>{$i}</span><a href="{$t[linkurl]}" target="_blank">{dsubstr($t[title],34)}</a></li>
+			{/if}
+			{/loop}
+		</ul>
+	</div>
+	<img src="{DT_SKIN}image/20160520113003593.JPG" alt="" style="margin-bottom:10px;"/>
+	<div class="consul_ting">
+		<h2>包装/电子 资讯</h2>
+		<ul>
+			<!--{php $tags=tag("moduleid=21&condition=status=3&pagesize=10&order=addtime desc&template=null")}-->
+			{loop $tags $i $t}
+			{php ++$i;}
+			{if $i<11}
+			<li {if $i<4}class='active_num'{/if}><span>{$i}</span><a href="{$t[linkurl]}" target="_blank">{dsubstr($t[title],34)}</a></li>
+			{/if}
+			{/loop}
+		</ul>
+	</div>
+	<img src="{DT_SKIN}image/20160520140151702.JPG" alt="" style="margin-bottom:10px;"/>
+	<div class="consul_ting">
+		<h2>机械设备/纺织 资讯</h2>
+		<ul>
+			<!--{php $tags=tag("moduleid=21&condition=status=3&pagesize=10&order=addtime desc&template=null")}-->
+			{loop $tags $i $t}
+			{php ++$i;}
+			{if $i<11}
+			<li {if $i<4}class='active_num'{/if}><span>{$i}</span><a href="{$t[linkurl]}" target="_blank">{dsubstr($t[title],34)}</a></li>
+			{/if}
+			{/loop}
+		</ul> 
+	</div>
+	<img src="{DT_SKIN}image/20160520141214404.JPG" alt="" style="margin-bottom:10px;"/>
+	<div class="consul_ting"> 
+		<h2>办公/五金 资讯</h2>
+		<ul> 
+			<!--{php $tags=tag("moduleid=21&condition=status=3&pagesize=10&order=addtime desc&template=null")}-->
+			{loop $tags $i $t}
+			{php ++$i;}
+			{if $i<11}
+			<li {if $i<4}class='active_num'{/if}><span>{$i}</span><a href="{$t[linkurl]}" target="_blank">{dsubstr($t[title],34)}</a></li>
+			{/if}
+			{/loop} 
+		</ul>
+	</div>
+	<img src="{DT_SKIN}image/20151211162323455.JPG" alt="" style="margin-bottom:10px;"/>
+</div>
+</div>
+{template 'footer'}

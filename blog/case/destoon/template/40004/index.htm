@@ -1,0 +1,1562 @@
+{php $CSS = array('index');}
+<!--header-index-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset={DT_CHARSET}"/>
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{if $city_sitename}{$city_sitename}{else}{$DT[sitename]}{/if}{/if}</title>
+{if $head_keywords}
+<meta name="keywords" content="{$head_keywords}"/>
+{/if}
+{if $head_description}
+<meta name="description" content="{$head_description}"/>
+{/if}
+{if $head_mobile}
+<meta http-equiv="mobile-agent" content="format=html5;url={$head_mobile}">
+{/if}
+<meta name="generator" content="DESTOON B2B - www.destoon.com"/>
+<link rel="shortcut icon" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+<link rel="bookmark" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+{if $head_canonical}
+<link rel="canonical" href="{$head_canonical}"/>
+{/if}
+{if $EXT[archiver_enable]}
+<link rel="archives" title="{$DT[sitename]}" href="{$EXT[archiver_url]}"/>
+{/if}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}style.css"/>
+{if $moduleid>4}<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$module}.css"/>{/if}
+{if $CSS}
+{loop $CSS $css}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$css}.css"/>
+{/loop}
+{/if}
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}ie6.css"/>
+<![endif]-->
+{if !DT_DEBUG}<script type="text/javascript">window.onerror=function(){return true;}</script>{/if}
+<script type="text/javascript" src="{DT_STATIC}lang/{DT_LANG}/lang.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/config.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/page.js"></script>
+{if $lazy}<script type="text/javascript" src="{DT_STATIC}file/script/jquery.lazyload.js"></script>{/if}
+{if $JS}
+{loop $JS $js}
+<script type="text/javascript" src="{DT_STATIC}file/script/{$js}.js"></script>
+{/loop}
+{/if}
+{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
+<script type="text/javascript">
+{if $head_mobile && $EXT[mobile_goto]}
+GoMobile('{$head_mobile}');
+{/if}
+var searchid = {$searchid};
+{if $itemid && $DT[anticopy]}
+document.oncontextmenu=function(e){return false;};
+document.onselectstart=function(e){return false;};
+{/if}
+</script>
+<!--[以上为系统关键代码，除非您明确其含义，否则请勿修改或删除，否则会导致系统错误]-->
+<!--[模板中所有带id的元素，请勿修改或删除，否则会导致部分JS代码无法运行]-->
+<!--[以上类似的注释，在编译模板时，系统会自动移除，不会显示在实际的页面中]-->
+</head>
+<body>
+<div class="head" id="head">
+	<div class="head_m">
+		<div class="f_r" id="destoon_member"></div>
+		<div class="head_l">
+			<ul>
+			{if $DT[city]}<li class="h_city">[<span id="destoon_city">{$city_name}</span>] <a href="{DT_PATH}api/city.php" title="点击切换城市" rel="nofollow">切换</a></li>{/if}
+			<li class="h_fav"><script type="text/javascript">addFav('收藏本页');</script></li>
+			{if $EXT[mobile_enable]}<li class="h_mobile"><a href="{$EXT[mobile_url]}mobile.php">手机版</a>&nbsp;</li>{/if}
+			{if $head_mobile}<li class="h_qrcode"><a href="javascript:Dqrcode();">二维码</a>&nbsp;</li>{/if}
+			{if isset($MODULE[16])}<li class="h_cart"><a href="{$MODULE[16][linkurl]}cart.php" rel="nofollow">购物车</a>(<span class="head_t" id="destoon_cart">0</span>)</li>{/if}
+			</ul>
+		</div>
+	</div>
+</div>
+{if $head_mobile}<div id="destoon_qrcode" style="display:none;"></div>{/if}
+<div class="m head_s" id="destoon_space"></div>
+<div class="m"><div id="search_tips" style="display:none;"></div></div>
+<div class="m">
+	<div id="search_module" style="display:none;" onmouseout="Dh('search_module');" onmouseover="Ds('search_module');">
+	{loop $MODULE $m}{if $m[ismenu] && !$m[islink]}<a href="javascript:void(0);" onclick="setModule('{$m[moduleid]}','{$m[name]}')">{$m[name]}</a>{/if}{/loop}
+	</div>
+</div>
+<div class="m">
+	<div class="logo f_l"><a href="{$MODULE[1][linkurl]}"><img src="{if $MODULE[$moduleid][logo]}{DT_SKIN}image/logo_{$moduleid}.gif{elseif $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" alt="{$DT[sitename]}"/></a></div>
+	<form id="destoon_search" action="{$MODULE[$searchid][linkurl]}search.php" onsubmit="return Dsearch(1);">
+	<input type="hidden" name="moduleid" value="{$searchid}" id="destoon_moduleid"/>
+	<input type="hidden" name="spread" value="0" id="destoon_spread"/>
+	<div class="f_l">
+		<div class="head_search" onmouseover="this.className='head_search_on';" onmouseout="this.className='head_search';">
+			<div>
+				<input name="kw" id="destoon_kw" type="text" class="search_i" value="{if $kw}{$kw}{else}请输入关键词{/if}" onfocus="if(this.value=='请输入关键词') this.value='';"{if $DT[search_tips]} onkeyup="STip(this.value);" autocomplete="off"{/if} x-webkit-speech speech/><input type="text" id="destoon_select" class="search_m" value="{$MODULE[$searchid][name]}" readonly onfocus="this.blur();" onclick="$('#search_module').fadeIn('fast');"/><input type="submit" value=" " class="search_s"/>
+			</div>
+		</div>
+		<div class="head_search_kw"><a href="" onclick="Dsearch_top();return false;"><span>标王</span></a> 
+			<a href="" onclick="Dsearch_adv();return false;"><span>热搜：</span></a>
+			<span id="destoon_word"><!--{tag("moduleid=$searchid&table=keyword&condition=moduleid=$searchid and status=3&pagesize=10&order=total_search desc&template=list-search_kw")}--></span>
+		</div>
+	</div>
+	</form>
+	<div class="settleup">
+		<div class="buycart" id="buycart" onmouseover="this.className='hovercart';Dd('boxcart').className='hoverbox';" onmouseout="this.className='buycart';Dd('boxcart').className='boxcart';">
+			<s></s>
+			<span class="shopping"><span id="destoon_cart1">0</span></span>
+			<a href="{$MODULE[16][linkurl]}cart.php" class="gocart">去购物车结算</a>
+			<b></b>
+		</div>
+		<div class="boxcart" id="boxcart" onmouseover="this.className='hoverbox';Dd('buycart').className='hovercart';" onmouseout="this.className='boxcart';Dd('buycart').className='buycart';"></div>
+	</div>
+</div>
+<div class="m">
+	<div class="menu menu_index">
+		<div class="categorys_all"><span onclick="Go('{DT_PATH}sitemap/{rewrite('index.php?mid=5')}');">全部商品分类</span></div><ul><li{if $moduleid<4} class="menuon"{/if}><a href="{$MODULE[1][linkurl]}"><span>首页</span></a></li>{loop $MODULE $m}{if $m[ismenu]}<li{if $m[moduleid]==$moduleid} class="menuon"{/if}><a href="{$m[linkurl]}"{if $m[isblank]} target="_blank"{/if}><span{if $m[style]} style="color:{$m[style]};"{/if}>{$m[name]}</span></a></li>{/if}{/loop}</ul>
+	</div>
+</div>
+	
+<!--header-index/-->
+
+<div id="ipad_tips" style="display:none;"></div>
+<div class="m">
+	<div class="top_l">
+		<div class="catalog_index">
+			{php $mid = 5;}
+			{template 'cat','chip'}
+		</div>
+	</div>
+	<div class="f_l m_n">&nbsp;</div>
+	<div class="top_m f_l">
+		<div class="c_b b10">&nbsp;</div>
+		<div>{ad(14)}</div>
+	</div>
+	<div class="f_l m_n">&nbsp;</div>
+	<div class="top_r">
+		<div class="c_b b10">&nbsp;</div>
+		<div>{ad(54)}</div>
+		<div class="c_b b10">&nbsp;</div>
+		<div>
+			<div class="ann_head">
+				<strong>网站快报</strong>
+				<div class="extra f_r"><a href="{$EXT[announce_url]}" target="_blank">更多快报&nbsp;&gt;</a></div>
+			</div>
+			<div class="ann_body"><!--{tag("table=announce&condition=totime=0 or totime>$today_endtime-86400&areaid=$cityid&pagesize=4&order=listorder desc,addtime desc&target=_blank")}--></div>
+		</div>
+		<div class="c_b b10">&nbsp;</div>
+		<div class="user_serve">
+			<ul>
+				<li><a href="{if $_username}{DT_PATH}index.php?homepage={$_username}{/if}"><img src="{DT_SKIN}image/1.png" width="60" height="60"><BR><span>我的商铺</span></a></li>
+				<li class="pl40"><a href="{$MODULE[2][linkurl]}message.php"><img src="{DT_SKIN}image/2.png" width="60" height="60"><BR><span>最新留言</span></a></li>
+				<li class="pt15"><a href="{DT_PATH}spread/"><img src="{DT_SKIN}image/3.png" width="60" height="60"><BR><span>排名推广</span></a></li>
+				<li class="pl40 pt15"><a href="{$MODULE[2][linkurl]}ad.php"><img src="{DT_SKIN}image/4.png" width="60" height="60"><BR><span>广告预定</span></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="m b10">&nbsp;</div>
+<div class="m macc"><!-- 480*220*5 -->
+	<div id="content">
+		<ul class="accordion" id="accordion">
+			<li id="id1"><img src="{DT_SKIN}image/add1.jpg"></li>
+			<li id="id2"><img src="{DT_SKIN}image/add2.jpg"></li>
+			<li id="id3"><img src="{DT_SKIN}image/add3.jpg"></li>
+			<li id="id4"><img src="{DT_SKIN}image/add4.jpg"></li>
+			<li id="id5"><img src="{DT_SKIN}image/add5.jpg"></li>
+			<span class="c_b"></span>
+		</ul>
+	</div>
+	<script type="text/javascript" src="{DT_SKIN}ad.js"></script>
+</div>
+<div class="m b18">&nbsp;</div>
+<div class="m"><!-- 1F家电通讯 -->
+	<div class="m1 top1_l">
+		<div class="mt ld">
+			<div class="floor"><b class="fixpng b b1"></b><b class="fixpng b b2" style="height: 34px; display: block;"></b><b class="b b3">1F</b><b class="fixpng b4"></b></div>
+			<h2>家电通讯</h2>
+		</div>
+		<div class="mc">
+			<div class="style1">
+				{php $top1 = get_maincat(0, $mid, 1);}
+				{loop $top1 $i $c}
+				{if $i==0}
+					{php $catid1 = $c[catid];}
+					{php $top1_2 = get_maincat($c[catid], $mid, 1);}
+				{/if}
+				{/loop}
+				<ul class="lh">
+					{loop $top1_2 $j $s}
+						{if $j<16}
+							<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}">{set_style($s[catname], $s[style])}</a></li>
+						{/if}
+					{/loop}
+				</ul>
+				<span>{ad(53)}</span><!-- ad(209*155) -->
+			</div>
+		</div>
+	</div>
+	<div class="top1_r">
+		<div class="top1_r_head">
+			<ul>
+				<li class="topr_2" id="top1_t_1" onmouseover="Tb(1, 5, 'top1', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">特价商品</a></li>
+				<li class="topr_1" id="top1_t_2" onmouseover="Tb(2, 5, 'top1', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">大家电</a></li>
+				<li class="topr_1" id="top1_t_3" onmouseover="Tb(3, 5, 'top1', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">小家电</a></li>
+				<li class="topr_1" id="top1_t_4" onmouseover="Tb(4, 5, 'top1', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">手机通讯</a></li>
+				<li class="topr_1" id="top1_t_5" onmouseover="Tb(5, 5, 'top1', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">汽车五金</a></li>
+			</ul>
+		</div>
+		<div class="top1_r_body">
+			<div id="top1_c_1" class="itrade" style="display:">
+				<!-- 461*180 -->
+				<div class="top1_ad">
+					<div class="top1_ad_head">
+						<ul>
+							<li class="topbanner_2" id="topad_t_1" onmouseover="Tb(1, 3, 'topad', 'topbanner');"><div>&nbsp;</div></li>
+							<li class="topbanner_1" id="topad_t_2" onmouseover="Tb(2, 3, 'topad', 'topbanner');"><div>&nbsp;</div></li>
+							<li class="topbanner_1" id="topad_t_3" onmouseover="Tb(3, 3, 'topad', 'topbanner');"><div>&nbsp;</div></li>
+						</ul>
+					</div>
+					<div class="top1_ad_body">
+						<div id="topad_c_1" class="itrade" style="display:">{ad(50)}</div>
+						<div id="topad_c_2" class="itrade" style="display:none">{ad(51)}</div>
+						<div id="topad_c_3" class="itrade" style="display:none">{ad(52)}</div>
+					</div>
+				</div>
+				<!-- 461*180 -->
+				<div class="top1_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid1&areaid=$cityid&pagesize=7&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top1_c_2" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid1&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>			
+				</div>
+			</div>
+			<div id="top1_c_3" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid1&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top1_c_4" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid1&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top1_c_5" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid1&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="top_b">
+		<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=".$DT['page_brand']."&order=addtime desc&width=98&height=35&target=_blank&lazy=$lazy&template=null")}-->	
+		<ul>
+		{loop $tags $i $t}
+		<li><a href="{$t[linkurl]}"{if $target} target="{$target}"{/if}><img src="{$t[thumb]}" width="{$width}" height="{$height}" alt="{$t[alt]}"/></a></li>
+		{/loop}
+		</ul>
+	</div>
+</div>
+<div class="m b18">&nbsp;</div>
+<div class="m"><!-- 2F电脑数码 -->
+	<div class="m1 top1_l">
+		<div class="mt ld">
+			<div class="floor"><b class="fixpng b b1"></b><b class="fixpng b b2" style="height: 34px; display: block;"></b><b class="b b3">2F</b><b class="fixpng b4"></b></div>
+			<h2>电脑数码</h2>
+		</div>
+		<div class="mc">
+			<div class="style1">
+				{php $top1 = get_maincat(0, $mid, 1);}
+				{loop $top1 $i $c}
+				{if $i==1}
+					{php $catid2 = $c[catid];}
+					{php $top1_2 = get_maincat($c[catid], $mid, 1);}
+				{/if}
+				{/loop}
+				<ul class="lh">
+					{loop $top1_2 $j $s}
+						{if $j<16}
+							<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}">{set_style($s[catname], $s[style])}</a></li>
+						{/if}
+					{/loop}
+				</ul>
+				<span>{ad(53)}</span><!-- ad(209*155) -->
+			</div>
+		</div>
+	</div>
+	<div class="top1_r">
+		<div class="top1_r_head">
+			<ul>
+				<li class="topr_2" id="top2_t_1" onmouseover="Tb(1, 5, 'top2', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">特价商品</a></li>
+				<li class="topr_1" id="top2_t_2" onmouseover="Tb(2, 5, 'top2', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">大家电</a></li>
+				<li class="topr_1" id="top2_t_3" onmouseover="Tb(3, 5, 'top2', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">小家电</a></li>
+				<li class="topr_1" id="top2_t_4" onmouseover="Tb(4, 5, 'top2', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">手机通讯</a></li>
+				<li class="topr_1" id="top2_t_5" onmouseover="Tb(5, 5, 'top2', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">汽车五金</a></li>
+			</ul>
+		</div>
+		<div class="top1_r_body">
+			<div id="top2_c_1" class="itrade" style="display:">
+				<!-- 461*180 -->
+				<div class="top1_ad">
+					<div class="top1_ad_head">
+						<ul>
+							<li class="topbanner_2" id="topad2_t_1" onmouseover="Tb(1, 3, 'topad2', 'topbanner');"><div>&nbsp;</div></li>
+							<li class="topbanner_1" id="topad2_t_2" onmouseover="Tb(2, 3, 'topad2', 'topbanner');"><div>&nbsp;</div></li>
+							<li class="topbanner_1" id="topad2_t_3" onmouseover="Tb(3, 3, 'topad2', 'topbanner');"><div>&nbsp;</div></li>
+						</ul>
+					</div>
+					<div class="top1_ad_body">
+						<div id="topad2_c_1" class="itrade" style="display:">{ad(50)}</div>
+						<div id="topad2_c_2" class="itrade" style="display:none">{ad(51)}</div>
+						<div id="topad2_c_3" class="itrade" style="display:none">{ad(52)}</div>
+					</div>
+				</div>
+				<!-- 461*180 -->
+				<div class="top1_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid2&areaid=$cityid&pagesize=7&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top2_c_2" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid2&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+
+				</div>
+			</div>
+			<div id="top2_c_3" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid2&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+
+				</div>
+			</div>
+			<div id="top2_c_4" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid2&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+ 					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+
+				</div>
+			</div>
+			<div id="top2_c_5" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid2&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="top_b">
+		<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=".$DT['page_brand']."&order=addtime desc&width=98&height=35&target=_blank&lazy=$lazy&template=null")}-->	
+		<ul>
+		{loop $tags $i $t}
+		<li><a href="{$t[linkurl]}"{if $target} target="{$target}"{/if}><img src="{$t[thumb]}" width="{$width}" height="{$height}" alt="{$t[alt]}"/></a></li>
+		{/loop}
+		</ul>
+	</div>
+</div>
+<div class="m b18">&nbsp;</div>
+<div class="m"><!-- 3F服饰鞋包 -->
+	<div class="m1 top1_l">
+		<div class="mt ld">
+			<div class="floor"><b class="fixpng b b1"></b><b class="fixpng b b2" style="height: 34px; display: block;"></b><b class="b b3">3F</b><b class="fixpng b4"></b></div>
+			<h2>服饰鞋包</h2>
+		</div>
+		<div class="mc">
+			<div class="style1">
+				{php $top1 = get_maincat(0, $mid, 1);}
+				{loop $top1 $i $c}
+				{if $i==2}
+					{php $catid3 = $c[catid];}
+					{php $top1_2 = get_maincat($c[catid], $mid, 1);}
+				{/if}
+				{/loop}
+				<ul class="lh">
+					{loop $top1_2 $j $s}
+						{if $j<16}
+							<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}">{set_style($s[catname], $s[style])}</a></li>
+						{/if}
+					{/loop}
+				</ul>
+				<span>{ad(53)}</span><!-- ad(209*155) -->
+			</div>
+		</div>
+	</div>
+	<div class="top1_r">
+		<div class="top1_r_head">
+			<ul>
+				<li class="topr_2" id="top3_t_1" onmouseover="Tb(1, 5, 'top3', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">特价商品</a></li>
+				<li class="topr_1" id="top3_t_2" onmouseover="Tb(2, 5, 'top3', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">大家电</a></li>
+				<li class="topr_1" id="top3_t_3" onmouseover="Tb(3, 5, 'top3', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">小家电</a></li>
+				<li class="topr_1" id="top3_t_4" onmouseover="Tb(4, 5, 'top3', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">手机通讯</a></li>
+				<li class="topr_1" id="top3_t_5" onmouseover="Tb(5, 5, 'top3', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">汽车五金</a></li>
+			</ul>
+		</div>
+		<div class="top1_r_body">
+			<div id="top3_c_1" class="itrade" style="display:">
+				<!-- 461*180 -->
+				<div class="top1_ad">
+					<div class="top1_ad_head">
+						<ul>
+							<li class="topbanner_2" id="topad3_t_1" onmouseover="Tb(1, 3, 'topad3', 'topbanner');"><div>&nbsp;</div></li>
+							<li class="topbanner_1" id="topad3_t_2" onmouseover="Tb(2, 3, 'topad3', 'topbanner');"><div>&nbsp;</div></li>
+							<li class="topbanner_1" id="topad3_t_3" onmouseover="Tb(3, 3, 'topad3', 'topbanner');"><div>&nbsp;</div></li>
+						</ul>
+					</div>
+					<div class="top1_ad_body">
+						<div id="topad3_c_1" class="itrade" style="display:">{ad(50)}</div>
+						<div id="topad3_c_2" class="itrade" style="display:none">{ad(51)}</div>
+						<div id="topad3_c_3" class="itrade" style="display:none">{ad(52)}</div>
+					</div>
+				</div>
+				<!-- 461*180 -->
+				<div class="top1_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid3&areaid=$cityid&pagesize=7&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top3_c_2" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid3&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top3_c_3" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid3&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top3_c_4" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid3&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top3_c_5" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid3&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+ 					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="top_b">
+		<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=".$DT['page_brand']."&order=addtime desc&width=98&height=35&target=_blank&lazy=$lazy&template=null")}-->	
+		<ul>
+		{loop $tags $i $t}
+		<li><a href="{$t[linkurl]}"{if $target} target="{$target}"{/if}><img src="{$t[thumb]}" width="{$width}" height="{$height}" alt="{$t[alt]}"/></a></li>
+		{/loop}
+		</ul>
+	</div>
+</div>
+<div class="m b18">&nbsp;</div>
+<div class="m"><!-- 4F美容珠宝 -->
+	<div class="m1 top1_l">
+		<div class="mt ld">
+			<div class="floor"><b class="fixpng b b1"></b><b class="fixpng b b2" style="height: 34px; display: block;"></b><b class="b b3">4F</b><b class="fixpng b4"></b></div>
+			<h2>美容珠宝</h2>
+		</div>
+		<div class="mc">
+			<div class="style1">
+				{php $top1 = get_maincat(0, $mid, 1);}
+				{loop $top1 $i $c}
+				{if $i==3}
+					{php $catid4 = $c[catid];}
+					{php $top1_2 = get_maincat($c[catid], $mid, 1);}
+				{/if}
+				{/loop}
+				<ul class="lh">
+					{loop $top1_2 $j $s}
+						{if $j<16}
+							<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}">{set_style($s[catname], $s[style])}</a></li>
+						{/if}
+					{/loop}
+				</ul>
+				<span>{ad(53)}</span><!-- ad(209*155) -->
+			</div>
+		</div>
+	</div>
+	<div class="top1_r">
+		<div class="top1_r_head">
+			<ul>
+				<li class="topr_2" id="top4_t_1" onmouseover="Tb(1, 5, 'top4', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">特价商品</a></li>
+				<li class="topr_1" id="top4_t_2" onmouseover="Tb(2, 5, 'top4', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">大家电</a></li>
+				<li class="topr_1" id="top4_t_3" onmouseover="Tb(3, 5, 'top4', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">小家电</a></li>
+				<li class="topr_1" id="top4_t_4" onmouseover="Tb(4, 5, 'top4', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">手机通讯</a></li>
+				<li class="topr_1" id="top4_t_5" onmouseover="Tb(5, 5, 'top4', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">汽车五金</a></li>
+			</ul>
+		</div>
+		<div class="top1_r_body">
+			<div id="top4_c_1" class="itrade" style="display:">
+				<!-- 461*180 -->
+				<div class="top1_ad">
+					<div class="top1_ad_head">
+						<ul>
+							<li class="topbanner_2" id="topad4_t_1" onmouseover="Tb(1, 3, 'topad4', 'topbanner');"><div>&nbsp;</div></li>
+							<li class="topbanner_1" id="topad4_t_2" onmouseover="Tb(2, 3, 'topad4', 'topbanner');"><div>&nbsp;</div></li>
+							<li class="topbanner_1" id="topad4_t_3" onmouseover="Tb(3, 3, 'topad4', 'topbanner');"><div>&nbsp;</div></li>
+						</ul>
+					</div>
+					<div class="top1_ad_body">
+						<div id="topad4_c_1" class="itrade" style="display:">{ad(50)}</div>
+						<div id="topad4_c_2" class="itrade" style="display:none">{ad(51)}</div>
+						<div id="topad4_c_3" class="itrade" style="display:none">{ad(52)}</div>
+					</div>
+				</div>
+				<!-- 461*180 -->
+				<div class="top1_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid4&areaid=$cityid&pagesize=7&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					 <ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top4_c_2" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid4&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top4_c_3" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid4&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top4_c_4" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid4&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+ 					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top4_c_5" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid4&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+ 					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="top_b">
+		<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=".$DT['page_brand']."&order=addtime desc&width=98&height=35&target=_blank&lazy=$lazy&template=null")}-->	
+		<ul>
+		{loop $tags $i $t}
+		<li><a href="{$t[linkurl]}"{if $target} target="{$target}"{/if}><img src="{$t[thumb]}" width="{$width}" height="{$height}" alt="{$t[alt]}"/></a></li>
+		{/loop}
+		</ul>
+	</div>
+</div>
+<div class="m b18">&nbsp;</div>
+<div class="m"><!-- 5F居家生活 -->
+	<div class="m1 top1_l">
+		<div class="mt ld">
+			<div class="floor"><b class="fixpng b b1"></b><b class="fixpng b b2" style="height: 34px; display: block;"></b><b class="b b3">5F</b><b class="fixpng b4"></b></div>
+			<h2>居家生活</h2>
+		</div>
+		<div class="mc">
+			<div class="style1">
+				{php $top1 = get_maincat(0, $mid, 1);}
+				{loop $top1 $i $c}
+				{if $i==4}
+					{php $catid5 = $c[catid];}
+					{php $top1_2 = get_maincat($c[catid], $mid, 1);}
+				{/if}
+				{/loop}
+				<ul class="lh">
+					{loop $top1_2 $j $s}
+						{if $j<16}
+							<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}">{set_style($s[catname], $s[style])}</a></li>
+						{/if}
+					{/loop}
+				</ul>
+				<span>{ad(53)}</span><!-- ad(209*155) -->
+			</div>
+		</div>
+	</div>
+	<div class="top1_r">
+		<div class="top1_r_head">
+			<ul>
+				<li class="topr_2" id="top5_t_1" onmouseover="Tb(1, 5, 'top5', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">特价商品</a></li>
+				<li class="topr_1" id="top5_t_2" onmouseover="Tb(2, 5, 'top5', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">大家电</a></li>
+				<li class="topr_1" id="top5_t_3" onmouseover="Tb(3, 5, 'top5', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">小家电</a></li>
+				<li class="topr_1" id="top5_t_4" onmouseover="Tb(4, 5, 'top5', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">手机通讯</a></li>
+				<li class="topr_1" id="top5_t_5" onmouseover="Tb(5, 5, 'top5', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">汽车五金</a></li>
+			</ul>
+		</div>
+		<div class="top1_r_body">
+			<div id="top5_c_1" class="itrade" style="display:">
+				<!-- 461*180 -->
+				<div class="top1_ad">
+					<div class="top1_ad_head">
+						<ul>
+							<li class="topbanner_2" id="topad5_t_1" onmouseover="Tb(1, 3, 'topad5', 'topbanner');"><div>&nbsp;</div></li>
+							<li class="topbanner_1" id="topad5_t_2" onmouseover="Tb(2, 3, 'topad5', 'topbanner');"><div>&nbsp;</div></li>
+							<li class="topbanner_1" id="topad5_t_3" onmouseover="Tb(3, 3, 'topad5', 'topbanner');"><div>&nbsp;</div></li>
+						</ul>
+					</div>
+					<div class="top1_ad_body">
+						<div id="topad5_c_1" class="itrade" style="display:">{ad(50)}</div>
+						<div id="topad5_c_2" class="itrade" style="display:none">{ad(51)}</div>
+						<div id="topad5_c_3" class="itrade" style="display:none">{ad(52)}</div>
+					</div>
+				</div>
+				<!-- 461*180 -->
+				<div class="top1_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid5&areaid=$cityid&pagesize=7&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top5_c_2" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid5&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top5_c_3" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid5&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top5_c_4" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid5&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top5_c_5" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid5&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="top_b">
+		<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=".$DT['page_brand']."&order=addtime desc&width=98&height=35&target=_blank&lazy=$lazy&template=null")}-->	
+		<ul>
+		{loop $tags $i $t}
+		<li><a href="{$t[linkurl]}"{if $target} target="{$target}"{/if}><img src="{$t[thumb]}" width="{$width}" height="{$height}" alt="{$t[alt]}"/></a></li>
+		{/loop}
+		</ul>
+	</div>
+</div>
+<div class="m b18">&nbsp;</div>
+<div class="m"><!-- 6F母婴玩具 -->
+	<div class="m1 top1_l">
+		<div class="mt ld">
+			<div class="floor"><b class="fixpng b b1"></b><b class="fixpng b b2" style="height: 34px; display: block;"></b><b class="b b3">6F</b><b class="fixpng b4"></b></div>
+			<h2>母婴玩具</h2>
+		</div>
+		<div class="mc">
+			<div class="style1">
+				{php $top1 = get_maincat(0, $mid, 1);}
+				{loop $top1 $i $c}
+				{if $i==5}
+					{php $catid6 = $c[catid];}
+					{php $top1_2 = get_maincat($c[catid], $mid, 1);}
+				{/if}
+				{/loop}
+				<ul class="lh">
+					{loop $top1_2 $j $s}
+						{if $j<16}
+							<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}">{set_style($s[catname], $s[style])}</a></li>
+						{/if}
+					{/loop}
+				</ul>
+				<span>{ad(53)}</span><!-- ad(209*155) -->
+			</div>
+		</div>
+	</div>
+	<div class="top1_r">
+		<div class="top1_r_head">
+			<ul>
+				<li class="topr_2" id="top6_t_1" onmouseover="Tb(1, 5, 'top6', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">特价商品</a></li>
+				<li class="topr_1" id="top6_t_2" onmouseover="Tb(2, 5, 'top6', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">大家电</a></li>
+				<li class="topr_1" id="top6_t_3" onmouseover="Tb(3, 5, 'top6', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">小家电</a></li>
+				<li class="topr_1" id="top6_t_4" onmouseover="Tb(4, 5, 'top6', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">手机通讯</a></li>
+				<li class="topr_1" id="top6_t_5" onmouseover="Tb(5, 5, 'top6', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">汽车五金</a></li>
+			</ul>
+		</div>
+		<div class="top1_r_body">
+			<div id="top6_c_1" class="itrade" style="display:">
+				<!-- 461*180 -->
+				<div class="top1_ad">
+					<div class="top1_ad_head">
+						<ul>
+							<li class="topbanner_2" id="topad6_t_1" onmouseover="Tb(1, 3, 'topad6', 'topbanner');"><div>&nbsp;</div></li>
+							<li class="topbanner_1" id="topad6_t_2" onmouseover="Tb(2, 3, 'topad6', 'topbanner');"><div>&nbsp;</div></li>
+							<li class="topbanner_1" id="topad6_t_3" onmouseover="Tb(3, 3, 'topad6', 'topbanner');"><div>&nbsp;</div></li>
+						</ul>
+					</div>
+					<div class="top1_ad_body">
+						<div id="topad6_c_1" class="itrade" style="display:">{ad(50)}</div>
+						<div id="topad6_c_2" class="itrade" style="display:none">{ad(51)}</div>
+						<div id="topad6_c_3" class="itrade" style="display:none">{ad(52)}</div>
+					</div>
+				</div>
+				<!-- 461*180 -->
+				<div class="top1_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid6&areaid=$cityid&pagesize=7&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top6_c_2" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid6&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+ 					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top6_c_3" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid6&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top6_c_4" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid6&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+ 					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top6_c_5" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid6&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="top_b">
+		<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=".$DT['page_brand']."&order=addtime desc&width=98&height=35&target=_blank&lazy=$lazy&template=null")}-->	
+		<ul>
+		{loop $tags $i $t}
+		<li><a href="{$t[linkurl]}"{if $target} target="{$target}"{/if}><img src="{$t[thumb]}" width="{$width}" height="{$height}" alt="{$t[alt]}"/></a></li>
+		{/loop}
+		</ul>
+	</div>
+</div>
+<div class="m b18">&nbsp;</div>
+<div class="m"><!-- 7F食品保健 -->
+	<div class="m1 top1_l">
+		<div class="mt ld">
+			<div class="floor"><b class="fixpng b b1"></b><b class="fixpng b b2" style="height: 34px; display: block;"></b><b class="b b3">7F</b><b class="fixpng b4"></b></div>
+			<h2>食品保健</h2>
+		</div>
+		<div class="mc">
+			<div class="style1">
+				{php $top1 = get_maincat(0, $mid, 1);}
+				{loop $top1 $i $c}
+				{if $i==6}
+					{php $catid7 = $c[catid];}
+					{php $top1_2 = get_maincat($c[catid], $mid, 1);}
+				{/if}
+				{/loop}
+				<ul class="lh">
+					{loop $top1_2 $j $s}
+						{if $j<16}
+							<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}">{set_style($s[catname], $s[style])}</a></li>
+						{/if}
+					{/loop}
+				</ul>
+				<span>{ad(53)}</span><!-- ad(209*155) -->
+			</div>
+		</div>
+	</div>
+	<div class="top1_r">
+		<div class="top1_r_head">
+			<ul>
+				<li class="topr_2" id="top7_t_1" onmouseover="Tb(1, 5, 'top7', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">特价商品</a></li>
+				<li class="topr_1" id="top7_t_2" onmouseover="Tb(2, 5, 'top7', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">大家电</a></li>
+				<li class="topr_1" id="top7_t_3" onmouseover="Tb(3, 5, 'top7', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">小家电</a></li>
+				<li class="topr_1" id="top7_t_4" onmouseover="Tb(4, 5, 'top7', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">手机通讯</a></li>
+				<li class="topr_1" id="top7_t_5" onmouseover="Tb(5, 5, 'top7', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">汽车五金</a></li>
+			</ul>
+		</div>
+		<div class="top1_r_body">
+			<div id="top7_c_1" class="itrade" style="display:">
+				<!-- 461*180 -->
+				<div class="top1_ad">
+					<div class="top1_ad_head">
+						<ul>
+							<li class="topbanner_2" id="topad7_t_1" onmouseover="Tb(1, 3, 'topad7', 'topbanner');"><div>&nbsp;</div></li>
+							<li class="topbanner_1" id="topad7_t_2" onmouseover="Tb(2, 3, 'topad7', 'topbanner');"><div>&nbsp;</div></li>
+							<li class="topbanner_1" id="topad7_t_3" onmouseover="Tb(3, 3, 'topad7', 'topbanner');"><div>&nbsp;</div></li>
+						</ul>
+					</div>
+					<div class="top1_ad_body">
+						<div id="topad7_c_1" class="itrade" style="display:">{ad(50)}</div>
+						<div id="topad7_c_2" class="itrade" style="display:none">{ad(51)}</div>
+						<div id="topad7_c_3" class="itrade" style="display:none">{ad(52)}</div>
+					</div>
+				</div>
+				<!-- 461*180 -->
+				<div class="top1_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid7&areaid=$cityid&pagesize=7&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+ 					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top7_c_2" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid7&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top7_c_3" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid7&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top7_c_4" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid7&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top7_c_5" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid7&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+ 					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="top_b">
+		<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=".$DT['page_brand']."&order=addtime desc&width=98&height=35&target=_blank&lazy=$lazy&template=null")}-->	
+		<ul>
+		{loop $tags $i $t}
+		<li><a href="{$t[linkurl]}"{if $target} target="{$target}"{/if}><img src="{$t[thumb]}" width="{$width}" height="{$height}" alt="{$t[alt]}"/></a></li>
+		{/loop}
+		</ul>
+	</div>
+</div>
+<div class="m b18">&nbsp;</div>
+<div class="m"><!-- 8F图书音像 -->
+	<div class="m1 top1_l">
+		<div class="mt ld">
+			<div class="floor"><b class="fixpng b b1"></b><b class="fixpng b b2" style="height: 34px; display: block;"></b><b class="b b3">8F</b><b class="fixpng b4"></b></div>
+			<h2>图书音像</h2>
+		</div>
+		<div class="mc">
+			<div class="style1">
+				{php $top1 = get_maincat(0, $mid, 1);}
+				{loop $top1 $i $c}
+				{if $i==7}
+					{php $catid8 = $c[catid];}
+					{php $top1_2 = get_maincat($c[catid], $mid, 1);}
+				{/if}
+				{/loop}
+				<ul class="lh">
+					{loop $top1_2 $j $s}
+						{if $j<16}
+							<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}">{set_style($s[catname], $s[style])}</a></li>
+						{/if}
+					{/loop}
+				</ul>
+				<span>{ad(53)}</span><!-- ad(209*155) -->
+			</div>
+		</div>
+	</div>
+	<div class="top1_r">
+		<div class="top1_r_head">
+			<ul>
+				<li class="topr_2" id="top8_t_1" onmouseover="Tb(1, 5, 'top8', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">特价商品</a></li>
+				<li class="topr_1" id="top8_t_2" onmouseover="Tb(2, 5, 'top8', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">大家电</a></li>
+				<li class="topr_1" id="top8_t_3" onmouseover="Tb(3, 5, 'top8', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">小家电</a></li>
+				<li class="topr_1" id="top8_t_4" onmouseover="Tb(4, 5, 'top8', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">手机通讯</a></li>
+				<li class="topr_1" id="top8_t_5" onmouseover="Tb(5, 5, 'top8', 'topr');"><a href="{$MODULE[5][linkurl]}{rewrite('list.php?catid=1817')}">汽车五金</a></li>
+			</ul>
+		</div>
+		<div class="top1_r_body">
+			<div id="top8_c_1" class="itrade" style="display:">
+				<!-- 461*180 -->
+				<div class="top1_ad">
+					<div class="top1_ad_head">
+						<ul>
+							<li class="topbanner_2" id="topad8_t_1" onmouseover="Tb(1, 3, 'topad8', 'topbanner');"><div>&nbsp;</div></li>
+							<li class="topbanner_1" id="topad8_t_2" onmouseover="Tb(2, 3, 'topad8', 'topbanner');"><div>&nbsp;</div></li>
+							<li class="topbanner_1" id="topad8_t_3" onmouseover="Tb(3, 3, 'topad8', 'topbanner');"><div>&nbsp;</div></li>
+						</ul>
+					</div>
+					<div class="top1_ad_body">
+						<div id="topad8_c_1" class="itrade" style="display:">{ad(50)}</div>
+						<div id="topad8_c_2" class="itrade" style="display:none">{ad(51)}</div>
+						<div id="topad8_c_3" class="itrade" style="display:none">{ad(52)}</div>
+					</div>
+				</div>
+				<!-- 461*180 -->
+				<div class="top1_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid8&areaid=$cityid&pagesize=7&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top8_c_2" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid8&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top8_c_3" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid8&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top8_c_4" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid8&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="top8_c_5" class="itrade" style="display:none">
+				<div class="top2_info">
+					<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&catid=$catid8&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&width=100&height=100&target=_blank&lazy=$lazy&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+					{php $ii=$i+1;}
+						<li class="fore{$ii}">
+							<div class="p-img">
+								<a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}><img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}"></a>
+							</div>
+							<div class="p-name"><a href="{$t[linkurl]}" title="{$t[alt]}" {if $target} target="{$target}"{/if}>{$t[title]}</a></div>
+							{php $price1 = substr($t[price],0,-3);}
+							{php $price2 = substr($t[price],-3,3);}
+							<div class="p-price"><span>￥</span>{$price1}<span>{$price2}</span></div>
+						</li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="top_b">
+		<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=".$DT['page_brand']."&order=addtime desc&width=98&height=35&target=_blank&lazy=$lazy&template=null")}-->	
+		<ul>
+		{loop $tags $i $t}
+		<li><a href="{$t[linkurl]}"{if $target} target="{$target}"{/if}><img src="{$t[thumb]}" width="{$width}" height="{$height}" alt="{$t[alt]}"/></a></li>
+		{/loop}
+		</ul>
+	</div>
+</div>
+<div class="m b10">&nbsp;</div>
+<div class="m">
+	<div class="bottom_l">
+		<div class="bottom_1 f_l">
+			<div class="bottom_head"><span onclick="Go('{$MODULE[4][linkurl]}');">企业展示</span></div>
+			<div class="bottom_body li_dot">
+			<div style="height:156px;overflow:hidden;" id="company"><!--{tag("moduleid=4&condition=vip>0 and catids<>''&areaid=$cityid&pagesize=".$DT[page_com]."&order=fromtime desc&template=list-com")}--></div>
+			</div>
+		</div>
+		<div class="bottom_1 f_l">
+			<div class="bottom_head bottom_2"><span onclick="Go('{$MODULE[21][linkurl]}');">热门资讯</span></div>
+			<div class="bottom_body li_dot bottom_2">
+			<div style="height:156px;overflow:hidden;" id="news"><!--{tag("moduleid=21&condition=status=3 and addtime>$today_endtime-30*86400&areaid=$cityid&order=hits desc&pagesize=".$DT[page_rank])}--></div>
+			</div>
+		</div>
+	</div>
+	<div class="f_l m_n">&nbsp;</div>
+	<div class="bottom_r">
+		<div class="bottom_1 f_l bottom_3">
+			<div class="bottom_head"><span onclick="Go('{$MODULE[12][linkurl]}');">精品图库</span></div>
+			<div class="bottom_body li_dot2">
+				<div style="height:156px;overflow:hidden;">
+					<!--{php $tags=tag("moduleid=12&condition=status=3 and open=3 and level>0&pagesize=7&order=addtime desc&target=_blank&lazy=$lazy&template=null");}-->
+					<ul>
+					{loop $tags $i $t}
+						<li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="m b10">&nbsp;</div>
+<div class="m">
+	<div id="service-2013">
+		<dl class="fore1">
+			<dt><b></b><strong>购物指南</strong></dt>
+			<dd>
+				<div><a href="#" target="_blank" rel="nofollow">购物流程</a></div>
+				<div><a href="#" target="_blank" rel="nofollow">会员介绍</a></div>
+				<div><a href="#" target="_blank" rel="nofollow">团购/机票</a></div>
+				<div><a href="#" target="_blank" rel="nofollow">常见问题</a></div>
+				<div><a href="#" target="_blank" rel="nofollow">大家电</a></div>
+				<div><a href="#" target="_blank" rel="nofollow">联系客服</a></div>
+			</dd>
+		</dl>
+		<dl class="fore2">		
+			<dt><b></b><strong>配送方式</strong></dt>
+			<dd>
+				<div><a href="#"  target="_blank" rel="nofollow">上门自提</a></div>
+				<div><a href="#"  target="_blank" rel="nofollow">211限时达</a></div>
+				<div><a href="#"  target="_blank" rel="nofollow">配送服务查询</a></div>
+				<div><a href="#" target="_blank" rel="nofollow">配送费收取标准</a></div>
+				<div><a href="#" target="_blank" rel="nofollow">如何送礼</a></div>
+				<div><a href="#" target="_blank">Global Shipping</a></div>
+			</dd>
+		</dl>
+		<dl class="fore3">
+			<dt><b></b><strong>支付方式</strong></dt>
+			<dd>
+				<div><a href="#"  target="_blank" rel="nofollow">货到付款</a></div>
+				<div><a href="#"  target="_blank" rel="nofollow">在线支付</a></div>
+				<div><a href="#"  target="_blank" rel="nofollow">分期付款</a></div>
+				<div><a href="#"  target="_blank" rel="nofollow">邮局汇款</a></div>
+				<div><a href="#"  target="_blank" rel="nofollow">公司转账</a></div>
+			</dd>
+		</dl>
+		<dl class="fore4">		
+			<dt><b></b><strong>售后服务</strong></dt>
+			<dd>
+				<div><a href="#" target="_blank" rel="nofollow">售后政策</a></div>
+				<div><a href="#"  target="_blank" rel="nofollow">价格保护</a></div>
+				<div><a href="#"  target="_blank" rel="nofollow">退款说明</a></div>
+				<div><a href="#" target="_blank" rel="nofollow">返修/退换货</a></div>
+				<div><a href="#"  target="_blank" rel="nofollow">取消订单</a></div>
+			</dd>
+		</dl>
+		<dl class="fore5">
+			<dt><b></b><strong>特色服务</strong></dt>
+			<dd>			
+				<div><a href="#"  target="_blank">夺宝岛</a></div>
+				<div><a href="#"  target="_blank">DIY装机</a></div>
+				<div><a href="#" target="_blank" rel="nofollow">延保服务</a></div>
+				<div><a href="#"  target="_blank" rel="nofollow">京东礼品卡</a></div>
+				<div><a href="#"  target="_blank" rel="nofollow">节能补贴</a></div>
+			</dd>
+		</dl>
+		<div class="fr"><div class="sm" id="branch-office">
+	<div class="smt">
+		<h3>网站自营覆盖区县</h3>
+	</div>
+	<div class="smc">
+		<p>网站已向全国1280个区县提供自营配送服务，支持货到付款、POS机刷卡和售后上门服务。</p>
+		<p class="ar"><a href="#" target="_blank">查看详情&nbsp;&gt;</a></p>
+	</div>
+</div>
+</div>
+		<span class="clr"></span>
+	</div>
+</div>
+<script type="text/javascript" src="{DT_STATIC}file/script/index.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/marquee.js"></script>
+<script type="text/javascript">
+new dmarquee(22, 30, 3000, 'company');
+new dmarquee(22, 30, 3000, 'news');
+</script>
+{template 'footer'}

@@ -1,0 +1,15 @@
+
+      <!-- 公司简介 -->
+	  	<h3 class="tit2">{$main_name[$HM]}</h3>
+      <div class="rightabout">
+        <div class="aboutwz">{if $video}
+		{load('player.js')}
+		<div style="width:250px;height:210px;text-align:right;float:right;"><script type="text/javascript">document.write(player('{$video}',240,200,'',1));</script></div>
+		{else}
+		<img src="{$COM[thumb]}" width="200px" height="200px" align="right" style="margin:5px;padding:5px;border:#C0C0C0 1px solid;"/>
+		{/if}
+		{$COM[intro]} [<a href="{userurl($username, 'file=introduce', $domain)}" class="t">详细介绍</a>]
+		<div class="c_b"></div>
+	</div>
+      </div>
+      <!-- 公司简介 --> 

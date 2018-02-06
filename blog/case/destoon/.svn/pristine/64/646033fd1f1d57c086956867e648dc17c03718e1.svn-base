@@ -1,0 +1,14 @@
+{if $announce}
+		<!--网站公告-->
+        <div class="blk1_br">
+            <div class="ttl">
+                <h3>{$side_name[$HS]}</h3>
+            </div>
+            <div class="cnt line">
+                <div style="line-height:180%;height:100px;overflow:hidden;padding:0 5px 0 5px;">
+				<marquee onmouseOver="this.stop();" onmouseout="this.start();" scrollamount="1" scrolldelay="85" direction="up" behavior="scroll" height="100">{$announce}</marquee>
+				</div>
+            </div>
+        </div>
+	<!--网站公告-->
+{/if}

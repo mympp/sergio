@@ -1,0 +1,29 @@
+<!--精品推荐开始-->
+
+<div class="h_jp_pro wrap">
+    <div class="hd">
+    	<i class="arrow"></i>
+    	<h2>精品推荐</h2>
+    </div>
+    <div class="bd">
+        <div class="prev">上一个</div>
+		<!--{php $tags=tag("moduleid=5&condition=status>2 and username='$username' and elite=1 and thumb<>''&pagesize=8&order=edittime desc&fields=itemid,title,linkurl,thumb,edittime,price&template=null");}-->
+        <ul class="picList clearfix">
+        	{loop $tags $i $t}
+	            <li>
+	            	<div class="con">
+	                    <div class="pic">
+	                    	<a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=sell&itemid='.$t['itemid'], $domain)}{/if}" target="_blank">
+	                    		<img src="{imgurl($t[thumb])}">
+	                    	</a>
+	                    </div>
+	                    <p class="rmb mt5"><i>+</i>RMB {$t[price]}元</p>
+	                    <p class="f12">{$t[title]}</p>
+	                </div>
+	                <div class="bg"></div>
+	            </li>
+             {/loop}
+        </ul>
+        <div class="next">下一个</div>
+    </div>
+</div>

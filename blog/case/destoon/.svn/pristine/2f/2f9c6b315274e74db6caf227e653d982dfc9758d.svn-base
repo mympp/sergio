@@ -1,0 +1,401 @@
+{php $CSS = array('index');}
+{template 'header'}
+<div id="ipad_tips" style="display:none;"></div>
+<div class="m">
+	<div class="cptj">
+	<div style="margin: 6px"><font color="#187b04"><b>苗木网分站推荐：</b></font>
+	<a href="#" title="福建花木网" target="_blank" class="A1">福建苗木网</a>&nbsp;&nbsp; 
+	<a href="#" title="浙江花木网" target="_blank" class="A1">浙江花木网</a>&nbsp;&nbsp; 
+	<a href="#" title="四川花木网" target="_blank" class="A1">四川花木网</a>&nbsp;&nbsp; 
+	<a href="#" title="安徽花木网" target="_blank" class="A1">安徽苗木网</a>&nbsp;&nbsp;
+	<a href="#" title="江苏花木网" target="_blank" class="A1">江苏苗木网</a>&nbsp;&nbsp;
+	<a href="#" title="江西花木网" target="_blank" class="A1">江西苗木网</a>&nbsp;&nbsp;
+	<a href="#" title="湖南花木网" target="_blank" class="A1">湖南花木网</a>&nbsp;&nbsp;
+	<a href="#" title="河南花木网" target="_blank" class="A1">河南花木网</a>&nbsp;&nbsp;
+	<a href="#" title="山东苗木网" target="_blank" class="A1">山东苗木网</a>&nbsp;&nbsp;
+	<a href="#" title="广东花木网" target="_blank" class="A1">广东花木网</a>&nbsp;&nbsp;
+	<a href="#" title="重庆花木网" target="_blank" class="A1">重庆花木网</a>&nbsp;&nbsp;
+	<a href="#" title="广西花木网" target="_blank" class="A1">广西花木网</a></div></div>
+</div>
+<div class="m b5">&nbsp;</div>
+<div class="are-ad2">
+<ul id="are-ad2_left">
+<li><img src="{DT_SKIN}image/ad_240_60.jpg" width="130" height="104"> </li>
+<li><img src="{DT_SKIN}image/ad_240_60.jpg" width="130" height="104"> </li> 
+</ul>
+<ul id="are-ad2_right">
+<li id="erad"><img src="{DT_SKIN}image/ad_240_60.jpg" width="266" height="50"></li>
+<li id="erad"><img src="{DT_SKIN}image/ad_240_60.jpg" width="266" height="50"></li>
+<li><img src="{DT_SKIN}image/ad_130_50.jpg" width="130" height="50"> </li>
+<li><img src="{DT_SKIN}image/ad_130_50.jpg" width="130" height="50"> </li>
+<li><img src="{DT_SKIN}image/ad_130_50.jpg" width="130" height="50"> </li>
+<li><img src="{DT_SKIN}image/ad_130_50.jpg" width="130" height="50"> </li>
+<li><img src="{DT_SKIN}image/ad_130_50.jpg" width="130" height="50"> </li>
+<li><img src="{DT_SKIN}image/ad_130_50.jpg" width="130" height="50"> </li></ul>
+<ul style="MARGIN-TOP:2px">
+<li><img src="{DT_SKIN}image/ad_130_50.jpg" width="130" height="50"> </li>
+<li><img src="{DT_SKIN}image/ad_130_50.jpg" width="130" height="50"> </li>
+<li><img src="{DT_SKIN}image/ad_130_50.jpg" width="130" height="50"> </li>
+<li><img src="{DT_SKIN}image/ad_130_50.jpg" width="130" height="50"> </li>
+<li><img src="{DT_SKIN}image/ad_130_50.jpg" width="130" height="50"> </li>
+<li><img src="{DT_SKIN}image/ad_130_50.jpg" width="130" height="50"> </li>
+<li><img src="{DT_SKIN}image/ad_130_50.jpg" width="130" height="50"> </li>
+</ul>
+</div>
+<div class="m b10">&nbsp;</div>
+<div class="m">
+	<div class="m220 f_l">
+		<div class="box_head_2"><div><span class="f_r"><a href="{$EXT[announce_url]}">更多</a></span><a href="{$EXT[announce_url]}"><strong>公告·通知</strong></a></div></div>
+		<div class="box_body li_dot2 a_l_bg " style="height:180px;">
+			<!--{tag("table=announce&condition=totime=0 or totime>$today_endtime-86400&areaid=$cityid&pagesize=6&datetype=2&order=listorder desc,addtime desc&target=_blank")}-->
+			<img src="{DT_SKIN}image/ad_240_60.jpg" width="203" height="50">
+		</div>
+		<div class="b5">&nbsp;</div>
+		<div class="box_head_2"><div><span class="f_r"><a href="{$MODULE[2][linkurl]}grade.php"><font style="color:red;">如何加入？</font></a></span><a href="{$MODULE[4][linkurl]}"><strong>推荐置顶企业</strong></a></div></div>
+		<div class="box_body li_dot a_l_bg" style="height:306px;overflow:hidden;">
+		<!--{php $tags=tag("moduleid=4&condition=vip>0 and catids<>''&areaid=$cityid&pagesize=10&order=fromtime desc&template=null")}-->
+		<table width="100%" border="0">
+		{loop $tags $t}
+		<tr><td class="com_tj"><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></td></tr>
+		{/loop}
+		</table>
+		</div>
+	</div>
+	<div class="m_n1 f_l">&nbsp;</div>
+	<div class="m430 f_l">
+		<div class="box_head_2"><div><span class="f_r"><a href="{$MODULE[5][linkurl]}">更多</a></span><a href="{$MODULE[5][linkurl]}"> <strong>苗木供应信息</strong></a></div></div>
+		<div class="box_body a_l_bg">
+			<!--{php $tags=tag("moduleid=5&condition=status=3 and level>0&areaid=$cityid&pagesize=5&datetype=2&target=_blank&order=addtime desc&template=null")}-->
+			<ul>
+				{loop $tags $i $t}
+				<li>{if $datetype}<span class="f_r">{timetodate($t[addtime], $datetype)}</span>{/if}
+				<span style="color:red;font-weight:bold;">[置顶]&nbsp;</span>
+				<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">
+				<span>{$t[title]}</span></a>&nbsp;&nbsp;
+				<img src="{DT_SKIN}image/tj1.gif" width="17" height="14"></li>
+				{/loop}
+			</ul>
+			<!--{php $tags=tag("moduleid=5&condition=status=3 and level=1&areaid=$cityid&pagesize=17&datetype=2&target=_blank&order=addtime desc&template=null")}-->
+			<ul>
+				{loop $tags $i $t}
+				<li>{if $datetype}<span class="f_r">{timetodate($t[addtime], $datetype)}</span>{/if}<span style="color:#008000;font-weight:bold;">[供应]&nbsp;</span><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
+				{/loop}
+			</ul>
+		</div>
+		<div class="b4">&nbsp;</div>
+		<table width="430" cellspacing="0" cellpadding="0">
+			<tr align="center">
+			<td><img src="{DT_SKIN}image/ad_130_50.jpg" width="142" height="50"></td>
+			<td><img src="{DT_SKIN}image/ad_130_50.jpg" width="142" height="50"></td>
+			<td><img src="{DT_SKIN}image/ad_130_50.jpg" width="142" height="50"></td>
+			</tr>
+		</table>
+	</div>
+	<div class="m314 f_r">
+		<div style="border:1px #ccc solid;padding:1px;">{ad(14)}</div>
+		<div class="b6">&nbsp;</div>
+		<div class="tab_head2">
+			<ul>
+			<li class="tab2_2" id="com_t_1" onmouseover="Tb(1, 2, 'com', 'tab2');"><a href="{$MODULE[4][linkurl]}">VIP企业</a></li>
+			<li class="tab2_1" id="com_t_2" onmouseover="Tb(2, 2, 'com', 'tab2');"><a href="{$MODULE[4][linkurl]}">推荐企业</a></li>
+			<li>&nbsp;&nbsp;<a href="{$MODULE[2][linkurl]}grade.php" class="f_n">如何加入?</a></li>
+			</ul>
+		</div>
+		<div class="box_body li_dot2 a_l_bg">
+			<div id="com_c_1" style="height:329px;overflow:hidden;">
+				<!--{php $tags=tag("moduleid=4&condition=vip>0 and catids<>''&areaid=$cityid&pagesize=".$DT[page_com]."&order=fromtime desc&template=null")}-->
+					{loop $tags $t}
+					<ul>
+					<li><span class="f_r f_gray"><img src="{DT_SKIN}image/tj.gif" alt="银牌商家">&nbsp;<a href="{$MODULE[2][linkurl]}chat.php?touser={$t[username]}" target="_blank" rel="nofollow"><img src="{DT_SKIN}image/web.gif" alt="会员交谈"></a>&nbsp;&nbsp;&nbsp;&nbsp;[{area_pos($t[areaid], '/', 1)}]</span><a href="{$t[linkurl]}" target="_blank"><font color="#299A0C">{$t[company]}</font></a></li>
+					<li class="huiyuan">
+					<span class="f_gray"><font color="#333333">主营:{$t[business]}</font></span></li>
+					</ul>
+					{/loop}
+			</div>
+			<div id="com_c_2" style="height:329px;overflow:hidden;display:none">
+				<!--{php $tags=tag("moduleid=4&condition=catids<>''&areaid=$cityid&pagesize=".$DT[page_com]."&order=fromtime desc&template=null")}-->
+
+					{loop $tags $t}
+					<ul>
+					<li><span class="f_r f_gray"><img src="{DT_SKIN}image/tj.gif" alt="银牌商家">&nbsp;&nbsp;<img src="{DT_SKIN}image/tj1.gif" width="17" height="14">&nbsp;&nbsp;&nbsp;[{area_pos($t[areaid], '/', 1)}]</span><a href="{$t[linkurl]}" target="_blank"><font color="#299A0C">{$t[company]}</font></a></li>
+					<li class="huiyuan">
+					<span class="f_gray"><font color="#333333">主营:{$t[business]}</font></span></li>
+					</ul>
+					{/loop}
+			</div>
+		</div>
+	</div>
+</div>
+<div class="m b2">&nbsp;</div>
+<div class="m">
+	<div class="ad_2"><ul>
+        <li style="margin-left:0; background-color:#6BAF26;"><a href="" target="_blank">供桂花、香樟、栾树、秋枫、海枣</a></li>
+        <li style="background-color:#C0D731;"><a href="" target="_blank">专供桂花、三角梅、红叶石楠</a></li>
+        <li style="background-color:#0099FF;"><a href="" target="_blank">广玉兰、桂花、香樟、乐昌含笑</a></li>
+        <li style="background-color:#CE0BA2;"><a href="" target="_blank">鸡粪肥、鸡粪有机肥、干鸡粪等等</a></li>
+        <li style="background-color:#449792;"><a href="" target="_blank">滨州白蜡柳树柽柳基地</a></li>
+        <li style="margin-left:0; background-color:#CE0BA2;"><a href="" target="_blank">专供法桐、速生法桐、造型法桐</a></li>
+        <li style="background-color:#449792;"><a href="" target="_blank">桂花、红豆杉、红豆、梓树种子</a></li>
+        <li style="background-color:#72962D;"><a href="" target="_blank">海棠、紫叶碧桃、107杨种条</a></li>
+        <li style="background-color:#FF5A00;"><a href="" target="_blank">红豆杉苗及种子、9501泡桐苗</a></li>
+        <li style="background-color:#0099FF;"><a href="" target="_blank">专供各种月季、玫瑰</a></li>
+        <li style="margin-left:0; background-color:#FF5A00;"><a href="" target="_blank">毛白杨、国槐、法桐，107速生杨</a></li>
+        <li style="background-color:#6BAF26;"><a href="" target="_blank">精品桂花、杜英、茶花球、红花檵木</a></li>
+        <li style="background-color:#FFA902;"><a href="" target="_blank">红榉树、栾树、无患子</a></li>
+        <li style="background-color:#72962D;"><a href="" target="_blank">供云杉、樟子松、五角枫</a></li>
+        <li style="background-color:#C0D731;"><a href="" target="_blank">专供三角枫、五角枫、乌桕、海桐</a></li>
+    </ul></div>
+</div>
+<div class="m b4">&nbsp;</div>
+<div class="m">
+	<div class="m260 f_l">
+		<div class="box_head_2"><div><span class="f_r"><a href="{$MODULE[21][linkurl]}">更多</a></span><a href="{$MODULE[21][linkurl]}"><strong>央视致富经</strong></a></div></div>
+		<div class="box_body li_dot2 a_l_bg">
+			<!--{tag("moduleid=21&condition=status=3 and level>0&areaid=$cityid&pagesize=11&datetype=2&target=_blank&order=addtime desc")}-->
+		</div>
+		<div class="b5">&nbsp;</div>
+		<div class="gg5">
+			<img src="{DT_SKIN}image/ad_240_60.jpg" width="251" height="50">
+			<img src="{DT_SKIN}image/ad_240_60.jpg" width="251" height="50">
+			<img src="{DT_SKIN}image/ad_240_60.jpg" width="251" height="50">
+			<img src="{DT_SKIN}image/ad_240_60.jpg" width="251" height="50">
+			<img src="{DT_SKIN}image/ad_240_60.jpg" width="251" height="50">
+		</div>
+	</div>
+	<div class="m_n1 f_l">&nbsp;</div>
+	<div class="m430 f_l">
+		<div class="box_head_2"><div><span class="f_r"><a href="{$MODULE[6][linkurl]}">更多</a></span><a href="{$MODULE[6][linkurl]}"><strong>苗木求购信息</strong></a></div></div>
+		<div class="box_body a_l_bg">
+			<!--{php $tags=tag("moduleid=6&condition=status=3 and level=>0&areaid=$cityid&pagesize=5&datetype=2&target=_blank&order=addtime desc&template=null")}-->
+				<ul>
+				{loop $tags $i $t}
+				<li><span class="f_r">{timetodate($t[addtime], $datetype)}</span><span style="color:red;font-weight:bold;">[急购]&nbsp;</span><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}"><span style="color:#ff5d00">{$t[title]}</span></a>&nbsp;&nbsp;<img src="{DT_SKIN}image/ji.gif"></li>
+				{/loop}
+				</ul>
+			<!--{php $tags=tag("moduleid=6&condition=status=3 and level=1&areaid=$cityid&pagesize=19&datetype=2&target=_blank&order=addtime desc&template=null")}-->
+				<ul>
+				{loop $tags $i $t}
+				<li><span class="f_r">{timetodate($t[addtime], $datetype)}</span><span style="color:#008000;font-weight:bold;">[求购]&nbsp;</span><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
+				{/loop}
+				</ul>
+		</div>
+	</div>
+	<div class="m_n1 f_l">&nbsp;</div>
+	<div class="m274 f_r">
+		<div class="box_head_2"><div><span class="f_r"><a href="{$MODULE[21][linkurl]}"><font style="color:red;">更多</font></a></span><a href="{$MODULE[21][linkurl]}"><strong>新闻资讯</strong></a></div></div>
+		<div class="box_body li_dot2 a_l_bg">
+			<!--{tag("moduleid=21&condition=status=3 and level>0&areaid=$cityid&pagesize=12&datetype=2&target=_blank&order=addtime desc")}-->
+		</div>
+		<div class="b2">&nbsp;</div>
+		<div class="box_head_2"><div><span class="f_r"><a href="{$MODULE[8][linkurl]}"><font style="color:red;">更多</font></a></span><a href="{$MODULE[8][linkurl]}"><strong>展览会议</strong></a></div></div>
+		<div class="box_body li_dot2 a_l_bg" style="height:215px">
+			<!--{tag("moduleid=8&condition=status=3 and level>0&areaid=$cityid&pagesize=10&datetype=2&target=_blank&order=addtime desc")}-->
+		</div>
+	</div>
+</div>
+<div class="m b3">&nbsp;</div>
+<div class="m"><img src="{DT_SKIN}image/ad_980_60.jpg" width="980" height="60"></div>
+<div class="m b3">&nbsp;</div>
+<div class="m">
+	<div class="m697 f_l">
+		<div class="box_head_2"><div><span class="f_r"><a href="{$MODULE[5][linkurl]}">更多</a></span><a href="{$MODULE[5][linkurl]}"><strong>精品苗木展示</strong></a></div></div>
+		<div class="box_body a_l_bg">
+			<div class="thumb2">
+				<!--{tag("moduleid=5&length=36&condition=status=3 and thumb<>''&areaid=$cityid&pagesize=12&order=edittime desc&width=100&height=100&cols=6&target=_blank&lazy=$lazy&template=thumb-table")}-->
+			</div>
+		</div>
+	</div>
+	<div class="m_n1 f_l">&nbsp;</div>
+	<div class="m274 f_r">
+		<div class="box_head_2"><div><span class="f_r"><a href="{$MODULE[21][linkurl]}"><font style="color:red;">更多</font></a></span><a href="{$MODULE[21][linkurl]}"><strong>帮助·活动</strong></a></div></div>
+		<div class="box_body li_dot2 a_l_bg">
+			<!--{tag("moduleid=21&condition=status=3 and level>0&areaid=$cityid&pagesize=13&datetype=2&target=_blank&order=addtime desc")}-->
+		</div>
+	</div>
+	<div class="c_b"></div>
+</div>
+<div class="m">
+	<div class="cptj">
+	<div style="margin: 6px"><font color="#187b04"><b>产品推荐：</b></font>
+	<a>果岭草--上海诗农园艺有限公司</a>&nbsp;&nbsp;&nbsp; 
+	<a>长林系列油茶--杭州长林园艺有限公司</a>&nbsp;&nbsp;&nbsp; 
+	<a>小叶红叶石楠</a>&nbsp;&nbsp;&nbsp; 
+	<a>金禾女贞--杭州萧山禾欣园艺场</a>&nbsp;&nbsp;&nbsp; 
+	虚位以待&nbsp;&nbsp; </div></div>
+</div>
+<div class="m b2">&nbsp;</div>
+<div class="m">
+	<div class="index_price">
+		<div class="box_head_2"><div><span class="f_r more"><a href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid=5&amp;action=add" rel="nofollow"><img src="{DT_SKIN}image/fb.gif"></a></span><a href="{$MODULE[5][linkurl]}"><strong>苗木报价</strong></a></div></div>
+		<div class="price_body">
+			<ul class="price_list" id="priceup"><div id="MYMQ_twse8_1">
+				<!--{php $tags=tag("moduleid=5&condition=price<>''&areaid=$cityid&pagesize=50&order=edittime desc&length=16&template=null");}-->
+			{if $tags}
+			{loop $tags $i $t}
+			<li><span class="mc"><a href="{$t[linkurl]}">{$t[title]}</a></span><span class="xj">{if !$t[v1]}--{else}{$t[v1]}{/if}</span><span class="gd">{if !$t[v2]}--{else}{$t[v2]}{/if}</span><span class="gf">{if !$t[v3]}--{else}{$t[v3]}{/if}</span><span class="dj">--</span><span class="jg">{$t[price]}元/{$t[unit]}</span><span class="tm">{if !$t[username]}--{else}{$t[truename]}{/if}</span></li>
+			{/loop}
+			{/if}
+			</div></ul>
+		</div>
+	</div>
+	<div class="index_buy">
+		<div class="box_head_2"><div><span class="f_r more"><a href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid=22&amp;action=add" rel="nofollow"><img src="{DT_SKIN}image/fb.gif"></a></span><a href="{$MODULE[22][linkurl]}"><strong>绿化招标</strong></a></div></div>
+		<div class="box_body a_l_bg" style="height:195px;">
+			<!--{php $tags=tag("moduleid=22&condition=status=3 and level>0&areaid=$cityid&pagesize=20&datetype=2&target=_blank&order=addtime desc&template=null")}-->
+				{loop $tags $i $t}
+				<ul class="bkxx" style="margin-top:-2px;"><li><img alt="" src="{DT_SKIN}image/list3.gif">&nbsp;<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li></ul>
+				{/loop}
+		</div>
+		<div class="b2">&nbsp;</div>
+		<div class="m208 f_l">
+			<div class="tab_head2">
+				<ul>
+				<li class="tab2_2" id="trade_t_1" onmouseover="Tb(1, 2, 'trade', 'tab2');"><a href="{$MODULE[21][linkurl]}">苗木技术</a></li>
+				<li class="tab2_1" id="trade_t_2" onmouseover="Tb(2, 2, 'trade', 'tab2');"><a href="{$MODULE[21][linkurl]}">病虫防治</a></li>
+				</ul>
+			</div>
+			<div class="box_body a_l_bg">
+				<div id="trade_c_1" style="display:">
+					<!--{tag("moduleid=21&condition=status=3 and level>0&areaid=$cityid&pagesize=11&datetype=2&target=_blank&order=addtime desc")}-->
+				</div>
+				<div id="trade_c_2" style="display: none;">
+					<!--{tag("moduleid=21&condition=status=3 and level>0&areaid=$cityid&pagesize=11&datetype=2&target=_blank&order=addtime desc")}-->
+				</div>
+			</div>
+		</div>
+		<div class="m208 f_r">
+			<div class="tab_head2">
+				<ul>
+				<li class="tab2_2" id="mall_t_1" onmouseover="Tb(1, 2, 'mall', 'tab2');"><a href="{$MODULE[21][linkurl]}">最新资讯</a></li>
+				<li class="tab2_1" id="mall_t_2" onmouseover="Tb(2, 2, 'mall', 'tab2');"><a href="{$MODULE[21][linkurl]}">市场分析</a></li>
+				</ul>
+			</div>
+			<div class="box_body a_l_bg">
+				<div id="mall_c_1" style="display:">
+					<!--{tag("moduleid=21&condition=status=3 and level>0&areaid=$cityid&pagesize=11&datetype=2&target=_blank&order=addtime desc")}-->
+				</div>
+				<div id="mall_c_2" style="display:none">
+					<!--{tag("moduleid=21&condition=status=3 and level>0&areaid=$cityid&pagesize=11&datetype=2&target=_blank&order=addtime desc")}-->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="m b3">&nbsp;</div>
+<div class="m">
+	<div class="box_300 f_l">
+		<div class="box_head_2"><div><span class="f_r more2"><a href="{$MODULE[21][linkurl]}">更多</a></span><a href="{$MODULE[21][linkurl]}"><strong>苗木技术资讯</strong></a></div></div>
+		<div class="box_body c_b a_l_bg">
+			<div class="headline"><!--{php $tags=tag("moduleid=21&condition=status=3 and level=5&areaid=$cityid&order=addtime desc&pagesize=1&target=_blank&template=null")}-->
+			{loop $tags $i $t}<h3><a href="{$t[linkurl]}" target="_blank"><span>{$t[title]}</span></a></h3>{/loop}
+			</div>
+			<table width="100%" cellspacing="2" cellpadding="2" class="newsr">
+				<tr>
+					<td valign="top" width="120" class="imb">
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level=4 and thumb<>''&areaid=$cityid&order=addtime desc&pagesize=1&target=_blank&template=null");}-->
+						{loop $tags $i $t}
+						<table width="100%">
+							<tr align="center">
+								<td width="100%" valign="top">
+									<a href="{$t[linkurl]}" target="_blank"><img src="{$t[thumb]}" width="100" height="80" alt="{$t[alt]}"></a>
+									<ul><li><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></li></ul>
+								</td>
+							</tr>
+						</table>
+						{/loop}
+					</td>
+					<td valign="top">
+						<!--{tag("moduleid=21&condition=status=3 and level=2&areaid=$cityid&order=addtime desc&pagesize=5&target=_blank")}-->
+					</td>
+				</tr>
+			</table>
+			<div class="li_dot2">
+				<!--{tag("moduleid=21&condition=status=3 and level>0&areaid=$cityid&pagesize=12&datetype=2&target=_blank&order=addtime desc")}-->
+			</div>
+		</div>
+    </div>
+	<div class="box_400 f_l">
+		<div class="box_head_2"><div><span class="f_r more2"><a href="{$MODULE[10][linkurl]}">更多</a></span><a href="{$MODULE[10][linkurl]}"><strong>知道问答</strong></a></div></div>
+		<div class="box_body li_dot2 a_l_bg">
+			<!--{tag("moduleid=21&condition=status=3 and level>0&areaid=$cityid&pagesize=7&datetype=2&target=_blank&order=addtime desc")}-->
+			<img src="{DT_SKIN}image/ad_240_60.jpg" width="382" height="63" alt="">
+		</div>
+		<div class="b5">&nbsp;</div>
+		<div class="box_head_2 mt10"><div><span class="f_r more2"><a href="{$MODULE[21][linkurl]}">更多</a></span><a href="{$MODULE[21][linkurl]}"><strong>企业资讯</strong></a></div></div>
+		<div class="box_body li_dot f_gray a_l_bg">
+			<div class="li_dot">
+			<!--{tag("moduleid=21&condition=status=3 and level>0&areaid=$cityid&pagesize=7&datetype=2&target=_blank&order=addtime desc")}-->
+			</div>
+		</div>
+	</div>
+    <div class="boxx_260 f_l">
+		<div class="box_head_2"><div><span class="f_r more2"><a href="{$MODULE[7][linkurl]}">苗木报价</a></span><a href="{$MODULE[12][linkurl]}"><strong>图库推荐</strong></a></div></div>
+		<div class="box_body c_b a_l_bg">
+			<!--{tag("moduleid=21&condition=status=3 and level>0&areaid=$cityid&pagesize=7&datetype=2&target=_blank&order=addtime desc")}-->
+		</div>
+		<div class="add_5"><img src="{DT_SKIN}image/ad_258_260.png" width="258" height="260" alt=""></div>
+	</div>
+</div>
+<div class="m b5">&nbsp;</div>
+<div class="m" style="width:978px;border:1px #ccc solid;">
+	<table class="usu_tab" width="100%">
+		<tr><td><a href="#">乔木类</a></td><td>香樟</td><td>小叶榕</td><td>重阳木</td><td>小叶紫薇</td><td>大叶榕</td><td>高山榕</td><td>樟子松小苗</td><td>云杉苗</td><td>油松小苗</td><td>油松</td><td>雪松</td><td>银杏</td><td>银杏苗木</td></tr>
+		<tr><td><a href="#">灌木类</a></td><td>红车</td><td>黄金叶</td><td>假连翘</td><td>非洲茉莉</td><td>灰莉球</td><td>黄金榕</td><td>非洲茉莉球</td><td>合果芋</td><td>红叶石楠</td><td>朱槿</td><td>黄蝉</td><td>扶桑</td><td>法国冬青</td></tr>
+		<tr><td><a href="#">棕榈科</a></td><td>海枣</td><td>银海枣</td><td>霸王棕</td><td>中东海枣</td><td>假槟榔</td><td>大王椰</td><td>加拿利海枣</td><td>加拿利</td><td>大王椰子</td><td>苏铁</td><td>铁树</td><td>椰子</td><td>布迪椰子</td></tr>
+		<tr><td><a href="#">花卉类</a></td><td>月季</td><td>碧桃树</td><td>梅花树</td><td>钻石玫瑰</td><td>鸡冠花</td><td>龟背竹</td><td>木本象牙红</td><td>鹤望兰</td><td>红叶碧桃</td><td>碧桃</td><td>石榴</td><td>兰花</td><td>洋绣球花</td></tr>
+		<tr><td><a href="#">盆景类</a></td><td>榕树</td><td>榕树桩</td><td>檵木桩</td><td>秋枫桩景</td><td>雪松桩</td><td>樟子松</td><td>红豆杉盆景</td><td>秋枫桩</td><td>紫薇桩景</td><td>景观</td><td>假山</td><td>造景</td><td>假山流水</td></tr>
+	</table>
+</div>
+<div class="m b5">&nbsp;</div>
+{if $DT[page_logo] || $DT[page_text]}
+<div class="m">
+	<div class="qy_flink">
+		<div class="qy_flink1">
+			<h4>合作伙伴：</h4>
+			<span><!--{php $tags=tag("table=link&condition=status=3 and level=3 and thumb<>'' and username=''&areaid=$cityid&pagesize=".$DT['page_logo']."&order=listorder desc,itemid desc&lazy=$lazy&template=null")}-->
+				<ul>
+				{loop $tags $i $t}
+				{if $t[thumb]}<a href="{$t[linkurl]}" target="_blank" title="{$t[introduce]}"><img src="{$t[thumb]}" width="88" height="31" alt="{$t[alt]}"/></a>{else}<li><a href="{$t[linkurl]}" target="_blank" title="{$t[introduce]}">{$t[title]}</a></li>{/if}
+				{/loop}
+				</ul>
+			</span>
+			<!--{php $tags=tag("table=link&condition=status=3 and level=1 and thumb='' and username=''&areaid=$cityid&pagesize=".$DT['page_text']."&order=listorder desc,itemid desc&template=null")}-->
+				<ul>
+				{loop $tags $i $t}
+				{if $t[thumb]}<a href="{$t[linkurl]}" target="_blank" title="{$t[introduce]}"><img src="{$t[thumb]}" width="88" height="31" alt="{$t[alt]}"/></a>{else}<li><a href="{$t[linkurl]}" target="_blank" title="{$t[introduce]}">{$t[title]}</a></li>{/if}
+				{/loop}
+				</ul>
+		</div>
+		<div class="qy_flink2">
+			<h4>友情链接：</h4>
+			<!--{php $tags=tag("table=link&condition=status=3 and level=2 and thumb='' and username=''&areaid=$cityid&pagesize=".$DT['page_text']."&order=listorder desc,itemid desc&template=null")}-->
+				<ul>
+				{loop $tags $i $t}
+				{if $t[thumb]}<a href="{$t[linkurl]}" target="_blank" title="{$t[introduce]}"><img src="{$t[thumb]}" width="88" height="31" alt="{$t[alt]}"/></a>{else}<li><a href="{$t[linkurl]}" target="_blank" title="{$t[introduce]}">{$t[title]}</a></li>{/if}
+				{/loop}
+				</ul>
+		</div>
+		<div style="border-bottom:none;">
+			<h4>合作洽谈：</h4>
+			&nbsp;&nbsp;请您做好本站链接再提出申请，否则不予链接。&nbsp;&nbsp;<a href="{$EXT[link_url]}{rewrite('index.php?action=reg')}">在线申请链接</a>
+		</div>
+	</div>
+</div>
+{/if}
+<script type="text/javascript" src="{DT_STATIC}file/script/index.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/marquee.js"></script>
+<script type="text/javascript">
+new dmarquee(48, 20, 2000, 'com_c_1');
+new dmarquee(22, 50, 0, 'priceup');
+new dmarquee(22, 10, 3000, 'site_stats');
+new dmarquee(22, 30, 3000, 'company');
+if(get_cookie('auth')) {
+	$('.iuser_l')[0].title = '商务中心';
+	$('.iuser_l')[0].href = '{$MODULE[2][linkurl]}';
+	$('.iuser_l')[0].className = 'iuser_u';
+	$('.iuser_r')[0].title = '完善我的会员资料';
+	$('.iuser_r')[0].href = '{$MODULE[2][linkurl]}edit.php';
+	$('.iuser_r')[0].className = 'iuser_e';
+}
+</script>
+{template 'footer'}

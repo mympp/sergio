@@ -1,0 +1,109 @@
+@charset "gb2312";
+/* CSS Document */
+.bg03182b{ background-color:#03182b;}
+
+.boxA{clear: both;border-top:1px solid #16293b; padding:15px 0px 15px 5px; margin-left:10px; color:#cbd0d4; line-height:20px;}
+.boxA a{color:#cbd0d4;}
+.boxA ul li {width:230px;height:28px;line-height:28px;overflow:hidden;}
+
+.tit b,.rightabout .brand span,.tit2 em a,.stocklist dl span a.inquiry,.btnstyle1{ background-image:url('vipbg.png');}
+/* 左侧联系方式 */
+.tit{ font:bold 15px/32px "宋体"; position:relative; padding:0px 0px 0px 42px; margin:0px 0px 10px;}
+.tit b{ display:block; position:absolute; left:0px; top:0px; *top:-9px; _left:-42px; background-position:left -415px; width:37px; height:30px;}
+.tit b.titicon2{ background-position:-45px -413px;}
+.tit b.titicon3{ background-position:-93px -415px;}
+.tit b.titicon4{ background-position:-136px -415px;}
+.tit a{color:#cccfd4;}
+
+.tit2{ font:bold 16px/32px "宋体"; color:#707070; padding:5px 10px; margin:5px 0px; border-top:2px solid #c8cbcf;}
+.tit2 em,.tit2 i{ float:right; font-size:12px; font-weight:normal;}
+.tit2 em a{ width:17px; height:17px; display:block; background-position:-75px -36px;}
+.tit2 em{ margin-top:5px;}
+.tit2 i{ font-family:Arial, Helvetica, sans-serif; margin-right:10px; line-height:28px;}
+.tit2 i a{ margin-right:5px;}
+.tit2 i a:hover,.tit2 i a.on{ color:#cc0000;}
+
+/* 友情链接 */
+.leftlink{ padding-bottom:5px;}
+.leftlink li a{ display:block; color:#cbd0d4; line-height:24px; display:block; padding:0px 15px 0px 5px;}
+.leftlink li a:hover{ background-color:#092a48; color:#cbd0d4; text-decoration:none;}
+
+/* 右侧公司简介 */
+.rightabout{ padding:0px 0px 25px; color:#999;}
+.rightabout .aboutwz{ width:100%; overflow:hidden; line-height:25px;}
+.rightabout .aboutwz .companyimg{ width:288px; height:198px; border:1px solid #bbb; margin:0px 15px 0px 0px;}
+.rightabout .aboutwz a{ color:#00a0e9;}
+.rightabout .brand{ background:url(../images/brandbg.jpg) no-repeat center top; padding-top:15px; width:100%; overflow:hidden; margin-top:25px;}
+.rightabout .brand span{ float:left; width:21px; height:21px; background-position:-116px -33px; cursor:pointer; margin-top:8px;}
+.rightabout .brand span.next{ background-position:-140px -33px;}
+.rightabout .brand div{ width:867px; float:left; margin:0px 15px; overflow:hidden;}
+.rightabout .brand ul{ width:2000px; overflow:hidden; height:38px; }
+.rightabout .brand ul li{ width:110px; height:38px; float:left; margin-right:18px;}
+.rightabout .brand ul li img{ border:1px solid #e3e2e2; width:108px; height:36px;}
+
+.companyimg img{ width:288px; height:198px;}
+.js2{ width:288px; height:198px; overflow:hidden;position:relative;}
+.jsNav2{position:absolute;right:10px;bottom:10px;}
+.jsNav2 a{background:none repeat scroll 0 0 #FFFFFF;color:#D40404;float:left;font-weight:bold;height:10px;line-height:10px;margin:0 3px;text-align:center;width:10px; font-size:0px;}
+.jsNav2 .imgSelected2{background:none repeat scroll 0 0 #FF7300;color:#FFFFFF;}
+
+/* 产品分类 */
+.categorybox{ padding-bottom:5px;}
+.categorybox h4{ font-size:12px; padding:0px 15px 0px 10px; margin-bottom:5px; font-weight:normal;}
+.categorybox h4 em{ font-size:12px; color:#cbd0d4; margin-left:3px;}
+.categorybox h4 b{ float:right; width:16px; height:16px; background-position:-95px -45px; cursor:pointer;}
+.categorybox h4 a{ color:#cbd0d4;}
+.categorybox div{ padding:0px 0px 5px;}
+.categorybox div a{ padding:0px 25px 0px 20px; line-height:24px; display:block; color:#cbd0d4;}
+.categorybox div a:hover,.categorybox div a.on{ color:#fff; text-decoration:none;}
+.categorybox h4.on a{ color:#00a0e9; font-weight:bold;}
+.categorybox h4.on b{ background-position:-77px -45px;}
+
+/* IC产品 */
+.iclist,.iclistcont{ width:100%; overflow:hidden;}
+.iclist dl{ width:157px; height:215px; float:left; margin:0px 8px 15px 20px; display:inline;}
+.iclist dl dt{ width:155px; height:155px; border:1px solid #e2e1e1; display:table-cell; text-align:center; vertical-align:middle; *display:block; *font-size:136px;}
+.iclist dl dt img{ vertical-align:middle; max-height:155px; max-width:155px;}
+.iclist dl dd{ margin-top:3px; height:14px; line-height:14px; width:100%; overflow:hidden; white-space: nowrap;text-overflow: ellipsis;}
+.iclist dl dd a:hover{ color:#ff6600;}
+.iclist dl dd strong{ color:#cc0000;}
+.iclist dl dd span{ background-color:#c5e4ff; color:#346a99; padding:2px;}
+.iclist dl dd span b{ color:#cc0000;}
+.allnum{ width:200px; height:8px; margin:5px auto 15px;}
+.allnum li{ width:45px; height:8px; float:left; margin:0px 0px 0px 6px; cursor:pointer; background-color:#e3e5e7; font-size:0px; line-height:8px;}
+.allnum li.on{ background-color:#cf3736;}
+
+/* 优势库存 */
+.stocklist{ padding:0px 0px 15px;}
+.stocklist dl dt,.stocklist dl dd{ background-color:#efeff1; height:35px; line-height:35px; width:100%; overflow:hidden;}
+.stocklist dl dt{ color:#03182b;}
+.stocklist dl dd{ background-color:#FFF; border-bottom:1px solid #f4f4f4;}
+.stocklist dl span{ float:left; width:112px; padding-left:6px; display:block;}
+.stocklist dl span.w300{ width:300px; text-align:left;}
+.stocklist dl span.w120{ width:150px; text-align:left;}
+.stocklist dl span strong a{ color:#03182b; font-family:Arial, Helvetica, sans-serif;}
+.stocklist dl span.w60{ width:60px;}
+.stocklist dl span a.inquiry{ display:block; width:38px; height:17px; text-align:center; line-height:18px; color:#bc3e00; background-position:-75px -57px; margin:8px 0px 0px;}
+.stocklist dl dd.bgfafafa{ background-color:#fafafa;}
+
+/* 留言 */
+.message{ padding:5px 0px;}
+.message h3{ font:34px/40px Arial, Helvetica, sans-serif; color:#777;}
+.message ul{ width:658px; overflow:hidden; padding:15px 0px 10px 40px;}
+.message ul li{ margin-bottom:10px; width:100%; overflow:hidden;}
+.message ul li span{ display:block; width:265px; height:31px; border:1px solid #ababab; line-height:31px; font-size:14px; color:#ababab; padding:0px 10px; float:left;}
+.message ul li span i{ color:#7f7f7f; margin:0px 8px;}
+.message ul li span input{ width:187px; height:22px; line-height:22px; border:0px; color:#666; font-size:14px;}
+.message ul li em{ display:inline-block; color:#ababab; margin:0px 0px 0px 5px; line-height:33px;}
+.message ul li textarea{ width:413px; height:76px; border:1px solid #ababab; padding:8px; color:#ababab; font-size:14px; float:left;}
+.message ul li span.w178{ width:190px;}
+.message ul li span.w178 input{ width:110px;}
+.btnstyle1{ width:213px; height:47px; text-align:center; color:#FFF; font:26px/47px "微软雅黑"; background-position:left -448px; border:0px; margin-top:10px; cursor:pointer;}
+
+.p25nor{ padding:25px 0px 0px 25px;}
+.w965{ width:965px;}
+
+/* weixin */
+.leftcompany div.weixin{ width:90%; overflow:hidden; padding:10px 0px; top:10px;}
+.leftcompany div.weixin dt{ border:6px solid #fff; width:62px; height:62px; float:left;}
+.leftcompany div.weixin dd{ width:100px; float:left; font-weight:bold; color:#fff; margin-left:10px; margin-top:30px;}

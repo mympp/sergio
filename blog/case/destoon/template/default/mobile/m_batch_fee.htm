@@ -1,0 +1,24 @@
+{if $fee_add}
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">信息消费</span>
+                <input type="text" class="aui-input" value="{$fee_add} {$fee_unit}" readonly="readonly"/><span class="aui-input-addon" style="font-size:12px !important; color:#999">发布该信息需消费{$fee_add}{$fee_unit}</span></div>
+
+{if $fee_currency == 'money'}
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-info">{$DT[money_name]}余额</span>
+                <input type="text" class="aui-input aui-text-info" value="{$_money}{$fee_unit}" readonly="readonly"/><span class="aui-input-addon"><a href="mcharge.php?action=pay">[充值]</a></span>
+            </div>
+{else}
+            <div class="aui-input-row">
+                <span class="aui-input-addon">{$DT[credit_name]}余额</span>
+                <input type="text" class="aui-input aui-text-info" value="{$_credit}{$fee_unit}" readonly="readonly"/> <span class="aui-input-addon"><a href="mcredit.php?action=buy">[购买]</a></span>
+            </div>
+
+{/if}
+{/if}
+{if $need_password}
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">支付密码</span>
+                <div id="captcha-bar">{template 'password', 'chip'}</div>
+            </div>
+{/if}

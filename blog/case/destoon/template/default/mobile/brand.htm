@@ -1,0 +1,115 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+<link rel="stylesheet" type="text/css" href="css/info_v2.css"/>
+<header class="aui-bar aui-bar-nav" id="aui-header">
+       {if $itemid || $catid || $areaid || $kw}
+        <a class="aui-pull-left aui-btn" href="{$back_link}">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+       {else}
+        <a class="aui-pull-left aui-btn" href="channel.php">
+           <span class="aui-iconfont aui-icon-left"></span>频道
+        </a>
+       {/if}
+        <div class="aui-title">{$head_name}</div>
+        <a class="aui-pull-right">
+        <span class="dt-iconfont dt-icon-caidan" onclick="showPopup();"></span>
+        </a>
+        <a class="aui-pull-right"><i class="dt-iconfont dt-icon-sousuo aui-font-size-20" onclick="showsearchbar();"></i></a>
+</header>
+<div class="aui-bar-fix"></div>
+
+{if $itemid}
+{template 'dt-app-share', 'mobile'}
+    <section class="aui-content">
+        <div class="aui-card-list aui-border-t aui-border-b">
+            <div class="aui-info dt-padded-t-20 aui-padded-l-5 aui-padded-r-15">
+                <div class="aui-info-item aui-font-size-20">
+                    <span class="aui-margin-l-5 dt-text-black">{$title}</span>
+       </div>
+            </div>
+              <div class="aui-card-list-timer" style="color:#999;">
+                <div>
+                    <span class="aui-margin-r-10 aui-font-size-12"><i class="aui-iconfont aui-icon-time aui-margin-r-5 aui-font-size-12"></i>{$editdate}</span><span class="aui-margin-r-10 aui-font-size-12"><i class="aui-iconfont aui-icon-attention aui-margin-r-5 aui-font-size-12"></i>{$hits}</span>
+                </div>
+            </div>
+            <div class="aui-hr"></div>
+            <div class="aui-card-list-content aui-margin-t-10">
+            {if $thumb}{template 'dtchip-album', 'mobile'}{/if}
+          </div>
+          <div class="aui-content aui-margin-t-10">
+          <ul class="aui-list aui-list-in">
+        {if $vip}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">{VIP}:{$vip}级</div>
+            </div>
+        </li>
+    {/if}
+    {if $homepage}
+    <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">网站:<a href="{$homepage}" target="_blank" rel="external" class="b">{$homepage}</a></div>
+            </div>
+        </li>
+
+    {/if}
+    </ul>
+          </div>
+    <div class="aui-content aui-margin-t-15 aui-padded-l-10 aui-padded-r-10 aui-text-center">
+          {if $could_message}<a href="message.php?action=send&typeid=3&touser={$username}&title={encrypt('愿加盟“'.$title.'”品牌', DT_KEY.'SEND')}">
+    <div class="aui-btn aui-btn-info aui-btn-sm aui-font-size-16" style="width:100%;">留言加盟</div>
+    </a> {/if}
+          </div>
+            <div class="aui-card-list-content-padded aui-padded-t-10 aui-padded-b-10 dt-chip-content" style="color:#7b7b7b; line-height:220%; overflow:hidden;">
+    {$content}
+            </div>
+    <div class="aui-content dtchip-contact-div">
+    <ul class="aui-list aui-maigin-b-10">
+    <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">联系方式</div>
+            </div>
+        </li>
+    </ul>
+    <div class="dtchip-contact">
+    {template 'dtchip-contact', 'mobile'}
+    </div>
+    </div>
+        </div>
+        <div class="aui-content aui-margin-t-15 aui-padded-l-10 aui-padded-r-10 aui-text-center"></div>
+</section>
+
+{template 'dtchip-other', 'mobile'}
+{template 'dtchip-comment', 'mobile'}
+{else}
+
+{template 'dtchip-deals', 'mobile'}
+{template 'dt-results-bar', 'mobile'}
+{if $lists}
+<div class="aui-content aui-margin-b-15" id="content">
+        <ul class="aui-list aui-media-list dt-media-sell" id="slistdiv">
+        {loop $lists $v}
+            <li class="aui-list-item aui-padded-t-5 aui-padded-b-5">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media" style="width:6rem; height:4rem;">
+                     <a href="{mobileurl($moduleid, 0, $v['itemid'])}"><img src="{if $v[thumb]}{$v[thumb]}{else}image/nopic-120.png{/if}" class="dt-img-contain" height="65" /></a>
+                    </div>
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title aui-ellipsis-2"><a href="{mobileurl($moduleid, 0, $v['itemid'])}">{$v[title]}</a></div>
+                        </div>
+                        <div class="aui-list-item-text dt-margin-t-5"><div class="aui-ellipsis-2" style="width:95%">{$v[company]}</div></div>
+                    </div>
+                </div>
+            </li>
+{/loop}
+</ul>
+</div>
+	{else}
+	{template 'dtchip-empty', 'mobile'}
+	{/if}
+
+{if $pages}<div class="aui-content aui-margin-b-15 aui-text-center pageslist"><div class="pages">{$pages}</div></div>{/if}
+{/if}
+{template 'footer_v2', 'mobile'}

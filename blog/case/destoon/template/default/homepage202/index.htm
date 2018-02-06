@@ -1,0 +1,24 @@
+{template 'header', $template}
+
+{if $bannert || $banner}
+<div class="bannerlist-container" data-inset="bannrShow" data-height="500">
+  <ul>
+  	{if $bannert == 2}
+  		<li><a href='javascript:void(0);'><img src="{$banner1}" width="{$bannerw}" height="{$bannerh}" alt=""/></a></li>
+		<li><a href='javascript:void(0);'><img src="{$banner2}" width="{$bannerw}" height="{$bannerh}" alt=""/></a></li>
+  		{if $banner3}<li><a href='javascript:void(0);'><img src="{$banner3}" width="{$bannerw}" height="{$bannerh}" alt=""/></a></li>{/if}
+		{if $banner4}<li><a href='javascript:void(0);'><img src="{$banner4}" width="{$bannerw}" height="{$bannerh}" alt=""/></a></li>{/if}
+		{if $banner5}<li><a href='javascript:void(0);'><img src="{$banner5}" width="{$bannerw}" height="{$bannerh}" alt=""/></a></li>{/if}
+  		{elseif $bannert == 1}
+		<embed src="{$bannerf}" quality="high" loop="true" extendspage="http://get.adobe.com/flashplayer/" type="application/x-shockwave-flash" width="{$bannerw}" height="{$bannerh}" allowscriptaccess="never"></embed>
+		{elseif $banner}
+		<li><a href='javascript:void(0);'><img src="{$banner}" width="100%" height="500px"/></a></li>
+		{/if}
+	</ul>
+	</div>
+	{/if}
+	{loop $HMAIN $HM $MAIN}
+	{template 'main_'.$main_file[$HM], $template}
+	{/loop}
+<!--底部开始-->
+{template 'footer', $template}

@@ -1,0 +1,52 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+<link rel="stylesheet" type="text/css" href="css/club_v2.css"/>
+<header class="aui-bar aui-bar-nav" id="aui-header">
+        <a class="aui-pull-left aui-btn" href="index.php?moduleid={$moduleid}">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+        <div class="aui-title">{$head_name}</div>
+        <a class="aui-pull-right" href="user.php?mid={$moduleid}&job=join"><span>更多</span></a>
+</header>
+
+<div class="aui-bar-fix"></div>
+
+<div class="aui-content aui-margin-b-15">
+    <ul class="aui-list aui-list-in dt-border-t-none">
+        <li class="aui-list-item aui-list-item-middle">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title"><a href="{$MURL}{$DT[file_my]}?mid={$moduleid}" rel="external">我的帖子</a></div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title"><a href="{$MURL}{$DT[file_my]}?mid={$moduleid}&job=reply" rel="external">我的回复</a></div>
+            </div>
+        </li>
+        </ul>
+</div>
+
+{if $lists}
+<div class="aui-content aui-margin-b-15 dt-media-sell">
+        <ul class="aui-list aui-media-list" id="slistdiv">
+{loop $lists $k $v}
+<li class="aui-list-item">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-media" style="width:3rem;">
+                    <a href="index.php?moduleid={$moduleid}&catid={$v[itemid]}"><img src="{$v[thumb]}" width="60" /></a>
+                </div>
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title"><a href="index.php?moduleid={$moduleid}&catid={$v[gid]}">{$v[title]}</a></div>
+                    </div>
+                    <div class="aui-list-item-text">
+                        {$v[post]}&nbsp;主题&nbsp;&nbsp;{$v[fans]}&nbsp;粉丝
+                    </div>
+                </div>
+            </div>
+</li>
+		{/loop}
+        </ul>
+</div>
+{/if}
+{template 'footer', 'mobile'}

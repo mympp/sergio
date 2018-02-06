@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset={DT_CHARSET}"/>
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{if $city_sitename}{$city_sitename}{else}{$DT[sitename]}{/if}{/if}</title>
+{if $head_keywords}
+<meta name="keywords" content="{$head_keywords}"/>
+{/if}
+{if $head_description}
+<meta name="description" content="{$head_description}"/>
+{/if}
+{if $head_mobile}
+<meta http-equiv="mobile-agent" content="format=html5;url={$head_mobile}">
+{/if}
+<meta name="generator" content="DESTOON B2B - www.destoon.com"/>
+<link rel="shortcut icon" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+<link rel="bookmark" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+{if $head_canonical}
+<link rel="canonical" href="{$head_canonical}"/>
+{/if}
+{if $EXT[archiver_enable]}
+<link rel="archives" title="{$DT[sitename]}" href="{$EXT[archiver_url]}"/>
+{/if}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}style.css"/>
+{if $moduleid>4}<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$module}.css"/>{/if}
+{if $CSS}
+{loop $CSS $css}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$css}.css"/>
+{/loop}
+{/if}
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}ie6.css"/>
+<![endif]-->
+{if !DT_DEBUG}<script type="text/javascript">window.onerror=function(){return true;}</script>{/if}
+<script type="text/javascript" src="{DT_STATIC}lang/{DT_LANG}/lang.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/config.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/page.js"></script>
+{if $lazy}<script type="text/javascript" src="{DT_STATIC}file/script/jquery.lazyload.js"></script>{/if}
+{if $JS}
+{loop $JS $js}
+<script type="text/javascript" src="{DT_STATIC}file/script/{$js}.js"></script>
+{/loop}
+{/if}
+{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
+<script type="text/javascript">
+{if $head_mobile && $EXT[mobile_goto]}
+GoMobile('{$head_mobile}');
+{/if}
+var searchid = {$searchid};
+{if $itemid && $DT[anticopy]}
+document.oncontextmenu=function(e){return false;};
+document.onselectstart=function(e){return false;};
+{/if}
+</script>
+<!--[以上为系统关键代码，除非您明确其含义，否则请勿修改或删除，否则会导致系统错误]-->
+<!--[模板中所有带id的元素，请勿修改或删除，否则会导致部分JS代码无法运行]-->
+<!--[以上类似的注释，在编译模板时，系统会自动移除，不会显示在实际的页面中]-->
+<link rel="stylesheet" href="{DT_SKIN}home2017.css">
+<script type="text/javascript" src="{DT_SKIN}js/jquery.superslide.js"></script>
+<script type="text/javascript" src="{DT_SKIN}js/wlm.js"></script>
+
+</head>
+<body>
+
+<!--顶部工具条-->
+<div class="top_bar">
+        <div class="wrap">
+            <div class="top_ad left">
+                <ul>
+                  {if $DT[city]}<li class="h_city">[<span id="destoon_city">{$city_name}</span>] <a href="{DT_PATH}api/city.php" title="点击切换城市" rel="nofollow">切换</a></li>{/if}
+			<li class="h_fav"><script type="text/javascript">addFav('收藏本页');</script></li>
+			{if $EXT[mobile_enable]}<li class="h_mobile"><a href="{$EXT[mobile_url]}mobile.php">手机版</a>&nbsp;</li>{/if}
+			{if $head_mobile}<li class="h_qrcode"><a href="javascript:Dqrcode();">二维码</a>&nbsp;</li>{/if}
+			{if isset($MODULE[16])}<li class="h_cart"><a href="{$MODULE[16][linkurl]}cart.php" rel="nofollow">购物车</a>(<span class="head_t" id="destoon_cart">0</span>)</li>{/if}
+                </ul>
+            </div>
+                <div class="f_r" id="destoon_member"></div>
+            <div style="clear:both;" ></div>
+        </div>
+    </div>
+<div class="wrap b40">&nbsp;</div><div class="wrap b5">&nbsp;</div>
+
+<!--logo一栏-->
+<div class="wrap clear_fix" style="overflow:hidden; " >
+	<div class="logo_img left">
+		<a href="{$MODULE[1][linkurl]}"><img src="{if $MODULE[$moduleid][logo]}{DT_SKIN}image/logo_{$moduleid}.gif{elseif $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" alt="{$DT[sitename]}"/></a>
+	</div>
+	<div class="ad_top">
+	  <div class="ad_p1"><img src="{DT_SKIN}image/132023561.jpg" width="300" height="50"/></div>
+	  <div class="ad_p2"><img src="{DT_SKIN}image/132023561.jpg" width="300" height="50"/></div>
+	</div>
+</div>
+<!--</head>-->
+<!--头部结束-->
+<div class="wrap_top" >
+      <div class="nav_top clear_fix">
+<div class="wrap" style="overflow:hidden;" >
+            <div class="us_o left">
+                <a href="{$MODULE[1][linkurl]}" target="_blank" style="color:#09943E; margin-top:0px; ">网站<span>首页</span></a>
+            </div>
+            <div class="us_1 clear_fix">
+                <dl>
+					<dt><a href="{$MODULE[21][linkurl]}" target="_blank">行业</a></dt>
+                    <dd><a href="{$MODULE[21][linkurl]}" target="_blank">行业</a></dd>
+					<dd><a href="{$MODULE[21][linkurl]}" target="_blank">企业</a></dd>
+                    <dd><a href="{$MODULE[21][linkurl]}" target="_blank">活动</a></dd>
+                    <dd><a href="{$MODULE[21][linkurl]}" target="_blank">专访</a></dd>
+                    <dd><a href="{$MODULE[21][linkurl]}" target="_blank">开业</a></dd>
+                </dl>
+                <dl>
+					<dt><a href="{$MODULE[21][linkurl]}" target="_blank">新闻</a></dt>
+                    <dd><a href="{$MODULE[21][linkurl]}" target="_blank">导购</a></dd>
+                    <dd><a href="{$MODULE[21][linkurl]}" target="_blank">营销</a></dd>
+                    <dd><a href="{$MODULE[21][linkurl]}" target="_blank">常识</a></dd>
+                    <dd><a href="{$MODULE[21][linkurl]}" target="_blank">汇总</a></dd>
+					<dd><a href="{$MODULE[21][linkurl]}" target="_blank">相关</a></dd>
+                </dl>
+            </div>
+            <div class="us_2 clear_fix">
+                <dl>
+                    <dt><a href="{$MODULE[13][linkurl]}" target="_blank">品牌</a></dt>
+                    <dd><a href="{$MODULE[13][linkurl]}" target="_blank">十大品牌</a></dd>
+                    <dd><a href="{$MODULE[13][linkurl]}" target="_blank">品牌联盟</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="{$MODULE[22][linkurl]}" target="_blank">招商</a></dt>
+                    <dd><a href="{$MODULE[22][linkurl]}" target="_blank">加盟信息</a></dd>
+                    <dd><a href="{$MODULE[22][linkurl]}" target="_blank">招商信息</a></dd>
+                </dl>
+            </div>
+            <div class="us_3 clear_fix">
+                <dl>
+                    <dt><a href="{$MODULE[5][linkurl]}" target="_blank">产品</a></dt>
+                    <dd><a href="{$MODULE[5][linkurl]}" target="_blank">产品供应</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="{$MODULE[4][linkurl]}" target="_blank">商铺</a></dt>
+                    <dd><a href="{$MODULE[4][linkurl]}" target="_blank">企业名录</a></dd>
+                </dl>
+            </div>
+            <div class="us_11 clear_fix">
+                <dl>
+                    <dt><a href="{$MODULE[13][linkurl]}" target="_blank">专题</a></dt>
+                    <dd><a href="{$MODULE[13][linkurl]}" target="_blank">企业专题</a></dd>
+                    <dd><a href="{$MODULE[13][linkurl]}" target="_blank">会议专题</a></dd>
+                    <dd><a href="{$MODULE[13][linkurl]}" target="_blank">活动专题</a></dd>
+					<dd><a href="{$MODULE[13][linkurl]}" target="_blank">本网策划</a></dd>
+                </dl>
+                <dl>
+                    <dt><a href="{$MODULE[14][linkurl]}" target="_blank">视频</a></dt>
+                    <dd><a href="{$MODULE[14][linkurl]}" target="_blank">企业视频</a></dd>
+                    <dd><a href="{$MODULE[14][linkurl]}" target="_blank">采访视频</a></dd>
+                    <dd><a href="{$MODULE[14][linkurl]}" target="_blank">产品视频</a></dd>
+					<dd><a href="{$MODULE[14][linkurl]}" target="_blank">装修视频</a></dd>
+                </dl>
+            </div>
+            <div class="us_end clear_fix">
+                <div class="us_end_l left">
+                    <span><a href="{$MODULE[12][linkurl]}" target="_blank">图库</a></span>
+                    <span><a href="{$MODULE[8][linkurl]}" target="_blank" style="margin-top:5px; ">展会</a></span>
+                </div>
+                <div class="us_end_l left">
+                    <span><a href="{$MODULE[9][linkurl]}" target="_blank">招聘</a></span>
+                    <span><a href="{$MODULE[10][linkurl]}" target="_blank" style="margin-top:5px; ">百科</a></span>
+                </div>
+                <div class="us_end_l left">
+                    <span><a href="{$MODULE[15][linkurl]}" target="_blank">下载</a></span>
+                    <span><a href="{$MODULE[18][linkurl]}" target="_blank" style="margin-top:5px; ">商圈</a></span>
+                </div>
+            </div>
+</div>
+</div>
+</div>
+
+<div class="m b10"></div>

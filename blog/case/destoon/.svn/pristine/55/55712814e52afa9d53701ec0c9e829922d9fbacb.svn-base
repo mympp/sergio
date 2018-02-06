@@ -1,0 +1,297 @@
+{template 'header_member', 'mobile'}
+{template 'cssjs', 'mobile'}
+<style>
+#area-select { max-width:80px !important;}
+#type { margin-left:15px;}
+.aui-content-padded {
+    margin-top: 15px;
+}
+.aui-tab {
+    margin-bottom: 15px;
+}
+.aui-tab li.active { color:#FFF !important;}
+.aui-btn-row:after { border-bottom: 0;}
+.aui-input-row a { color:#000}
+</style>
+<header class="aui-bar aui-bar-nav aui-bar-info" id="aui-header">
+        <a class="aui-btn aui-btn-info aui-pull-left" href="my.php?action=member">
+            <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+    <div class="aui-title">{$head_name}</div>
+    <a href="my.php" class="aui-pull-right">我的</a>
+</header>
+<div class="aui-bar-fix"></div>
+<script type="text/javascript" src="script/iScroll5/iscroll.js"></script>
+<div class="aui-content">
+			<div class="bbs-wrapper">
+				<div id="scroller">
+					<ul>
+                <li class="active" id="Tab0" onclick="javascript:Tab(0);">我的信息</li>
+                <li id="Tab1" onclick="javascript:Tab(1);">询盘报价</li>
+                {if $_iscomment==1}<li id="Tab2" onclick="javascript:Tab(2);">我的评论</li>{/if}
+					</ul>
+				</div>
+			</div>
+</div>
+<script type="text/javascript">
+myScroll = new IScroll('.bbs-wrapper', {
+eventPassthrough : false,
+scrollX : true,
+scrollY : false,
+preventDefault : true,
+click:true
+});
+//myScroll.scrollToElement(that[0], 800);
+</script>
+
+<form id="edit-form" class="fromset">
+	<input type="hidden" name="action" value="edit"/>
+	<input type="hidden" name="ok" value="1"/>
+    <input type="hidden" name="tab" id="tab" value="{$tab}"/>
+    <input type="hidden" name="dtedit" id="dtedit" value="{$edittime}"/>
+    <input type="hidden" name="dtedituser" id="dtedituser" value="{$edituser}"/>
+<div id="Tabs0" style="display:;">
+<p class="aui-text-left" style="font-size:12px; padding-left:10px; margin-bottom:10px;">注：今日发布(不包括未审核数据)</p>
+<div id="maininfo" class="" style="height:380px;"></div>
+</div>
+
+<div id="Tabs1" style="display:none;">
+<div id="mainxp"></div>
+</div>
+</div>
+<div id="Tabs2" style="display:none;">
+<div id="mainpl"></div>
+</div>
+<script src="{DT_PATH}api/glmobile/script/echarts.js"></script>
+<script type="text/javascript">
+var infoContainer = document.getElementById('maininfo');
+var xpContainer = document.getElementById('mainxp');
+var plContainer = document.getElementById('mainpl');
+//用于使chart自适应高度和宽度,通过窗体高宽计算容器高宽
+var resizexpContainer = function () {
+	//infoContainer.style.width = window.innerWidth+'px';
+    xpContainer.style.width = window.innerWidth+'px';
+    xpContainer.style.height = window.innerHeight-100+'px';
+    plContainer.style.width = window.innerWidth+'px';
+    plContainer.style.height = window.innerHeight-100+'px';
+};
+// 基于准备好的dom，初始化echarts实例
+var myChartinfo = echarts.init(infoContainer);
+var option = {
+    title: {
+        subtext: 'From {$DT['sitename']}',
+        sublink: '{$DT['url']}'
+    },
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        data: ['今日发布','总量(已审核)','总量(未审核)']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: {
+        type : 'category',
+        splitLine: {show:false},
+        data : <?php echo json_encode($name_data);?>
+    },
+    yAxis: {
+        type : 'value'
+    },
+    series: [
+        {
+            name: '今日发布',
+            type: 'bar',
+            stack:  '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'insideRight'
+                }
+            },
+            data: <?php echo json_encode($num_today_data);?>
+        },
+        {
+            name: '总量(已审核)',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'insideRight'
+                }
+            },
+            data:<?php echo json_encode($num3_data);?>
+        }
+		,
+        {
+            name: '总量(未审核)',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'insideRight'
+                }
+            },
+            data:<?php echo json_encode($num2_data);?>
+        }
+    ]
+};
+myChartinfo.setOption(option);
+
+var myChartxp = echarts.init(xpContainer);
+var optionxp = {
+    title: {
+        subtext: 'From {$DT['sitename']}',
+        sublink: '{$DT['url']}'
+    },
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        data: ['今日数量','总量']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: {
+        type : 'category',
+        splitLine: {show:false},
+        data : ['我的询盘','我的报价']
+    },
+    yAxis: {
+        type : 'value'
+    },
+    series: [
+        {
+            name: '今日数量',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'insideRight'
+                }
+            },
+            data:[{$message1_data},0]
+        }
+		,
+        {
+            name: '总量',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'insideRight'
+                }
+            },
+            data:[1,2]
+        }
+    ]
+};
+
+{if $_iscomment==1}
+// 使用刚指定的配置项和数据显示图表。
+myChartxp.setOption(optionxp);
+
+var myChartpl = echarts.init(plContainer);
+var optionpl = {
+    title: {
+        subtext: 'From {$DT['sitename']}',
+        sublink: '{$DT['url']}'
+    },
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        data:['今日评论', '评论总量']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    yAxis : [
+        {
+            type : 'category',
+            axisTick : {show: false},
+            data : <?php echo json_encode($name_data);?>
+        }
+    ],
+    series : [
+        {
+            name:'今日评论',
+            type:'bar',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'inside'
+                }
+            },
+            data:<?php echo json_encode($comm_today_data);?>
+        },
+        {
+            name:'评论总量',
+            type:'bar',
+            stack: '评论总量',
+            label: {
+                normal: {
+                    show: true
+                }
+            },
+            data:<?php echo json_encode($comm3_data);?>
+        },
+       
+    ]
+};
+
+// 使用刚指定的配置项和数据显示图表。
+myChartpl.setOption(optionpl);
+{/if}
+
+//用于使chart自适应高度和宽度
+$(window).resize(function(){
+    //重置容器高宽
+    resizexpContainer();
+	myChartinfo.resize();
+    myChartxp.resize();
+	myChartpl.resize();
+});
+$(document).ready(function(){
+$(window).resize();
+});
+laymsg('数据生成中，请稍等...');
+</script>
+<script type="text/javascript">
+s('medit');
+{if $tab}
+Tab({$tab});
+{else}
+tabbar('Tab0');
+{/if}
+</script>
+{template 'footer_member', 'mobile'}

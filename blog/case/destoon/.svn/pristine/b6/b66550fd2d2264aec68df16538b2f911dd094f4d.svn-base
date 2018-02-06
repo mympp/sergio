@@ -1,0 +1,118 @@
+<!-- footer -->
+<div class="footers">
+	<div class="hc_service">
+		<div class="h_logo"><img src="{if $MODULE[$moduleid][logo]}{DT_SKIN}image/logo_{$moduleid}.gif{elseif $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" width="141px" height="49px"></div>
+		<div class="serinfor">
+			<div class="indexes">
+			<strong>按字母分类：</strong>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=a" target="_blank">A</a> 
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=b" target="_blank">B</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=c" target="_blank">C</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=d" target="_blank">D</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=e" target="_blank">E</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=f" target="_blank">F</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=g" target="_blank">G</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=h" target="_blank">H</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=i" target="_blank">I</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=j" target="_blank">J</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=k" target="_blank">K</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=l" target="_blank">L</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=m" target="_blank">M</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=n" target="_blank">N</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=o" target="_blank">O</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=p" target="_blank">P</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=q" target="_blank">Q</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=r" target="_blank">R</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=s" target="_blank">S</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=t" target="_blank">T</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=u" target="_blank">U</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=v" target="_blank">V</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=w" target="_blank">W</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=x" target="_blank">X</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=y" target="_blank">Y</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=z" target="_blank">Z</a>
+				<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=0-9" target="_blank">0-9</a>
+			</div>
+            <div class="weblink">
+				<p>
+					<a href="{$MODULE[1][linkurl]}">网站首页</a>
+					<!--{tag("table=webpage&condition=item=1&areaid=$cityid&order=listorder desc,itemid desc&template=list-webpage")}-->
+					| <a href="{$MODULE[1][linkurl]}sitemap/">网站地图</a>
+					| <a href="{$EXT[spread_url]}">排名推广</a>
+					{if $EXT[ad_enable]} | <a href="{$EXT[ad_url]}">广告服务</a>{/if}
+					{if $EXT[gift_enable]} | <a href="{$EXT[gift_url]}">积分换礼</a>{/if}
+					{if $EXT[guestbook_enable]} | <a href="{$EXT[guestbook_url]}">网站留言</a>{/if}
+					{if $EXT[feed_enable]} | <a href="{$EXT[feed_url]}">RSS订阅</a>{/if}
+					{if $DT[icpno]} | <a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow">{$DT[icpno]}</a>{/if}
+				</p>
+			</div>
+			<div class="copytxt">
+				<p>{$DT[copyright]}</p>
+				<p>{debug()}</p>
+			</div>
+	
+		</div>
+	</div>
+</div>
+<!--行业导航-->
+<div id="floorSidbar" class="floorSidbar" style="display: none; position: fixed; top: 55px;">
+	<p>行业导航</p>
+    <ul class="">
+    	<li id="rf1"><a href="{DT_PATH}#lf1" >01F分类</a></li>
+        <li id="rf2"><a href="{DT_PATH}#lf2" >02F分类</a></li>
+        <li id="rf3"><a href="{DT_PATH}#lf3" >03F分类</a></li>
+		<li id="rf4"><a href="{DT_PATH}#lf4" >04F分类</a></li>
+        <li id="rf5"><a href="{DT_PATH}#lf5" >05F分类</a></li>
+        <li id="rf6"><a href="{DT_PATH}#lf6" >06F分类</a></li>
+        <li id="rf7"><a href="{DT_PATH}#lf7" >07F分类</a></li>
+        <li id="rf8"><a href="{DT_PATH}#lf8" >08F分类</a></li>
+        <li id="rf9"><a href="{DT_PATH}#lf9" >09F分类</a></li>
+        <li id="rf10"><a href="{DT_PATH}#lf10">10F分类</a></li>
+        <li id="rf11"><a href="{DT_PATH}#lf11" >11F分类</a></li>
+        <li id="rf12"><a href="{DT_PATH}#lf12" >12F分类</a></li>
+        <li id="rf13"><a href="{DT_PATH}#lf13" >13F分类</a></li>
+        <li id="rf14"><a href="{DT_PATH}#lf14" >14F分类</a></li>
+        <li id="rf15"><a href="{DT_PATH}#lf15" >15F分类</a></li>
+        <li id="rf16"><a href="{DT_PATH}#lf16" >16F分类</a></li>
+        <li id="rf17" class="btmlink"><a href="{DT_PATH}#lf17" >资讯中心</a></li>
+    </ul>
+</div>
+<!-- 右侧浮层 -->
+<div class="r_sidebar_wrap">
+	<div class="r_sidebar">
+    	<div class="r_sidebar_con">
+        	<ul>
+            	<li class="shop_ico"><a href="{$MODULE[16][linkurl]}cart.php" target="_blank"><s></s><span style="display: none;">购物车</span></a></li>
+                <li class="client_ico"><a href="{$MODULE[2][linkurl]}" target="_blank"><s></s><span style="display: none;">会员中心</span></a></li>
+               <li class="online_icon"><a href="{$MODULE[1][linkurl]}about/contact.html" target="_blank"><s></s><span style="display: none;">在线客服</span></a></li>
+                <li class="user_ico now"><a href="{$EXT[guestbook_url]}" target="_blank"><s></s><span style="display: none;">网站留言</span></a></li>
+            </ul>
+        </div>
+        <div id="backtop"><s></s><span>返回顶部</span></div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="{DT_SKIN}js/hcindex.min.js"></script>
+<script type="text/javascript">
+	function veiwWidth(){
+		var isWidescreen = window.screen.width;
+		if(isWidescreen==1024){
+			$("#floorSidbar,#RightSidbar").hide()
+		}
+		if(isWidescreen==1280 && isWidescreen<1440){
+			$("#floorSidbar").hide()
+		}
+	}
+	veiwWidth();
+</script>
+<!--[以下为系统关键代码，请勿删除]-->
+<script type="text/javascript">
+{if $destoon_task}
+show_task('{$destoon_task}');
+{else}
+{php include DT_ROOT.'/api/task.inc.php';}
+{/if}
+{if $lazy}$(function(){$("img").lazyload();});{/if}
+</script>
+</body></html>

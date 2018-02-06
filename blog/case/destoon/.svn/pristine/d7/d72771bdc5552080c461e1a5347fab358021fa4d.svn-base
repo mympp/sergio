@@ -1,0 +1,47 @@
+<p class="aui-padded-10 aui-text-left aui-bg-default"><strong>非会员补充信息：</strong>
+<br />
+建议 <a href="{$MODULE[2][linkurl]}{$DT[file_login]}" class="f_b t">立即登录</a> 或 <a href="{$MODULE[2][linkurl]}{$DT[file_register]}" class="f_b t">注册会员</a> 以便系统长久保存您的联系方式</p>
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">公司名称</span>
+                <input name="post[company]" type="text" id="company" value="{$company}" class="aui-input" placeholder="个人请填姓名 例如：张三"/>
+            </div>
+            {if $module != 'info'}
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">所在地区</span>
+                {ajax_area_select('post[areaid]', '请选择', $areaid)}
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">联系人</span>
+                <input name="post[truename]" type="text" id="truename" value="{$truename}" class="aui-input" placeholder="联系人"/>
+            </div>
+            {/if}
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">联系手机</span>
+                <input name="post[mobile]" type="text" id="mobile" value="{$mobile}" class="aui-input" placeholder="联系手机"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">电子邮件</span>
+                <input name="post[email]" type="text" id="email" value="{$email}" class="aui-input" placeholder="电子邮件"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">联系电话</span>
+                <input name="post[telephone]" type="text" id="telephone" value="{$telephone}" class="aui-input" placeholder="联系电话"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">联系地址</span>
+                <input name="post[address]" type="text" id="address" value="{$address}" class="aui-input" placeholder="联系地址"/>
+            </div>
+            {if $DT[im_qq]}
+            <div class="aui-input-row">
+                <span class="aui-input-addon">QQ</span>
+                <input name="post[qq]" type="text" id="qq" value="{$qq}" class="aui-input" placeholder="QQ"/>
+            </div>
+            {/if}
+            {if $DT[im_ali]}
+            <div class="aui-input-row">
+                <span class="aui-input-addon">阿里旺旺</span>
+                <input name="post[ali]" type="text" id="ali" value="{$ali}" class="aui-input" placeholder="阿里旺旺"/>
+            </div>
+            {/if}
+<script type="text/javascript" src="{DT_STATIC}file/script/guest.js"></script>
+

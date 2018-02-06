@@ -1,0 +1,89 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+
+<header class="aui-bar aui-bar-nav" id="aui-header">
+        <a class="aui-pull-left aui-btn" href="javascript:history.go(-1);">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+        <div class="aui-title">{$city_name}</div>
+        <a class="aui-pull-right">
+        {if $cityid}
+<span onclick="Dc(-1);">全国</span>
+{else}
+<span onclick="Dc(-2);">智能</span>
+{/if}
+    </a>
+</header>
+<div class="aui-bar-fix"></div>
+
+<style>
+.aui-list .aui-list-header { height:1.5rem; background-color: #E4E4E4 !important;}
+</style>
+<div class="aui-content aui-margin-b-15">
+<div style="height:1.75rem;overflow:hidden;margin:10px;background:#FFFFFF;border-radius:4px;"><input type="search" id="kw" maxlength="20" style="border:none;width:100%;color:#999999; padding:0 0 0.25rem 0.25rem;font-size:14px;" placeholder="请输入关键词搜索"/></div>
+</div>
+
+<div class="aui-content aui-margin-b-15">
+    <ul class="aui-list" id="list"></ul>
+    <ul class="aui-list" id="city">
+    {loop $lists $k $v}
+        <li class="aui-list-header">
+            {$k}
+        </li>
+        {loop $v $j $s}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title" onclick="Dc({$s[areaid]});">{$s[name]}</div>
+            </div>
+{/loop}
+{/loop}
+    </ul>
+</div>    
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#kw').on('input paste', Ds);
+	$('#kw').on('blur', function(){window.scrollTo(0,0);});
+});
+function Ds() {
+	var kw = $('#kw').val();
+	if(kw) {
+		$('#list').show();
+		$('#city').hide();
+		var res = '';
+		var j = 0;
+		$('#city li').each(function(i){
+			if($(this).text().indexOf(kw) !=-1) {
+				var d = $(this).html();
+				d = d.replace(kw, '<b class="dt-text-red">'+kw+'</b>');
+				res += d;
+			}
+		});
+		if(res == '') res = '<li class="aui-list-header aui-padded-t-10 aui-padded-b-10" onclick="Dr();">未找到<b class="f_red">'+kw+'</b></li>';
+		res = '<li class="aui-list-header aui-padded-t-10 aui-padded-b-10" onclick="Dr();"><span style="float:right;color:#007AFF;">取消</span>搜索结果</li><li class="aui-list-item">'+res+'</li>';
+		$('#list').html(res);
+	} else {
+		$('#list').hide();
+		$('#list').html('');
+		$('#city').show();
+	}
+}
+function Dr() {
+	$('#kw').val('');
+	Ds();
+}
+function Dc(id) {
+	$.get('city.php?areaid='+id, function(data) {
+		if(data == 'ok') {
+			laymsg('切换成功');
+			Go('index.php');
+			//setTimeout(function() {
+				//window.location.reload();
+			//}, 1000);
+		} else {
+			laymsg('切换失败');
+		}
+	});
+}
+</script>
+{template 'footer', 'mobile'}

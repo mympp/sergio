@@ -1,0 +1,20 @@
+
+<!--公司简介开始-->
+<!--公司简介开始-->
+<div class="h_about_bg">
+  <div class="wrap h_about">
+    <div class="bd">
+      <a class="pic">
+	  {if $video}
+				{load('player.js')}
+				<div style="width:402px;height:270px;text-align:right;float:right;"><script type="text/javascript">document.write(player('{$video}',240,200,'',1));</script></div>
+				{else}
+				<img width="382px" height="252px"src="{$COM[thumb]}" align="right" />
+				{/if}</a>
+      <div class="text"><h2 class="about-title">公司简介</h2>
+      <p>{$COM[intro]} [<a href="{userurl($username, 'file=introduce', $domain)}" class="t">详细介绍</a>]</p></div>
+    </div>
+  </div>
+</div>
+
+<!--公司简介结束-->

@@ -1,0 +1,79 @@
+<div class="m b10"></div>
+<div id="footer">
+	<div class="service-container">
+		<div class="service wrap">
+			<h4 class="go-home"><a class="f_l" title="首页" href="{DT_PATH}">首页</a></h4>
+			<ul class="clearfix">
+				<li class="item01">
+					<dl>
+						<dt>新手指南</dt>
+						<dd><a rel="nofollow" title="免费注册" href="{$MODULE[2][linkurl]}{$DT[file_register]}">免费注册</a></dd>
+						<dd><a rel="nofollow" title="买家指南" href="#">买家指南</a></dd>
+						<dd><a rel="nofollow" title="卖家入门" href="#">卖家入门</a></dd>
+						<dd><a rel="nofollow" title="账号密码" href="#">常见问题</a></dd>
+					</dl>
+				</li>
+				<li class="item02">
+					<dl>
+						<dt>交易安全</dt>
+						<dd><a rel="nofollow" href="#">交易安全</a></dd>
+						<dd><a rel="nofollow" href="#">担保交易</a></dd>
+						<dd><a rel="nofollow" href="#">举报维权</a></dd>
+					</dl>
+				</li>
+				<li class="item03">
+					<dl>
+						<dt>采购商服务</dt>
+						<dd><a title="找公司" href="{$MODULE[4][linkurl]}">找公司</a></dd>
+						<dd><a title="找产品" href="{$MODULE[5][linkurl]}">找产品</a></dd>
+						<dd><a rel="nofollow" title="进货单" href="{$MODULE[2][linkurl]}{$DT[file_my]}">商务管理</a></dd>
+					</dl>
+				</li>
+				<li class="item04">
+					<dl>
+						<dt>供应商服务</dt>
+						<dd><a rel="nofollow" title="发布供应信息" href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid=5&amp;action=add">发布供应信息</a></dd>
+						<dd><a rel="nofollow" title="供应商推广" href="{$EXT[spread_url]}">供应商推广</a></dd>
+						<dd><a rel="nofollow" title="专场活动报名" href="#">专场活动报名</a></dd>
+						<dd><a rel="nofollow" title="网站规则" href="#">网站规则</a></dd>
+					</dl>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="foot_page2">
+		<div class="wrap">
+			<a href="{$MODULE[1][linkurl]}">网站首页</a>
+			<!--{tag("table=webpage&condition=item=1&areaid=$cityid&order=listorder desc,itemid desc&template=list-webpage")}-->
+			| <a href="{$MODULE[1][linkurl]}sitemap/">网站地图</a>
+			| <a href="{$EXT[spread_url]}">排名推广</a>
+			{if $EXT[ad_enable]} | <a href="{$EXT[ad_url]}">广告服务</a>{/if}
+			{if $EXT[gift_enable]} | <a href="{$EXT[gift_url]}">积分换礼</a>{/if}
+			{if $EXT[guestbook_enable]} | <a href="{$EXT[guestbook_url]}">网站留言</a>{/if}
+			{if $EXT[feed_enable]} | <a href="{$EXT[feed_url]}">RSS订阅</a>{/if}
+			{if $DT[icpno]} | <a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow">{$DT[icpno]}</a>{/if}
+		</div>
+	</div>
+	<div class="foot2 wrap">
+		<div id="copyright">
+			<p>{$DT[copyright]}</p>
+			{if DT_DEBUG}<div class="px11">{debug()}</div>{/if}
+		</div>
+		<div class="c_b"></div>
+	</div>
+</div>
+<!--[系统关键代码，请勿删除]-->
+<div id="back2top" class="back2top"><a href="javascript:void(0);" title="返回顶部">&nbsp;</a></div>
+<script type="text/javascript">
+{if $destoon_task}
+show_task('{$destoon_task}');
+{else}
+{php include DT_ROOT.'/api/task.inc.php';}
+{/if}
+{if $lazy}$(function(){$("img").lazyload();});{/if}
+$('#back2top').click(function() {
+	$("html, body").animate({scrollTop:0}, 200);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+<link rel="stylesheet" type="text/css" href="css/know_v2.css"/>
+<header class="aui-bar aui-bar-nav" id="aui-header">
+       {if $itemid || $catid || $areaid || $kw}
+        <a class="aui-pull-left aui-btn" href="{$back_link}">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+       {else}
+        <a class="aui-pull-left aui-btn" href="channel.php">
+           <span class="aui-iconfont aui-icon-left"></span>频道
+        </a>
+       {/if}
+        <div class="aui-title">{$head_name}</div>
+        <a class="aui-pull-right">
+        <span class="dt-iconfont dt-icon-caidan" onclick="showPopup();"></span>
+        </a>
+        <a class="aui-pull-right"><i class="dt-iconfont dt-icon-sousuo aui-font-size-20" onclick="showsearchbar();"></i></a>
+</header>
+<div class="aui-bar-fix"></div>
+
+{if $itemid}
+
+<section class="aui-content dt-know-item">
+        <div class="aui-card-list dt-know-item-title">
+            <div class="aui-info dt-padded-t-20 aui-padded-l-5 aui-padded-r-15">
+                <div class="aui-info-item aui-font-size-20">
+                    <span class="aui-margin-l-5 dt-text-black">{$title}</span>
+                </div>
+            </div>
+              <div class="aui-card-list-timer aui-font-size-14" style="color:#999;">
+                <div class="dt-article-times">
+                    <span class="aui-margin-r-10">关注:&nbsp;<span class="aui-text-info">{$hits}</span>&nbsp;&nbsp;答案:&nbsp;<span class="aui-text-info">{$answer}</span>&nbsp;&nbsp;悬赏:&nbsp;<span class="aui-text-info">{$credit}</span></span>
+                </div>
+            </div>
+</div>
+    <ul class="aui-list aui-media-list">
+        <li class="aui-list-item">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title">	{if $process == 1 || $process == 2}
+	离问题结束还有{secondstodate($totime-$DT_TIME)}
+	{elseif $process == 3}
+	解决时间 <span class="aui-font-size-12">{timetodate($updatetime, 5)}</span>
+	{/if}
+</div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+{if $page == 1}        
+<li class="aui-list-item">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-media" style="width:3rem;">
+                    <img src="{useravatar($hidden ? '' : $username)}" width="60" >
+                </div>
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title">{if $hidden}匿名{else}<a href="know.php?action=user&username={$username}&itemid={$itemid}" class="b">{$passport}</a>{/if}</div>
+                        <div class="aui-list-item-right"><span class="{if $process==3}dt-text-red{/if}">{$PROCESS[$process]}</span></div>
+                    </div>
+                    <div class="aui-list-item-text">
+                        {$editdate}
+                    </div>
+                </div>
+            </div>
+            <div class="aui-list-item-text">
+            <div class="dt-know-item-content">
+                        <div style="width:80%;">{$content}</div>
+	{if $addition}
+	<strong>问题补充：</strong><br/>
+	{nl2br($addition)}
+	{/if}</div>
+                    </div>
+</li>
+        <li class="aui-list-item">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title"><i class="dt-iconfont dt-icon-zuijiadaan dt-text-red aui-font-size-14 dt-margin-r-3"></i>最佳答案</div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+	{if $user_status == 3 && $best}
+    <li class="aui-list-item">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-media" style="width:3rem;">
+                    <img src="{useravatar($best['hidden'] ? '' : $best['username'])}" width="60" >
+                </div>
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title">{if $expert}专家{/if}</span>{if $best[hidden]}匿名{else}<a href="know.php?action=user&username={$best[username]}&itemid={$itemid}" class="b">{$best[passport]}</a>{/if}</div>
+                    </div>
+                    <div class="aui-list-item-text">
+                        {timetodate($best[addtime], 5)}
+                    </div>
+                </div>
+            </div>
+</li>
+	{/if}
+	<div class="aui-content dt-bg-white">
+	{if $best}
+     <div class="aui-content-padded aui-padded-b-10 ">
+		{if $user_status == 3}
+			{nl2br($best[content])}
+		{else}
+			{template 'dtchip-content', 'mobile'}
+		{/if}
+        </div>
+	{else}
+        <li class="aui-list-item">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title">暂无最佳答案{if $could_answer}&nbsp;&nbsp;&nbsp;&nbsp;<a href="know.php?action=answer&itemid={$itemid}&page={$page}" class="dt-text-red">我来回答</a>{/if}
+	{/if}</div>
+                    </div>
+                </div>
+            </div>
+        </li>
+	
+	</div>
+
+{/if} 
+
+	{if $answers}
+    <li class="aui-list-header dt-know-all-answers">
+            <strong>全部回答</strong>
+        </li>
+	{loop $answers $k $v}
+        <li class="aui-list-item">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-media" style="width:3rem;">
+                    <img src="{useravatar($v['hidden'] ? '' : $v['username'])}" width="60" >
+                </div>
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title">{if $v[hidden]}匿名{else}<a href="know.php?action=user&username={$v[username]}&itemid={$itemid}" class="b">{if $v[username]}{$v[passport]}{else}{ip2area($item[ip])}访客{/if}</a>{/if}</div>
+                        <div class="aui-list-item-right"><span>{$v[floor]}楼</span></div>
+                    </div>
+                    <div class="aui-list-item-text">
+                        {timetodate($best[addtime], 5)}
+                    </div>
+                </div>
+            </div>
+            <div class="aui-list-item-text">
+            <div class="dt-know-answers-content">
+                        {$v[content]}
+                    </div>
+             </div>
+</li>
+	{/loop}
+	{/if}
+          
+  </ul>
+
+</section>
+
+
+{template 'dtchip-other', 'mobile'}
+{else}
+{template 'dtchip-deals', 'mobile'}
+{template 'dt-results-bar', 'mobile'}
+<div class="aui-content dt-know-type">
+<div class="aui-bar aui-bar-btn" style="width:100%;">
+    <div class="aui-bar-btn-item {if $typeid==0}aui-active{/if}"><a href="index.php?moduleid={$moduleid}&catid={$catid}&typeid=0"><span>全部问题</span></a></div>
+    <div class="aui-bar-btn-item {if $typeid==1}aui-active{/if}"><a href="index.php?moduleid={$moduleid}&catid={$catid}&typeid=1"><span>等待解决</span></a></div>
+    <div class="aui-bar-btn-item {if $typeid==2}aui-active{/if}"><a href="index.php?moduleid={$moduleid}&catid={$catid}&typeid=2"><span>已经解决</span></a></div>
+</div>
+</div>
+
+	{if $lists}
+        <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-media-list dt-article-list" id="slistdiv">
+	{loop $lists $v}
+            <li class="aui-list-item aui-padded-t-5 aui-padded-b-5">
+                <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title aui-ellipsis-2"><a href="{mobileurl($moduleid, 0, $v['itemid'])}">{$v[title]}</a></div>
+                    <div class="aui-list-item-text dt-margin-t-5">
+                        <div><span>{gl_cat_name($v[catid])}</span><span class="aui-margin-l-10 aui-font-size-12"><i class="aui-iconfont aui-icon-time aui-font-size-12 dt-margin-r-3"></i>{$v[date]}</span></div>
+                        <div class="aui-list-item-right"><span class="{if $v[process]==3}aui-text-info{/if}">{$PROCESS[$v[process]]}</span></div>
+                    </div>
+                </div>
+            </div>
+            </li>
+	{/loop}
+    </ul>
+    </div>
+	{else}
+	{template 'dtchip-empty', 'mobile'}
+	{/if}
+{/if}
+{if $pages}<div class="pages">{$pages}</div>{/if}
+{template 'footer_v2', 'mobile'}

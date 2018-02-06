@@ -1,0 +1,16 @@
+body { background:#F6F6F6;}
+.dt-know-type { background-color:#FFF; padding:0.5rem 0.25rem;}
+.dt-know-type a { color:#03a9f4}
+.dt-know-type .aui-active a { color:#fff}
+.dt-know-item .aui-list-item-text {}
+.dt-know-item .aui-list-item { padding-left:0.5rem;}
+.dt-know-item .dt-know-item-title { margin-bottom:0;}
+.dt-know-item .dt-know-item-content { line-height:180%; font-weight:bold; font-size:0.8rem; color:#000; margin-bottom:0.25rem; overflow:hidden;}
+
+.dt-know-item .dt-know-all-answers { padding:0.7rem; font-size:0.8rem; background: #F3F3F3}
+.dt-know-item .dt-know-answers-content { line-height:180%; font-size:0.8rem; color:#000; margin-bottom:0.25rem; padding-right:0.25rem;}
+.dt-know-item .dt-know-answers-content img { width:98% !important;}
+.dt-know-answers-gaoji { padding:0.7rem !important; font-size:0.8rem !important; background: #F3F3F3 !important}
+
+.dt-know-type {}
+.know-user-list .aui-list-item { min-height: 2rem;}

@@ -1,0 +1,91 @@
+<link rel="stylesheet" type="text/css" href="{$glmobileurl}css/dtapp_v2.css?v=2.8"/>
+{if $EXT['gl_index_color']==1}
+<style>
+/*重置样式开始*/
+.aui-bar-nav { background:#29AA39;}
+.aui-bg-info { background-color:#29AA39 !important;}
+.aui-bg-success { background-color:#29AA39 !important;}
+.dt-bg-orange { background-color:#29AA39 !important;}
+.aui-text-info { color:#29AA39 !important;}
+.aui-bar-tab .aui-active { color: #29AA39 !important;}
+.dt-chat { background: #29AA39 !important;}
+.aui-btn-info { color:#FFF; background-color: #29AA39 !important;}
+.aui-btn-info a { color:#FFF;}
+.aui-label-info { background-color: #29AA39 !important;}
+.aui-btn-info.aui-btn-outlined {
+	color: #fff !important;
+	border: 1px solid #29AA39 !important;
+}
+.aui-label-outlined.aui-label-info {
+  	color: #fff ;
+  	border-color: #29AA39;
+}
+.aui-label-info a {
+  	color: #fff !important;
+}
+.aui-label-outlined.aui-label-info a { color:#FFF;}
+.aui-label-warning { border-color: #29AA39 !important; color:#29AA39 !important;}
+.mall-price-show .aui-card-list-footer .nv_2 {
+	color: #ffffff;
+    background-color: #29AA39 !important;
+}
+.mall-cart { background-color: #29AA39 !important; border:#29AA39 1px solid !important;}
+.aui-bar-btn-item a { color:#29AA39 !important;}
+.aui-bar-btn-item.aui-active a { color:#ffffff !important;}
+.aui-bar-btn-item { border-color: #29AA39 !important;}
+.aui-bar-btn-item.aui-active { background-color: #29AA39;  color: #ffffff;}
+.menu-bar li.active { border-bottom: 2px solid #29AA39 !important;}
+.swiper-pagination-bullet-active { background: #29AA39 !important;}
+.returnTop .dt-icon-fenxiang { color:#FFF;}
+
+.dt-bgcolor-none { background: none !important;}
+</style>
+{elseif $EXT['gl_index_color']==2}
+<style>
+/*重置样式开始*/
+.aui-bar-nav { background:#e51c23;}
+.aui-bg-info { background-color:#e51c23 !important;}
+.aui-bg-success { background-color:#e51c23 !important;}
+.dt-bg-orange { background-color:#e51c23 !important;}
+.aui-text-info { color:#e51c23 !important;}
+.aui-bar-tab .aui-active { color: #e51c23 !important;}
+.dt-chat { background: #e51c23 !important;}
+.aui-btn-info { color:#FFF; background-color: #e51c23 !important;}
+.aui-btn-info a { color:#FFF;}
+.aui-label-info { background-color: #e51c23 !important;}
+.aui-btn-info.aui-btn-outlined {
+	color: #fff !important;
+	border: 1px solid #e51c23 !important;
+}
+.aui-label-outlined.aui-label-info {
+  	color: #fff;
+  	border-color: #e51c23;
+}
+.aui-label-info a {
+  	color: #fff !important;
+}
+.aui-label-outlined.aui-label-info a { color:#FFF;}
+.aui-label-warning { border-color: #e51c23 !important; color:#e51c23 !important;}
+.mall-price-show .aui-card-list-footer .nv_2 {
+	color: #ffffff;
+    background-color: #e51c23 !important;
+}
+.mall-cart { background-color: #e51c23 !important; border:#e51c23 1px solid !important;}
+.aui-bar-btn-item a { color:#e51c23 !important;}
+.aui-bar-btn-item.aui-active a { color:#ffffff !important;}
+.aui-bar-btn-item { border-color: #e51c23 !important;}
+.aui-bar-btn-item.aui-active { background-color: #e51c23;  color: #ffffff;}
+.menu-bar li.active { border-bottom: 2px solid #e51c23 !important;}
+.swiper-pagination-bullet-active { background: #e51c23 !important;}
+.returnTop .dt-icon-fenxiang { color:#FFF;}
+
+.dt-bgcolor-none { background: none !important;}
+</style>
+{/if}
+<script type="text/javascript" src="{DT_PATH}file/script/config.js"></script>
+<script type="text/javascript" src="{$glmobileurl}layer/layer.js?v=2.8"></script>
+<script type="text/javascript" src="{$glmobileurl}script/aui.2.0.js?v=2.8"></script>
+<script type="text/javascript" src="{$glmobileurl}script/common_v2.js?v=2.8"></script>
+<script type="text/javascript">
+showDefault('loading');
+</script>

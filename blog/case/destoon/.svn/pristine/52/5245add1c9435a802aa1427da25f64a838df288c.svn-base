@@ -1,0 +1,17 @@
+{if $file != 'news'}
+<!--新闻中心-->
+  <div class="boxA mt15">
+	   <h3 class="tit"><b class="titicon2"></b>{$side_name[$HS]}</h3>
+		<!--{php $tags=tag("table=news&condition=status=3 and username='$username'&pagesize=8&order=addtime desc&template=null");}-->
+		<ul>
+			{if $tags}
+				{loop $tags $t}
+					<li><a href="{userurl($username, 'file=news&itemid='.$t['itemid'], $domain)}" title="{$t[alt]} ({timetodate($t[addtime], 3)})" target="_blank">{$t[title]}</a></li>
+				{/loop}
+			{else}
+					<li>暂无新闻</li>
+			{/if}
+		</ul>
+	</div>
+<!--新闻中心/-->
+{/if}

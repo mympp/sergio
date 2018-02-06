@@ -1,0 +1,25 @@
+{template 'header', $template}
+<div class="dsn" id="pos_show">您当前的位置：<a href="{$COM[linkurl]}">首页</a> &raquo; <a href="{$MENU[$menuid][linkurl]}">{$MENU[$menuid][name]}</a></div>
+<div class="main_wrap clearfix">
+{if $side_pos==0}
+	<div  id="side" class="w260">{template 'side', $template}</div>
+{/if}
+	<div class="w930">
+<div class="r_mod">
+	<div class="hd01"><h2><i class="m01"></i>{$MENU[$menuid][name]}</h2></div>
+	<div class="bd">
+	<div class="px13 lh18">
+	<table width="98%" cellpadding="3" cellspacing="3" align="center">
+	{loop $lists $k $v}
+	{if $k%3==0}<tr align="center">{/if}
+	<td width="33%"><a href="{$v[linkurl]}" target="_blank">{$v[title]}</a></td>
+	{if $k%3==2}</tr>{/if}
+	{/loop}
+	</table>
+	</div>
+	<div class="pages">{$pages}</div>
+</div>
+</div>
+</div>
+</div>
+{template 'footer', $template}

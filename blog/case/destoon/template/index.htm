@@ -1,0 +1,309 @@
+{php $CSS = array('index');}
+{template 'header'}
+<div class="m">
+	<div class="leftbody">
+	
+		<div class="left_top">
+		<!--分类-->
+			<div class="fl_box">
+				<div class="title">ALL CATEGORIES</div>
+				<ul class="listview">
+					{php $mid = 5;}
+					{php $child = get_maincat(0, $mid, 1);}
+					{loop $child $i $c}
+					{php $sub = get_maincat($c[catid], $mid, 1);}
+					<li><a class="menulink" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])} <i class="rjt"></i></a>
+						<div class="sub-menu">
+							<div class="submenu-title">{set_style($c[catname], $c[style])}<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" class="km-link">View All</a></div>
+							<ul>
+							{loop $sub $j $s}
+							<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}">{set_style($s[catname], $s[style])}</a></li>
+							{/loop}
+						</ul>
+						</div>
+					</li>
+					{/loop}
+				</ul>
+			</div>
+			<!--分类/-->
+			<div class="fr_box">
+				<div class="hd_box">{ad(26)}</div>
+				<div class="tj_cp">
+				<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&areaid=$cityid&pagesize=3&order=addtime desc&template=null")}-->
+					<ul>
+					{loop $tags $i $t}
+						<li {if $i==2}class="last"{/if}>
+							<a class="ls-img" href="{$t[linkurl]}">
+								<img src="{str_replace('.thumb.'.file_ext($t[thumb]), '',$t[thumb])}"/>
+								<h3>{$t[title]}</h3>
+							</a>
+							<div class="popular"><span>best</span></div>
+						</li>
+						{/loop}
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	<!---->
+		<div class="b10"></div>
+		<!--产品展示-->
+		<div class="cp_show">
+
+			<div class="gy_box">
+				<h2>Spotlight Products</h2>
+				<div class="gy_content">
+				<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and thumb<>''&areaid=$cityid&pagesize=12&order=addtime desc&template=null")}-->
+					<ul>
+					{loop $tags $t}
+						<li>
+							<div class="item">
+								<a href="{$t[linkurl]}">
+									<img src="{str_replace('.thumb.'.file_ext($t[thumb]), '',$t[thumb])}"/>
+									<h3>{dsubstr($t[title],30,"...")}</h3>
+								</a>
+							</div>
+						</li>
+						{/loop}
+						
+					</ul>
+				</div>
+			</div>
+<!--商城展示-->
+			<div class="gy_box">
+				<h2>Sell the most fire goods</h2>
+				<div class="gy_content">
+				<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and thumb<>''&areaid=$cityid&pagesize=12&order=addtime desc&template=null")}-->
+					<ul>
+					{loop $tags $t}
+						<li>
+							<div class="item">
+								<a href="{$t[linkurl]}">
+									<img src="{str_replace('.thumb.'.file_ext($t[thumb]), '',$t[thumb])}"/>
+									<h3>{dsubstr($t[title],30,"...")}</h3>
+								</a>
+							</div>
+						</li>
+						{/loop}
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--产品展示/-->
+	</div>
+	<!--右侧-->
+	<div class="rightbody">
+		<div class="premium-member">
+			<div class="member_log">
+				<h2>Welcome to {$DT[sitename]}</h2>
+				<div class="mark-member">
+					<a href="{$MODULE[2][linkurl]}{$DT[file_register]}"><span class="log"><i class="login_bg"></i>register</span></a>
+					<a href="{$MODULE[2][linkurl]}{$DT[file_login]}" ><span class="reg"><i class="register_bg"></i>login</span></a>
+				</div>
+			</div>
+		</div>
+		<div class="infoxx">
+			<ul class="navs"  id="newscontent3" >
+				<li><a href="" class="current">Market quotation</a></li>
+				<li><a href=""  class="">Hot news</a></li>
+			</ul>
+			<div class="list_xx"  id="content0" style="display: block;">
+	<!--{php $tags=tag("moduleid=7&condition=status=3&areaid=$cityid&pagesize=8&datetype=3&order=addtime desc&target=_blank&template=null")}-->
+				<ul>
+					{loop $tags $t}
+						<li {if $i==7}class="last_xx"{/if}><a href="{$t[linkurl]}">{dsubstr($t[title],28,"...")}</a><span class="f_r">{timetodate($t[addtime], 3)}</span></li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="list_xx"  id="content1" style="display: none;">
+			<!--{php $tags=tag("moduleid=21&condition=status=3&areaid=$cityid&pagesize=8&datetype=3&order=addtime desc&target=_blank&template=null")}-->
+				<ul>
+					{loop $tags $t}
+						<li {if $i==7}class="last_xx"{/if}><a href="{$t[linkurl]}">{dsubstr($t[title],28,"...")}</a><span class="f_r">{timetodate($t[addtime], 3)}</span></li>
+					{/loop}
+				</ul>
+			</div>
+			<script type="text/javascript">tab("newscontent3", "a", "current", "content");</script>
+		</div>
+		<div class="infoxx">
+			<div class="list_zh">
+				<h2><a href="">Trade Fairs</a></h2>
+				<!--{php $tags=tag("moduleid=8&condition=status=3&areaid=$cityid&pagesize=4&order=addtime desc&template=null");}-->
+				<ul>
+				{loop $tags $t}
+					<li class="zh_li">
+					<a class="zh_left" href="{$t[linkurl]}"><img src="{$t[thumb]}"/></a>
+					<div class="zh_right">
+						<p><a href="{$t[linkurl]}">{$t[title]}</a></p>
+						<p><a href="{$t[linkurl]}">{$t[city]}</a></p>
+						<p>{timetodate($t[addtime], 3)}</p>
+					</div>
+					</li>
+					{/loop}
+					
+				</ul>
+			</div>
+		</div>
+		<div class="infoxx">
+			<div class="list_zh">
+				<h2><a href="">Seek To Purchase</a></h2>
+			<!--{php $tags=tag("moduleid=6&condition=status=3&areaid=$cityid&pagesize=4&order=addtime desc&template=null");}-->
+				<ul>
+				{loop $tags $t}
+					<li class="zh_li"><a href="{$t[linkurl]}">{dsubstr($t[title],28,"...")}</a><span class="f_r">{timetodate($t[addtime], 3)}</span></li>
+				{/loop}
+					
+				</ul>
+			</div>
+		</div>
+		<div class="infoxx">
+			<div class="list_zh">
+				<h2><a href="">New registered company</a></h2>
+				<!--{php $tags=tag("moduleid=4&condition=vip<1 and catids<>''&areaid=$cityid&pagesize=5&order=fromtime desc&template=null")}-->
+				<ul>
+				{loop $tags $t}
+					<li class="zh_li"><a href="{$t[linkurl]}">{$t[company]}</a><span class="f_r">{area_pos($t[areaid], '/', 1)}</span></li>
+				{/loop}
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--右侧--/>
+</div>
+<!--图库展示-->
+<div class="m">
+	<div class="title_box">
+		<table class="h-table h-table-margin">
+				  <tbody>
+				  <tr>
+					<td class="h-content"><h3>Picture show</h3></td>
+					<td class="h-line"><div></div></td>
+					<td class="h-content">
+					  <a href="{$MODULE[12][linkurl]}" title="TradeMall">See All</a>
+					</td>
+				  </tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="content_box">
+<!--{php $tags=tag("moduleid=12&condition=status=3&pagesize=5&datetype=3&order=addtime desc&target=_blank&template=null")}-->
+			<ul class="tk_ul">
+			{loop $tags $t}
+				<li>
+					<div class="tk_content">
+						<a href="{$t[linkurl]}">
+							<img src="{$t[thumb]}"/>
+							<h3>{$t[title]}</h3>
+							<p><span class="price">{$t[items]} pictures</span></p>
+						</a>
+					</div>
+				</li>
+			{/loop}
+			</ul>
+		</div>
+</div>
+<!--图库展示/-->
+<!--视频展示-->
+<div class="m">
+	<div class="title_box">
+		<table class="h-table h-table-margin">
+				  <tbody>
+				  <tr>
+					<td class="h-content"><h3>Video recommendation</h3></td>
+					<td class="h-line"><div></div></td>
+					<td class="h-content">
+					  <a href="{$MODULE[14][linkurl]}" title="TradeMall">See All</a>
+					</td>
+				  </tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="content_box">
+		<!--{php $tags=tag("moduleid=14&condition=status=3&pagesize=4&datetype=3&order=addtime desc&target=_blank&template=null")}-->
+			<ul class="sp_ul">
+			{loop $tags $t}
+				<li>
+					<div class="sp_content">
+					<div class="sp_top">
+					<a href="{$t[linkurl]}"><img src="{$t[thumb]}"/><span class="btn-play"></span></a>
+					</div>
+						<div class="sp_bottom">
+							<div class="author"><a href="{$t[linkurl]}">{$t[title]}</a></div>
+							<a class="titles" href="{$t[linkurl]}">{$t[introduce]}</a>
+							<hr>
+							<div class="infos">{$t[hits]} times</div>
+							<div class="actions">{timetodate($t[addtime], 3)}</div>
+						</div>
+					</div>
+				</li>
+				{/loop}
+			</ul>
+		</div>
+</div>
+<!--视频展示/-->
+<div class="m b10"></div>
+<!--商圈-->
+<div class="m">
+	<div class="sq_box">
+		<h3>Business district</h3>
+		<!--{php $tags=tag("moduleid=18&table=club_group&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=16&template=null");}-->
+		<ul class="gallery-avatar">
+		{loop $tags $t}
+			<li><a href="{$t[linkurl]}" title=""><img class="avatar"src="{$t[thumb]}"></a></li>
+		{/loop}
+			
+		</ul>
+	</div>
+</div>
+<!--商圈/-->
+<div class="m b10"></div>
+<!--友情链接-->
+<div class="m">
+<div class="title_box">
+		<table class="h-table h-table-margin">
+				  <tbody>
+				  <tr>
+					<td class="h-content"><h3>friendly links</h3></td>
+					<td class="h-line"><div></div></td>
+					<td class="h-content">
+					  <a href="{$EXT[link_url]}" title="TradeMall">See All</a>
+					</td>
+				  </tr>
+				</tbody>
+			</table>
+		</div>
+<!--{php $tags=tag("table=link&condition=status=3 and thumb<>'' and username=''&areaid=$cityid&pagesize=6&order=listorder desc,itemid desc&template=null")}-->
+	<div class="link_box">
+	{loop $tags $i $t}
+		<a {if $i==5}class="last"{/if} href="{$t[linkurl]}"><img src="{$t[thumb]}"></a>
+	{/loop}
+	</div>
+	<div class="footer_comment">
+	{if $DT[page_text]}
+	<!--{tag("table=link&condition=status=3 and thumb='' and username=''&areaid=$cityid&pagesize=".$DT['page_text']."&order=listorder desc,itemid desc&template=list-link&cols=9")}-->
+	{/if}
+	</div>
+</div>
+<!--友情链接/-->
+<script type="text/javascript">
+
+</script>
+<script type="text/javascript" src="{DT_STATIC}file/script/index.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/marquee.js"></script>
+<script type="text/javascript">
+new dmarquee(22, 10, 3000, 'site_stats');
+new dmarquee(22, 30, 3000, 'company');
+if(get_cookie('auth')) {
+	$('.iuser_l')[0].title = 'Member Center';
+	$('.iuser_l')[0].href = '{$MODULE[2][linkurl]}';
+	$('.iuser_l')[0].className = 'iuser_u';
+	$('.iuser_r')[0].title = 'Complete my member information';
+	$('.iuser_r')[0].href = '{$MODULE[2][linkurl]}edit.php';
+	$('.iuser_r')[0].className = 'iuser_e';
+}
+</script>
+
+
+{template 'footer'}

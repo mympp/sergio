@@ -1,0 +1,347 @@
+{php $CSS = array('index');}
+{template 'header'}
+ <!--contain start-->
+ <div class="content">
+	<div class="m">
+		<div class="contenter">
+			<div class="content-left">
+				<h2>categories</h2>
+				{php $mid = 5;}
+				{php $child = get_maincat(0, $mid, 1);}
+				{loop $child $i $c}
+				{if $i<6 && $c[child]}
+				<div class="listview"><a href="{$MODULE[$mid][linkurl]}">{set_style($c[catname], $c[style])}<em></em></a>
+					<div class="sub-menu">
+						{php $m = get_maincat($c[catid], $mid, 1);}
+						{loop $m $i $k}
+						{if $i<6 && $k[child]}
+						<div class="sub">
+							<h3>{set_style($k[catname], $k[style])}</h3>
+							{php $sub=get_maincat($k[catid],$mid,1);}
+							<ul>
+							{loop $sub $j $t}
+								<li><a href="{$MODULE[$mid][linkurl]}{$t[linkurl]}">{set_style($t[catname], $t[style])}</a></li>
+							{/loop}
+							</ul>
+						</div>
+						{/if}
+						{/loop}
+					</div>
+				</div>
+				{/if}
+				{/loop}
+			</div>
+			<div class="content-right">
+				<div class="banner pg-idx">
+					<img src="{DT_SKIN}image/Homebanner2.jpg"><!--轮播图(广告位)-->
+				</div>
+				<div class="Guide">
+					<div class="Guide-wrap">
+						<h3 class="Guide-title">Latest Quotation</h3>
+						<ul>
+						<!--{php $tags=tag("moduleid=4&condition=vip>0 and catids<>''&areaid=$cityid&pagesize=6&order=fromtime desc&template=null")}-->
+						{loop $tags $t}
+							<li><a href="{$t[linkurl]}">{$t[company]}</a></li>
+						{/loop}
+						</ul>
+						<div class="Guide-img">
+							<a><img src="{DT_SKIN}image/ecvvindex1.jpg"></a><!--广告位-->
+						</div>
+					</div>
+					<div class="BuyG-join">
+						<span class="Icon-user"></span>
+						<a href="{$MODULE[2][linkurl]}register.php" rel="nofollow">Join Free</a> <em>|</em>
+						<a href="{$MODULE[2][linkurl]}login.php" rel="nofollow">Sign In</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="Floatwidth100 Hgt210 Special relatV margTop10">
+			<div class="tjcp">
+				<ul>
+				<!--{php $tags=tag("moduleid=16&condition=status=3 and thumb<>'' and level=1&pagesize=5&order=addtime desc&template=null")}-->
+				{loop $tags $t}
+					<li><img src="{$t[thumb]}" width="215" height="162">
+						<div class="hover" style="display: none;">
+						<ul>
+							<li><a href="{$t[linkurl]}">Click To View</a></li>
+						</ul>
+					</div>
+					</li>
+				{/loop}
+				</ul>
+			</div>
+		</div>
+	</div>
+ </div>
+ <!--contain end-->
+<!--Feature Products start-->
+<div class="contant-OneWrap BGcolrA padTop40 padBot54">
+	<div class="m">
+		<div class="showPro-Box margTop40">
+            <div class="sP-srcollwrap relatV">
+                <div class="Floatwidth100">
+                    <h3 style="margin-bottom: 20px;" class="sP-title">
+                        Sell Products
+                    </h3>
+                </div>
+                <div class="sP-Perv" id="obo_l1"></div>
+				<div class="sP-Next" id="obo_r1"></div>
+                <div class="sP-srcollMain" id="obo_m1" >
+                    <div style="width: 4160px; left:0px;" class="sP-srcollPos" >
+                        <ul>
+						<!--{php $tags=tag("moduleid=5&condition=status=3 and thumb<>'' and level>0&pagesize=20&order=addtime desc&template=null")}-->
+						{loop $tags $t}
+                            <li>
+								<div class="sP-Boxli cc-120">
+									<div class="ProImg">
+										<a target="_blank" href="{$t[linkurl]}"  title="{$t[title]}">
+										<img alt="{$t[alt]}" src="{$t[thumb]}" width="120" height="120"></a></div>
+										<div class="ProInf">
+											<a target="_blank" href="{$t[linkurl]}" title="{$t[title]}">
+											<span class="nowSpace">{$t[title]}</span></a>
+										</div>
+										<div class="featureCompanyName"><span> {$t[introduce]}</span></div>
+									</div>
+							</li>
+						{/loop}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Feature Products end-->
+		<!--Hot Products start-->
+		<div class="showPro-Box margTop40">
+            <div class="sP-srcollwrap relatV">
+                <div class="Floatwidth100">
+                    <h3 style="margin-bottom: 20px;" class="sP-title">
+                        Mall Products
+                    </h3>
+                </div>
+                <div class="sP-Perv" id="obo_l2"></div>
+				<div class="sP-Next" id="obo_r2"></div>
+                <div class="sP-srcollMain" id="obo_m2">
+                    <div style="width: 4160px; left:0px;" class="sP-srcollPos">
+                        <ul>
+						<!--{php $tags=tag("moduleid=16&condition=status=3 and thumb<>'' and level>0&pagesize=20&order=addtime desc&template=null")}-->
+						{loop $tags $t}
+                            <li>
+								<div class="sP-Boxli cc-120">
+									<div class="ProImg">
+										<a target="_blank" href="{$t[linkurl]}" title="{$t[title]}">
+										<img alt="{$t[alt]}" src="{$t[thumb]}" width="120" height="120"></a></div>
+										<div class="ProInf">
+											<a target="_blank" href="{$t[linkurl]}" title="{$t[title]}">
+											<span class="nowSpace">{$t[title]}</span></a>
+										</div>
+										<div class="featureCompanyName"><span>Price:&nbsp;${$t[price]}</span></div>
+										<div class="featureCompanyName"><span>Click:&nbsp;{$t[hits]}</span></div>
+									</div>
+							</li>
+						{/loop}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Hot Products end-->
+		<!--Hot Catalogs start-->
+		<div class="showPro-Box margTop40">
+			<div class="sP-srcollwrap relatV">
+				<div class="Floatwidth100">
+						<h3 style="margin-bottom: 20px;" class="sP-title">Hot Catalogs
+							<div style="float: right; font-weight: normal;">
+								<a href="{$MODULE[5][linkurl]}" style="cursor: pointer;color: #777; margin-right: 15px;">More Catalogs &gt;</a>
+							</div>
+						</h3>
+				</div>
+				<ul class="hotPro-UL">
+					<li>
+						<div class="hot-proleft">
+								<img src="{DT_SKIN}image/MoreCatalogs_e62e2099-fce4-4f0c-b.jpg" width="95" height="95" alt="{$t[alt]}"><!--广告位-->
+						</div>
+						<div class="hot-prorigt">
+							{php $mid = 5;}
+							{php $child = get_maincat(0, $mid, 1);}
+							{loop $child $i $c}
+							{if $i<1 && $c[child]}
+							{php $sub = get_maincat($c[catid], $mid, 1);}
+							<span><strong>{set_style($c[catname], $c[style])}</strong></span>
+							{loop $sub $j $s}
+							{if $j<4}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a><br/>{/if}
+							{/loop}
+							{/if}
+							{/loop}
+						</div>
+					</li>
+					<li>
+						<div class="hot-proleft">
+								<img src="{DT_SKIN}image/MoreCatalogs_e62e2099-fce4-4f0c-b.jpg" width="95" height="95" alt="{$t[alt]}"><!--广告位-->
+						</div>
+						<div class="hot-prorigt">
+							{php $mid = 5;}
+							{php $child = get_maincat(0, $mid, 1);}
+							{loop $child $i $c}
+							{if $i>0 && $i<2 && $c[child]}
+							{php $sub = get_maincat($c[catid], $mid, 1);}
+							<span><strong>{set_style($c[catname], $c[style])}</strong></span>
+							{loop $sub $j $s}
+							{if $j<4}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a><br/>{/if}
+							{/loop}
+							{/if}
+							{/loop}
+						</div>
+					</li>
+					<li>
+						<div class="hot-proleft">
+								<img src="{DT_SKIN}image/MoreCatalogs_e62e2099-fce4-4f0c-b.jpg" width="95" height="95" alt="{$t[alt]}"><!--广告位-->
+						</div>
+						<div class="hot-prorigt">
+							{php $mid = 5;}
+							{php $child = get_maincat(0, $mid, 1);}
+							{loop $child $i $c}
+							{if $i>1 && $i<3 && $c[child]}
+							{php $sub = get_maincat($c[catid], $mid, 1);}
+							<span><strong>{set_style($c[catname], $c[style])}</strong></span>
+							{loop $sub $j $s}
+							{if $j<4}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a><br/>{/if}
+							{/loop}
+							{/if}
+							{/loop}
+						</div>
+					</li>
+					<li>
+						<div class="hot-proleft">
+								<img src="{DT_SKIN}image/MoreCatalogs_e62e2099-fce4-4f0c-b.jpg" width="95" height="95" alt="{$t[alt]}"><!--广告位-->
+						</div>
+						<div class="hot-prorigt">
+							{php $mid = 5;}
+							{php $child = get_maincat(0, $mid, 1);}
+							{loop $child $i $c}
+							{if $i>2 && $i<4 && $c[child]}
+							{php $sub = get_maincat($c[catid], $mid, 1);}
+							<span><strong>{set_style($c[catname], $c[style])}</strong></span>
+							{loop $sub $j $s}
+							{if $j<4}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a><br/>{/if}
+							{/loop}
+							{/if}
+							{/loop}
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--Hot Catalogs end-->
+		<!--ads start-->
+		<div class="ad margTop40">
+			<ul>
+				<li><img src="{DT_SKIN}image/Commercials_100bb284-1158-47c5-a.jpg"></li><!--广告位-->
+				<li><img src="{DT_SKIN}image/Commercials_b5252713-8050-4189-b.jpg"></li><!--广告位-->
+				<li><img src="{DT_SKIN}image/Commercials_3fbda46a-482d-48df-8.jpg"></li><!--广告位-->
+				<li><img src="{DT_SKIN}image/Commercials_100bb284-1158-47c5-a.jpg"></li><!--广告位-->
+			</ul>
+		</div>
+		<!--ads end-->
+		<!--news information start-->
+		<div class="news margTop40">
+			<h3 style="margin-bottom: 20px;" class="sP-title">News Information</h3>
+			<ul>
+			<!--{php $tags=tag("moduleid=21&condition=status=3 and thumb<>'' and level>0&pagesize=4&datetype=2&order=addtime desc&template=null")}-->
+			{loop $tags $t}
+				<li>
+					<div class="news-img">
+						<a href="{$t[linkurl]}"><img src="{$t[thumb]}" width="110" height="110"></a>
+					</div>
+					<div class="news-info">
+						<p style="height:20px;color:#fa4f00;">{dsubstr($t[title],20)}...</p>
+						<p>{$t[introduce]}</p>
+						<a href="{$t[linkurl]}">Click To View&nbsp;></a>
+					</div>
+				</li>
+			{/loop}
+			</ul>
+		</div>
+		<!--news information end-->
+		<!--company start-->
+		<div class="company Floatwidth100 margTop40 center">
+		<!--{php $tags=tag("moduleid=4&condition=vip>0 and catids<>''&areaid=$cityid&pagesize=3&order=fromtime desc&template=null")}-->
+		{loop $tags $i $t}
+			<div class="Cotd-box Wid380 {if $i%3==0} BGcolor-tA {elseif $i%3==1} BGcolor-tB {elseif $i%3==2} BGcolor-tC{/if}">
+				<div class="Cotd-left Wid238">
+					<a rel="nofollow" href="{$t[linkurl]}" target="_blank">
+					<span>{$t[company]}</span></a>
+					<p>{$t[business]}</p>
+				</div>
+				<div class="Cotd-right">
+					<a rel="nofollow" href="{$t[linkurl]}" target="_blank">
+					<img src="{$t[thumb]}" width="130" height="80"></a>
+				</div>
+			</div>
+		{/loop}
+		<!--company end-->
+	</div>
+</div>
+<script type="text/javascript" src="{DT_STATIC}file/script/index.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/marquee.js"></script>
+<script type="text/javascript">
+new dmarquee(22, 10, 3000, 'site_stats');
+new dmarquee(22, 30, 3000, 'company');
+if(get_cookie('auth')) {
+	$('.iuser_l')[0].title = 'Member Center';
+	$('.iuser_l')[0].href = '{$MODULE[2][linkurl]}';
+	$('.iuser_l')[0].className = 'iuser_u';
+	$('.iuser_r')[0].title = 'Complete my member information';
+	$('.iuser_r')[0].href = '{$MODULE[2][linkurl]}edit.php';
+	$('.iuser_r')[0].className = 'iuser_e';
+}
+</script>
+<script type="text/javascript">
+	var obo_m1 = 20;//最多15张图片
+	var obo_s1 = 5;//默认展示5张图片
+	var obo_w1 = 208;//单个图片占用宽度
+	var obo_l1 = 0;//当前偏移量，无需设置
+	$(document).ready(function(){
+	$('#obo_l1').bind('click', function() {
+		if(obo_l1 >= 0) return;
+		obo_l1 = obo_l1 + obo_w1*obo_s1;
+		$('#obo_m1 .sP-srcollPos').animate({left:obo_l1+'px'}, 500);
+	});
+	$('#obo_r1').bind('click', function() {
+		if(obo_l1 <= -(obo_m1-obo_s1)*obo_w1) return;
+		obo_l1 = obo_l1 - obo_w1*obo_s1;
+		$('#obo_m1 .sP-srcollPos').animate({left:obo_l1+'px'}, 500);
+	});
+	var obo_m2 = 20;
+	var obo_l2 = 0;
+	$('#obo_l2').bind('click', function() {
+		if(obo_l2 >= 0) return;
+		obo_l2 = obo_l2 + obo_w1*obo_s1;
+		$('#obo_m2 .sP-srcollPos').animate({left:obo_l2+'px'}, 500);
+	});
+	$('#obo_r2').bind('click', function() {
+		if(obo_l2 <= -(obo_m2-obo_s1)*obo_w1) return;
+		obo_l2 = obo_l2 - obo_w1*obo_s1;
+		$('#obo_m2 .sP-srcollPos').animate({left:obo_l2+'px'}, 500);
+	});
+
+	    //左侧菜单导航栏
+    $('.listview').hover(function(){
+        var obj = $(this).children(".sub-menu");
+        obj.css('display','block');
+		$(this).addClass("cur");
+    },function(){
+        var obj = $(this).children(".sub-menu");
+        obj.css('display','none');
+		$(this).removeClass("cur");
+    });
+
+		$(".tjcp ul li").mouseenter(function(){
+		$(this).children(".hover").css('display','block');
+	});
+	$(".tjcp ul li").mouseleave(function(){
+		$(this).children(".hover").css('display','none');
+	});
+});
+</script>
+{template 'footer'}

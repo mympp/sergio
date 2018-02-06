@@ -1,0 +1,43 @@
+<div class="categories">
+{php $child = get_maincat(0, $mid, 1);}
+{loop $child $i $c}
+{if $i<6}
+<div class="category-item category-material {if $i==5}category-other{/if}">
+	<div class="obj-category">
+		<div class="header">
+			<div class="clearfix">
+				<span class="title ms-yh dh1"><a class="timg" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}"><span style="font-family: Arial,Verdana !important;color:#ff5500;font-size: 24px;font-weight: 600;line-height:24px;display: block;float: left;">{$i+1}F</span>&nbsp;&nbsp;<span style="color:#444444;font-family:'微软雅黑';font-size: 18px;font-weight: 600;">{$c[catname]}</span></a></span>
+				<ul>
+					<li class="first-col">{if $i==0}<a href="">1</a>{elseif $i==1}<a href="">2</a>{/if}</li>                               
+					<li class="last-col">{if $i==0}<a href="">a</a>{elseif $i==1}<a href="">b</a>{/if}</li> 
+				</ul>
+				<a class="more" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">更多</a>
+			</div>
+		</div>
+		<div>
+			{if $c[child]}
+			{php $sub = get_maincat($c[catid], $mid, 1);}
+			<ul class="list-tags">
+			{loop $sub $j $s}
+			 {if $j<9}
+				{if $j%3==0}<li class="list-item">{/if}
+					<div class="clearfix">
+						<span class="dh2"><a title="{$s[catname]}" href="{$MODULE[$mid][linkurl]}{$s[linkurl]}">{$s[catname]}</a></span>
+						{php $sub2 = get_maincat($s[catid], $mid, 1);}
+						<ul>
+							{loop $sub2 $n $m}
+								<li {if $n==0}class="first-col"{/if}><a href="{$MODULE[$mid][linkurl]}{$m[linkurl]}">{$m[catname]}</a></li>
+							{/loop}
+						</ul>
+					</div>
+				{if $j%3==2}</li>{/if}
+			 {/if}
+			{/loop}
+			</ul>
+			{/if}
+		</div>
+	</div>
+</div>
+{/if}
+{/loop}
+</div>

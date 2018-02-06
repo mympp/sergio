@@ -1,0 +1,29 @@
+<div class="w248 left bg03182b">
+    <div class="left leftcompany">
+		  <div>
+				<h2>{$COM[company]}</h2>
+				<ul>
+				  <li>联系人：{$COM[truename]} （{if $COM[gender]==1}先生{else}女士{/if}）</li>
+				  <li>联系电话：{$COM[mobile]}</li>
+				  <li>资料认证：
+					 {if $COM[vcompany]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_company.gif" width="16" height="16" align="absmiddle" title="资料通过工商认证"/>{/if}
+					{if $COM[vtruename]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_truename.gif" width="16" height="16" align="absmiddle" title="资料通过实名认证"/>{/if}
+					{if $COM[vbank]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_bank.gif" width="16" height="16" align="absmiddle" title="资料通过银行帐号认证"/>{/if}
+					{if $COM[vmobile]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_mobile.gif" width="16" height="16" align="absmiddle" title="资料通过手机认证"/>{/if}
+					{if $COM[vemail]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_email.gif" width="16" height="16" align="absmiddle" title="资料通过邮件认证"/>{/if}
+					{if $COM[validated]}&nbsp;<img src="{DT_SKIN}image/check_right.gif" align="absmiddle"/> 企业资料通过{$COM[validator]}认证{/if}	
+				  </li>
+				  <li>经营模式：{$COM[mode]}</li>
+				  <li>经营范围：{$COM[business]}</li>
+				  <li>所在地区：{area_pos($COM[areaid], '/')}</li>
+				  <li>企业网站：{$COM[homepage]}</li>
+				</ul>
+		  </div>
+    </div>
+	<div class="w248 left bg03182b" id="leftbar"> 
+		{loop $HSIDE $HS $SIDE}
+		{template 'side_'.$side_file[$HS], $template}
+		{/loop}
+	</div>
+</div>
+

@@ -1,0 +1,31 @@
+<link rel="stylesheet" type="text/css" href="{$glmobileurl}css/homepage_v2.css"/>
+<header class="aui-bar aui-bar-nav dt-bg-orange dt-bgcolor-none" id="company-header">
+        <a class="aui-pull-left aui-btn" href="javascript:history.go(-1);" style="margin-top:0.1rem">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+        <div class="aui-title">{$head_name}</div>
+        <a class="aui-pull-right" {if $action}onclick="showPopup();"{else}onclick="layopen('footmore')"{/if}>
+        <span class="dt-iconfont dt-icon-caidan"></span>
+    </a>
+</header>
+<div class="aui-bar-fix"></div>
+    <div class="aui-content aui-margin-t-10 aui-margin-b-15 ">
+        <ul class="aui-list aui-media-list dt-border-none">
+            <li class="aui-list-item aui-list-item-middle dt-bgcolor-none">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media" style="width: 3.75rem;">
+                        <img src="{if $COM['thumb']}{$COM['thumb']}{else}{$glmobileurl}static/img/home-logo.png{/if}" class="aui-img-round aui-list-img-sm" style="border: #FFF 1px solid;">
+                    </div>
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text aui-margin-b-5">
+                            <div class="aui-list-item-title aui-font-size-18 dt-text-white">{$COM[company]}</div>
+                        </div>
+                        <div class="aui-list-item-text dt-text-white aui-pull-left">
+                        {if $COM[vtruename]}<i class="dt-iconfont dt-icon-shiming aui-font-size-16 dt-text-white aui-margin-r-5"></i>实名认证{/if}&nbsp;{if $COM[vip]}<i class="dt-iconfont dt-icon-vipcard aui-font-size-18 dt-text-white aui-margin-r-5"></i>第{$COM[year]}年{else}普通会员{/if}
+                        
+                    </div>
+                </div>
+                </div>
+            </li>
+        </ul>
+    </div>

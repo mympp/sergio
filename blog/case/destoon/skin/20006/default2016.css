@@ -1,0 +1,928 @@
+.main_left{
+	height:430px;
+	width:260px;
+	float:left;
+	margin-right:15px;
+}
+.main_middle{height:430px;float:left;width:650px;}
+.main_right{
+	height:430px;
+	float:right;
+	width:260px;
+}
+.login{float:right;height:220px;width:260px;}.login_an{float:left;width:100%;height:100px;background-color:#FFF;}.login_an li{float:left;height:30px;width:83px;text-align:center;display:inline;margin-right:5px;margin-bottom:5px;}.login_an li a{float:left;height:28px;width:83px;font-size:14px;font-weight:bold;line-height:30px;background-image:url(http://meta.glass.cn/2012/gimages/default/defaultbg2016.png);background-repeat:no-repeat;background-position:0 -120px;color:#F60;}.login_an li a:link{text-decoration:none;color:#F60;}.login_an li a:visited{color:#F60;text-decoration:none;}.login_an li a:hover{text-decoration:underline;color:#FFF;font-weight:bold;background-image:url(http://meta.glass.cn/2012/gimages/default/defaultbg2016.png);background-repeat:no-repeat;background-position:0 -150px;font-size:14px;}.login_an ul .none{margin-right:0;float:right;width:83px;margin-left:0;}.login_tel{text-align:center;margin-right:auto;margin-left:auto;clear:both;margin-top:5px;}
+.login_tel b{margin-right:5px;}.login .gonggao{height:78px;width:258px;border:1px solid #ddd;}
+
+.zf_comnews{
+	height:160px;
+	width:122px;
+	margin-top:10px;
+	float: left;
+}
+
+.redian_pic{
+	float:left;
+	height:92px;
+	width:122px;
+	clip:rect(auto,120px,80px,auto);
+	position:固定;
+	overflow:hidden;
+
+}.redian_pic img{WIDTH:120px;HEIGHT:90px;}.redian_pic A img{
+	border:1px solid #ddd;
+}.redian_pic A:hover img{
+	border:1px solid #F30;
+}.redian{border-bottom-width:1px;border-bottom-style:dashed;border-bottom-color:#ddd;padding-bottom:10px;}.redian .font16{font-family:"微软雅黑";font-size:18px;color:#DC0000;text-align:center;font-weight:bold;height:35px;line-height:35px;}.redian .font16 a:link{text-decoration:none;color:#DC0000;}.redian .font16 a:visited{color:#DC0000;text-decoration:none;}.redian .font16 a:hover{text-decoration:underline;color:#F30;}.redian p{color:#333;text-align:center;}.redian p a:link{text-decoration:none;color:#666;}.redian p a:visited{color:#666;text-decoration:none;}.redian p a:hover{text-decoration:underline;color:#F60;}.redianlist{width:428px;}.redianlist li{width:202px;float:left;display:inline;overflow:hidden;}.goldcompanylist{margin-right:auto;margin-left:5px;width:265px;margin-top:8px;}#newofferTime{height:190px;}#newofferTime li{float:left;margin:0;padding:0;}#newofferTime .l1{width:175px;color:#0048A2;}#newofferTime #slidetexts ul{margin:0;padding:0;}#newofferTime .l1 a:link{text-decoration:none;color:#0048A2;}#newofferTime .l1 a:visited{color:#0048A2;text-decoration:none;}#newofferTime .l1 a:hover{text-decoration:underline;}#newofferTime .l2{width:260px;color:#333;border-bottom-width:1px;border-bottom-style:dashed;border-bottom-color:#ddd;padding-bottom:2px;padding-left:10px;}#newofferTime .l3{text-align:right;color:#666;float:right;width:80px;margin-right:5px;}.posttext{font-weight:bold;width:60px;margin-top:7px;}#slidetexts{height:190px;width:270px;}#slidetexts .slideLine{height:38px;width:265px;}#slidetexts{height:190px;overflow:hidden;text-align:left;}
+.wrap .productbox{float:left;width:923px;border:1px solid #ddd;height:448px;}.hottag{
+	text-align:center;
+	color:#666;
+
+	margin-left: 50px;
+	font-size: 12px;
+	font-weight: normal;
+}.pro{
+	background-image:url(http://meta.glass.cn/2012/gimages/default/defaultbg2016.png);
+	background-repeat:repeat-x;
+	background-position:0 -180px;
+	height:28px;
+	float:left;
+	width:890px;
+	margin-top:15px;
+	padding-right:10px;
+	margin-left:10px;
+	font-size: 12px;
+}.pro .proButton li{
+	float:left;
+	height:21px;
+	width:150px;
+	background-image:url(http://meta.glass.cn/2012/gimages/default/defaultbg2016.png);
+	background-repeat:repeat-x;
+	background-position:0 -210px;
+	text-align:center;
+	vertical-align:middle;
+	padding-top:7px;
+	display:inline;
+	margin-left:50px;
+	cursor:pointer;
+	color:#333;
+}.pro .proButton .proCurrent{background-image:url(http://meta.glass.cn/2012/gimages/default/defaultbg2016.png);background-repeat:repeat-x;background-position:0 -240px;color:#F60;font-weight:bold;}.xp_product{
+	margin-top:15px;
+}.xp_product li{
+	float:left;
+	width:122px;
+	text-align:center;
+	height:175px;
+	padding-left:20px;
+	padding-right: 10px;
+	font-size: 12px;
+}.xp_picBox IMG{VERTICAL-ALIGN:middle;}.xp_picBox A{display:table-cell;vertical-align:middle;text-align:center;*display:block;*font-family:Arial;width:120px;height:120px;DISPLAY:block;VERTICAL-ALIGN:middle;TEXT-ALIGN:center;border:1px solid #ddd;}.xp_picBox A:hover{border:1px solid #FC7701;}.xp_company{WIDTH:122px;WORD-BREAK:break-all;LINE-HEIGHT:16px;TEXT-ALIGN:center;color:#666;}.xp_company a:link{text-decoration:none;color:#666;}.xp_company a:visited{color:#666;text-decoration:none;}.xp_company a:hover{text-decoration:underline;color:#F30;}.xp_textBox{WIDTH:122px;WORD-BREAK:break-all;TEXT-ALIGN:center;margin-top:5px;line-height:16px;margin-bottom:3px;}
+
+.wrap .hqbox{float:right;width:258px;border:1px solid #ddd;height:183px;}
+.hqbox .baojia_news{
+	padding-left: 10px;
+	padding-top: 5px;
+	padding-right: 10px;
+	overflow: hidden;
+}
+
+.meeting_zhaopin{
+	float:left;
+	width:923px;
+	height:230px;
+	border:1px solid #ddd;
+	margin-bottom: 15px;
+}.jobbox{float:left;width:923px;height:230px;border-right-width:1px;border-right-style:solid;border-right-color:#ddd;}.job_list {padding-left:15px;padding-top:10px;color:#888;}.job_list li{
+	padding-left:10px;
+	overflow:hidden;
+	float: left;
+	width: 430px;
+
+	margin-right: 10px;
+}.meetingbox{float: right;
+    width: 258px;
+    border: 1px solid #ddd;
+    height: 230px;}
+
+.meeting_list{    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    overflow: hidden;}
+	
+	.meeting_name{width:250px;float:left;margin-right:5px;}.meeting_hezuo{height:60px;padding-left:10px;padding-top:5px;}.meeting_hezuo li{float:left;margin-left:6px;display:inline;}
+	.meeting_zt{float:right;width:258px;border:1px solid #ddd;height:260px;}
+	
+.meeting_ztlist{    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    overflow: hidden;}
+		
+.brand_pic{
+	float:left;
+	width:1198px;
+	border:1px solid #ddd;
+	height:270px;
+}.brandlist li{
+	float:left;
+	width:122px;
+	display:inline;
+	height:96px;
+
+	margin-left: 17px;
+	margin-top: 15px;
+	margin-right: 9px;
+}.brandimgbox{
+	VERTICAL-ALIGN:middle;
+	TEXT-ALIGN:center;
+
+}.brandimgbox A{
+	DISPLAY:block;
+	VERTICAL-ALIGN:middle;
+	TEXT-ALIGN:center;
+	border:1px solid #ddd;
+	height: 60px;
+	width: 100px;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}.brandimgbox A:hover{
+	border:1px solid #FC7701;
+	height: 60px;
+	width: 100px;
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+}.brandimgbox IMG{VERTICAL-ALIGN:middle;}.brandtextBox{WIDTH:122px;WORD-BREAK:break-all;TEXT-ALIGN:center;margin-top:5px;}.baike_shipin{
+	float:left;
+	width:923px;
+	height:260px;
+	border:1px solid #ddd;
+
+}.shiping{
+	width:440px;
+	float:left;
+	background-color: #4F3;
+	margin: 10px;
+}.right_video{
+	height:155px;
+
+	padding-top: 10px;
+}.right_video li{
+	FLOAT:left;
+	WIDTH:125px;
+	HEIGHT:155px;
+	background-image:url(http://meta.glass.cn/2012/gimages/default/defaultbg2016.png);
+	background-repeat:no-repeat;
+	background-position:0 -280px;
+	display:inline;
+
+	margin-left: 20px;
+	margin-right: 5px;
+}.right_video .no{margin-right:0;}.right_video ul li img{width:120px;height:90px;margin-bottom:20px;}.right_video ul li SPAN{
+	line-height:16px;
+	text-align:left;
+	width:auto;
+	clear:both;
+	font-size: 12px;
+
+}.right_video ul li A img{border:1px solid #ddd;padding:2px;}.right_video ul li A:hover img{border:1px solid #F30;padding:2px;}.video_list{margin-top:5px;margin-left:5px;}.video_list li{
+	padding-left:40px;
+	white-space:nowrap;
+	background-image:url(http://meta.glass.cn/2012/gimages/default/defaultbg2016.png);
+	background-repeat:no-repeat;
+	background-position:-135px -275px;
+	color:#666;
+	line-height:28px;
+	height:28px;
+}.helpbox{float:right;width:258px;height:270px;border:1px solid #ddd;}.baike .tiwenbox{color:#666;margin-left:5px;}.baike .wenti_sosuo{line-height:25px;height:25px;padding-left:15px;color:#F60;margin-top:10px;}.baike .wenti_sosuo .txt{float:left;width:200px;line-height:20px;height:20px;}.text_1{width:190px;height:20px;line-height:20px;border:1px solid #999;font-size:12px;color:#333;font-weight:normal;}.daan{cursor:pointer;border:0;display:block;height:25px;width:55px;text-indent:-9999em;background-image:url(http://meta.glass.cn/2012/gimages/default/defaultbg2016.png);background-repeat:no-repeat;background-position:0 -450px;margin-right:5px;float:left;}.tiwen{cursor:pointer;border:0;display:block;height:25px;width:55px;text-indent:-9999em;background-image:url(http://meta.glass.cn/2012/gimages/default/defaultbg2016.png);background-repeat:no-repeat;background-position:0 -475px;margin-right:10px;}.tjvip{width:1198px;margin-right:auto;margin-left:auto;padding-top:10px;border:1px solid #ddd;}.tjvip li{float:left;height:70px;width:150px;display:inline;text-align:center;margin-left:8px;margin-right:4px;}.Category{height:630px;width:1198px;border:1px solid #ddd;float:left;}.Categorybox{
+	float:left;
+	width:1178px;
+	height:auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+}.leibie{
+	width:367px;
+	float:left;
+	display:inline;
+	padding-left:10px;
+	height:auto;
+	border:1px dashed #FFF;
+	margin-bottom: 10px;
+	margin-right: 10px;
+}.leibieOver{background-color:#F3FAFC;border:1px solid #A9DEED;}.leibie h2{
+	font-weight:bold;
+	font-size:16px;
+	float:left;
+	color:#4D4D4D;
+	margin-right:5px;
+	margin-bottom:5px;
+	line-height:30px;
+	height:30px;
+	margin-top:0!important;
+	margin-top:4px;
+}.leibie_content{white-space:nowrap;}.leibie_content li{
+	padding-right:12px;
+	font-weight:normal;
+	float:left;
+	width:auto;
+	margin-right:12px;
+	border-right-width:1px;
+	border-right-style:solid;
+	border-right-color:#ddd;
+	margin-bottom:10px;
+	height: 12px;
+	line-height: 12px;
+	font-size: 12px;
+}.leibie_content li a:link{text-decoration:none;color:#4D4D4D;}.leibie_content li a:visited{color:#4D4D4D;text-decoration:none;}.leibie_content li a:hover{text-decoration:none;color:#FB4E02;}
+.newsbox{
+	width:432px;
+	float:left;
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	margin-left: 19px;
+}
+.news_list {
+	padding-left: 10px;
+	padding-top: 5px;
+
+	overflow: hidden;
+	float: right;
+	width: 285px;
+}
+.shipinbox{
+	width:432px;
+	float:left;
+
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	margin-left: 15px;
+}
+.shipin_list {
+	padding-left: 10px;
+	padding-top: 5px;
+	padding-right: 10px;
+	overflow: hidden;
+	float: right;
+	width: 290px;
+
+}
+
+
+.gd{
+	height:390px;
+	overflow:hidden;
+	padding-left: 10px;
+	margin-top: 10px;
+	padding-right: 10px;
+}.zpname{width:190px;margin-right:5px;float:left;}.mF_classicHC .pic{overflow:hidden;}#myFocus .loading{border:1px solid #ddd;}.mF_classicHC .pic li{position:absolute;}.mF_classicHC .txt li{position:absolute;left:0;background:#dedede;overflow:hidden;}.mF_classicHC .txt li a{display:block;color:#333;text-align:center;font-size:14px;font-weight:bold;text-decoration:none;}.mF_classicHC .num,.mF_classicHC .num-bg{height:19px;position:absolute;z-index:3;right:0;bottom:31px;color:#fff;}.mF_classicHC .num-bg{width:100%;background:url(http://meta.glass.cn/2012/gimages/ico/Focus_bg.png) right bottom no-repeat;_height:16px;_background:0;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://meta.glass.cn/2012/gimages/ico/Focus_bg.png',sizingMethod='scale');}.mF_classicHC .num-bg li{position:absolute;}.mF_classicHC .num li{float:left;width:26px;height:16px;line-height:16px;padding-top:3px;text-align:center;cursor:pointer;position:relative;}.mF_classicHC .num li span{position:absolute;top:3px;left:0;width:1px;height:16px;overflow:hidden;background:#DADADA;}.mF_classicHC .num li.current,.mF_classicHC .num li.hover{background:url(http://meta.glass.cn/2012/gimages/ico/Focus_arrow.gif) left top no-repeat;}.mF_classicHC .num li.hover{background-position:right bottom;}
+
+/*参展商*/
+.exhibitors .gundong {
+	float: left;
+	height: 60px;
+	width: 650px;
+	background-image: url(http://meta.glass.cn/2012/gimages/default/exhibitors_bg.gif);
+}
+
+.exhibitors {
+	height: 60px;
+	width: 710px;
+	margin-bottom: 10px;
+}
+.exhibitors .guding {
+	float: right;
+	height: 50px;
+	width: 260px;
+}
+.czslist li .num{
+	width:55px;
+	background-color:#F60;
+	color:#FFF;
+	font-weight:bold;
+	text-align:center;
+	float: left;
+	line-height: 20px;
+	height: 19px;
+	font-family: Arial, Helvetica, sans-serif;
+	margin-top: 1px;
+}
+.czslist li .name{
+	width:185px;
+	padding-left:5px;
+	float: left;
+	line-height: 20px;
+	height: 19px;
+	padding-top: 1px;
+
+}
+.czslist li .phone{
+	padding-left:5px;
+	float: left;
+	line-height: 20px;
+	height: 19px;
+	padding-top: 1px;
+	color: #333;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.czs{
+	float: right;
+	height: 49px;
+	width: 350px;
+	overflow:hidden;
+	margin-top: 8px;
+}
+.czslist{
+	padding-left:5px;
+}
+.czslist li{
+	display:block;
+	overflow:hidden;
+	font-size: 12px;
+	line-height: 25px;
+	height: 25px;
+}
+.czslist a:link{text-decoration:none;}.czslist a:visited{text-decoration:none;}.czslist a:hover{
+	text-decoration:underline;
+	color: #F60;
+}
+.gundong .mingzhi {
+	float: left;
+	height: 58px;
+	width: 88px;
+	padding: 1px;
+}
+/*展会特辑*/
+.zh2013 {
+	height: 312px;
+	width: 980px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.zh2013 .zh_title {
+	height: 32px;
+	width: 980px;
+
+}
+.zh2013 .zh_company {
+	padding-left: 4px;
+	height: 280px;
+	padding-top: 10px;
+	background-image: url(http://meta.glass.cn/2012/webimages/zh_bg.jpg);
+}
+.zh2013 .zh_company ul li {
+	float: left;
+	height: 90px;
+	width: 118px;
+	margin-left: 3px;
+}
+#topbg .zh2013 .zh_company ul li p {
+	height: 25px;
+	width: 118px;
+	text-align: center;
+	line-height: 25px;
+}
+/*促销*/
+.leibie_cuxiao {
+	clear: both;
+	height: auto;
+	margin-left: 10px;
+}
+.leibie_cuxiao ul li {
+	float: left;
+	height: 70px;
+	width: auto;
+	margin-right: 34px;
+	margin-bottom: 10px;
+	margin-left: px;
+}
+/*登录*/
+.member-into{
+	float: right;
+	width: 260px;
+	height: 56px;
+	margin-bottom: 15px;
+	float: right;
+	background-color: #06C;
+}
+.member-into li {
+	float: left;
+	height: 54px;
+	font-size: 18px;
+	text-align: center;
+	font-family: "微软雅黑","黑体";
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #f7d389;
+	border-right-color: #f7d389;
+	border-bottom-color: #F60;
+	border-left-color: #f7d389;
+}
+.member-into .member-login { width: 128px }
+.member-into .member-reg { width: 129px; margin-left: -1px }
+.member-into a { color: #FF6600; display: block; height: 54px; line-height: 54px; background-color: #fef6c7; font-weight: bold }
+.member-into a:hover { background-color: #feefac }
+
+.member-user {
+	height: 165px;
+	width: 260px;
+
+}
+.member-user-nav{
+	height:30px;
+	float:left;
+	width:260px;
+	font-weight:bold;
+	
+}.member-user-nav li{
+	float:left;
+	height:30px;
+	width:130px;
+	text-align:center;
+	vertical-align:middle;
+	display:inline;
+	cursor:pointer;
+	color:#333;
+	background-image: url(http://meta.glass.cn/2012/gimages/default/menmberbg.png);
+	font-weight: normal;
+	line-height: 30px;
+	background-position: 0px 0px;
+	font-size: 14px;
+}
+.member-user-nav .proCurrent{
+	color:#333;
+
+
+	background-color: #FFF;
+	background-image: url(http://meta.glass.cn/2012/gimages/default/menmberbg.png);
+	background-repeat: no-repeat;
+	background-position: 0px -30px;
+}
+.member-user .Supplierbox {
+	height: 328px;
+	width: 258px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-color: #ddd;
+	border-bottom-color: #ddd;
+	border-left-color: #ddd;
+}
+.member-sale-wz {
+	line-height: 40px;
+	height: 40px;
+	padding-left: 20px;
+	font-size: 12px;
+}
+.member-sale-logo{
+	height:40px;
+	background-color:#F5F5F5;
+	border:1px solid #ebebeb;
+	overflow:hidden;
+	color:#333;
+	line-height: 40px;
+	margin-right: 10px;
+	margin-left: 10px;
+	padding-left: 130px;
+	background-image: url(http://meta.glass.cn/2012/gimages/default/menmberbg.png);
+	background-repeat: no-repeat;
+	background-position: 0px -60px;
+	font-size: 12px;
+}
+
+.member-user .buybox {
+	height: 328px;
+	width: 258px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-color: #ddd;
+	border-bottom-color: #ddd;
+	border-left-color: #ddd;
+}
+
+
+.member-buy-list {
+	height: 30px;
+	margin-bottom: 10px;
+	width: 220px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 18px;
+	font-size: 12px;
+}
+.member-buy-list li {
+	height: 30px;
+	width: 100px;
+	border-radius: 2px;
+	overflow: hidden;
+	background-color: #f7f7f7;
+	float: left;
+}
+.member-buy-list .search-pro {
+	float: left;
+	background-image: url(http://meta.glass.cn/2012/gimages/default/menmberbg.png);
+	background-repeat: no-repeat;
+	background-position: 0px -110px;
+}
+.member-buy-list .prise-price {
+	float: right;
+	background-image: url(http://meta.glass.cn/2012/gimages/default/menmberbg.png);
+	background-repeat: no-repeat;
+	background-position: -108px -110px;
+}
+.member-buy-list a {
+	display: block;
+	height: 30px;
+	width: 64px;
+	line-height: 30px;
+	padding-left: 36px
+}
+
+.member-buy-wz {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+    color: #000;
+}
+.member-buy-tel {
+    margin-top: 5px;
+    font-size: 25px;
+    text-align: center;
+    color: #F00;
+}
+/*旗下网站*/
+.qxwz {
+	background-image: url(http://meta.glass.cn/2012/gimages/default/headbg2016.png);
+	background-repeat: no-repeat;
+	margin-bottom: 15px;
+	height: 213px;
+	width: 238px;
+	background-color: #FFFBE1;
+	border: 1px solid #FED6B2;
+	background-position: 20px -575px;
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+.qxwz .qxwztitle {
+	line-height: 30px;
+	color: #333;
+	height: 25px;
+	padding-left: 10px;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 5px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #FEBF90;
+	padding-bottom: 10px;
+}
+
+
+
+.qxwz .qxwz_leibie li {
+	font-size: 14px;
+	line-height: 35px;
+	height: 35px;
+	padding-left: 38px;
+}
+.qxwz .qxwz_leibie li span {
+	font-size: 12px;
+	color: #FF9933;
+	padding-left: 15px;
+}
+
+.qxwz .hotproduct li {
+	font-size: 12px;
+	line-height: 23px;
+	float: left;
+	height: 23px;
+	text-align: left;
+	width: 70px;
+	color: #CCC;
+background-image:url(http://meta.glass.cn/2012/gimages/default/headbg.png);background-repeat:no-repeat;background-position:0 -360px;
+padding-left:10px;
+}
+
+.hotproduct {
+	padding-left: 15px;
+	padding-top: 5px;
+
+	height: 75px;
+}
+
+
+/*风云排行*/
+
+.paihangbox {
+	height: 230px;
+	width: 258px;
+
+	float: right;
+	border: 1px solid #ddd;
+}
+
+.paihangbox .paihangwz {
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-left: 10px;
+	height: 180px;
+	overflow: hidden;
+	width: 242px;
+
+}
+.paihangbox .paihangwz li {
+	overflow: hidden;
+	font-size: 14px;
+	padding-left: 5px;
+	height: 45px;
+}
+.paihangbox .chenegjiaowz {
+	font-weight: normal;
+	color: #666;
+	line-height: 22px;
+	height: 22px;
+	font-size: 12px;
+}
+
+.paihangbox .chenegjiaowz em {
+	font-family: "微软雅黑", "宋体";
+	color: #F60;
+	font-weight: normal;
+	font-style: normal;
+	padding-right: 3px;
+}
+
+
+
+/*标王广告*/
+.biaowangtitle {
+	font-size: 14px;
+	line-height: 32px;
+	height: 32px;
+	text-indent: 15px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #eeeeee;
+	width: 650px;
+	font-weight: bold;
+}
+.biaowangtitle span {
+	padding-left: 20px;
+	font-size: 12px;
+	font-weight: normal;
+}
+.biaowangbox{
+	height:185px;
+	width:650px;
+	float:left;
+
+	margin-top: 10px;
+}
+.tuiguang_box{
+	OVERFLOW:hidden;
+	ZOOM:1;
+	POSITION:relative;
+	width:650px;
+
+
+
+}.tuiguang_box .LeftBotton{
+	LEFT:1px;
+	FLOAT:left;
+	WIDTH:25px;
+	CURSOR:pointer;
+	POSITION:absolute;
+	HEIGHT:142px;
+	background-image:url(http://meta.glass.cn/2012/gimages/default/buydefault2016.png);
+	background-repeat:no-repeat;
+	background-position:-2px -2029px;
+
+}.tuiguang_box .RightBotton{
+	RIGHT:0px;
+	FLOAT:right;
+	WIDTH:25px;
+	CURSOR:pointer;
+	POSITION:absolute;
+	TOP:0px;
+	HEIGHT:140px;
+	background-image:url(http://meta.glass.cn/2012/gimages/default/buydefault2016.png);
+	background-repeat:no-repeat;
+	background-position:-32px -2030px;
+}.tuiguang_box .Cont{
+	OVERFLOW:hidden;
+	WIDTH:600px;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+
+}.tuiguang_box .box{
+	FLOAT:left;
+	WIDTH:150px;
+	TEXT-AliGN:center;
+	height: 145px;
+	margin-top: 5px;
+
+}
+/*.tuiguang_box .box img{
+	DISPLAY:block;
+	BACKGROUND:#fff;
+	margin-top:0;
+	margin-right:auto;
+	margin-bottom:0;
+	margin-left:auto;
+	overflow:hidden;
+}.tuiguang_box .box A:hover img{border:1px solid #F33;}*/
+
+.tuiguang_box .box P{
+    line-height: 25px;
+	width:150px;
+	margin-right:auto;
+	margin-bottom:0;
+	margin-left:auto;
+	color: #F60;
+}
+
+.newstitle {
+	font-size: 14px;
+	line-height: 30px;
+	font-weight: bold;
+	height: 30px;
+	padding-right: 10px;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #ddd;
+}
+
+.newstitle EM {
+	DISPLAY: block;
+	FLOAT: right;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 26px;
+	color: #FFF;
+	padding-top: 4px;
+}
+.shipintitle {
+	font-size: 14px;
+	line-height: 30px;
+	font-weight: bold;
+	height: 30px;
+	padding-right: 10px;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #ddd;
+}
+
+.shipintitle EM {
+	DISPLAY: block;
+	FLOAT: right;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 26px;
+	color: #FFF;
+	padding-top: 4px;
+}
+
+/*采购*/
+.caigou_vip {
+	float: left;
+	height: 230px;
+	width: 923px;
+	border: 1px solid #ddd;
+
+}
+.hot-word-lst {
+	overflow: hidden;
+	width: 249px;
+	float: left;
+	height: 174px;
+	background-image: url(http://meta.glass.cn/2012/gimages/default/caigoubg.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-color: #F9F9F9;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #EEEEEE;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+.hot-word-lst li {
+	float: left;
+	margin-top: 3px;
+	margin-right: 10px;
+	margin-bottom: 3px;
+	margin-left: 3px;
+}
+.hot-word-lst a {
+	float: left;
+	line-height: 25px;
+	padding: 0 10px;
+	border: 1px solid #e6e6e6;
+	background-color: #fff;
+	white-space: nowrap;
+	font-size: 12px;
+	-moz-border-radius: 3px; 
+-webkit-border-radius: 3px; 
+
+}
+.caigoulist{
+	height:180px;
+	padding-top: 14px;
+	width: 650px;
+	float: left;
+	padding-left: 13px;
+
+}.caigoulist li{
+	float:left;
+	width:170px;
+	display:inline;
+	overflow:hidden;
+	margin-right: 20px;
+	margin-left: 15px;
+}
+
+
+.wrap_vip {
+    float: right;
+    width: 258px;
+    height: 448px;
+    background-repeat: no-repeat;
+    border: 1px solid #ddd;
+  
+}.caigoulist ul li em {
+	color: #888888;
+	padding-left: 10px;
+	font-size: 12px;
+}
+.zf_comnews p {
+	line-height: 20px;
+	padding-top: 5px;
+	float: left;
+	width: 120px;
+
+}
+
+
+.wrap_hotnews {
+	height: 183px;
+	width: 258px;
+	padding-left: 1px;
+	
+}
+
+.hotnewsbox {
+	height: 137px;
+	margin-left: 15px;
+	width: 235px;
+	margin-top: 15px;
+
+}
+.toutiaobox {
+	height: 70px;
+	width: 235px;
+	font-size: 12px;
+
+}
+.toutiaopic img{
+	float: left;
+	width: 80px;
+	display: inline;
+	height: 60px;
+	margin-right: 10px;
+}
+.toutiaopic A img{
+	border:1px solid #ddd;
+}.toutiaopic A:hover img{
+	border:1px solid #F30;
+}
+.toutiaobox p {
+	line-height: 25px;
+	color: #666;
+	padding-right: 5px;
+	font-size: 14px;
+	font-weight: bold;
+}

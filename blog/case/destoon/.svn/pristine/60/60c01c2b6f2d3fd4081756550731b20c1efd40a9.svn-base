@@ -1,0 +1,694 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+<header class="aui-bar aui-bar-nav" id="aui-header">
+{if $action=='success'}
+        <a class="aui-pull-left aui-btn" href="javascript:Dquit();">
+           <span class="dt-iconfont dt-icon-left"></span>取消
+        </a>
+{else}
+<a class="aui-pull-left aui-btn" href="javascript:Dback();">
+           <span class="dt-iconfont dt-icon-left"></span>返回
+        </a>
+{/if}        
+        <div class="aui-title">{$head_name}</div>
+        {if $action=='success'}
+<a href="javascript:Dverify();" class="aui-pull-right"><span>验证</span></a>
+{else}
+<a href="my.php" class="aui-pull-right"><span>取消</span></a>
+{/if}
+</header>
+<div class="aui-bar-fix"></div>
+{if $EXT['gl_jianhua']}
+<style>
+a { color:#333;}
+.aui-list .aui-list-item { padding-top:0.1rem; padding-bottom:0.1rem;}
+#glslider {
+  margin:0.65rem 1.35rem 0.65rem 0.5rem;
+  width: 100%;
+  height: 38px;
+  position: relative;
+  border-radius: 2px;
+  background-color: #dae2d0;
+  overflow: hidden;
+  text-align: center;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+#glslider_bg {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  background-color: #03a9f4;
+  z-index: 1;
+}
+
+#gllabel {
+  width: 55px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 38px;
+  line-height: 38px;
+  border: 1px solid #cccccc;
+  background: #fff;
+  z-index: 3;
+  cursor: move;
+  color: #ff9e77;
+  font-size: 16px;
+}
+
+#gllabelTip {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 13px;
+  color: #787878;
+  line-height: 38px;
+  text-align: center;
+  z-index: 2;
+}
+</style>
+{if $action=='detail'}
+<div class="aui-content aui-margin-b-15" id="regbar">
+    <ul class="aui-list aui-form-list dt-border-t-none">
+    	<form method="post" id="dform">
+	<input type="hidden" name="action" value="post"/>
+	<input type="hidden" name="regid" value="{$itemid}"/>
+       {if $EXT['gl_jianhua_type']}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-input">
+                    <input type="number" name="username" id="username" placeholder="会员名为您的手机号码">
+                </div>
+            </div>
+        </li>
+        {else}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-input">
+                    <input type="text" name="username" id="username" placeholder="会员名称 {$MOD[minusername]}-{$MOD[maxusername]}个字符，小写字母和数字">
+                </div>
+            </div>
+        </li>
+        {/if}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-input">
+                    <input type="text" name="password" id="password" placeholder="登录密码 {$MOD[minpassword]}-{$MOD[maxpassword]}个字符">
+                </div>
+            </div>
+        </li>
+        {if $EXT['gl_hk_code']}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                  <div id="glslider">
+    <div id="glslider_bg"></div>
+    <span id="gllabel"><i class="dt-iconfont dt-icon-zuohua"></i><i class="dt-iconfont dt-icon-gou displaynone"></i></span> <span id="gllabelTip">向左拖动滑块验证</span>
+  </div>
+            </div>
+        </li>
+        {/if}
+        {if $verify_type=='mobile'}
+        {if $EXT['gl_jianhua_type']==0}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-input">
+                    <input type="tel" name="mobile" id="mobile" placeholder="手机号码 请真实填写，提交后需验证">
+                </div>
+            </div>
+        </li>
+        {/if}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title"><input type="number" name="code" id="code" placeholder="手机验证码"></div>
+                <div class="aui-list-item-right aui-margin-r-15"><span id="timer"></span><div class="aui-label aui-label-info aui-font-size-14" id="send" onclick="Dcode();" style="padding:0.35rem 0.6rem">发 送</div></div>
+                    
+            </div>
+        </li>
+        {/if}
+	{if $MOD[captcha_register]}
+            <li class="aui-list-item">
+            <div class="aui-list-item-inner" id="captcha-bar">{template 'captcha', 'chip'}</div>
+        </li>
+	{/if}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-input">
+                    	<div style="font-size:12px;line-height:44px;color:#999999;padding:0 16px;"><span class="f_r"><a href="javascript:Dagreement();" class="b">已阅读并同意注册协议</a></span>以上全部为必填项目</div>
+
+                </div>
+            </div>
+        </li>
+         </form>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-center aui-list-item-btn" onclick="Dregister();">
+                    <div class="aui-btn aui-btn-info aui-margin-r-5 aui-font-size-18" style="width:90%">立即注册</div>
+                </div>
+            </li>
+   </ul>
+  
+</div>
+<script src="script/jquery.glunlock.js"></script>
+<script type="text/javascript">
+nextcode=0;
+{if $EXT['gl_hk_code']}
+var glUnlock;
+    $(function () {
+        var slider = new SliderUnlock("#glslider",{
+				successLabelTip : "欢迎访问{$DT[sitename]}"	
+			},function(){
+				$('.dt-icon-zuohua').hide();
+				$('.dt-icon-gou').show();
+				glUnlock = 1;
+				laymsg("验证成功");
+        	});
+        slider.init();
+    });
+{/if}
+function Dregister() {
+	var val,len;
+	val = $('#username').val();
+	len = val.length;
+	{if $EXT['gl_jianhua_type']}
+	if(len < {$MOD[minusername]} || len > {$MOD[maxusername]}) {
+		laymsg('请输入手机号');
+		return false;
+	}
+	if(!val.match(/^1[3|4|5|7|8]{1}[0-9]{9}$/)) {
+		laymsg('请填写正确的手机号码');
+		return false;
+	}
+	{else}
+	if(len < {$MOD[minusername]} || len > {$MOD[maxusername]}) {
+		laymsg('会员名长度限制为{$MOD[minusername]}-{$MOD[maxusername]}');
+		return false;
+	}
+	{/if}
+	if(val.indexOf('__') != -1 || val.indexOf('--') != -1) {
+		laymsg('会员名中划线和下划线不能连续出现');
+		return false;
+	}
+	if(!val.match(/^[a-z0-9]{1}[a-z0-9_\-]{0,}[a-z0-9]{1}$/)) {
+		laymsg('会员名限制为小写字母、数字组合');
+		return false;
+	}
+	val = $('#password').val();
+	len = val.length;
+	if(len < {$MOD[minpassword]} || len > {$MOD[maxpassword]}) {
+		laymsg('密码长度限制为{$MOD[minpassword]}-{$MOD[maxpassword]}');
+		return false;
+	}
+	{if $verify_type=='mobile' && $EXT['gl_jianhua_type']==0}
+	val = $('#mobile').val();
+	if(!val.match(/^1[3|4|5|7|8]{1}[0-9]{9}$/)) {
+		laymsg('请填写正确的手机号码');
+		return false;
+	}
+	{/if}
+
+	nextcode=1;
+	{if $verify_type=='mobile'}
+    if($("#code").val()=="")
+        {
+            laymsg("请填写手机验证码");
+			return false;
+        }
+    else if($("#code").val().length<6)
+       {   
+            laymsg("验证码长度有误！");
+			return false;
+        }
+	{if $MOD[captcha_register]}
+	val = $('#captcha').val();
+	if(!is_captcha(val)) {
+		laymsg('请填写验证码');
+		return false;
+	}
+	{/if}	
+	{/if}
+	$.post('glregis.php', $('#dform').serialize(), function(data) {
+		if(data == 'ok') {
+			laymsg('注册成功，跳转中...');
+			Go('my.php');
+		} else if(data == 'group') {
+			laymsg('请选择会员组');
+			setTimeout(function() {
+				Go('register.php?reload={$DT_TIME}');
+			}, 1000);
+		} else if(data == 'passport') {
+			laymsg('会员名已经被注册');
+			$('#username').val('');
+		} else if(data == 'captcha') {
+			laymsg('验证码错误');
+			reloadcaptcha();
+		} else if(data == 'hasbeen') {
+			laymsg('手机号码已存在');
+			//reloadcaptcha();
+		} else if(data == 'mobilecode') {
+			laymsg('手机验证码错误');
+			//reloadcaptcha();
+		} else {
+			data = data.replace('昵称', '会员');
+			laymsg(data);
+		}
+	});
+	return;
+}
+
+function Dcode(i) {
+	var val,len;
+	val = $('#username').val();
+	len = val.length;
+	{if $EXT['gl_jianhua_type']}
+	if(len < {$MOD[minusername]} || len > {$MOD[maxusername]}) {
+		laymsg('请输入手机号');
+		return false;
+	}
+	if(!val.match(/^1[3|4|5|7|8]{1}[0-9]{9}$/)) {
+		laymsg('请填写正确的手机号码');
+		return false;
+	}
+	{else}
+	if(len < {$MOD[minusername]} || len > {$MOD[maxusername]}) {
+		laymsg('会员名长度限制为{$MOD[minusername]}-{$MOD[maxusername]}');
+		return false;
+	}
+	{/if}
+	if(val.indexOf('__') != -1 || val.indexOf('--') != -1) {
+		laymsg('会员名中划线和下划线不能连续出现');
+		return false;
+	}
+	if(!val.match(/^[a-z0-9]{1}[a-z0-9_\-]{0,}[a-z0-9]{1}$/)) {
+		laymsg('会员名限制为小写字母、数字组合');
+		return false;
+	}
+	val = $('#password').val();
+	len = val.length;
+	if(len < {$MOD[minpassword]} || len > {$MOD[maxpassword]}) {
+		laymsg('密码长度限制为{$MOD[minpassword]}-{$MOD[maxpassword]}');
+		return false;
+	}
+	{if $verify_type=='mobile' && $EXT['gl_jianhua_type']==0}
+	val = $('#mobile').val();
+	if(!val.match(/^1[3|4|5|7|8]{1}[0-9]{9}$/)) {
+		laymsg('请填写正确的手机号码');
+		return false;
+	}
+	{/if}
+	{if $EXT['gl_hk_code']}
+	if(!glUnlock){
+		laymsg('请先完成滑块验证');
+		return false;
+	}
+	{/if}
+	{if $EXT['gl_jianhua_type']}
+	mobile = $('#username').val();
+	{else}
+	mobile = $('#mobile').val();
+	{/if}
+   $('#send').text('正在发送');
+	$.post('glregis.php', {'action':'send','mobile':mobile}, function(data) {
+		if(data == 'ok' || data == 1) {
+			if(!i) laymsg('发送成功');
+			Dtimer();
+		} else if(data == 'hasbeen') {
+			laymsg('手机号码已存在');
+			$('#send').text('发 送');
+			return false;
+		} else if(data == 'max') {
+			laymsg('发送次数过多');
+			$('#send').text('发 送');
+			return false;
+		} else {
+			laymsg('发送失败，请重试');
+			$('#send').text('发 送');
+			return false;
+		}
+	});
+}
+function Dtimer() {
+	var i = {if $verify_type=='mobile'}180{else}60{/if};
+	$('#send').hide();
+	$('#timer').html('重新发送('+i+')');
+	$('#timer').show();
+	var time_int=window.setInterval(
+		function() {
+			if(i == 1) {
+				$('#send').show();
+				$('#timer').html('');
+				$('#timer').hide();
+				clearInterval(time_int);
+			} else {
+				i--;
+				$('#timer').html('重新发送('+i+')');
+			}
+		},
+	1000);
+}
+
+function Dagreement() {
+	if($('#agreement').html() == '') {
+		$('#agreement').load('register.php?action=agreement');
+		window.scrollTo(0,100);
+	}
+	$('#agreement').fadeToggle();
+}
+$(document).ready(function(){
+	$('input:not(:password)').on('keyup blur', function() {
+		$(this).val(DTrim($(this).val()));
+	});
+	{if $MOD[captcha_register]}
+	showcaptcha();
+	{/if}
+});
+</script>
+{else}
+<div class="aui-content aui-margin-b-15">
+    <ul class="aui-list aui-list-in dt-border-t-none">
+        <li class="aui-list-header" style=" line-height:1.5rem; font-size:0.7rem;background: #F7F7F7">
+            请选择会员类型
+        </li>
+<li class="aui-list-item" onclick="window.location.href='?action=detail&itemid=6'">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title">{$GROUP[6][groupname]}</div>
+            </div>
+        </li></a>
+    {loop $GROUP $k $v}
+	{if $k>6 && $v[vip]==0 && $v[reg]==1}
+        <li class="aui-list-item" onclick="window.location.href='?action=detail&itemid={$k}'">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+               <div class="aui-list-item-title">{$v[groupname]}</div>
+               </div>
+        </li>
+    {/if}
+	{/loop}
+	{if $GROUP[5][reg]}
+       <li class="aui-list-item" onclick="window.location.href='?action=detail&itemid=5'"> 
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title">{$GROUP[5][groupname]}</div>
+                </div>
+        </li>
+	{/if}
+
+ </ul>       
+</div>
+{/if}
+{else}
+<style>
+a { color:#333;}
+#loginbar .aui-list-item { padding-top:0.2rem; padding-bottom:0.2rem;}
+</style>
+{if $action=='detail'}
+<div class="aui-content aui-margin-b-15">
+    <ul class="aui-list aui-form-list">
+    	<form method="post" id="dform">
+	<input type="hidden" name="action" value="post"/>
+	<input type="hidden" name="regid" value="{$itemid}"/>
+
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-input">
+                    <input type="text" name="username" id="username" placeholder="会员名称 {$MOD[minusername]}-{$MOD[maxusername]}个字符，小写字母和数字">
+                </div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-input">
+                    <input type="text" name="password" id="password" placeholder="登录密码 {$MOD[minpassword]}-{$MOD[maxpassword]}个字符">
+                </div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-input">
+                    <input type="text" name="email" id="email" placeholder="电子邮箱{if $verify_type=='email'} 请真实填写，提交后需验证{/if}">
+                </div>
+            </div>
+        </li>
+        {if $itemid > 5}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-input">
+                    <input type="text" name="company" id="company" placeholder="公司全称 请与营业执照保持一致">
+                </div>
+            </div>
+        </li>
+        {/if}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-input">
+                    <input type="text" name="truename" id="truename" placeholder="真实姓名">
+                </div>
+            </div>
+        </li>
+        {if $verify_type=='mobile'}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-input">
+                    <input type="tel" name="mobile" id="mobile" placeholder="手机号码 请真实填写，提交后需验证">
+                </div>
+            </div>
+        </li>
+        {/if}
+	{if $MOD[captcha_register]}
+            <li class="aui-list-item">
+            <div class="aui-list-item-inner" id="captcha-bar">{template 'captcha', 'chip'}</div>
+        </li>
+	{/if}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-input">
+                    	<div style="font-size:12px;line-height:44px;color:#999999;padding:0 16px;"><span class="f_r"><a href="javascript:Dagreement();" class="b">已阅读并同意注册协议</a></span>以上全部为必填项目</div>
+
+                </div>
+            </div>
+        </li>
+         </form>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-center aui-list-item-btn" onclick="Dregister();">
+                    <div class="aui-btn aui-btn-info aui-margin-r-5 aui-font-size-18" style="width:90%">立即注册</div>
+                </div>
+            </li>
+   </ul>
+  
+</div>
+
+<script type="text/javascript">
+function Dregister() {
+	var val,len;
+	val = $('#username').val();
+	len = val.length;
+	if(len < {$MOD[minusername]} || len > {$MOD[maxusername]}) {
+		laymsg('会员名长度限制为{$MOD[minusername]}-{$MOD[maxusername]}');
+		return false;
+	}
+	if(val.indexOf('__') != -1 || val.indexOf('--') != -1) {
+		laymsg('会员名中划线和下划线不能连续出现');
+		return false;
+	}
+	if(!val.match(/^[a-z0-9]{1}[a-z0-9_\-]{0,}[a-z0-9]{1}$/)) {
+		laymsg('会员名限制为小写字母、数字组合');
+		return false;
+	}
+	val = $('#password').val();
+	len = val.length;
+	if(len < {$MOD[minpassword]} || len > {$MOD[maxpassword]}) {
+		laymsg('密码长度限制为{$MOD[minpassword]}-{$MOD[maxpassword]}');
+		return false;
+	}
+	val = $('#email').val();
+	len = val.length;
+	if(len < 7 || !val.match(/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/)) {
+		laymsg('请填写正确的电子邮箱');
+		return false;
+	}
+	{if $itemid > 5}
+	val = $('#company').val();
+	len = val.length;
+	if(len < 4) {
+		laymsg('请填写公司全称');
+		return false;
+	}
+
+	{/if}
+	val = $('#truename').val();
+	len = val.length;
+	if(len < 2) {
+		laymsg('请填写真实姓名');
+		return false;
+	}
+	{if $verify_type=='mobile'}
+	val = $('#mobile').val();
+	if(!val.match(/^1[3|4|5|7|8]{1}[0-9]{9}$/)) {
+		laymsg('请填写正确的手机号码');
+		return false;
+	}
+	{/if}
+	{if $MOD[captcha_register]}
+	val = $('#captcha').val();
+	if(!is_captcha(val)) {
+		laymsg('请填写验证码');
+		return false;
+	}
+	{/if}
+	$.post('register.php', $('#dform').serialize(), function(data) {
+		if(data == 'ok') {
+			laymsg('注册成功,跳转中...');
+			Go('register.php?action=success');
+		} else if(data == 'group') {
+			laymsg('请选择会员组');
+			setTimeout(function() {
+				Go('register.php?reload={$DT_TIME}');
+			}, 1000);
+		} else if(data == 'passport') {
+			laymsg('会员名已经被注册');
+			$('#username').val('');
+		} else if(data == 'captcha') {
+			laymsg('验证码错误');
+			reloadcaptcha();
+		} else {
+			data = data.replace('昵称', '会员');
+			//alert(data);
+			laymsg(data);
+		}
+	});
+	return;
+}
+function Dagreement() {
+	if($('#agreement').html() == '') {
+		$('#agreement').load('register.php?action=agreement');
+		window.scrollTo(0,100);
+	}
+	$('#agreement').fadeToggle();
+}
+$(document).ready(function(){
+	$('input:not(:password)').on('keyup blur', function() {
+		$(this).val(DTrim($(this).val()));
+	});
+	{if $MOD[captcha_register]}
+	showcaptcha();
+	{/if}
+});
+</script>
+{elseif $action=='success'}
+<div class="aui-content aui-margin-b-15">
+    <ul class="aui-list aui-form-list">
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-input">
+                    <input type="text" name="code" id="code" placeholder="验证码">
+                </div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-input">
+                    验证码已经发送至您的{if $verify_type=='mobile'}手机{else}邮箱{/if}&nbsp;&nbsp;<span id="timer"></span><span id="send"><a href="javascript:Dcode();" class="b">重新发送</a></span>
+                </div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-center aui-list-item-btn" onclick="Dverify();">
+                    <div class="aui-btn aui-btn-info aui-margin-r-5 aui-font-size-18" style="width:90%">立即验证</div>
+                </div>
+        </li>
+</ul>
+</div>
+
+<script type="text/javascript">
+function Dverify() {
+	var val,len;
+	val = $('#code').val();
+	if(!$('#code').val().match(/^[a-z0-9]{6}$/)) {
+		laymsg('请填写您收到的验证码');
+		return false;
+	}
+	$.post('register.php', {'action':'verify','code':$('#code').val()}, function(data) {
+		if(data == 'ok') {
+			laymsg('注册成功');
+			setTimeout(function() {
+				Go('my.php?reload={$DT_TIME}');
+			}, 1000);
+		} else {
+			laymsg('验证失败');
+		}
+	});
+	return;
+}
+function Dcode(i) {
+	$.post('register.php', {'action':'send'}, function(data) {
+		if(data == 'ok') {
+			if(!i) laymsg('发送成功');
+			Dtimer();
+		} else if(data == 'max') {
+			laymsg('发送次数过多，请等待网站审核');
+			Go('index.php?reload={$DT_TIME}');
+		} else {
+			laymsg('发送失败，请重试');
+		}
+	});
+}
+function Dtimer() {
+	var i = {if $verify_type=='mobile'}180{else}60{/if};
+	$('#send').hide();
+	$('#timer').html('重新发送('+i+')');
+	$('#timer').show();
+	var time_int=window.setInterval(
+		function() {
+			if(i == 1) {
+				$('#send').show();
+				$('#timer').html('');
+				$('#timer').hide();
+				clearInterval(time_int);
+			} else {
+				i--;
+				$('#timer').html('重新发送('+i+')');
+			}
+		},
+	1000);
+}
+function Dquit() {
+	towindow('<a href="index.php?reload={$DT_TIME}"><span>确定</span></a>', '取消', '确定要取消验证吗？帐号将转入人工审核');
+}
+$(document).ready(function(){
+	Dcode(1);
+});
+</script>
+{else}
+<div class="aui-content aui-margin-b-15">
+    <ul class="aui-list aui-list-in">
+        <li class="aui-list-header" style=" line-height:1.5rem; font-size:0.7rem;background: #F7F7F7">
+            请选择会员类型
+        </li>
+<li class="aui-list-item" onclick="window.location.href='?action=detail&itemid=6'">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title">{$GROUP[6][groupname]}</div>
+            </div>
+        </li></a>
+    {loop $GROUP $k $v}
+	{if $k>6 && $v[vip]==0 && $v[reg]==1}
+        <li class="aui-list-item" onclick="window.location.href='?action=detail&itemid={$k}'">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+               <div class="aui-list-item-title">{$v[groupname]}</div>
+               </div>
+        </li>
+    {/if}
+	{/loop}
+	{if $GROUP[5][reg]}
+       <li class="aui-list-item" onclick="window.location.href='?action=detail&itemid=5'"> 
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title">{$GROUP[5][groupname]}</div>
+                </div>
+        </li>
+	{/if}
+
+ </ul>       
+</div>
+{/if}
+{/if}
+{template 'footer_v2', 'mobile'}

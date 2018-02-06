@@ -1,0 +1,99 @@
+{template 'header_member', 'mobile'}
+{template 'cssjs', 'mobile'}
+<style>
+body { background-color:#FFF;}
+ /*table 自适应*/
+
+table {
+      border: 1px;
+    }
+
+table thead {
+      display: none;
+    }
+table th {
+	  line-height:45px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #ddd;
+    }
+table tr {
+      margin-bottom: 10px;
+      border-bottom: 2px solid #ddd;
+    }
+
+table td {
+      font-size: 13px;
+      border-bottom: 1px dotted #ccc;
+    }
+	
+table input  { position:relative; margin-top:15px; height:35px; line-height:35px;
+    }
+table select  { position:relative; width:80px; max-width:80px;
+    }
+
+</style>
+{if $MG[type_limit] > -1}
+<script type="text/javascript">
+var _del = 0;
+</script>
+{if $opentype==1}
+<header class="aui-bar aui-bar-nav aui-bar-info" id="aui-header">
+        <a class="aui-btn aui-bar-info aui-pull-left" href="{$backurl}">
+            <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+    <div class="aui-title">{if $item=='news'}新闻{elseif $item=='friend'}商友{elseif $item=='favorite'}收藏{else}{$MODULE[$mid][name]}{/if}分类</div>
+</header>
+<div class="aui-bar-fix"></div>
+{/if}
+<div class="aui-content-padded">
+<form method="post" action="?">
+<input type="hidden" name="item" value="{$item}"/>
+<input type="hidden" name="forward" value="{$DT_URL}"/>
+<div class="ls">
+<table cellpadding="0" cellspacing="0" class="tb">
+<tr>
+<th width="60">删</th>
+<th width="80">排序</th>
+<th width="250">名称</th>
+<th>上级分类</th>
+</tr>
+{loop $lists[0] $k0 $v0}
+<tr onmouseover="this.className='on';" onmouseout="this.className='';">
+<td align="center"><input name="post[{$v0[typeid]}][delete]" type="checkbox" value="1" onclick="if(this.checked){_del++;}else{_del--;}"/></td>
+<td align="center"><input name="post[{$v0[typeid]}][listorder]" type="text" size="5" value="{$v0[listorder]}" maxlength="3" style="width:40px;"/></td>
+<td><input name="post[{$v0[typeid]}][typename]" type="text" size="20" value="{$v0[typename]}" maxlength="50" style="width:110px;color:{$v0[style]}"/> {$v0[style_select]}</td>
+<td>{$v0[parent_select]}</td>
+</tr>
+{if isset($lists[1][$v0[typeid]])}
+	{loop $lists[1][$v0[typeid]] $k1 $v1}
+	<tr onmouseover="this.className='on';" onmouseout="this.className='';">
+	<td align="center"><input name="post[{$v1[typeid]}][delete]" type="checkbox" value="1" onclick="if(this.checked){_del++;}else{_del--;}"/></td>
+	<td align="center"><input name="post[{$v1[typeid]}][listorder]" type="text" size="5" value="{$v1[listorder]}" maxlength="3"/></td>
+	<td><img src="{DT_PATH}admin/image/tree.gif" align="absmiddle"/><input name="post[{$v1[typeid]}][typename]" type="text" size="20" value="{$v1[typename]}" maxlength="50" style="width:100px;color:{$v1[style]}"/> {$v1[style_select]}</td>
+	<td>{$v1[parent_select]}</td>
+	</tr>
+	{/loop}
+{/if}
+{/loop}
+<tr onmouseover="this.className='on';" onmouseout="this.className='';">
+<td class="f_red" align="center">新增</td>
+<td align="center"><input name="post[0][listorder]" type="text" size="5" value="" maxlength="3" style="width:40px;"/></td>
+<td><input name="post[0][typename]" type="text" size="20" value="" maxlength="50" style="width:110px;"/> {$new_style}</td>
+<td>{$parent_select}</td>
+</tr>
+</table>
+</div>
+<div class="aui-btn-row" style="text-align:center; padding:10px 0;">
+            <input type="submit" name="submit" value=" 提 交 " onclick="if(_del && !confirm('提示:您选择删除'+_del+'个分类？确定要删除吗？')) return false;" class="aui-btn aui-btn-info fz16"/>&nbsp;&nbsp;
+<input type="button" value=" 返 回 " class="aui-btn fz16" onclick="{if $opentype==1}window.location.href = '{$backurl}';{else}window.parent.closeTypef();{/if}"/>
+<p class="aui-mt-10">{if $MG[type_limit]}&nbsp;最多可定义 <strong class="aui-text-red">{$MG[type_limit]}</strong> 个分类&nbsp;当前已定义 <strong class="aui-text-info">{count($types)}</strong> 个&nbsp;&nbsp;&nbsp;{/if}</p>
+</div>
+</form>
+</div>
+{else}
+<br/><br/>
+<center class="f_red">抱歉，您没有权限自定义分类</center>
+<br/><br/>
+{/if}
+</body>
+</html>

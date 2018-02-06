@@ -1,0 +1,7 @@
+<div class="m_b30 con_box">
+    <div class="r_hd">{$main_name[$HM]}</div>
+       <div class="brief_con">
+			{$COM[intro]}
+			[<a href="{userurl($username, 'file=introduce', $domain)}" class="t">详细介绍</a>]          
+		</div>
+</div>

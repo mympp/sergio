@@ -1,0 +1,24 @@
+ <div class="m_b30 model_box">
+            <div class="l_hd">
+                <span class="adorn"></span><a>企业信息</a>
+            </div>
+            <div class="com_ifo">
+                <h3>{$COM[company]}</h3>
+				<i class="icon zuan_icon"></i>
+				<span class="fl6">VIP会员</span>
+                <span  class="fr6">第<i class="red">{$COM[year]}</i>年</span>
+                <dl>
+                    <dt>信用指数</dt>
+                    <dd class="level">{$COM[vip]}</dd>
+                    <dt>企业类型</dt>
+                    <dd>{$COM[type]}</dd>
+                    <dt>经营模式</dt>
+                    <dd>{$COM[mode]}</dd>
+                    <dt>主营产品</dt>
+                    <dd>{$COM[business]}</dd>
+                </dl>
+            </div>
+        </div>
+{loop $HSIDE $HS $SIDE}
+{template 'side_'.$side_file[$HS], $template}
+{/loop}

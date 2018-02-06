@@ -1,0 +1,43 @@
+﻿<!--footer-->
+<div id="footer">
+	<div class="g-row footer">
+		<div class="weixin">
+			<img src="{DT_SKIN}img/zs_footwx.gif" alt="DESTOON官方微信" title="DESTOON加盟平台">
+			<p class="a1">destoon官方微信</p>
+			<p class="a2">destoon加盟平台</p>
+			<p class="arrow"><span>扫一扫</span></p>
+		</div>
+		<div class="copyright">
+			<p>{$DT[copyright]}</p>
+			<p>客服电话：{$DT[telephone]}  <span class='red'>{$DT[icpno]}</span></p>
+		</div>
+		<div class="contact"><img src="{DT_SKIN}image/logo.gif" width="250" height="100" alt="destoon" title="destoon"></div>
+		<div class="save">
+			<a href="http://www.pingpinganan.gov.cn/web/index.aspx" target="_blank" rel='nofollow'><img src="http://meta.bmlink.com/images/home/pic_bottom.gif" alt="网监局" border="0"></a>
+			<a href="http://www.pingpinganan.gov.cn/web/index.aspx" target="_blank" rel='nofollow'><img src="http://meta.bmlink.com/images/pp.gif" alt="网监局" border="0"></a>
+			<a href="http://www.pingpinganan.gov.cn/web/index.aspx" target="_blank" rel='nofollow'><img src="http://meta.bmlink.com/images/aa.gif" alt="网监局" border="0"></a>
+			<script language='javaScript' src='http://zjnet.zjaic.gov.cn/bsjs/330106/33010600002014.js'></script>
+			<a href="http://www.hangzhou.com.cn/zzhlw/index.htm" target="_blank" class="clearfix" rel="nofollow">整治互联网低俗之风</a>
+		</div>
+	</div>
+</div>
+
+<!--footer end-->
+<script type="text/javascript" src="{DT_SKIN}js/Jquery.Common.js"></script>
+<script type="text/javascript" src="{DT_SKIN}js/sally.min.js"></script>
+<script type="text/javascript" src="{DT_SKIN}js/gotop.js"></script>
+<script type="text/javascript" src="{DT_SKIN}js/jquery.slider.js"></script>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"4","bdPos":"right","bdTop":"120.5"},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!--[以下为系统关键代码，请勿删除]-->
+<div class="back2top"><a href="javascript:void(0);" title="返回顶部">&nbsp;</a></div>
+<script type="text/javascript">
+{if $destoon_task}
+show_task('{$destoon_task}');
+{else}
+{php include DT_ROOT.'/api/task.inc.php';}
+{/if}
+{if $lazy}$(function(){$("img").lazyload();});{/if}
+</script>
+</body>
+</html>

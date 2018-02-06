@@ -1,0 +1,27 @@
+<div id="gl_fields">
+{if $CP}
+<script type="text/javascript">
+var property_catid = {$catid};
+var property_itemid = {$itemid};
+var property_admin = 0;
+</script>
+<script type="text/javascript" src="script/property.js"></script>
+<div id="load_property" style="display:none;">
+</div>
+{/if}
+{if $FD}
+{mfields_html('<span class="aui-input-addon">', '', $item)}
+<input accept="image/*" type="file" id="upfieldsimg" class="displaynone"/>
+<div class="displaynone aui-text-center" id="upfieldsing" style=" position:relative; top:50%; left:0;"><svg id="containerf"></svg></div>
+<script type="text/javascript" id="upfieldsjs" src="script/upfields.js" data="{$mid}"></script>
+<script>
+$(function(){
+	{if $action == 'edit'}
+	$('#gl_fields li:not(#fieldspic)').each(function() {
+	addPress($(this));
+	});
+	{/if}
+});
+</script>
+{/if}
+</div>

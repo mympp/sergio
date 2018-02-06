@@ -1,0 +1,132 @@
+body{margin:0;padding:0;}
+ul,li{list-style:none;margin:0;padding:0;}
+html,body,div,dl,dt,dd,ul,h1,h2,h3,pre,form,label,fieldset,p,blockquote,table{font-size:12px;margin:0;padding:0; font-family:Arial,Helvetica, sans-serif ;} 
+a {text-decoration: none; color: #333;}
+.m{width:1200px;margin:0 auto;}
+.head-wrap{width:100%;height:50px;box-shadow: 1px 2px 2px #d3d3d3;}
+.head{line-height:54px; color:#004b8d;font-weight:bold;}
+.head-left ul.left li{float:left;}
+.head-right ul.right{float:right;}
+.head-right ul.right li{float:left;padding:0 15px;}
+/*logo search*/
+.m1{width:1200px;margin: 4px auto 0 auto;margin-bottom:10px;}
+.logo{width:215px;float:left;font-size:14px; color: #929292;font-weight: 100;letter-spacing: 0.1em;text-decoration:none;}
+.logo a{color: #929292;text-decoration:none;}
+.search{float:left;width:965px;padding-left:20px;}
+
+
+.tjcp .hover {position: absolute;left: 0px;top: 0px;width: 240px;height: 200px;background: url('image/OrigePng1px.png') repeat;}
+.hover ul{overflow:hidden;margin:0;padding:0;}
+.hover ul li{text-align:center;line-height:200px;font-size:18px;font-weight:bold;color:#fff;}
+.hover ul li a:link{text-align:center;line-height:164px;font-size:18px;font-weight:bold;color:#fff;text-decoration:none;}
+.hover ul li a:hover{color:#fff;}
+
+/*menu*/
+.listview{float: left;padding: 10px 0;width: 100%;line-height: 20px;font-size:14px;position:relative;}
+.listview a:link{width:80%;color: #333333;text-decoration:none;display:block;}
+.listview a:hover{display:block;}
+.cur{display:block;float: left;width: 100%;padding:10px 0 10px 10px;line-height: 20px;font-size:14px;background:#f6f5f5;border:1px solid #e5e5e5;border-right:none;color:#ed6300;}
+.t1{background:none;border:none;font-size:18px;color:#888;text-decoration:none;display:block;padding-top:20px;}
+
+.listview em{width: 5px;height: 8px;display:inline-block;background:url('image/COlistIcon.jpg')no-repeat;position: absolute;
+    left: 230px;top:18px;}
+
+.sub-menu{background:#f6f5f5;width:700px;height:400px;position:absolute;left:250px;top:-60px;display:none;border:1px solid #e5e5e5;
+z-index:2;}
+.sub-menu h3{font-size:16px;padding:20px 0 0 20px;color:#05458d;}
+.sub{width:50%;float:left;}
+.sub-menu ul li{font-size:13px;line-height:24px;color:#666666;padding-left:30px;}
+.sub ul li a:link{font-size:13px;border:none;line-height:24px;}
+.sub ul li a:hover{color:#ed6300;}
+
+/*content*/
+.content{overflow:hidden;}
+.content-left{float:left;width:250px;}
+.content-left h2{margin-top: 18px;padding-left: 34px;line-height: 35px;font-size: 25px;color: #ed6300;background: url('image/conf-idx.png') left center no-repeat; text-transform: uppercase;}
+
+.content-right{float:right;width:920px;}
+.pg-idx{width:668px;height:390px;}
+.banner {float: left;position: relative;z-index:-1;margin-top: 20px;overflow: hidden;}
+
+.Guide {float: right;margin-top: 20px;width: 235px;font-size:14px;height: 386px;font-family: Arial, Helvetica, sans-serif;border: 2px solid #eee;}
+.Guide-wrap {float: left;padding: 20px;width: 195px;height: 279px;}
+.Guide-title {margin-bottom: 14px;font-size: 22px;font-weight: bold;color: #333;display: block;}
+.Guide ul li{float: left;margin-bottom: 5px;width: 100%;}
+.Guide ul li a{text-decoration:none !important;}
+.Guide-img {float: left;margin-top: 20px;width: 100%;}
+.Guide-business {float: left;margin-top: 10px;width: 100%;}
+.BuyG-join {float: left;margin-top: 14px;padding: 13px 20px;text-align: center;width: 195px;height: 27px;line-height:27px;font-weight:bold;color:#2c5b87;font-size:14px;background:url('image/Icon-user.jpg')no-repeat 20px #eee;}
+.BuyG-join a{text-decoration:none !important;color:#2c5b87;font-size:14px;}
+
+.margTop10 {margin-top: 10px;}
+.Floatwidth100 {float: left;width: 100%;}
+.relatV {position: relative;}
+.Hgt210 {height: 210px;}
+.tjcp {position: absolute;left: 0px;top: 0px;width: 1200px;}
+.tjcp ul li {float: left;position: relative;width: 240px;height: 200px;}
+.tjcp ul li img {width: 215px; height: 162px;}
+.Special img {float: left;margin: 19px 13px 19px 12px;width: 200px;height: 130px;}
+
+/*Feature Products */
+.sbLeft-fSty1 h3, .sbLeft-fSty2 h3, .sP-title {margin-bottom: 8px;font-size: 22px;font-weight: bold;display: block;}
+.BGcolrA {background: #f5f5f5;overflow:hidden;}
+.padBot54 {padding-bottom: 54px;}
+.sP-Perv:hover {background: url('image/sP-PrevHv.png') center center no-repeat;}
+.sP-Next:hover {background: url('image/sP-NextHv.png') center center no-repeat;}
+
+/*.padTop40 {padding-top: 40px;}*/
+.contant-OneWrap {width: 100%;}
+.margTop40 {margin-top: 40px;}
+.showPro-Box {float: left;width: 1198px;background: #fff;border: 1px solid #dcdcdc;}
+.sP-srcollwrap {padding: 20px;width: 1158px;}
+.sP-Perv {position: absolute;left: 35px;top: 110px;padding: 10px;width: 13px;height: 27px;background: url('image/sP-Prev.png') center center no-repeat;display: block;}
+.sP-Next {position: absolute;right: 35px;top: 110px;padding: 10px;width: 13px;height: 27px; background: url('image/sP-Next.png') center center no-repeat;display: block;}
+
+.sP-srcollMain {margin: 20px auto 0 auto;position: relative;width: 1040px;height: 182px;overflow: hidden;display: block;}
+.sP-srcollPos{ position:absolute; left:0px; top:0px; height:182px;}
+
+.sP-Boxli {float: left;margin: 0 24px;width: 160px;}
+.ProImg {text-align: center;width: 100%;}
+.cc-120 img {width: 120px;height: 120px;border:1px solid #EAE5E5}
+.ProInf {margin: 6px 0 4px;width: 100%;font-weight: bold;}
+.ProInf a span {width: 100%;height: 15px;line-height: 15px;display: inline-block;}
+.nowSpace {overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.featureCompanyName span {color: #777;width: 100%;display: block;}
+
+/*catelog*/
+.al-title { float: left;position: relative;width: 100%;}
+.title-ha3 h3 {margin-top: 8px;height: 42px;line-height: 42px;font-size: 20px;font-weight: bold;}
+.al-title .more { position: absolute;right: 0px;top: 0px;height: 42px;line-height: 42px;color: #777;display: inline-block;}
+.hotPro-UL li {float: left;width: 289px;margin-bottom:20px;}
+.hotPro-UL li .hot-proleft {float: left;width: 95px;height: 95px;border: 1px solid #fff;margin-right:10px;}
+.more {position: absolute;right: 0px;top: 0px;height: 42px;line-height: 42px;color: #777;display: inline-block;}
+.hot-prorigt span {margin-bottom: 6px;font-size: 14px;display: block;font-weight:bold;}
+
+/*ad*/
+.ad{width:100%;height:130px;float:left;}
+.ad ul li{width:260px;height:130px;float:left;margin:0 20px;}
+.ad ul li img{width:100%;height:100%;}
+/*news information*/
+.news{width:100%;float:left;overflow:hidden;}
+.news-img{float: left;width: 110px;height:110px;}
+.news-info{float:left;width:190px;}
+.news-info p {margin-top: 8px;padding-right:10px;width: 165px;height: 44px;line-height: 20px;font-size: 13px;overflow: hidden;padding-left:15px;}
+.news-info a {margin: 15px 0 0 15px;color: #888;display: block;}
+/*company*/
+.center {text-align: center;}
+.BGcolor-tA {background: #a8ff37;}
+.Wid380 {width: 392px;}
+.Cotd-box {text-align: left;height: 80px;display: inline-block;}
+.Wid238 {width: 238px;}
+.Cotd-left {float: left;padding: 12px 12px 0 12px;height: 68px;}
+.Cotd-left span { float: left;width: 100%;font-size: 14px;font-weight: bold;color: #fa4f00;}
+.Cotd-left p {float: left;width: 100%;height: 32px;line-height: 16px;overflow: hidden;margin-top:10px;}
+.Cotd-right {float: left;width: 130px; height: 80px;}
+.Cotd-right img {float: right;width: 130px;height: 80px;}
+.BGcolor-tB {background: #fff600;}
+.BGcolor-tC {background: #37f3ff;}
+/*footer*/
+.footer {clear:both;padding-bottom: 34px;width: 100%;border-top: 2px solid #ddd;}
+.copyRight {margin:0 auto;text-align: center;width: 1200px;}
+.copyRight p {margin-bottom: 6px;width: 100%;color: #888;}
+.copyRight p a{margin-bottom: 6px;width: 100%;color: #888;}

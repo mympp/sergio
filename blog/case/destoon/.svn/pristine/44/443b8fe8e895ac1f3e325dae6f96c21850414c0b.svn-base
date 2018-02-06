@@ -1,0 +1,50 @@
+<div class="aui-content foot_copy-list">
+<section class="aui-grid aui-margin-l-5">
+    <div class="aui-row">
+        <div class="aui-col-xs-4">
+            <i class="dt-iconfont dt-icon-app"></i>
+            <div class="aui-grid-label">触屏版</div>
+        </div>
+        <div class="aui-col-xs-4">
+            <a href="mobile.php?action=pc">
+            <i class="dt-iconfont dt-icon-compute"></i>
+            <div class="aui-grid-label">电脑版</div>
+            </a>
+        </div>
+        <div class="aui-col-xs-4 a_weixin">
+            <i class="dt-iconfont dt-icon-qrcode"></i>
+            <div class="aui-grid-label">微信</div>
+        </div>
+</div><div class="aui-hr"></div>
+</section>
+<div class="aui-card-list-footer aui-border-none">
+<div><a rel="nofollow" href="my.php">登录/注册</a></div>
+<div><a rel="nofollow" href="guestbook.php">意见反馈</a></div>
+<div><a href="about.php?itemid=3">联系方式</a></div>
+<div><a href="about.php?itemid=1">关于我们</a></div>
+</div>
+ 
+<div class="aui-text-center foot-copy-lists"><a href="sitemap.php">站点地图</a>&nbsp;Copyright by {$DT[sitename]}</div>
+</div>
+<div class="wx-dialog">
+    <div class="wx-dialog-bg"></div>
+        <div class="wx-dialog-content">
+                <div class="wx-dialog-content-title">
+                        <p><i class="aui-iconfont aui-icon-roundcheck aui-text-info"></i><span class="aui-text-info">{$DT[sitename]}</span></p>
+                </div>
+                <div class="wx-dialog-content-txt">
+                        打开微信右上角添加朋友中搜索公众号“{$EXT[gl_wxname]}”，关注即可随时随地使用{$EXT[gl_wxname]}服务。{$EXT[gl_wxname]}微信更省心！
+                </div>
+                <div class="wx-dialog-button aui-bg-info">我知道啦！</div>
+        </div>
+    </div>
+<script>
+$(document).ready(function(){
+$(".foot_copy-list .a_weixin").on("click",function(){
+		$(".wx-dialog").show();
+	});
+$(".wx-dialog-button").on("click",function(){
+	$(".wx-dialog").hide();
+});
+});
+</script>

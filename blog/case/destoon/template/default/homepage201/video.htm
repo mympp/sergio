@@ -1,0 +1,69 @@
+{template 'header', $template}
+<div class="dsn" id="pos_show">您当前的位置：<a href="{$COM[linkurl]}">首页</a> &raquo; <a href="{$MENU[$menuid][linkurl]}">{$MENU[$menuid][name]}</a>{if $itemid} &raquo; {$title}{/if}</div>
+<div class="main_wrap clearfix">
+{if $side_pos==0}
+	<div  id="side" class="w260">{template 'side', $template}</div>
+{/if}
+	<div class="w930">
+	<div class="r_mod">
+<div class="hd01"><h2><i></i>{$MENU[$menuid][name]}</h2></div>
+<div class="bd">
+{if $itemid}
+	<div class="title">{$title}</div>
+	<div class="info">上传日期：{$adddate}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;播放次数：{$hits}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{$MENU[$menuid][linkurl]}">返回列表</a></div>
+	<div class="t_c" style="padding:15px 0 15px 0;">{template 'player', 'chip'}</div>		
+</div>
+	{if $content}
+	<div class="main_head"><div><strong>详细信息</strong></div></div>
+	<div class="main_body">
+		{if $CP}{template 'property', 'chip'}{/if}
+		<div class="content" id="content">{$content}</div>
+	</div>
+	<script type="text/javascript">
+	var content_id = 'content';
+	var img_max_width = {$MOD[max_width]};
+	</script>
+	<script type="text/javascript" src="{DT_STATIC}file/script/content.js"></script>
+	{/if}
+	{if $could_comment && in_array($moduleid, explode(',', $EXT['comment_module']))}
+	<div id="comment_div" style="display:;">
+		<div class="main_head"><div><span class="f_r px12">共<span id="comment_count">0</span>条&nbsp;&nbsp;</span><strong><span id="message_title">相关评论</span></strong></div></div>
+		<div class="main_body"><script type="text/javascript">Df('{DT_PATH}api/comment.php?mid={$moduleid}&itemid={$itemid}&proxy={$comment_proxy}', 'id="destoon_comment" style="width:100%;"');</script></div>
+	</div>
+	{/if}
+{else}
+			<div class="photo_list">
+                    <ul class="clearfix">
+                    	{loop $lists $k $v}
+                    		<li>
+	                            <a href="{$v[linkurl]}">
+	                                <div class="photo_img">
+	                                	<img src="{$v[thumb]}">
+	                                </div>
+	                                <div class="photo_des">
+	                                    <p class="p_til">{$v[title]}</p>
+	                                    <p class="p_num">{$v[hits]}播放</p>
+	                                </div>
+	                            </a>
+                        	</li>
+                    	{/loop}
+                    </ul>
+                </div>
+	<div class="pages">{$pages}</div>
+{/if}
+</div>
+</div>
+</div>
+</div>
+{template 'footer', $template}
+{if $itemid && $video_i}
+<script type="text/javascript" src="{DT_STATIC}file/script/player.js"></script>
+<script type="text/javascript">
+var UA = navigator.userAgent.toLowerCase();
+if(UA.match(/(iphone|ipad|ipod|android|mac os)/i)) {
+	if(Dd('player').innerHTML.indexOf('embed')!=-1) {
+		Dd('player').innerHTML = '<div class="player">'+player('{$video_s}', {$video_w}, {$video_h}, 0, {$video_a})+'</div>';
+	}
+}
+</script>
+{/if}

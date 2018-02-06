@@ -1,0 +1,488 @@
+{template 'header_member', 'mobile'}
+{template 'cssjs', 'mobile'}
+<header class="aui-bar aui-bar-nav aui-bar-info" id="aui-header">
+        <a class="aui-btn aui-bar-info aui-pull-left" href="{if $action == ''}{$MYURL}?action=info{else}javascript:history.go(-1);{/if}">
+            <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+    <div class="aui-title">{$head_name}</div>
+    {if $action=='add'}
+{else}
+    <a href="{$MUSER}?mid={$mid}&action=add" class="aui-pull-right">
+        <span class="aui-iconfont aui-icon-add fz14">添加</span>
+    </a>
+    {/if}
+</header>
+<div class="aui-bar-fix"></div>
+{if $action=='add' || $action == 'edit'}
+{else}
+<div class="aui-content">
+<div class="aui-tab" id="aui-tab">
+        <ul class="aui-tab-nav" id="sell_info">
+            <li id="tabbar3"><a href="{$MUSER}?mid={$mid}status=3">已发布<span class="aui-badge aui-badge-info">{$nums[3]}</span></a></li>
+            <li id="tabbar2"><a href="{$MUSER}?mid={$mid}&status=2">审核中<span class="aui-badge aui-badge-info">{$nums[2]}</span></a></li>
+            <li id="tabbar1"><a href="{$MUSER}?mid={$mid}&status=1">未通过<span class="aui-badge aui-badge-info">{$nums[1]}</span></a></li>
+            <li><a href="mtype.php?item=product&mid={$mid}&opentype=1"><span>{$MODULE[$mid][name]}分类<span class="px10">({$nums[0]})</span></span></a></li>
+        </ul>
+</div>
+</div>
+{/if}
+<span id="msg"></span>
+{if $action=='add' || $action == 'edit'}
+<iframe src="" name="send" id="send" style="display:none;"></iframe>
+<div class="aui-content">
+<form id="sell-form" class="fromset">
+	<input type="hidden" name="action" value="{$action}"/>
+	<input type="hidden" name="itemid" value="{$itemid}"/>
+	<input type="hidden" name="ok" value="1"/>
+    <p class="aui-padded-10 aui-text-center"><span class="aui-text-red">红色为</span>必填信息</p>
+        <div class="aui-form">
+           <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">类型</span>
+              <select name="post[typeid]" id="typeid">
+              {loop $TYPE $k $v}
+              <option value="{$k}" {if $k==$typeid}selected = "selected"{/if}>{$v}</option>
+              {/loop}
+              </select>
+              </div>
+
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">产品</label>
+                <input type="text" name="post[title]" id="title" class="aui-input" value="{$title}" placeholder="产品名称"/>
+            </div>
+
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">分类</span>
+                {ajax_category_select('post[catid]', '选择分类', $catid, $moduleid, 'size="1"')}
+            </div>
+
+{template 'm_fields', 'mobile'}
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">图片</span>
+                <div class="pic-list baguetteBoxOne gallery" id="imgslist">
+                {if $thumb}<li><a href="{$thumb}"><img src="{$thumb}"></a><span class="thumbs-del"><i class="aui-iconfont aui-icon-close aui-text-white fz22"></i></span></li>{/if}
+                {if $thumb1}<li><a href="{$thumb1}"><img src="{$thumb1}"></a><span class="thumbs-del"><i class="aui-iconfont aui-icon-close aui-text-white fz22"></i></span></li>{/if}
+                {if $thumb2}<li><a href="{$thumb2}"><img src="{$thumb2}"></a><span class="thumbs-del"><i class="aui-iconfont aui-icon-close aui-text-white fz22"></i></span></li>{/if}
+				<li id="addpic"><img src="image/add.jpg"></li>				
+			</div>
+<p><span class="aui-text-info fz12" onclick="imghistory('imghistory')">从上传历史记录中选择</span></p>                    
+            <div class="displaynone" id="weixin-photo"></div>
+<script>
+var moduleid = {$mid};
+var thumb_width = {$MOD['thumb_width']};
+var thumb_height = {$MOD['thumb_height']};
+$(function(){
+	{if $action == 'edit'}
+	$('#imgslist li:not(#addpic)').each(function() {
+	addPress($(this));
+	});
+    baguetteBox.run('.baguetteBoxOne');
+	//$('#imgslist li:not(#addpic)').touchTouch();
+	{/if}
+});
+</script>
+            
+{if $DT_MOB[browser]=='weixin' && $WX['appid'] && $WX['appsecret'] && $EXT['gl_wxjssdk']}
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+var filechooser = document.getElementById("weixin-photo");
+var maxsize = 100 * 1024;
+var wximgindex = 0;
+
+document.getElementById('addpic').onclick = function() {
+imgnums = $("#imgslist li:not(#addpic)").size();
+	  if(imgnums>=maxnums){
+	   laymsg("您只能上传"+maxnums+"张图片");
+	  return false;
+}
+laymsg('相册准备中...');
+filechooser.click();
+};
+function wxupload(serverId){
+laymsg('图片开始上传...');
+var from = 'album';
+$.ajax({
+		   type: "POST",
+		   url: "wxupload.php",
+		   data: {"moduleid":moduleid,"from":from,"mediaid":serverId,"width":thumb_width,"height":thumb_height},
+		   dataType:"json",
+		   success: function(data){
+			   if (data.status == 0) {
+			   var showImgHtml = '<li><a href="'+data.url+'"><img src="'+data.url+'"></a></li>';
+			   $("#addpic").before(showImgHtml);
+			   laymsg('上传成功');
+			   addPress($("#imgslist a[href='" + data.url + "']").parent("li"));
+			   baguetteBox.run('.baguetteBoxOne');
+			   return false;
+			 }else{
+				laymsg(data.content);
+			 }
+		   }, 
+			complete :function(XMLHttpRequest, textStatus){
+			},
+			error:function(XMLHttpRequest, textStatus, errorThrown){ //上传失败 
+			   laymsg('上传失败，请重新上传');
+			   $("#delAlbum").css('display','none');
+			}
+		});
+
+}
+
+wx.config({
+    debug: false,
+    appId: '{$signPackage["appId"]}',
+    timestamp: '{$signPackage["timestamp"]}',
+    nonceStr: '{$signPackage["nonceStr"]}',
+    signature: '{$signPackage["signature"]}',
+    jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo','onMenuShareQZone','chooseImage','previewImage','uploadImage']
+  });
+  
+wx.ready(function () {
+   document.getElementById('weixin-photo').onclick = function() {
+                var images = {localIds:[],serverId:[]};
+                wx.chooseImage({
+                    count: 3,
+                    sizeType: ['original', 'compressed'],
+                    sourceType: ['album'],
+                    success: function(res) {
+                        images.localIds = res.localIds;
+                          
+                        var i = 0; var length = images.localIds.length;
+						if (length + imgnums>maxnums) {
+                           laymsg("最多同时只可上传"+maxnums+"张图片");
+                           return;
+                         }
+						
+                        var upload = function() {
+                            wx.uploadImage({
+                                localId:images.localIds[i],
+                                success: function(res) {
+                                    wxupload(res.serverId)
+                                    images.serverId.push(res.serverId);
+                                      
+                                    //如果还有照片，继续上传
+                                    i++;
+                                    if (i < length) {
+                                        upload();
+                                    }
+                                }
+                            });                    
+                        };
+ 
+                        upload();
+                    }
+                });
+            }
+wx.error(function (res) {
+        //alert('wx.error: '+JSON.stringify(res));
+    });
+	
+});
+function addPress(obj, index) {
+// 获取目前长按的对象
+var hammertime = new Hammer(obj[0]);
+// 绑定长按对象
+hammertime.on("press", function(e) {
+					
+dialog.alert({
+  title:"温馨提示",
+  msg:'确定删除图片吗',
+  buttons:['取消','确定']
+    },function(ret){
+    if(ret){
+	  if(ret.buttonIndex==2){
+		obj.remove();
+		laymsg('已经删除了');
+	 }
+    }
+  })
+ });
+}			
+</script>
+{else}
+<script src="user/dist/lrz.bundle.js"></script>
+<input accept="image/*" type="file" id="uploadimg" multiple/>
+<div class="aui-upprogress aui-text-center displaynone" id="uploading"><svg id="container"></svg></div>
+<script type="text/javascript" id="uploadjs" src="script/upload.js" data="{$mid}"></script>
+{/if}
+</div>                    
+            {if $_userid && $action=='add' && $EXT['gl_photoauto']}
+            <div class="aui-input-row" style="padding:0 0 0 10px!important;">
+                <span class="aui-input-addon">是否生成{$MODULE[12]['name']}</span>
+                <span class="aui-input-radio">
+                      <input type="radio" name="post[autophoto]" value="1" class="aui-checkbox aui-checkbox-info" onclick="showpcat(1);" /><label class="aui-input-addon">是</label>
+<input type="radio" name="post[autophoto]" value="0" checked="checked" class="aui-checkbox aui-checkbox-info" onclick="showpcat(0);"/><label class="aui-input-addon">否</label></span>
+            </div>
+            <div class="displaynone" id="pcatid">
+            <div class="aui-input-row">
+                <label class="aui-input-addon">{$MODULE[12]['name']}标题</label>
+                <input type="text" name="post[ptitle]" id="ptitle" class="aui-input" value="" placeholder="{$MODULE[12]['name']}标题 不填默认为供应标题"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">{$MODULE[12]['name']}分类</span>
+                {ajax_category_select('post[pcatid]', '选择分类', $catid, 12, 'size="1"')}
+            </div>
+            </div>
+            {/if}
+
+{template 'wang', 'mobile'}
+<script type="text/javascript">
+$(function() {
+	"use strict";
+
+	$('#content-e').artEditor({
+		 artmid: '{$mid}',
+		imgTar: '#artUpload',
+		limitSize: 8,   // 兆
+		showServer: false,
+		uploadUrl: 'br',
+		data: {},
+		uploadField: 'image',
+		placeholader: '{$MODULE[$mid]['name']}内容',
+		validHtml: '',
+		uploadSuccess: function(res) {
+			// return img url
+			return res.path;
+		},
+		uploadError: function(res) {
+			// something error
+			console.log(res);
+		}
+	});
+});
+</script>
+            {if $_userid}
+            <div class="aui-input-row"><span class="aui-input-addon">自定义分类</span><div class="aui-ml-5" id="type_box">{$mycatid_select}</div><span class="aui-input-addon aui-text-info fz12" onclick="showTypef()">管理分类</span></div>
+            {/if}
+            {template 'm_batch_fee', 'mobile'}
+            <p class="aui-padded-10 aui-text-center aui-bg-default" onclick="showother()">选填信息(点这里)</p>
+            <div class="aui-content displaynone" id="otherinfo">
+            {if $_userid}
+            <div class="aui-input-row"><span class="aui-input-addon">地区</span>
+            {php $mareaid = ($areaid=='') ? ($m_user['areaid']) : ($areaid); }
+{ajax_area_select('post[areaid]', '请选择', $mareaid, '', 2)}</div>
+            {/if}
+            <div class="aui-input-row">
+                <span class="aui-input-addon">计量单位</span>
+                <input type="text" name="post[unit]" id="unit" class="aui-input" value="{$unit}" placeholder="计量单位"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">产品单价</span>
+                <input type="number" name="post[price]" id="price" class="aui-input" value="{$price}" placeholder="产品单价"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">最新起订量</span>
+                <input type="number" name="post[minamount]" id="minamount" class="aui-input" value="{$minamount}" placeholder="最新起订量"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">供货总量</span>
+                <input type="number" name="post[amount]" id="amount" class="aui-input" value="{$amount}" placeholder="供货总量"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">发货期限</span>
+                <input type="text" name="post[days]" id="days" class="aui-input" value="{$days}" placeholder="发货期限"/>
+            </div>
+            <div class="aui-input-row {if !$_userid}displaynone{/if}">
+                <span class="aui-input-addon">我的推荐</span>
+                <span class="aui-input-radio aui-padded-l-10">
+                      <input type="radio" name="post[elite]" value="1" {if $elite==1}checked="checked"{/if} class="aui-checkbox aui-checkbox-info" /><label class="aui-input-addon">是</label>
+<input type="radio" name="post[elite]" value="0" {if $elite==0}checked="checked"{/if} class="aui-checkbox aui-checkbox-info"/><label class="aui-input-addon">否</label></span>
+            </div>
+            {if $action=='add' && $could_elite}
+            <div class="aui-input-row">
+                <span class="aui-input-addon">推荐首页</span>
+                <input type="checkbox" name="elite" value="1" id="elite" class="aui-checkbox aui-checkbox-info" onclick="if({$_credit} < {$MOD[credit_elite]}) {confirm('{$DT[credit_name]}不足，当前余额:{$_credit}');this.checked=false;}"/>&nbsp;<div class="aui-checkbox-name fz12">上传至少1张产品图，需消费 <strong class="f_red">{$MOD[credit_elite]}</strong> {$DT[credit_name]}</div>
+            </div>
+            {/if}
+            <div class="aui-input-row">
+                <span class="aui-input-addon">过期时间</span>
+                {template 'thedata', 'mobile'}
+            </div>
+{if $action=='add'}
+            <div class="aui-input-row" style="display:none;" id="weibo_sync">
+                <span class="aui-input-addon">同步主题</span>
+                <div id="weibo_show" style="padding-left:10px; padding-top:5px;"></div>
+            </div>
+{/if}
+         </div>
+            <div class="aui-btn-row" id="btn-main" onclick="Daddr();">
+                <div class="aui-btn aui-btn-info fz16" style="width:90%;" id="btn-submit">确认</div>
+            </div>
+
+        </div>
+</form>
+    </div>
+
+{template 'm_batch_type', 'mobile'}
+<script type="text/javascript">
+function showother() {
+        var $show = $('#otherinfo');
+        if ($show.hasClass('displaynone')) {
+            $show.removeClass('displaynone'); 
+        } else {
+            $show.addClass('displaynone');
+        }
+    }
+function showpcat() {
+        var $show = $('#pcatid');
+        if ($show.hasClass('displaynone')) {
+            $show.removeClass('displaynone'); 
+        } else {
+            $show.addClass('displaynone');
+        }
+    }
+	
+function Daddr() {
+	var arrImgs = [];
+   $('#imgslist li:not(#addpic)').each(function() {
+   // 将图片追加到数组中
+   arrImgs.push($(this).find("img").attr("src"));
+   });
+   
+   	var typeid = $("#typeid").val();
+    if (typeid == '') {
+        layer.msg('未选择信息类型');
+        return false;
+    }
+	var len;
+	len = Dd('title').value.length;
+	if(len < 2 || len > 30) {
+		laymsg('信息标题应为2-30字，当前已输入'+len+'字');
+		return false;
+	}
+	len = Dd('catid_1').value;
+	if(len == 0) {
+		laymsg('请选择分类');
+		return false;
+	}
+	
+	
+	len = arrImgs.length;
+	if(len==0) {
+		laymsg('请上传第一张商品图片');
+		return false;
+	}
+
+	var edittext=$.trim($("#content-e").text());
+    var len = edittext.length;	
+	{if $DT['max_len']}
+	if(len > {$DT['max_len']}) {
+		laymsg('输入这么多字累了吧亲');
+		return false;
+	}
+    {/if}
+	var exitcon = $('#content-e').getValue();
+	$("#content").attr('value',exitcon);
+
+{if !$_userid}
+	f = 'company';
+	l = Dd(f).value.length;
+	if(l < 2) {
+		laymsg('请填写公司名称', f);
+		return false;
+	}
+	if(Dd('areaid_1').value == 0) {
+		laymsg('请选择所在地区', 'areaid');
+		return false;
+	}
+	f = 'truename';
+	l = Dd(f).value.length;
+	if(l < 2) {
+		laymsg('请填写联系人', f);
+		return false;
+	}
+	f = 'mobile';
+	l = Dd(f).value.length;
+	if(l < 7) {
+		laymsg('请填写手机', f);
+		return false;
+	}
+{/if}
+
+	$("#btn-submit").text("正在处理...");
+	$("#btn-main").removeAttr("onclick");
+	setTimeout(function () {
+        $("#btn-main").attr("onclick","Daddr();");
+		$("#btn-submit").text("提 交");
+    }, 5000);
+	
+    $.post('{$MUSER}?mid={$mid}&thumbs='+arrImgs+'', $('#sell-form').serialize(), function(data) {
+		if(data.error == 'ok') {
+			{if $action=='add'}laymsg('添加成功');{else}laymsg('修改成功');{/if}
+			if(gl_gopath) {{if $backpath ==1}data.path = gl_gopath;{/if}}
+			setTimeout(function() {
+				if(data.path){
+				Go(data.path);
+				}else{
+				Go('{$MUSER}?mid={$mid}');	
+					}
+			}, 1000);
+		} else {
+			laymsg(data.error);
+		}
+	},'json');
+}
+var destoon_oauth = '{$EXT[oauth]}';
+</script>
+{else}
+{if $lists}
+<form method="post">
+{template 'm_batch', 'mobile'}
+   {if $MG[sell_limit] || (!$MG['fee_mode'] && $MOD[fee_add])}
+<div class="aui-content aui-bg-white" style="margin-bottom:5px">
+  <div class="aui-ellipsis-2" style="padding:10px; font-size:12px">
+<div class="limit">
+{if $MG[sell_limit]}
+总共可发 <span class="aui-text-red">{$MG[sell_limit]}</span> 条&nbsp;&nbsp;
+当前已发 <span class="f_b">{$limit_used}</span> 条&nbsp;&nbsp;
+还可以发 <span class="f_b aui-text-info">{$limit_free}</span> 条&nbsp;&nbsp;
+{/if}
+{if !$MG['fee_mode'] && $MOD[fee_add]}
+发布信息收费 <span class="f_b aui-text-red">{$MOD[fee_add]}</span> {if $MOD[fee_currency] == 'money'}{$DT[money_unit]}{else}{$DT[credit_unit]}{/if}/条&nbsp;&nbsp;
+可免费发布 <span class="f_b">{if $MG[sell_free_limit]<0}无限{else}{$MG[sell_free_limit]}{/if}</span> 条&nbsp;&nbsp;
+{/if}
+</div>
+  </div>
+</div>
+{/if}
+<ul class="aui-list-view aui-in" id="sell_list">
+{loop $lists $t}
+<li id="{$t[itemid]}">
+<div class="aui-list-view-cell aui-img aui-counter-list drop-div">
+<input class="aui-pull-left aui-checkbox displaynone" type="checkbox" id="itemids" name="itemid" value="{$t[itemid]}">
+                <img class="aui-img-object aui-pull-left" src="{if $t[thumb]}{$t[thumb]}{else}image/nopic-60.png{/if}" width="50" height="50" alt="">
+                <div class="aui-img-body aui-pull-left">
+                    <a href="{mobileurl($moduleid, 0, $t['itemid'])}" class="Dt-text-ellipsis">{$t[title]}</a>
+                    <p class="aui-ellipsis-1 fz12"><span class="aui-pull-left aui-max-w80 Dt-text-ellipsis">{$t[catname]}</span>&nbsp;<span class="aui-mr-5"><i class="aui-iconfont aui-icon-attentionfill aui-text-gray"></i>{$t[hits]}</span><span class="aui-mr-5"><i class="aui-iconfont aui-icon-time aui-text-gray"></i>{timetodate($t[edittime], 4)}</span></p>
+                </div>
+                </div>
+  <div class="hidden-menu">
+    <p class="two"><a href="{$MURL}{$MUSER}?mid={$mid}&action=edit&itemid={$t[itemid]}">修改</a></p>
+    {if $MG[copy]}<p class="one aui-bg-success"><a href="{$MURL}{$MUSER}?mid={$mid}&action=add&itemid={$t[itemid]}&catid={$t[catid]}">复制</a></p>{/if}
+    <p class="one aui-bg-info" onclick="refitemid({$mid},{$t[itemid]});">刷新</p>
+    {if $MG[delete]}<p class="one" onclick="delitemid({$mid},{$t[itemid]});">删除</p>{/if}
+    
+  </div>
+                
+</li>
+
+{/loop}
+</ul>
+</form>
+{if $pages}<div class="pages aui-text-center">{$pages}</div>{/if}
+{else}
+<ul class="aui-list-view">
+<li class="aui-list-view-cell aui-img">
+                <div class="aui-img-body aui-pull-left">
+                    <p class="aui-ellipsis-1">暂无信息</p>
+                </div>
+</li>
+</ul>
+
+{/if}
+</div>
+
+<script type="text/javascript" src="script/addpan.js" charset="utf-8"></script>
+{/if}
+{if $action=='add' && strlen($EXT[oauth]) > 1}{load('weibo.js')}{/if}
+<script type="text/javascript">tabbar('tabbar{$status}');</script>
+{template 'footer_member', 'mobile'}

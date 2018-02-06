@@ -1,0 +1,27 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+{template 'header_company_v2', 'mobile'}
+{template 'homepage-navlist', 'mobile'}
+{if $lists}
+        <div class="aui-content aui-margin-t-5 aui-margin-b-15">
+        <ul class="aui-list aui-media-list dt-border-t-none">
+          {loop $lists $i $v}
+            <li class="aui-list-item aui-list-item-arrow aui-padded-t-5 aui-padded-b-5" onclick="window.location.href='{$v[linkurl]}'">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title dt-text-ellipsis" style="width:85%;">{$v[title]}</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+  {/loop}
+</ul>
+</div>
+
+
+{else}
+<br/><br/><center>暂无数据</center><br/><br/>
+{/if}
+{if $pages}<div class="aui-content aui-margin-b-15 aui-text-center pageslist"><div class="pages">{$pages}</div></div>{/if}
+{template 'footer_company_v2', 'mobile'}

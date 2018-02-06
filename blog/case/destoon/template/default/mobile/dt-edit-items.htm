@@ -1,0 +1,92 @@
+<div class="displaynone" id="glbottomup">
+<div class="aui-content" style="margin:0; padding:0;">
+    <ul class="aui-list-view" style="margin:0; padding:0;">
+        <li class="aui-list-view-cell" style="background-color: #F6F6F6; padding:10px 15px;">
+            <span class="aui-text-info">{$MODULE[$moduleid][name]}信息管理</span>
+            <span class="aui-pull-right aui-text-default" onclick="showItems(0,0,1)">关闭</span>
+            
+        </li>
+    </ul>
+</div> 
+<div class="aui-content" id="glbottomup-form">
+    <ul class="aui-list aui-form-list">
+    <form id="itemsfrom" class="itemsfrom">
+	<input type="hidden" name="moduleid" value="{$moduleid}"/>
+    <input type="hidden" name="itemid" id="itemid" value=""/>
+	<input type="hidden" name="ok" value="1"/>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-label dt-text-red">
+                    标题
+                </div>
+                <div class="aui-list-item-input">
+                    <input type="text" name="post[title]" id="title" value="" placeholder="标题" needsSoftKeyboard="true">
+                </div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-label">
+                    价格
+                </div>
+                <div class="aui-list-item-input">
+                    <input type="number" name="post[price]" id="price" value="" placeholder="价格" needsSoftKeyboard="true">
+                </div>
+            </div>
+        </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-center aui-list-item-btn">
+                    <div class="aui-btn aui-btn-info aui-margin-r-10" id="btn-submit" onclick="Postitems();">修 改</div>
+                    <div class="aui-btn aui-btn-danger aui-margin-l-10" onclick="showItems(0,0,1)">取 消</div>
+                </div>
+            </li>
+      </form>
+      </ul>
+   </div>
+
+</div>
+<script>
+function showItems(moduleid,itemid,type,id){
+		if(type){
+		 $("#glbottomup").hide();
+		$('.ui-mask').fadeOut('fast');
+		}else{
+		var title = $('#gl'+itemid+'-titles').text();
+		var price = $('#gl'+itemid+'-price').text();
+		$('#title').val(title);
+		$('#price').val(price);
+		$('#itemid').val(itemid);
+        $("#glbottomup").show();
+		$('.ui-mask').fadeIn('fast');
+		}
+    }
+function Postitems() {
+	var len;
+	len = Dd('title').value.length;
+	if(len < 2 || len > 30) {
+		laymsg('信息标题应为2-30字，当前已输入'+len+'字');
+		return false;
+	}
+	$("#btn-submit").text("正在处理...");
+	$("#btn-submit").removeAttr("onclick");
+	$.post('{$glmobileurl}glajax.php?action=gledititem', $('#itemsfrom').serialize(), function(data) {
+		if(data.error == 'ok') {
+			laymsg('修改成功');
+		$("#btn-submit").attr("onclick","Postitems();");
+		$("#btn-submit").text("修 改");
+			$('#gl'+data.itemid+'-titles').text(data.title);
+			$('#gl'+data.itemid+'-price').text(data.price);
+			if($('#gl'+data.itemid+'-dprice').hasClass("displaynone"))$('#gl'+data.itemid+'-dprice').removeClass("displaynone");
+			setTimeout(function() {
+			showItems(0,0,1);
+			//location.reload();
+			}, 1000);
+		} else {
+			laymsg(data.error);
+		    $("#btn-submit").attr("onclick","Postitems();");
+			$("#btn-submit").text("重新提交");
+
+		}
+	},'json');
+}
+</script>

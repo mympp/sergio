@@ -1,0 +1,160 @@
+{template 'header', $template}
+<div class="dsn" id="pos_show">您当前的位置：<a href="{$COM[linkurl]}">首页</a> &raquo; <a href="{$MENU[$menuid][linkurl]}">{$MENU[$menuid][name]}</a>{if $itemid} &raquo; {$title}{/if}</div>
+{if $itemid}
+<div class="side_2">
+	<div class="proL">
+		<div class="prod-hd">
+			<div class="hL"></div>
+			<div class="hR"></div>
+			<div><strong>{$title}</strong></div>
+		</div>
+<div class="main_body">
+	
+		<table width="100%" align="center">
+		<tr>
+		<td width="250" valign="top" style="padding:10px 25px;">
+			<div id="mid_pos"></div>
+			<div id="mid_div" onmouseover="SAlbum();" onmouseout="HAlbum();" onclick="PAlbum(Dd('mid_pic'));">
+			<img src="{$albums[0]}" width="240" height="180" id="mid_pic"/><span id="zoomer"></span>
+			</div>
+			<div class="b5"></div>
+			<div>
+			{loop $thumbs $k $v}<img src="{$v}" width="60" height="60" onmouseover="if(this.src.indexOf('nopic60.gif')==-1)Album({$k}, '{$albums[$k]}');" class="{if $k}ab_im{else}ab_on{/if}" id="t_{$k}"/>{/loop}
+			</div>
+			<div class="b5"></div>
+			<div onclick="PAlbum(Dd('mid_pic'));" class="c_b t_c c_p"><img src="{DT_SKIN}image/ico_zoom.gif" width="16" height="16" align="absmiddle"/> 点击图片查看原图</div>
+		</td>
+		<td width="15"> </td>
+		<td valign="top">
+			<div id="big_div" style="display:none;"><img src="" id="big_pic"/></div>
+			<table width="100%" cellpadding="5" cellspacing="5">
+			<tr>
+			<td width="80" class="f_dblue">产 品：</td>
+			<td><span id="hits" class="f_r">浏览次数：{$hits}</span><strong>{$title}</strong>&nbsp;</td>
+			</tr>
+			{if $n1 && $v1}
+			<tr>
+			<td class="f_dblue">{$n1}：</td>
+			<td>{$v1}</td>
+			</tr>
+			{/if}
+			{if $n2 && $v2}
+			<tr>
+			<td class="f_dblue">{$n2}：</td>
+			<td>{$v2}</td>
+			</tr>
+			{/if}
+			{if $n3 && $v3}
+			<tr>
+			<td class="f_dblue">{$n3}：</td>
+			<td>{$v3}</td>
+			</tr>
+			{/if}
+			<tr>
+			<td class="f_dblue">需求数量：</td>
+			<td>{$amount}</td>
+			</tr>
+			<tr>
+			<td class="f_dblue">价格要求：</td>
+			<td class="f_b f_orange">{$price}</td>
+			</tr>
+			<tr>
+			<td class="f_dblue">包装要求：</td>
+			<td>{$pack}</td>
+			</tr>
+			<tr>
+			<td class="f_dblue">所在地：</td>
+			<td>{area_pos($areaid, '')}</td>
+			</tr>
+			<tr>
+			<td class="f_dblue">有效期至：</td>
+			<td>{if $todate}{$todate}{else}长期有效{/if}{if $expired} <span class="f_red">[已过期]</span>{/if}</td>
+			</tr>
+			<tr>
+			<td class="f_dblue">最后更新：</td>
+			<td>{$editdate}</td>
+			</tr>
+			<tr>
+			<td class="f_dblue">&nbsp;</td>
+			<td><a href="#message"><img src="{DT_SKIN}image/btn_price.gif" alt="报价"/></a></td>
+			</tr>
+			</table>
+		</td>
+		</tr>
+		</table>
+	</div>
+	</div>
+	</div>
+
+<div class="side_2">
+	<div class="proL">
+		<div class="prod-hd">
+			<div class="hL"></div>
+			<div class="hR"></div>
+			<div><strong>详细信息</strong></div>
+		</div>
+		<div class="main_body">
+			{if $CP}{template 'property', 'chip'}{/if}
+			<div class="content" id="content">{$content}</div>
+		</div>
+	</div>
+</div>
+
+	{if $could_price}
+<div class="side_2">
+	<div class="proL">
+		<div class="prod-hd">
+			<div class="hL"></div>
+			<div class="hR"></div>
+			<div><strong>报价单</strong></div>
+		</div>
+	<div class="main_body" style="padding-left:25px;"><script type="text/javascript">Df('{$price_url}', 'name="fra" id="fra" style="width:98%;height:488px;"');</script></div>
+	</div>
+</div>
+	{/if}
+
+	{if $could_comment && in_array($moduleid, explode(',', $EXT['comment_module']))}
+<div id="comment_div" style="display:;">
+	<div class="side_2">
+			<div class="proL">
+				<div class="prod-hd">
+					<div class="hL"></div>
+					<div class="hR"></div>
+					<span class="f_r px12">共
+						<span id="comment_count">0</span>条&nbsp;&nbsp;
+					</span>
+					<div><strong><span id="message_title">相关评论</span></strong></div>
+				</div>
+				<div class="main_body"><script type="text/javascript">Df('{DT_PATH}api/comment.php?mid={$moduleid}&itemid={$itemid}&proxy={$comment_proxy}', 'id="destoon_comment" style="width:100%;"');</script></div>
+		</div>
+	</div>
+</div>
+	{/if}
+	<script type="text/javascript">
+	var content_id = 'content';
+	var img_max_width = {$MOD[max_width]};
+	</script>
+	<script type="text/javascript" src="{DT_STATIC}file/script/content.js"></script>
+{else}
+
+<div class="side_2">
+	<div class="box">
+	<h2>
+		<div class="hL"></div>
+		<div class="hR"></div>
+		<strong>{$MENU[$menuid][name]}</strong>
+	</h2>
+	<div class="boxCont company-blk">
+	{loop $lists $k $v}
+		<div class="company-blk-info clear js-company-blk-info" style="border-bottom:1px dashed #ddd;">
+			<div class="companyPic fl" style="border:none;"><a href="{$v[linkurl]}" class="px13">{$v[title]}</a>
+			</div>
+			<p class="companyInf js-companyInf" style="float:right;">{timetodate($v[edittime], 3)}</p>
+		</div>
+		{/loop}
+		<div class="pages">{$pages}</div>
+	</div>
+</div>
+
+{/if}
+{template 'footer', $template}

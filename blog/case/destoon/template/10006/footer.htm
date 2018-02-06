@@ -1,0 +1,74 @@
+<div class="copy_box">
+  <div class="box_a g-pt-30">
+    <div class="copy_left"><img src="{if $MODULE[$moduleid][logo]}{DT_SKIN}image/logo_{$moduleid}.gif{elseif $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" width="180px" height="60px" alt="{$DT[sitename]}"/></div>
+    <div class="copy_right">
+      <div class="g-mb-10 g-of-h dt_box">
+	
+	  <span class="js_box"><strong>产品检索：</strong>
+	  <a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=a">A</a>
+	  <a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=b">B</a>
+	  <a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=c">C</a>
+	  <a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=d">D</a>
+	  <a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=e">E</a>
+	  <a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=f">F</a>
+	  <a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=g">G</a>
+	  <a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=h">H</a>
+	  <a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=i">I</a> 
+	  <a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=j">J</a>
+	  <a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=k">K</a> 
+	  <a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=l">L</a>
+	  <a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=m">M</a> 
+	  <a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=n">N</a>
+	  <a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=o">O</a> 
+	  <a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=p">P</a> 
+	  <a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=q">Q</a>
+	<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=r">R</a> 
+	<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=s">S</a>
+	<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=t">T</a>
+	<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=u">U</a> 
+	<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=v">V</a>
+	<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=w">W</a> 
+	<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=x">X</a> 
+	<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=y">Y</a>
+	<a href="{$MODULE[1][linkurl]}sitemap/index.php?mid=5&letter=z">Z</a>
+	</span></div>
+	  <!---->
+	 
+	  <!---->
+      <div class="g-mb-10">
+	   <a href="{$MODULE[1][linkurl]}">网站首页</a>
+	<!--{tag("table=webpage&condition=item=1&areaid=$cityid&order=listorder desc,itemid desc&template=list-webpage")}-->
+	|<a href="{$MODULE[1][linkurl]}sitemap/">网站地图</a>
+	|<a href="{$EXT[spread_url]}">排名推广</a>
+	{if $EXT[ad_enable]}|<a href="{$EXT[ad_url]}">广告服务</a>{/if}
+	{if $EXT[gift_enable]} |<a href="{$EXT[gift_url]}">积分换礼</a>{/if}
+	{if $EXT[guestbook_enable]}|<a href="{$EXT[guestbook_url]}">网站留言</a>{/if}
+	{if $EXT[feed_enable]} |<a href="{$EXT[feed_url]}">RSS订阅</a>{/if}
+	{if $DT[icpno]} | <a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow">{$DT[icpno]}</a>{/if}
+	  </div>
+      <div class="g-mb-10">{$DT[copyright]}<a target="_blank" rel="nofollow" href="http://www.miitbeian.gov.cn">{debug()}</a> </div>
+
+    
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="{DT_SKIN}index06.js"></script>
+
+
+<div class="float_box" style="display:none;">
+  <div class="float_fk"><a href="{$EXT[guestbook_url]}" target="_blank"></a></div>
+  <div class="float_top"><a href="javascript:void(0);" onclick="window.scroll(0,0)" rel="nofollow"></a></div>
+</div>
+<!--[以下为系统关键代码，请勿删除]-->
+
+<script type="text/javascript">
+{if $destoon_task}
+show_task('{$destoon_task}');
+{else}
+{php include DT_ROOT.'/api/task.inc.php';}
+{/if}
+{if $lazy}$(function(){$("img").lazyload();});{/if}
+</script>
+</body>
+</html>

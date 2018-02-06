@@ -1,0 +1,111 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+{template 'header_company_v2', 'mobile'}
+
+{template 'homepage-navlist', 'mobile'}
+
+<div class="aui-content aui-margin-t-15 aui-margin-b-15">
+    <ul class="aui-list aui-list-in">
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">公司名称：{$COM[company]}</div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">公司地址：<a href="map.php?auth={encrypt($COM[address], DT_KEY.'MAP')}" rel="external">{$COM[address]}</a></div>
+            </div>
+        </li>
+       {if $COM[postcode]}
+	        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">邮政编码：{$COM[postcode]}</div>
+            </div>
+        </li>
+        {/if}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">公司电话：<a href="tel:{$COM[telephone]}">{$COM[telephone]}</a></div>
+            </div>
+        </li>
+        {if $COM[fax]}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">公司传真：{$COM[fax]}</div>
+            </div>
+        </li>
+        {/if}
+	{if $COM[mail]}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">电子邮件：<a href="mailto:{$COM[mail]}">{$COM[mail]}</a></div>
+            </div>
+        </li>
+        {/if}
+	{if $COM[homepage]}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">公司网址：<a href="{$COM[homepage]}" rel="external" target="_blank">{$COM[homepage]}</a></div>
+            </div>
+        </li>
+        {/if}
+	{if $COM[truename]}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">联 系 人：{$COM[truename]} （{if $COM[gender]==1}先生{else}女士{/if}）</div>
+            </div>
+        </li>
+        {/if}
+	{if $COM[department]}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">部门(职位)：{$COM[department]}{if $COM[career]} （{$COM[career]}）{/if}</div>
+            </div>
+        </li>
+        {/if}
+	{if $COM[mobile]}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">手机号码：<a href="tel:{$COM[mobile]}">{$COM[mobile]}</a></div>
+            </div>
+        </li>
+        {/if}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">在线状态：{if online($COM[userid])==1}<span class="dt-text-red">在线</span>{else}<span class="f_gray">离线</span>{/if} <a href="message.php?action=send&touser={$COM[username]}" data-transition="slideup" class="b">发送消息</a>{if $DT[im_web]} <a href="chat.php?touser={$COM[username]}" data-transition="slideup" class="b">在线交谈</a>{/if}
+	         </div>
+            </div>
+        </li>
+	{if $COM[ali] && $DT[im_ali]}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">阿里旺旺:<a href="http://amos.alicdn.com/msg.aw?v=2&uid={$COM[ali]}&site=cnalichn&s=6&charset=UTF-8" target="_blank" rel="external">{$COM[ali]}</a></div>
+            </div>
+        </li>
+        {/if}
+	{if $COM[qq] && $DT[im_qq]}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">QQ:<a href="http://wpa.qq.com/msgrd?v=3&uin={$COM[qq]}&site=qq&menu=yes" target="_blank" rel="external">{$COM[qq]}</a></div>
+            </div>
+        </li>
+        {/if}
+	{if $COM[msn] && $DT[im_msn]}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">MSN:{$COM[msn]}</div>
+            </div>
+        </li>
+        {/if}
+	{if $COM[skype] && $DT[im_skype]}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">Skype:{$COM[skype]}</div>
+            </div>
+        </li>
+        {/if}
+
+    </ul>
+</div>
+
+{template 'footer_company_v2', 'mobile'}

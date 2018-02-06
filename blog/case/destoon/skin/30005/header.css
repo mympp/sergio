@@ -1,0 +1,58 @@
+@charset "gb2312";
+/* CSS Document */
+.header{height:33px;border-bottom:1px solid #dddddd;line-height:33px;}
+.top_zxx_main{width:1100px;margin:0 auto;}
+.fl_zxx{float:left;}
+.fr_zxx{float:right;}
+.fl_zxx span{float:left;color:#555;font-size:12px;}
+.fl_zxx a{float:left;margin:0px 8px;}
+.fl_zxx a{color:#f46722;font-size:12px;}
+.fl_zxx a.mf_zce{color:#f46722;font-size:12px;}
+.wap_phone{background:url(/images/2016/phone.jpg) left center no-repeat;display:block;float:left;margin-left:7px;color:#555555;font-size:12px;width:67px;text-align:center;cursor:pointer !important;position:relative;height:33px;line-height:33px;}
+.wap_phones{background:url(/images/2016/phones.jpg) left center no-repeat;color:#f46722;}
+.wet{position:absolute;left:0px;top:32px;display:none;}
+
+.fr_zxx dl dd{float:left;margin:0px 3px;height:33px;position:relative;}
+.fr_zxx dl dd a{color:#666666;font-size:12px;}
+.fr_zxx dl dd span{color:#dddddd;margin:0px 3px;}
+.fr_zxx dl dd a.zx_inde{padding-right:0px;}
+.fr_zxx dl dd a.zx_pkv:hover{color:#ff7300;background:url(/images/2016/lct_pcv.png) right center no-repeat;}
+.fr_zxx dl dd a.zx_pkv{background:url(/images/2016/lct_p.png) right center no-repeat;padding-right:15px;}
+.fr_zxx dl dd a.zx_sjb{background:url(/images/2016/wap.gif) left center no-repeat;padding-left:15px;display:block;}
+.fr_zxx dl dd a.zx_onn{color:#ff7300;background:url(/images/2016/lct_pcv.png) right center no-repeat;}
+.nav_two_t table tr td strong{color:#333;font-size:12px;padding-left:5px;}
+.nav_two_t table{margin:4px 8px;}
+.nav_two_t table tr td a{color:#666666;font-size:12px;}
+.nav_two_to table tr td a{color:#666666;font-size:12px;display:block;width:75px;padding-left:5px;height:25px;line-height:25px;}
+.nav_two_to table tr td a:hover,.nav_two_to ul li a:hover,.nav_two_tov table tr td a:hover{background:#ec6100;color:#fff;}
+.nav_two_t{border:1px solid #dbdbdb;position:absolute;left:-8px;top:33px;background:#fff;display:none;z-index:9;}
+.nav_two_t ul{padding:8px 2px 5px;}
+.nav_two_t ul li{height:20px;line-height:20px;margin-bottom:5px;}
+.nav_two_t ul li a{width:67px;display:block;text-align:center;height:25px;line-height:25px;}
+.nav_two_tf{width:79px;}
+.nav_two_tf ul li a{display:block;width:75px;height:25px;line-height:25px;text-align:center;margin:0 auto;}
+.nav_two_tov table tr td a{color:#666666;font-size:12px;display:block;padding-left:5px;height:25px;line-height:25px;}
+.nav_two_tf ul li a:hover{background:#ec6100;color:#fff;}
+.nav_two_cgd{width:330px;}
+.nt_cgd_t{color:#999999;font-size:14px;text-align:center;line-height:30px;margin:20px 0px;}
+.nt_cgd_tb{line-height:25px;margin:10px 0px;}
+.nt_g_ckd{float:right;margin-right:14px;margin-bottom:10px;color:#555555;font-size:12px;cursor:pointer !important;background:url(/images/2016/btnBg.png) 0px -204px no-repeat;border:none;border:0;width:110px;height:24px;}
+.fl_zxx span i{color:#317dbd;font-style:normal;}
+.fl_zxx em{margin:0px 3px;float:left;}
+.fl_zxx a{color:#555555;font-size:12px;}
+.fl_zxx a strong{color:#ff7300;}
+.nav_two_cgdv {width:330px;}
+.nav_two_cgdv table{width:315px;margin:0 auto;}
+.nav_two_cgdv table tr td a{color:#ff0000;font-size:12px;line-height:20px;display:inline-block;}
+.nav_two_cgdv table tr td a.crt_tte{color:#ff8400;display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellispis;width:160px;height:20px;}
+.nav_two_cgdv table tr td span{color:#666666;font-size:12px;display:inline-block;line-height:20px;}
+.nav_two_cgdv table tr td em{color:#999999;font-size:12px;display:inline-block;line-height:20px;}
+.nav_two_cgdv table tr td{border-bottom:1px dotted #dadada;}
+.fr_zxx dl dd .nav_two_cgd .nt_cgd_tb span{float:right;color:#555555;margin-right:5px;}
+.fr_zxx dl dd .nav_two_cgd .nt_cgd_tb em{color:#ff4800;margin:0px 3px;}
+.zx_pkvg em{float:left;}
+.zx_pkvg i{float:left;background:#e42323 url(/images/2016/vbu.jpg) left center no-repeat;padding:0px 7px;color:#fff;font-size:12px;height:15px;line-height:15px;display:block;font-style:normal;margin-top:9px;margin-left:5px;}
+.fr_zxx dl dd .nav_two_cgd .nt_g_ckd_2{float:right;margin-right:14px;margin-bottom:10px;font-size:12px;cursor:pointer !important;width:110px;height:24px;color:#fff;background:#ff8400;text-align:center;}
+.fr_zxx dl dd .nav_two_cgdv .nt_g_ckd_2{float:right;margin-right:14px;margin-bottom:10px;font-size:12px;cursor:pointer !important;width:110px;height:24px;color:#fff;background:#ff8400;text-align:center;}
+.fr_zxx dl dd .nav_two_cgdv .nt_cgd_tb span{float:right;color:#555555;margin-right:5px;}
+.fr_zxx dl dd .nav_two_cgdv .nt_cgd_tb em{color:#ff4800;margin:0px 3px;}

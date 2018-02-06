@@ -1,0 +1,55 @@
+<!--企业档案开始-->
+		<div class="sidebar_mod sidebar_archives">
+			<div class="hd"><h2><i></i>企业档案</h2></div>
+			<div class="bd">
+				<div class="level clearfix">
+					<div class="fl">
+						<i class="icon zuan_icon"></i>
+						<span class="gray3 f16 va_m">{if $COM[vip]}钻石会员{else}普通会员{/if}</span>
+					</div>
+					<div class="fr gray3">第<span class="red f24">{$COM[year]}</span>年</div>
+				</div>
+				<div class="border_b pl20 pr20 pt5 pb5">
+					<div class="name highlight">{$COM[company]}</div>
+					<div>
+					<a class="mr5">{$COM[truename]}</a> {if $COM[gender]==1}先生{else}女士{/if}
+						<span class="fr qq">{if $COM[qq] && $DT[im_qq]}{im_qq($COM[qq])} 和我联系{else}{im_web($COM[username])}和我联系{/if}</span>
+					</div>
+				</div>
+				<div class="border_b pl20 pr20 pt5 pb5">
+					<p><span class="gray3">经营范围：</span>{$COM[business]}</p>
+					<div class="clearfix pr">
+						<div class="fl gray3">主营行业：</div>
+						<div class="main_pro_con">
+						{php $catids = explode(',', substr($COM['catid'], 1, -1));}
+						{loop $catids $i $c}
+						{cat_pos(get_cat($c), ' / ', '_blank')}
+						{/loop}
+						</div>
+					</div>
+					<p><span class="gray3">所在地区：</span>{area_pos($COM[areaid], '/')}</p>
+				</div>
+				<div class="border_b pl20 pr20 pt5 pb5">
+					<p><span class="gray3">信用指数：</span><span class="orange">{$COM[vip]}</span></p>
+					<p>
+						<span class="gray3">认证信息：</span>
+							{if $COM[vcompany]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_company.gif" width="16" height="16" align="absmiddle" title="资料通过工商认证"/>{/if}
+						{if $COM[vtruename]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_truename.gif" width="16" height="16" align="absmiddle" title="资料通过实名认证"/>{/if}
+						{if $COM[vbank]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_bank.gif" width="16" height="16" align="absmiddle" title="资料通过银行帐号认证"/>{/if}
+						{if $COM[vmobile]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_mobile.gif" width="16" height="16" align="absmiddle" title="资料通过手机认证"/>{/if}
+						{if $COM[vemail]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_email.gif" width="16" height="16" align="absmiddle" title="资料通过邮件认证"/>{/if}
+						{if $COM[validated]}&nbsp;<img src="{DT_SKIN}image/check_right.gif" align="absmiddle"/> 企业资料通过{$COM[validator]}认证{/if}
+					</p>
+					<p><span class="gray3">保证金：</span>{$COM[deposit]} {$DT[money_unit]}</p>
+				</div>
+			</div>
+		</div>
+		<!--企业档案结束-->
+		{loop $HSIDE $HS $SIDE}
+		{template 'side_'.$side_file[$HS], $template}
+		{/loop}
+
+		
+
+		
+		

@@ -1,0 +1,24 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+
+<header class="aui-bar aui-bar-nav" id="aui-header">
+        <a class="aui-pull-left aui-btn" href="{$back_link}">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+        <div class="aui-title">{$MOD[name]}地区</div>
+</header>
+<div class="aui-bar-fix"></div>
+
+<div class="aui-content aui-margin-b-15">
+    <ul class="aui-list aui-list-in dt-border-t-none">
+{loop $lists $k $v}
+<li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title aui-font-size-18"><a href="{if $v[child]}area.php?moduleid={$moduleid}&pid={$v[areaid]}{else}index.php?moduleid={$moduleid}&areaid={$v[areaid]}{/if}">{$v[areaname]}</a></div>
+            </div>
+        </li>
+{/loop}
+</ul>
+</div>
+
+{template 'footer_v2', 'mobile'}

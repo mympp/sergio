@@ -1,0 +1,10 @@
+.dt-buy-list .aui-list-item-text .dt-label { margin-right:0.25rem; background:#FFF;}
+.dt-buy-list span { font-size:0.55rem !important;}
+.dt-buy-times span,.dt-buy-times i { font-size:0.6rem !important;}
+
+.dt-contact-list .aui-list-nitem { min-height:1.6rem;}
+.dt-contact-list .aui-list-item-title { font-size:0.8rem;}
+.dt-contact-list .aui-list-item-title span { font-size:0.7rem !important; margin-left:0.15rem; color:#666;}
+.dt-contact-list .aui-list-item-title span a { color:#666;}
+
+.dt-contact-list .aui-list-header { padding:0.7rem 0 0.7rem 0.75rem; background:#F6F6F6; font-size:0.8rem; margin:0.5rem 0;}

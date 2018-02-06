@@ -1,0 +1,386 @@
+{template 'header_member', 'mobile'}
+{template 'cssjs', 'mobile'}
+<style>
+.tb {background:#FFFFFF;width:100%;}
+.tl {background:#F7F7F7;width:115px;text-align:left; letter-spacing:1px;}
+.tr {background:#FFFFFF;}
+#area-select { max-width:80px !important;}
+#type { margin-left:15px;}
+.aui-content-padded {
+    margin-top: 15px;
+}
+.aui-content {
+    margin-bottom: 0px;
+}
+.aui-tab {
+    margin-bottom: 15px;
+}
+.aui-tab li.active { color:#FFF !important;}
+</style>
+
+<header class="aui-bar aui-bar-nav aui-bar-info" id="aui-header">
+        <a class="aui-btn aui-btn-info aui-pull-left" href="my.php?action=member">
+            <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+    <div class="aui-title">{$head_name}</div>
+    <a href="my.php" class="aui-pull-right">我的</a>
+    <a href="?action=add" class="aui-pull-right">添加</a>
+</header>
+<div class="aui-bar-fix"></div>
+<div class="aui-content">
+<div class="aui-tab" id="aui-tab">
+        <ul class="aui-tab-nav">
+            <li id="tabbaradd"><a href="mfriend.php?action=add"><span>添加商友</span></a></li>
+            <li id="tabbarindex"><a href="mfriend.php?action=index"><span>我的商友</span></a></li>
+            <li><a href="mtype.php?item=friend&opentype=1"><span>商友分类</span></a></li>
+        </ul>
+</div>
+</div>
+
+{if $action=='add'}
+<form method="post" action="mfriend.php" onsubmit="return check();">
+<input type="hidden" name="action" value="{$action}"/>
+        <div class="aui-form">
+</script>            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">分类</span>
+                <span class="aui-ml-5" id="type_box">{$type_select}</span><span class="aui-input-addon aui-text-info fz12" onclick="showmType()">管理分类</span>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">姓名</span>
+                <input type="text" name="post[truename]" id="truename" class="aui-input" value="{$truename}" placeholder="姓名"/>
+                <span class="aui-input-addon">{dstyle('post[style]')}</span>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">会员名</span>
+                <input type="text" name="post[username]" id="username" class="aui-input" value="{$username}" placeholder="会员名"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">公司名称</span>
+                <input type="text" name="post[company]" id="company" class="aui-input" value="{$company}" placeholder="公司名称"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">职位</span>
+                <input type="text" name="post[career]" id="career" class="aui-input" value="{$career}" placeholder="职位"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">电话</span>
+                <input type="text" name="post[telephone]" id="telephone" class="aui-input" value="{$telephone}" placeholder="电话"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">手机</span>
+                <input type="number" name="post[mobile]" id="mobile" class="aui-input" value="{$mobile}" placeholder="手机"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">主页</span>
+                <input type="text" name="post[homepage]" id="homepage" class="aui-input" value="{$homepage}" placeholder="主页"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">Email</span>
+                <input type="text" name="post[email]" id="email" class="aui-input" value="{$email}" placeholder="Email"/>
+            </div>
+            {if $DT[im_qq]}
+            <div class="aui-input-row">
+                <span class="aui-input-addon">QQ</span>
+                <input type="text" name="post[qq]" id="qq" class="aui-input" value="{$qq}" placeholder="QQ"/>
+            </div>
+            {/if}
+            {if $DT[im_ali]}
+            <div class="aui-input-row">
+                <span class="aui-input-addon">阿里旺旺</span>
+                <input type="text" name="post[ali]" id="ali" class="aui-input" value="{$ali}" placeholder="阿里旺旺"/>
+            </div>
+            {/if}
+{if $DT[im_msn]}
+            <div class="aui-input-row">
+                <span class="aui-input-addon">MSN</span>
+                <input type="text" name="post[msn]" id="msn" class="aui-input" value="{$msn}" placeholder="MSN"/>
+            </div>
+{/if}
+{if $DT[im_skype]}
+            <div class="aui-input-row">
+                <span class="aui-input-addon">Skype</span>
+                <input type="text" name="post[skype]" id="skype" class="aui-input" value="{$skype}" placeholder="Skype"/>
+            </div>
+{/if}
+            <div class="aui-input-row">
+                <span class="aui-input-addon">备注</span>
+                <input type="text" name="post[note]" id="note" class="aui-input" value="{$note}" placeholder="备注"/>
+            </div>
+
+</div>
+<div class="aui-btn-row" style="background-color:#FFF;">
+ <input type="submit" name="submit" value=" 提 交 " class="aui-btn aui-btn-danger fz16"/>&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="submit" value=" 取 消 " class="aui-btn aui-btn-info fz16" onclick="history.back(-1);"/>
+</div>
+
+</form>
+{load('clear.js')}
+<div class="displaynone" id="bottomup" style="position:fixed; left:0; bottom:0; width:100%; z-index:99">
+<div class="aui-content" style="margin:0; padding:0;">
+    <ul class="aui-list-view" style="margin:0; padding:0;">
+        <li class="aui-list-view-cell" style="background-color: #F6F6F6; padding:10px 15px;">
+            <span class="aui-text-info">商友分类管理</span>
+            <span class="aui-pull-right aui-text-default" onclick="showmType(1)">关闭</span>
+            
+        </li>
+    </ul>
+</div> 
+<div class="aui-content" style=" background-color:#FFF; margin:0; padding:0;"><div id="iframe-wrap">
+        <iframe id="iframe" src="mtype.php?item=friend" frameborder="0"  width="100%" height="250">
+        </iframe>
+    </div>
+
+</div>
+<script>
+var dtshowmType=0,type_item='friend-{$_userid}',type_name='post[typeid]',type_default='默认',type_id={$typeid},type_interval=setInterval('mtype_reload()',500);
+</script>
+
+</div>
+<script type="text/javascript">tabbar('tabbar{$action}');</script>
+{elseif $action == 'edit'}
+<form method="post" action="mfriend.php" onsubmit="return check();">
+<input type="hidden" name="action" value="{$action}"/>
+<input type="hidden" name="itemid" value="{$itemid}"/>
+<input type="hidden" name="forward" value="{$forward}"/>
+        <div class="aui-form">
+</script>            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">分类</span>
+                <span class="aui-ml-5" id="type_box">{$type_select}</span><span class="aui-input-addon aui-text-info fz12" onclick="showmType()">管理分类</span>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">姓名</span>
+                <input type="text" name="post[truename]" id="truename" class="aui-input" value="{$truename}" placeholder="姓名"/>
+                <span class="aui-input-addon">{dstyle('post[style]')}</span>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">会员名</span>
+                <input type="text" name="post[username]" id="username" class="aui-input" value="{$username}" placeholder="会员名"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">公司名称</span>
+                <input type="text" name="post[company]" id="company" class="aui-input" value="{$company}" placeholder="公司名称"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">职位</span>
+                <input type="text" name="post[career]" id="career" class="aui-input" value="{$career}" placeholder="职位"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">电话</span>
+                <input type="text" name="post[telephone]" id="telephone" class="aui-input" value="{$telephone}" placeholder="电话"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">手机</span>
+                <input type="number" name="post[mobile]" id="mobile" class="aui-input" value="{$mobile}" placeholder="手机"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">主页</span>
+                <input type="text" name="post[homepage]" id="homepage" class="aui-input" value="{$homepage}" placeholder="主页"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">Email</span>
+                <input type="text" name="post[email]" id="email" class="aui-input" value="{$email}" placeholder="Email"/>
+            </div>
+            {if $DT[im_qq]}
+            <div class="aui-input-row">
+                <span class="aui-input-addon">QQ</span>
+                <input type="text" name="post[qq]" id="qq" class="aui-input" value="{$qq}" placeholder="QQ"/>
+            </div>
+            {/if}
+            {if $DT[im_ali]}
+            <div class="aui-input-row">
+                <span class="aui-input-addon">阿里旺旺</span>
+                <input type="text" name="post[ali]" id="ali" class="aui-input" value="{$ali}" placeholder="阿里旺旺"/>
+            </div>
+            {/if}
+{if $DT[im_msn]}
+            <div class="aui-input-row">
+                <span class="aui-input-addon">MSN</span>
+                <input type="text" name="post[msn]" id="msn" class="aui-input" value="{$msn}" placeholder="MSN"/>
+            </div>
+{/if}
+{if $DT[im_skype]}
+            <div class="aui-input-row">
+                <span class="aui-input-addon">Skype</span>
+                <input type="text" name="post[skype]" id="skype" class="aui-input" value="{$skype}" placeholder="Skype"/>
+            </div>
+{/if}
+            <div class="aui-input-row">
+                <span class="aui-input-addon">备注</span>
+                <input type="text" name="post[note]" id="note" class="aui-input" value="{$note}" placeholder="备注"/>
+            </div>
+
+</div>
+<div class="aui-btn-row" style="background-color:#FFF;">
+ <input type="submit" name="submit" value=" 提 交 " class="aui-btn aui-btn-danger fz16"/>&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="submit" value=" 取 消 " class="aui-btn aui-btn-info fz16" onclick="history.back(-1);"/>
+</div>
+
+</form>
+{load('clear.js')}
+<div class="displaynone" id="bottomup" style="position:fixed; left:0; bottom:0; width:100%; z-index:99">
+<div class="aui-content" style="margin:0; padding:0;">
+    <ul class="aui-list-view" style="margin:0; padding:0;">
+        <li class="aui-list-view-cell" style="background-color: #F6F6F6; padding:10px 15px;">
+            <span class="aui-text-info">商友分类管理</span>
+            <span class="aui-pull-right aui-text-default" onclick="showmType(1)">关闭</span>
+            
+        </li>
+    </ul>
+</div> 
+<div class="aui-content" style=" background-color:#FFF; margin:0; padding:0;"><div id="iframe-wrap">
+        <iframe id="iframe" src="mtype.php?item=friend" frameborder="0"  width="100%" height="250">
+        </iframe>
+    </div>
+
+</div>
+<script>
+var dtshowmType=0,type_item='friend-{$_userid}',type_name='post[typeid]',type_default='默认',type_id={$typeid},type_interval=setInterval('mtype_reload()',500);
+</script>
+
+</div>
+<script type="text/javascript">tabbar('tabbarindex');</script>
+
+{else}
+{if $lists}
+	<style type="text/css">
+		.order {
+			background: #ffffff;
+		}
+		.order-info  {
+			font-size: 0.875em;
+			width: 100%;
+		}
+		.order-info span {
+			color: #333;
+			margin-right: 5px;
+		}
+		.order-info time {
+			color: #999999;
+			font-size: 0.75em;
+		}
+		.order-info i.aui-iconfont {
+			color: #999;
+			font-size: 0.875em;
+		}
+		.order-icon img {
+			width: 80%;
+			border-radius: 5px;
+		}
+		.order-title {
+			font-size: 1em;
+			color: #333;
+			padding-bottom: 10px;
+			margin-bottom: 10px;
+		}
+		.order-title > i.aui-iconfont {
+			font-size: 0.87em;
+			color: #999999;
+		}
+		p.goods-list {
+			font-size: 0.75em;
+			color: #999;
+			margin-bottom: 8px;
+		}
+		p.count-info {
+			font-size: 0.75em;
+			color: #999;
+			padding-bottom: 10px;
+		}
+		p.count-info span {
+			margin: 0 3px;
+		}
+		p.count-info strong {
+			color: #666;
+			font-size: 1em;
+			font-weight: 700;
+		}
+		.btn {
+			/*margin: 5px;*/
+		}
+		.btn .aui-btn {
+			font-size: 0.75em;
+		}
+		.btn .aui-btn:first-child {
+			margin-right: 10px;
+		}
+		.aui-border-b:after {
+			border-color: #ddd;
+		}
+	</style>
+
+{loop $lists $k $v}
+{if $v}
+	<section class="aui-content order">
+		<div class="aui-flex-col order-info aui-padded-10">
+			<div class="aui-flex-item-12">
+				<span>公司名：{$v[company]}</span>
+			</div>
+		</div>
+		<div class="aui-flex-col">
+			<div class="aui-flex-item-2 order-icon aui-text-right">
+			</div>
+			<div class="aui-flex-item-10 aui-padded-0-10">
+				<p class="goods-list fz14">
+					姓名:<span class="aui-text-danger">{$v[truename]}{if $v[career]} ({$v[career]}){/if}</span>
+				</p>
+                <p class="goods-list fz14">
+					电话：{$v[telephone]}&nbsp;&nbsp;手机：{$v[mobile]}
+				</p>
+				<p class="aui-text-left aui-border-b count-info aui-ellipsis-1">
+					{if $v[homepage]}<a href="{$v[homepage]}" target="_blank"><img width="16" height="16" src="{DT_SKIN}image/homepage.gif" title="公司主页" alt="" align="absmiddle"/></a>&nbsp;{/if}
+{if $DT[sms] && $v[mobile]}<a href="sms.php?action=add&mob={$v[mobile]}"><img width="16" height="16" src="{DT_SKIN}image/mobile.gif" title="发送短信" align="absmiddle"/></a>&nbsp;{/if}
+{if $v[username]}<a href="message.php?action=send&touser={$v[username]}"><img width="16" height="16" src="{DT_SKIN}image/msg.gif" title="发送站内信" alt="" align="absmiddle"/></a>&nbsp;{/if}
+{if $v[email]}<a href="sendmail.php?email={$v[email]}"><img width="16" height="16" src="{DT_SKIN}image/email.gif" title="发送Email {$v[email]}" alt="" align="absmiddle"/></a>&nbsp;{/if}
+{if $v[username] && $DT[im_web]}{im_web($v[username])}&nbsp;{/if}
+{if $v[qq] && $DT[im_qq]}{im_qq($v[qq])}&nbsp;{/if}
+{if $v[ali] && $DT[im_ali]}{im_ali($v[ali])}&nbsp;{/if}
+{if $v[msn] && $DT[im_msn]}{im_msn($v[msn])}&nbsp;{/if}
+{if $v[skype] && $DT[im_skype]}{im_skype($v[skype])}&nbsp;{/if}
+<span style=" float:right; position:relative; top:3px;">
+<a href="mfriend.php?typeid={$v[typeid]}" class="t">[{$v[type]}]</a>&nbsp;
+<a href="?action=edit&itemid={$v[itemid]}" class="t">[修改]</a>&nbsp;
+<a href="?action=delete&itemid={$v[itemid]}" onclick="return confirm('确定要删除吗？此操作将不可撤销');" class="t">[删除]</a>&nbsp;
+</span>
+				</p>
+			</div>
+		</div>
+		<div class="aui-flex-col aui-padded-5 btn">
+			<div class="aui-flex-item-12 aui-text-right">
+			</div>
+		</div>
+	</section>
+{/if}
+{/loop}
+{if $MG[friend_limit]}
+<div class="aui-content aui-bg-white">
+  <div class="aui-ellipsis-2" style="padding:10px; font-size:12px">
+<div class="limit">商友上限 <span class="f_b f_red">{$MG[friend_limit]}</span> 人&nbsp;&nbsp;&nbsp;当前已加 <span class="f_b">{$limit_used}</span> 人&nbsp;&nbsp;&nbsp;还可以加 <span class="f_b f_blue">{$limit_free}</span> 人</div>
+  </div>
+</div>
+{/if}
+
+{if $pages}<div class="pages aui-text-center">{$pages}</div>{/if}
+{else}
+<ul class="aui-list-view">
+<li class="aui-list-view-cell aui-img">
+                <div class="aui-img-body aui-pull-left">
+                    <p class="aui-ellipsis-1">暂无信息</p>
+                </div>
+</li>
+</ul>
+
+{/if}
+</div>
+<script type="text/javascript">tabbar('tabbar{$action}');</script>
+<script type="text/javascript" src="script/addpan.js" charset="utf-8"></script>
+{/if}
+{if $action=='add' || $action=='edit'}
+<script type="text/javascript">
+function check() {
+	if(Dd('truename').value == '') {
+		laymsg('请填写姓名', 'truename');
+		return false;
+	}
+	return true;
+}
+</script>
+{/if}
+{template 'footer_member', 'mobile'}

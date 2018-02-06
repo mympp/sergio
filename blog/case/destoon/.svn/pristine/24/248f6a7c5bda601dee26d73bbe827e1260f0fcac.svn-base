@@ -1,0 +1,299 @@
+{template 'footer_comshare_v2', 'mobile'}
+{template 'company_copy_v2', 'mobile'}
+<script type="text/javascript">
+var mid ='{$moduleid}';
+var moduleid = '{$moduleid}';
+var itemid = '{$itemid}';
+var catid = '{$catid}';
+var areaid = '{$areaid}';
+var userid = '{$_userid}';
+var kw ='{$kw}';
+{if $EXT[gl_img_echo]}
+echo.init({
+ offset : 50,
+ throttle : 200,
+ unload : false,
+});
+{/if}
+{if !$mlat}
+function getLocation(){
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML="浏览器不支持获取地理位置信息";}
+  }
+function showPosition(position){
+   var longx = position.coords.longitude; //经度
+   var laty = position.coords.latitude; //维度
+   
+  $.get('{$glmobileurl}glajax.php?action=gllocal&job=gps&x='+longx+'&y='+laty,function(data){
+   var lat = data.y;
+   var lng = data.x;
+   //alert(lat+','+lng);
+  },'json');
+	
+}
+getLocation();
+{/if}  
+function showBottom(){
+        popup.show(document.getElementById("bottom-right"))
+    }
+</script>
+{if $share_icon == 'auto'}<div class="share_icon"><img src="{DT_PATH}apple-touch-icon-precomposed.png"/></div>{/if}
+    <div class="aui-popup company-popup-bottom-right" id="bottom-right">
+    <div class="aui-popup-arrow"></div>
+        <div class="aui-content">
+    <ul class="aui-list aui-list-noborder">
+        <li class="aui-list-item">
+        <a href="{gl_mobile_homeurl($moduleid,$username,'',0)}">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-shouye aui-text-info"></i>
+                    </div>
+                <div class="aui-list-item-inner">{$MOD[name]}首页</div>
+            </div>
+            </a>
+        </li>
+        <li class="aui-list-item">
+        <a href="{gl_mobile_homeurl($moduleid,$username,'news',0)}">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-news aui-text-info"></i>
+                    </div>
+                <div class="aui-list-item-inner">新闻中心</div>
+            </div>
+            </a>
+        </li>
+        <li class="aui-list-item">
+        <a href="{gl_mobile_homeurl($moduleid,$username,'credit',0)}">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-xinren aui-text-info"></i>
+                    </div>
+                <div class="aui-list-item-inner">诚信档案</div>
+            </div>
+            </a>
+        </li>
+        <li class="aui-list-item">
+           <a href="{gl_mobile_homeurl($moduleid,$username,'contact',0)}">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-dianhua aui-text-info"></i>
+                    </div>
+                <div class="aui-list-item-inner">联系我们</div>
+            </div>
+            </a>
+        </li>
+            </ul>
+        </div>
+    </div>
+
+{if $action}
+{else}
+<div class="aui-footer-fix" style="height:2rem;"></div>
+<footer class="aui-bar aui-bar-tab" id="itemfoot">
+        <div class="aui-bar-tab-item aui-active aui-col-5" onclick="window.location.href='{gl_mobile_homeurl($moduleid,$username,'type',0,0,'sell')}'">
+            <div class="aui-bar-tab-label aui-font-size-16">商品分类</div>
+        </div>
+        <div class="aui-bar-tab-item aui-active aui-col-5" onclick="window.location.href='{gl_mobile_homeurl($moduleid,$username,'introduce',0)}'">
+            <div class="aui-bar-tab-label aui-font-size-16">公司介绍</div>
+        </div>
+        <div class="aui-bar-tab-item aui-active aui-col-5" onclick="showBottom();">
+            <div class="aui-bar-tab-label aui-font-size-16">其他信息</div>
+        </div>
+    </footer>
+{/if}
+<div class="returnTop">
+<div class="sideList mall-cart" onclick="sharehome();"><i class="dt-iconfont dt-icon-fenxiang"></i></div>
+<div class="sideList topIcon"><i class="aui-iconfont aui-icon-top"></i></div>
+</div>
+<div id="footer-morebox">
+<section class="aui-grid dt-more-grid">
+<div class="aui-content" style=" width:100%; position:absolute; top:-1.45rem; left:1rem;">
+<img src="{useravatar($_username, 'large')}" class="aui-img-round" style="border:#FFF 2px solid;" width="48" height="48">{if $_truename}<span class="dt-more-truename">{$_truename}</span>{/if}
+</div>
+
+        <div class="aui-row aui-padded-t-10 aui-padded-b-5 aui-padded-l-10 aui-padded-r-10 dt-no-active">
+            <div class="aui-col-xs-3">
+            <a href="{$glmobileurl}about.php">
+                <div class="moregrid-div"><i class="aui-iconfont aui-icon-info"></i></div>
+                <div class="aui-grid-label">关于网站</div>
+                </a>
+            </div>
+            <div class="aui-col-xs-3">
+            <a href="{$glmobileurl}announce.php">
+                <div class="moregrid-div"><i class="aui-iconfont aui-icon-notification"></i></div>
+                <div class="aui-grid-label">最新公告</div>
+                </a>
+            </div>
+            <div class="aui-col-xs-3">
+            <a href="{$glmobileurl}guestbook.php">
+                <div class="moregrid-div"><i class="aui-iconfont aui-icon-write"></i></div>
+                <div class="aui-grid-label">意见反馈</div>
+                </a>
+            </div>
+            <div class="aui-col-xs-3">
+            <a href="{$glmobileurl}tips.php">
+                <div class="moregrid-div"><i class="aui-iconfont aui-icon-countdown"></i></div>
+                <div class="aui-grid-label">技巧提示</div>
+                </a>
+            </div>
+        {if $moduleid<>1}
+         <div class="aui-col-xs-3">
+            <a href="{$glmobileurl}index.php">
+                <div class="moregrid-div"><i class="dt-iconfont dt-icon-shouye"></i></div>
+                <div class="aui-grid-label">网站首页</div>
+                </a>
+            </div>
+            {/if}
+            <div class="aui-col-xs-3">
+            <a href="{$glmobileurl}channel.php">
+                <div class="moregrid-div"><i class="dt-iconfont dt-icon-moremenu"></i></div>
+                <div class="aui-grid-label">更多栏目</div>
+                </a>
+            </div>
+            <div class="aui-col-xs-3">
+            <a href="{$glmobileurl}city.php">
+                <div class="moregrid-div"><i class="dt-iconfont dt-icon-diqu"></i></div>
+                <div class="aui-grid-label">切换地区</div>
+                </a>
+            </div>
+            <div class="aui-col-xs-3">
+            <a href="{$glmobileurl}mobile.php?action=pc">
+                <div class="moregrid-div"><i class="dt-iconfont dt-icon-compute"></i></div>
+                <div class="aui-grid-label">电脑版</div>
+                </a>
+            </div>
+            <div class="aui-col-xs-3">
+            <a href="{$app}">
+                <div class="moregrid-div"><i class="dt-iconfont dt-icon-app"></i></div>
+                <div class="aui-grid-label">安装app</div>
+                </a>
+            </div>
+            <div class="aui-col-xs-3">
+                <div class="moregrid-div"><i class="dt-iconfont dt-icon-help dt-fz26"></i></div>
+                <div class="aui-grid-label">帮助</div>
+            </div>
+            {if $_userid}
+            <div class="aui-col-xs-3" onclick="openDialog('goto','退出会员中心','确定要退出吗?','{$glmobileurl}logout.php')">
+                <div class="moregrid-div"><i class="dt-iconfont dt-icon-logout dt-fz26"></i></div>
+                <div class="aui-grid-label">退出</div>
+            </div>
+            {else}
+            <div class="aui-col-xs-3">
+            <a href="{$glmobileurl}login.php">
+                <div class="moregrid-div"><i class="dt-iconfont dt-icon-my"></i></div>
+                <div class="aui-grid-label">登录</div>
+             </a>
+            </div>
+            {/if}
+        </div>
+
+<div class="aui-content dt-hor-center">
+<div class="gldiv-colse-btn" style="height:2.5rem;line-height: 2.5rem;"><i class="aui-iconfont aui-icon-close dt-text-gray dt-fz24"></i></div>
+</div>
+ </section>
+ </div>
+   <div class="aui-popup company-popup-top-right" id="top-right">
+   <div class="aui-popup-arrow"></div>
+        <div class="aui-content">
+    <ul class="aui-list aui-list-noborder">
+        <li class="aui-list-item">
+        <a href="{$glmobileurl}{gl_mobile_homeurl($moduleid,$username)}">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-shouye aui-text-info"></i>
+                    </div>
+                <div class="aui-list-item-inner">{$MOD[name]}首页</div>
+            </div>
+            </a>
+        </li>
+        {if $action}
+        <li class="aui-list-item">
+        <a href="{gl_mobile_homeurl($moduleid,$username,'type',0,0,'sell')}">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-sort aui-text-info"></i>
+                    </div>
+                <div class="aui-list-item-inner">按分类浏览</div>
+            </div>
+            </a>
+        </li>
+        {/if}
+        <li class="aui-list-item">
+        <a href="{gl_mobile_homeurl($moduleid,$username,'news',0)}">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-news aui-text-info"></i>
+                    </div>
+                <div class="aui-list-item-inner">新闻中心</div>
+            </div>
+            </a>
+        </li>
+        <li class="aui-list-item">
+        <a href="{gl_mobile_homeurl($moduleid,$username,'credit',0)}">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-xinren aui-text-info"></i>
+                    </div>
+                <div class="aui-list-item-inner">诚信档案</div>
+            </div>
+            </a>
+        </li>
+        <li class="aui-list-item">
+           <a href="{gl_mobile_homeurl($moduleid,$username,'contact',0)}">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-dianhua aui-text-info"></i>
+                    </div>
+                <div class="aui-list-item-inner">联系我们</div>
+            </div>
+            </a>
+        </li>
+            </ul>
+        </div>
+    </div><script>
+var scroll = new auiScroll({
+        listen:true,
+        distance:200 //判断到达底部的距离，isToBottom为true
+    },function(ret){
+        if(ret.scrollTop>=10){
+            $('#company-header').addClass("white");
+			$('#company-header').removeClass("dt-bgcolor-none");
+			$('#company-header').removeClass("nowhite");
+            $('#company-header').css("opacity: 1;");
+	       $('.returnTop .topIcon').show()//.siblings('.reviewIcon').hide();
+
+        }else{
+		   $('#company-header').removeClass("white");
+		   $('#company-header').addClass("dt-bgcolor-none");
+		   $('.returnTop .topIcon').hide()//.siblings('.reviewIcon').fadeIn(400);
+        }
+
+    });
+
+$('div.returnTop .topIcon').click(function()
+   {
+  $('html,body').animate({scrollTop: 0}, 400);
+  return false;
+ });
+
+{if $DT_MOB[browser] == 'weixin' || $DT_MOB[browser] == 'qq'}
+$(document).on('pageshow', function(event) {
+	$("[data-role='page']").each(function(i) {
+		if($(this).attr('class').indexOf('-active') != -1) {
+			$(this).find('.share_icon img').css('display', 'block');
+		} else {
+			$(this).find('.share_icon img').css('display', 'none');
+		}
+	});
+});
+{/if}
+toast.hide();
+</script>
+<div style="display:none">
+</div>
+</div>
+</body>
+</html>

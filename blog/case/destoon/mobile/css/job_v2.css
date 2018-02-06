@@ -1,0 +1,21 @@
+.job-list-title { height:2.5rem; line-height:2.5rem; background:#FFF; margin-bottom:0.25rem;}
+.job-list-title .aui-col-xs-4 { text-align:center;}
+.job-list-title .aui-col-xs-4 a { color:#666;}
+.job-list-title .aui-col-xs-4 .dt-iconfont { font-size:0.9rem !important; margin-right:0.25rem; color:#666;}
+
+.dt-zhiwei-title { height:2rem; line-height:2rem; padding:0 0.5rem; font-size:0.9rem; color:#000;}
+.dt-zhiwei-list-title { height:2rem; line-height:2rem; font-size:0.7rem; color:#666;}
+.dt-zhiwei-list { padding:0 0.5rem;}
+.dt-zhiwei-list .aui-list-item { padding:0;}
+.dt-zhiwei-list .aui-list-item-inner { padding:0;}
+.dt-zhiwei-list .aui-col-xs-3 { text-align:center; font-size:0.7rem; padding:0.25rem 0.2rem;}
+.dt-zhiwei-list .aui-col-xs-3 a { color:#666;}
+.aui-list .aui-list-item:active { background-color: none !important;}
+.dt-zhiwei-list .aui-col-xs-3:active { background-color: none;}
+
+.dt-contact-job-list .aui-list-item-title { font-size:0.8rem;}
+.dt-contact-job-list .aui-list-item-title span { margin-left:0.5rem;}
+.dt-job-list-company { border-top: #CCC 1px dashed; height:1rem; line-height:1rem; margin:0; padding:0.25rem 0;}
+.dt-job-list-company .aui-list-item-title { font-size:0.6rem; color:#999;}
+
+.dt-media-job .aui-list-item-text .dt-label { margin-right:0.25rem; background:#FFF;}

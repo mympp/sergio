@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset={DT_CHARSET}"/>
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{if $city_sitename}{$city_sitename}{else}{$DT[sitename]}{/if}{/if}</title>
+{if $head_keywords}
+<meta name="keywords" content="{$head_keywords}"/>
+{/if}
+{if $head_description}
+<meta name="description" content="{$head_description}"/>
+{/if}
+{if $head_mobile}
+<meta http-equiv="mobile-agent" content="format=html5;url={$head_mobile}">
+{/if}
+<meta name="generator" content="DESTOON B2B - www.destoon.com"/>
+<link rel="shortcut icon" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+<link rel="bookmark" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+{if $head_canonical}
+<link rel="canonical" href="{$head_canonical}"/>
+{/if}
+{if $EXT[archiver_enable]}
+<link rel="archives" title="{$DT[sitename]}" href="{$EXT[archiver_url]}"/>
+{/if}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}style.css"/>
+{if $moduleid>4}<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$module}.css"/>{/if}
+{if $CSS}
+{loop $CSS $css}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$css}.css"/>
+{/loop}
+{/if}
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}ie6.css"/>
+<![endif]-->
+{if !DT_DEBUG}<script type="text/javascript">window.onerror=function(){return true;}</script>{/if}
+<script type="text/javascript" src="{DT_STATIC}lang/{DT_LANG}/lang.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/config.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/page.js"></script>
+{if $lazy}<script type="text/javascript" src="{DT_STATIC}file/script/jquery.lazyload.js"></script>{/if}
+{if $JS}
+{loop $JS $js}
+<script type="text/javascript" src="{DT_STATIC}file/script/{$js}.js"></script>
+{/loop}
+{/if}
+{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
+<script type="text/javascript">
+{if $head_mobile && $EXT[mobile_goto]}
+GoMobile('{$head_mobile}');
+{/if}
+var searchid = {$searchid};
+{if $itemid && $DT[anticopy]}
+document.oncontextmenu=function(e){return false;};
+document.onselectstart=function(e){return false;};
+{/if}
+</script>
+<!--[以上为系统关键代码，除非您明确其含义，否则请勿修改或删除，否则会导致系统错误]-->
+<!--[模板中所有带id的元素，请勿修改或删除，否则会导致部分JS代码无法运行]-->
+<!--[以上类似的注释，在编译模板时，系统会自动移除，不会显示在实际的页面中]-->
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}pub.css" />
+<script type="text/javascript" src="{DT_SKIN}js/sosuo.js"></script>
+</head>
+<body>
+<div class="Zfl_header_bar">
+	<div class="w">
+		<div class="Zfl_hbl" id="destoon_member"></div>
+		<ul class="topbar-bd-r">
+			{if $DT[city]}<li class="h_city">[<span id="destoon_city">{$city_name}</span>] <a href="{DT_PATH}api/city.php" title="点击切换城市" rel="nofollow">切换</a></li>{/if}
+			<li class="h_fav"><script type="text/javascript">addFav('收藏本页');</script></li>
+			{if $EXT[mobile_enable]}<li class="h_mobile"><a href="{$EXT[mobile_url]}mobile.php">手机版</a>&nbsp;</li>{/if}
+			{if $head_mobile}<li class="h_qrcode"><a href="javascript:Dqrcode();">二维码</a>&nbsp;</li>{/if}
+			{if isset($MODULE[16])}<li class="h_cart"><a href="{$MODULE[16][linkurl]}cart.php" rel="nofollow">购物车</a>(<span class="head_t" id="destoon_cart">0</span>)</li>{/if}
+		</ul>
+		
+	</div>
+</div>
+{if $head_mobile}<div id="destoon_qrcode" style="display:none;"></div>{/if}
+<div class="m"><div id="search_tips" style="display:none;"></div></div>
+<div class="Zfl_header">
+	<div class="Zfl_head_top w">
+		<div class="Zfl_head_logo" ><a href="{$MODULE[1][linkurl]}"><img src="{if $MODULE[$moduleid][logo]}{DT_SKIN}image/logo_{$moduleid}.gif{elseif $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" alt="{$DT[sitename]}"/></a>
+		<span>Destoon B2B网站管理系统是行业门户解决方案</span></div>
+		<div class="Zfl_head_search">
+		{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
+		{php $searchids = array(5,6,4);}
+		{if !in_array($searchid, $searchids)}
+			{php $searchids[] = $searchid;}
+		{/if}
+			<div class="Zfl_search_hot"  id="search_moduleli">
+			 {loop $searchids $s}
+				{if isset($MODULE[$s])}<a {if $searchid == $s}class="search_on"{/if} onclick="setModuleli({$s}, this);">{$MODULE[$s][name]}</a>{/if}
+			 {/loop} 
+			</div>
+			<form id="destoon_search" action="{DT_PATH}api/search.php" onsubmit="return Dsearch();">
+			<input type="hidden" name="moduleid" value="{$searchid}" id="destoon_moduleid">
+			<input type="hidden" name="spread" value="0" id="destoon_spread">
+
+			<input type="text"  name="kw" id="destoon_kw"  class="Zfl_search_inp" value="{if $kw}{$kw}{else}请输入关键词{/if}" onfocus="if(this.value=='请输入关键词') this.value='';"{if $DT[search_tips]} onkeyup="STip(this.value);" autocomplete="off"{/if} x-webkit-speech speech />
+			<input type="submit" name="button" value="" class="Zfl_search_btn" />
+			</form>
+			<div class="Zfl_search_hot">
+			<b>热门搜索：</b>
+			<!--{tag("moduleid=$searchid&table=keyword&condition=moduleid=$searchid and status=3&pagesize=10&order=total_search desc&template=list-search_kw")}-->
+			 </div>
+		</div>
+		<div class="Zfl_head_tel">
+			<img src="{DT_SKIN}img/head_tel.jpg" alt="000-000-0000">
+		</div>
+	</div>
+	<div class="Zfl_head_nav">
+		<div class="Zfl_navbox">
+			<div id="Zfl_navs">
+				
+				<div id="Zfl_navitem">
+				<li{if $moduleid<4} class="on"{/if}><a href="{$MODULE[1][linkurl]}"><span>首页</span></a></li>
+					{loop $MODULE $m}
+					{if $m[ismenu]}
+						<li {if $m[moduleid]==$moduleid} class="on"{/if}><a href="{$m[linkurl]}" {if $m[moduleid]==$moduleid} class="ones"{/if} {if $m[isblank]} target="_blank"{/if}>{$m[name]}</a></li>
+					{/if}
+					{/loop}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="m b10">&nbsp;</div>

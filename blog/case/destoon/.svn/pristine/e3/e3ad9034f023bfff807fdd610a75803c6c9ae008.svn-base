@@ -1,0 +1,24 @@
+<div class="r_mod">
+<div class="hd01"><h2><i class="photo_ico"></i>{$main_name[$HM]}</h2></div>
+<div class="bd">
+<!--{php $tags=tag("moduleid=12&condition=status>2 and username='$username'&pagesize=".$main_num[$HM]."&order=addtime desc&fields=itemid,title,linkurl,thumb,addtime,items,open&template=null");}-->
+<div class="photo_list">
+                    <ul class="clearfix">
+                    	{loop $tags $i $t}
+                    		<li>
+	                            <a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=photo&itemid='.$t['itemid'], $domain)}{/if}">
+	                                <div class="photo_img">
+	                                	<img src="{$t[thumb]}">
+	                                </div>
+	                                <div class="photo_des">
+	                                    <p class="p_til">{$t[title]}</p>
+	                                    <p class="p_num">{$t[items]}张图片</p>
+	                                </div>
+	                            </a>
+                        	</li>
+                    	{/loop}
+                    </ul>
+                </div>
+
+</div>
+</div>

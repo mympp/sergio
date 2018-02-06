@@ -1,0 +1,926 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+<title>欢迎使用DESTOON B2B网站管理系统</title>
+<meta http-equiv="mobile-agent" content="format=html5;url=http://www.destoonlocal.cn/mobile/">
+<meta name="generator" content="DESTOON B2B - www.destoon.com"/>
+<link rel="shortcut icon" type="image/x-icon" href="http://www.destoonlocal.cn/favicon.ico"/>
+<link rel="bookmark" type="image/x-icon" href="http://www.destoonlocal.cn/favicon.ico"/>
+<link rel="archives" title="DESTOON B2B网站管理系统" href="http://www.destoonlocal.cn/archiver/"/>
+<link rel="stylesheet" type="text/css" href="http://www.destoonlocal.cn/skin/30010/style.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.destoonlocal.cn/skin/30010/style1.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.destoonlocal.cn/skin/30010/malls.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.destoonlocal.cn/skin/30010/index.css"/>
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="http://www.destoonlocal.cn/skin/30010/ie6.css"/>
+<![endif]-->
+<script type="text/javascript">window.onerror=function(){return true;}</script><script type="text/javascript" src="http://www.destoonlocal.cn/lang/zh-cn/lang.js"></script>
+<script type="text/javascript" src="http://www.destoonlocal.cn/file/script/config.js"></script>
+<script type="text/javascript" src="http://www.destoonlocal.cn/file/script/jquery.js"></script>
+<script type="text/javascript" src="http://www.destoonlocal.cn/file/script/common.js"></script>
+<script type="text/javascript" src="http://www.destoonlocal.cn/file/script/page.js"></script>
+<script type="text/javascript" src="http://www.destoonlocal.cn/skin/30010/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript" src="http://www.destoonlocal.cn/skin/30010/page2.js"></script>
+<script type="text/javascript" src="http://www.destoonlocal.cn/skin/30010/platform.js"></script>
+<script type="text/javascript" src="http://www.destoonlocal.cn/file/script/jquery.lazyload.js"></script><script type="text/javascript">
+GoMobile('http://www.destoonlocal.cn/mobile/');
+var searchid = 5;
+</script>
+</head>
+<body>
+<div class="top">
+<div class="main" id="head">
+<div class="head_m">
+<div class="f_r" id="destoon_member"></div>
+<div class="head_l">
+<ul>
+<li class="h_fav"><script type="text/javascript">addFav('收藏本页');</script></li>
+<li class="h_mobile"><a href="http://www.destoonlocal.cn/mobile/mobile.php">手机版</a>&nbsp;</li><li class="h_qrcode"><a href="javascript:Dqrcode();">二维码</a>&nbsp;</li><li class="h_cart"><a href="http://www.destoonlocal.cn/mall/cart.php" rel="nofollow">购物车</a>(<span class="head_t" id="destoon_cart">0</span>)</li></ul>
+</div>
+</div>
+</div>
+</div>
+<div id="destoon_qrcode" style="display:none;"></div><div class="m head_s" id="destoon_space"></div>
+<script type="text/javascript">var searchid = 5;</script>
+<div class="m">
+<div class="logo f_l">
+<a href="http://www.destoonlocal.cn/">
+<img src="http://www.destoonlocal.cn/file/upload/201706/24/183911251.gif" alt="DESTOON B2B网站管理系统"/></a>
+</div>
+<div class="search fl">
+<form id="destoon_search" action="http://www.destoonlocal.cn/api/search.php" onsubmit="return Dsearch();">
+<input type="hidden" name="moduleid" value="5" id="destoon_moduleid"/>
+<input type="hidden" name="spread" value="0" id="destoon_spread"/>
+<div class="lm" id="search_moduleli" style="overflow:hidden;">
+<a class="cur" onclick="setModuleli(5, this);">
+供应</a><b>丨</b>
+<a onclick="setModuleli(16, this);">
+商城</a><b>丨</b>
+<a onclick="setModuleli(21, this);">
+资讯</a><b>丨</b>
+<a onclick="setModuleli(22, this);">
+招商</a><b>丨</b>
+</div>
+<div class="sear">
+<input type="text" value="请输入关键词" id="destoon_kw" class="inp" name="kw" maxlength="30" onfocus="if(this.value=='请输入关键词') this.value='';" onkeyup="STip(this.value);" autocomplete="off" x-webkit-speech speech/>
+<button type="submit" value=" " class="btn">搜&nbsp;索</button>
+</div>
+</form>
+</div>
+<div class="hot">
+<!--
+<a href="" onclick="Dsearch_top();return false;"><strong>标王</strong></a> 
+<a href="" onclick="Dsearch_adv();return false;"><strong>热搜：</strong></a>
+-->
+<span id="destoon_word">
+</span>
+</div>
+<div class="index_bz fr">
+<ul>
+<li><span class="index_bz_icon index_bz_icon1 fl"></span><span class="bz_txt fl">正品保障</span></li>
+<li><span class="index_bz_icon index_bz_icon2 fl"></span><span class="bz_txt fl">极速响应</span></li>
+<li><span class="index_bz_icon index_bz_icon3 fl"></span><span class="bz_txt fl">15天退换</span></li>
+</ul>
+</div>
+</div>
+<div class="top_nav">
+<div class="main">
+<div class="nav_sort">
+<h2>产业链分类</h2>
+<div class="all_sort sort_por_ab">
+<ul>
+<li>
+<div class="sort_lm1">
+</div>
+<div class="sort_lmr">
+<ul>
+<li>
+</li>
+</ul>
+<ul class="sort_ad">
+<div class="bran">
+</div>
+<div class="ad"><a class="pic_c" target="_blank"><img src="http://www.destoonlocal.cn/skin/30010/image/160615161843452.jpg"class="ad3" width="189" height="228" /></a></div>
+</ul>
+</div>
+</li>
+<li>
+<div class="sort_lm1">
+</div>
+<div class="sort_lmr">
+<ul>
+<li>
+</li>
+</ul>
+<ul class="sort_ad">
+<div class="bran">
+</div>
+<div class="ad"><a class="pic_c" target="_blank"><img src="http://www.destoonlocal.cn/skin/30010/image/160615161843452.jpg"class="ad3" width="189" height="228" /></a></div>
+</ul>
+</div>
+</li>
+<li>
+<div class="sort_lm1">
+</div>
+<div class="sort_lmr">
+<ul>
+<li>
+</li>
+</ul>
+<ul class="sort_ad">
+<div class="bran">
+</div>
+<div class="ad"><a class="pic_c" target="_blank"><img src="http://www.destoonlocal.cn/skin/30010/image/160615161843452.jpg"class="ad3" width="189" height="228" /></a></div>
+</ul>
+</div>
+</li>
+<li>
+<div class="sort_lm1">
+</div>
+<div class="sort_lmr">
+<ul>
+<li>
+</li>
+</ul>
+<ul class="sort_ad">
+<div class="bran">
+</div>
+<div class="ad"><a class="pic_c" target="_blank"><img src="http://www.destoonlocal.cn/skin/30010/image/160615161843452.jpg"class="ad3" width="189" height="228" /></a></div>
+</ul>
+</div>
+</li>
+<li>
+<div class="sort_lm1">
+</div>
+<div class="sort_lmr">
+<ul>
+<li>
+</li>
+</ul>
+<ul class="sort_ad">
+<div class="bran">
+</div>
+<div class="ad"><a class="pic_c" target="_blank"><img src="http://www.destoonlocal.cn/skin/30010/image/160615161843452.jpg"class="ad3" width="189" height="228" /></a></div>
+</ul>
+</div>
+</li>
+<li>
+<div class="sort_lm1">
+</div>
+<div class="sort_lmr">
+<ul>
+<li>
+</li>
+</ul>
+<ul class="sort_ad">
+<div class="bran">
+</div>
+<div class="ad"><a class="pic_c" target="_blank"><img src="http://www.destoonlocal.cn/skin/30010/image/160615161843452.jpg"class="ad3" width="189" height="228" /></a></div>
+</ul>
+</div>
+</li>
+<li>
+<div class="sort_lm1">
+</div>
+<div class="sort_lmr">
+<ul>
+<li>
+</li>
+</ul>
+<ul class="sort_ad">
+<div class="bran">
+</div>
+<div class="ad"><a class="pic_c" target="_blank"><img src="http://www.destoonlocal.cn/skin/30010/image/160615161843452.jpg"class="ad3" width="189" height="228" /></a></div>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<ul class="nav_r">
+<li  class="menuon"><a href="http://www.destoonlocal.cn/" class="cur">首页</a></li>
+<li ><a target="_blank" href="http://www.destoonlocal.cn/sell/" >供应</a></li>
+<li ><a target="_blank" href="http://www.destoonlocal.cn/buy/" >求购</a></li>
+<li ><a target="_blank" href="http://www.destoonlocal.cn/company/" >公司</a></li>
+<li ><a target="_blank" href="http://www.destoonlocal.cn/quote/" >行情</a></li>
+<li ><a target="_blank" href="http://www.destoonlocal.cn/exhibit/" >展会</a></li>
+<li ><a target="_blank" href="http://www.destoonlocal.cn/job/" >人才</a></li>
+</ul>
+<div class="nav_ad">
+<a target="_blank" href="http://www.destoonlocal.cn/member/register.php" rel="nofollow">
+<img src="http://www.destoonlocal.cn/skin/30010/image/sidebar.gif" /></a>
+</div>
+</div>
+</div>
+<div class="m b10">&nbsp;</div><div class="main">
+<div class="nav_d_c" style="margin-left: 200px;">
+<div id="slideBox" class="in_banner"></div>
+<div class="in_banner_r">
+</div>
+</div>
+<!--nav_d_r-->
+<div class="nav_d_r">
+<div class="in_login">
+<span class="pic">
+<a class="pic_c"><img src="http://www.destoonlocal.cn/skin/30010/image/defaultheadpic.jpg" /></a>
+</span>
+<h3>HI!&nbsp;请登录！</h3>
+<p>欢迎来到Destoon!</p>
+<p class="lo">
+<a href="http://www.destoonlocal.cn/member/login.php" rel="nofollow"><i class="icon log">登录</i>立即登录</a>
+<a href="http://www.destoonlocal.cn/member/register.php" rel="nofollow"><i class="icon reg">注册</i>免费注册</a>
+</p>
+</div>
+<div class="r_nav">
+<ul>
+<li><a href="http://www.destoonlocal.cn/member/my.php?mid=5&action=add">
+<i class="tb1">图标</i><p>发布采购</p></a>
+</li>
+<li><a href="http://www.destoonlocal.cn/member/my.php?mid=5&action=add">
+<i class="tb4">图标</i><p>发布求购</p></a>
+</li>
+<li><a href="http://www.destoonlocal.cn/brand/search.php/">
+<i class="tb7">图标</i><p>品牌搜索</p></a>
+</li>
+<li><a href="http://www.destoonlocal.cn/exhibit/">
+<i class="tb2">图标</i><p>最新展会</p></a>
+</li>
+<li><a href="http://www.destoonlocal.cn/member/register.php" rel="nofollow" rel="nofollow">
+<i class="tb5">图标</i><p>商家入驻</p></a>
+</li>
+<li><a href="http://www.destoonlocal.cn/member" rel="nofollow">
+<i class="tb8">图标</i><p>商家认证</p></a>
+</li>
+<li><a href="http://www.destoonlocal.cn/member/my.php?mid=16&action=add" rel="nofollow">
+<i class="tb3">图标</i><p>发布产品</p></a>
+</li>
+<li><a><i class="tb6">图标</i>
+<p class="c999">返利佣金</p></a>
+</li>
+</ul>
+</div>
+<div class="r_new">
+<div class="tab_list">
+<ul>
+<li class="on">规则</li>
+<li>活动</li>
+<li>公告</li>
+</ul>
+</div>
+<div class="tab_con">
+<div style="display:block;">
+<ul>
+</ul>
+</div>
+<div style="display:none;">
+<ul>
+</ul>
+</div>
+<div>
+<ul>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="clear_h20"></div>
+<div class="main">
+<div class="in_recent_news_l">
+<div class="tab_list">
+<ul>
+<li class="on">
+<h3>行业新闻</h3>
+<b>/</b>
+</li>
+<li>价格行情</li>
+</ul>
+</div>
+<div class="clear_h10"></div>
+<div class="in_recent_news_lad mr10">
+<img src="http://www.destoonlocal.cn/skin/30010/image/16110110124262.jpg"/>
+<img src="http://www.destoonlocal.cn/skin/30010/image/16110110124262.jpg"/>
+<img src="http://www.destoonlocal.cn/skin/30010/image/16110110124262.jpg"/>
+</div>
+<div class="tab_con">
+<div>
+<ul>
+</ul>
+</div>
+<div>
+<ul>
+</ul>
+</div>
+</div>
+</div>
+<div class="in_recent_news_c">
+<div class="in_recent_news_tit">
+<h3>采购/供应</h3>
+</div>
+<div class="con">
+<ul>
+<li>
+<h3 class="fl"><a target="_blank" href="http://www.destoonlocal.cn/buy/show.php?itemid=2" title="深圳收购库存服装，回收服装">
+<em >[采购]</em>深圳收购库存服装，回收服装</a>
+</h3>
+<span class="fr c999">07-01</span>
+</li>
+<li>
+<h3 class="fl"><a target="_blank" href="http://www.destoonlocal.cn/buy/show.php?itemid=1" title="高价收购库存服装.回收服装">
+<em >[采购]</em>高价收购库存服装.回收服装</a>
+</h3>
+<span class="fr c999">07-01</span>
+</li>
+<li>
+<h3 class="fl"><a target="_blank" href="http://www.destoonlocal.cn/buy/show.php?itemid=2" title="深圳收购库存服装，回收服装">
+<em class="on" >[供应]</em>深圳收购库存服装，回收服装</a>
+</h3>
+<span class="fr c999">07-01</span>
+</li>
+<li>
+<h3 class="fl"><a target="_blank" href="http://www.destoonlocal.cn/buy/show.php?itemid=1" title="高价收购库存服装.回收服装">
+<em class="on" >[供应]</em>高价收购库存服装.回收服装</a>
+</h3>
+<span class="fr c999">07-01</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="in_recent_news_r">
+<div class="in_recent_news_tit"><h3>最新入驻供应商</h3></div>
+<div class="con">
+<ul>
+<li>
+<img src="http://www.destoonlocal.cn/skin/30010/image/161101100816491.jpg" width="280" height="80"/>
+</li>
+</ul>
+</div>
+</div>
+<div class="clear_h10"></div>
+<div class="to_rec">
+<div class="tit"><img src="http://www.destoonlocal.cn/skin/30010/image/mall_tj.png" width="190" height="150"/></div>
+<div class="rec_list">
+<div class="rec_con">
+<ul>
+<li><img src="http://www.destoonlocal.cn/skin/30010/image/160616181836733.jpg" width="249" height="150"/></li>
+<li><img src="http://www.destoonlocal.cn/skin/30010/image/16061618182792.jpg" width="249" height="150"/></li>
+<li><img src="http://www.destoonlocal.cn/skin/30010/image/160616181857968.jpg" width="249" height="150"/></li>
+<li><img src="http://www.destoonlocal.cn/skin/30010/image/160616182206727.jpg" width="249" height="150"/></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="clear_h20"></div>
+<!--楼层-->
+<div class="in_tit bor_b2">
+<h3 class="fl">汽摩及配件<em></em></h3>
+<span class="fr tj">
+ </span>
+</div>
+<div class="in_f">
+<div class="in_f_l fl">
+<img class="imglazy" src="http://www.destoonlocal.cn/skin/30010/image/160616144605809.jpg_m.jpg"/>
+<div class="lm1"><i>遮罩</i>
+<span>
+<a title="供应各种样式规格密封三防布除尘风琴防护罩"  href="http://www.destoonlocal.cn/sell/show.php?itemid=1" target="_blank">供应各种样式规格密封三防布除尘风琴防护罩</a>
+</span>
+</div>
+<div class="lm2"><i>遮罩</i>
+<span>
+<a title="供应各种样式规格密封三防布除尘风琴防护罩"  href="http://www.destoonlocal.cn/sell/show.php?itemid=1" target="_blank">供应各种样式规格密封三防布除尘风琴防护罩</a>
+</span>
+</div>
+</div>
+<div class="in_f_c fl">
+<ul>
+<li class="pic">
+<div class="focus_pic">
+<div class="hd">
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</div>
+<div class="bd">
+<ul>
+</ul>
+</div>
+<a href="javascript:void(0)" class="prev">&lt;</a>
+<a href="javascript:void(0)" class="next">&gt;</a>
+</div>
+</li>
+</ul>
+</div>
+<div class="in_f_r fl">
+<div class="tit">
+<h3>热销排行</h3>
+</div>
+<div class="hot">
+<ul>
+</ul>
+</div>
+<div class="clear"></div>
+<div class="tit"><h3>新品推荐</h3></div>
+<div class="new">
+<ul>
+<li><a title="供应各种样式规格密封三防布除尘风琴防护罩" href="http://www.destoonlocal.cn/sell/show.php?itemid=1">供应各种样式规格密封三防布除尘风琴防护罩</a></li>
+</ul>
+</div>
+</div>
+<div class="in_f_d"><ul></ul></div>
+<div class="clear_h20"></div>
+</div>
+<div class="in_tit bor_b2">
+<h3 class="fl">包装<em></em></h3>
+<span class="fr tj">
+ </span>
+</div>
+<div class="in_f">
+<div class="in_f_l fl">
+<img class="imglazy" src="http://www.destoonlocal.cn/skin/30010/image/160616144706850.jpg_m.jpg" />
+<div class="lm1"><i>遮罩</i>
+<span>
+</span>
+</div>
+<div class="lm2"><i>遮罩</i>
+<span>
+</span>
+</div>
+</div>
+<div class="in_f_c fl">
+<ul>
+<li class="pic">
+<div class="focus_pic">
+<div class="hd">
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+<div class="bd">
+<ul>
+</ul>
+</div>
+<a href="javascript:void(0)" class="prev">&lt;</a>
+<a href="javascript:void(0)" class="next">&gt;</a>
+</div>
+</li>
+</ul>
+</div>
+<div class="in_f_r fl">
+<div class="tit"><h3>热销排行</h3></div>
+<div class="hot">
+<ul>
+</ul>
+</div>
+<div class="clear"></div>
+<div class="tit"><h3>新品推荐</h3></div>
+<div class="new">
+<ul>
+</ul>
+</div>
+</div>
+<div class="in_f_d"><ul></ul></div>
+<div class="clear_h20"></div>
+</div>
+<div class="in_tit bor_b2">
+<h3 class="fl">五金、工具<em></em></h3>
+<span class="fr tj">
+ </span>
+</div>
+<div class="in_f">
+<div class="in_f_l fl">
+<img class="imglazy" src="http://www.destoonlocal.cn/skin/30010/image/16061614474231.jpg_m.jpg" />
+<div class="lm1"><i>遮罩</i>
+<span>
+</span>
+</div>
+<div class="lm2"><i>遮罩</i>
+<span>
+</span>
+</div>
+</div>
+<div class="in_f_c fl">
+<ul>
+<li class="pic">
+<div class="focus_pic">
+<div class="hd">
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+<div class="bd">
+<ul>
+</ul>
+</div>
+<a href="javascript:void(0)" class="prev">&lt;</a>
+<a href="javascript:void(0)" class="next">&gt;</a>
+</div>
+</li>
+</ul>
+</div>
+<div class="in_f_r fl">
+<div class="tit"><h3>热销排行</h3></div>
+<div class="hot">
+<ul>
+</ul>
+</div>
+<div class="clear"></div>
+<div class="tit"><h3>新品推荐</h3></div>
+<div class="new">
+<ul>
+</ul>
+</div>
+</div>
+<div class="in_f_d"><ul></ul></div>
+<div class="clear_h20"></div>
+</div>
+<div class="in_tit bor_b2"><h3 class="fl">汽车用品<em></em></h3>
+<span class="fr tj">
+ </span>
+</div>
+<div class="in_f">
+<div class="in_f_l fl">
+<img class="imglazy" src="http://www.destoonlocal.cn/skin/30010/image/160616144816898.jpg_m.jpg" />
+<div class="lm1"><i>遮罩</i>
+<span>
+</span>
+</div>
+<div class="lm2"><i>遮罩</i>
+<span>
+</span>
+</div>
+</div>
+<div class="in_f_c fl">
+<ul>
+<li class="pic">
+<div class="focus_pic">
+<div class="hd">
+<ul>
+<li></li>
+</ul>
+</div>
+<div class="bd">
+<ul>
+</ul>
+</div>
+<a href="javascript:void(0)" class="prev">&lt;</a>
+<a href="javascript:void(0)" class="next">&gt;</a>
+</div>
+</li>
+</ul>
+</div>
+<div class="in_f_r fl">
+<div class="tit">
+<h3>热销排行</h3>
+</div>
+<div class="hot">
+<ul>
+</ul>
+</div>
+<div class="clear"></div>
+<div class="tit">
+<h3>新品推荐</h3>
+</div>
+<div class="new">
+<ul>
+</ul>
+</div>
+</div>
+<div class="in_f_d"><ul></ul></div>
+<div class="clear_h20"></div>
+</div>
+<div class="in_tit bor_b2"><h3 class="fl">机械及行业设备<em></em></h3>
+<span class="fr tj">
+ </span>
+</div>
+<div class="in_f">
+<div class="in_f_l fl">
+<img class="imglazy" src="http://www.destoonlocal.cn/skin/30010/image/160616144901933.jpg_m.jpg" />
+<div class="lm1"><i>遮罩</i>
+<span>
+</span>
+</div>
+<div class="lm2"><i>遮罩</i>
+<span>
+</span>
+</div>
+</div>
+<div class="in_f_c fl">
+<ul>
+<li class="pic">
+<div class="focus_pic">
+<div class="hd">
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+<div class="bd">
+<ul>
+</ul>
+</div>
+<a href="javascript:void(0)" class="prev">&lt;</a>
+<a href="javascript:void(0)" class="next">&gt;</a>
+</div>
+</li>
+</ul>
+</div>
+<div class="in_f_r fl">
+<div class="tit"><h3>热销排行</h3></div>
+<div class="hot">
+<ul>
+</ul>
+</div>
+<div class="clear"></div>
+<div class="tit"><h3>新品推荐</h3></div>
+<div class="new">
+<ul>
+</ul>
+</div>
+</div>
+<div class="in_f_d"><ul></ul></div>
+<div class="clear_h20"></div>
+</div>
+<div class="in_tit bor_b2">
+<h3 class="fl">机床<em></em></h3>
+<span class="fr tj">
+ </span>
+</div>
+<div class="in_f">
+<div class="in_f_l fl">
+<img class="imglazy" src="http://www.destoonlocal.cn/skin/30010/image/160616144940742.jpg_m.jpg" />
+<div class="lm1"><i>遮罩</i>
+<span>
+</span>
+</div>
+<div class="lm2"><i>遮罩</i>
+<span>
+</span>
+</div>
+</div>
+<div class="in_f_c fl">
+<ul>
+<li class="pic">
+<div class="focus_pic">
+<div class="hd">
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+<div class="bd">
+<ul>
+</ul>
+</div>
+<a href="javascript:void(0)" class="prev">&lt;</a>
+<a href="javascript:void(0)" class="next">&gt;</a>
+</div>
+</li>
+</ul>
+</div>
+<div class="in_f_r fl">
+<div class="tit"><h3>热销排行</h3></div>
+<div class="hot">
+<ul>
+</ul>
+</div>
+<div class="clear"></div>
+<div class="tit"><h3>新品推荐</h3></div>
+<div class="new">
+<ul>
+</ul>
+</div>
+</div>
+<div class="in_f_d"><ul></ul></div>
+<div class="clear_h20"></div>
+</div>
+<div class="in_tit bor_b2">
+<h3 class="fl">照明工业<em></em></h3>
+<span class="fr tj">
+ </span>
+</div>
+<div class="in_f">
+<div class="in_f_l fl">
+<img class="imglazy" src="http://www.destoonlocal.cn/skin/30010/image/160616145444274.jpg_m.jpg" />
+<div class="lm1"><i>遮罩</i>
+<span>
+</span>
+</div>
+<div class="lm2"><i>遮罩</i>
+<span>
+</span>
+</div>
+</div>
+<div class="in_f_c fl" 7>
+<ul>
+<li class="pic">
+<div class="focus_pic">
+<div class="hd">
+<ul>
+<li></li>
+<li></li>
+</ul>
+</div>
+<div class="bd">
+<ul>
+</ul>
+</div>
+<a href="javascript:void(0)" class="prev">&lt;</a>
+<a href="javascript:void(0)" class="next">&gt;</a>
+</div>
+</li>
+</ul>
+</div>
+<div class="in_f_r fl">
+<div class="tit"><h3>热销排行</h3></div>
+<div class="hot">
+<ul>
+</ul>
+</div>
+<div class="clear"></div>
+<div class="tit"><h3>新品推荐</h3></div>
+<div class="new">
+<ul>
+</ul>
+</div>
+</div>
+<div class="in_f_d"><ul></ul></div>
+<div class="clear_h20"></div>
+</div>
+<div class="in_ad"><img class="imglazy" src="http://www.destoonlocal.cn/skin/30010/image/16080217430053.png"/></div>
+<div class="clear_h20"></div>
+<!--资讯-->
+<div class="in_tit bor_b2">
+<h3 class="fl">资讯<em>行业权威信息，技术交流分享</em></h3>
+</div>
+<div class="clear_h20"></div>
+<div class="in_news">
+<div class="in_news_tab fl mr10">
+<div class="tab_list tab_click">
+<ul>
+<li class="on">展会</li>
+<!--<li>市场分析</li>-->
+</ul>
+</div>
+<div class="tab_con">
+<div>
+<ul>
+</ul>
+</div>
+<div>
+<ul>
+</ul>
+</div>
+</div>
+</div>
+<div class="in_news_tab fl mr10">
+<div class="tab_list tab_click">
+<ul>
+<li class="on">知识</li>
+<!--<li>政策法规</li>-->
+</ul>
+</div>
+<div class="tab_con">
+<div>
+<ul>
+</ul>
+</div>
+<div>
+<ul>
+</ul>
+</div>
+</div>
+</div>
+<div class="in_news_list fl">
+<div class="tit"><h3>企业专访</h3></div>
+<div class="con">
+<ul>
+</ul>
+</div>
+</div>
+</div>
+<div class="clear_h20"></div>
+<!--ad-->
+<div class="in_ad_m">
+<img class="imglazy w710 mr10" src="http://www.destoonlocal.cn/skin/30010/image/161020144511488.gif" title="-" alt="-" />
+<img class="imglazy w230 mr10" src="http://www.destoonlocal.cn/skin/30010/image/161107153009737.png" title="-" alt="-" />
+<img class="imglazy w230 " src="http://www.destoonlocal.cn/skin/30010/image/161020141844942.jpg"/>
+</div>
+<div class="clear"></div>
+</div>
+<script type="text/javascript" src="http://www.destoonlocal.cn/file/script/index.js"></script>
+<script type="text/javascript" src="http://www.destoonlocal.cn/file/script/marquee.js"></script>
+<script type="text/javascript">
+new dmarquee(22, 10, 3000, 'site_stats');
+new dmarquee(22, 30, 3000, 'company');
+if(get_cookie('auth')) {
+$('.iuser_l')[0].title = '商务中心';
+$('.iuser_l')[0].href = 'http://www.destoonlocal.cn/member/';
+$('.iuser_l')[0].className = 'iuser_u';
+$('.iuser_r')[0].title = '完善我的会员资料';
+$('.iuser_r')[0].href = 'http://www.destoonlocal.cn/member/edit.php';
+$('.iuser_r')[0].className = 'iuser_e';
+}
+</script>
+<div class="clear_h20"></div>
+<div class="foot_help">
+<div class="main">
+<ul>
+<li><h3>购物指南</h3>
+<p><a href="http://www.destoonlocal.cn/member/login.php">登录</a></p>
+<p><a href="http://www.destoonlocal.cn/member/register.php">注册</a></p>
+<p><a href="http://www.destoonlocal.cn/sell/search.php">产品查找</a></p>
+<p><a href="http://www.destoonlocal.cn/member/trade.php">订单查询</a></p>
+</li>
+<li><h3>会员中心</h3>
+<p><a href="http://www.destoonlocal.cn/member/trade.php">我的订单</a></p>
+<p><a href="http://www.destoonlocal.cn/member/credit.php">积分管理</a></p>
+<p><a href="http://www.destoonlocal.cn/member/my.php?mid=5&action=add">发布供应</a></p>
+<p><a href="http://www.destoonlocal.cn/member/my.php?mid=6&action=add">发布求购</a></p>
+</li>
+<li><h3>服务保障</h3>
+<p><a href="http://www.destoonlocal.cn/member/favorite.php?action=add">收藏商机</a></p>
+<p><a href="http://www.destoonlocal.cn/member/ask.php">客服中心</a></p>
+</li>
+<li><h3>商家服务</h3>
+<p><a href="http://www.destoonlocal.cn/member/my.php?mid=13&action=add">发布招商</a></p>
+<p><a href="http://www.destoonlocal.cn/member/friend.php">我的商友</a></p>
+<p><a href="http://www.destoonlocal.cn/member/ad.php">品牌推广</a></p>
+</li>
+<li class="foc"><h3>关注我们</h3>
+<div>
+<span><img src="http://www.destoonlocal.cn/skin/30010/image/erweima_pho.jpg" /><p>微信公众号</p></span>
+<span><img src="http://www.destoonlocal.cn/skin/30010/image/erweima_pho.jpg" /><p>平台移动版</p></span>
+</div>
+<p>
+<!--<a target="_blank" rel="nofollow" href="http://weibo.com/u/5782903017"><i class="sina">新浪</i></a>-->
+<!-- <a rel="nofollow" href='javascript:;'><i class="qwb">腾讯微博</i></a> -->
+</p>
+</li>
+<li class="tel"><h3>联系我们<em>（8:30-18:30）</em></h3>
+<p><b>020-37362495</b>（400电话）</p>
+<p><b>020-37362495</b>（企业QQ）</p>
+<span class="btn1 fl"><a class="callback">联系客服:020-37362495</a></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="foot">
+<div class="main">
+<div class="foot_nav">
+    <a href="http://www.destoonlocal.cn/">网站首页</a>
+    | <a href="http://www.destoonlocal.cn/about/index.html">关于我们</a> 
+| <a href="http://www.destoonlocal.cn/about/contact.html">联系方式</a> 
+| <a href="http://www.destoonlocal.cn/about/agreement.html">使用协议</a> 
+| <a href="http://www.destoonlocal.cn/about/copyright.html">版权隐私</a> 
+| <a href="http://www.destoonlocal.cn/sitemap/">网站地图</a>
+| <a href="http://www.destoonlocal.cn/spread/">排名推广</a>
+ | <a href="http://www.destoonlocal.cn/ad/">广告服务</a> | <a href="http://www.destoonlocal.cn/gift/">积分换礼</a> | <a href="http://www.destoonlocal.cn/guestbook/">网站留言</a> | <a href="http://www.destoonlocal.cn/feed/">RSS订阅</a>    <!-- <b>丨</b><a href='javascript:;'>九域移动版</a> -->
+</div>
+<div class="foot_fir">
+友情链接：
+</div>
+<div class="foot_about">(c)2008-2016 DESTOON B2B SYSTEM All Rights Reserved</div>
+<div class="foot_bz">
+<a><img alt="郑州市网络警察" src="http://www.destoonlocal.cn/skin/30010/image/160507094148761.png" /></a>
+<a><img alt="银联特约商户" src="http://www.destoonlocal.cn/skin/30010/image/f_icon_yl.jpg" /></a>
+<a><img alt="支付宝合作商家" src="http://www.destoonlocal.cn/skin/30010/image/160507094149111.png" /></a>
+<a><img alt="网络社会征信网" src="http://www.destoonlocal.cn/skin/30010/image/f_icon_zx.jpg" /></a>
+<a><img alt="中国互联网举报中心" src="http://www.destoonlocal.cn/skin/30010/image/160507094149406.png" /></a>
+<a><img alt="公共信息网络安全监察" src="http://www.destoonlocal.cn/skin/30010/image/f_icon_aqjc.jpg" /></a> 
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="tooltip store_tooltip">
+  <ul class="tool1">
+    <li class="">
+      <div class="tool_nav"><a href="http://wpa.qq.com/msgrd?v=3&uin=906172833&site=qq&menu=yes" target="_blank"><i class="store_tooltip_ser">图标</i></a></div>
+    </li>
+    <li>
+      <div class="tool_nav">
+<a href="http://www.destoonlocal.cn/member/message.php" rel="nofollow" target="_blank">
+<i class="store_tooltip_mes">消息提醒</i>
+      </a>
+  </div>
+    </li>
+    <li>
+      <div class="tool_nav"><a href="http://www.destoonlocal.cn/member/message.php?action=send" target="_blank">
+  <i class="store_tooltip_idea">意见反馈</i></a></div>
+    </li>
+    <li>
+      <div class="tool_nav back_top"><a href="javascript:void(0)"><i class="store_tooltip_top">返回顶部</i></a></div>
+    </li>
+  </ul>
+</div>
+<script type="text/javascript">$(function(){$(".focus_pic").slide({titCell:".hd ul",mainCell:".bd ul",effect:"leftLoop",autoPlay:true,vis:2,autoPage:true,trigger:"click",interTime:5000});$(".in_banner").slide({mainCell:".bd ul",autoPlay:true,interTime:5000,delayTime:500});var bd="";var guideIndex=0;if(bd=="y"){guideIndex=layer.open({type:1,title:false,closeBtn:0,content:$(".pop_guide"),area:"500px"})}$(".bdbtn").live("click",function(){layer.close(guideIndex)});var si;var myDate=new Date();var downad=getCookie("downad");setCookie("downad",myDate.toLocaleDateString(),30*24*60*60*1000);if(downad==null){$(window).load(function(){si=setTimeout("$('.delay-smallbox').slideDown(300)",7700);$(".delay-bigbox").delay(2000).slideDown(300);$(".delay-bigbox").delay(5000).slideUp(300);$(".delay-smallbox span").click(function(){$(this).parent().slideUp(300)})});$(".delay-bigbox span").live("click",function(){$(".delay-bigbox").stop();clearTimeout(si);$(this).parents(".delay-bigbox").slideUp(300);$(this).parents(".delay-bigbox").siblings(".delay-smallbox").slideDown(300)})}else{if(downad==myDate.toLocaleDateString()){$(".delay-smallbox").slideDown(300)}else{$(window).load(function(){si=setTimeout("$('.delay-smallbox').slideDown(300)",7700);$(".delay-bigbox").delay(2000).slideDown(300);$(".delay-bigbox").delay(5000).slideUp(300);$(".delay-smallbox span").click(function(){$(this).parent().slideUp(300)})});$(".delay-bigbox span").live("click",function(){$(".delay-bigbox").stop();clearTimeout(si);$(this).parents(".delay-bigbox").slideUp(300);$(this).parents(".delay-bigbox").siblings(".delay-smallbox").slideDown(300)})}}$(".delay-smallbox span").live("click",function(){$(".delay-smallbox").slideUp(300);setCookie("downad",myDate.toLocaleDateString(),0)})});</script>
+<!--<div class="back2top"><a href="javascript:void(0);" title="返回顶部">&nbsp;</a></div>-->
+<script type="text/javascript">
+show_task('moduleid=1&html=index');
+$(function(){$("img").lazyload();});</script>
+</body>
+</html>

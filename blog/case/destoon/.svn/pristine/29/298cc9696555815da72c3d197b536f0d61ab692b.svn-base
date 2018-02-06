@@ -1,0 +1,34 @@
+<!--底部开始-->
+<div class="footer" style="padding-top: 0px;">
+	<div class="info">
+		<div class="wrap clearfix">
+			<div class="fl">公司名称：{$COM[company]}</div>
+			<div class="fl add ml30">公司地址：{$COM[address]}</div>
+			<div class="fl ml30">联系电话：{$COM[telephone]}</div>
+			<div class="fl ml30"><a href="{$MODULE[2][linkurl]}" class="orange">商铺管理入口</a></div>
+		</div>
+	</div>
+	<div class="footer_nav">
+		
+		<a href="{$MODULE[1][linkurl]}">网站首页</a>
+	<!--{tag("table=webpage&condition=item=1&areaid=$cityid&order=listorder desc,itemid desc&template=list-webpage")}-->
+	| <a href="{$MODULE[1][linkurl]}sitemap/">网站地图</a>
+	| <a href="{$EXT[spread_url]}">排名推广</a>
+	{if $EXT[ad_enable]} | <a href="{$EXT[ad_url]}">广告服务</a>{/if}
+	{if $EXT[gift_enable]} | <a href="{$EXT[gift_url]}">积分换礼</a>{/if}
+	{if $EXT[guestbook_enable]} | <a href="{$EXT[guestbook_url]}">网站留言</a>{/if}
+	{if $EXT[feed_enable]} | <a href="{$EXT[feed_url]}">RSS订阅</a>{/if}
+
+	</div>
+	<div class="footer_copyright tc lh24">{$DT[copyright]}<br>{$DT[icpno]}</div>
+</div>
+<!--底部结束-->
+<script type="text/javascript">Dd('position').innerHTML = Dd('pos_show').innerHTML;</script>
+{if $album_js}<script type="text/javascript" src="{DT_STATIC}file/script/album.js"></script>{/if}
+{if $api_kf && $kf}
+{php include DT_ROOT.'/api/kf/'.$HOME['kf_type'].'/show.inc.php';}
+{/if}
+<script type="text/javascript" src="{$HSPATH}slide.js"></script>
+<script type="text/javascript" src="{$HSPATH}shop10.js"></script>
+</body>
+</html>

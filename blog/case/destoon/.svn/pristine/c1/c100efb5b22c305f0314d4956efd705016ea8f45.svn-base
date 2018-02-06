@@ -1,0 +1,21 @@
+<!--视频展示-->
+<div class="blk2_br spH">
+    <div class="ttl">
+        <h3>{$main_name[$HM]}</h3>
+        <span class="more"><a href="{userurl($username, 'file=video', $domain)}" rel="nofollow">查看更多 &gt;&gt;</a></span> 
+    </div>
+    <div class="cnt clearfix line">
+<!--{php $tags=tag("moduleid=14&condition=status>2 and username='$username'&pagesize=8&order=addtime desc&fields=itemid,title,linkurl,thumb,addtime,hits&template=null");}-->
+    <ul class="row clearfix list-img goods-list">
+	{loop $tags $i $t}
+        <li class="col-xs-6 col-sm-4 col-md-3"> 
+        <a target="_blank" href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=video&itemid='.$t['itemid'], $domain)}{/if}" class="img-thumbnail"> <img src="{$t[thumb]}" class="img-responsive"> </a>
+        <h4><a target="_blank" href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=video&itemid='.$t['itemid'], $domain)}{/if}" title="{$t[title]}">{$t[title]}</a></h4>
+        <p class="red"><strong>{$t[hits]}播放</strong><span style="float:right;">{timetodate($t[addtime], 3)}</span></p>
+		
+           </li>
+		{/loop}
+		 </ul>  
+	</div>
+</div>
+<!--视频展示/-->

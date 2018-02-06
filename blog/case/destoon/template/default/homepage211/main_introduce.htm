@@ -1,0 +1,32 @@
+
+<div class="clearfix merger_box border_box border_ddd">
+	<div class="w6 fl border_box">
+		<h4 class="titleBox overflow Themeborder">{$main_name[$HM]}
+			<a class="btnMore ThemefontH" title="查看详情"  href="{userurl($username, 'file=introduce', $domain)}">详情+</a>
+		</h4>
+        <div class="about_box">
+			<p class="mt10">{$COM[intro]}[<a href="{userurl($username, 'file=introduce', $domain)}" class="t">详细介绍</a>]</p>
+        </div>
+	</div>
+	<div class="w6 fl border_box">
+		<h4 class="titleBox overflow Themeborder">
+			联系我们
+			<a class="btnMore ThemefontH" title="查看详情"  href="{userurl($username, 'file=contact', $domain)}">详情+</a>
+		</h4>            
+		<div class="companymessages ovh mt10 color33 ml30">        
+			<p class="fw14">{$COM[company]}</p>
+			<p class="iconfont icon-user">联系人：{$COM[truename]} 
+			<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin={$COM[qq]}&site=qq&menu=yes">
+			<em title="在线咨询" class="call_qq cursor"></em></a>(QQ:{$COM[qq]})</p>
+			<p class="iconfont icon-dianhua">电话：{$COM[telephone]}</p>                
+			<p class="iconfont icon-shouji">手机：{$COM[mobile]}</p>                                                
+			<p class="iconfont icon-weizhi">地址：{$COM[address]}</p>
+			<!--<p class="hide_map">
+			<a class="Themefont ml20" href="javascript:;" onclick='mapToggle($(this))'>[查看地图]</a>
+			</p>
+			<div class="controls " id="showMap">
+				<div id="allmap" class="allmap"></div>
+			</div>--> 
+		</div>
+	</div>        
+</div>

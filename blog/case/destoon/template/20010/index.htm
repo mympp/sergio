@@ -1,0 +1,610 @@
+{php $CSS = array('index');}
+{template 'header1'}
+<div class="w-slider">
+    <div class="slider-wrap" id="b-slider">
+        <div class="bd">
+            <ul><li style="background:url('{DT_SKIN}image/14731434011052739.jpg') no-repeat center"></li></ul>
+        </div>
+    </div>
+    <div class="top3-wrap">
+        <a><img src="{DT_SKIN}image/147436307938875609.png" width="240" height="200"/></a>
+		<a><img src="{DT_SKIN}image/14737572599077533.png" width="240" height="200"/></a>
+	</div>
+</div><!-- 幻灯图片 -->
+<!-- 推荐/公告 -->
+<div class="w-main mt25 mb15">
+	<div class="hot-tabs j-hotTab">
+        <ul>
+	        <li class="on"><a href="" target="_blank">
+			<img src="{DT_SKIN}image/147426810531791163.jpg" width="455" height="165" /></a></li>
+			<li ><a href="" target="_blank">
+			<img src="{DT_SKIN}image/147427425669115905.jpg" width="455" height="165" /></a></li>
+			<li ><a href="" target="_blank">
+			<img src="{DT_SKIN}image/147427531187179300.jpg" width="455" height="165" /></a></li>
+			<li ><a href="" target="_blank">
+			<img src="{DT_SKIN}image/147427566645977600.jpg" width="455" height="165" /></a></li>
+			<li ><a href="" target="_blank">
+			<img src="{DT_SKIN}image/147427581544993504.jpg" width="455" height="165" /></a></li>
+		</ul>
+    </div>
+    <div class="wrap-notice">
+        <h2>商城公告</h2>
+        <ul>
+		<!--{php $tags=tag("table=announce&condition=(totime=0 or totime>$today_endtime-86400)&areaid=$cityid&pagesize=5&datetype=2&order=listorder desc,addtime desc&target=_blank&template=null")}-->
+		{loop $tags $i $t}
+        	<li><a {if $i<2} class="a-orange"{/if} href="{$t[linkurl]}" title="{$t[title]}" target="_blank">【公告】{$t[title]}</a></li>
+		{/loop}
+		</ul>
+    </div>
+</div>
+<!-- 推荐/公告 END -->
+<!-- 1F -->
+<div class="w-main mb15">
+	<div class="floor-hd clrhz">
+		{php $mid=16;}
+		{php $child=get_maincat(0,$mid,1);}
+		{loop $child $i $c}
+			{if $i<1}
+			<h2>{set_style($c[catname], $c[style])}</h2>
+			<h3>
+				{php $sub=get_maincat($c[catid],$mid,1);}
+				{loop $sub $j $t}
+					<a href="{$MODULE[$mid][linkurl]}{$t[linkurl]}" target="_blank">{set_style($t[catname], $t[style])}&nbsp;&nbsp;&nbsp;&nbsp;</a>
+				{/loop}
+			</h3>
+			{/if}
+		{/loop}
+    </div>
+    <div class="fl-catalogue">
+        <div class="act">
+			<a><img src="{DT_SKIN}image/146734380104878734.jpg" width="240" height="380" /></a>
+	    </div>
+        <div class="tags-bd">
+            <dl class="tags-list">
+                <dt>热销商品</dt>
+                <dd>
+				<!--{php $tags=tag("moduleid=16&condition=status=3 and level>0&order=hits desc&pagesize=5&template=null")}-->
+				{loop $tags $t}
+		           	<a class="a-greyish" href="{$t[linkurl]}" title="{$t[title]}" target="_blank">{$t[title]}</a>
+				{/loop}
+			    </dd>
+            </dl>
+            <dl class="tags-list">
+                <dt>精品推荐</dt>
+                <dd>
+				<!--{php $tags=tag("moduleid=16&condition=status=3 and level>0&order=hits desc&pagesize=5&template=null")}-->
+				{loop $tags $t}
+		           	<a class="a-greyish" href="{$t[linkurl]}" title="{$t[title]}" target="_blank">{$t[title]}</a>
+				{/loop}
+			   </dd>
+            </dl>
+        </div>
+    </div>
+    <div class="fl-toppro">
+        <div class="fl-slider" id="fl-slider1">
+            <div class="hd">
+                <ul>
+			        <li><span></span></li>
+			        <li><span></span></li>
+			        <li><span></span></li>
+			   </ul>
+            </div>
+            <div class="bd">
+                <ul>
+					<!--{php $tags=tag("moduleid=16&condition=status=3 and level=2&order=addtime desc&pagesize=3&template=null")}-->
+					{loop $tags $t}
+						<li><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" alt="{$t[alt]}" width="395" height="299" /></a></li>
+					{/loop}
+			    </ul>
+            </div>
+        </div>
+        <script type="text/javascript">jQuery("#fl-slider1").slide({mainCell:".bd ul",effect:"leftLoop",autoPlay:true});</script>
+        <ul class="fl-top3pro">
+			<!--{php $tags=tag("moduleid=16&condition=status=3 and thumb<>'' and level=1&order=addtime desc&pagesize=1&template=null")}-->
+			{loop $tags $i $t}
+			{if $i<1}
+				<li class="tp-left">
+					<div class="p-img-lm"><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" width="197" height="299" /></a></div>
+				</li>
+			{/if}
+			{/loop}
+			<!--{php $tags=tag("moduleid=16&condition=status=3 and thumb<>'' and level=1&order=addtime desc&pagesize=3&template=null")}-->
+			{loop $tags $i $t}
+			{if $i>0}
+				<li >
+					<div class="p-img-lm"><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" width="197" height="299" /></a></div>
+				</li>
+			{/if}
+			{/loop}
+		</ul>
+    </div>
+	<ul class="fl-prolist clrhz">
+		<!--{php $tags=tag("moduleid=16&condition=status=3 and level=3 and thumb<>''&order=hits desc&pagesize=5&template=null")}-->
+		{loop $tags $t}
+		<li>
+			<div class="p-img"><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" alt="{$t[alt]}" width="150" height="150" /></a></div>
+			<div class="p-name"><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank">{$t[title]}</a></div>
+			<div class="p-sale">访问量：{$t[hits]}</div>
+			<div class="p-price"><strong>¥{$t[price]}</strong></div>
+		</li>	   
+		{/loop}            
+	</ul>
+</div>
+<!-- 1F END -->
+<!-- 2F -->
+<div class="w-main mb15">
+	<div class="floor-hd">
+		{php $mid=16;}
+		{php $child=get_maincat(0,$mid,1);}
+		{loop $child $i $c}
+			{if $i<1}
+			<h2>{set_style($c[catname], $c[style])}</h2>
+			<h3>
+				{php $sub=get_maincat($c[catid],$mid,1);}
+				{loop $sub $j $t}
+					<a href="{$MODULE[$mid][linkurl]}{$t[linkurl]}" target="_blank">{set_style($t[catname], $t[style])}&nbsp;&nbsp;&nbsp;&nbsp;</a>
+				{/loop}
+			</h3>
+			{/if}
+		{/loop}
+    </div>
+	<div class="fl-catalogue">
+		<div class="act">
+			<a><img src="{DT_SKIN}image/146735624804911837.jpg" width="240" height="380" /></a>
+		</div>
+		<div class="tags-bd">
+			<dl class="tags-list">
+				<dt>热销商品</dt>
+                <dd>
+					<!--{php $tags=tag("moduleid=16&condition=status=3 and level>0&order=hits desc&pagesize=5&template=null")}-->
+					{loop $tags $t}
+						<a class="a-greyish" href="{$t[linkurl]}" title="{$t[title]}" target="_blank">{$t[title]}</a>
+					{/loop}
+				</dd>
+			</dl>
+            <dl class="tags-list">
+				<dt>精品推荐</dt>
+                <dd>
+					<!--{php $tags=tag("moduleid=16&condition=status=3 and level>0&order=hits desc&pagesize=5&template=null")}-->
+					{loop $tags $t}
+						<a class="a-greyish" href="{$t[linkurl]}" title="{$t[title]}" target="_blank">{$t[title]}</a>
+					{/loop}
+				</dd>
+			</dl>
+		</div>
+	</div>
+    <div class="fl-toppro">
+		<div class="fl-slider" id="fl-slider2">
+			<div class="hd">
+				<ul>
+					<li><span></span></li>
+					<li><span></span></li>
+					<li><span></span></li>
+				</ul>
+			</div>
+            <div class="bd">
+				<ul>
+					<!--{php $tags=tag("moduleid=16&condition=status=3 and level=2&order=addtime desc&pagesize=3&template=null")}-->
+					{loop $tags $t}
+						<li><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" alt="{$t[alt]}" width="395" height="299" /></a></li>
+					{/loop}
+				</ul>
+			</div>
+		</div>
+        <script type="text/javascript">jQuery("#fl-slider2").slide({mainCell:".bd ul",effect:"leftLoop",autoPlay:true});</script>
+        <ul class="fl-top3pro">
+			<!--{php $tags=tag("moduleid=16&condition=status=3 and thumb<>'' and level=1&order=addtime desc&pagesize=1&template=null")}-->
+			{loop $tags $i $t}
+			{if $i<1}
+				<li class="tp-left">
+					<div class="p-img-lm"><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" width="197" height="299" /></a></div>
+				</li>
+			{/if}
+			{/loop}
+			<!--{php $tags=tag("moduleid=16&condition=status=3 and thumb<>'' and level=1&order=addtime desc&pagesize=3&template=null")}-->
+			{loop $tags $i $t}
+			{if $i>0}
+				<li >
+					<div class="p-img-lm"><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" width="197" height="299" /></a></div>
+				</li>
+			{/if}
+			{/loop}
+		</ul>
+	</div>
+    <ul class="fl-prolist clrhz">
+		<!--{php $tags=tag("moduleid=16&condition=status=3 and level=3 and thumb<>''&order=hits desc&pagesize=5&template=null")}-->
+		{loop $tags $t}
+		<li>
+			<div class="p-img"><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" alt="{$t[alt]}" width="150" height="150" /></a></div>
+			<div class="p-name"><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank">{$t[title]}</a></div>
+			<div class="p-sale">访问量：{$t[hits]}</div>
+			<div class="p-price"><strong>¥{$t[price]}</strong></div>
+		</li>	   
+		{/loop}                
+	</ul>
+</div>
+<!-- 2F END -->
+<!-- 3F -->
+<div class="w-main mb15">
+	<div class="floor-hd">
+		{php $mid=16;}
+		{php $child=get_maincat(0,$mid,1);}
+		{loop $child $i $c}
+			{if $i<1}
+			<h2>{set_style($c[catname], $c[style])}</h2>
+			<h3>
+				{php $sub=get_maincat($c[catid],$mid,1);}
+				{loop $sub $j $t}
+					<a href="{$MODULE[$mid][linkurl]}{$t[linkurl]}" target="_blank">{set_style($t[catname], $t[style])}&nbsp;&nbsp;&nbsp;&nbsp;</a>
+				{/loop}
+			</h3>
+			{/if}
+		{/loop}
+	</div>
+    <div class="fl-catalogue">
+		<div class="act">
+	        <a><img src="{DT_SKIN}image/146735686220826628.jpg"  width="240" height="380" /></a>
+		</div>
+        <div class="tags-bd">
+            <dl class="tags-list">
+                <dt>热销商品</dt>
+                <dd>
+					<!--{php $tags=tag("moduleid=16&condition=status=3 and level>0&order=hits desc&pagesize=5&template=null")}-->
+					{loop $tags $t}
+						<a class="a-greyish" href="{$t[linkurl]}" title="{$t[title]}" target="_blank">{$t[title]}</a>
+					{/loop}
+				</dd>
+            </dl>
+            <dl class="tags-list">
+                <dt>精品推荐</dt>
+                <dd>
+					<!--{php $tags=tag("moduleid=16&condition=status=3 and level>0&order=hits desc&pagesize=5&template=null")}-->
+					{loop $tags $t}
+						<a class="a-greyish" href="{$t[linkurl]}" title="{$t[title]}" target="_blank">{$t[title]}</a>
+					{/loop}
+				</dd>
+            </dl>
+		</div>
+	</div>
+    <div class="fl-toppro">
+        <div class="fl-slider" id="fl-slider3">
+            <div class="hd">
+                <ul>
+			        <li><span></span></li>
+					<li><span></span></li>
+					<li><span></span></li>
+			    </ul>
+            </div>
+            <div class="bd">
+                <ul>
+					<!--{php $tags=tag("moduleid=16&condition=status=3 and level=2&order=addtime desc&pagesize=3&template=null")}-->
+					{loop $tags $t}
+						<li><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" alt="{$t[alt]}" width="395" height="299" /></a></li>
+					{/loop}
+				</ul>
+			</div>
+		</div>
+        <script type="text/javascript">jQuery("#fl-slider3").slide({mainCell:".bd ul",effect:"leftLoop",autoPlay:true});</script>
+        <ul class="fl-top3pro">
+			<!--{php $tags=tag("moduleid=16&condition=status=3 and thumb<>'' and level=1&order=addtime desc&pagesize=1&template=null")}-->
+			{loop $tags $i $t}
+			{if $i<1}
+				<li class="tp-left">
+					<div class="p-img-lm"><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" width="197" height="299" /></a></div>
+				</li>
+			{/if}
+			{/loop}
+			<!--{php $tags=tag("moduleid=16&condition=status=3 and thumb<>'' and level=1&order=addtime desc&pagesize=3&template=null")}-->
+			{loop $tags $i $t}
+			{if $i>0}
+				<li >
+					<div class="p-img-lm"><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" width="197" height="299" /></a></div>
+				</li>
+			{/if}
+			{/loop}
+		</ul>
+	</div>
+    <ul class="fl-prolist clrhz">
+		<!--{php $tags=tag("moduleid=16&condition=status=3 and level=3 and thumb<>''&order=hits desc&pagesize=5&template=null")}-->
+		{loop $tags $t}
+		<li>
+			<div class="p-img"><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" alt="{$t[alt]}" width="150" height="150" /></a></div>
+			<div class="p-name"><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank">{$t[title]}</a></div>
+			<div class="p-sale">访问量：{$t[hits]}</div>
+			<div class="p-price"><strong>¥{$t[price]}</strong></div>
+		</li>	   
+		{/loop}             
+	</ul>
+</div>
+<!-- 3F END -->
+<!-- 4F -->
+<div class="w-main mb15">
+	<div class="floor-hd">
+		{php $mid=16;}
+		{php $child=get_maincat(0,$mid,1);}
+		{loop $child $i $c}
+			{if $i<1}
+			<h2>{set_style($c[catname], $c[style])}</h2>
+			<h3>
+				{php $sub=get_maincat($c[catid],$mid,1);}
+				{loop $sub $j $t}
+					<a href="{$MODULE[$mid][linkurl]}{$t[linkurl]}" target="_blank">{set_style($t[catname], $t[style])}&nbsp;&nbsp;&nbsp;&nbsp;</a>
+				{/loop}
+			</h3>
+			{/if}
+		{/loop}
+	</div>
+    <div class="fl-catalogue">
+		<div class="act">
+			<a><img src="{DT_SKIN}image/146735810097965462.jpg" width="240" height="380" /></a>
+		</div>
+        <div class="tags-bd">
+            <dl class="tags-list">
+                <dt>热销商品</dt>
+                <dd>
+					<!--{php $tags=tag("moduleid=16&condition=status=3 and level>0&order=hits desc&pagesize=5&template=null")}-->
+					{loop $tags $t}
+						<a class="a-greyish" href="{$t[linkurl]}" title="{$t[title]}" target="_blank">{$t[title]}</a>
+					{/loop}
+				</dd>
+            </dl>
+            <dl class="tags-list">
+                <dt>精品推荐</dt>
+                <dd>
+					<!--{php $tags=tag("moduleid=16&condition=status=3 and level>0&order=hits desc&pagesize=5&template=null")}-->
+					{loop $tags $t}
+						<a class="a-greyish" href="{$t[linkurl]}" title="{$t[title]}" target="_blank">{$t[title]}</a>
+					{/loop}
+				</dd>
+            </dl>
+        </div>
+    </div>
+    <div class="fl-toppro">
+        <div class="fl-slider" id="fl-slider4">
+            <div class="hd">
+                <ul>
+			        <li><span></span></li>
+					<li><span></span></li>
+					<li><span></span></li>
+				</ul>
+            </div>
+            <div class="bd">
+                <ul>
+					<!--{php $tags=tag("moduleid=16&condition=status=3 and level=2&order=addtime desc&pagesize=3&template=null")}-->
+					{loop $tags $t}
+						<li><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" alt="{$t[alt]}" width="395" height="299" /></a></li>
+					{/loop}
+				</ul>
+            </div>
+        </div>
+        <script type="text/javascript">jQuery("#fl-slider4").slide({mainCell:".bd ul",effect:"leftLoop",autoPlay:true});</script>
+        <ul class="fl-top3pro">
+			<!--{php $tags=tag("moduleid=16&condition=status=3 and thumb<>'' and level=1&order=addtime desc&pagesize=1&template=null")}-->
+			{loop $tags $i $t}
+			{if $i<1}
+				<li class="tp-left">
+					<div class="p-img-lm"><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" width="197" height="299" /></a></div>
+				</li>
+			{/if}
+			{/loop}
+			<!--{php $tags=tag("moduleid=16&condition=status=3 and thumb<>'' and level=1&order=addtime desc&pagesize=3&template=null")}-->
+			{loop $tags $i $t}
+			{if $i>0}
+				<li >
+					<div class="p-img-lm"><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" width="197" height="299" /></a></div>
+				</li>
+			{/if}
+			{/loop}
+		</ul>
+	</div>
+    <ul class="fl-prolist clrhz">
+		<!--{php $tags=tag("moduleid=16&condition=status=3 and level=3 and thumb<>''&order=hits desc&pagesize=5&template=null")}-->
+		{loop $tags $t}
+		<li>
+			<div class="p-img"><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" alt="{$t[alt]}" width="150" height="150" /></a></div>
+			<div class="p-name"><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank">{$t[title]}</a></div>
+			<div class="p-sale">访问量：{$t[hits]}</div>
+			<div class="p-price"><strong>¥{$t[price]}</strong></div>
+		</li>	   
+		{/loop}      
+	</ul>
+</div>
+<!-- 4F END -->
+<!-- 5F -->
+<div class="w-main mb15">
+	<div class="floor-hd">
+		{php $mid=16;}
+		{php $child=get_maincat(0,$mid,1);}
+		{loop $child $i $c}
+			{if $i<1}
+			<h2>{set_style($c[catname], $c[style])}</h2>
+			<h3>
+				{php $sub=get_maincat($c[catid],$mid,1);}
+				{loop $sub $j $t}
+					<a href="{$MODULE[$mid][linkurl]}{$t[linkurl]}" target="_blank">{set_style($t[catname], $t[style])}&nbsp;&nbsp;&nbsp;&nbsp;</a>
+				{/loop}
+			</h3>
+			{/if}
+		{/loop}
+	</div>
+    <div class="fl-catalogue">
+		<div class="act">
+			<a><img src="{DT_SKIN}image/146735880325645616.jpg" alt="#" width="240" height="380" /></a>
+		</div>
+        <div class="tags-bd">
+            <dl class="tags-list">
+                <dt>热销商品</dt>
+                <dd>
+					<!--{php $tags=tag("moduleid=16&condition=status=3 and level>0&order=hits desc&pagesize=5&template=null")}-->
+					{loop $tags $t}
+						<a class="a-greyish" href="{$t[linkurl]}" title="{$t[title]}" target="_blank">{$t[title]}</a>
+					{/loop}
+				</dd>
+            </dl>
+            <dl class="tags-list">
+                <dt>精品推荐</dt>
+                <dd>
+					<!--{php $tags=tag("moduleid=16&condition=status=3 and level>0&order=hits desc&pagesize=5&template=null")}-->
+					{loop $tags $t}
+						<a class="a-greyish" href="{$t[linkurl]}" title="{$t[title]}" target="_blank">{$t[title]}</a>
+					{/loop}
+				</dd>
+            </dl>
+        </div>
+    </div>
+    <div class="fl-toppro">
+        <div class="fl-slider" id="fl-slider5">
+            <div class="hd">
+                <ul>
+			        <li><span></span></li>
+					<li><span></span></li>
+					<li><span></span></li>
+				</ul>
+            </div>
+            <div class="bd">
+                <ul>
+					<!--{php $tags=tag("moduleid=16&condition=status=3 and level=2&order=addtime desc&pagesize=3&template=null")}-->
+					{loop $tags $t}
+						<li><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" alt="{$t[alt]}" width="395" height="299" /></a></li>
+					{/loop}
+				</ul>
+            </div>
+        </div>
+        <script type="text/javascript">jQuery("#fl-slider5").slide({mainCell:".bd ul",effect:"leftLoop",autoPlay:true});</script>
+        <ul class="fl-top3pro">
+			<!--{php $tags=tag("moduleid=16&condition=status=3 and thumb<>'' and level=1&order=addtime desc&pagesize=1&template=null")}-->
+			{loop $tags $i $t}
+			{if $i<1}
+				<li class="tp-left">
+					<div class="p-img-lm"><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" width="197" height="299" /></a></div>
+				</li>
+			{/if}
+			{/loop}
+			<!--{php $tags=tag("moduleid=16&condition=status=3 and thumb<>'' and level=1&order=addtime desc&pagesize=3&template=null")}-->
+			{loop $tags $i $t}
+			{if $i>0}
+				<li >
+					<div class="p-img-lm"><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" width="197" height="299" /></a></div>
+				</li>
+			{/if}
+			{/loop}
+		</ul>
+    </div>
+    <ul class="fl-prolist clrhz">
+		<!--{php $tags=tag("moduleid=16&condition=status=3 and level=3 and thumb<>''&order=hits desc&pagesize=5&template=null")}-->
+		{loop $tags $t}
+		<li>
+			<div class="p-img"><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" alt="{$t[alt]}" width="150" height="150" /></a></div>
+			<div class="p-name"><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank">{$t[title]}</a></div>
+			<div class="p-sale">访问量：{$t[hits]}</div>
+			<div class="p-price"><strong>¥{$t[price]}</strong></div>
+		</li>	   
+		{/loop}          
+	</ul>
+</div>
+<!-- 5F END -->
+<!-- 专题资讯 -->
+<div class="w-main mb20">
+    <h2 class="panel-hd">商城社区</h2>
+	<div class="panel-bd clrhz">
+		<div class="wrap-special left">
+			<h3>专题推荐</h3>
+            <div class="special-slider" id="specialSlider">
+				<div class="hd">
+                    <ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+                </div>
+                <div class="bd">
+                    <ul>
+					<!--{php $tags=tag("moduleid=11&condition=status=3 and thumb<>''&order=addtime desc&pagesize=3&template=null")}-->
+					{loop $tags $t}
+                    	<li><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><img src="{$t[thumb]}" width="395" height="299" /></a></li>
+					{/loop}
+					</ul>
+                </div>
+            </div>
+            <script type="text/javascript">jQuery("#specialSlider").slide({mainCell:".bd ul",effect:"leftLoop",autoPlay:true});</script>
+        </div>
+        <div class="wrap-topinfo left">
+            <h3>热门精选</h3>
+            <div class="topinfo-slider" id="topinfoSlider">
+                <div class="hd">
+                    <ul>
+					<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&pagesize=3&order=edittime desc&template=null")}-->
+					{loop $tags $t}
+                    	<li><img src="{$t[thumb]}" alt="{$t[alt]}" width="50" height="50" /><i>◆</i></li>
+					{/loop}
+                   </ul>
+                </div>
+                <div class="bd">
+                    <ul>
+					<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&pagesize=3&order=edittime desc&template=null")}-->
+					{loop $tags $t}
+                    	<li>
+							<a href="{$t[linkurl]}" title="{$t[title]}" target="_blank">
+							<img src="{$t[thumb]}" alt="{$t[alt]}" width="395" height="299" />
+		                    </a>
+		                     <p><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></p>
+						</li>
+					{/loop}
+					</ul>
+                </div>
+            </div>
+            <script type="text/javascript">jQuery("#topinfoSlider").slide({mainCell:".bd ul",autoPlay:true,interTime:4500});</script>
+		</div>
+        <div class="wrap-indnews left">
+            <h3>美食菜谱</h3>
+            <div class="clrhz">
+			<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&pagesize=1&order=edittime desc&template=null")}-->
+			{loop $tags $t}
+                <div class="indnews-pic">
+                	<a href="{$t[linkurl]}" title="{$t[title]}" target="_blank">
+					<img src="{$t[thumb]}" alt="{$t[alt]}" width="164" height="120" /></a>
+					<p><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank">{$t[title]}</a></p>
+				</div>
+			{/loop}
+                <ul class="indnews-list">
+				<!--{php $tags=tag("moduleid=21&condition=status=3 and level<1&pagesize=5&order=addtime desc&template=null")}-->
+				{loop $tags $t}
+                	<li><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank">{$t[title]}</a></li>
+				{/loop}
+				</ul>
+            </div>
+            <h3>健康饮食</h3>
+			<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&pagesize=1&order=edittime desc&template=null")}-->
+			{loop $tags $t}
+            <div class="clrhz">
+                <div class="indnews-pic">
+                	<a href="{$t[linkurl]}" title="{$t[title]}" target="_blank">
+					<img src="{$t[thumb]}" alt="{$t[alt]}" width="164" height="120" /></a>
+		            <p><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank">{$t[title]}</a></p>
+				</div>
+			{/loop}
+                <ul class="indnews-list">
+				<!--{php $tags=tag("moduleid=21&condition=status=3 and level<1&pagesize=5&order=addtime desc&template=null")}-->
+				{loop $tags $t}
+                	<li><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank">{$t[title]}</a></li>
+				{/loop}
+				</ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="{DT_STATIC}file/script/index.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/marquee.js"></script>
+<script type="text/javascript">
+new dmarquee(22, 10, 3000, 'site_stats');
+new dmarquee(22, 30, 3000, 'company');
+if(get_cookie('auth')) {
+	$('.iuser_l')[0].title = '商务中心';
+	$('.iuser_l')[0].href = '{$MODULE[2][linkurl]}';
+	$('.iuser_l')[0].className = 'iuser_u';
+	$('.iuser_r')[0].title = '完善我的会员资料';
+	$('.iuser_r')[0].href = '{$MODULE[2][linkurl]}edit.php';
+	$('.iuser_r')[0].className = 'iuser_e';
+}
+</script>
+{template 'footer'}

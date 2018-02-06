@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset={DT_CHARSET}"/>
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{$COM[company]}{/if}</title>
+{if $head_keywords}<meta name="keywords" content="{$head_keywords}"/>{/if}
+{if $head_description}<meta name="description" content="{$head_description}"/>{/if}
+<meta name="generator" content="DESTOON B2B - www.destoon.com"/>
+<meta name="template" content="{$template}"/>
+{if $head_mobile}
+<meta http-equiv="mobile-agent" content="format=html5;url={$head_mobile}">
+{/if}
+{if $head_canonical}
+<link rel="canonical" href="{$head_canonical}"/>
+{/if}
+<link rel="stylesheet" type="text/css" href="{DT_STATIC}{$MODULE[4][moduledir]}/skin/common.css"/>
+<link rel="stylesheet" type="text/css" href="{$HSPATH}style.css"/>
+{if !DT_DEBUG}<script type="text/javascript">window.onerror= function(){return true;}</script>{/if}
+<script type="text/javascript" src="{DT_STATIC}lang/{DT_LANG}/lang.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/config.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/page.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/homepage.js"></script>
+{if $lazy}<script type="text/javascript" src="{DT_STATIC}file/script/jquery.lazyload.js"></script>{/if}
+<script type="text/javascript">
+{if $head_mobile && $EXT[mobile_goto]}
+GoMobile('{$head_mobile}');
+{/if}
+{if $itemid && $DT[anticopy]}
+document.oncontextmenu=function(e){return false;};
+document.onselectstart=function(e){return false;};
+{/if}
+</script>
+{if $css}<style type="text/css">{$css}</style>{/if}
+<link href="{$HSPATH}bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="{$HSPATH}docs.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="shopTop">
+    <div class="mbox">
+			<h1> <a href="{$MODULE[1][linkurl]}"><img width="138px" height="42px" src="{if $MODULE[$moduleid][logo]}{DT_SKIN}image/logo_{$moduleid}.gif{elseif $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" alt="{$DT[sitename]}"/></a>
+			</h1>
+        <h2> <a target="_blank" href="{$COM[linkurl]}"> 企业商铺 </a> </h2>          
+		 <p class="hidden-xs"> 
+						欢迎到{$COM[company]}！ 
+			   <script type="text/javascript">addFav('收藏本页');</script> | 
+			<a href="{$COM[linkurl]}" onclick="javascript:try{this.style.behavior='url(#default#homepage)';this.setHomePage(location.href);}catch(e){}return false;">设为主页</a> | 
+			<a href="{DT_PATH}api/shortcut.php?itemid={$userid}" rel="nofollow">保存桌面</a>
+			{if $EXT[mobile_enable]} | <a href="javascript:Go('{$EXT[mobile_url]}index.php?moduleid=4&username={$username}');">手机版</a>{/if}
+			{if $head_mobile} | <a href="javascript:Dqrcode();">二维码</a>{/if}
+		</p>
+    </div>
+</div>
+{if $head_mobile}<div id="destoon_qrcode" style="display:none;"></div>{/if}
+<div class="mbox">
+    <div class="row shopHead">
+        <div class="col-md-9">
+           {if $logo} <div class="shopLogo hidden-xs pull-left">
+			<a href="{$COM[linkurl]}"><img src="{$logo}" alt="{$COM[company]}" onload="if(this.width>300)this.width=300;"/></a>
+			</div>   
+			{/if}
+			<div class="shopName pull-left">
+                <h3><a href="{$COM[linkurl]}">{$COM[company]}</a></h3>
+                <p class="zt12">主营范围：{dsubstr($COM['business'], $logo ? 60 : 80, '...')}</p>      
+			</div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="vip {if $COM[vip]}vip3{else}vip1{/if} pull-right hidden-xs zt12">
+            <p>年限：第<strong> {$COM[year]} </strong>年</p>
+            <p>{if $COM[validated]}公司信息已核实{else}公司信息未核实{/if}</p></div>
+        </div>
+    </div>
+    
+    <div class="s_navbar clearfix">
+    <ul>
+		<li class="{if $file=='homepage'}on{/if}"><a href="{$COM[linkurl]}">网站首页</a></li>
+			{loop $MENU $k $v}
+				<li class="{if $file==$menu_file[$k]}on{/if}">
+					<a href="{$v[linkurl]}"><span>{$v[name]}</span></a>
+				</li>
+			{/loop}
+        </ul>
+    </div>
+    {if $bannert || $banner}
+    <div class="row visible-lg">
+    <div class="col-md-12">
+           {if $bannert == 2}
+<div id="slide_banner" style="width:1135px;height:250px;background:#FAFAFA;overflow:hidden;">
+<a href="###"><img src="{$banner1}" width="{$bannerw}" height="{$bannerh}" alt=""/></a>
+<a href="###"><img src="{$banner2}" width="{$bannerw}" height="{$bannerh}" alt=""/></a>
+{if $banner3}<a href="###"><img src="{$banner3}" width="{$bannerw}" height="{$bannerh}" alt=""/></a>{/if}
+{if $banner4}<a href="###"><img src="{$banner4}" width="{$bannerw}" height="{$bannerh}" alt=""/></a>{/if}
+{if $banner5}<a href="###"><img src="{$banner5}" width="{$bannerw}" height="{$bannerh}" alt=""/></a>{/if}
+</div>
+{load('slide.js')}
+<script type="text/javascript">new dslide('slide_banner');</script>
+{elseif $bannert == 1}
+<embed src="{$bannerf}" quality="high" loop="true" extendspage="http://get.adobe.com/flashplayer/" type="application/x-shockwave-flash" width="{$bannerw}" height="{$bannerh}" allowscriptaccess="never"></embed>
+{elseif $banner}
+<img src="{$banner}" width="100%"/>
+{/if}
+         </div>
+    </div>
+{/if}
+</div>
+<div class="mbox">
+	<div class="row spH">

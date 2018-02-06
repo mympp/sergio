@@ -1,0 +1,37 @@
+      <!-- 产品分类 -->
+       <div class="boxA mt15">
+	   
+        <h3 class="tit"><b class="titicon2"></b><a href="{userurl($username, 'file='.$_file, $domain)}">全部分类</a></h3>
+		<?php
+			isset($typeid) or $typeid = 0;
+			$_file = $file;
+			if($file == 'mall') {
+				$_item = 'mall-'.$userid;
+				$_name = '商品分类';
+			} else if($file == 'news') {
+				$_item = 'news-'.$userid;
+				$_name = '新闻分类';
+			} else {
+				$_item = 'product-'.$userid;
+				$_name = '产品分类';
+				$_file = 'sell';
+			}
+			$_TYPE = get_type($_item);
+			$_TP = $_TYPE ? sort_type($_TYPE) : array();
+		?>
+		{if $_TYPE}
+		 <div class="categorybox">
+		{loop $_TP[0] $v0}
+		 <h4 id="type_{$v0[typeid]}"><b></b><a href="{userurl($username, 'file='.$_file.'&typeid='.$v0['typeid'], $domain)}">{set_style($v0[typename], $v0[style])}</a></h4>
+			{if isset($_TP[1][$v0[typeid]])}
+			{loop $_TP[1][$v0[typeid]] $v1}
+			<div class="dis"  id="type_{$v1[typeid]}"><a href="{userurl($username, 'file='.$_file.'&typeid='.$v1['typeid'], $domain)}">{set_style($v1[typename], $v1[style])}</a></div> 
+			{/loop}
+			{/if}
+		{/loop}
+		{else}
+		<h4>暂无分类</h4>
+		{/if}
+		</div>
+       </div>
+      <!-- 产品分类 --> 

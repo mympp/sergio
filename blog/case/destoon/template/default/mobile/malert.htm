@@ -1,0 +1,224 @@
+{template 'header_member', 'mobile'}
+{template 'cssjs', 'mobile'}
+<style>
+.tb {background:#FFFFFF;width:100%;}
+.tl {background:#F7F7F7;width:115px;text-align:left; letter-spacing:1px;}
+.tr {background:#FFFFFF;}
+#area-select { max-width:80px !important;}
+#type { margin-left:15px;}
+.aui-content-padded {
+    margin-top: 15px;
+}
+.aui-content {
+    margin-bottom: 0px;
+}
+.aui-tab {
+    margin-bottom: 15px;
+}
+.aui-tab li.active { color:#FFF !important;}
+</style>
+
+<header class="aui-bar aui-bar-nav aui-bar-info" id="aui-header">
+        <a class="aui-btn aui-btn-info aui-pull-left" href="my.php?action=member">
+            <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+    <div class="aui-title">{$head_name}</div>
+    <a href="my.php" class="aui-pull-right">我的</a>
+    <a href="?action=add" class="aui-pull-right">添加</a>
+</header>
+<div class="aui-bar-fix"></div>
+<div class="aui-content">
+<div class="aui-tab" id="aui-tab">
+        <ul class="aui-tab-nav">
+            <li id="tabbaradd" {if $action=='add'}class="active"{/if}><a href="?action=add"><span>添加提醒</span></a></li>
+            <li id="tabbarindex"><a href="?action=index"><span>已通过</span><span class="aui-badge aui-badge-info">{$nums[3]}</span></a></li>
+            <li id="tabbar2" {if $status==2}class="active"{/if}><a href="?status=2"><span>审核中</span><span class="aui-badge aui-badge-info">{$nums[2]}</span></a></li>
+        </ul>
+</div>
+</div>
+
+{if $action=='add' || $action=='edit'}
+<form method="post" action="?" id="dform">
+<input type="hidden" name="action" value="{$action}"/>
+<input type="hidden" name="post[mid]" value="{$mid}"/>
+<input type="hidden" name="itemid" value="{$itemid}"/>
+<input type="hidden" name="forward" value="{$forward}"/>
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <span class="aui-input-addon">商机类型</span>
+                <input type="text" class="aui-input" value="{$MODULE[$mid][name]}" readonly="readonly"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">关键词</span>
+                <input type="text" name="post[word]" id="word" class="aui-input" value="{$word}" placeholder="关键词"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">行业分类</span>
+                {ajax_category_select('post[catid]', '请选择', $catid, $mid)}
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">所在地区</span>
+                {ajax_area_select('post[areaid]', '请选择', $areaid)}
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">发送频率</span>
+                <span><select name="post[rate]">
+<option value="0"{if $rate==0} selected{/if}>不限</option>
+<option value="1"{if $rate==1} selected{/if}>1天</option>
+<option value="3"{if $rate==3} selected{/if}>3天</option>
+<option value="7"{if $rate==7} selected{/if}>7天</option>
+<option value="15"{if $rate==15} selected{/if}>15天</option>
+<option value="30"{if $rate==30} selected{/if}>30天</option>
+</select></span>
+            </div>
+
+</div>
+<div class="aui-btn-row" style="background-color:#FFF;">
+ <input type="submit" name="submit" value=" 确 定 " class="aui-btn aui-btn-danger fz16"/>
+</div>
+
+</form>
+{load('clear.js')}
+
+<script type="text/javascript">tabbar('tabbar{$action}');</script>
+{elseif $action=='choose'}
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <span class="aui-input-addon">商机类型</span>
+              <span class="aui-input-radio" style=" padding-left:10px;">{loop $mids $v}
+<input type="radio" name="mid" value="{$v}" id="mid_{$v}" onclick="Go('?action=add&mid={$v}');"/><label for="mid_{$v}" onclick="Go('?action=add&mid={$v}');"> {$MODULE[$v][name]}</label>&nbsp;&nbsp;
+{/loop}</span>
+            </div>
+
+</div>
+
+<script type="text/javascript">tabbar('tabbar{$action}');</script>
+{else}
+{if $lists}
+	<style type="text/css">
+		.order {
+			background: #ffffff;
+		}
+		.order-info  {
+			font-size: 0.875em;
+			width: 100%;
+		}
+		.order-info span {
+			color: #333;
+			margin-right: 5px;
+		}
+		.order-info time {
+			color: #999999;
+			font-size: 0.75em;
+		}
+		.order-info i.aui-iconfont {
+			color: #999;
+			font-size: 0.875em;
+		}
+		.order-icon img {
+			width: 80%;
+			border-radius: 5px;
+		}
+		.order-title {
+			font-size: 1em;
+			color: #333;
+			padding-bottom: 10px;
+			margin-bottom: 10px;
+		}
+		.order-title > i.aui-iconfont {
+			font-size: 0.87em;
+			color: #999999;
+		}
+		p.goods-list {
+			font-size: 0.75em;
+			color: #999;
+			margin-bottom: 8px;
+		}
+		p.count-info {
+			font-size: 0.75em;
+			color: #999;
+			padding-bottom: 10px;
+		}
+		p.count-info span {
+			margin: 0 3px;
+		}
+		p.count-info strong {
+			color: #666;
+			font-size: 1em;
+			font-weight: 700;
+		}
+		.btn {
+			/*margin: 5px;*/
+		}
+		.btn .aui-btn {
+			font-size: 0.75em;
+		}
+		.btn .aui-btn:first-child {
+			margin-right: 10px;
+		}
+		.aui-border-b:after {
+			border-color: #ddd;
+		}
+	</style>
+
+<ul class="aui-list-view aui-in" id="sell_list">
+{loop $lists $t}
+	<section class="aui-content order">
+		<div class="aui-flex-col order-info aui-padded-10">
+			<div class="aui-flex-item-12">
+				<span>类别：<a href="{$MODULE[$t[mid]][linkurl]}">{$MODULE[$t[mid]][name]}</a></span>
+                <span>行业：{if $t[catid]}{$t[cate]}{else}不限{/if}</span>
+                <span>地区：{if $t[areaid]}<a href="{$MODULE[$t[mid]][linkurl]}search.php?areaid={$t[areaid]}" target="_blank">{area_pos($t[areaid], '-')}</a>{else}不限{/if}</span>
+			</div>
+		</div>
+		<div class="aui-flex-col">
+			<div class="aui-flex-item-10 aui-padded-0-10">
+				<p class="goods-list fz14">
+					关键词:<span class="aui-text-danger">{if $t[word]}<a href="{$MODULE[$t[mid]][linkurl]}search.php?kw={urlencode($t[word])}" class="t" target="_blank">{$t[word]}</a>{else}不限{/if}</span>&nbsp;&nbsp;<span style="font-size:12px;">{timetodate($t[addtime], 5)}</span>
+				</p>
+                <p class="goods-list fz14">
+					最后发送：{if $t[sendtime]}{timetodate($t[sendtime], 5)}
+{else}从未{/if}
+				</p>
+				<p class="aui-text-left aui-border-b count-info aui-ellipsis-1">
+                频率:{if $v[rate]}{$v[rate]}天{else}不限{/if}
+<span style=" float:right; position:relative; top:3px;">
+<a href="?action=edit&itemid={$v[itemid]}" class="t">[修改]</a>&nbsp;
+<a href="?action=delete&itemid={$v[itemid]}" onclick="return confirm('确定要删除吗？此操作将不可撤销');" class="t">[删除]</a>&nbsp;
+</span>
+				</p>
+			</div>
+		</div>
+		<div class="aui-flex-col aui-padded-5 btn">
+			<div class="aui-flex-item-12 aui-text-right">
+			</div>
+		</div>
+	</section>
+
+{/loop}
+</ul>
+
+{if $MG[alert_limit]}
+<div class="aui-content aui-bg-white">
+  <div class="aui-ellipsis-2" style="padding:10px; font-size:12px">
+<div class="limit">总共可添加 <span class="f_b f_red">{$MG[alert_limit]}</span> 条&nbsp;&nbsp;&nbsp;当前已添加 <span class="f_b">{$limit_used}</span> 条&nbsp;&nbsp;&nbsp;还可以添加 <span class="f_b f_blue">{$limit_free}</span> 条</div>
+</div>
+</div>
+{/if}
+
+{if $pages}<div class="pages aui-text-center">{$pages}</div>{/if}
+{else}
+<ul class="aui-list-view">
+<li class="aui-list-view-cell aui-img">
+                <div class="aui-img-body aui-pull-left">
+                    <p class="aui-ellipsis-1">暂无信息</p>
+                </div>
+</li>
+</ul>
+
+{/if}
+</div>
+<script type="text/javascript">tabbar('tabbar{$action}');</script>
+<script type="text/javascript" src="script/addpan.js" charset="utf-8"></script>
+{/if}
+{template 'footer_member', 'mobile'}

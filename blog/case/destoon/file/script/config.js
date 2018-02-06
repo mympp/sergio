@@ -1,0 +1,1 @@
+var DTPath = "http://wx.destoon.cn/";var SKPath = "http://wx.destoon.cn/skin/30010/";var MEPath = "http://wx.destoon.cn/member/";var DTEditor = "fckeditor";var CKDomain = "";var CKPath = "/";var CKPrex = "ce6_";

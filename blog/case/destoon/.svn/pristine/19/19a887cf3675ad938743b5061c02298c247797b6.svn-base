@@ -1,0 +1,103 @@
+#box{
+    text-align:center;
+    position: relative;
+}
+#box img{
+    width:100%;
+}
+a{
+    display: inline-block;
+    width: 92%;
+    height: 5.2%;
+    position: absolute;
+    top:15.9%;
+    left:4%;
+
+}
+a:hover{
+    -webkit-tap-highlight-color: rgba(255,0,0,0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+
+#url2{
+    top:21.9%;
+    left:4%;
+}
+#url3{
+    width: 46%;
+    height: 7.9%;
+    top:28%;
+    left:51%;
+}
+
+#url4{
+    width: 46%;
+    height: 7.9%;
+    top:28%;
+    left:3%;
+}
+#url5{
+    top:36.5%;
+    left:4%;
+}
+#url6{
+    top:42.5%;
+    left:4%;
+}
+#url7{
+    width: 46%;
+    height: 8%;
+    top:48.5%;
+    left:51%;
+}
+#url8{
+    width: 46%;
+    height:8%;
+    top:48.5%;
+    left:3%;
+}
+#url9{
+    height: 5.6%;
+    top:57.1%;
+    left:4%;
+}
+#url10{
+    height: 4.8%;
+    top:63.2%;
+    left:4%;
+}
+#url11{
+    width: 46%;
+    height:7.3%;
+    top:68.5%;
+    left:51%;
+}
+#url12{
+    width: 46%;
+    height:7.3%;
+    top:68.5%;
+    left:3%;
+}
+#url13{
+    height: 5.5%;
+    top:78.7%;
+    left:4%;
+}
+#url14{
+    height: 5.5%;
+    top:84.7%;
+    left:4%;
+}
+#url15{
+    width: 46%;
+    height:7.3%;
+    top:91%;
+    left:3%;
+}
+#url16{
+    width: 46%;
+    height:7.3%;
+    top:91%;
+    left:50%;
+}

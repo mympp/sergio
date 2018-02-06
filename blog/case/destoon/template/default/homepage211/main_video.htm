@@ -1,0 +1,22 @@
+<div class="product" >
+	<div class="articleLabelBox">
+		<div class="tpl_title">
+			<p class="">{$main_name[$HM]}</p>
+		</div>
+		<ul class="clearfix">
+		<!--{php $tags=tag("moduleid=14&condition=status>2 and username='$username'&pagesize=".$main_num[$HM]."&order=addtime desc&fields=itemid,title,linkurl,thumb,addtime,hits&template=null");}-->
+		{loop $tags $i $t}
+			<li class="border_box border_ddd fl">
+				<a title="{$t[title]}" href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=video&itemid='.$t['itemid'], $domain)}{/if}">
+					<img alt="{$t[title]}" title="{$t[title]}" src="{$t[thumb]}" />
+				</a>
+				<p class="overflow Themefont">{$t[title]}</p>
+				<p>{$t[hits]}播放</p>
+				<p>{timetodate($t[addtime], 3)}</p>
+			</li>
+		{/loop}
+		</ul> 
+        <a title="查看更多" href="{userurl($username, 'file=video', $domain)}" target="_blank" class="F36fontH F36borderH more border_ddd">更多</a>
+	</div>
+</div>
+

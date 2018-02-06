@@ -1,0 +1,85 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+<style>
+.aui-list a:link { color:#000;}
+</style>
+<header class="aui-bar aui-bar-nav" id="aui-header">
+        <a class="aui-pull-left aui-btn" href="javascript:history.go(-1);">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+        <div class="aui-title">更多</div>
+</header>
+<div class="aui-bar-fix"></div>
+
+{if $DT[city]}
+<div class="aui-content aui-margin-b-15">
+    <ul class="aui-list aui-list-in dt-border-t-none">
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title"><a href="city.php">切换分站</a></div>
+                <div class="aui-list-item-right">{$city_name}</div>
+            </div>
+        </li>
+</ul>
+</div>        
+{/if}
+
+<div class="aui-content aui-margin-b-15">
+    <ul class="aui-list aui-list-in {if !$DT[city]}dt-border-t-none{/if}">
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title"><a href="about.php" class="my-link">关于网站</a></div>
+                <div class="aui-list-item-right"></div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title"><a href="announce.php">最新公告</a></div>
+                <div class="aui-list-item-right"></div>
+            </div>
+        </li>
+        {if $DT[telephone]}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title"><a href="tel:{$DT[telephone]}">客服电话</a></div>
+                <div class="aui-list-item-right"></div>
+            </div>
+        </li>
+        {/if}
+</ul>
+</div>
+
+<div class="aui-content aui-margin-b-15">
+    <ul class="aui-list aui-list-in">
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title"><a href="guestbook.php">意见反馈</a></div>
+                <div class="aui-list-item-right"></div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title"><a href="tips.php">技巧提示</a></div>
+                <div class="aui-list-item-right"></div>
+            </div>
+        </li>
+        {if !in_array($DT_MOB[browser], array('app', 'b2b', 'screen'))}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title"><a href="mobile.php?action=pc" rel="external">电脑版</a></div>
+                <div class="aui-list-item-right"></div>
+            </div>
+        </li>
+        {/if}
+        {if $app}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title"><a href="{$app}" rel="external">安装APP</a></div>
+                <div class="aui-list-item-right"></div>
+            </div>
+        </li>
+        {/if}
+</ul>
+</div>
+
+{template 'footer_v2', 'mobile'}

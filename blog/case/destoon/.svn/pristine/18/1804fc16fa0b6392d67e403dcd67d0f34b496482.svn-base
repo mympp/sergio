@@ -1,0 +1,273 @@
+{php $CSS = array('index');}
+{template 'header'}
+<div id="ipad_tips" style="display:none;"></div>
+<div class="m">
+	<div class="wrap">
+		<div class="imain">
+			<div class="ileft">
+				<div class="top-scdt clearfix">
+					<div class="ld"><span class="my-year">{date('Y', $DT_TIME)}</span><span class="my_month">{date('m', $DT_TIME)}</span><span class="my_day">{date('d', $DT_TIME)}</span></div>
+					<div class="rd">产品总数<em>{php echo $db->count($DT_PRE.'sell_5', 'status=3', 1800);}</em>件<br>
+						在线会员<em>{php echo $db->count($DT_PRE.'online', '1', 1800);}</em>个
+					</div>
+				</div>
+				<div id="side-nav">
+					<ul class="hover-li">
+						<li class="c-yl"><div class="inner"><a href="#"><span>行情比价，支持农食</span><s></s><strong class="s2">原材料市场</strong></a></div></li>
+						<li class="c-jiagong"><div class="inner"><a href="#"><span>按需生产、个性定制</span><s></s><strong class="s2">加工基地</strong></a></div></li>
+						<li class="c-jidian"><div class="inner"><a href="#"><span>机械设备、电工电子</span><s></s><strong class="s2">机电大全</strong></a></div></li>
+						<li class="c-mro"><div class="inner"><a href="#"><span>MRO物料在线采购</span><s></s><strong class="s2">工业品超市</strong></a></div></li>
+						<li class="c-fuzhuang"><div class="inner"><a href="#"><span>屌丝女们的最爱</span><s></s><strong class="s2">服装服饰批发</strong></a></div></li>
+						<li class="c-shangpin"><div class="inner"><a href="#"><span>2元店爆款热销基地</span><s></s><strong class="s2">小商品批发</strong></a></div></li>
+						<li class="c-jiaju"><div class="inner"><a href="#"><span>岁末好货集结</span><s></s><strong class="s2">家居百货批发</strong></a></div></li>
+						<li class="c-daili"><div class="inner"><a href="#"><span>免费代理专场</span><s></s><strong class="s2">代理加盟</strong></a></div></li>
+						<li class="c-pifa"><div class="inner"><a href="#"><span>一手出厂价</span><s></s><strong class="s2">大额批发中心</strong></a></div></li>
+						<li class="c-caigou last-row"><div class="inner"><a href="{DT_PATH}buy"><span>发询价单，快速得报价</span><s></s><strong class="s2">求购</strong></a></div></li>
+					</ul>
+				</div>
+			</div>
+			<div class="imid">
+				<div>{ad(14)}</div><!--506*200-->
+				<div class="mod-provide">
+					<div class="provide-btn"><span class="prev">上</span><span class="next">下</span></div>
+					<div class="provide-con f_l">
+						<div id="sellN" class="clearfix dl">
+							<div class="ld" title="点击切换">最新供应</div>
+							<div class="rd">
+						<!--{tag("moduleid=5&condition=status=3&areaid=$cityid&pagesize=".$DT['page_trade']."&datetype=2&target=_blank&order=addtime desc")}-->
+							</div>
+						</div>
+						<div id="buyN" class="clearfix dl">
+							<div class="ld" title="点击切换">最新求购</div>
+							<div class="rd">
+						<!--{tag("moduleid=6&condition=status=3&areaid=$cityid&pagesize=".$DT['page_trade']."&datetype=2&target=_blank&order=addtime desc")}-->
+							</div>
+						</div>
+					</div>
+					<span class="tips-right"></span>         
+				</div>
+				<div class="focus-img mt5">
+					<ul class="clearfix">
+						<li><a class="a-img" href="#" target="_blank"><img src="{DT_SKIN}image/adcat1.jpg" width="90" height="120" alt=""></a></li>
+						<li><a class="a-img" href="#" target="_blank"><img src="{DT_SKIN}image/adcat2.jpg" width="90" height="120" alt=""></a></li>
+						<li><a class="a-img" href="#" target="_blank"><img src="{DT_SKIN}image/adcat3.jpg" width="90" height="120" alt=""></a></li>
+						<li><a class="a-img" href="#" target="_blank"><img src="{DT_SKIN}image/adcat4.jpg" width="90" height="120" alt=""></a></li>
+						<li><a class="a-img" href="#" target="_blank"><img src="{DT_SKIN}image/adcat5.jpg" width="90" height="120" alt=""></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="iright">
+
+			<div class="login-beforeogin">
+				<div class="login-box">
+					<div id="mls-member" class="login-wrap">
+						{php $uinfo = userinfo($_username);}
+						<span class="user"><img class="user-avatar" width="50" height="50" alt="头像" src="{if $uinfo[avatar]}{useravatar($_username, 'large')}{else}{DT_SKIN}image/user.png{/if}"></span>
+						<div class="clearfix">
+							<a class="login-btn" title="马上登录，享受会员专属服务" href="{$MODULE[2][linkurl]}{$DT[file_login]}" rel="nofollow">登录</a>
+							<a class="reg-btn" title="马上注册，发信息、做推广、交商友、看行情" href="{$MODULE[2][linkurl]}{$DT[file_register]}" rel="nofollow">免费注册</a>
+						</div>
+					</div>
+					<div class="user-do">
+						<ul class="clearfix">
+							<li class="nbg"><a rel="nofollow" title="免费建站" target="_blank" class="a1" href="{$MODULE[2][linkurl]}{$DT[file_register]}home.php">免费建站</a></li>
+							<li><a rel="nofollow" title="商机推广" target="_blank" class="a2" href="{$EXT[spread_url]}">商机推广</a></li>
+							<li><a title="商人社区" target="_blank" class="a3" href="#">商人社区</a></li>
+						</ul>
+					</div>
+				</div>    
+			</div>
+			<div id="tab01" class="intro">
+				<div class="tab_head_d">
+				<ul>
+					<li class="tabd_2" id="ann_t_1" onmouseover="Tb(1, 2, 'ann', 'tabd');"><a href="{$MODULE[6][linkurl]}">买家指南</a></li>
+					<li class="tabd_1" id="ann_t_2" onmouseover="Tb(2, 2, 'ann', 'tabd');" style="border-left: #DDDDDD 1px solid;"><a href="{$MODULE[5][linkurl]}">卖家入门</a></li>
+				</ul>
+				</div>
+				<div class="box_body_2 li_dot">
+					<div class="box_body_2_d">
+						<div id="ann_c_1" style="display:">
+						<!--{tag("table=announce&condition=totime=0 or totime>$today_endtime-86400&areaid=$cityid&pagesize=4&datetype=2&order=listorder desc,addtime desc&target=_blank")}-->
+						</div>
+						<div id="ann_c_2" style="display:none">
+						<!--{tag("table=announce&condition=totime=0 or totime>$today_endtime-86400&areaid=$cityid&pagesize=4&datetype=2&order=listorder desc,addtime desc&target=_blank")}-->
+						</div>
+						<div class="b5"></div>
+					</div>
+				</div>
+			</div>
+			<div class="user-notice">
+				<div class="security">
+					<div><h3 class="f_b">【公告】</h3></div>
+					<div class="li_dot">
+						<!--{tag("table=announce&condition=totime=0 or totime>$today_endtime-86400&areaid=$cityid&pagesize=3&datetype=2&order=listorder desc,addtime desc&target=_blank")}-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="m b10">&nbsp;</div>
+<div class="m"><img src="#" width="980" height="90" alt=""></div>
+<div class="m b10">&nbsp;</div>
+<div class="m">
+	<div class="catalog-wrap">
+		{php $mid = 5;}
+		{php $ads = array('51','52','53');}
+		{template 'catalog_2', 'chip'}
+	</div>
+</div>
+<div class="m"><img src="#" width="980" height="90" alt=""></div>
+<div class="m b10">&nbsp;</div>
+<div class="m">
+	<div class="complex layout">
+		<div class="complex-hd header">
+			<h3 class="title2"><span class="ms-yh">综合资讯</span></h3>
+			<div class="complex-nav f_r">
+				<ul class="clearfix">
+					<li class="nbg"><a rel="nofollow" href="">品牌</a></li>
+                    <li><a href="{$MODULE[21][linkurl]}">资讯</a></li>
+					<li><a href="{$MODULE[7][linkurl]}">行情</a></li>
+					<li><a href="{$MODULE[5][linkurl]}">产品</a></li>
+					<li><a href="{$MODULE[22][linkurl]}">招商</a></li>
+                    <li><a href="{$MODULE[6][linkurl]}">求购</a></li>
+					<li><a href="{$MODULE[4][linkurl]}">公司</a></li>
+					<li><a href="{$MODULE[11][linkurl]}">专题</a></li>
+					<li><a href="{$MODULE[8][linkurl]}">展会</a></li>
+					<li><a href="{$MODULE[10][linkurl]}">知道</a></li>
+					<li><a href="{$MODULE[12][linkurl]}">图库</a></li>
+					<li><a href="{$MODULE[14][linkurl]}">视频</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="imain clearfix">
+			<div class="hot-submenu">
+				<ul class=" clearfix">
+					<!--{php $tags=tag("table=category&condition=moduleid=21 and parentid=0&pagesize=8&order=listorder,catid&template=null");}-->
+					{loop $tags $i $t}<li><a href="{$MODULE[21][linkurl]}{$t[linkurl]}">{$t[catname]}</a></li>{/loop}
+					<li><a href="#">商人论坛</a></li>
+				</ul>
+			</div>
+			<dl>
+				<dt>图片</dt>
+				<!--{php $tags=tag("moduleid=12&condition=status=3 and level>0 and thumb<>''&areaid=$cityid&pagesize=1&order=addtime desc&target=_blank&template=null")}-->
+				{loop $tags $i $t}
+				<dd class="complex-img">
+					<a class="complex-img-link" href="{$t[linkurl]}" title="{$t[alt]}"><img src="{$t[thumb]}" alt="{$t[alt]}" width="130" height="85"><span class="complex-img-mask"></span><span class="complex-img-des">{if $class}共有{$t[hits]}人选择观看{else}{$t[title]}{/if}</span></a>
+				</dd>
+				{/loop}
+				<!--{php $tags=tag("moduleid=12&condition=status=3 and level>0&areaid=$cityid&pagesize=4&order=addtime desc&target=_blank&template=null")}-->
+				<dd class="complex-list">
+				<ul>
+				{loop $tags $i $t}
+				<li><a {if $i==0}class="blue"{/if} href="{$t[linkurl]}">{$t[title]}</a></li>
+				{/loop}
+				</ul>
+				</dd>
+			</dl>
+			<dl class="last">
+				<dt>资讯</dt>
+				<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&areaid=$cityid&pagesize=1&order=addtime desc&target=_blank&template=null")}-->
+				{loop $tags $i $t}
+				<dd class="complex-img">
+					<a class="complex-img-link" href="{$t[linkurl]}" title="{$t[alt]}"><img src="{$t[thumb]}" alt="{$t[alt]}" width="130" height="85"><span class="complex-img-mask"></span><span class="complex-img-des">{if $class}共有{$t[hits]}人选择观看{else}{$t[title]}{/if}</span></a>
+				</dd>
+				{/loop}
+				<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&areaid=$cityid&pagesize=4&order=addtime desc&target=_blank&template=null")}-->
+				<dd class="complex-list">
+				<ul>
+				{loop $tags $i $t}
+				<li><a {if $i==0}class="blue"{/if} href="{$t[linkurl]}">{$t[title]}</a></li>
+				{/loop}
+				</ul>
+				</dd>
+			</dl>
+			<dl>
+				<dt>展会</dt>
+				<!--{php $tags=tag("moduleid=8&condition=status=3 and level>0 and thumb<>''&areaid=$cityid&pagesize=1&order=addtime desc&target=_blank&template=null")}-->
+				{loop $tags $i $t}
+				<dd class="complex-img">
+					<a class="complex-img-link" href="{$t[linkurl]}" title="{$t[alt]}"><img src="{$t[thumb]}" alt="{$t[alt]}" width="130" height="85"><span class="complex-img-mask"></span><span class="complex-img-des">{if $class}共有{$t[hits]}人选择观看{else}{$t[title]}{/if}</span></a>
+				</dd>
+				{/loop}
+				<!--{php $tags=tag("moduleid=8&condition=status=3 and level>0&areaid=$cityid&pagesize=4&order=addtime desc&target=_blank&template=null")}-->
+				<dd class="complex-list">
+				<ul>
+				{loop $tags $i $t}
+				<li><a {if $i==0}class="blue"{/if} href="{$t[linkurl]}">{$t[title]}</a></li>
+				{/loop}
+				</ul>
+				</dd>
+			</dl>
+			<dl class="last">
+				<dt>视频</dt>
+				<!--{php $tags=tag("moduleid=14&condition=status=3 and level>0 and thumb<>''&areaid=$cityid&class=14&pagesize=1&order=addtime desc&target=_blank&template=null")}-->
+				{loop $tags $i $t}
+				<dd class="complex-img">
+					<a class="complex-img-link" href="{$t[linkurl]}" title="{$t[alt]}"><img src="{$t[thumb]}" alt="{$t[alt]}" width="130" height="85"><span class="complex-img-mask"></span><span class="complex-img-des">{if $class}共有{$t[hits]}人选择观看{else}{$t[title]}{/if}</span></a>
+				</dd>
+				{/loop}
+				<!--{php $tags=tag("moduleid=14&condition=status=3 and level>0&areaid=$cityid&pagesize=4&order=addtime desc&target=_blank&template=null")}-->
+				<dd class="complex-list">
+				<ul>
+				{loop $tags $i $t}
+				<li><a {if $i==0}class="blue"{/if} href="{$t[linkurl]}">{$t[title]}</a></li>
+				{/loop}
+				</ul>
+				</dd>
+			</dl>
+		</div>
+		<div class="iright">
+			<div class="bbshot clearfix">
+				<h3 class="f_l"><span>社区热点</span></h3>
+				<span class="f_r"><a rel="nofollow" href="#">更多热帖</a></span>
+			</div>
+			<div class="swbk">
+				<ol>
+					<!--{tag("moduleid=21&condition=status=3 and level>0&areaid=$cityid&pagesize=7&order=addtime desc&target=_blank")}-->
+				</ol> 
+			</div>
+		</div>
+	</div>
+</div>
+<div class="m">
+	<div class="layout">
+		<div class="complex-fly">
+			<div class="header"><h3 class="ms-yh">您可能感兴趣</h3></div>
+			<div class="content2 hover-li">
+				<ul class="clearfix">
+					<!--{php $tag_sell=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&areaid=$cityid&pagesize=6&order=addtime desc&&target=_blank&lazy=$lazy&template=null");}-->
+					{loop $tag_sell $i $t}
+						<li><dl><dt class="vertical-img"><a class="box-img" href="{$t[linkurl]}"><img src="{$t[thumb]}" width="100" height="100" alt="{$t[alt]}"></a></dt><dd class="description"><a title="{$t[alt]}" href="{$t[linkurl]}">{$t[title]}</a></dd></dl></li>
+					{/loop}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="m">
+	<div class="flinks layout">
+		<div class="header"><h3 class="ms-yh"><a rel="nofollow" href="{$EXT[link_url]}">友情链接<i></i></a></h3></div>
+		<div class="content2">
+			<ul class="clearfix flinks_ul">
+				<!--{tag("table=link&condition=status=3 and level>0 and username=''&areaid=$cityid&pagesize=".$DT['page_text']."&order=listorder desc,itemid desc&target=_blank")}-->
+			</ul>
+		</div>
+	</div>
+	<div class="c_b"></div>
+</div>
+<script type="text/javascript" src="{DT_STATIC}file/script/index.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/marquee.js"></script>
+<script type="text/javascript">
+if(get_cookie('auth')) {
+	$('.login-beforeogin')[0].className = 'login-after';
+	$('.login-btn').text('商务');
+	$('.login-btn')[0].title = '商务中心';
+	$('.login-btn')[0].href = '{$MODULE[2][linkurl]}';
+	$('.reg-btn').text('会员资料');
+	$('.reg-btn')[0].title = '完善我的会员资料';
+	$('.reg-btn')[0].href = '{$MODULE[2][linkurl]}edit.php';
+}
+</script>
+{template 'footer'}

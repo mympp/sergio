@@ -1,0 +1,26 @@
+ <div class="con_side">
+    <!--认证-->
+	<div class="rzbox mb15">
+		 <div class="rzbox_tit">企业档案</div>
+    <h2>{$COM[company]}</h2>
+    <p>会员年限：<span>{$COM[year]}年</span></p>
+    <p>认证信息：<span>
+	{if $COM[vcompany]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_company.gif" width="16" height="16" align="absmiddle" title="资料通过工商认证"/>{/if}
+	{if $COM[vtruename]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_truename.gif" width="16" height="16" align="absmiddle" title="资料通过实名认证"/>{/if}
+	{if $COM[vbank]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_bank.gif" width="16" height="16" align="absmiddle" title="资料通过银行帐号认证"/>{/if}
+	{if $COM[vmobile]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_mobile.gif" width="16" height="16" align="absmiddle" title="资料通过手机认证"/>{/if}
+	{if $COM[vemail]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_email.gif" width="16" height="16" align="absmiddle" title="资料通过邮件认证"/>{/if}
+	{if $COM[validated]}&nbsp;<img src="{DT_SKIN}image/check_right.gif" align="absmiddle"/> 通过{$COM[validator]}认证{/if}</span>
+						</p>
+    <p>经营模式：<span>{$COM[mode]}</span></p>
+    <p>所在地区：<span>{area_pos($COM[areaid], '/')}</span></p>
+    <p>用户身份：<span>本站<font color="#ff712b">{if $COM[vip]}钻石{else}普通{/if}</font>会员</span></p>
+    <p class="viscount">已有<font color="#cc0033">{$COM[hits]}</font>位访客浏览本商铺</p>
+</div>
+<!--end-->
+{loop $HSIDE $HS $SIDE}
+{template 'side_'.$side_file[$HS], $template}
+{/loop}
+
+
+  </div>

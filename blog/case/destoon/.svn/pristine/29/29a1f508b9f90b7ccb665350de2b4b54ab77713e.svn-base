@@ -1,0 +1,4 @@
+.dt-buy-list .aui-list-item-text .dt-label { margin-right:0.25rem; background:#FFF;}
+.dt-buy-list span { font-size:0.55rem !important;}
+.dt-buy-times span,.dt-buy-times i { font-size:0.6rem !important;}
+#itemfoot .aui-bar-tab-label { color:#000; font-size:0.6rem; margin-top:-0.25rem;}

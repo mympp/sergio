@@ -1,0 +1,30 @@
+<!--新品上市开始-->
+	<div class="wrap h_new_pro">
+		<div class="hd title-container-3"><h2>新品上市</h2></div>
+	 	<div class="bd">
+		<!--{php $tags=tag("moduleid=5&condition=status>2 and username='$username'&pagesize=8&order=edittime desc&fields=itemid,title,linkurl,thumb,edittime,price&template=null");}-->
+	   		<ul class="clearfix">
+	   			 {loop $tags $i $t}
+	   			<li>
+	   				<div class="item-box">
+				        <div class="pic">
+				        	<a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=sell&itemid='.$t['itemid'], $domain)}{/if}" target="_blank">
+		                		<img src="{imgurl($t[thumb])}">
+		                	</a>
+				        </div>
+				        <div class="text">
+				        	<a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=sell&itemid='.$t['itemid'], $domain)}{/if}" target="_blank" class="title">{$t[title]}</a>
+				        	<p class="price">上新价：￥{$t[price]}元</p>
+				     	</div>
+	     			</div>
+	   			</li>
+	   			{/loop}
+	   			
+	   			
+	   		</ul>
+	 	</div>
+	</div>
+
+<!--新品上市结束-->
+
+

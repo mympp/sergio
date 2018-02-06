@@ -1,0 +1,70 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+{template 'header_company_v2', 'mobile'}
+{if $itemid}
+    <section class="aui-content">
+        <div class="aui-card-list aui-border-t aui-border-b">
+            <div class="aui-info dt-padded-t-20 aui-padded-l-5 aui-padded-r-15">
+                <div class="aui-info-item aui-font-size-20">
+                    <span class="aui-margin-l-5 aui-text-balck">{$title}</span>
+                </div>
+            </div>
+              <div class="aui-card-list-timer aui-font-size-14" style="color:#999;">
+                <div>
+                    <span class="aui-margin-r-10"><i class="aui-iconfont aui-icon-time aui-margin-r-5"></i>{timetodate($edittime,3)}</span><span class="aui-margin-r-10"><i class="aui-iconfont aui-icon-attention aui-margin-r-5"></i>{$hits}</span>
+                </div>
+            </div>
+            <div class="aui-hr"></div>
+            <div class="aui-card-list-content aui-padded-t-10">
+            <img src="{str_replace('.thumb.'.file_ext($thumb), '', $thumb)}" width="100%" />
+          </div>
+          <ul class="aui-list aui-list-in">
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">发证机构：{$authority}</div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">发证时间 ：{timetodate($fromtime, 3)}</div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">有效期至 ：{if $totime}{timetodate($totime, 3)}{else}永久{/if}</div>
+            </div>
+        </li>
+        </ul>
+        <div class="aui-card-list-content-padded aui-padded-t-10 aui-padded-b-10" style="color:#7b7b7b; line-height:220%;">
+    {$content}
+            </div>
+        </div>
+</section>
+{else}
+{template 'homepage-navlist', 'mobile'}
+{if $lists}
+        <div class="aui-content aui-margin-t-5 aui-margin-b-15">
+        <ul class="aui-list aui-media-list dt-border-t-none">
+          {loop $lists $i $v}
+            <li class="aui-list-item aui-list-item-arrow aui-padded-t-5 aui-padded-b-5">
+            <a href="{gl_mobile_homeurl($moduleid,$username,honor,'',1,'',$v[itemid])}">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title dt-text-ellipsis" style="width:85%;">{$v[title]}</div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+  {/loop}
+</ul>
+</div>
+
+
+{else}
+<br/><br/><center>暂无数据</center><br/><br/>
+{/if}
+{/if}
+{if $pages}<div class="aui-content aui-margin-b-15 aui-text-center pageslist"><div class="pages">{$pages}</div></div>{/if}
+{template 'footer_company_v2', 'mobile'}

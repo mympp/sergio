@@ -1,0 +1,3045 @@
+{php $CSS = array('index');}
+{template 'header1'}
+<div class="top_main1">
+	<div class="top_main1_left">
+    <ul>
+	{php $mid=5;}
+	{php $child=get_maincat(0,$mid,1)}
+	{loop $child $i $c}
+		{if $i<12}
+		<li {if $i==0} class="top_m1_lb1" {elseif $i==1} class="top_m1_lb2" {elseif $i==2} class="top_m1_lb3" {elseif $i==3} class="top_m1_lb4" {elseif $i==4} class="top_m1_lb5" {elseif $i==5} class="top_m1_lb6" {elseif $i==6} class="top_m1_lb7" {elseif $i==7} class="top_m1_lb8" {elseif $i==8} class="top_m1_lb9" {elseif $i==9} class="top_m1_lb10" {elseif $i==10} class="top_m1_lb11" {else} class="top_m1_lb12"{/if}>
+		<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+		<div class="lb_boxin">
+			<div class="lb_boxinleft">
+				{php $sub = get_maincat($c[catid], $mid, 1);}
+				{loop $sub $j $s}
+				<div class="top_lb_left_box2">
+					<div class="top_lb_leftl2"><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></div>
+					{php $t=get_maincat($s[catid],$CATEGORY,1);}
+					{loop $t $k $m}
+					<a href="{$MODULE[$mid][linkurl]}{$m[linkurl]}" target="_blank">{set_style($m[catname], $m[style])}</a>
+					{/loop}
+				</div>
+				{/loop}
+			</div>
+			<div class="lb_boxinright">
+				<div class="lb_boxinrightl1">污水处理</div>
+				<div class="lb_boxinrightl2">污水处理 环保先行</div>
+				{if $i==0}<div class="lb_boxin_lb1"></div>{elseif $i==1}<div class="lb_boxin_lb2"></div>{elseif $i==2}<div class="lb_boxin_lb3"></div>{elseif $i==3}<div class="lb_boxin_lb4"></div>{elseif $i==4}<div class="lb_boxin_lb5"></div>{elseif $i==5}<div class="lb_boxin_lb6"></div>{elseif $i==6}<div class="lb_boxin_lb7"></div>{elseif $i==7}<div class="lb_boxin_lb8"></div>{elseif $i==9}<div class="lb_boxin_lb10"></div>{elseif $i==10}<div class="lb_boxin_lb11"></div>{elseif $i==11}<div class="lb_boxin_lb12"></div>{/if}
+				<div class="lb_boxinrightl3">精品推荐</div>
+				<!--{php $tags1=tag("table=category&condition=moduleid=4 and catname like '".$c[catname]."'&template=null");}-->
+				{loop $tags1 $t}
+				<!--{php $tags2=tag("moduleid=4&catid=".$t[catid]."&condition=groupid>5&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags2 $i $m}
+				<div {if $i==0}class="top_lb_right_jp" {else} class="top_lb_right_jp1"{/if} >
+				<table width="220" border="0" cellpadding="0" cellspacing="0">
+				<tbody>  
+				<tr>
+				<td width="65">
+					<a href="{$m[linkurl]}"><img src="{$m[thumb]}" width="50" height="50" ></a>
+				</td>
+				<td>
+					<a class="top_lb_right_name1" href="{$m[linkurl]}" target="_blank">{$m[company]}</a>
+				</td>
+				</tr>
+				</tbody>
+				</table>
+				</div>
+				{/loop}
+				{/loop}
+			</div>
+		</div>
+		</li>
+		{/if}
+		{/loop}
+    </ul>
+	</div>
+	<script>
+	$(document).ready(function(){
+		_g_.call("roll",{fun:"rollrl",ov1:"#rollrl1",ov2:5000,ov3:{leftid:"#newphotol",rightid:"#newphotor",leftclsn:"top_banner_pre",leftclsa:"top_banner_prea",rightclsn:"top_banner_next",rightclsa:"top_banner_nexta",autohide:"1"},ov4:{indexid:"#top_bannerindex",indexclsn:"top_banner_tr2",indexclsa:"top_banner_tr1"}});
+	});
+	</script>
+	<div class="top_main1_center">
+		<div class="top_banner">
+			<div class="top_bannerin" id="rollrl1">
+				<div class="top_banner_pre" id="newphotol" style="display: block;">&lt;</div>
+				<div class="top_banner_next" id="newphotor" style="display: block;">&gt;</div>
+				<ul style="left: 0px;">     
+					<li txt="4"><img src="{DT_SKIN}img/newindex2016_banner4.jpg"></li>
+					<li txt="5"><img src="{DT_SKIN}img/newindex2016_banner5.jpg.jpg"></li>
+					<li txt="1"><img src="{DT_SKIN}img/newindex2016_banner1.jpg"></li>
+					<li txt="2"><img src="{DT_SKIN}img/newindex2016_banner2.jpg"></li>
+					<li txt="3"><img src="{DT_SKIN}img/newindex2016_banner3.jpg"></li>
+				</ul>
+			</div>
+			<div class="top_banner_tr">
+				<div class="top_banner_trbg"></div>
+				<ul id="top_bannerindex">
+					<li class="top_banner_tr2" txt="1"></li>
+					<li class="top_banner_tr2" txt="2"></li>
+					<li class="top_banner_tr2" txt="3"></li>
+					<li class="top_banner_tr1" txt="4"></li>
+					<li class="top_banner_tr2" txt="5"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="top_main1_right">
+		<div>
+			<div class="login_logo"><img src="{DT_SKIN}img/nsy2014_loginbg5.jpg"></div>
+			<div class="login_tl1"><span><font color="#000000">欢迎</font>，来到DESTOON<br> </span>热线：<span class="font_c1">400-852-9996</span></div>
+			<div class="cl"></div>
+			<div class="login_tl2"  id="destoon_login" style="display:block;">
+				<div class="login_tl2_in1"><a href="{$MODULE[2][linkurl]}{$DT[file_login]}" rel="nofollow" title="登录">登录</a></div>
+				<div class="login_tl2_in1"><a href="{$MODULE[2][linkurl]}{$DT[file_register]}" rel="nofollow" title="注册">注册</a></div>
+				<div class="cl"></div>
+			</div>
+		</div>
+	<div class="login_tl3">
+		<div class="login_tl3_nav">
+			<div class="login_tl3_nav1">网站公告</div>
+			<div class="login_tl3_nav2"><a href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid=5&action=add">发布供应</a></div>
+			<div class="login_tl3_nav2"><a href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid=6&action=add">发布求购</a></div>
+		</div>
+		<div class="login_tl3box">
+			<div class="login_tl3box1">
+				<div class="announce"><!--{tag("table=announce&condition=(totime=0 or totime>$today_endtime-86400)&areaid=$cityid&pagesize=3&datetype=2&order=listorder desc,addtime desc&target=_blank")}--></div>
+			</div>
+			<div class="login_tl3box2"></div>
+			<div class="login_tl3box2"></div>
+		</div>
+	</div>
+	<div class="login_tl4">
+		<div class="login_tl3_nav">
+			<div class="login_tl3_nav1">推荐企业</div>
+			<div class="cl"></div>
+		</div>
+		<div class="login_tl4box1" id="company">
+			<!--{tag("moduleid=4&condition=vip=0 and catids<>''&areaid=$cityid&pagesize=".$DT[page_com]."&order=fromtime desc&template=list-com")}-->
+		</div>
+	</div>
+</div>
+<div class="cl"></div>
+</div>
+
+<script>
+$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl2",ov2:3000,ov3:{leftid:"#newphotol2",rightid:"#newphotor2",leftclsn:"top_main2in_pre",leftclsa:"top_main2in_prea",rightclsn:"top_main2in_next",rightclsa:"top_main2in_nexta",autohide:"1"},ov4:{indexid:"#top_bannerindex2",indexclsn:"x",indexclsa:"x2"}});	    
+});
+</script>
+
+<div class="top_main2">
+	<div class="top_main2tl"></div>
+	<div class="top_main2in" id="rollrl2">
+		<div class="top_main2in_pre" id="newphotol2" style="display: none;">&lt;</div>
+		<div class="top_main2in_next" id="newphotor2" style="display: none;">&gt;</div>
+		<ul style="left: 0px;">
+			<li>
+			<div class="top_slqy_n1">苏州嘉腾</div>
+			<div class="top_slqy_n2">追求美好的品质与售后</div>
+			<div class="top_slqy_n3"><img src="{DT_SKIN}img/2_1415769738_1416.jpg"></div>
+			<div class="top_main2inbg"></div>
+			</li>
+			<li>
+			<div class="top_slqy_n1">南昌佳绿</div>
+			<div class="top_slqy_n2">优质隔音源于科技</div>
+			<div class="top_slqy_n3"><img src="{DT_SKIN}img/2_1464656146_5865.jpg"></div>
+			<div class="top_main2inbg"></div>
+			</li>
+			<li>
+			<div class="top_slqy_n1">鑫台铭机械</div>
+			<div class="top_slqy_n2">科技创造无限力量</div>
+			<div class="top_slqy_n3"><img src="{DT_SKIN}img/2_1409190662_1298.jpg"></div>
+			<div class="top_main2inbg"></div>
+			</li>
+			<li>
+			<div class="top_slqy_n1">重庆邦杰</div>
+			<div class="top_slqy_n2">质量是企业生存的根基</div>
+			<div class="top_slqy_n3"><img src="{DT_SKIN}img/1408585790_4175.jpg"></div>
+			<div class="top_main2inbg"></div>
+			</li>
+			<li>
+			<div class="top_slqy_n1">天创尚邦</div>
+			<div class="top_slqy_n2">思而后行持续创新</div>
+			<div class="top_slqy_n3"><img src="{DT_SKIN}img/2_1426207108_3344.jpg"></div>
+			<div class="top_main2inbg"></div>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="pp2017_main">
+	<div class="pp2017_maintl"></div>
+	<div class="pp2017_mainbody1">
+		<img src="{DT_SKIN}img/nsy2012_yzhc.gif">
+		<img src="{DT_SKIN}img/ad_zyl1981.gif">
+		<img src="{DT_SKIN}img/ad_htff2.gif">
+	</div>	
+	<div class="pp2017_mainbody2">
+		<ul>
+		<li><img src="{DT_SKIN}img/1397799437_2286.jpg"><div class="pp2017_mainbody2_bg"></div><div class="pp2017_mainbody2_name">通洋</div></li>
+		<li><img src="{DT_SKIN}img/1397529581_6576.jpg"><div class="pp2017_mainbody2_bg"></div><div class="pp2017_mainbody2_name">捷通</div></li>
+		<li><img src="{DT_SKIN}img/1405576421_2391.jpg"><div class="pp2017_mainbody2_bg"></div><div class="pp2017_mainbody2_name">雷妍</div></li>
+		<li><img src="{DT_SKIN}img/2_1449712262_9830.jpg"><div class="pp2017_mainbody2_bg"></div><div class="pp2017_mainbody2_name">SHIJIEZHIGUANG/深亚照明</div></li>
+		<li><img src="{DT_SKIN}img/2_1459139393_9779.jpg"><div class="pp2017_mainbody2_bg"></div><div class="pp2017_mainbody2_name">YREX</div></li>
+		<li><img src="{DT_SKIN}img/1403742557_8589.jpg"><div class="pp2017_mainbody2_bg"></div><div class="pp2017_mainbody2_name">首特宏发</div></li>
+		<li><img src="{DT_SKIN}img/1398827298_4768.jpg"><div class="pp2017_mainbody2_bg"></div><div class="pp2017_mainbody2_name">三川宏</div></li>
+		<li><img src="{DT_SKIN}img/1395713047_8267.jpg"><div class="pp2017_mainbody2_bg"></div><div class="pp2017_mainbody2_name">KOHLER/科勒</div></li>
+		<li><img src="{DT_SKIN}img/1395643216_6778.jpg"><div class="pp2017_mainbody2_bg"></div><div class="pp2017_mainbody2_name">FUYIDA/富易达</div></li>
+		<li><img src="{DT_SKIN}img/1399530911_7081.jpg"><div class="pp2017_mainbody2_bg"></div><div class="pp2017_mainbody2_name">KRAHNEN/凯能</div></li>
+		</ul>
+	</div>    
+</div>	
+<!--新加-->		
+<div class="news_box2017">
+	<div class="news_box2017tl">
+		<a href="{$MODULE[21][linkurl]}" target="_blank"><div class="news_box2017tl_n1">资讯聚合</div></a>
+		<div class="news_box2017tl_n2">
+		{php $mid = 21;}
+		{php $child = get_maincat(0, $mid, 1);}
+		{loop $child $i $c}
+			{if $i>0} | {/if}<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+		{/loop}
+		</div>
+		<div class="news_box2017tl_n3"></div>
+		<div class="cb"></div>
+	</div>
+	<div class="news_box2017_left">
+	<script>
+	$(document).ready(function(){
+		_g_.call("roll",{fun:"rollrl",ov1:"#news2017_tr",ov2:3000,ov3:{leftid:"#news2017_pre",rightid:"#news2017_next",leftclsn:"news_photo1_pre",leftclsa:"news_photo1_prea",rightclsn:"news_photo1_next",rightclsa:"news_photo1_nexta",autohide:"1"},ov4:{indexid:".news2017_no",indexclsn:"news_photo1_tr2",indexclsa:"news_photo1_tr1"}});
+	});
+	</script>
+		<div class="news_photo1">
+			<div class="news_photo1in" id="news2017_tr">
+				<div class="news_photo1_pre" id="news2017_pre" style="display: none;">&lt;</div>
+				<div class="news_photo1_next" id="news2017_next" style="display: none;">&gt;</div>
+				<ul style="left: -379.947px;">
+				<!--{php $tags=tag("moduleid=21&condition=status=3 and catid<>14 and thumb<>''&areaid=$cityid&pagesize=3&order=addtime desc&template=null");}-->
+				{loop $tags $t}
+					<li> 
+					<img src="{$t[thumb]}" width="380" height="198"><div class="news_photoname2">
+					<a href="{$t[linkurl]}">{$t[title]}</a></div>
+					<div class="news_2017photobg"></div>
+					</li>
+				{/loop}
+				</ul>		  
+			</div>
+			<div id="news2017_pic" class="news_photo1_tr news2017_no">
+				<ul>
+					<li class="news_photo1_tr1">1/3</li>
+					<li class="news_photo1_tr2">2/3</li>
+					<li class="news_photo1_tr2">3/3</li>
+				</ul>
+			</div>
+		</div>
+		<!--{php $tags=tag("moduleid=21&condition=status=3 and catid<>14 and thumb<>''&areaid=$cityid&pagesize=4&order=addtime desc&template=null");}-->
+		{loop $tags $i $t}
+			<div {if $i%2==0} class="news_photo2" {else} class="news_photo3"{/if}>
+				<a href="{$t[linkurl]}"><img src="{$t[thumb]}" width="185" height="105"></a>
+				<div class="news_2017photobg"></div>
+				<div class="news_photoname2"><a href="{$t[linkurl]}">{$t[title]}</a></div>
+			</div>
+		{/loop}
+	</div>
+	<div class="news_box2017_center">     
+		<div class="news_box2017_centerin">
+			<span class="news_box2017_box1">
+			<ul>
+			<!--{php $tags=tag("moduleid=21&condition=status=3 and catid<>14 &areaid=$cityid&pagesize=5&order=addtime desc&template=null");}-->
+			{loop $tags $i $t}
+			<li {if $i==0} class="news_box2017_box1_lia"{/if}>{if $i==0}{else}{if $t[catid]==8} 热点 | {else} 市场 | {/if}{/if}<a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></li>
+			{/loop}
+			</ul>
+			<ul>
+			<!--{php $tags=tag("moduleid=21&condition=status=3 and catid<>14 &areaid=$cityid&pagesize=7&order=addtime desc&template=null");}-->
+			{loop $tags $i $t}
+			<li {if $i==0} class="news_box2017_box1_lia"{/if}>{if $i==0}{else}{if $t[catid]==8} 热点 | {else} 市场 | {/if}{/if}<a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></li>
+			{/loop}
+			</ul>
+			</span>
+		</div>
+	</div>
+	<div class="news_box2017_right">
+		<div class="news_box2017_rightl"><a href="{$MODULE[21][linkurl]}list.php?catid=17">高端访谈</a></div>
+		<script>
+		$(document).ready(function(){
+			_g_.call("roll",{fun:"rollup",ov1:"#rollup1",ov2:5000});
+		}); 
+		</script>
+		<div id="rollup1" class="gdft_box">
+			<ul style="top: 0px;">	
+			<!--{php $tags=tag("moduleid=21&catid=14&condition=status=3 and thumb<>''&areaid=$cityid&pagesize=10&order=addtime desc&template=null");}-->
+			{loop $tags $i $t}
+				<li>
+				<table border="0" cellspacing="0" cellpadding="0">
+				<tbody>
+				<tr>
+				<td width="85"><div class="anli_img"><a href="{$t[linkurl]}" target="_blank"><img src="{$t[thumb]}"></a></div></td>
+				<td><div class="gdft_n1"><a href="{$t[linkurl]}" target="_blank">{$t[zw]}</a></div>
+				<div class="gdft_n2">{$t[title]}<br>
+				{$t[qymc]}</div></td>
+				</tr>
+				</tbody>
+				</table>
+				</li>
+			{/loop}
+			</ul>
+		</div>
+		<div class="news2017_adbg"><img src="{DT_SKIN}img/news2017_hbhadbg.jpg"></div> 
+		<div class="main1_zhyg">
+			<ul>
+				<!--{php $tags=tag("moduleid=21&condition=status=3 and catid<>14 &areaid=$cityid&pagesize=2&order=addtime desc&template=null");}-->
+				{loop $tags $i $t}
+				<li>
+				<div class="main1_zhyg_riq">{date('Y',$t[addtime])}<br>{date('m-d',$t[addtime])}</div>
+				<div class="main1_zhyg_xxt"><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></div>
+				</li>
+				{/loop}
+			</ul>
+		</div>
+	</div>
+	<div class="cb"></div>
+</div>  
+<div class="cgxx_box2017">
+	<div class="news_box2017tl">
+		<div class="news_box2017tl_n1">求购中心</div>
+		<div class="news_box2017tl_n2">
+			{php $mid = 6;}
+			{php $child = get_maincat(0, $mid, 1);}
+			{loop $child $i $c}
+				{if $i>0} | {/if}<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+			{/loop}                    
+		</div>
+		<div class="news_box2017tl_n3">当前询价求购：<font color="#666">{php echo $db->count($DT_PRE.'buy_6', 'status=3', 1800);}</font> <font color="#eee">|</font>
+		<a href="{$MODULE[6][linkurl]}my.php?mid=$moduleid&action=add" target="_blank">发布求购</a></div>
+	</div>
+	<div class="cgxx2017_vipxx">
+	<ul>
+		<!--{php $tags=tag("moduleid=6&condition=status=3&areaid=$cityid&pagesize=5&order=addtime desc&template=null");}-->
+		{loop $tags $i $t}
+		<li  {if $i==0}class="cgxx2017_lion"{/if}>
+			<a href="{$t[linkurl]}"></a>
+			<div class="cgxx2017_n1"><span class="cgxx2017_time">{date('m月d日',$t[addtime])}</span>{$t[title]}</div>
+			<div style="overflow:hidden" class="cgxx2017_n2">{$t[introduce]}</div>
+			{php $member = userinfo($t[username]);}
+			<div class="cgxx2017_n3">求购区域：{area_pos($member[areaid], ' ')} | 截止时间：{date('Y-m-d',$t[totime])}</div>
+			<div class="cgxx2017_n4">报价</div>
+		</li>
+		{/loop}
+	</ul>
+	</div>
+	<div class="cgxx2017_vipxx">
+	<ul>        
+		<!--{php $tags=tag("moduleid=6&condition=status=3&areaid=$cityid&pagesize=5&order=addtime desc&template=null");}-->
+		{loop $tags $i $t}
+		<li  {if $i==0}class="cgxx2017_lion"{/if}>
+			<a href="{$t[linkurl]}"></a>
+			<div class="cgxx2017_n1"><span class="cgxx2017_time">{date('m月d日',$t[addtime])}</span>{$t[title]}</div>
+			<div style="overflow:hidden" class="cgxx2017_n2">{$t[introduce]}</div>
+			{php $member = userinfo($t[username]);}
+			<div class="cgxx2017_n3">求购区域：{area_pos($member[areaid], ' ')} | 截止时间：{date('Y-m-d',$t[totime])}</div>
+			<div class="cgxx2017_n4">报价</div>
+		</li>
+		{/loop}
+	</ul>
+	</div>
+	<div class="cgxx2017_mfxx">
+	<ul>
+	<!--{php $tags=tag("moduleid=6&condition=status=3&areaid=$cityid&pagesize=5&order=addtime desc&template=null");}-->
+		{loop $tags $i $t}
+		<li>
+		<div class="cg_pp_name1">
+		<a target="_blank" href="{$t[linkurl]}">{$t[title]}</a>
+		{$t[introduce]}</div><div class="cl"></div>
+		</li>
+		{/loop}
+	</ul>
+	</div>
+	<div class="cl"></div>
+</div>
+
+<div class="main_sztl">
+	<span id="ganxingqu">设置我感兴趣的行业</span>
+	<div class="main_sz_box">
+		<ul id="block_show">
+			{php $mid = 5;}
+			{php $child = get_maincat(0, $mid, 1);}
+			{loop $child $i $c}
+			{php $i=$i+1;}
+				<li t="{$i}">{set_style($c[catname], $c[style])}</li>
+			{/loop}
+		</ul>
+		<div class="cl"></div>
+		<div class="main_sz_boxbtn">
+			<table border="0" cellspacing="0" cellpadding="0" width="695">
+			<tbody>
+			<tr>
+			<td align="right"><div id="block_hide" class="main_sz_box_yctl1">隐藏不感兴趣的行业</div></td>
+			<td align="right" width="90"><div class="main_sz_box_ipt1">取消</div></td>
+			<td align="right" width="80"><div class="main_sz_box_ipt2">确定</div></td>
+			</tr>
+			</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div t="1" class="main_lb_box" style="display:block">
+	<div class="main_lb_box_tl1">
+		<div class="top_cydtl1"><a href="{$MODULE[5][linkurl]}list.php?catid=17">污水处理</a></div>
+		<div class="top_cydtl2">污水处理 环保先行</div>
+		<div class="main_lb_box_tlin">
+			{php $mid = 5;}
+			{php $child = get_maincat(17, $mid, 1);}
+			{loop $child $i $c}
+				{if $i<4 && $i%2 != 0}
+					| <a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a><br>
+				{else}
+					<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+				{/if}
+			{/loop}<br>
+			<a href="{$MODULE[5][linkurl]}list.php?catid=17">查看更多&gt;</a>
+		</div>
+	</div>
+	<div class="main_lb_box_lb">
+		<div class="main_lb_box_lbtl">污水处理</div>
+		<div class="main_lb_box_lbin">
+			{php $mid = 5;}
+			{php $child = get_maincat(17, $mid, 1);}
+			{loop $child $i $c}
+			<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" class="lb_f1" target="_blank">{set_style($c[catname], $c[style])} &nbsp;&nbsp;</a>
+			{php $sub = get_maincat($c[catid], $mid, 1);}
+			{loop $sub $j $s}
+			{if $j<6}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a>{/if}
+			{/loop}
+			{/loop}
+			<div class="cl"></div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_sl66658",ov2:5841,ov3:{},ov4:{indexid:"#bannerindex_sl66658",indexclsn:"main_sl_tr2",indexclsa:"main_sl_tr1"}});
+	});
+	</script>
+	<div class="main_slqy">
+		<div class="main_slqytl">实力企业</div>
+		<div class="main_slqybox">
+			<div class="main_slqyboxin" id="rollrl_sl66658">
+			<ul style="left: 0px;">
+			<li txt="1">
+				<!--{php $tags=tag("moduleid=4&catid=51&condition=groupid>4&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+						<!--{php $tags1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+						{loop $tags1 $m}
+							<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{$m[thumb]}" width="70" height="70" alt="{$m[alt]}"/></div>
+						{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="2">	  
+				<!--{php $tags=tag("moduleid=4&catid=51&condition=groupid>4&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=8&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{$m[thumb]}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="3">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=8&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{$m[thumb]}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			</ul>
+			</div>
+			<div class="main_sl_tr">
+				<ul id="bannerindex_sl66658">
+					<li class="main_sl_tr1" txt="1"></li>
+					<li class="main_sl_tr2" txt="2"></li>
+					<li class="main_sl_tr2" txt="3"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_jp66658",ov2:5135,ov3:{leftid:"#newphotol_jp66658",rightid:"#newphotor_jp66658",leftclsn:"main_jp_pre",leftclsa:"main_jp_prea",rightclsn:"main_jp_next",rightclsa:"main_jp_nexta",autohide:"1"},ov4:{indexid:"#bannerindex_jp66658",indexclsn:"main_jp_tr2",indexclsa:"main_jp_tr1"}});
+
+	});
+	</script>
+	<div class="main_jpsx">
+		<div class="main_slqytl">精品推荐</div>
+		<div class="main_jpbox">
+			<div class="main_jpboxin" id="rollrl_jp66658">
+				<div class="main_jp_pre" id="newphotol_jp66658" style="display: none;">&lt;</div>
+				<div class="main_jp_next" id="newphotor_jp66658" style="display: none;">&gt;</div>
+				<ul style="left: 0px;">	
+					<!--{php $tags=tag("moduleid=4&catid=51&pagesize=3&order=fromtime desc&template=null")}-->
+					{loop $tags $i $t}
+					{php $i=$i+1;}
+					<li txt="{$i}">
+						<div class="jpsx_li1"><a href="{$t[linkurl]}"></a><img width="100%" height="100%" src="{$t[thumb]}"></div>
+						<div class="jpsx_li2"><a href="{$t[linkurl]}">{$t[company]}</a></div>
+						<div class="jpsx_li3">
+							{$t[business]}
+						</div>
+						<div class="cl"></div>
+					</li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="main_jp_tr">
+				<ul id="bannerindex_jp66658">
+					<li class="main_jp_tr2" txt="1">1/3</li>
+					<li class="main_jp_tr2" txt="2">2/3</li>
+					<li class="main_jp_tr1" txt="3">3/3</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="main_pp">
+		<div class="main_slqytl2">品牌专区</div>
+		<ul>
+		<!--{php $tags=tag("moduleid=13&pagesize=3&order=addtime desc&template=null")}-->
+			{loop $tags $i $t}
+			<li>
+				<a href="{$t[linkurl]}"></a>
+				<div class="pp_li1">{$t[title]}</div>
+				<div class="pp_li2">{$t[introduce]}</div>
+				<div class="pp_li3"><img src="{$t[thumb]}" width="90" height="45"></div>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+	<div class="cl"></div>
+</div>
+
+<div t="2" class="main_lb_box" style="display:block">
+	<div class="main_lb_box_tl2">
+		<div class="top_cydtl1"><a href="{$MODULE[5][linkurl]}list.php?catid=18" target="_blank">纯水处理</a></div>
+		<div class="top_cydtl2">安全用水 纯净世界</div>
+		<div class="main_lb_box_tlin">
+			{php $mid = 5;}
+			{php $child = get_maincat(18, $mid, 1);}
+			{loop $child $i $c}
+				{if $i<4 && $i%2 != 0}
+					| <a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a><br>
+				{else}
+					<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+				{/if}
+			{/loop}<br>
+			<a href="{$MODULE[5][linkurl]}list.php?catid=18" target="_blank">查看更多&gt;</a>
+		</div>
+	</div>
+	<div class="main_lb_box_lb">
+		<div class="main_lb_box_lbtl">纯水处理</div>
+		<div class="main_lb_box_lbin">
+			{php $mid = 5;}
+			{php $child = get_maincat(17, $mid, 1);}
+			{loop $child $i $c}
+			<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" class="lb_f1" target="_blank">{set_style($c[catname], $c[style])} &nbsp;&nbsp;</a>
+			{php $sub = get_maincat($c[catid], $mid, 1);}
+			{loop $sub $j $s}
+			{if $j<6}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a>{/if}
+			{/loop}
+			{/loop} 
+			<div class="cl"></div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+		_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_sl76758",ov2:5102,ov3:{},ov4:{indexid:"#bannerindex_sl76758",indexclsn:"main_sl_tr2",indexclsa:"main_sl_tr1"}});	   
+	});
+	</script>
+	<div class="main_slqy">
+		<div class="main_slqytl">实力企业</div>
+		<div class="main_slqybox">
+			<div class="main_slqyboxin" id="rollrl_sl76758">
+			<ul style="left: -337.693px;">
+			<li txt="1">
+			<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+			{loop $tags $t}
+			<div class="main_slqyboxin_libox">
+				<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+					<div class="vip_ico"></div>
+				</div>
+				<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+				<div class="cl"></div>
+				<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+				<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+				</div>
+			</div>
+			{/loop}
+			</li>
+			<li txt="2">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+						<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+						{loop $tag1 $m}
+							<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+						{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="3">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+						<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+						{loop $tag1 $m}
+							<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+						{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			</ul>
+			</div>
+			<div class="main_sl_tr">
+				<ul id="bannerindex_sl76758">
+					<li class="main_sl_tr2" txt="1"></li>
+					<li class="main_sl_tr1" txt="2"></li>
+					<li class="main_sl_tr2" txt="3"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+		_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_jp76758",ov2:5878,ov3:{leftid:"#newphotol_jp76758",rightid:"#newphotor_jp76758",leftclsn:"main_jp_pre",leftclsa:"main_jp_prea",rightclsn:"main_jp_next",rightclsa:"main_jp_nexta",autohide:"1"},ov4:{indexid:"#bannerindex_jp76758",indexclsn:"main_jp_tr2",indexclsa:"main_jp_tr1"}});
+		
+	});
+	</script>
+	<div class="main_jpsx">
+		<div class="main_slqytl">精品推荐</div>
+		<div class="main_jpbox">
+			<div class="main_jpboxin" id="rollrl_jp76758">
+				<div class="main_jp_pre" id="newphotol_jp76758" style="display: none;">&lt;</div>
+				<div class="main_jp_next" id="newphotor_jp76758" style="display: none;">&gt;</div>
+				<ul style="left: 0px;">
+					<!--{php $tags=tag("moduleid=4&catid=51&pagesize=3&order=fromtime desc&template=null")}-->
+					{loop $tags $i $t}
+					{php $i=$i+1;}
+					<li txt="{$i}">
+						<div class="jpsx_li1"><a href="{$t[linkurl]}"></a><img width="100%" height="100%" src="{$t[thumb]}"></div>
+						<div class="jpsx_li2"><a href="{$t[linkurl]}">{$t[company]}</a></div>
+						<div class="jpsx_li3">
+							{$t[business]}
+						</div>
+						<div class="cl"></div>
+					</li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="main_jp_tr">
+				<ul id="bannerindex_jp76758">
+					<li class="main_jp_tr1" txt="1">1/3</li>
+					<li class="main_jp_tr2" txt="2">2/3</li>
+					<li class="main_jp_tr2" txt="3">3/3</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="main_pp">
+		<div class="main_slqytl">品牌专区</div>
+		<ul>
+			<!--{php $tags=tag("moduleid=13&pagesize=3&order=addtime desc&template=null")}-->
+			{loop $tags $i $t}
+			<li>
+				<a href="{$t[linkurl]}"></a>
+				<div class="pp_li1">{$t[title]}</div>
+				<div class="pp_li2">{$t[introduce]}</div>
+				<div class="pp_li3"><img src="{$t[thumb]}" width="90" height="45"></div>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+	<div class="cl"></div>
+</div>
+
+<div t="3" class="main_lb_box" style="display:block">
+	<div class="main_lb_box_tl3">
+		<div class="top_cydtl1"><a href="{$MODULE[5][linkurl]}list.php?catid=17" target="_blank">大气治理</a></div>
+		<div class="top_cydtl2">让我们的天空更蓝</div>
+		<div class="main_lb_box_tlin">
+			{php $mid = 5;}
+			{php $child = get_maincat(19, $mid, 1);}
+			{loop $child $i $c}
+				{if $i<4 && $i%2 != 0}
+					| <a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a><br>
+				{else}
+					<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+				{/if}
+			{/loop}<br>
+			<a href="{$MODULE[5][linkurl]}list.php?catid=19" target="_blank">查看更多&gt;</a>
+		</div>
+	</div>
+	<div class="main_lb_box_lb">
+		<div class="main_lb_box_lbtl">大气治理</div>
+		<div class="main_lb_box_lbin">
+			{php $mid = 5;}
+			{php $child = get_maincat(17, $mid, 1);}
+			{loop $child $i $c}
+			<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" class="lb_f1" target="_blank">{set_style($c[catname], $c[style])} &nbsp;&nbsp;</a>
+			{php $sub = get_maincat($c[catid], $mid, 1);}
+			{loop $sub $j $s}
+			{if $j<6}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a>{/if}
+			{/loop}
+			{/loop}
+			<div class="cl"></div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+		_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_sl71215",ov2:5336,ov3:{},ov4:{indexid:"#bannerindex_sl71215",indexclsn:"main_sl_tr2",indexclsa:"main_sl_tr1"}});	
+	});
+	</script>
+	<div class="main_slqy">
+		<div class="main_slqytl">实力企业</div>
+		<div class="main_slqybox">
+			<div class="main_slqyboxin" id="rollrl_sl71215">
+			<ul style="left: 0px;">
+	  	  	<li txt="1">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+						<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+						{loop $tag1 $m}
+							<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+						{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="2">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+						<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+						{loop $tag1 $m}
+							<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+						{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="3">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+						<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+						{loop $tag1 $m}
+							<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+						{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			</ul>
+			</div>
+			<div class="main_sl_tr">
+				<ul id="bannerindex_sl71215">
+					<li class="main_sl_tr2" txt="1"></li>
+					<li class="main_sl_tr1" txt="2"></li>
+					<li class="main_sl_tr2" txt="3"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+		_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_jp71215",ov2:5206,ov3:{leftid:"#newphotol_jp71215",rightid:"#newphotor_jp71215",leftclsn:"main_jp_pre",leftclsa:"main_jp_prea",rightclsn:"main_jp_next",rightclsa:"main_jp_nexta",autohide:"1"},ov4:{indexid:"#bannerindex_jp71215",indexclsn:"main_jp_tr2",indexclsa:"main_jp_tr1"}});	
+		
+
+	});
+	</script>
+	<div class="main_jpsx">
+		<div class="main_slqytl">精品推荐</div>
+		<div class="main_jpbox">
+			<div class="main_jpboxin" id="rollrl_jp71215">
+				<div class="main_jp_pre" id="newphotol_jp71215" style="display: none;">&lt;</div>
+				<div class="main_jp_next" id="newphotor_jp71215" style="display: none;">&gt;</div>
+				<ul style="left: 0px;">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=3&order=fromtime desc&template=null")}-->
+					{loop $tags $i $t}
+					{php $i=$i+1;}
+					<li txt="{$i}">
+						<div class="jpsx_li1"><a href="{$t[linkurl]}"></a><img width="100%" height="100%" src="{$t[thumb]}"></div>
+						<div class="jpsx_li2"><a href="{$t[linkurl]}">{$t[company]}</a></div>
+						<div class="jpsx_li3">
+							{$t[business]}
+						</div>
+						<div class="cl"></div>
+					</li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="main_jp_tr">
+				<ul id="bannerindex_jp71215">
+					<li class="main_jp_tr2" txt="1">1/3</li>
+					<li class="main_jp_tr2" txt="2">2/3</li>
+					<li class="main_jp_tr1" txt="3">3/3</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="main_pp">
+		<div class="main_slqytl2">品牌专区</div>
+		<ul>
+		<!--{php $tags=tag("moduleid=13&pagesize=3&order=addtime desc&template=null")}-->
+			{loop $tags $i $t}
+			<li>
+				<a href="{$t[linkurl]}"></a>
+				<div class="pp_li1">{$t[title]}</div>
+				<div class="pp_li2">{$t[introduce]}</div>
+				<div class="pp_li3"><img src="{$t[thumb]}" width="90" height="45"></div>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+	<div class="cl"></div>
+</div>
+
+<div t="4" class="main_lb_box" style="display:block">
+	<div class="main_lb_box_tl4">
+		<div class="top_cydtl1">
+		<a href="{$MODULE[5][linkurl]}list.php?catid=20" target="_blank">防腐处理</a></div>
+		<div class="top_cydtl2">防腐 涂装 风机 干燥</div>
+		<div class="main_lb_box_tlin">
+			{php $mid = 5;}
+			{php $child = get_maincat(20, $mid, 1);}
+			{loop $child $i $c}
+				{if $i<4 && $i%2 != 0}
+					| <a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a><br>
+				{else}
+					<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+				{/if}
+			{/loop}<br>
+			<a href="{$MODULE[5][linkurl]}list.php?catid=20" target="_blank">查看更多&gt;</a>
+		</div>
+	</div>
+	<div class="main_lb_box_lb">
+		<div class="main_lb_box_lbtl">防腐处理</div>
+		<div class="main_lb_box_lbin">
+			{php $mid = 5;}
+			{php $child = get_maincat(17, $mid, 1);}
+			{loop $child $i $c}
+			<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" class="lb_f1" target="_blank">{set_style($c[catname], $c[style])} &nbsp;&nbsp;</a>
+			{php $sub = get_maincat($c[catid], $mid, 1);}
+			{loop $sub $j $s}
+			{if $j<6}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a>{/if}
+			{/loop}
+			{/loop}
+			<div class="cl"></div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+		_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_sl85763",ov2:5502,ov3:{},ov4:{indexid:"#bannerindex_sl85763",indexclsn:"main_sl_tr2",indexclsa:"main_sl_tr1"}});	
+			
+	});
+	</script>
+	<div class="main_slqy">
+		<div class="main_slqytl">实力企业</div>
+		<div class="main_slqybox">
+			<div class="main_slqyboxin" id="rollrl_sl85763">
+			<ul style="left: 0px;">
+ 	  	  	<li txt="1">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+						<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+						{loop $tag1 $m}
+							<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+						{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="2">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+						<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+						{loop $tag1 $m}
+							<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+						{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="3">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+						<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+						{loop $tag1 $m}
+							<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+						{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			</ul>
+			</div>
+			<div class="main_sl_tr">
+				<ul id="bannerindex_sl85763">
+					<li class="main_sl_tr2" txt="1"></li>
+					<li class="main_sl_tr1" txt="2"></li>
+					<li class="main_sl_tr2" txt="3"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+		_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_jp85763",ov2:5779,ov3:{leftid:"#newphotol_jp85763",rightid:"#newphotor_jp85763",leftclsn:"main_jp_pre",leftclsa:"main_jp_prea",rightclsn:"main_jp_next",rightclsa:"main_jp_nexta",autohide:"1"},ov4:{indexid:"#bannerindex_jp85763",indexclsn:"main_jp_tr2",indexclsa:"main_jp_tr1"}});
+	});
+	</script>
+	<div class="main_jpsx">
+		<div class="main_slqytl">精品推荐</div>
+		<div class="main_jpbox">
+			<div class="main_jpboxin" id="rollrl_jp85763">
+				<div class="main_jp_pre" id="newphotol_jp85763" style="display: none;">&lt;</div>
+				<div class="main_jp_next" id="newphotor_jp85763" style="display: none;">&gt;</div>
+				<ul style="left: -92.5789px;">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=3&order=fromtime desc&template=null")}-->
+					{loop $tags $i $t}
+					{php $i=$i+1;}
+					<li txt="{$i}">
+						<div class="jpsx_li1"><a href="{$t[linkurl]}"></a><img width="100%" height="100%" src="{$t[thumb]}"></div>
+						<div class="jpsx_li2"><a href="{$t[linkurl]}">{$t[company]}</a></div>
+						<div class="jpsx_li3">
+							{$t[business]}
+						</div>
+						<div class="cl"></div>
+					</li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="main_jp_tr">
+				<ul id="bannerindex_jp85763">
+					<li class="main_jp_tr1" txt="1">1/3</li>
+					<li class="main_jp_tr2" txt="2">2/3</li>
+					<li class="main_jp_tr2" txt="3">3/3</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="main_pp">
+		<div class="main_slqytl2">品牌专区</div>
+		<ul>
+		<!--{php $tags=tag("moduleid=13&pagesize=3&order=addtime desc&template=null")}-->
+			{loop $tags $i $t}
+			<li>
+				<a href="{$t[linkurl]}"></a>
+				<div class="pp_li1">{$t[title]}</div>
+				<div class="pp_li2">{$t[introduce]}</div>
+				<div class="pp_li3"><img src="{$t[thumb]}" width="90" height="45"></div>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+	<div class="cl"></div>
+</div>
+
+<div t="5" class="main_lb_box" style="display:block">
+	<div class="main_lb_box_tl5">
+		<div class="top_cydtl1"><a href="{$MODULE[5][linkurl]}list.php?catid=17" target="_blank">仪器仪表</a></div>
+		<div class="top_cydtl2">污水处理 环保先行</div>
+		<div class="main_lb_box_tlin">
+			{php $mid = 5;}
+			{php $child = get_maincat(21, $mid, 1);}
+			{loop $child $i $c}
+				{if $i<4 && $i%2 != 0}
+					| <a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a><br>
+				{else}
+					<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+				{/if}
+			{/loop}<br>
+			<a href="{$MODULE[5][linkurl]}list.php?catid=17">查看更多&gt;</a>
+		</div>
+	</div>
+	<div class="main_lb_box_lb">
+		<div class="main_lb_box_lbtl">污水处理</div>
+		<div class="main_lb_box_lbin">
+			{php $mid = 5;}
+			{php $child = get_maincat(17, $mid, 1);}
+			{loop $child $i $c}
+			<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" class="lb_f1" target="_blank">{set_style($c[catname], $c[style])} &nbsp;&nbsp;</a>
+			{php $sub = get_maincat($c[catid], $mid, 1);}
+			{loop $sub $j $s}
+			{if $j<6}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a>{/if}
+			{/loop}
+			{/loop}
+			<div class="cl"></div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_sl70848",ov2:5841,ov3:{},ov4:{indexid:"#bannerindex_sl70848",indexclsn:"main_sl_tr2",indexclsa:"main_sl_tr1"}});
+	});
+	</script>
+	<div class="main_slqy">
+		<div class="main_slqytl">实力企业</div>
+		<div class="main_slqybox">
+			<div class="main_slqyboxin" id="rollrl_sl70848">
+			<ul style="left: 0px;">
+			<li txt="1">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+						<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+						{loop $tag1 $m}
+							<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+						{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="2">	  
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="3">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			</ul>
+			</div>
+			<div class="main_sl_tr">
+				<ul id="bannerindex_sl70848">
+					<li class="main_sl_tr1" txt="1"></li>
+					<li class="main_sl_tr2" txt="2"></li>
+					<li class="main_sl_tr2" txt="3"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_jp70848",ov2:5135,ov3:{leftid:"#newphotol_jp70848",rightid:"#newphotor_jp70848",leftclsn:"main_jp_pre",leftclsa:"main_jp_prea",rightclsn:"main_jp_next",rightclsa:"main_jp_nexta",autohide:"1"},ov4:{indexid:"#bannerindex_jp70848",indexclsn:"main_jp_tr2",indexclsa:"main_jp_tr1"}});
+
+	});
+	</script>
+	<div class="main_jpsx">
+		<div class="main_slqytl">精品推荐</div>
+		<div class="main_jpbox">
+			<div class="main_jpboxin" id="rollrl_jp70848">
+				<div class="main_jp_pre" id="newphotol_jp70848" style="display: none;">&lt;</div>
+				<div class="main_jp_next" id="newphotor_jp70848" style="display: none;">&gt;</div>
+				<ul style="left: 0px;">	
+					<!--{php $tags=tag("moduleid=4&catid=51&pagesize=3&order=fromtime desc&template=null")}-->
+					{loop $tags $i $t}
+					{php $i=$i+1;}
+					<li txt="{$i}">
+						<div class="jpsx_li1"><a href="{$t[linkurl]}"></a><img width="100%" height="100%" src="{$t[thumb]}"></div>
+						<div class="jpsx_li2"><a href="{$t[linkurl]}">{$t[company]}</a></div>
+						<div class="jpsx_li3">
+							{$t[business]}
+						</div>
+						<div class="cl"></div>
+					</li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="main_jp_tr">
+				<ul id="bannerindex_jp70848">
+					<li class="main_jp_tr2" txt="1">1/3</li>
+					<li class="main_jp_tr2" txt="2">2/3</li>
+					<li class="main_jp_tr1" txt="3">3/3</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="main_pp">
+		<div class="main_slqytl2">品牌专区</div>
+		<ul>
+		<!--{php $tags=tag("moduleid=13&pagesize=3&order=addtime desc&template=null")}-->
+			{loop $tags $i $t}
+			<li>
+				<a href="{$t[linkurl]}"></a>
+				<div class="pp_li1">{$t[title]}</div>
+				<div class="pp_li2">{$t[introduce]}</div>
+				<div class="pp_li3"><img src="{$t[thumb]}" width="90" height="45"></div>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+	<div class="cl"></div>
+</div>
+
+<div t="6" class="main_lb_box" style="display:block">
+	<div class="main_lb_box_tl6">
+		<div class="top_cydtl1"><a href="{$MODULE[5][linkurl]}list.php?catid=17" target="_blank">工控设备</a></div>
+		<div class="top_cydtl2">污水处理 环保先行</div>
+		<div class="main_lb_box_tlin">
+			{php $mid = 5;}
+			{php $child = get_maincat(22, $mid, 1);}
+			{loop $child $i $c}
+				{if $i<4 && $i%2 != 0}
+					| <a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a><br>
+				{else}
+					<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+				{/if}
+			{/loop}<br>
+			<a href="{$MODULE[5][linkurl]}list.php?catid=17">查看更多&gt;</a>
+		</div>
+	</div>
+	<div class="main_lb_box_lb">
+		<div class="main_lb_box_lbtl">污水处理</div>
+		<div class="main_lb_box_lbin">
+			{php $mid = 5;}
+			{php $child = get_maincat(17, $mid, 1);}
+			{loop $child $i $c}
+			<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" class="lb_f1" target="_blank">{set_style($c[catname], $c[style])} &nbsp;&nbsp;</a>
+			{php $sub = get_maincat($c[catid], $mid, 1);}
+			{loop $sub $j $s}
+			{if $j<6}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a>{/if}
+			{/loop}
+			{/loop}
+			<div class="cl"></div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_sl35705",ov2:5841,ov3:{},ov4:{indexid:"#bannerindex_sl35705",indexclsn:"main_sl_tr2",indexclsa:"main_sl_tr1"}});
+	});
+	</script>
+	<div class="main_slqy">
+		<div class="main_slqytl">实力企业</div>
+		<div class="main_slqybox">
+			<div class="main_slqyboxin" id="rollrl_sl35705">
+			<ul style="left: 0px;">
+			<li txt="1">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+						<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+						{loop $tag1 $m}
+							<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+						{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="2">	  
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="3">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			</ul>
+			</div>
+			<div class="main_sl_tr">
+				<ul id="bannerindex_sl35705">
+					<li class="main_sl_tr1" txt="1"></li>
+					<li class="main_sl_tr2" txt="2"></li>
+					<li class="main_sl_tr2" txt="3"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_jp35705",ov2:5135,ov3:{leftid:"#newphotol_jp35705",rightid:"#newphotor_jp35705",leftclsn:"main_jp_pre",leftclsa:"main_jp_prea",rightclsn:"main_jp_next",rightclsa:"main_jp_nexta",autohide:"1"},ov4:{indexid:"#bannerindex_jp35705",indexclsn:"main_jp_tr2",indexclsa:"main_jp_tr1"}});
+	});
+	</script>
+	<div class="main_jpsx">
+		<div class="main_slqytl">精品推荐</div>
+		<div class="main_jpbox">
+			<div class="main_jpboxin" id="rollrl_jp35705">
+				<div class="main_jp_pre" id="newphotol_jp35705" style="display: none;">&lt;</div>
+				<div class="main_jp_next" id="newphotor_jp35705" style="display: none;">&gt;</div>
+				<ul style="left: 0px;">	
+					<!--{php $tags=tag("moduleid=4&catid=51&pagesize=3&order=fromtime desc&template=null")}-->
+					{loop $tags $i $t}
+					{php $i=$i+1;}
+					<li txt="{$i}">
+						<div class="jpsx_li1"><a href="{$t[linkurl]}"></a><img width="100%" height="100%" src="{$t[thumb]}"></div>
+						<div class="jpsx_li2"><a href="{$t[linkurl]}">{$t[company]}</a></div>
+						<div class="jpsx_li3">
+							{$t[business]}
+						</div>
+						<div class="cl"></div>
+					</li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="main_jp_tr">
+				<ul id="bannerindex_jp35705">
+					<li class="main_jp_tr2" txt="1">1/3</li>
+					<li class="main_jp_tr2" txt="2">2/3</li>
+					<li class="main_jp_tr1" txt="3">3/3</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="main_pp">
+		<div class="main_slqytl2">品牌专区</div>
+		<ul>
+		<!--{php $tags=tag("moduleid=13&pagesize=3&order=addtime desc&template=null")}-->
+			{loop $tags $i $t}
+			<li>
+				<a href="{$t[linkurl]}"></a>
+				<div class="pp_li1">{$t[title]}</div>
+				<div class="pp_li2">{$t[introduce]}</div>
+				<div class="pp_li3"><img src="{$t[thumb]}" width="90" height="45"></div>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+	<div class="cl"></div>
+</div>
+
+<div t="7" class="main_lb_box" style="display:block">
+	<div class="main_lb_box_tl7">
+		<div class="top_cydtl1"><a href="{$MODULE[5][linkurl]}list.php?catid=17" target="_blank">安全防护</a></div>
+		<div class="top_cydtl2">污水处理 环保先行</div>
+		<div class="main_lb_box_tlin">
+			{php $mid = 5;}
+			{php $child = get_maincat(23, $mid, 1);}
+			{loop $child $i $c}
+				{if $i<4 && $i%2 != 0}
+					| <a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a><br>
+				{else}
+					<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+				{/if}
+			{/loop}<br>
+			<a href="{$MODULE[5][linkurl]}list.php?catid=17">查看更多&gt;</a>
+		</div>
+	</div>
+	<div class="main_lb_box_lb">
+		<div class="main_lb_box_lbtl">污水处理</div>
+		<div class="main_lb_box_lbin">
+			{php $mid = 5;}
+			{php $child = get_maincat(17, $mid, 1);}
+			{loop $child $i $c}
+			<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" class="lb_f1" target="_blank">{set_style($c[catname], $c[style])} &nbsp;&nbsp;</a>
+			{php $sub = get_maincat($c[catid], $mid, 1);}
+			{loop $sub $j $s}
+			{if $j<6}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a>{/if}
+			{/loop}
+			{/loop}
+			<div class="cl"></div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_sl89797",ov2:5841,ov3:{},ov4:{indexid:"#bannerindex_sl89797",indexclsn:"main_sl_tr2",indexclsa:"main_sl_tr1"}});
+	});
+	</script>
+	<div class="main_slqy">
+		<div class="main_slqytl">实力企业</div>
+		<div class="main_slqybox">
+			<div class="main_slqyboxin" id="rollrl_sl89797">
+			<ul style="left: 0px;">
+			<li txt="1">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+						<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+						{loop $tag1 $m}
+							<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+						{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="2">	  
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="3">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			</ul>
+			</div>
+			<div class="main_sl_tr">
+				<ul id="bannerindex_sl89797">
+					<li class="main_sl_tr1" txt="1"></li>
+					<li class="main_sl_tr2" txt="2"></li>
+					<li class="main_sl_tr2" txt="3"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_jp89797",ov2:5135,ov3:{leftid:"#newphotol_jp89797",rightid:"#newphotor_jp89797",leftclsn:"main_jp_pre",leftclsa:"main_jp_prea",rightclsn:"main_jp_next",rightclsa:"main_jp_nexta",autohide:"1"},ov4:{indexid:"#bannerindex_jp89797",indexclsn:"main_jp_tr2",indexclsa:"main_jp_tr1"}});
+
+	});
+	</script>
+	<div class="main_jpsx">
+		<div class="main_slqytl">精品推荐</div>
+		<div class="main_jpbox">
+			<div class="main_jpboxin" id="rollrl_jp89797">
+				<div class="main_jp_pre" id="newphotol_jp89797" style="display: none;">&lt;</div>
+				<div class="main_jp_next" id="newphotor_jp89797" style="display: none;">&gt;</div>
+				<ul style="left: 0px;">	
+					<!--{php $tags=tag("moduleid=4&catid=51&pagesize=3&order=fromtime desc&template=null")}-->
+					{loop $tags $i $t}
+					{php $i=$i+1;}
+					<li txt="{$i}">
+						<div class="jpsx_li1"><a href="{$t[linkurl]}"></a><img width="100%" height="100%" src="{$t[thumb]}"></div>
+						<div class="jpsx_li2"><a href="{$t[linkurl]}">{$t[company]}</a></div>
+						<div class="jpsx_li3">
+							{$t[business]}
+						</div>
+						<div class="cl"></div>
+					</li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="main_jp_tr">
+				<ul id="bannerindex_jp89797">
+					<li class="main_jp_tr2" txt="1">1/3</li>
+					<li class="main_jp_tr2" txt="2">2/3</li>
+					<li class="main_jp_tr1" txt="3">3/3</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="main_pp">
+		<div class="main_slqytl2">品牌专区</div>
+		<ul>
+		<!--{php $tags=tag("moduleid=13&pagesize=3&order=addtime desc&template=null")}-->
+			{loop $tags $i $t}
+			<li>
+				<a href="{$t[linkurl]}"></a>
+				<div class="pp_li1">{$t[title]}</div>
+				<div class="pp_li2">{$t[introduce]}</div>
+				<div class="pp_li3"><img src="{$t[thumb]}" width="90" height="45"></div>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+	<div class="cl"></div>
+</div>
+<div t="8" class="main_lb_box" style="display:block">
+	<div class="main_lb_box_tl8">
+		<div class="top_cydtl1"><a href="{$MODULE[5][linkurl]}list.php?catid=17" target="_blank">暖通设备</a></div>
+		<div class="top_cydtl2">污水处理 环保先行</div>
+		<div class="main_lb_box_tlin">
+			{php $mid = 5;}
+			{php $child = get_maincat(24, $mid, 1);}
+			{loop $child $i $c}
+				{if $i<4 && $i%2 != 0}
+					| <a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a><br>
+				{else}
+					<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+				{/if}
+			{/loop}<br>
+			<a href="{$MODULE[5][linkurl]}list.php?catid=17">查看更多&gt;</a>
+		</div>
+	</div>
+	<div class="main_lb_box_lb">
+		<div class="main_lb_box_lbtl">污水处理</div>
+		<div class="main_lb_box_lbin">
+			{php $mid = 5;}
+			{php $child = get_maincat(17, $mid, 1);}
+			{loop $child $i $c}
+			<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" class="lb_f1" target="_blank">{set_style($c[catname], $c[style])} &nbsp;&nbsp;</a>
+			{php $sub = get_maincat($c[catid], $mid, 1);}
+			{loop $sub $j $s}
+			{if $j<6}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a>{/if}
+			{/loop}
+			{/loop}
+			<div class="cl"></div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_sl49884",ov2:5841,ov3:{},ov4:{indexid:"#bannerindex_sl49884",indexclsn:"main_sl_tr2",indexclsa:"main_sl_tr1"}});
+	});
+	</script>
+	<div class="main_slqy">
+		<div class="main_slqytl">实力企业</div>
+		<div class="main_slqybox">
+			<div class="main_slqyboxin" id="rollrl_sl49884">
+			<ul style="left: 0px;">
+			<li txt="1">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+						<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+						{loop $tag1 $m}
+							<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+						{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="2">	  
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="3">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			</ul>
+			</div>
+			<div class="main_sl_tr">
+				<ul id="bannerindex_sl49884">
+					<li class="main_sl_tr1" txt="1"></li>
+					<li class="main_sl_tr2" txt="2"></li>
+					<li class="main_sl_tr2" txt="3"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_jp49884",ov2:5135,ov3:{leftid:"#newphotol_jp49884",rightid:"#newphotor_jp49884",leftclsn:"main_jp_pre",leftclsa:"main_jp_prea",rightclsn:"main_jp_next",rightclsa:"main_jp_nexta",autohide:"1"},ov4:{indexid:"#bannerindex_jp49884",indexclsn:"main_jp_tr2",indexclsa:"main_jp_tr1"}});
+
+	});
+	</script>
+	<div class="main_jpsx">
+		<div class="main_slqytl">精品推荐</div>
+		<div class="main_jpbox">
+			<div class="main_jpboxin" id="rollrl_jp49884">
+				<div class="main_jp_pre" id="newphotol_jp49884" style="display: none;">&lt;</div>
+				<div class="main_jp_next" id="newphotor_jp49884" style="display: none;">&gt;</div>
+				<ul style="left: 0px;">	
+					<!--{php $tags=tag("moduleid=4&catid=51&pagesize=3&order=fromtime desc&template=null")}-->
+					{loop $tags $i $t}
+					{php $i=$i+1;}
+					<li txt="{$i}">
+						<div class="jpsx_li1"><a href="{$t[linkurl]}"></a><img width="100%" height="100%" src="{$t[thumb]}"></div>
+						<div class="jpsx_li2"><a href="{$t[linkurl]}">{$t[company]}</a></div>
+						<div class="jpsx_li3">
+							{$t[business]}
+						</div>
+						<div class="cl"></div>
+					</li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="main_jp_tr">
+				<ul id="bannerindex_jp49884">
+					<li class="main_jp_tr2" txt="1">1/3</li>
+					<li class="main_jp_tr2" txt="2">2/3</li>
+					<li class="main_jp_tr1" txt="3">3/3</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="main_pp">
+		<div class="main_slqytl2">品牌专区</div>
+		<ul>
+		<!--{php $tags=tag("moduleid=13&pagesize=3&order=addtime desc&template=null")}-->
+			{loop $tags $i $t}
+			<li>
+				<a href="{$t[linkurl]}"></a>
+				<div class="pp_li1">{$t[title]}</div>
+				<div class="pp_li2">{$t[introduce]}</div>
+				<div class="pp_li3"><img src="{$t[thumb]}" width="90" height="45"></div>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+	<div class="cl"></div>
+</div>
+
+<div t="9" class="main_lb_box" style="display:block">
+	<div class="main_lb_box_tl9">
+		<div class="top_cydtl1"><a href="{$MODULE[5][linkurl]}list.php?catid=17" target="_blank">新能源</a></div>
+		<div class="top_cydtl2">污水处理 环保先行</div>
+		<div class="main_lb_box_tlin">
+			{php $mid = 5;}
+			{php $child = get_maincat(25, $mid, 1);}
+			{loop $child $i $c}
+				{if $i<4 && $i%2 != 0}
+					| <a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a><br>
+				{else}
+					<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+				{/if}
+			{/loop}<br>
+			<a href="{$MODULE[5][linkurl]}list.php?catid=17">查看更多&gt;</a>
+		</div>
+	</div>
+	<div class="main_lb_box_lb">
+		<div class="main_lb_box_lbtl">污水处理</div>
+		<div class="main_lb_box_lbin">
+			{php $mid = 5;}
+			{php $child = get_maincat(17, $mid, 1);}
+			{loop $child $i $c}
+			<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" class="lb_f1" target="_blank">{set_style($c[catname], $c[style])} &nbsp;&nbsp;</a>
+			{php $sub = get_maincat($c[catid], $mid, 1);}
+			{loop $sub $j $s}
+			{if $j<6}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a>{/if}
+			{/loop}
+			{/loop}
+			<div class="cl"></div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_sl82433",ov2:5841,ov3:{},ov4:{indexid:"#bannerindex_sl82433",indexclsn:"main_sl_tr2",indexclsa:"main_sl_tr1"}});
+	});
+	</script>
+	<div class="main_slqy">
+		<div class="main_slqytl">实力企业</div>
+		<div class="main_slqybox">
+			<div class="main_slqyboxin" id="rollrl_sl82433">
+			<ul style="left: 0px;">
+			<li txt="1">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+						<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+						{loop $tag1 $m}
+							<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+						{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="2">	  
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="3">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			</ul>
+			</div>
+			<div class="main_sl_tr">
+				<ul id="bannerindex_sl82433">
+					<li class="main_sl_tr1" txt="1"></li>
+					<li class="main_sl_tr2" txt="2"></li>
+					<li class="main_sl_tr2" txt="3"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_jp82433",ov2:5135,ov3:{leftid:"#newphotol_jp82433",rightid:"#newphotor_jp82433",leftclsn:"main_jp_pre",leftclsa:"main_jp_prea",rightclsn:"main_jp_next",rightclsa:"main_jp_nexta",autohide:"1"},ov4:{indexid:"#bannerindex_jp82433",indexclsn:"main_jp_tr2",indexclsa:"main_jp_tr1"}});
+
+	});
+	</script>
+	<div class="main_jpsx">
+		<div class="main_slqytl">精品推荐</div>
+		<div class="main_jpbox">
+			<div class="main_jpboxin" id="rollrl_jp82433">
+				<div class="main_jp_pre" id="newphotol_jp82433" style="display: none;">&lt;</div>
+				<div class="main_jp_next" id="newphotor_jp82433" style="display: none;">&gt;</div>
+				<ul style="left: 0px;">	
+					<!--{php $tags=tag("moduleid=4&catid=51&pagesize=3&order=fromtime desc&template=null")}-->
+					{loop $tags $i $t}
+					{php $i=$i+1;}
+					<li txt="{$i}">
+						<div class="jpsx_li1"><a href="{$t[linkurl]}"></a><img width="100%" height="100%" src="{$t[thumb]}"></div>
+						<div class="jpsx_li2"><a href="{$t[linkurl]}">{$t[company]}</a></div>
+						<div class="jpsx_li3">
+							{$t[business]}
+						</div>
+						<div class="cl"></div>
+					</li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="main_jp_tr">
+				<ul id="bannerindex_jp82433">
+					<li class="main_jp_tr2" txt="1">1/3</li>
+					<li class="main_jp_tr2" txt="2">2/3</li>
+					<li class="main_jp_tr1" txt="3">3/3</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="main_pp">
+		<div class="main_slqytl2">品牌专区</div>
+		<ul>
+		<!--{php $tags=tag("moduleid=13&pagesize=3&order=addtime desc&template=null")}-->
+			{loop $tags $i $t}
+			<li>
+				<a href="{$t[linkurl]}"></a>
+				<div class="pp_li1">{$t[title]}</div>
+				<div class="pp_li2">{$t[introduce]}</div>
+				<div class="pp_li3"><img src="{$t[thumb]}" width="90" height="45"></div>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+	<div class="cl"></div>
+</div>
+<div t="10" class="main_lb_box" style="display:block">
+	<div class="main_lb_box_tl10">
+		<div class="top_cydtl1"><a href="{$MODULE[5][linkurl]}list.php?catid=17" target="_blank">环卫农机</a></div>
+		<div class="top_cydtl2">污水处理 环保先行</div>
+		<div class="main_lb_box_tlin">
+			{php $mid = 5;}
+			{php $child = get_maincat(26, $mid, 1);}
+			{loop $child $i $c}
+				{if $i<4 && $i%2 != 0}
+					| <a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a><br>
+				{else}
+					<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+				{/if}
+			{/loop}<br>
+			<a href="{$MODULE[5][linkurl]}list.php?catid=17">查看更多&gt;</a>
+		</div>
+	</div>
+	<div class="main_lb_box_lb">
+		<div class="main_lb_box_lbtl">污水处理</div>
+		<div class="main_lb_box_lbin">
+			{php $mid = 5;}
+			{php $child = get_maincat(17, $mid, 1);}
+			{loop $child $i $c}
+			<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" class="lb_f1" target="_blank">{set_style($c[catname], $c[style])} &nbsp;&nbsp;</a>
+			{php $sub = get_maincat($c[catid], $mid, 1);}
+			{loop $sub $j $s}
+			{if $j<6}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a>{/if}
+			{/loop}
+			{/loop}
+			<div class="cl"></div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_sl35467",ov2:5841,ov3:{},ov4:{indexid:"#bannerindex_sl35467",indexclsn:"main_sl_tr2",indexclsa:"main_sl_tr1"}});
+	});//图片左右滚动     结构 ul>li   1.元素  2.时间  3.左右id  4 下标
+	</script>
+	<div class="main_slqy">
+		<div class="main_slqytl">实力企业</div>
+		<div class="main_slqybox">
+			<div class="main_slqyboxin" id="rollrl_sl35467">
+			<ul style="left: 0px;">
+			<li txt="1">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+						<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+						{loop $tag1 $m}
+							<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+						{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="2">	  
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="3">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			</ul>
+			</div>
+			<div class="main_sl_tr">
+				<ul id="bannerindex_sl35467">
+					<li class="main_sl_tr1" txt="1"></li>
+					<li class="main_sl_tr2" txt="2"></li>
+					<li class="main_sl_tr2" txt="3"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_jp35467",ov2:5135,ov3:{leftid:"#newphotol_jp35467",rightid:"#newphotor_jp35467",leftclsn:"main_jp_pre",leftclsa:"main_jp_prea",rightclsn:"main_jp_next",rightclsa:"main_jp_nexta",autohide:"1"},ov4:{indexid:"#bannerindex_jp35467",indexclsn:"main_jp_tr2",indexclsa:"main_jp_tr1"}});
+
+	});
+	</script>
+	<div class="main_jpsx">
+		<div class="main_slqytl">精品推荐</div>
+		<div class="main_jpbox">
+			<div class="main_jpboxin" id="rollrl_jp35467">
+				<div class="main_jp_pre" id="newphotol_jp35467" style="display: none;">&lt;</div>
+				<div class="main_jp_next" id="newphotor_jp35467" style="display: none;">&gt;</div>
+				<ul style="left: 0px;">	
+					<!--{php $tags=tag("moduleid=4&catid=51&pagesize=3&order=fromtime desc&template=null")}-->
+					{loop $tags $i $t}
+					{php $i=$i+1;}
+					<li txt="{$i}">
+						<div class="jpsx_li1"><a href="{$t[linkurl]}"></a><img width="100%" height="100%" src="{$t[thumb]}"></div>
+						<div class="jpsx_li2"><a href="{$t[linkurl]}">{$t[company]}</a></div>
+						<div class="jpsx_li3">
+							{$t[business]}
+						</div>
+						<div class="cl"></div>
+					</li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="main_jp_tr">
+				<ul id="bannerindex_jp35467">
+					<li class="main_jp_tr2" txt="1">1/3</li>
+					<li class="main_jp_tr2" txt="2">2/3</li>
+					<li class="main_jp_tr1" txt="3">3/3</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="main_pp">
+		<div class="main_slqytl2">品牌专区</div>
+		<ul>
+		<!--{php $tags=tag("moduleid=13&pagesize=3&order=addtime desc&template=null")}-->
+			{loop $tags $i $t}
+			<li>
+				<a href="{$t[linkurl]}"></a>
+				<div class="pp_li1">{$t[title]}</div>
+				<div class="pp_li2">{$t[introduce]}</div>
+				<div class="pp_li3"><img src="{$t[thumb]}" width="90" height="45"></div>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+	<div class="cl"></div>
+</div>
+<div t="11" class="main_lb_box" style="display:block">
+	<div class="main_lb_box_tl11">
+		<div class="top_cydtl1"><a href="{$MODULE[5][linkurl]}list.php?catid=17" target="_blank">环保工程</a></div>
+		<div class="top_cydtl2">污水处理 环保先行</div>
+		<div class="main_lb_box_tlin">
+			{php $mid = 5;}
+			{php $child = get_maincat(27, $mid, 1);}
+			{loop $child $i $c}
+				{if $i<4 && $i%2 != 0}
+					| <a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a><br>
+				{else}
+					<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+				{/if}
+			{/loop}<br>
+			<a href="{$MODULE[5][linkurl]}list.php?catid=17">查看更多&gt;</a>
+		</div>
+	</div>
+	<div class="main_lb_box_lb">
+		<div class="main_lb_box_lbtl">污水处理</div>
+		<div class="main_lb_box_lbin">
+			{php $mid = 5;}
+			{php $child = get_maincat(17, $mid, 1);}
+			{loop $child $i $c}
+			<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" class="lb_f1" target="_blank">{set_style($c[catname], $c[style])} &nbsp;&nbsp;</a>
+			{php $sub = get_maincat($c[catid], $mid, 1);}
+			{loop $sub $j $s}
+			{if $j<6}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a>{/if}
+			{/loop}
+			{/loop}
+			<div class="cl"></div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_sl68410",ov2:5841,ov3:{},ov4:{indexid:"#bannerindex_sl68410",indexclsn:"main_sl_tr2",indexclsa:"main_sl_tr1"}});
+	});
+	</script>
+	<div class="main_slqy">
+		<div class="main_slqytl">实力企业</div>
+		<div class="main_slqybox">
+			<div class="main_slqyboxin" id="rollrl_sl68410">
+			<ul style="left: 0px;">
+			<li txt="1">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+						<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+						{loop $tag1 $m}
+							<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+						{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="2">	  
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="3">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			</ul>
+			</div>
+			<div class="main_sl_tr">
+				<ul id="bannerindex_sl68410">
+					<li class="main_sl_tr1" txt="1"></li>
+					<li class="main_sl_tr2" txt="2"></li>
+					<li class="main_sl_tr2" txt="3"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_jp68410",ov2:5135,ov3:{leftid:"#newphotol_jp68410",rightid:"#newphotor_jp68410",leftclsn:"main_jp_pre",leftclsa:"main_jp_prea",rightclsn:"main_jp_next",rightclsa:"main_jp_nexta",autohide:"1"},ov4:{indexid:"#bannerindex_jp68410",indexclsn:"main_jp_tr2",indexclsa:"main_jp_tr1"}});
+
+	});
+	</script>
+	<div class="main_jpsx">
+		<div class="main_slqytl">精品推荐</div>
+		<div class="main_jpbox">
+			<div class="main_jpboxin" id="rollrl_jp68410">
+				<div class="main_jp_pre" id="newphotol_jp68410" style="display: none;">&lt;</div>
+				<div class="main_jp_next" id="newphotor_jp68410" style="display: none;">&gt;</div>
+				<ul style="left: 0px;">	
+					<!--{php $tags=tag("moduleid=4&catid=51&pagesize=3&order=fromtime desc&template=null")}-->
+					{loop $tags $i $t}
+					{php $i=$i+1;}
+					<li txt="{$i}">
+						<div class="jpsx_li1"><a href="{$t[linkurl]}"></a><img width="100%" height="100%" src="{$t[thumb]}"></div>
+						<div class="jpsx_li2"><a href="{$t[linkurl]}">{$t[company]}</a></div>
+						<div class="jpsx_li3">
+							{$t[business]}
+						</div>
+						<div class="cl"></div>
+					</li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="main_jp_tr">
+				<ul id="bannerindex_jp68410">
+					<li class="main_jp_tr2" txt="1">1/3</li>
+					<li class="main_jp_tr2" txt="2">2/3</li>
+					<li class="main_jp_tr1" txt="3">3/3</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="main_pp">
+		<div class="main_slqytl2">品牌专区</div>
+		<ul>
+		<!--{php $tags=tag("moduleid=13&pagesize=3&order=addtime desc&template=null")}-->
+			{loop $tags $i $t}
+			<li>
+				<a href="{$t[linkurl]}"></a>
+				<div class="pp_li1">{$t[title]}</div>
+				<div class="pp_li2">{$t[introduce]}</div>
+				<div class="pp_li3"><img src="{$t[thumb]}" width="90" height="45"></div>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+	<div class="cl"></div>
+</div>
+<div t="12" class="main_lb_box" style="display:block">
+	<div class="main_lb_box_tl12">
+		<div class="top_cydtl1"><a href="{$MODULE[5][linkurl]}list.php?catid=17" target="_blank">化工混合</a></div>
+		<div class="top_cydtl2">污水处理 环保先行</div>
+		<div class="main_lb_box_tlin">
+			{php $mid = 5;}
+			{php $child = get_maincat(28, $mid, 1);}
+			{loop $child $i $c}
+				{if $i<4 && $i%2 != 0}
+					| <a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a><br>
+				{else}
+					<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+				{/if}
+			{/loop}<br>
+			<a href="{$MODULE[5][linkurl]}list.php?catid=17">查看更多&gt;</a>
+		</div>
+	</div>
+	<div class="main_lb_box_lb">
+		<div class="main_lb_box_lbtl">污水处理</div>
+		<div class="main_lb_box_lbin">
+			{php $mid = 5;}
+			{php $child = get_maincat(17, $mid, 1);}
+			{loop $child $i $c}
+			<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" class="lb_f1" target="_blank">{set_style($c[catname], $c[style])} &nbsp;&nbsp;</a>
+			{php $sub = get_maincat($c[catid], $mid, 1);}
+			{loop $sub $j $s}
+			{if $j<6}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a>{/if}
+			{/loop}
+			{/loop}
+			<div class="cl"></div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_sl70782",ov2:5841,ov3:{},ov4:{indexid:"#bannerindex_sl70782",indexclsn:"main_sl_tr2",indexclsa:"main_sl_tr1"}});
+	});
+	</script>
+	<div class="main_slqy">
+		<div class="main_slqytl">实力企业</div>
+		<div class="main_slqybox">
+			<div class="main_slqyboxin" id="rollrl_sl70782">
+			<ul style="left: 0px;">
+			<li txt="1">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+						<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+						{loop $tag1 $m}
+							<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+						{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="2">	  
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="3">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			</ul>
+			</div>
+			<div class="main_sl_tr">
+				<ul id="bannerindex_sl70782">
+					<li class="main_sl_tr1" txt="1"></li>
+					<li class="main_sl_tr2" txt="2"></li>
+					<li class="main_sl_tr2" txt="3"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_jp70782",ov2:5135,ov3:{leftid:"#newphotol_jp70782",rightid:"#newphotor_jp70782",leftclsn:"main_jp_pre",leftclsa:"main_jp_prea",rightclsn:"main_jp_next",rightclsa:"main_jp_nexta",autohide:"1"},ov4:{indexid:"#bannerindex_jp70782",indexclsn:"main_jp_tr2",indexclsa:"main_jp_tr1"}});
+
+	});
+	</script>
+	<div class="main_jpsx">
+		<div class="main_slqytl">精品推荐</div>
+		<div class="main_jpbox">
+			<div class="main_jpboxin" id="rollrl_jp70782">
+				<div class="main_jp_pre" id="newphotol_jp70782" style="display: none;">&lt;</div>
+				<div class="main_jp_next" id="newphotor_jp70782" style="display: none;">&gt;</div>
+				<ul style="left: 0px;">	
+					<!--{php $tags=tag("moduleid=4&catid=51&pagesize=3&order=fromtime desc&template=null")}-->
+					{loop $tags $i $t}
+					{php $i=$i+1;}
+					<li txt="{$i}">
+						<div class="jpsx_li1"><a href="{$t[linkurl]}"></a><img width="100%" height="100%" src="{$t[thumb]}"></div>
+						<div class="jpsx_li2"><a href="{$t[linkurl]}">{$t[company]}</a></div>
+						<div class="jpsx_li3">
+							{$t[business]}
+						</div>
+						<div class="cl"></div>
+					</li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="main_jp_tr">
+				<ul id="bannerindex_jp70782">
+					<li class="main_jp_tr2" txt="1">1/3</li>
+					<li class="main_jp_tr2" txt="2">2/3</li>
+					<li class="main_jp_tr1" txt="3">3/3</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="main_pp">
+		<div class="main_slqytl2">品牌专区</div>
+		<ul>
+		<!--{php $tags=tag("moduleid=13&pagesize=3&order=addtime desc&template=null")}-->
+			{loop $tags $i $t}
+			<li>
+				<a href="{$t[linkurl]}"></a>
+				<div class="pp_li1">{$t[title]}</div>
+				<div class="pp_li2">{$t[introduce]}</div>
+				<div class="pp_li3"><img src="{$t[thumb]}" width="90" height="45"></div>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+	<div class="cl"></div>
+</div>
+<div t="13" class="main_lb_box" style="display:block">
+	<div class="main_lb_box_tl13">
+		<div class="top_cydtl1"><a href="{$MODULE[5][linkurl]}list.php?catid=17" target="_blank">食品制药</a></div>
+		<div class="top_cydtl2">污水处理 环保先行</div>
+		<div class="main_lb_box_tlin">
+			{php $mid = 5;}
+			{php $child = get_maincat(29, $mid, 1);}
+			{loop $child $i $c}
+				{if $i<4 && $i%2 != 0}
+					| <a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a><br>
+				{else}
+					<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+				{/if}
+			{/loop}<br>
+			<a href="{$MODULE[5][linkurl]}list.php?catid=17">查看更多&gt;</a>
+		</div>
+	</div>
+	<div class="main_lb_box_lb">
+		<div class="main_lb_box_lbtl">污水处理</div>
+		<div class="main_lb_box_lbin">
+			{php $mid = 5;}
+			{php $child = get_maincat(17, $mid, 1);}
+			{loop $child $i $c}
+			<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" class="lb_f1" target="_blank">{set_style($c[catname], $c[style])} &nbsp;&nbsp;</a>
+			{php $sub = get_maincat($c[catid], $mid, 1);}
+			{loop $sub $j $s}
+			{if $j<6}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a>{/if}
+			{/loop}
+			{/loop}
+			<div class="cl"></div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_sl52155",ov2:5841,ov3:{},ov4:{indexid:"#bannerindex_sl52155",indexclsn:"main_sl_tr2",indexclsa:"main_sl_tr1"}});
+	});
+	</script>
+	<div class="main_slqy">
+		<div class="main_slqytl">实力企业</div>
+		<div class="main_slqybox">
+			<div class="main_slqyboxin" id="rollrl_sl52155">
+			<ul style="left: 0px;">
+			<li txt="1">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+						<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+						{loop $tag1 $m}
+							<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+						{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="2">	  
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="3">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			</ul>
+			</div>
+			<div class="main_sl_tr">
+				<ul id="bannerindex_sl52155">
+					<li class="main_sl_tr1" txt="1"></li>
+					<li class="main_sl_tr2" txt="2"></li>
+					<li class="main_sl_tr2" txt="3"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_jp52155",ov2:5135,ov3:{leftid:"#newphotol_jp52155",rightid:"#newphotor_jp52155",leftclsn:"main_jp_pre",leftclsa:"main_jp_prea",rightclsn:"main_jp_next",rightclsa:"main_jp_nexta",autohide:"1"},ov4:{indexid:"#bannerindex_jp52155",indexclsn:"main_jp_tr2",indexclsa:"main_jp_tr1"}});
+
+	});
+	</script>
+	<div class="main_jpsx">
+		<div class="main_slqytl">精品推荐</div>
+		<div class="main_jpbox">
+			<div class="main_jpboxin" id="rollrl_jp52155">
+				<div class="main_jp_pre" id="newphotol_jp52155" style="display: none;">&lt;</div>
+				<div class="main_jp_next" id="newphotor_jp52155" style="display: none;">&gt;</div>
+				<ul style="left: 0px;">	
+					<!--{php $tags=tag("moduleid=4&catid=51&pagesize=3&order=fromtime desc&template=null")}-->
+					{loop $tags $i $t}
+					{php $i=$i+1;}
+					<li txt="{$i}">
+						<div class="jpsx_li1"><a href="{$t[linkurl]}"></a><img width="100%" height="100%" src="{$t[thumb]}"></div>
+						<div class="jpsx_li2"><a href="{$t[linkurl]}">{$t[company]}</a></div>
+						<div class="jpsx_li3">
+							{$t[business]}
+						</div>
+						<div class="cl"></div>
+					</li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="main_jp_tr">
+				<ul id="bannerindex_jp52155">
+					<li class="main_jp_tr2" txt="1">1/3</li>
+					<li class="main_jp_tr2" txt="2">2/3</li>
+					<li class="main_jp_tr1" txt="3">3/3</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="main_pp">
+		<div class="main_slqytl2">品牌专区</div>
+		<ul>
+		<!--{php $tags=tag("moduleid=13&pagesize=3&order=addtime desc&template=null")}-->
+			{loop $tags $i $t}
+			<li>
+				<a href="{$t[linkurl]}"></a>
+				<div class="pp_li1">{$t[title]}</div>
+				<div class="pp_li2">{$t[introduce]}</div>
+				<div class="pp_li3"><img src="{$t[thumb]}" width="90" height="45"></div>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+	<div class="cl"></div>
+</div>
+<div t="14" class="main_lb_box" style="display:block">
+	<div class="main_lb_box_tl14">
+		<div class="top_cydtl1"><a href="{$MODULE[5][linkurl]}list.php?catid=17" target="_blank">矿冶机械</a></div>
+		<div class="top_cydtl2">污水处理 环保先行</div>
+		<div class="main_lb_box_tlin">
+			{php $mid = 5;}
+			{php $child = get_maincat(30, $mid, 1);}
+			{loop $child $i $c}
+				{if $i<4 && $i%2 != 0}
+					| <a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a><br>
+				{else}
+					<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+				{/if}
+			{/loop}<br>
+			<a href="{$MODULE[5][linkurl]}list.php?catid=17">查看更多&gt;</a>
+		</div>
+	</div>
+	<div class="main_lb_box_lb">
+		<div class="main_lb_box_lbtl">污水处理</div>
+		<div class="main_lb_box_lbin">
+			{php $mid = 5;}
+			{php $child = get_maincat(17, $mid, 1);}
+			{loop $child $i $c}
+			<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" class="lb_f1" target="_blank">{set_style($c[catname], $c[style])} &nbsp;&nbsp;</a>
+			{php $sub = get_maincat($c[catid], $mid, 1);}
+			{loop $sub $j $s}
+			{if $j<6}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a>{/if}
+			{/loop}
+			{/loop}
+			<div class="cl"></div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_sl47314",ov2:5841,ov3:{},ov4:{indexid:"#bannerindex_sl47314",indexclsn:"main_sl_tr2",indexclsa:"main_sl_tr1"}});
+	});
+	</script>
+	<div class="main_slqy">
+		<div class="main_slqytl">实力企业</div>
+		<div class="main_slqybox">
+			<div class="main_slqyboxin" id="rollrl_sl47314">
+			<ul style="left: 0px;">
+			<li txt="1">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+						<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+						{loop $tag1 $m}
+							<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+						{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="2">	  
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="3">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			</ul>
+			</div>
+			<div class="main_sl_tr">
+				<ul id="bannerindex_sl47314">
+					<li class="main_sl_tr1" txt="1"></li>
+					<li class="main_sl_tr2" txt="2"></li>
+					<li class="main_sl_tr2" txt="3"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_jp47314",ov2:5135,ov3:{leftid:"#newphotol_jp47314",rightid:"#newphotor_jp47314",leftclsn:"main_jp_pre",leftclsa:"main_jp_prea",rightclsn:"main_jp_next",rightclsa:"main_jp_nexta",autohide:"1"},ov4:{indexid:"#bannerindex_jp47314",indexclsn:"main_jp_tr2",indexclsa:"main_jp_tr1"}});
+
+	});
+	</script>
+	<div class="main_jpsx">
+		<div class="main_slqytl">精品推荐</div>
+		<div class="main_jpbox">
+			<div class="main_jpboxin" id="rollrl_jp47314">
+				<div class="main_jp_pre" id="newphotol_jp47314" style="display: none;">&lt;</div>
+				<div class="main_jp_next" id="newphotor_jp47314" style="display: none;">&gt;</div>
+				<ul style="left: 0px;">	
+					<!--{php $tags=tag("moduleid=4&catid=51&pagesize=3&order=fromtime desc&template=null")}-->
+					{loop $tags $i $t}
+					{php $i=$i+1;}
+					<li txt="{$i}">
+						<div class="jpsx_li1"><a href="{$t[linkurl]}"></a><img width="100%" height="100%" src="{$t[thumb]}"></div>
+						<div class="jpsx_li2"><a href="{$t[linkurl]}">{$t[company]}</a></div>
+						<div class="jpsx_li3">
+							{$t[business]}
+						</div>
+						<div class="cl"></div>
+					</li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="main_jp_tr">
+				<ul id="bannerindex_jp47314">
+					<li class="main_jp_tr2" txt="1">1/3</li>
+					<li class="main_jp_tr2" txt="2">2/3</li>
+					<li class="main_jp_tr1" txt="3">3/3</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="main_pp">
+		<div class="main_slqytl2">品牌专区</div>
+		<ul>
+		<!--{php $tags=tag("moduleid=13&pagesize=3&order=addtime desc&template=null")}-->
+			{loop $tags $i $t}
+			<li>
+				<a href="{$t[linkurl]}"></a>
+				<div class="pp_li1">{$t[title]}</div>
+				<div class="pp_li2">{$t[introduce]}</div>
+				<div class="pp_li3"><img src="{$t[thumb]}" width="90" height="45"></div>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+	<div class="cl"></div>
+</div>
+<div t="15" class="main_lb_box" style="display:block">
+	<div class="main_lb_box_tl15">
+		<div class="top_cydtl1"><a href="{$MODULE[5][linkurl]}list.php?catid=17" target="_blank">通用设备</a></div>
+		<div class="top_cydtl2">污水处理 环保先行</div>
+		<div class="main_lb_box_tlin">
+			{php $mid = 5;}
+			{php $child = get_maincat(31, $mid, 1);}
+			{loop $child $i $c}
+				{if $i<4 && $i%2 != 0}
+					| <a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a><br>
+				{else}
+					<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a>
+				{/if}
+			{/loop}<br>
+			<a href="{$MODULE[5][linkurl]}list.php?catid=17">查看更多&gt;</a>
+		</div>
+	</div>
+	<div class="main_lb_box_lb">
+		<div class="main_lb_box_lbtl">污水处理</div>
+		<div class="main_lb_box_lbin">
+			{php $mid = 5;}
+			{php $child = get_maincat(17, $mid, 1);}
+			{loop $child $i $c}
+			<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" class="lb_f1" target="_blank">{set_style($c[catname], $c[style])} &nbsp;&nbsp;</a>
+			{php $sub = get_maincat($c[catid], $mid, 1);}
+			{loop $sub $j $s}
+			{if $j<6}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a>{/if}
+			{/loop}
+			{/loop}
+			<div class="cl"></div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_sl53343",ov2:5841,ov3:{},ov4:{indexid:"#bannerindex_sl53343",indexclsn:"main_sl_tr2",indexclsa:"main_sl_tr1"}});
+	});
+	</script>
+	<div class="main_slqy">
+		<div class="main_slqytl">实力企业</div>
+		<div class="main_slqybox">
+			<div class="main_slqyboxin" id="rollrl_sl53343">
+			<ul style="left: 0px;">
+			<li txt="1">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+						<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+						{loop $tag1 $m}
+							<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+						{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="2">	  
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			<li txt="3">
+				<!--{php $tags=tag("moduleid=4&catid=51&pagesize=2&order=fromtime desc&template=null")}-->
+				{loop $tags $t}
+				<div class="main_slqyboxin_libox">
+					<div class="sl_li1"><a href="{$t[linkurl]}">{$t[company]}</a>
+						<div class="vip_ico"></div>
+					</div>
+					<div class="sl_li3">认证：{if $t[validated]}已认证{else}未认证{/if}</div>
+					<div class="cl"></div>
+					<div class="sl_li3">地区：{area_pos($t[areaid], ' ')}</div> 
+					<div class="sl_cp">
+					<!--{php $tag1=tag("moduleid=5&condition=status=3 and username='".$t[username]."'&pagesize=4&order=addtime desc&template=null");}-->
+					{loop $tag1 $m}
+						<div class="sl_cp_li"><a href="{$m[linkurl]}" target="_blank"></a><img src="{imgurl($m[thumb], 70)}" width="70" height="70" alt="{$m[alt]}"/></div>
+					{/loop}
+					</div>
+				</div>
+				{/loop}
+			</li>
+			</ul>
+			</div>
+			<div class="main_sl_tr">
+				<ul id="bannerindex_sl53343">
+					<li class="main_sl_tr1" txt="1"></li>
+					<li class="main_sl_tr2" txt="2"></li>
+					<li class="main_sl_tr2" txt="3"></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function(){
+	_g_.call("roll",{fun:"rollrl",ov1:"#rollrl_jp53343",ov2:5135,ov3:{leftid:"#newphotol_jp53343",rightid:"#newphotor_jp53343",leftclsn:"main_jp_pre",leftclsa:"main_jp_prea",rightclsn:"main_jp_next",rightclsa:"main_jp_nexta",autohide:"1"},ov4:{indexid:"#bannerindex_jp53343",indexclsn:"main_jp_tr2",indexclsa:"main_jp_tr1"}});
+
+	});
+	</script>
+	<div class="main_jpsx">
+		<div class="main_slqytl">精品推荐</div>
+		<div class="main_jpbox">
+			<div class="main_jpboxin" id="rollrl_jp53343">
+				<div class="main_jp_pre" id="newphotol_jp53343" style="display: none;">&lt;</div>
+				<div class="main_jp_next" id="newphotor_jp53343" style="display: none;">&gt;</div>
+				<ul style="left: 0px;">	
+					<!--{php $tags=tag("moduleid=4&catid=51&pagesize=3&order=fromtime desc&template=null")}-->
+					{loop $tags $i $t}
+					{php $i=$i+1;}
+					<li txt="{$i}">
+						<div class="jpsx_li1"><a href="{$t[linkurl]}"></a><img width="100%" height="100%" src="{$t[thumb]}"></div>
+						<div class="jpsx_li2"><a href="{$t[linkurl]}">{$t[company]}</a></div>
+						<div class="jpsx_li3">
+							{$t[business]}
+						</div>
+						<div class="cl"></div>
+					</li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="main_jp_tr">
+				<ul id="bannerindex_jp53343">
+					<li class="main_jp_tr2" txt="1">1/3</li>
+					<li class="main_jp_tr2" txt="2">2/3</li>
+					<li class="main_jp_tr1" txt="3">3/3</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="main_pp">
+		<div class="main_slqytl2">品牌专区</div>
+		<ul>
+		<!--{php $tags=tag("moduleid=13&pagesize=3&order=addtime desc&template=null")}-->
+			{loop $tags $i $t}
+			<li>
+				<a href="{$t[linkurl]}"></a>
+				<div class="pp_li1">{$t[title]}</div>
+				<div class="pp_li2">{$t[introduce]}</div>
+				<div class="pp_li3"><img src="{$t[thumb]}" width="90" height="45"></div>
+			</li>
+			{/loop}
+		</ul>
+	</div>
+	<div class="cl"></div>
+</div>
+
+<div class="main_lb_more" style="display: none;">展开更多行业</div>
+<script> 
+	var block_show="";
+	var block_hide="0";
+</script>
+
+<div class="main_newstl">
+	<div class="main_newstl_n1"><a href="{$MODULE[12][linkurl]}">导购相册</a></div>
+	<div class="main_newstl_n2">
+	{php $mid = 12;}
+	{php $child = get_maincat(0, $mid, 1);}
+	{loop $child $i $c}
+	<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" class="lb_f1" target="_blank">{set_style($c[catname], $c[style])} &nbsp;&nbsp;</a> |
+	{/loop}
+   </div>
+   <div class="main_newstl_bg"></div>
+</div>
+<div class="dgxc_mian">
+	<ul>
+		<li>
+			<!--{php $tags=tag("moduleid=4&pagesize=1&order=fromtime desc&template=null")}-->
+			{loop $tags $t}
+			<div class="dgxc_1">
+				<div class="dgxc_name1"><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></div>
+				<div class="dgxc_name2">
+					<a href="{$t[linkurl]}" target="_blank">企业商铺</a>  |  
+					<a href="{DT_PATH}index.php?homepage={$t[username]}&file=contact" target="_blank">联系方式</a>
+				</div>
+				<div class="dgxc_name3"><a href="{$t[linkurl]}" target="_blank">去看看</a></div>
+				<div class="dgxcbg1"></div>
+				<div class="dgxc_line1"></div>
+				<div class="dgxc_xcbox1"><a href="{$t[linkurl]}" target="_blank"><img src="{$t[thumb]}" width="220" height="240"></a></div>
+				<div class="dgxc_xc_n1">{$t[business]}</div>
+				<div class="dgxc_xc_n2">
+					<a href="{$t[linkurl]}" target="_blank">{$t[company]}</a><br>发布于{date('Y-m-d',$t[addtime])} 
+				</div>
+			</div>
+			{/loop}
+			<!--{php $tags=tag("moduleid=4&pagesize=2&order=fromtime desc&template=null")}-->
+			{loop $tags $i $t}
+			<div {if $i==0}class="dgxc_2"{else}class="dgxc_3"{/if}>
+				<div class="dgxc_name1"><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></div>
+				<div class="dgxc_name2"><a href="{$t[linkurl]}" target="_blank">企业商铺</a>  |  
+				<a href="{DT_PATH}index.php?homepage={$t[username]}&file=contact" target="_blank">联系方式</a></div>
+				<div class="dgxc_name3"><a href="{$t[linkurl]}" target="_blank">去看看</a></div>
+				<div class="dgxcbg2"></div><div class="dgxc_line2"></div>
+				<div class="dgxc_xcbox1"><img src="{$t[thumb]}"></div>
+				<div class="dgxc_xc_n3"><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></div>
+			</div>
+			{/loop}
+		</li>
+		<li>
+			<!--{php $tags=tag("moduleid=4&pagesize=1&order=fromtime desc&template=null")}-->
+			{loop $tags $t}
+			<div class="dgxc_4">
+				<div class="dgxc_name1"><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></div>
+				<div class="dgxc_name2">
+					<a href="{$t[linkurl]}" target="_blank">企业商铺</a>  |  
+					<a href="{DT_PATH}index.php?homepage={$t[username]}&file=contact" target="_blank">联系方式</a>
+				</div>
+				<div class="dgxc_name3"><a href="{$t[linkurl]}" target="_blank">去看看</a></div>
+				<div class="dgxcbg1"></div>
+				<div class="dgxc_line1"></div>
+				<div class="dgxc_xcbox1"><a href="{$t[linkurl]}" target="_blank"><img src="{$t[thumb]}" width="220" height="240"></a></div>
+				<div class="dgxc_xc_n1">{$t[business]}</div>
+				<div class="dgxc_xc_n2">
+					<a href="{$t[linkurl]}" target="_blank">{$t[company]}</a><br>发布于{date('Y-m-d',$t[addtime])} 
+				</div>
+			</div>
+			{/loop}
+			<!--{php $tags=tag("moduleid=4&pagesize=2&order=fromtime desc&template=null")}-->
+			{loop $tags $i $t}
+			<div {if $i==0}class="dgxc_2"{else}class="dgxc_3"{/if}>
+				<div class="dgxc_name1"><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></div>
+				<div class="dgxc_name2"><a href="{$t[linkurl]}" target="_blank">企业商铺</a>  |  
+				<a href="{DT_PATH}index.php?homepage={$t[username]}&file=contact" target="_blank">联系方式</a></div>
+				<div class="dgxc_name3"><a href="{$t[linkurl]}" target="_blank">去看看</a></div>
+				<div class="dgxcbg2"></div><div class="dgxc_line2"></div>
+				<div class="dgxc_xcbox1"><img src="{$t[thumb]}"></div>
+				<div class="dgxc_xc_n3"><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></div>
+			</div>
+			{/loop}
+		</li>
+		<li>
+			<!--{php $tags=tag("moduleid=4&pagesize=1&order=fromtime desc&template=null")}-->
+			{loop $tags $t}
+			<div class="dgxc_4">
+				<div class="dgxc_name1"><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></div>
+				<div class="dgxc_name2">
+					<a href="{$t[linkurl]}" target="_blank">企业商铺</a>  |  
+					<a href="{DT_PATH}index.php?homepage={$t[username]}&file=contact" target="_blank">联系方式</a>
+				</div>
+				<div class="dgxc_name3"><a href="{$t[linkurl]}" target="_blank">去看看</a></div>
+				<div class="dgxcbg1"></div>
+				<div class="dgxc_line1"></div>
+				<div class="dgxc_xcbox1"><a href="{$t[linkurl]}" target="_blank"><img src="{$t[thumb]}" width="220" height="240"></a></div>
+				<div class="dgxc_xc_n1">{$t[business]}</div>
+				<div class="dgxc_xc_n2">
+					<a href="{$t[linkurl]}" target="_blank">{$t[company]}</a><br>发布于{date('Y-m-d',$t[addtime])} 
+				</div>
+			</div>
+			{/loop}
+			<!--{php $tags=tag("moduleid=4&pagesize=2&order=fromtime desc&template=null")}-->
+			{loop $tags $i $t}
+			<div {if $i==0}class="dgxc_2"{else}class="dgxc_3"{/if}>
+				<div class="dgxc_name1"><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></div>
+				<div class="dgxc_name2"><a href="{$t[linkurl]}" target="_blank">企业商铺</a>  |  
+				<a href="{DT_PATH}index.php?homepage={$t[username]}&file=contact" target="_blank">联系方式</a></div>
+				<div class="dgxc_name3"><a href="{$t[linkurl]}" target="_blank">去看看</a></div>
+				<div class="dgxcbg2"></div><div class="dgxc_line2"></div>
+				<div class="dgxc_xcbox1"><img src="{$t[thumb]}"></div>
+				<div class="dgxc_xc_n3"><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></div>
+			</div>
+			{/loop}
+		</li>
+	</ul>
+	<div class="cl"></div>
+</div>
+<script>
+$(document).ready(function(){
+	$("#tjcp_new div div").click(function(){
+		$("#tjcp_new div div").removeClass("tjcp_box_tr1").addClass("tjcp_box_tr2");
+		var txt=$(this).attr("txt");
+		$("#tjcp_new div div").eq(txt-1).removeClass("tjcp_box_tr2").addClass("tjcp_box_tr1");
+		$("#tjcp_content2 span[txt]").hide();
+		$("#tjcp_content2 span[txt='"+txt+"']").show();
+	});
+});
+</script>
+<div class="tjcp_mian">
+	<div style="" class="tjcp_box_tr" id="tjcp_new">
+		<div style="width:200px;height:auto;overflow:hidden;text-align:center;padding-left:500px;">		
+			<div class="tjcp_box_tr1" txt="1">商城推荐</div>
+			<div class="tjcp_box_tr2" txt="2">供应推荐</div>
+		</div>
+	</div>
+	<div class="cl"></div>
+	<div class="tjcp_box" id="tjcp_content2">
+		<span txt="1" class="tjcp_box1">
+		<div class="tjcp">
+		<ul>
+		<!--{php $tags=tag("moduleid=16&condition=status=3 and thumb<>''&pagesize=5&order=addtime desc&template=null")}-->
+		{loop $tags $t}
+			<li class="">
+			<div class="zl_img">
+			<table border="0" cellspacing="0" cellpadding="0">
+			<tbody>
+			<tr>
+			<td width="214" height="214" align="center" valign="middle"><a href="{$t[linkurl]}" target="_blank"><img src="{$t[thumb]}" width="100%" height="100%"></a></td>
+			</tr>
+			</tbody>
+			</table>
+			</div>
+			<div class="li_name1"><img src="{DT_SKIN}img/cp2013_rmb.gif"><span class="pricesize">{$t[price]}</span></div>
+			<div class="li_name2"><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></div>
+			{php $member = userinfo($t[username]);}
+			<div class="li_name3">		    
+				<div class="l_r1_in1">
+					<a href="{$member[linkurl]}" class="gs_name" target="_blank">{$member[company]}</a>
+					<div class="vip_ico"><a href="{$member[linkurl]}" title="实力企业"></a></div>
+				</div>
+				<div class="cl"></div>
+			</div>
+			</li>
+		{/loop}
+		</ul>
+		<div class="cl"></div>
+		</div>
+		<div class="cl"></div>
+		</span>
+		<span txt="2" class="tjcp_box2">
+		<div class="tjcp">
+		<ul>
+		<!--{php $tags=tag("moduleid=5&condition=status=3 and thumb<>''&pagesize=5&order=addtime desc&template=null")}-->
+		{loop $tags $t}
+			<li class="">
+			<div class="zl_img">
+			<table border="0" cellspacing="0" cellpadding="0">
+			<tbody>
+			<tr>
+			<td width="214" height="214" align="center" valign="middle"><a href="{$t[linkurl]}" target="_blank"><img src="{$t[thumb]}" width="100%" height="100%"></a></td>
+			</tr>
+			</tbody>
+			</table>
+			</div>
+			<div class="li_name1"><img src="{DT_SKIN}img/cp2013_rmb.gif"><span class="pricesize">{$t[price]}</span></div>
+			<div class="li_name2"><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></div>
+			{php $member = userinfo($t[username]);}
+			<div class="li_name3">		    
+				<div class="l_r1_in1">
+					<a href="{$member[linkurl]}" class="gs_name" target="_blank">{$member[company]}</a>
+					<div class="vip_ico"><a href="{$member[linkurl]}" title="实力企业"></a></div>
+				</div>
+				<div class="cl"></div>
+			</div>
+			</li>
+		{/loop}
+		</ul>
+		<div class="cl"></div>
+		</div>
+		<div class="cl"></div>
+		</span>
+	</div>
+</div>
+
+<script type="text/javascript" src="{DT_STATIC}file/script/index.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/marquee.js"></script>
+<script type="text/javascript">
+new dmarquee(22, 10, 3000, 'site_stats');
+new dmarquee(22, 30, 3000, 'company');
+if(get_cookie('auth')) {
+	$('.iuser_l')[0].title = '商务中心';
+	$('.iuser_l')[0].href = '{$MODULE[2][linkurl]}';
+	$('.iuser_l')[0].className = 'iuser_u';
+	$('.iuser_r')[0].title = '完善我的会员资料';
+	$('.iuser_r')[0].href = '{$MODULE[2][linkurl]}edit.php';
+	$('.iuser_r')[0].className = 'iuser_e';
+}
+</script>
+{template 'footer'}

@@ -1,0 +1,44 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+
+<header class="aui-bar aui-bar-nav" id="aui-header">
+        <a class="aui-pull-left aui-btn" href="javascript:history.go(-1);">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+        <div class="aui-title">频道</div>
+        <a class="aui-pull-right">
+        <span class="dt-iconfont dt-icon-caidan" onclick="showPopup();"></span>
+        </a>
+</header>
+
+<div class="aui-bar-fix"></div>
+<div class="aui-content">
+<div class="aui-searchbar" id="search" style="position:relative; height:2.25rem;" onclick="window.location.href='search.php'">
+    <div class="aui-searchbar-input aui-border-radius">
+        <i class="aui-iconfont aui-icon-search"></i>
+        <form action="javascript:search();">
+            <input type="search" placeholder="请输入搜索内容" id="search-input">
+        </form>
+    </div>
+    <div class="aui-searchbar-cancel" tapmod>取消</div>
+</div>
+</div>
+
+<div class="aui-content aui-margin-b-15">
+    <ul class="aui-list aui-list-in dt-border-t-none">
+    <!--{php $tags=tag("table=module&condition=disabled=0&order=listorder asc&pagesize=50&template=null");}-->
+        {loop $tags $i $m}
+        {if in_array($m[module], array('sell', 'buy', 'quote', 'company', 'exhibit', 'article', 'info', 'job', 'know', 'brand', 'mall', 'group', 'video', 'photo', 'club','live','special'))}
+        <li class="aui-list-item">
+        <a href="{mobileurl($m[moduleid])}" title="{$m[name]}">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title aui-font-size-18">{$m[name]}</div>
+            </div>
+         </a>
+        </li>
+        {/if}
+        {/loop}
+</ul>
+</div>
+
+{template 'footer_v2', 'mobile'}

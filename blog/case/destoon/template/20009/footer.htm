@@ -1,0 +1,34 @@
+ <div class="m b10">&nbsp;</div>
+ <div class="footer">
+	<div class="m">
+		<div class="foot_page">
+		<a href="{$MODULE[1][linkurl]}">Home</a>
+		<!--{tag("table=webpage&condition=item=1&areaid=$cityid&order=listorder desc,itemid desc&template=list-webpage")}-->
+		| <a href="{$MODULE[1][linkurl]}sitemap/">Site Map</a>
+		| <a href="{$EXT[spread_url]}">Rank</a>
+		{if $EXT[ad_enable]} | <a href="{$EXT[ad_url]}">Advertising Service</a>{/if}
+		{if $EXT[gift_enable]} | <a href="{$EXT[gift_url]}">Gift</a>{/if}
+		{if $EXT[guestbook_enable]} | <a href="{$EXT[guestbook_url]}">Guestbook</a>{/if}
+		{if $EXT[feed_enable]} | <a href="{$EXT[feed_url]}">RSS</a>{/if}
+		{if $DT[icpno]} | <a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow">{$DT[icpno]}</a>{/if}
+	</div>
+	<div class="copyRight">
+        <div class="foot">
+			<div id="copyright">{$DT[copyright]}</div>
+			{if DT_DEBUG}<div class="px11">{debug()}</div>{/if}
+			<div id="powered"><a href="http://www.destoon.com/" target="_blank"><img src="{DT_STATIC}file/image/powered.gif" width="136" height="10" alt="Powered by DESTOON"/></a></div>
+		</div>
+	</div>
+</div>
+
+<div class="back2top"><a href="javascript:void(0);" title="Back to Top">&nbsp;</a></div>
+<script type="text/javascript">
+{if $destoon_task}
+show_task('{$destoon_task}');
+{else}
+{php include DT_ROOT.'/api/task.inc.php';}
+{/if}
+{if $lazy}$(function(){$("img").lazyload();});{/if}
+</script>
+</body>
+</html>

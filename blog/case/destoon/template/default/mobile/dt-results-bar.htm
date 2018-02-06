@@ -1,0 +1,35 @@
+<div class="dt-search-none displaynone" style="height:2.65rem"></div>
+    <div class="dt-search-bar" id="dt-search-listbar">
+        <div class="dt-search-bar-input aui-border-radius">
+            <i class="aui-iconfont aui-icon-search aui-text-info aui-font-size-18" onclick="doSearch()"></i>
+            <form action="search.php" method="post" id="dform">
+                <input type="hidden" name="ok" value="1"/>
+                <input type="hidden" name="action" value="mod{$moduleid}"/>
+                <input name="wd" type="search" placeholder="请输入搜索内容" id="search-input" class="aui-font-size-16">
+            </form>
+        </div>
+        <div class="dt-search-bar-cancel" tapmod>取消</div>
+    </div>
+<script type="text/javascript">
+    var Dsearchbar = document.querySelector(".dt-search-bar-input");
+    if(Dsearchbar){
+        Dsearchbar.onclick = function(){
+            document.querySelector(".dt-search-bar-cancel").style.marginRight = 0;
+        }
+    }
+    document.querySelector(".dt-search-bar-cancel").onclick = function(){
+        this.style.marginRight = "-"+this.offsetWidth+"px";
+        document.getElementById("search-input").value = '';
+        document.getElementById("search-input").blur();
+		showsearchbar(1);
+    }
+    function doSearch(){
+        var searchValue = document.getElementById("search-input").value;
+        if(searchValue){
+			Dd('dform').submit();
+            //openDialog('text','您输入的内容是',searchValue);
+        }else{
+		openDialog('text','请输入搜索关键词','请输入搜索关键词');
+		}
+    }
+</script>

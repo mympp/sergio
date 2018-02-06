@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset={DT_CHARSET}"/>
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{$COM[company]}{/if}</title>
+{if $head_keywords}<meta name="keywords" content="{$head_keywords}"/>{/if}
+{if $head_description}<meta name="description" content="{$head_description}"/>{/if}
+<meta name="generator" content="DESTOON B2B - www.destoon.com"/>
+<meta name="template" content="{$template}"/>
+{if $head_mobile}
+<meta http-equiv="mobile-agent" content="format=html5;url={$head_mobile}">
+{/if}
+{if $head_canonical}
+<link rel="canonical" href="{$head_canonical}"/>
+{/if}
+<link rel="stylesheet" type="text/css" href="{DT_STATIC}{$MODULE[4][moduledir]}/skin/common.css"/>
+<link rel="stylesheet" type="text/css" href="{$HSPATH}style.css"/>
+{if !DT_DEBUG}<script type="text/javascript">window.onerror= function(){return true;}</script>{/if}
+<script type="text/javascript" src="{DT_STATIC}lang/{DT_LANG}/lang.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/config.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/page.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/homepage.js"></script>
+{if $lazy}<script type="text/javascript" src="{DT_STATIC}file/script/jquery.lazyload.js"></script>{/if}
+<script type="text/javascript">
+{if $head_mobile && $EXT[mobile_goto]}
+GoMobile('{$head_mobile}');
+{/if}
+{if $itemid && $DT[anticopy]}
+document.oncontextmenu=function(e){return false;};
+document.onselectstart=function(e){return false;};
+{/if}
+</script>
+{if $css}<style type="text/css">{$css}</style>{/if}
+<link href="{$HSPATH}gobel.css" type="text/css" rel="stylesheet" />
+<link href="{$HSPATH}index.css" type="text/css" rel="stylesheet" />
+<script src="{$HSPATH}jquery-1.10.2.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<div class="w1238 header">
+  <dl class="logo left">
+    {if $logo}<dt><span><a href="{$COM[linkurl]}"><img src="{$logo}" width="60px" height="60px" alt="{$COM[company]}" onload="if(this.width>300)this.width=300;"/></a></span></dt>{/if}
+    <dd>{$COM[company]}<span>{$COM[telephone]}</span></dd>
+  </dl>
+   <div class="righttop w500 right">      
+	<form action="{$MODULE[4][linkurl]}home.php" onsubmit="return check_kw();">
+	<input type="hidden" name="action" value="search"/>
+	<input type="hidden" name="homepage" value="{$username}"/>
+		 <div class="search">
+		<input type="text" name="kw" value="{if $kw}{$kw}{else}输入关键词{/if}" size="25" id="kw" class="s_text"  onfocus="if(this.value=='输入关键词')this.value='';"/>
+			<div style="position:absolute;right:5px;top:3px;">
+				<select name="file">
+					{loop $MENU $k $v}
+					{if in_array($menu_file[$k], array('sell', 'buy', 'news', 'credit', 'job', 'photo', 'info', 'brand', 'video', 'mall'))}
+					<option value="{$menu_file[$k]}"{if $file==$menu_file[$k]} selected{/if}>{$v[name]}</option>{/if}
+					{/loop}
+				</select>
+			</div>
+		</div>
+	<div class="search_btn"> <button>站内搜索</button></div>
+	</form>
+      <div class="vip">{$COM[vip]}年</div>
+    </div>
+    <ul class="menus">
+	<li><a  class="{if $file=='homepage'}on{/if}" href="{$COM[linkurl]}">网站首页</a></li>
+	{loop $MENU $k $v}
+	<li><a class="{if $file==$menu_file[$k]}on{/if}" href="{$v[linkurl]}">{$v[name]}</a></li>
+	{/loop}
+</ul>
+</div>
+<div class="w1238">
+{template 'side', $template}

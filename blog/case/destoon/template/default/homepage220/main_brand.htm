@@ -1,0 +1,24 @@
+<div class="mainBox ">
+	<div class="title"><a href="{userurl($username, 'file=brand', $domain)}" target="_blank" class="more">更多</a><h2>{$main_name[$HM]}</h2></div>
+	<div class="con">
+		<div class="shopRecommend">
+			<div style=" _position: relative; width: 880px; overflow: hidden; height: 132px">
+				<ul style="left:0">
+				<!--{php $tags=tag("moduleid=13&condition=status>2 and username='$username'&pagesize=4&order=edittime desc&fields=itemid,title,linkurl,thumb,edittime&template=null");}-->
+				{loop $tags $i $t}
+					<li>
+						<div>
+							<span class="imgBox">
+								<a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=brand&itemid='.$t['itemid'], $domain)}{/if}" target="_blank">
+								<img src="{$t[thumb]}" style="height:60px;border-bottom: 1px solid #eee;padding-bottom:5px;"></a>
+							</span>
+							<h3><a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=brand&itemid='.$t['itemid'], $domain)}{/if}" target="_blank">{$t[title]}</a></h3>
+							<p class="p1">{timetodate($t[addtime], 3)}</p>
+						</div>
+					</li>
+				{/loop}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

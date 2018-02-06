@@ -1,0 +1,21 @@
+<div class="aui-content aui-margin-t-10 aui-margin-b-10">
+{if $lists}
+{loop $lists $k $v}
+    <ul class="aui-list aui-list-in aui-font-size-12">
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title"><span class="dt-text-red">{$DT[money_sign]}{$v[price]}</span>&nbsp;{hide_name($v[buyer])}</div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title"><span class="dt-text-red">x {$v[number]}</span>&nbsp;<span>{$v[updatetime]}</span></div>
+            </div>
+        </li>
+</ul>
+{/loop}
+{if $pages}<div class="pages bd-b">{$pages}</div>{/if}
+</div> 
+{else}
+<div class="bd-b"><br/><br/><center>暂无交易</center><br/><br/></div>
+{/if}       

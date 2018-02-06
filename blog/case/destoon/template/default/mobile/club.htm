@@ -1,0 +1,163 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+<link rel="stylesheet" type="text/css" href="css/club_v2.css"/>
+<header class="aui-bar aui-bar-nav" id="aui-header">
+       {if $itemid || $catid || $areaid || $kw}
+        <a class="aui-pull-left aui-btn" href="{$back_link}">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+       {else}
+        <a class="aui-pull-left aui-btn" href="channel.php">
+           <span class="aui-iconfont aui-icon-left"></span>频道
+        </a>
+       {/if}
+        <div class="aui-title">{$head_name}</div>
+        <a class="aui-pull-right" href="javascript:{if $itemid}showPopup();{elseif $gid}towindow('<a href=&#34;club.php?action=post&gid={$gid}&#34;><span>发表帖子</span></a>|<a href=&#34;club.php?action=fans&gid={$gid}&#34;><span>成员列表</span></a>|<a href=&#34;search.php?action=post{$catid}&catid={$catid}&areaid={$areaid}&#34;><span>帖子搜索</span></a>|<a href=&#34;{mobileurl($moduleid)}&#34; data-direction=&#34;reverse&#34;><span>{$MOD[name]}首页</span></a>|<a href=&#34;channel.php&#34; data-direction=&#34;reverse&#34;><span>频道列表</span></a>', '取消');{else}towindow('<a href=&#34;club.php?action=my&#34;><span>我的{$MOD[name]}</span></a>|<a href=&#34;search.php?action=mod{$moduleid}&catid={$catid}&areaid={$areaid}&#34;><span>{$MOD[name]}搜索</span></a>|<a href=&#34;category.php?moduleid={$moduleid}&#34;><span>按分类浏览</span></a>|<a href=&#34;area.php?moduleid={$moduleid}&#34;><span>按地区浏览</span></a>', '取消');{/if}">
+        <span class="dt-iconfont dt-icon-caidan"></span>
+        </a>
+        <a class="aui-pull-right"><i class="dt-iconfont dt-icon-sousuo aui-font-size-20" onclick="showsearchbar();"></i></a>
+</header>
+
+<div class="aui-bar-fix"></div>
+
+{if $itemid}
+<section class="aui-content dt-club-item">
+        <div class="aui-card-list dt-club-item-title">
+            <div class="aui-info dt-padded-t-20 aui-padded-l-5 aui-padded-r-15">
+                <div class="aui-info-item aui-font-size-20">
+                    <span class="aui-margin-l-5 dt-text-black">{$title}</span>
+                </div>
+            </div>
+              <div class="aui-card-list-timer aui-font-size-14" style="color:#999;">
+                <div class="dt-article-times">
+                    <span class="aui-margin-r-10">点击:&nbsp;<span class="aui-text-info">{$hits}</span>&nbsp;&nbsp;回复:&nbsp;<span class="aui-text-info">{$reply}</span></span>
+                </div>
+            </div>
+</div>
+
+    <ul class="aui-list aui-media-list">
+	{if $page == 1}
+<li class="aui-list-item">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-media" style="width:3rem;">
+                    <img src="{useravatar($item[username])}" width="60" >
+                </div>
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title"><a href="club.php?action=user&username={$item[username]}&itemid={$itemid}" class="b">{if $item[username]}{$item[passport]}{else}{ip2area($item[ip])}访客{/if}</a>&nbsp;{if $item[username] == $GRP[username]}圈主{elseif in_array($item[passport], $GRP[managers])}版主{/if}</div>
+                        <div class="aui-list-item-right"><span>楼主</span></div>
+                    </div>
+                    <div class="aui-list-item-text">
+                        {timetodate($item[addtime], 5)}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="aui-list-item-text">
+            <div class="dt-club-item-content">
+                 {if $user_status == 3}
+	               {$content}
+	              {else}
+	              {template 'dtchip-content', 'mobile'}
+	              {/if}
+                  </div></div>
+
+</li>
+{/if}
+
+	{if $replys}
+	{loop $replys $k $v}
+<li class="aui-list-item">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-media" style="width:3rem;">
+                    <img src="{useravatar($item[username])}" width="60" >
+                </div>
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title"><a href="club.php?action=user&username={$v[username]}&itemid={$itemid}" class="b">{if $v[username]}{$v[passport]}{else}{ip2area($item[ip])}访客{/if}</a>&nbsp;{if $v[username] == $GRP[username]}圈主{elseif in_array($v[passport], $GRP[managers])}版主{/if}</div>
+                        <div class="aui-list-item-right"><span>{if $v[fname]}{$v[fname]}{else}{$v[floor]}楼{/if}</span></div>
+                    </div>
+                    <div class="aui-list-item-text">
+                        {timetodate($v[addtime], 5)}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="aui-list-item-text">
+            <div class="dt-club-item-content aui-padded-b-10">{$v[content]}</div></div>
+
+</li>
+	{/loop}
+	{/if}
+
+</ul>
+</section>
+
+{template 'dtchip-other', 'mobile'}
+{else}
+{template 'dtchip-deals', 'mobile'}
+{template 'dt-results-bar', 'mobile'}
+	{if $gid}
+
+<div class="aui-content dt-know-type">
+<div class="aui-bar aui-bar-btn" style="width:100%;">
+    <div class="aui-bar-btn-item {if $typeid==0}aui-active{/if}"><a href="index.php?moduleid={$moduleid}&catid={$catid}&typeid=0"><span>最后回复</span></a></div>
+    <div class="aui-bar-btn-item {if $typeid==1}aui-active{/if}"><a href="index.php?moduleid={$moduleid}&catid={$catid}&typeid=1"><span>最新主题</span></a></div>
+    <div class="aui-bar-btn-item {if $typeid==2}aui-active{/if}"><a href="index.php?moduleid={$moduleid}&catid={$catid}&typeid=2"><span>精华主题</span></a></div>
+</div>
+</div>
+
+		{if $lists}
+        <div class="aui-content dt-club-item">
+         <ul class="aui-list aui-media-list">
+		{loop $lists $v}
+<li class="aui-list-item">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title aui-ellipsis-2"><a href="{$v[linkurl]}">{$v[title]}</a>{if $v[ontop]}{elseif $v[level]}<i class="dt-iconfont dt-icon-zhiding aui-font-size-14 aui-text-success dt-margin-l-3"></i>{elseif $v[thumb]}<i class="dt-iconfont dt-icon-tupian aui-font-size-18 aui-text-warning dt-margin-l-3"></i>{/if}</div>
+                        <div class="aui-list-item-right"></div>
+                    </div>
+                    <div class="aui-list-item-text dt-club-item-passport">
+                        <div class="aui-list-item-title aui-font-size-12 dt-text-gray">{$v[date]}</div>
+                        <div class="aui-list-item-right aui-font-size-12 dt-text-gray">{$v[passport]}&nbsp;&nbsp;&nbsp;&nbsp;{$v[reply]}<i class="aui-iconfont aui-icon-comment dt-margin-l-3"></i></div>
+                    </div>
+                </div>
+            </div>
+        </li>
+		{/loop}
+        </ul>
+</div>
+		{else}
+		{template 'dtchip-empty', 'mobile'}
+		{/if}
+	{else}
+		{if $lists}
+        <div class="aui-content dt-club-item">
+         <ul class="aui-list aui-media-list">
+		{loop $lists $v}
+<li class="aui-list-item">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-media" style="width:3rem;">
+                    <a href="index.php?moduleid={$moduleid}&catid={$v[itemid]}"><img src="{if $v[thumb]}{$v[thumb]}{else}image/nopic-60.png{/if}" width="60" onerror="this.src='static/img/nopic-60.png';"/></a>
+                </div>
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title"><a href="index.php?moduleid={$moduleid}&catid={$v[itemid]}"><strong>{$v[title]}{$MOD[seo_name]}</strong></a></div>
+                    </div>
+                    <div class="aui-list-item-text">
+                        {$v[post]}&nbsp;主题&nbsp;&nbsp;{$v[fans]}&nbsp;粉丝
+                    </div>
+                </div>
+            </div>
+</li>
+		{/loop}
+        </ul>
+</div>
+		{else}
+		{template 'dtchip-empty', 'mobile'}
+		{/if}
+	{/if}
+{/if}
+{if $pages}<div class="pages">{$pages}</div>{/if}
+{template 'footer_v2', 'mobile'}

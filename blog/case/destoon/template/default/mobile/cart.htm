@@ -1,0 +1,346 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+
+<header class="aui-bar aui-bar-nav aui-bg-danger" id="aui-header">
+        <a class="aui-pull-left aui-btn" href="{$back_link}">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+        <div class="aui-title">{$head_name}{if $_cart}({$_cart}){/if}</div>
+        {if $lists}
+        <a class="aui-pull-right">
+        <span class="dt-iconfont dt-icon-caidan" onclick="towindow('<a href=&#34;javascript:action_delete();&#34;><span>移除选中</span></a>|<a href=&#34;javascript:action_clear();&#34;><span>清空全部</span></a>', '取消');"></span>
+        </a>
+        {else}
+        <a class="aui-pull-right" href="javascript:window.location.reload();"><span>刷新</span></a>
+        {/if}
+</header>
+<div class="aui-bar-fix"></div>
+
+{if $lists}
+{if $need_addr}
+<div class="aui-content aui-margin-b-5">
+    <ul class="aui-list aui-list-in dt-border-t-none" onclick="towindow('<a href=&#34;{$addr_url}&#34; data-transition=&#34;slideup&#34;><span>更换地址</span></a>', '不用更换', '确定要更换收货地址吗？');">
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">收货人：{$addr[truename]}</div>
+                <div class="aui-list-item-right">{$addr[mobile]}</div>
+            </div>
+        </li>
+       <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title"><span class="dt-iconfont dt-icon-dangqian aui-font-size-14 dt-margin-r-3"></span>{$addr[address]}</div>
+            </div>
+        </li>
+</ul>
+</div>
+{/if}
+<style type="text/css">
+.list-buy .aui-list-item-right span {float:right;color:#999999;font-size:14px;}
+.list-buy .aui-list-item-right em {display:block;width:44px;height:44px;line-height:44px;font-style:normal;color:#999999;background:#F3F3F3;float:left;text-align:center;}
+.mall-buy-list .aui-list .aui-list-item:active { background-color:none !important; background: #FFF !important;}
+
+.mall-fee {
+	color:#F00;
+	position: absolute;
+	top: 50%;
+	right: 90px;
+	-webkit-transform: translateY(-50%);
+	      transform: translateY(-50%);
+}
+.input-checkbox {width:24px;height:24px;background:url('static/img/icon-checkbox.png') no-repeat;background-size:24px 24px;}
+.input-checkbox-checked {width:24px;height:24px;background:url('static/img/icon-checkbox-checked.png') no-repeat;background-size:24px 24px;}
+</style>
+<form id="cart-form">
+<input type="hidden" name="ok" value="1"/>
+{loop $lists $i $t}
+<div class="aui-content">
+    <ul class="aui-list aui-media-list">
+    <li class="aui-list-item">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-media" style="width:3.75rem; height:3.75rem; margin-top:0.25rem;">
+                    <img src="{if $t[thumb]}{$t[thumb]}{else}static/img/nopic-60.png{/if}" width="60" height="60" alt="" onerror="this.src='static/img/nopic-60.png';"/>
+                </div>
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title aui-ellipsis-2"><a href="index.php?moduleid={$moduleid}&itemid={$t[itemid]}"><strong>{$t[title]}</strong></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="aui-info" style="padding-top:0">
+                <div class="aui-info-item"><a href="index.php?moduleid=4&username={$t[username]}"><span>{$t[company]}</span></a>
+                    </div>
+                <div class="aui-info-item dt-text-red">{$DT[money_sign]}<span id="price" class="price">{$t[price]}</span>{if isset($t[unit]) && $t[unit]}/{$t[unit]}{/if}</div>
+</div>
+        </li>
+</ul>
+</div>
+
+<div class="aui-content aui-margin-b-15 mall-buy-list">
+	<input type="hidden" name="post[{$t[key]}][checked]" value="1" id="checked_{$t[key]}"/>
+	<input type="hidden" id="a1_{$t[key]}" value="{$t[a1]}"/>
+	<input type="hidden" id="a2_{$t[key]}" value="{$t[a2]}"/>
+	<input type="hidden" id="a3_{$t[key]}" value="{$t[a3]}"/>
+	<input type="hidden" id="p1_{$t[key]}" value="{$t[p1]}"/>
+	<input type="hidden" id="p2_{$t[key]}" value="{$t[p2]}"/>
+	<input type="hidden" id="p3_{$t[key]}" value="{$t[p3]}"/>
+	<input type="hidden" id="amount_{$t[key]}" value="{$t[amount]}"/>
+	<input type="hidden" id="fee_start_{$t[key]}_1" value="{$t[fee_start_1]}"/>
+	<input type="hidden" id="fee_step_{$t[key]}_1" value="{$t[fee_step_1]}"/>
+	<input type="hidden" id="fee_start_{$t[key]}_2" value="{$t[fee_start_2]}"/>
+	<input type="hidden" id="fee_step_{$t[key]}_2" value="{$t[fee_step_2]}"/>
+	<input type="hidden" id="fee_start_{$t[key]}_3" value="{$t[fee_start_3]}"/>
+	<input type="hidden" id="fee_step_{$t[key]}_3" value="{$t[fee_step_3]}"/>
+     <ul class="aui-list aui-list-in dt-border-t-none">
+     <li class="aui-list-item">
+            <div class="aui-list-item-inner list-buy">
+                <div class="aui-list-item-title">购买数量</div>
+                <div class="aui-list-item-right"><span><em style="font-size:20px;" onclick="alter('{$t[key]}', '-');">—</em><input type="tel" name="post[{$t[key]}][number]" id="number_{$t[key]}" value="{$t[a]}" style="width:2rem;float:left;text-align:center;color:#555555;"/><em style="font-size:24px;" onclick="alter('{$t[key]}', '+');">+</em></span></div>
+            </div>
+        </li>
+
+		{if $module == 'sell'}
+       <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">配送方式</div>
+                <div class="aui-list-item-right">联系卖家</div>
+            </div>
+        </li>
+		{elseif $module == 'mall'}
+       <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">配送方式</div>
+                <div class="aui-list-item-right">
+                <div><span id="fee_{$t[key]}" class="aui-pull-right mall-fee">{$DT[money_sign]}0.00</span><span class="aui-pull-right">
+			<select name="post[{$t[key]}][express]" id="express_{$t[key]}" onchange="calculate();">
+			{if $t[express_name_1] == '包邮'}
+				{if $t[fee_start_1]>0}
+				{if $t[fee_start_2]>0}<option value="2" data-2>{$t[express_name_2]}</option>{/if}
+				{if $t[fee_start_3]>0}<option value="3" data-3>{$t[express_name_3]}</option>{/if}
+				<option value="-1" data--1>满{$t[fee_start_1]}包邮</option>
+				{if $t[fee_start_2]>0 || $t[fee_start_3]>0}
+				{else}
+				<option value="0" data-0>联系卖家</option>
+				{/if}
+				{else}
+				<option value="0" data-0>包邮</option>
+				{/if}
+			{elseif $t[fee_start_1]>0 || $t[fee_start_2]>0 || $t[fee_start_3]>0}
+				{if $t[fee_start_1]>0}<option value="1">{$t[express_name_1]}</option>{/if}
+				{if $t[fee_start_2]>0}<option value="2">{$t[express_name_2]}</option>{/if}
+				{if $t[fee_start_3]>0}<option value="3">{$t[express_name_3]}</option>{/if}
+			{else}
+			<option value="0">联系卖家</option>
+			{/if}
+			</select></span></div></div>
+            </div>
+        </li>
+        {if $t[m1] || $t[m2] || $t[m3]}
+         <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">商品参数</div>
+                <div class="aui-list-item-right">{if $t[m1]}{$t[n1]}:{$t[m1]}&nbsp;{/if}{if $t[m2]}{$t[n2]}:{$t[m2]}&nbsp;{/if}{if $t[m3]}{$t[n3]}:{$t[m3]}&nbsp;{/if}</div>
+            </div>
+        </li>
+			{/if}
+			{if $t[cod]}
+         <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">付款方式</div>
+                <div class="aui-list-item-right">{if $t[cod]==2}<select name="cod"><option value="1">货到付款</option><option value="0">在线支付</option></select>{else}货到付款{/if}</div>
+            </div>
+        </li>
+			{/if}
+		{/if}
+         <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title"><input type="text" name="post[{$t[key]}][note]" id="note_{$t[key]}" placeholder="备注:"/></div>
+                </div>
+        </li>
+
+         <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title"><div class="input-checkbox-checked" style="margin:10px 16px 10px 0;float:left;" id="check_{$t[key]}" onclick="get_check('{$t[key]}');"></div></div>            
+                <div class="aui-list-item-right">小计:<span class="dt-text-red">{$DT[money_sign]}<span id="total_{$t[key]}">{$t[price]}</span></span></div>
+                </div>
+        </li>
+      </ul>
+{/loop}
+</form>
+</div>
+
+
+<div class="aui-content aui-margin-b-15">
+<ul class="aui-list aui-list-in dt-border-t-none">
+<li class="aui-list-item">
+            <div class="aui-list-item-inner">
+            <div class="aui-list-item-title">共选中 <span class="dt-text-red" style="font-size:20px;" id="total_good"></span> 件商品</div>
+                <div class="aui-list-item-right">
+                <span class="aui-font-size-16">总计:</span><span class="dt-text-red aui-font-size-20">{$DT[money_sign]}<span id="total_amount"></span></span>
+                </div>
+                </div>
+        </li>
+      </ul>
+</div>
+
+<div class="aui-content-padded aui-text-center" onclick="action_cart();">
+<div class="aui-btn aui-btn-info aui-font-size-18" style="width:100%">购买选中商品</div>
+</div>
+
+<script type="text/javascript">
+function action_delete() {
+	towindow('<a href="javascript:cart_delete();"><span style="color:red;">移除</span></a>', '取消', '确定要移除选中商品吗？');
+}
+function cart_delete() {
+	var itemids = [{loop $lists $i $t}{if $i},{/if}'{$t[key]}'{/loop}];
+	var k = '';
+	for(var i = 0; i < itemids.length; i++) {
+		if($('#check_'+itemids[i]).attr('class') == 'input-checkbox-checked') k += '&key[]='+itemids[i];
+	}
+	$.post('?', 'action=delete'+k, function(data) {
+		if(data == 'ok') {
+			laymsg('移除成功');
+			setTimeout(function() {
+				window.location.reload();
+			}, 1000);
+		} else {
+			laymsg('操作失败，请重试');
+		}
+	});
+}
+function action_clear() {
+	towindow('<a href="javascript:cart_clear();"><span style="color:red;">清空</span></a>', '取消', '确定要清空购物车吗？');
+}
+function cart_clear() {
+	$.get('?action=clear', function(data) {
+		if(data == 'ok') {
+			laymsg('清空成功');
+			setTimeout(function() {
+				window.location.reload();
+			}, 1000);
+		} else {
+			laymsg('操作失败，请重试');
+		}
+	});
+}
+function get_price(i) {
+	var number = parseInt($('#number_'+i).val());
+	if($('#a2_'+i).val() > 0) {
+		if($('#a3_'+i).val() > 1 && number > parseInt($('#a3_'+i).val())) return $('#p3_'+i).val();
+		if($('#a2_'+i).val() > 1 && number > parseInt($('#a2_'+i).val())) return $('#p2_'+i).val();
+	}
+	return $('#p1_'+i).val();
+}
+function get_fee(i) {
+	var es = $('#express_'+i).html();
+	var number = parseInt($('#number_'+i).val());
+	if(es.indexOf('data--1') != -1) {
+		if(parseFloat(get_price(i)*number) >= parseFloat($('#fee_start_'+i+'_1').val())) {
+			$('#express_'+i).val(-1);
+		} else {
+			if(es.indexOf('data-0') != -1) {
+				$('#express_'+i).val(0);
+			} else if(es.indexOf('data-2') != -1) {
+				$('#express_'+i).val(2);
+			} else if(es.indexOf('data-3') != -1) {
+				$('#express_'+i).val(3);
+			}
+		}
+	}
+	var k = $('#express_'+i).val();
+	return k > 0 ? parseFloat($('#fee_start_'+i+'_'+k).val()) + parseFloat($('#fee_step_'+i+'_'+k).val())*(number-1) : 0.00;
+}
+function get_check(i) {
+	if($('#check_'+i).attr('class') == 'input-checkbox-checked') {
+		$('#check_'+i).attr('class', 'input-checkbox');
+		$('#checked_'+i).val(0);
+	} else {
+		$('#check_'+i).attr('class', 'input-checkbox-checked');
+		$('#checked_'+i).val(1);
+	}
+	calculate();
+}
+function alter(i, t) {
+	var number = parseInt($('#number_'+i).val());
+	if(t == '+') {
+		var maxa = parseFloat($('#amount_'+i).val());
+		if(maxa && number >= maxa) return;
+		$('#number_'+i).val(number+1);
+	} else {
+		var mina = parseFloat($('#a1_'+i).val());
+		if(number <= mina) return;
+		$('#number_'+i).val(number-1);
+	}
+	calculate();
+}
+function calculate() {
+	var itemids = [{loop $lists $i $t}{if $i},{/if}'{$t[key]}'{/loop}];
+	var total_good = total_amount = id = 0;
+	for(var i = 0; i < itemids.length; i++) {
+		id = itemids[i];
+		var number = parseInt($('#number_'+id).val());
+		var maxa = parseFloat($('#amount_'+i).val());
+		var mina = parseFloat($('#a1_'+i).val());
+		if(number < mina) {$('#number_'+id).val(mina);number = mina;}
+		if(number > maxa) {$('#number_'+id).val(maxa);number = maxa;}
+		price = get_price(id);
+		$('#price').html(price);
+		var money = price*number;
+		fee = get_fee(id);
+		$('#fee_'+id).html('{$DT[money_sign]}'+fee.toFixed(2));
+		money += fee;
+		$('#total_'+id).html(money.toFixed(2));
+		if($('#check_'+id).attr('class') == 'input-checkbox-checked') {
+			$('#check_'+id).val(1);
+			total_good++;
+			total_amount += money;
+		} else {
+			$('#check_'+id).val(0);
+		}
+	}
+	$('#total_good').html(total_good);
+	$('#total_amount').html(total_amount.toFixed(2));
+}
+function action_cart() {
+	towindow('<a href="javascript:Dcart();"><span>确定购买</span></a>', '取消', '确定收货地址无误并购买选中商品吗？');
+}
+function Dcart() {
+	if(parseInt($('#total_good').html()) < 1) {
+		laymsg('至少需要选择一件商品');
+		return;
+	}
+	$.post('cart.php', $('#cart-form').serialize(), function(data) {
+		if(data.indexOf('ok|') != -1) {
+			laymsg('订单创建成功，请尽快支付');
+			id = data.substr(3);
+			setTimeout(function() {
+				if(id.indexOf(',') == -1) {
+					sid = id;
+					pay = 'action=update&step=pay&itemid='+id;
+				} else {
+					t = id.split(',');
+					sid = t[0];
+					pay = 'action=muti&ids='+id;
+				}
+				towindow('<a href="mtrade.php?action=update&step=detail&itemid='+sid+'" rel="external"><span>查看订单</span></a>|<a href="mtrade.php?'+pay+'" rel="external"><span>支付订单</span></a>|<a href="cart.php?reload={$DT_TIME}"><span>继续购物</span></a>');
+			}, 1000);
+		} else {
+			laymsg('订单创建失败，请重试');
+			setTimeout(function() {
+				window.location.reload();
+			}, 1000);
+
+		}
+	});
+}
+$(document).ready(function(){
+	$('input').on('blur', function(){window.scrollTo(0,0);});
+	calculate();
+});
+</script>
+{else}
+<div class="aui-content aui-margin-t-15 aui-text-center">
+<div class="list-empty">您的购物车还是空的，赶快行动吧！<br/>马上去 <a href="index.php?moduleid={$moduleid}" class="b">挑选商品</a></div>
+</div>
+{/if}
+{template 'footer_v2', 'mobile'}
+

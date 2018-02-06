@@ -1,0 +1,2062 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset={DT_CHARSET}">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{if $city_sitename}{$city_sitename}{else}{$DT[sitename]}{/if}{/if}</title>    
+	{if $head_keywords}
+	<meta name="keywords" content="{$head_keywords}"/>
+	{/if}
+	{if $head_description}
+	<meta name="description" content="{$head_description}"/>
+	{/if}
+	{if $head_mobile}
+	<meta http-equiv="mobile-agent" content="format=html5;url={$head_mobile}">
+	{/if}
+	<meta name="generator" content="DESTOON B2B - www.destoon.com"/>
+    <link rel="stylesheet" href="{DT_SKIN}bootstrap.min.css">
+    <link rel="stylesheet" href="{DT_SKIN}Validform.css">
+    <link rel="stylesheet" href="{DT_SKIN}common.css">
+    <link rel="stylesheet" href="{DT_SKIN}style1.css">
+    <link rel="stylesheet" href="{DT_SKIN}404.css">
+    <script type="text/javascript" src="{DT_SKIN}jquery.min.js"></script>
+    <script type="text/javascript" src="{DT_SKIN}bootstrap.min.js"></script>
+	<script type="text/javascript" src="{DT_SKIN}page2.js"></script>
+
+	<link rel="shortcut icon" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+	<link rel="bookmark" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+	{if $head_canonical}
+	<link rel="canonical" href="{$head_canonical}"/>
+	{/if}
+	{if $EXT[archiver_enable]}
+	<link rel="archives" title="{$DT[sitename]}" href="{$EXT[archiver_url]}"/>
+	{/if}
+	<link rel="stylesheet" type="text/css" href="{DT_SKIN}style.css"/>
+	{if $moduleid>4}<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$module}.css"/>{/if}
+	{if $CSS}
+	{loop $CSS $css}
+	<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$css}.css"/>
+	{/loop}
+	{/if}
+	<!--[if lte IE 6]>
+	<link rel="stylesheet" type="text/css" href="{DT_SKIN}ie6.css"/>
+	<![endif]-->
+	{if !DT_DEBUG}<script type="text/javascript">window.onerror=function(){return true;}</script>{/if}
+	<script type="text/javascript" src="{DT_STATIC}lang/{DT_LANG}/lang.js"></script>
+	<script type="text/javascript" src="{DT_STATIC}file/script/config.js"></script>
+	<!--<script type="text/javascript" src="{DT_STATIC}file/script/jquery.js"></script>-->
+	<script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
+	<script type="text/javascript" src="{DT_STATIC}file/script/page.js"></script>
+	{if $lazy}<script type="text/javascript" src="{DT_STATIC}file/script/jquery.lazyload.js"></script>{/if}
+	{if $JS}
+	{loop $JS $js}
+	<script type="text/javascript" src="{DT_STATIC}file/script/{$js}.js"></script>
+	{/loop}
+	{/if}
+	{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
+	<script type="text/javascript">
+	{if $head_mobile && $EXT[mobile_goto]}
+	GoMobile('{$head_mobile}');
+	{/if}
+	var searchid = {$searchid};
+	{if $itemid && $DT[anticopy]}
+	document.oncontextmenu=function(e){return false;};
+	document.onselectstart=function(e){return false;};
+	{/if}
+	</script>
+	<!--[以上为系统关键代码，除非您明确其含义，否则请勿修改或删除，否则会导致系统错误]-->
+	<!--[模板中所有带id的元素，请勿修改或删除，否则会导致部分JS代码无法运行]-->
+	<!--[以上类似的注释，在编译模板时，系统会自动移除，不会显示在实际的页面中]-->
+</head>
+
+<div class="StoreIndex"><a name="top"></a>
+	<div class="xctopnavbody">
+		<div class="xctopnav clear w1000">
+			<div class="xctopnav_left">
+						<ul>
+							{if $DT[city]}
+							<li class="h_city">[<span id="destoon_city">{$city_name}</span>] <a href="{DT_PATH}api/city.php" title="点击切换城市" rel="nofollow">切换</a></li>{/if}
+							<li class="h_fav"><script type="text/javascript">addFav('收藏本页');</script></li>
+							{if $EXT[mobile_enable]}<li class="h_mobile"><a href="{$EXT[mobile_url]}mobile.php">手机版</a>&nbsp;</li>{/if}
+							{if $head_mobile}<li class="h_qrcode"><a href="javascript:Dqrcode();">二维码</a>&nbsp;</li>{/if}
+							{if isset($MODULE[16])}<li class="h_cart"><a href="{$MODULE[16][linkurl]}cart.php" rel="nofollow">购物车</a>(<span class="head_t" id="destoon_cart">0</span>)</li>{/if}
+						</ul>
+			</div>
+			<div class="p_top_right" id="destoon_member"></div>
+		</div>
+	</div>
+{if $head_mobile}<div id="destoon_qrcode" style="display:none;"></div>{/if}
+<div class="logo2 pt10 pb10">
+    <div class="logobody w1000 conBox clearfix">
+		<div style="width:268px ;height:97px;float:left;">
+			<a href="{$MODULE[1][linkurl]}"><img src="{if $MODULE[$moduleid][logo]}{DT_SKIN}image/logo_{$moduleid}.gif{elseif $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" alt="{$DT[sitename]}" width="268" height="97"/></a>
+		</div>
+		{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
+		{php $searchids = array(5,6,16,21,22);}
+		{if !in_array($searchid, $searchids)}
+			{php $searchids[] = $searchid;}
+		{/if}
+		<script type="text/javascript">var searchid = {$searchid};</script>
+        <form class="navbar-form" id="destoon_search" action="{DT_PATH}api/search.php" onsubmit="return Dsearch();">
+			<input type="hidden" name="moduleid" value="{$searchid}" id="destoon_moduleid"/>
+			<input type="hidden" name="spread" value="0" id="destoon_spread"/>
+            <div class="fr ml20 search mt20">
+                <ul class="clearfix" id="search_moduleli" style="overflow:hidden;">
+                        {loop $searchids $s}
+						{if isset($MODULE[$s])}
+						<li {if $searchid == $s} class="head_search_on"{/if} onclick="setModuleli({$s}, this);">
+						<a><span>{$MODULE[$s][name]}</span></a></li>
+						{/if}
+						{/loop}
+                </ul>
+                <div class="searchInput mt10 clearfix">
+                    <input type="text" class="fl searchText"  value="{if $kw}{$kw}{else}请输入关键词{/if}" id="destoon_kw" name="kw" maxlength="30" onfocus="if(this.value=='请输入关键词') this.value='';"{if $DT[search_tips]} onkeyup="STip(this.value);" autocomplete="off"{/if} x-webkit-speech speech/>
+					<button class="btnInput fl Themebg white" type="submit" value=" ">搜索</button>&nbsp;
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="indexBox">
+    <div class="xcnavbody bgf6 Themebg">
+		<ul class="xcnav conBox mt0 Navbox clearfix"><!--详情页去除下拉行业分类列表-->
+			<li class="relative"><a class="da xcvisit iconfont icon-menu ThemeFborder">行业市场</a>
+			<div class="LeftBox fl"> 
+				<ul id="ClassBox"><!--//右侧菜单-->
+					<li class="Themebghover iconfont icon-jixieqimo"><a class="font"  target="_blank" >机械及行业设备</a>
+                    <div class="IndexclassBox">
+                        <div class="IndexclassBox2 clearfix">
+                            <div class="IndexClassLeft fl">
+                                <div class="IndexContant mt20 clearfix">
+									{php $mid=5;}
+									{php $child=get_maincat(0,$mid,1)}
+									{loop $child $i $c}
+									{if $i<6 && $c[child]}
+											<div class="IndexclassUl">
+												<div class="Themefont ThemeFborder">
+													<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}"  target="_blank">{set_style($c[catname], $c[style])}</a>
+												</div>
+												<ul class="clearfix">
+												{php $sub = get_maincat($c[catid], $mid, 1);}
+												{loop $sub $j $s}
+												{if $j<10}
+													<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></li>
+												{/if}
+												{/loop}
+												</ul>
+											</div>
+									{/if}
+									{/loop}      
+                                </div>
+                            </div>
+                            <div class="IndexClassRight fr">
+                                <h3 class="title f14">推荐商家</h3>
+                                <ul>
+								<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+									{loop $tags $t}
+									<li><a href="{$t[linkurl]}"><img class="img100" src="{$t[thumb]}"></a></li>
+									{/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="Themebghover iconfont icon-shangwuquan"><a class="font" target="_blank" >商务服务</a>
+                    <div class="IndexclassBox">
+                        <div class="IndexclassBox2 clearfix">
+                            <div class="IndexClassLeft fl">
+                                <div class="IndexContant mt20 clearfix">
+									{php $mid=5;}
+									{php $child=get_maincat(0,$mid,1)}
+									{loop $child $i $c}
+									{if $i<6 && $c[child]}
+											<div class="IndexclassUl">
+												<div class="Themefont ThemeFborder">
+													<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}"  target="_blank">{set_style($c[catname], $c[style])}</a>
+												</div>
+												<ul class="clearfix">
+												{php $sub = get_maincat($c[catid], $mid, 1);}
+												{loop $sub $j $s}
+												{if $j<10}
+													<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></li>
+												{/if}
+												{/loop}
+												</ul>
+											</div>
+									{/if}
+									{/loop}      
+                                </div>
+                            </div>
+                            <div class="IndexClassRight fr">
+                                <h3 class="title f14">推荐商家</h3>
+                                <ul>
+								<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+									{loop $tags $t}
+									<li><a href="{$t[linkurl]}"><img class="img100" src="{$t[thumb]}"></a></li>
+									{/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+               <li class="Themebghover iconfont icon-nongye"><a class="font" target="_blank" >农业</a>
+                    <div class="IndexclassBox">
+                        <div class="IndexclassBox2 clearfix">
+                            <div class="IndexClassLeft fl">
+                                <div class="IndexContant mt20 clearfix">
+									{php $mid=5;}
+									{php $child=get_maincat(0,$mid,1)}
+									{loop $child $i $c}
+									{if $i<6 && $c[child]}
+											<div class="IndexclassUl">
+												<div class="Themefont ThemeFborder">
+													<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}"  target="_blank">{set_style($c[catname], $c[style])}</a>
+												</div>
+												<ul class="clearfix">
+												{php $sub = get_maincat($c[catid], $mid, 1);}
+												{loop $sub $j $s}
+												{if $j<10}
+													<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></li>
+												{/if}
+												{/loop}
+												</ul>
+											</div>
+									{/if}
+									{/loop}      
+                                </div>
+                            </div>
+                            <div class="IndexClassRight fr">
+                                <h3 class="title f14">推荐商家</h3>
+                                <ul>
+								<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+									{loop $tags $t}
+									<li><a href="{$t[linkurl]}"><img class="img100" src="{$t[thumb]}"></a></li>
+									{/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="Themebghover iconfont icon-baozhuangyinshua"><a class="font"  target="_blank" >包装</a>
+                    <div class="IndexclassBox">
+                        <div class="IndexclassBox2 clearfix">
+                            <div class="IndexClassLeft fl">
+                                <div class="IndexContant mt20 clearfix">
+									{php $mid=5;}
+									{php $child=get_maincat(0,$mid,1)}
+									{loop $child $i $c}
+									{if $i<6 && $c[child]}
+											<div class="IndexclassUl">
+												<div class="Themefont ThemeFborder">
+													<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}"  target="_blank">{set_style($c[catname], $c[style])}</a>
+												</div>
+												<ul class="clearfix">
+												{php $sub = get_maincat($c[catid], $mid, 1);}
+												{loop $sub $j $s}
+												{if $j<10}
+													<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></li>
+												{/if}
+												{/loop}
+												</ul>
+											</div>
+									{/if}
+									{/loop}      
+                                </div>
+                            </div>
+                            <div class="IndexClassRight fr">
+                                <h3 class="title f14">推荐商家</h3>
+                                <ul>
+								<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+									{loop $tags $t}
+									<li><a href="{$t[linkurl]}"><img class="img100" src="{$t[thumb]}"></a></li>
+									{/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="Themebghover iconfont icon-shipin"><a class="font" target="_blank" >食品、饮料</a>
+                    <div class="IndexclassBox">
+                        <div class="IndexclassBox2 clearfix">
+                            <div class="IndexClassLeft fl">
+                                <div class="IndexContant mt20 clearfix">
+									{php $mid=5;}
+									{php $child=get_maincat(0,$mid,1)}
+									{loop $child $i $c}
+									{if $i<6 && $c[child]}
+											<div class="IndexclassUl">
+												<div class="Themefont ThemeFborder">
+													<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}"  target="_blank">{set_style($c[catname], $c[style])}</a>
+												</div>
+												<ul class="clearfix">
+												{php $sub = get_maincat($c[catid], $mid, 1);}
+												{loop $sub $j $s}
+												{if $j<10}
+													<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></li>
+												{/if}
+												{/loop}
+												</ul>
+											</div>
+									{/if}
+									{/loop}      
+                                </div>
+                            </div>
+                            <div class="IndexClassRight fr">
+                                <h3 class="title f14">推荐商家</h3>
+                                <ul>
+								<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+									{loop $tags $t}
+									<li><a href="{$t[linkurl]}"><img class="img100" src="{$t[thumb]}"></a></li>
+									{/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="Themebghover iconfont icon-wujingongju"><a class="font" target="_blank" >五金、工具</a>
+                    <div class="IndexclassBox">
+                        <div class="IndexclassBox2 clearfix">
+                            <div class="IndexClassLeft fl">
+                                <div class="IndexContant mt20 clearfix">
+									{php $mid=5;}
+									{php $child=get_maincat(0,$mid,1)}
+									{loop $child $i $c}
+									{if $i<6 && $c[child]}
+											<div class="IndexclassUl">
+												<div class="Themefont ThemeFborder">
+													<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}"  target="_blank">{set_style($c[catname], $c[style])}</a>
+												</div>
+												<ul class="clearfix">
+												{php $sub = get_maincat($c[catid], $mid, 1);}
+												{loop $sub $j $s}
+												{if $j<10}
+													<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></li>
+												{/if}
+												{/loop}
+												</ul>
+											</div>
+									{/if}
+									{/loop}      
+                                </div>
+                            </div>
+                            <div class="IndexClassRight fr">
+                                <h3 class="title f14">推荐商家</h3>
+                                <ul>
+								<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+									{loop $tags $t}
+									<li><a href="{$t[linkurl]}"><img class="img100" src="{$t[thumb]}"></a></li>
+									{/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="Themebghover iconfont icon-jiajujiafang"><a class="font" target="_blank" >家纺家饰</a>
+                    <div class="IndexclassBox">
+                        <div class="IndexclassBox2 clearfix">
+                            <div class="IndexClassLeft fl">
+                                <div class="IndexContant mt20 clearfix">
+									{php $mid=5;}
+									{php $child=get_maincat(0,$mid,1)}
+									{loop $child $i $c}
+									{if $i<6 && $c[child]}
+											<div class="IndexclassUl">
+												<div class="Themefont ThemeFborder">
+													<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}"  target="_blank">{set_style($c[catname], $c[style])}</a>
+												</div>
+												<ul class="clearfix">
+												{php $sub = get_maincat($c[catid], $mid, 1);}
+												{loop $sub $j $s}
+												{if $j<10}
+													<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></li>
+												{/if}
+												{/loop}
+												</ul>
+											</div>
+									{/if}
+									{/loop}      
+                                </div>
+                            </div>
+                            <div class="IndexClassRight fr">
+                                <h3 class="title f14">推荐商家</h3>
+                                <ul>
+								<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+									{loop $tags $t}
+									<li><a href="{$t[linkurl]}"><img class="img100" src="{$t[thumb]}"></a></li>
+									{/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="Themebghover iconfont icon-icon"><a class="font" target="_blank" >化工</a>
+                    <div class="IndexclassBox">
+                        <div class="IndexclassBox2 clearfix">
+                            <div class="IndexClassLeft fl">
+                                <div class="IndexContant mt20 clearfix">
+									{php $mid=5;}
+									{php $child=get_maincat(0,$mid,1)}
+									{loop $child $i $c}
+									{if $i<6 && $c[child]}
+											<div class="IndexclassUl">
+												<div class="Themefont ThemeFborder">
+													<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}"  target="_blank">{set_style($c[catname], $c[style])}</a>
+												</div>
+												<ul class="clearfix">
+												{php $sub = get_maincat($c[catid], $mid, 1);}
+												{loop $sub $j $s}
+												{if $j<10}
+													<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></li>
+												{/if}
+												{/loop}
+												</ul>
+											</div>
+									{/if}
+									{/loop}      
+                                </div>
+                            </div>
+                            <div class="IndexClassRight fr">
+                                <h3 class="title f14">推荐商家</h3>
+                                <ul>
+								<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+									{loop $tags $t}
+									<li><a href="{$t[linkurl]}"><img class="img100" src="{$t[thumb]}"></a></li>
+									{/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="Themebghover iconfont icon-jingxihuaxue"><a class="font" target="_blank" >精细化学品</a>
+                    <div class="IndexclassBox">
+                        <div class="IndexclassBox2 clearfix">
+                            <div class="IndexClassLeft fl">
+                                <div class="IndexContant mt20 clearfix">
+									{php $mid=5;}
+									{php $child=get_maincat(0,$mid,1)}
+									{loop $child $i $c}
+									{if $i<6 && $c[child]}
+											<div class="IndexclassUl">
+												<div class="Themefont ThemeFborder">
+													<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}"  target="_blank">{set_style($c[catname], $c[style])}</a>
+												</div>
+												<ul class="clearfix">
+												{php $sub = get_maincat($c[catid], $mid, 1);}
+												{loop $sub $j $s}
+												{if $j<10}
+													<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></li>
+												{/if}
+												{/loop}
+												</ul>
+											</div>
+									{/if}
+									{/loop}      
+                                </div>
+                            </div>
+                            <div class="IndexClassRight fr">
+                                <h3 class="title f14">推荐商家</h3>
+                                <ul>
+								<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+									{loop $tags $t}
+									<li><a href="{$t[linkurl]}"><img class="img100" src="{$t[thumb]}"></a></li>
+									{/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="Themebghover iconfont icon-yejinkuangchan"><a class="font" target="_blank" >冶金矿产</a>
+                    <div class="IndexclassBox">
+                        <div class="IndexclassBox2 clearfix">
+                            <div class="IndexClassLeft fl">
+                                <div class="IndexContant mt20 clearfix">
+									{php $mid=5;}
+									{php $child=get_maincat(0,$mid,1)}
+									{loop $child $i $c}
+									{if $i<6 && $c[child]}
+											<div class="IndexclassUl">
+												<div class="Themefont ThemeFborder">
+													<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}"  target="_blank">{set_style($c[catname], $c[style])}</a>
+												</div>
+												<ul class="clearfix">
+												{php $sub = get_maincat($c[catid], $mid, 1);}
+												{loop $sub $j $s}
+												{if $j<10}
+													<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></li>
+												{/if}
+												{/loop}
+												</ul>
+											</div>
+									{/if}
+									{/loop}      
+                                </div>
+                            </div>
+                            <div class="IndexClassRight fr">
+                                <h3 class="title f14">推荐商家</h3>
+                                <ul>
+								<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+									{loop $tags $t}
+									<li><a href="{$t[linkurl]}"><img class="img100" src="{$t[thumb]}"></a></li>
+									{/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="Themebghover iconfont icon-diangongdianqi"><a class="font" target="_blank" >电工电气</a>
+                    <div class="IndexclassBox">
+                        <div class="IndexclassBox2 clearfix">
+                            <div class="IndexClassLeft fl">
+                                <div class="IndexContant mt20 clearfix">
+									{php $mid=5;}
+									{php $child=get_maincat(0,$mid,1)}
+									{loop $child $i $c}
+									{if $i<6 && $c[child]}
+											<div class="IndexclassUl">
+												<div class="Themefont ThemeFborder">
+													<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}"  target="_blank">{set_style($c[catname], $c[style])}</a>
+												</div>
+												<ul class="clearfix">
+												{php $sub = get_maincat($c[catid], $mid, 1);}
+												{loop $sub $j $s}
+												{if $j<10}
+													<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></li>
+												{/if}
+												{/loop}
+												</ul>
+											</div>
+									{/if}
+									{/loop}      
+                                </div>
+                            </div>
+                            <div class="IndexClassRight fr">
+                                <h3 class="title f14">推荐商家</h3>
+                                <ul>
+								<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+									{loop $tags $t}
+									<li><a href="{$t[linkurl]}"><img class="img100" src="{$t[thumb]}"></a></li>
+									{/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="Themebghover iconfont icon-xiangjiaosuliao"><a class="font" target="_blank" >橡塑</a>
+                    <div class="IndexclassBox">
+                        <div class="IndexclassBox2 clearfix">
+                            <div class="IndexClassLeft fl">
+                                <div class="IndexContant mt20 clearfix">
+									{php $mid=5;}
+									{php $child=get_maincat(0,$mid,1)}
+									{loop $child $i $c}
+									{if $i<6 && $c[child]}
+											<div class="IndexclassUl">
+												<div class="Themefont ThemeFborder">
+													<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}"  target="_blank">{set_style($c[catname], $c[style])}</a>
+												</div>
+												<ul class="clearfix">
+												{php $sub = get_maincat($c[catid], $mid, 1);}
+												{loop $sub $j $s}
+												{if $j<10}
+													<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></li>
+												{/if}
+												{/loop}
+												</ul>
+											</div>
+									{/if}
+									{/loop}      
+                                </div>
+                            </div>
+                            <div class="IndexClassRight fr">
+                                <h3 class="title f14">推荐商家</h3>
+                                <ul>
+								<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+									{loop $tags $t}
+									<li><a href="{$t[linkurl]}"><img class="img100" src="{$t[thumb]}"></a></li>
+									{/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="Themebghover iconfont icon-iconfontanquanfanghu"><a class="font" target="_blank" >安全、防护</a>
+                    <div class="IndexclassBox">
+                        <div class="IndexclassBox2 clearfix">
+                            <div class="IndexClassLeft fl">
+                                <div class="IndexContant mt20 clearfix">
+									{php $mid=5;}
+									{php $child=get_maincat(0,$mid,1)}
+									{loop $child $i $c}
+									{if $i<6 && $c[child]}
+											<div class="IndexclassUl">
+												<div class="Themefont ThemeFborder">
+													<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}"  target="_blank">{set_style($c[catname], $c[style])}</a>
+												</div>
+												<ul class="clearfix">
+												{php $sub = get_maincat($c[catid], $mid, 1);}
+												{loop $sub $j $s}
+												{if $j<10}
+													<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></li>
+												{/if}
+												{/loop}
+												</ul>
+											</div>
+									{/if}
+									{/loop}      
+                                </div>
+                            </div>
+                            <div class="IndexClassRight fr">
+                                <h3 class="title f14">推荐商家</h3>
+                                <ul>
+								<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+									{loop $tags $t}
+									<li><a href="{$t[linkurl]}"><img class="img100" src="{$t[thumb]}"></a></li>
+									{/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="Themebghover iconfont icon-qicheyongpin"><a class="font" target="_blank" >汽摩及配件</a>
+                    <div class="IndexclassBox">
+                        <div class="IndexclassBox2 clearfix">
+                            <div class="IndexClassLeft fl">
+                                <div class="IndexContant mt20 clearfix">
+									{php $mid=5;}
+									{php $child=get_maincat(0,$mid,1)}
+									{loop $child $i $c}
+									{if $i<6 && $c[child]}
+											<div class="IndexclassUl">
+												<div class="Themefont ThemeFborder">
+													<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}"  target="_blank">{set_style($c[catname], $c[style])}</a>
+												</div>
+												<ul class="clearfix">
+												{php $sub = get_maincat($c[catid], $mid, 1);}
+												{loop $sub $j $s}
+												{if $j<10}
+													<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></li>
+												{/if}
+												{/loop}
+												</ul>
+											</div>
+									{/if}
+									{/loop}      
+                                </div>
+                            </div>
+                            <div class="IndexClassRight fr">
+                                <h3 class="title f14">推荐商家</h3>
+                                <ul>
+								<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+									{loop $tags $t}
+									<li><a href="{$t[linkurl]}"><img class="img100" src="{$t[thumb]}"></a></li>
+									{/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="Themebghover iconfont icon-tubiao"><a class="font"  target="_blank" >工艺品、礼品</a>
+                    <div class="IndexclassBox">
+                        <div class="IndexclassBox2 clearfix">
+                            <div class="IndexClassLeft fl">
+                                <div class="IndexContant mt20 clearfix">
+									{php $mid=5;}
+									{php $child=get_maincat(0,$mid,1)}
+									{loop $child $i $c}
+									{if $i<6 && $c[child]}
+											<div class="IndexclassUl">
+												<div class="Themefont ThemeFborder">
+													<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}"  target="_blank">{set_style($c[catname], $c[style])}</a>
+												</div>
+												<ul class="clearfix">
+												{php $sub = get_maincat($c[catid], $mid, 1);}
+												{loop $sub $j $s}
+												{if $j<10}
+													<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></li>
+												{/if}
+												{/loop}
+												</ul>
+											</div>
+									{/if}
+									{/loop}      
+                                </div>
+                            </div>
+                            <div class="IndexClassRight fr">
+                                <h3 class="title f14">推荐商家</h3>
+                                <ul>
+								<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+									{loop $tags $t}
+									<li><a href="{$t[linkurl]}"><img class="img100" src="{$t[thumb]}"></a></li>
+									{/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="Themebghover iconfont icon-iconjiayongdianqi"><a class="font"  target="_blank" >家用电器</a>
+                    <div class="IndexclassBox">
+                        <div class="IndexclassBox2 clearfix">
+                            <div class="IndexClassLeft fl">
+                                <div class="IndexContant mt20 clearfix">
+									{php $mid=5;}
+									{php $child=get_maincat(0,$mid,1)}
+									{loop $child $i $c}
+									{if $i<6 && $c[child]}
+											<div class="IndexclassUl">
+												<div class="Themefont ThemeFborder">
+													<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}"  target="_blank">{set_style($c[catname], $c[style])}</a>
+												</div>
+												<ul class="clearfix">
+												{php $sub = get_maincat($c[catid], $mid, 1);}
+												{loop $sub $j $s}
+												{if $j<10}
+													<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></li>
+												{/if}
+												{/loop}
+												</ul>
+											</div>
+									{/if}
+									{/loop}      
+                                </div>
+                            </div>
+                            <div class="IndexClassRight fr">
+                                <h3 class="title f14">推荐商家</h3>
+                                <ul>
+								<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+									{loop $tags $t}
+									<li><a href="{$t[linkurl]}"><img class="img100" src="{$t[thumb]}"></a></li>
+									{/loop}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>     
+				</ul>
+				</div>
+				</li>
+					<li{if $moduleid<4} class="menuon"{/if}>
+					<a href="{$MODULE[1][linkurl]}"><span>首页</span></a>
+					</li>
+					{loop $MODULE $i $m}
+					{if $i<18}
+						{if $m[ismenu]}
+							<li{if $m[moduleid]==$moduleid} class="menuon"{/if}>
+								<a href="{$m[linkurl]}"{if $m[isblank]} target="_blank"{/if}><span{if $m[style]} style="color:{$m[style]};"{/if}>{$m[name]}</span></a>
+							</li>
+						{/if}
+					{/if}
+					{/loop}
+           </ul>   
+</div>
+</div>
+
+<script>
+//滚动效果
+$('#ClassBox').hover(function(){
+    if($('#ClassBox').hasClass('active')){
+        $('#ClassBox').removeClass('active');
+    }else{
+        $('#ClassBox').addClass('active');
+    }
+});
+$('#ClassBox li').hover(function(){
+    var ClassBox = $(this).parent('#ClassBox');
+    var thisBox = $(this).find('.IndexclassBox');
+    if(ClassBox.hasClass('active')){
+        if(thisBox.hasClass('active')){
+            $(this).find('.IndexclassBox2').css('margin-left','-779px');
+            thisBox.removeClass('active');
+        }else{
+            thisBox.addClass('active');
+            $(this).find('.IndexclassBox2').css('margin-left','0');
+        }
+    }else{
+        if(thisBox.hasClass('active')){
+            $(this).find('.IndexclassBox2').animate({
+                marginLeft:'-779px'
+            },500);
+            thisBox.removeClass('active');
+        }else{
+            thisBox.addClass('active');
+            $(this).find('.IndexclassBox2').animate({
+                marginLeft:'0'
+            },500);
+        }
+    }
+});
+//导航选择弹出/关闭效果
+$('#alisearch_type').hover(
+    function(){
+        $('#alisearch_type').addClass('active');
+    },
+    function(){
+        $('#alisearch_type').removeClass('active');
+    }
+)
+//导航选择效果
+/*$('#alisearch_type li').click(function(){
+    var thisL = $(this);
+    var thisHtml = $(this).html();
+    var thisHtmlB = thisHtml.replace(/[ ]/g,"");
+    if($.trim(thisHtmlB)=='产品'){
+        thisL.parents("form").attr("action","/product/");
+    }else{
+        thisL.parents("form").attr("action","/company/");
+    }
+//    console.log(thisHtml);
+    $('#alisearch_type li').removeClass('active');
+    thisL.addClass('active');
+    $('#alisearch_type li:first').before(thisL);
+    $('#alisearch_type').removeClass('active');
+    $('.searchBox input').attr('placeholder','搜索'+thisHtmlB);
+})*/
+
+function searchProduct(obj){
+    obj.parent().parent().submit();
+}
+</script>
+
+<!--main-->
+<div class="conBox xcmain">
+    <div class="IndexTop clearfix">
+        <div class="Center fl">
+            <div id="myCarousel" class="carousel slide">
+                <!-- 轮播（Carousel）指标 -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <li data-target="#myCarousel" data-slide-to="3"></li>
+                </ol>  
+                <!-- 轮播（Carousel）项目 -->
+                <div class="carousel-inner">
+				   <div class="item active" ><img src="{DT_SKIN}image/banner06.png" alt=""></div>																								<div class="item"><img src="{DT_SKIN}image/banner5.jpg" alt=""></div>                                                                                                                <div class="item"><img src="{DT_SKIN}image/banner8.jpg" alt=""></div>
+				   <div class="item"><img src="{DT_SKIN}image/banner5.jpg" alt=""></div>
+				</div>
+                <!-- 轮播（Carousel）导航 -->
+                <a class="carousel-control left" href="#myCarousel" data-slide="prev"></a>
+                <a class="carousel-control right" href="#myCarousel" data-slide="next"></a>
+            </div>
+            <div class="smallBanner relative mt20">
+                <ul class="clearfix" style="width:760">
+                     <li>
+                            <div class="imgBox">
+                                <img data-original="{DT_SKIN}image/gg1.jpg" alt="">
+                            </div>
+                    </li>
+                     <li>
+                            <div class="imgBox">
+                                <img data-original="{DT_SKIN}image/gg2.jpg" alt="">
+                            </div>
+                    </li>
+                     <li>
+                            <div class="imgBox">
+                                <img data-original="{DT_SKIN}image/gg3.jpg" alt="">
+                            </div>
+                    </li>
+                     <li>
+                            <div class="imgBox">
+                                <img data-original="{DT_SKIN}image/gg4.jpg" alt="">
+                            </div>
+                    </li>
+                     <li>
+                            <div class="imgBox">
+                                <img data-original="{DT_SKIN}image/zhaozu2.jpg" alt="">
+                            </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+	<div class="RightBox fr">
+		<div class="user1 clearfix" id="rightUser">
+			<div class="headImg">
+				<div class="imgBox fl mr10">
+					<img class="img100" src="{DT_SKIN}image/head_picture.png" alt="">
+				</div>
+				<p>Hi，你好!</p>
+				<p class="Themefont">欢迎来到Destoon</p>
+			</div>
+			<div class="clear"></div>
+			<a href="{$MODULE[2][linkurl]}login.php" class="login Themebg iconfont icon-Supplier">登录</a>
+			<a href="{$MODULE[2][linkurl]}register.php" class="regist OrangeBg">免费注册</a>
+		</div>
+    <div class="centantBox">
+        <h3 class="title1 clearfix" id="table">
+            <ul>
+                <li class="active li1">我是供应商</li>
+                <li class="li2">我是采购商</li>
+            </ul>
+        </h3>
+        <ul class="Control pl5 box1">
+            <li class="Themebghover"><a href="{$MODULE[2][linkurl]}my.php" target="_blank" rel="nofollow">发布产品</a></li>
+            <li class="Themebghover"><a href="{$MODULE[2][linkurl]}home.php" target="_blank" rel="nofollow">商铺管理</a></li>
+            <li class="Themebghover1"><a href="{$MODULE[2][linkurl]}home.php" target="_blank" rel="nofollow">报价管理</a></li>
+            <li class="Themebghover1"><a href="{$MODULE[2][linkurl]}home.php" target="_blank" rel="nofollow">商铺留言</a></li>
+            <a href="{$MODULE[2][linkurl]}home.php" class="btn1 Themebg mt10" target="_blank" rel="nofollow">收到的询价单</a>
+        </ul>
+        <ul class="Control pl5 box2">
+            <li class="Themebghover"><a href="{$MODULE[2][linkurl]}my.php?mid=6&action=add" target="_blank" rel="nofollow">发布采购单</a></li>
+            <li class="Themebghover"><a href="{$MODULE[2][linkurl]}home.php" target="_blank" rel="nofollow">商铺管理</a></li>
+            <li class="Themebghover1"><a href="{$MODULE[2][linkurl]}home.php" target="_blank" rel="nofollow">管理采购单</a></li>
+            <li class="Themebghover1"><a href="{$MODULE[2][linkurl]}home.php" target="_blank" rel="nofollow">商铺留言</a></li>
+            <a href="{$MODULE[2][linkurl]}home.php" class="btn1 Themebg mt10" target="_blank" rel="nofollow">发布的采购单</a>
+        </ul>
+	</div>
+    <div class="centantBox mt10">
+        <h3 class="title1 clearfix">
+            <ul>
+                <li class="active">公告</li>
+            </ul>
+        </h3>
+        <ul class="bulletin mt10 BulletinBox">
+			<li class="overflow"><!--{tag("table=announce&condition=(totime=0 or totime>$today_endtime-86400)&areaid=$cityid&pagesize=3&datetype=2&order=listorder desc,addtime desc&target=_blank")}--></li> 
+        </ul>
+    </div>
+    <div class="centantBox mt5">
+        <h3 class="title1 clearfix">
+            <ul id="table2">
+                <li class="active li4">已发产品</li>
+                <li class="li5">入驻企业</li>
+            </ul>
+        </h3>
+        <div class="num box4 mt10 pb10 text-center OrangeFont">
+            <ul>
+					<li>{php echo $db->count($DT_PRE.'sell_5', 'status=3', 1800);}</li>
+            </ul>
+        </div>
+        <div class="num box5 mt10 pb10 text-center OrangeFont">
+            <ul>
+					<li>{php echo $db->count($DT_PRE.'company_4', 'status=3', 1800);}</li>
+			</ul>
+        </div>
+    </div>
+</div>
+</div>
+<div class="clearfix">
+        <!--1楼-->
+	<div class="clear"></div>
+		<div class="cBanner mt20 clearfix">
+		<a class="f1"></a>
+        <a class="fl"><img class="img100" data-original="{DT_SKIN}image/sssw.jpg" alt=""></a>
+        <a class="fr"><img class="img100" data-original="{DT_SKIN}image/ad2.jpg" alt=""></a>
+    </div>
+<span style="display:none">1</span>
+<div class="building buildingNew  " dataid="f0">
+    <div class="buildingBox ThemeFborderhover clearfix">
+        <div class="left fl">
+            <img src="{DT_SKIN}image/class0.jpg">
+        </div>
+        <div class="content fl">
+            <div class="top">
+                <h3 class="title1 f14">机械及行业设备 
+                    <a href="{$MODULE[5][linkurl]}list.php?catid=183" class="Themefont fr f12">更多>></a>
+                    <p class="f12 overflow">热搜：
+					{php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+					{if $i<5} 
+                        <a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a>
+					{/if}
+					{/loop}
+                    </p>
+                </h3> 
+            </div>
+            <div class="bottom clearfix">
+                <div class="leftClass">
+					{php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+						{if $i<4 && $c[child]}
+						<ul class="clearfix overflow"><!--热门的分类给li加active 如下-->
+                            <li class="active"><a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" >{set_style($c[catname], $c[style])}</a></li>
+						 {php $sub = get_maincat($c[catid], $mid, 1);}
+						 {loop $sub $j $s}
+							{if $j<3}
+                                <li><a target="_blank"  href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" >{set_style($s[catname], $s[style])}</a></li>
+							{/if}
+							{/loop}
+					</ul>
+					{/if}
+					{/loop}
+				</div>
+                <ul class="clearfix fr logoClass"> 
+				<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+					{loop $tags $t}
+					<li>
+                            <div class="imgBox">
+                                <a target="_blank" href="{$t[linkurl]}" rel="nofollow">
+								<img class="img100" data-original="{$t[thumb]}" alt=""></a>
+                            </div>
+                   </li>
+				   {/loop}                         
+                </ul>
+            </div> 
+        </div>
+    </div>
+</div>
+   
+ <div class="building buildingNew  active" dataid="f1">
+    <div class="buildingBox ThemeFborderhover clearfix">
+        <div class="left fl"><img src="{DT_SKIN}image/class1.jpg"></div>
+        <div class="content fl">
+            <div class="top">
+                <h3 class="title1 f14">
+                    商务服务 
+                    <a href="{$MODULE[5][linkurl]}list.php?catid=183" class="Themefont fr f12">更多>></a>
+                    <p class="f12 overflow">热搜：
+					{php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+					{if $i<5} 
+                        <a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a>
+					{/if}
+					{/loop}
+                     </p>
+                </h3> 
+            </div>
+            <div class="bottom clearfix">
+                <div class="leftClass">
+                    {php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+						{if $i<4 && $c[child]}
+						<ul class="clearfix overflow"><!--热门的分类给li加active 如下-->
+                            <li class="active"><a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" >{set_style($c[catname], $c[style])}</a></li>
+						 {php $sub = get_maincat($c[catid], $mid, 1);}
+						 {loop $sub $j $s}
+							{if $j<3}
+                                <li><a target="_blank"  href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" >{set_style($s[catname], $s[style])}</a></li>
+							{/if}
+							{/loop}
+					</ul>
+					{/if}
+					{/loop}
+				</div>
+                <ul class="clearfix fr logoClass"> 
+				<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+					{loop $tags $t}
+					<li>
+                            <div class="imgBox">
+                                <a target="_blank" href="{$t[linkurl]}" rel="nofollow">
+								<img class="img100" data-original="{$t[thumb]}" alt=""></a>
+                            </div>
+                   </li>
+				   {/loop}        
+                </ul>
+            </div> 
+        </div>
+    </div>
+</div>
+<span style="display:none">2</span>
+<div class="building buildingNew  " dataid="f2">
+    <div class="buildingBox ThemeFborderhover clearfix">
+        <div class="left fl">
+            <img src="{DT_SKIN}image/class2.jpg">
+        </div>
+        <div class="content fl">
+            <div class="top">
+                <h3 class="title1 f14">
+                    农业 
+                    <a href="{$MODULE[5][linkurl]}list.php?catid=183" class="Themefont fr f12">更多>></a>
+                    <p class="f12 overflow">热搜：
+					{php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+					{if $i<5} 
+                        <a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a>
+					{/if}
+					{/loop}
+                     </p>
+                </h3> 
+            </div>
+            <div class="bottom clearfix">
+                <div class="leftClass">
+                    {php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+						{if $i<4 && $c[child]}
+						<ul class="clearfix overflow">
+                            <li class="active"><a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" >{set_style($c[catname], $c[style])}</a></li>
+						 {php $sub = get_maincat($c[catid], $mid, 1);}
+						 {loop $sub $j $s}
+							{if $j<3}
+                                <li><a target="_blank"  href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" >{set_style($s[catname], $s[style])}</a></li>
+							{/if}
+							{/loop}
+					</ul>
+					{/if}
+					{/loop}
+				</div>
+                <ul class="clearfix fr logoClass"> 
+				<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+					{loop $tags $t}
+					<li>
+                            <div class="imgBox">
+                                <a target="_blank" href="{$t[linkurl]}" rel="nofollow">
+								<img class="img100" data-original="{$t[thumb]}" alt=""></a>
+                            </div>
+                   </li>
+				   {/loop}        
+                </ul>
+            </div> 
+        </div>
+    </div>
+</div>
+   
+ <div class="building buildingNew  active" dataid="f3">
+    <div class="buildingBox ThemeFborderhover clearfix">
+        <div class="left fl"><img src="{DT_SKIN}image/class3.jpg"></div>
+        <div class="content fl">
+            <div class="top">
+                <h3 class="title1 f14">包装 <a href="{$MODULE[5][linkurl]}list.php?catid=183" class="Themefont fr f12">更多>></a>
+                    <p class="f12 overflow">热搜：
+					{php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+					{if $i<5} 
+                        <a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a>
+					{/if}
+					{/loop}
+                   </p>
+                </h3> 
+            </div>
+            <div class="bottom clearfix">
+                <div class="leftClass">
+                    {php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+						{if $i<4 && $c[child]}
+						<ul class="clearfix overflow"><!--热门的分类给li加active 如下-->
+                            <li class="active"><a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" >{set_style($c[catname], $c[style])}</a></li>
+						 {php $sub = get_maincat($c[catid], $mid, 1);}
+						 {loop $sub $j $s}
+							{if $j<3}
+                                <li><a target="_blank"  href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" >{set_style($s[catname], $s[style])}</a></li>
+							{/if}
+							{/loop}
+					</ul>
+					{/if}
+					{/loop}
+				</div>
+                <ul class="clearfix fr logoClass"> 
+				<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+					{loop $tags $t}
+					<li>
+                            <div class="imgBox">
+                                <a target="_blank" href="{$t[linkurl]}" rel="nofollow">
+								<img class="img100" data-original="{$t[thumb]}" alt=""></a>
+                            </div>
+                   </li>
+				   {/loop}        
+                </ul>
+            </div> 
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+	<div class="cBanner mt20 clearfix">
+		<a class="f5"></a>
+		<a class="fl"><img class="img100" data-original="{DT_SKIN}image/banner0.jpg"></a>
+		<a class="fr"><img class="img100" data-original="{DT_SKIN}image/banner2.gif"></a>
+    </div>
+<span style="display:none">3</span>
+<div class="building buildingNew  " dataid="f4">
+    <div class="buildingBox ThemeFborderhover clearfix">
+        <div class="left fl">
+            <img src="{DT_SKIN}image/class4.jpg" alt="">
+        </div>
+        <div class="content fl">
+            <div class="top">
+                <h3 class="title1 f14">食品、饮料 
+                    <a href="{$MODULE[5][linkurl]}list.php?catid=183" class="Themefont fr f12">更多>></a>
+                    <p class="f12 overflow">热搜：
+					{php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+					{if $i<5} 
+                        <a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a>
+					{/if}
+					{/loop}
+                  </p>
+                </h3> 
+            </div>
+            <div class="bottom clearfix">
+                <div class="leftClass">
+                    {php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+						{if $i<4 && $c[child]}
+						<ul class="clearfix overflow"><!--热门的分类给li加active 如下-->
+                            <li class="active"><a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" >{set_style($c[catname], $c[style])}</a></li>
+						 {php $sub = get_maincat($c[catid], $mid, 1);}
+						 {loop $sub $j $s}
+							{if $j<3}
+                                <li><a target="_blank"  href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" >{set_style($s[catname], $s[style])}</a></li>
+							{/if}
+							{/loop}
+					</ul>
+					{/if}
+					{/loop}
+				</div>
+                <ul class="clearfix fr logoClass"> 
+				<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+					{loop $tags $t}
+					<li>
+                            <div class="imgBox">
+                                <a target="_blank" href="{$t[linkurl]}" rel="nofollow">
+								<img class="img100" data-original="{$t[thumb]}" alt=""></a>
+                            </div>
+                   </li>
+				   {/loop}        
+                </ul>
+            </div> 
+        </div>
+    </div>
+</div>
+   
+ <div class="building buildingNew  active" dataid="f5">
+    <div class="buildingBox ThemeFborderhover clearfix">
+        <div class="left fl">
+            <img src="{DT_SKIN}image/class5.jpg" alt="">
+        </div>
+        <div class="content fl">
+            <div class="top">
+                <h3 class="title1 f14">
+                    五金、工具 
+                    <a href="{$MODULE[5][linkurl]}list.php?catid=183" class="Themefont fr f12">更多>></a>
+                    <p class="f12 overflow">热搜：
+					{php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+					{if $i<5} 
+                        <a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a>
+					{/if}
+					{/loop}
+                </p>
+                </h3> 
+            </div>
+            <div class="bottom clearfix">
+                <div class="leftClass">
+                     {php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+						{if $i<4 && $c[child]}
+						<ul class="clearfix overflow"><!--热门的分类给li加active 如下-->
+                            <li class="active"><a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" >{set_style($c[catname], $c[style])}</a></li>
+						 {php $sub = get_maincat($c[catid], $mid, 1);}
+						 {loop $sub $j $s}
+							{if $j<3}
+                                <li><a target="_blank"  href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" >{set_style($s[catname], $s[style])}</a></li>
+							{/if}
+							{/loop}
+					</ul>
+					{/if}
+					{/loop}
+				</div>
+                <ul class="clearfix fr logoClass"> 
+				<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+					{loop $tags $t}
+					<li>
+                            <div class="imgBox">
+                                <a target="_blank" href="{$t[linkurl]}" rel="nofollow">
+								<img class="img100" data-original="{$t[thumb]}" alt=""></a>
+                            </div>
+                   </li>
+				   {/loop}        
+                </ul>
+            </div> 
+        </div>
+    </div>
+</div>
+   
+  <span style="display:none">4</span>
+<div class="building buildingNew  " dataid="f6">
+    <div class="buildingBox ThemeFborderhover clearfix">
+        <div class="left fl">
+           <img src="{DT_SKIN}image/class6.jpg" alt="">
+        </div>
+        <div class="content fl">
+            <div class="top">
+                <h3 class="title1 f14">
+                    家纺家饰 
+                    <a href="{$MODULE[5][linkurl]}list.php?catid=183" class="Themefont fr f12">更多>></a>
+                    <p class="f12 overflow">热搜：
+					{php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+					{if $i<5} 
+                        <a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a>
+					{/if}
+					{/loop}
+                   </p>
+                </h3> 
+            </div>
+            <div class="bottom clearfix">
+                <div class="leftClass">
+                     {php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+						{if $i<4 && $c[child]}
+						<ul class="clearfix overflow"><!--热门的分类给li加active 如下-->
+                            <li class="active"><a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" >{set_style($c[catname], $c[style])}</a></li>
+						 {php $sub = get_maincat($c[catid], $mid, 1);}
+						 {loop $sub $j $s}
+							{if $j<3}
+                                <li><a target="_blank"  href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" >{set_style($s[catname], $s[style])}</a></li>
+							{/if}
+							{/loop}
+					</ul>
+					{/if}
+					{/loop}
+				</div>
+                <ul class="clearfix fr logoClass"> 
+				<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+					{loop $tags $t}
+					<li>
+                            <div class="imgBox">
+                                <a target="_blank" href="{$t[linkurl]}" rel="nofollow">
+								<img class="img100" data-original="{$t[thumb]}" alt=""></a>
+                            </div>
+                   </li>
+				   {/loop}        
+                </ul>
+            </div> 
+        </div>
+    </div>
+</div>
+   
+ <div class="building buildingNew  active" dataid="f7">
+    <div class="buildingBox ThemeFborderhover clearfix">
+        <div class="left fl">
+            <img src="{DT_SKIN}image/class7.jpg" alt="">
+        </div>
+        <div class="content fl">
+            <div class="top">
+                <h3 class="title1 f14">
+                    化工 
+                    <a href="{$MODULE[5][linkurl]}list.php?catid=183" class="Themefont fr f12">更多>></a>
+                    <p class="f12 overflow">热搜：
+					{php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+					{if $i<5} 
+                        <a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a>
+					{/if}
+					{/loop}
+               </p>
+                </h3> 
+            </div>
+            <div class="bottom clearfix">
+                <div class="leftClass">
+                    {php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+						{if $i<4 && $c[child]}
+						<ul class="clearfix overflow"><!--热门的分类给li加active 如下-->
+                            <li class="active"><a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" >{set_style($c[catname], $c[style])}</a></li>
+						 {php $sub = get_maincat($c[catid], $mid, 1);}
+						 {loop $sub $j $s}
+							{if $j<3}
+                                <li><a target="_blank"  href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" >{set_style($s[catname], $s[style])}</a></li>
+							{/if}
+							{/loop}
+					</ul>
+					{/if}
+					{/loop}
+				</div>
+                <ul class="clearfix fr logoClass"> 
+				<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+					{loop $tags $t}
+					<li>
+                            <div class="imgBox">
+                                <a target="_blank" href="{$t[linkurl]}" rel="nofollow">
+								<img class="img100" data-original="{$t[thumb]}" alt=""></a>
+                            </div>
+                   </li>
+				   {/loop}        
+                </ul>
+            </div> 
+        </div>
+    </div>
+</div>
+   
+<div class="clear"></div>
+<div class="cBanner mt20 clearfix">
+    <a class="f9"></a>
+	<a class="fl"><img class="img100" data-original="{DT_SKIN}image/banner4.jpg" alt=""></a>
+    <a class="fr"><img class="img100" data-original="{DT_SKIN}image/banner6.gif" alt=""></a>
+</div>
+<span style="display:none">5</span>
+<div class="building buildingNew  " dataid="f8">
+    <div class="buildingBox ThemeFborderhover clearfix">
+        <div class="left fl">
+			<img src="{DT_SKIN}image/class8.jpg" alt="">
+        </div>
+        <div class="content fl">
+            <div class="top">
+                <h3 class="title1 f14">
+                    精细化学品 
+                    <a href="{$MODULE[5][linkurl]}list.php?catid=183" class="Themefont fr f12">更多>></a>
+                    <p class="f12 overflow">热搜：
+					{php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+					{if $i<5} 
+                        <a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a>
+					{/if}
+					{/loop}
+                </p>
+                </h3> 
+            </div>
+            <div class="bottom clearfix">
+                <div class="leftClass">
+                    {php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+						{if $i<4 && $c[child]}
+						<ul class="clearfix overflow"><!--热门的分类给li加active 如下-->
+                            <li class="active"><a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" >{set_style($c[catname], $c[style])}</a></li>
+						 {php $sub = get_maincat($c[catid], $mid, 1);}
+						 {loop $sub $j $s}
+							{if $j<3}
+                                <li><a target="_blank"  href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" >{set_style($s[catname], $s[style])}</a></li>
+							{/if}
+							{/loop}
+					</ul>
+					{/if}
+					{/loop}
+				</div>
+                <ul class="clearfix fr logoClass"> 
+				<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+					{loop $tags $t}
+					<li>
+                            <div class="imgBox">
+                                <a target="_blank" href="{$t[linkurl]}" rel="nofollow">
+								<img class="img100" data-original="{$t[thumb]}" alt=""></a>
+                            </div>
+                   </li>
+				   {/loop}        
+                </ul>
+            </div> 
+        </div>
+    </div>
+</div>
+   
+ <div class="building buildingNew  active" dataid="f9">
+    <div class="buildingBox ThemeFborderhover clearfix">
+        <div class="left fl">
+			<img src="{DT_SKIN}image/class9.jpg" alt="">
+        </div>
+        <div class="content fl">
+            <div class="top">
+                <h3 class="title1 f14">
+                    冶金矿产 
+                    <a href="{$MODULE[5][linkurl]}list.php?catid=183" class="Themefont fr f12">更多>></a>
+                    <p class="f12 overflow">热搜：
+					{php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+					{if $i<5} 
+                        <a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a>
+					{/if}
+					{/loop}
+                </p>
+                </h3> 
+            </div>
+            <div class="bottom clearfix">
+                <div class="leftClass">
+                    {php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+						{if $i<4 && $c[child]}
+						<ul class="clearfix overflow"><!--热门的分类给li加active 如下-->
+                            <li class="active"><a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" >{set_style($c[catname], $c[style])}</a></li>
+						 {php $sub = get_maincat($c[catid], $mid, 1);}
+						 {loop $sub $j $s}
+							{if $j<3}
+                                <li><a target="_blank"  href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" >{set_style($s[catname], $s[style])}</a></li>
+							{/if}
+							{/loop}
+					</ul>
+					{/if}
+					{/loop}
+				</div>
+                <ul class="clearfix fr logoClass"> 
+				<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+					{loop $tags $t}
+					<li>
+                            <div class="imgBox">
+                                <a target="_blank" href="{$t[linkurl]}" rel="nofollow">
+								<img class="img100" data-original="{$t[thumb]}" alt=""></a>
+                            </div>
+                   </li>
+				   {/loop}        
+                </ul>
+            </div> 
+        </div>
+    </div>
+</div>
+   
+  <span style="display:none">6</span>
+<div class="building buildingNew  " dataid="f10">
+    <div class="buildingBox ThemeFborderhover clearfix">
+        <div class="left fl">
+            <img src="{DT_SKIN}image/class10.jpg" alt="">
+        </div>
+        <div class="content fl">
+            <div class="top">
+                <h3 class="title1 f14">
+                    电工电气 
+                    <a href="{$MODULE[5][linkurl]}list.php?catid=183" class="Themefont fr f12">更多>></a>
+                    <p class="f12 overflow">热搜：
+					{php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+					{if $i<5} 
+                        <a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a>
+					{/if}
+					{/loop}
+                </p>
+                </h3> 
+            </div>
+            <div class="bottom clearfix">
+                <div class="leftClass">
+                    {php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+						{if $i<4 && $c[child]}
+						<ul class="clearfix overflow"><!--热门的分类给li加active 如下-->
+                            <li class="active"><a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" >{set_style($c[catname], $c[style])}</a></li>
+						 {php $sub = get_maincat($c[catid], $mid, 1);}
+						 {loop $sub $j $s}
+							{if $j<3}
+                                <li><a target="_blank"  href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" >{set_style($s[catname], $s[style])}</a></li>
+							{/if}
+							{/loop}
+					</ul>
+					{/if}
+					{/loop}
+				</div>
+                <ul class="clearfix fr logoClass"> 
+				<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+					{loop $tags $t}
+					<li>
+                            <div class="imgBox">
+                                <a target="_blank" href="{$t[linkurl]}" rel="nofollow">
+								<img class="img100" data-original="{$t[thumb]}" alt=""></a>
+                            </div>
+                   </li>
+				   {/loop}        
+                </ul>
+            </div> 
+        </div>
+    </div>
+</div>
+   
+ <div class="building buildingNew  active" dataid="f11">
+    <div class="buildingBox ThemeFborderhover clearfix">
+        <div class="left fl">
+            <img src="{DT_SKIN}image/class11.jpg" alt="">
+        </div>
+        <div class="content fl">
+            <div class="top">
+                <h3 class="title1 f14">
+                    橡塑 
+                    <a href="{$MODULE[5][linkurl]}list.php?catid=183" class="Themefont fr f12">更多>></a>
+                    <p class="f12 overflow">热搜：
+					{php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+					{if $i<5} 
+                        <a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a>
+					{/if}
+					{/loop}
+               </p>
+                </h3> 
+            </div>
+            <div class="bottom clearfix">
+                <div class="leftClass">
+                    {php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+						{if $i<4 && $c[child]}
+						<ul class="clearfix overflow"><!--热门的分类给li加active 如下-->
+                            <li class="active"><a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" >{set_style($c[catname], $c[style])}</a></li>
+						 {php $sub = get_maincat($c[catid], $mid, 1);}
+						 {loop $sub $j $s}
+							{if $j<3}
+                                <li><a target="_blank"  href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" >{set_style($s[catname], $s[style])}</a></li>
+							{/if}
+							{/loop}
+					</ul>
+					{/if}
+					{/loop}
+				</div>
+                <ul class="clearfix fr logoClass"> 
+				<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+					{loop $tags $t}
+					<li>
+                            <div class="imgBox">
+                                <a target="_blank" href="{$t[linkurl]}" rel="nofollow">
+								<img class="img100" data-original="{$t[thumb]}" alt=""></a>
+                            </div>
+                   </li>
+				   {/loop}        
+                </ul>
+            </div> 
+        </div>
+    </div>
+</div>
+   
+  <div class="clear"></div>
+<div class="cBanner mt20 clearfix">
+    <a class="f13"></a>
+    <a class="fl"><img class="img100" data-original="{DT_SKIN}image/banner7.jpg" alt=""></a>
+    <a class="fr"><img class="img100" data-original="{DT_SKIN}image/banner3.jpg" alt=""></a>
+    </div>
+<span style="display:none">7</span>
+<div class="building buildingNew  " dataid="f12">
+    <div class="buildingBox ThemeFborderhover clearfix">
+        <div class="left fl">
+            <img src="{DT_SKIN}image/class12.jpg" alt="">
+        </div>
+        <div class="content fl">
+            <div class="top">
+                <h3 class="title1 f14">
+                    安全、防护 
+                    <a href="{$MODULE[5][linkurl]}list.php?catid=183" class="Themefont fr f12">更多>></a>
+                    <p class="f12 overflow">热搜：
+					{php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+					{if $i<5} 
+                        <a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a>
+					{/if}
+					{/loop}
+                </p>
+                </h3> 
+            </div>
+            <div class="bottom clearfix">
+                <div class="leftClass">
+                    {php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+						{if $i<4 && $c[child]}
+						<ul class="clearfix overflow"><!--热门的分类给li加active 如下-->
+                            <li class="active"><a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" >{set_style($c[catname], $c[style])}</a></li>
+						 {php $sub = get_maincat($c[catid], $mid, 1);}
+						 {loop $sub $j $s}
+							{if $j<3}
+                                <li><a target="_blank"  href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" >{set_style($s[catname], $s[style])}</a></li>
+							{/if}
+							{/loop}
+					</ul>
+					{/if}
+					{/loop}
+				</div>
+                <ul class="clearfix fr logoClass"> 
+				<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+					{loop $tags $t}
+					<li>
+                            <div class="imgBox">
+                                <a target="_blank" href="{$t[linkurl]}" rel="nofollow">
+								<img class="img100" data-original="{$t[thumb]}" alt=""></a>
+                            </div>
+                   </li>
+				   {/loop}        
+                </ul>
+            </div> 
+        </div>
+    </div>
+</div>
+   
+ <div class="building buildingNew  active" dataid="f13">
+    <div class="buildingBox ThemeFborderhover clearfix">
+        <div class="left fl">
+            <img src="{DT_SKIN}image/class13.jpg" alt="">
+        </div>
+        <div class="content fl">
+            <div class="top">
+                <h3 class="title1 f14">
+                    汽摩及配件 
+                    <a href="{$MODULE[5][linkurl]}list.php?catid=183" class="Themefont fr f12">更多>></a>
+                    <p class="f12 overflow">热搜：
+					{php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+					{if $i<5} 
+                        <a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a>
+					{/if}
+					{/loop}
+                </p>
+                </h3> 
+            </div>
+            <div class="bottom clearfix">
+                <div class="leftClass">
+                    {php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+						{if $i<4 && $c[child]}
+						<ul class="clearfix overflow"><!--热门的分类给li加active 如下-->
+                            <li class="active"><a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" >{set_style($c[catname], $c[style])}</a></li>
+						 {php $sub = get_maincat($c[catid], $mid, 1);}
+						 {loop $sub $j $s}
+							{if $j<3}
+                                <li><a target="_blank"  href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" >{set_style($s[catname], $s[style])}</a></li>
+							{/if}
+							{/loop}
+					</ul>
+					{/if}
+					{/loop}
+				</div>
+                <ul class="clearfix fr logoClass"> 
+				<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+					{loop $tags $t}
+					<li>
+                            <div class="imgBox">
+                                <a target="_blank" href="{$t[linkurl]}" rel="nofollow">
+								<img class="img100" data-original="{$t[thumb]}" alt=""></a>
+                            </div>
+                   </li>
+				   {/loop}        
+                </ul>
+            </div> 
+        </div>
+    </div>
+</div>
+   
+  <span style="display:none">8</span>
+<div class="building buildingNew  " dataid="f14">
+    <div class="buildingBox ThemeFborderhover clearfix">
+        <div class="left fl">
+            <img src="{DT_SKIN}image/class14.jpg" alt="">
+        </div>
+        <div class="content fl">
+            <div class="top">
+                <h3 class="title1 f14">
+                    工艺品、礼品 
+                    <a href="{$MODULE[5][linkurl]}list.php?catid=183" class="Themefont fr f12">更多>></a>
+                    <p class="f12 overflow">热搜：
+					{php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+					{if $i<5} 
+                        <a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a>
+					{/if}
+					{/loop}
+                </p>
+                </h3> 
+            </div>
+            <div class="bottom clearfix">
+                <div class="leftClass">
+                    {php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+						{if $i<4 && $c[child]}
+						<ul class="clearfix overflow"><!--热门的分类给li加active 如下-->
+                            <li class="active"><a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" >{set_style($c[catname], $c[style])}</a></li>
+						 {php $sub = get_maincat($c[catid], $mid, 1);}
+						 {loop $sub $j $s}
+							{if $j<3}
+                                <li><a target="_blank"  href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" >{set_style($s[catname], $s[style])}</a></li>
+							{/if}
+							{/loop}
+					</ul>
+					{/if}
+					{/loop}
+				</div>
+                <ul class="clearfix fr logoClass"> 
+				<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+					{loop $tags $t}
+					<li>
+                            <div class="imgBox">
+                                <a target="_blank" href="{$t[linkurl]}" rel="nofollow">
+								<img class="img100" data-original="{$t[thumb]}" alt=""></a>
+                            </div>
+                   </li>
+				   {/loop}        
+                </ul>
+            </div> 
+        </div>
+    </div>
+</div>
+   
+ <div class="building buildingNew  active" dataid="f15">
+    <div class="buildingBox ThemeFborderhover clearfix">
+        <div class="left fl">
+            <img src="{DT_SKIN}image/class15.jpg" alt="">
+        </div>
+        <div class="content fl">
+            <div class="top">
+                <h3 class="title1 f14">
+                    家用电器 
+                    <a href="{$MODULE[5][linkurl]}list.php?catid=183" class="Themefont fr f12">更多>></a>
+                    <p class="f12 overflow">热搜：
+					{php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+					{if $i<5} 
+                        <a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}">{set_style($c[catname], $c[style])}</a>
+					{/if}
+					{/loop}
+                </p>
+                </h3> 
+            </div>
+            <div class="bottom clearfix">
+                <div class="leftClass">
+                    {php $mid=5;}
+					{php $child=get_maincat(183,$mid,1)}
+					{loop $child $i $c}
+						{if $i<4 && $c[child]}
+						<ul class="clearfix overflow"><!--热门的分类给li加active 如下-->
+                            <li class="active"><a target="_blank" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" >{set_style($c[catname], $c[style])}</a></li>
+						 {php $sub = get_maincat($c[catid], $mid, 1);}
+						 {loop $sub $j $s}
+							{if $j<3}
+                                <li><a target="_blank"  href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" >{set_style($s[catname], $s[style])}</a></li>
+							{/if}
+							{/loop}
+					</ul>
+					{/if}
+					{/loop}
+				</div>
+                <ul class="clearfix fr logoClass"> 
+				<!--{php $tags=tag("moduleid=13&condition=status=3 and level>0&areaid=$city&pagesize=4&order=addtime desc&width=120&height=40&target=_blank&template=null")}-->
+					{loop $tags $t}
+					<li>
+                            <div class="imgBox">
+                                <a target="_blank" href="{$t[linkurl]}" rel="nofollow">
+								<img class="img100" data-original="{$t[thumb]}" alt=""></a>
+                            </div>
+                   </li>
+				   {/loop}        
+                </ul>
+            </div> 
+        </div>
+    </div>
+</div>
+</div>
+<div class="cBanner mt20 ">
+	<a name="f16"><img class="img100" data-original="{DT_SKIN}image/cbanner2.jpg"></a>
+</div>
+<div class="building">
+	<h3 class="title1 f14">
+		<span class="Themebg white f20 mr10 iconfont icon-News"></span>
+		行业资讯
+	</h3>
+	<div class="buildingBox clearfix pb10">
+	<!--{php $tags=tag("moduleid=21&condition=status=3 and thumb<>'' and level>0 &pagesize=4&template=null")}-->
+	{loop $tags $t}
+		<div class="col-md-6 NewsBox">
+			<div class="topBox pt15">
+				<div class="imgBox fl"><a href="{$t[linkurl]}" target="_blank"><img class="img100" data-original="{$t[thumb]}" alt="{$t[alt]}"></a></div>
+				<div class="name">
+					<a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></div>
+					<p>{$t[introduce]}</p>
+			</div>
+		</div>
+	{/loop}
+		<div class="clear"></div>
+            <div class=" NewsBox mt10">
+                <ul class="clearfix ">
+				<!--{php $tags=tag("moduleid=21&condition=status=3 and level<1 &order=addtime desc&pagesize=6&datetype=2&template=null")}-->
+				{loop $tags $t} 
+                    <li class="col-md-6"><a href="{$t[linkurl]}" target="_blank"><i class="Themefont">·</i>{dsubstr($t[title],120)}
+					<span class="time">{date('Y-m-d',$t[addtime])} </span></a></li>
+				{/loop}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="Floor" id="Floor">
+    <div class="Themebg title1" style="color:#fff;line-height:40px;">行业导航</div>
+    <ul>
+        <li>
+            <a class="f1" href="javascript:void(0)" onclick="clickA(1)">
+                <div class="FloorLi">
+                    <i class="iconfont icon-jixieqimo"></i><span class="Themebg">行业设备</span>
+                </div>
+                <div class="FloorLi">
+                    <i class="iconfont icon-shangwuquan"></i><span class="Themebg">商务服务</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="f3" href="javascript:void(0)" onclick="clickA(3)">
+                <div class="FloorLi">
+                    <i class="iconfont icon-nongye"></i><span class="Themebg cen">农业</span>
+                </div>
+                <div class="FloorLi">
+                    <i class="iconfont icon-baozhuangyinshua"></i><span class="Themebg cen">包装</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="f5" href="javascript:void(0)" onclick="clickA(5)">
+                <div class="FloorLi">
+                    <i class="iconfont icon-shipin"></i><span class="Themebg">食品饮料</span>
+                </div>
+                <div class="FloorLi">
+                    <i class="iconfont icon-wujingongju"></i><span class="Themebg">五金工具</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="f7" href="javascript:void(0)" onclick="clickA(7)">
+                <div class="FloorLi">
+                    <i class="iconfont icon-jiajujiafang"></i><span class="Themebg">家具家纺</span>
+                </div>
+                <div class="FloorLi">
+                    <i class="iconfont icon-icon"></i><span class="Themebg cen">化工</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="f9" href="javascript:void(0)" onclick="clickA(9)">
+                <div class="FloorLi">
+                    <i class="iconfont icon-jingxihuaxue"></i><span class="Themebg">精细化学</span>
+                </div>
+                <div class="FloorLi">
+                    <i class="iconfont icon-yejinkuangchan"></i><span class="Themebg">冶金矿产</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="f11" href="javascript:void(0)" onclick="clickA(11)">
+                <div class="FloorLi">
+                    <i class="iconfont icon-diangongdianqi" style="font-size:16px;"></i><span class="Themebg">电工电气</span>
+                </div>
+                <div class="FloorLi">
+                    <i class="iconfont icon-xiangjiaosuliao"></i><span class="Themebg cen">橡塑</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="f13" href="javascript:void(0)" onclick="clickA(13)">
+                <div class="FloorLi">
+                    <i class="iconfont icon-iconfontanquanfanghu"></i><span class="Themebg">安全防护</span>
+                </div>
+                <div class="FloorLi">
+                    <i class="iconfont icon-qicheyongpin"></i><span class="Themebg">汽摩配件</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a class="f15" href="javascript:void(0)" onclick="clickA(15)">
+                <div class="FloorLi">
+                    <i class="iconfont icon-tubiao"></i><span class="Themebg">礼品饰品</span>
+                </div>
+                <div class="FloorLi">
+                    <i class="iconfont icon-iconjiayongdianqi"></i><span class="Themebg">家用电器</span>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="Right_side_button">
+    <ul>
+        <li class="Themebghover clearfix"><a href="http://www.destoon.com" ><span class="text mr5">我的DT</span><i class="iconfont icon-Supplier"></i></a></li>
+        <li class="Themebghover clearfix"><a href="http://www.destoon.com/help" ><span class="text mr5">帮助中心</span><i class="iconfont icon-bangzhu"></i></a></li>
+    </ul>
+</div>
+<div class="Right_side_button Right_side_button2">
+    <ul>
+        <li class="Themebghover clearfix" id="return_top"><a href="javascript:void(0)"><span class="text mr5">返回顶部</span><i class="iconfont icon-shifttop"></i></a></li>
+        <li class="Themebghover clearfix"><a href="#"><span class="code text mr5"><img class="img100" src="{DT_SKIN}image/qrcode.png" alt=""></span><i class="iconfont icon-code"></i></a></li>
+    </ul>
+</div>
+
+
+<script>
+//左侧菜单的滚动事件
+    $(window).scroll(function () {
+       var scrollTop = $(document).scrollTop();
+       var contentItems = $(".xcmain").find(".building");
+       var currentItem = "";
+       if (scrollTop>=755 && scrollTop<3990 && $("#Floor").css('display')=='block'){
+            $('#Floor').show();
+            setTimeout(function(){
+                $("#Floor").addClass('active');
+            },10);
+            
+       }else if ((scrollTop>=3991 || scrollTop<754) && $("#Floor").css('display')=='block'){
+            $('#Floor').removeClass('active');
+            setTimeout(function(){
+                $('#Floor').hide();
+            },200);
+       }
+       contentItems.each(function () {
+           var offsetTop = $(this).offset().top;
+           if (scrollTop > offsetTop - 300) {
+               currentItem = $(this).attr("dataid");
+           }
+       });
+       if (currentItem!='' && currentItem!=$("#Floor").find(".active").attr("class") && scrollTop>=755 && scrollTop<3990) {
+           $("#Floor ").find(".active").removeClass("active");
+           $("#Floor").find("." + currentItem + "").addClass("active");
+           $('#Floor').show();
+            setTimeout(function(){
+                $("#Floor").addClass('active');
+            },10);
+       }
+    });
+    function clickA(e){
+        var Divbox = $('.cBanner').find('.f'+e+'').offset().top;
+        $('html,body').animate({
+            scrollTop:Divbox
+        },500);
+    }
+    //回到顶部
+    $("#return_top").click(function(){
+        $('html,body').animate({
+            scrollTop:'0'
+        },1000);
+    });
+</script>
+<!--footer-->
+<div class="footerIndex mt20">
+    <div class="conBox clearfix">
+		<div class="friendLink mt20">
+            <div class="title1 1clearfix">
+                <ul>
+                    <li class="Themebg li1">友情链接</li>                    
+					<li class="li2">行业分站</li>                                                       
+				</ul> 
+            </div>
+		   <div class="LinkBox mt10 LinkBox1">
+			  <!--{php $tags=tag("table=link&catid=2&conditon=status=3&pagesize=10&order=addtime desc&template=null")}-->
+			  {loop $tags $t}
+					<a href="{$t[linkurl]}" target="_blank">{$t[title]}</a>
+			  {/loop} 
+		  </div>
+          <div class="LinkBox mt10 LinkBox2">
+			  <!--{php $tags=tag("table=link&catid=2&conditon=status=3&pagesize=10&order=addtime desc&template=null")}-->
+			  {loop $tags $t}
+					<a href="{$t[linkurl]}" target="_blank">{$t[title]}</a>
+			  {/loop} 
+		</div>
+	</div>
+ </div> 
+<script>
+	$(function(){
+			var $li = $('.friendLink .title1 li');
+			var $ul = $('.LinkBox');
+						
+			$li.click(function(){
+				var $this = $(this);
+				var $t = $this.index();
+				$li.removeClass();
+				$this.addClass('Themebg');
+				$ul.css('display','none');
+				$ul.eq($t).css('display','block');
+			});
+	});
+ </script>
+{template 'footer'}
+    
+
+

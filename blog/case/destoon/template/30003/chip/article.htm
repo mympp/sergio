@@ -1,0 +1,26 @@
+<div class="floor_r">
+		<div class="header"><em>{$u[catname]}资讯</em></div>
+		<div class="new_box clr">
+			<!--{php $tags=tag("moduleid=21&condition=status=3 and thumb<>''&areaid=$cityid&catid=".$u[catid]."&width=96&height=66&order=hits desc&pagesize=1&template=null")}-->
+			{loop $tags $i $t}
+			<div class="new_top">
+				<a href="{$t[linkurl]}" target="_blank">
+					<img width="{$width}" height="{$height}" alt="{$t[alt]}" src="{$t[thumb]}">
+					<p><strong>{$t[title]}</strong><small>{dsubstr($t[introduce],50,'..')}<em>[详细]</em></small></p>
+				</a>
+			</div>
+			{/loop}
+			<ul class="new_list">
+			<!--{php $tags=tag("moduleid=21&condition=status=3&areaid=$cityid&offset=1&showcat=1&catid=".$u[catid]."&order=hits desc&pagesize=5&template=null")}-->
+			{loop $tags $i $t}
+			<li><span><a href="{$t[caturl]}" target="_blank">[{$t[catname]}]</a></span><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></li>
+			{/loop}
+			</ul>
+		</div>
+		<!--floor1_r 广告位-->
+		<div class="ad_box">
+		{loop $ad $c $v}
+		{if $c==$r}{ad($v)}{/if}
+		{/loop}
+		</div>
+	</div>

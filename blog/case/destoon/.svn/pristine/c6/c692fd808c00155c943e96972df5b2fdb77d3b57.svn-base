@@ -1,0 +1,8 @@
+{template 'header', $template}
+		<div class="rbox">
+		{loop $HMAIN $HM $MAIN}
+		{template 'main_'.$main_file[$HM], $template}
+		{/loop}
+		</div>
+		{template 'side', $template}
+{template 'footer', $template}

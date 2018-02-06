@@ -1,0 +1,88 @@
+<div class="footer">
+        <div class="w1190">
+            <div class="foot_logo">
+                <a href="{$MODULE[1][linkurl]}" target="_blank">
+                <img src="{if $MODULE[$moduleid][logo]}{DT_SKIN}image/logo_{$moduleid}.gif{elseif $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" alt="{$DT[sitename]}"/></a>
+                <span id="spServerName">全国统一服务电话</span><b id="bServerPhone">{$DT[telephone]}</b>
+            </div>
+            <div class="foot_right">
+                <div class="help">
+                    <dl>
+                        <dt>新手指南</dt>
+                        <dd>
+							<a href="javascript:void();" target="_blank">买家注册</a>
+							<a href="javascript:void();" target="_blank">买家指南</a> 
+							<a href="javascript:void();" target="_blank">常见问题</a>
+							
+						</dd>
+                    </dl>
+                    <dl>
+                        <dt>采购商服务</dt>
+                        <dd>
+							<a href="javascript:void();" target="_blank">找产品</a>
+							<a href="javascript:void();" target="_blank">找公司</a> 
+							<a href="javascript:void();" target="_blank">商务管理</a>
+						</dd>
+                    </dl>
+                    <dl>
+                        <dt>供应商服务</dt>
+                        <dd>
+							<a href="javascript:void();" target="_blank">供应商推广</a>
+							<a href="javascript:void();" target="_blank">发布供应</a>
+							<a href="javascript:void();" target="_blank">网站规则</a>
+						</dd>
+                    </dl>
+                    <dl>
+                        <dt>资讯</dt>
+                        <dd>
+							<a href="javascript:void();" target="_blank">新闻资讯</a> 
+							<a href="javascript:void();" target="_blank">行业交流</a>
+							<a href="javascript:void();" target="_blank">时尚图库</a>
+						</dd>
+                    </dl>
+                    <dl>
+                        <dt>交易安全</dt>
+                        <dd>
+							<a href="javascript:void();" target="_blank">交易安全</a> 
+							<a href="javascript:void();" target="_blank">担保交易</a> 
+							<a href="javascript:void();" target="_blank">举报维权</a>
+							
+						</dd>
+                    </dl>
+                    <dl>
+                        <dt>关于我们</dt>
+                        <dd>
+                            <img src="{DT_SKIN}image/wx.png" width="86px" height="86px"></dd>
+                    </dl>
+                </div>
+                <div class="f_link">
+                    <a href="{$MODULE[1][linkurl]}">网站首页</a>
+					<!--{tag("table=webpage&condition=item=1&areaid=$cityid&order=listorder desc,itemid desc&template=list-webpage")}-->
+					| <a href="{$MODULE[1][linkurl]}sitemap/">网站地图</a>
+					| <a href="{$EXT[spread_url]}">排名推广</a>
+					{if $EXT[ad_enable]} | <a href="{$EXT[ad_url]}">广告服务</a>{/if}
+					{if $EXT[gift_enable]} | <a href="{$EXT[gift_url]}">积分换礼</a>{/if}
+					{if $EXT[guestbook_enable]} | <a href="{$EXT[guestbook_url]}">网站留言</a>{/if}
+					{if $EXT[feed_enable]} | <a href="{$EXT[feed_url]}">RSS订阅</a>{/if}
+					{if $DT[icpno]} | <a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow">{$DT[icpno]}</a>{/if}
+                </div>
+
+                <p>
+                    <a target="_blank" href="javascript:void();" rel="nofollow"><img src="{DT_SKIN}image/beian.png">{debug()}</a>
+                     <br>
+                    {$DT[copyright]}
+                </p>
+            </div>
+        </div>
+    </div>
+<!--[以下为系统关键代码，请勿删除]-->
+<div class="back2top"><a href="javascript:void(0);" title="返回顶部">&nbsp;</a></div>
+<script type="text/javascript">
+{if $destoon_task}
+show_task('{$destoon_task}');
+{else}
+{php include DT_ROOT.'/api/task.inc.php';}
+{/if}
+{if $lazy}$(function(){$("img").lazyload();});{/if}
+</script>
+</body></html>

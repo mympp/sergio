@@ -1,0 +1,28 @@
+	<div class="h_jp_pro">
+	    <div class="hd">
+	    	<h2><span class="bg">精品推荐</span></h2>
+	    	<div class="line"><div class="line_red"></div></div>
+	    </div>
+	    <div class="gray_bg">
+	        <div class="bd pr wrap">
+	            <div class="prev">上一个</div>
+	            <ul class="picList clearfix">
+	            	<!--{php $tags=tag("moduleid=5&condition=status>2 and username='$username' and elite=1 and thumb<>''&pagesize=15&order=edittime desc&fields=itemid,title,linkurl,thumb,edittime&template=null");}-->
+					{loop $tags $i $t}
+	            		<li>
+		                    <div class="pic">
+		                    	<a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=sell&itemid='.$t['itemid'], $domain)}{/if}" target="_blank">
+		                    		<img src="{imgurl($t[thumb])}"><i class="hot_ico"></i>
+		                    	</a>
+		                    </div>
+		                    <div class="text"><a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=sell&itemid='.$t['itemid'], $domain)}{/if}">{$t[title]}</a></div>
+		                    <a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=sell&itemid='.$t['itemid'], $domain)}{/if}" target="_blank" class="btn">查看详情<i class="light"></i></a>
+		                </li>
+	            	{/loop}
+	            </ul>
+	            <div class="next">下一个</div>
+	        </div>
+	    </div>
+	</div>
+
+<!--精品推荐结束-->

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>{$head_title}</title>
+{if $head_keywords}
+<meta name="keywords" content="{$head_keywords}"/>
+{/if}
+{if $head_description}
+<meta name="description" content="{$head_description}"/>
+{/if}
+<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width"/>
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<meta name="generator" content="DESTOON B2B - www.destoon.com"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-title" content="{$site_name}"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-touch-fullscreen" content="yes"/>
+<meta name="full-screen" content="yes"/>
+<meta name="x5-fullscreen" content="true"/>
+<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png"/>
+<link rel="icon" sizes="128x128" href="apple-touch-icon-precomposed.png">
+<meta name="msapplication-TileImage" content="apple-touch-icon-precomposed.png">
+<meta name="msapplication-TileColor" content="#007AFF">
+<link rel="shortcut icon" type="image/x-icon" href="{DT_PATH}favicon.ico"/>
+<link rel="bookmark" type="image/x-icon" href="{DT_PATH}favicon.ico"/>
+{php $glmobileurl = !empty($EXT['mobile_domain'])?$EXT['mobile_domain']:DT_PATH.'mobile/'}
+<link rel="stylesheet" type="text/css" href="{$glmobileurl}css/aui.2.0.css"/>
+<link rel="stylesheet" type="text/css" href="{$glmobileurl}css/dt-iconfont.css"/>
+{if $EXT['gl_css_am'] && !$username}<link rel="stylesheet" type="text/css" href="css/dtanimate.css"/>{/if}
+<script type="text/javascript" src="{$glmobileurl}static/lib/jquery/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+var AJPath = 'ajax.php';
+var Dbrowser = '{$DT_MOB[browser]}';
+{if !DT_DEBUG}
+if(!('ontouchend' in document) && window.location.href.indexOf('device.php') == -1) window.location='device.php';
+{/if}
+</script>
+</head>
+<body>
+{php $mlat = get_cookie('my_lat');$mlng = get_cookie('my_lng');}
+<div class="dt-fix-wrap">
+<div class="ui-mask"></div>
+<div class="ui-sheet"></div>
+<div class="am-window"></div>

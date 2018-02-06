@@ -1,0 +1,26 @@
+{if $file != 'contact' && $could_contact}
+<!--联系方式-->
+<div class="blk1_br spH">
+<div class="ttl">
+    <h3>{$side_name[$HS]}</h3>
+</div>
+<div class="cnt line">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table-info zt12">
+        <tr><th>联系人 </th><td>{$COM[truename]}&nbsp;</td></tr>
+		{if $COM[telephone]}
+        <tr><th>电话 </th><td>{$COM[telephone]}</td></tr>
+		{/if}
+		{if $COM[mail]}
+         <tr><th>邮件</th><td>{$COM[mail]}</td></tr>
+		{/if}
+		{if $COM[mobile]}
+        <tr><th>手机 </th><td>{$COM[mobile]}</td></tr>
+		{/if}
+		{if $COM[fax]}
+          <tr><th>传真 </th><td>{$COM[fax]}</td></tr>
+        {/if}
+    </table>
+</div>
+</div>        
+ <!--联系方式-->
+{/if}

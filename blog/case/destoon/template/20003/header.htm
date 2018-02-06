@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset={DT_CHARSET}"/>
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{if $city_sitename}{$city_sitename}{else}{$DT[sitename]}{/if}{/if}</title>
+{if $head_keywords}
+<meta name="keywords" content="{$head_keywords}"/>
+{/if}
+{if $head_description}
+<meta name="description" content="{$head_description}"/>
+{/if}
+{if $head_mobile}
+<meta http-equiv="mobile-agent" content="format=html5;url={$head_mobile}">
+{/if}
+<meta name="generator" content="DESTOON B2B - www.destoon.com"/>
+<link rel="shortcut icon" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+<link rel="bookmark" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+{if $head_canonical}
+<link rel="canonical" href="{$head_canonical}"/>
+{/if}
+{if $EXT[archiver_enable]}
+<link rel="archives" title="{$DT[sitename]}" href="{$EXT[archiver_url]}"/>
+{/if}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}style.css"/>
+{if $moduleid>4}<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$module}.css"/>{/if}
+{if $CSS}
+{loop $CSS $css}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$css}.css"/>
+{/loop}
+{/if}
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}ie6.css"/>
+<![endif]-->
+{if !DT_DEBUG}<script type="text/javascript">window.onerror=function(){return true;}</script>{/if}
+<script type="text/javascript" src="{DT_STATIC}lang/{DT_LANG}/lang.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/config.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/page.js"></script>
+{if $lazy}<script type="text/javascript" src="{DT_STATIC}file/script/jquery.lazyload.js"></script>{/if}
+{if $JS}
+{loop $JS $js}
+<script type="text/javascript" src="{DT_STATIC}file/script/{$js}.js"></script>
+{/loop}
+{/if}
+{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
+<script type="text/javascript">
+{if $head_mobile && $EXT[mobile_goto]}
+GoMobile('{$head_mobile}');
+{/if}
+var searchid = {$searchid};
+{if $itemid && $DT[anticopy]}
+document.oncontextmenu=function(e){return false;};
+document.onselectstart=function(e){return false;};
+{/if}
+</script>
+<!--[以上为系统关键代码，除非您明确其含义，否则请勿修改或删除，否则会导致系统错误]-->
+<!--[模板中所有带id的元素，请勿修改或删除，否则会导致部分JS代码无法运行]-->
+<!--[以上类似的注释，在编译模板时，系统会自动移除，不会显示在实际的页面中]-->
+</head>
+<body>
+<div class="head" id="head">
+	<div class="head_m">
+		<div class="f_r" id="destoon_member"></div>
+		<div class="head_l">
+			<ul>
+			{if $DT[city]}<li class="h_city">[<span id="destoon_city">{$city_name}</span>] <a href="{DT_PATH}api/city.php" title="点击切换城市" rel="nofollow">切换</a></li>{/if}
+			<li class="h_fav"><script type="text/javascript">addFav('收藏本页');</script></li>
+			{if $EXT[mobile_enable]}<li class="h_mobile"><a href="{$EXT[mobile_url]}mobile.php">手机版</a>&nbsp;</li>{/if}
+			{if $head_mobile}<li class="h_qrcode"><a href="javascript:Dqrcode();">二维码</a>&nbsp;</li>{/if}
+			{if isset($MODULE[16])}<li class="h_cart"><a href="{$MODULE[16][linkurl]}cart.php" rel="nofollow">购物车</a>(<span class="head_t" id="destoon_cart">0</span>)</li>{/if}
+			</ul>
+		</div>
+	</div>
+</div>
+{if $head_mobile}<div id="destoon_qrcode" style="display:none;"></div>{/if}
+<div class="m head_s" id="destoon_space"></div>
+<div class="container">
+	<div class="b3"></div>
+	<div class="m"><div id="search_tips" style="display:none;"></div></div>
+	<div class="m">
+		<div class="logo f_l"><a href="{$MODULE[1][linkurl]}"><img src="{if $MODULE[$moduleid][logo]}{DT_SKIN}image/logo_{$moduleid}.gif{elseif $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" alt="{$DT[sitename]}" width="180px" height="60px"/></a></div>
+		<div class="textm_hy">
+			<ul>
+				<li><strong>信</strong><a href="{$MODULE[21][linkurl]}">资讯</a>&nbsp;|&nbsp;<a href="#">案例欣赏</a>&nbsp;|&nbsp;<a href="#">技术学院</a>&nbsp;|&nbsp;<a href="#">营销管理</a>&nbsp;|&nbsp;<a href="#">标语大全</a>&nbsp;|<a href="{$MODULE[15][linkurl]}">&nbsp;资源下载</a></li>
+				<li><strong>息</strong><a href="{$MODULE[21][linkurl]}">行业</a>&nbsp;|&nbsp;<a href="#">标识标牌</a>&nbsp;|&nbsp;<a href="#">印刷包装</a>&nbsp;|&nbsp;<a href="#">广告加工</a>&nbsp;|&nbsp;<a href="#">工艺礼品</a>&nbsp;|&nbsp;<a id="houseUrl" href="#">企业动态</a>&nbsp;</li>
+			</ul>
+		</div>
+		<div class="textm_jishu">
+			<ul>
+				<li><strong>产</strong><a href="#">指示标识</a>&nbsp;|&nbsp;<a href="#">铭牌</a>&nbsp;|&nbsp;<a href="#">印刷</a>&nbsp;|&nbsp;<a href="#">包装</a>&nbsp;|&nbsp;<a href="#">文化用品</a></li>
+				<li><strong>品</strong><a href="#">广告制作</a>&nbsp;|&nbsp;<a href="#">材料</a>&nbsp;|&nbsp;<a href="#">设备</a>&nbsp;|&nbsp;<a href="#">机械</a>&nbsp;|&nbsp;<a href="#">工艺礼品</a></li>
+			</ul>
+		</div>
+		<div class="textm_400"> <img src="{DT_SKIN}image/400.gif" width="120" height="59" alt="固话手机均可拨打" /> </div>
+	</div>
+	<div class="m">
+		<div class="menu">
+			<ul><li{if $moduleid<4} class="menuon"{/if}><a href="{$MODULE[1][linkurl]}"><span>首页</span></a></li>{loop $MODULE $m}{if $m[ismenu]}<li{if $m[moduleid]==$moduleid} class="menuon"{/if}><a href="{$m[linkurl]}"{if $m[isblank]} target="_blank"{/if}><span{if $m[style]} style="color:{$m[style]};"{/if}>{$m[name]}</span></a></li>{/if}{/loop}</ul>
+		</div>
+	</div>
+	<div class="m">
+		{ad(38)}
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+			<tr><td colspan="5"><script type="text/javascript" src="{DT_PATH}file/script/A30.js"></script></td></tr>
+			<tr><td colspan="5" height="5"> </td></tr>
+			<tr><td></td><td width="7"></td><td></td><td width="8"></td><td></td></tr>
+		</table>
+	</div>
+	<div id="ipad_tips" style="display:none;"></div>  
+	<div class="m">
+		<div id="search_module" style="display:none;" onmouseout="Dh('search_module');" onmouseover="Ds('search_module');">
+			{loop $MODULE $m}{if $m[ismenu] && !$m[islink]}<a href="javascript:void(0);" onclick="setModule('{$m[moduleid]}','{$m[name]}')">{$m[name]}</a>{/if}{/loop}
+		</div>
+	</div>
+	<div class="searchbar">
+		<form id="destoon_search" action="{$MODULE[$searchid][linkurl]}search.php" onsubmit="return Dsearch();">
+			<input type="hidden" name="moduleid" value="5" id="destoon_moduleid"/>
+			<div class="head_search">
+				<div>
+					<input name="kw" id="destoon_kw" type="text" class="search_i" value="{if $kw}{$kw}{else}请输入关键词{/if}" onfocus="if(this.value=='请输入关键词') this.value='';"{if $DT[search_tips]} onkeyup="STip(this.value);" autocomplete="off"{/if} x-webkit-speech speech/><input type="text" id="destoon_select" class="search_m" value="{$MODULE[$searchid][name]}" readonly onfocus="this.blur();" onclick="$('#search_module').fadeIn('fast');"/><input type="submit" value=" " class="search_s"/>
+				</div>
+			</div>
+		</form>
+		<div class="head_search_kw f_l "><a href="" onclick="Dsearch_top();return false;"><strong>标王</strong></a> <a href="" onclick="Dsearch_adv();return false;"><strong>热搜：</strong></a> <span id="destoon_word"><!--{tag("moduleid=$searchid&table=keyword&condition=moduleid=$searchid and status=3&pagesize=10&order=total_search desc&template=list-search_kw")}--></span></div>
+		<div class="head_search_dy"><span class="tougao"><a href="{$MODULE[2][linkurl]}" rel="nofollow" title="投稿" target="_blank">投稿</a></span><span class="dinyue"> <a href="{$EXT[feed_url]}" title="定阅" target="_blank">订阅</a></span></div>
+	</div>
+</div>
+<div class="container">

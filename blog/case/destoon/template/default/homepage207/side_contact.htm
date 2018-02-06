@@ -1,0 +1,26 @@
+{if $file != 'contact' && $could_contact}
+<!--联系方式-->
+<div class="sidebox mb15">
+    <div class="box_tit">
+    <h2>{$side_name[$HS]}</h2>
+    <a href="{userurl($username, 'file=contact', $domain)}">更多</a>
+    </div>
+    <div class="box_con">
+    <p class="newline">联系人：{$COM[truename]}</p>
+	{if $COM[telephone]}
+	<p title="{$COM[telephone]}">电话：{$COM[telephone]}</p>
+	{/if}
+	{if $COM[mail]}
+	<p title="{$COM[mail]}">邮件：{$COM[mail]}</p>
+	{/if}
+	{if $COM[mobile]}
+	<p title="{$COM[mobile]}">手机：{$COM[mobile]}</p>
+	{/if}
+	{if $COM[fax]}
+	<p title="{$COM[fax]}">传真：{$COM[fax]}</p>
+	{/if}
+
+    </div>
+</div>
+<!--联系结束/-->
+{/if}

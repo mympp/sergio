@@ -1,0 +1,19 @@
+<!--推荐产品-->
+		    <div class="m_b30 con_box">
+                    <div class="r_hd">{$main_name[$HM]}</div>
+                <div class="new_product">
+					<!--{php $tags=tag("moduleid=5&condition=status>2 and username='$username' and elite=1 and thumb<>''&pagesize=8&order=edittime desc&fields=itemid,title,linkurl,thumb,edittime,price&template=null");}-->
+                    <ul>
+					{loop $tags $i $t}
+                            <li >
+                                <a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=sell&itemid='.$t['itemid'], $domain)}{/if}" class="pic">
+                                    <img src="{imgurl($t[thumb])}" /></a>
+                                <b>价格<em class="rmb">RMB {$t[price]}元</em></b>
+                                <p><a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=sell&itemid='.$t['itemid'], $domain)}{/if}">{$t[title]}</a></p>
+                            </li>
+							{/loop}
+                           
+                    </ul>
+                </div>
+            </div>
+		   <!--推荐产品/-->

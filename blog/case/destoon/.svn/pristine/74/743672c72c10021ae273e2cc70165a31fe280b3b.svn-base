@@ -1,0 +1,164 @@
+<?php
+defined('DT_ADMIN') or exit('Access Denied');
+isset($username) or $username = '';
+$menus = array (
+    array('发票申请', '?moduleid='.$moduleid.'&file='.$file),
+);
+$BANKS = explode('|', trim($MOD['pay_banks']));
+$table = $DT_PRE.'invoice';
+if(!$action){
+		$dfields = array('username', 'username', 'amount', 'reason', 'note', 'editor');
+		$dorder  = array('itemid asc');
+		isset($fields) && isset($dfields[$fields]) or $fields = 0;
+		isset($formtime) or $fromtime = '';
+		isset($totime) or $totime = '';
+		isset($dfromtime) or $dfromtime = '';
+		isset($dtotimefromtime) or $dtotime = '';
+		isset($type) or $type = 0;
+		isset($order) && isset($dorder[$order]) or $order = 0;
+		isset($tel) or $totime = '';
+		isset($email) or $totime = '';
+		isset($company) or $totime = '';
+		$fields_select = dselect($sfields, 'fields', '', $fields);
+		$order_select = dselect($sorder, 'order', '', $order);
+		$condition = '1';
+		if($keyword) $condition .= " AND $dfields[$fields] LIKE '%$keyword%'";
+		if($fromtime) $condition .= " AND addtime>".(strtotime($fromtime.' 00:00:00'));
+		if($totime) $condition .= " AND addtime<".(strtotime($totime.' 23:59:59'));
+		/*if($type) $condition .= $type == 1 ? " AND amount>0" : " AND amount<0";
+		if($username) $condition .= " AND username='$username'";
+		if($itemid) $condition .= " AND itemid=$itemid";*/
+		if($page > 1 && $sum) {
+			$items = $sum;
+		} else {
+			$r = $db->get_one("SELECT COUNT(*) AS num FROM {$table} WHERE $condition");
+			$items = $r['num'];
+		}
+		$pages = pages($items, $page, $pagesize);	
+		$records = array();
+		$result = $db->query("SELECT a.itemid,a.addtime,b.amount,b.bank,a.company,a.taxno,a.tel,a.email,a.status FROM {$table} as a , {$DT_PRE}finance_record as b where a.finance_record_id = b.itemid  ORDER BY a.itemid LIMIT $offset,$pagesize");
+		$income = $expense = 0;
+		while($r = $db->fetch_array($result)) {
+			$r['addtime'] = timetodate($r['addtime'], 5);
+			$r['amount'] > 0 ? $income += $r['amount'] : $expense += $r['amount'];
+			$records[] = $r;
+		}
+		include tpl('invoice', $module);
+}
+/*if(!$action){
+		$dfields = array('username', 'username', 'amount', 'reason', 'note', 'editor');
+		$dorder  = array('itemid DESC', 'amount DESC', 'amount ASC', 'addtime DESC', 'addtime ASC');
+		isset($fields) && isset($dfields[$fields]) or $fields = 0;
+		isset($fromtime) or $fromtime = '';
+		isset($totime) or $totime = '';
+		isset($dfromtime) or $dfromtime = '';
+		isset($dtotime) or $dtotime = '';
+		isset($type) or $type = 0;
+		isset($order) && isset($dorder[$order]) or $order = 0;
+		$fields_select = dselect($sfields, 'fields', '', $fields);
+		$order_select = dselect($sorder, 'order', '', $order);
+		$condition = '1';
+		if($keyword) $condition .= " AND $dfields[$fields] LIKE '%$keyword%'";
+		if($fromtime) $condition .= " AND addtime>".(strtotime($fromtime.' 00:00:00'));
+		if($totime) $condition .= " AND addtime<".(strtotime($totime.' 23:59:59'));
+		if($type) $condition .= $type == 1 ? " AND amount>0" : " AND amount<0";
+		if($username) $condition .= " AND username='$username'";
+		if($itemid) $condition .= " AND itemid=$itemid";
+		if($page > 1 && $sum) {
+			$items = $sum;
+		} else {
+			$r = $db->get_one("SELECT COUNT(*) AS num FROM {$table} WHERE $condition");
+			$items = $r['num'];
+		}
+		$pages = pages($items, $page, $pagesize);	
+		$records = array();
+		$result = $db->query("SELECT * FROM {$table} WHERE $condition ORDER BY $dorder[$order] LIMIT $offset,$pagesize");
+		$income = $expense = 0;
+		while($r = $db->fetch_array($result)) {
+			$r['addtime'] = timetodate($r['addtime'], 5);
+			$r['amount'] > 0 ? $income += $r['amount'] : $expense += $r['amount'];
+			$records[] = $r;
+		}
+		include tpl('invoice', $module);
+}*/
+/*switch($action) {
+	case 'add':
+		if($submit) {
+			$username or msg('请填写会员名');
+			$amount or msg('请填写金额');
+			$reason or msg('请填写事由');
+			$amount = dround($amount);
+			if($amount <= 0) msg('金额格式错误');
+			if(!$type) $amount = -$amount;
+			$error = '';
+			$success = 0;
+			$usernames = explode("\n", trim($username));
+			foreach($usernames as $username) {
+				$username = trim($username);
+				if(!$username) continue;
+				$r = $db->get_one("SELECT username,invoice FROM {$DT_PRE}member WHERE username='$username'");
+				if(!$r) {
+					$error .= '<br/>会员['.$username.']不存在';
+					continue;
+				}
+				if(!$type && $r['invoice'] < abs($amount)) {
+					$error .= '<br/>会员['.$username.']保证金余额不足，当前余额为:'.$r['invoice'];
+					continue;
+				}
+				$db->query("INSERT INTO {$DT_PRE}invoice (company,taxno,tel,email,add_time) VALUES ('$company','$taxno','$tel','$email','$DT_TIME')");
+				$db->query("UPDATE {$DT_PRE}member SET invoice=invoice+$taxno WHERE company='$company'");
+				$success++;
+			}
+			if($error) message('操作成功 '.$success.' 位会员，发生以下错误：'.$error);
+			dmsg('操作成功', '?moduleid='.$moduleid.'&file='.$file);
+		} else {
+			if(isset($userid)) {
+				if($userid) {
+					$userids = is_array($userid) ? implode(',', $userid) : $userid;					
+					$result = $db->query("SELECT username FROM {$DT_PRE}member WHERE userid IN ($userids)");
+					while($r = $db->fetch_array($result)) {
+						$username .= $r['username']."\n";
+					}
+				}
+			}
+			include tpl('invoice', $module);
+		}
+	break;
+	default:
+		$dfields = array('username', 'username', 'amount', 'reason', 'note', 'editor');
+		$dorder  = array('itemid DESC', 'amount DESC', 'amount ASC', 'addtime DESC', 'addtime ASC');
+		isset($fields) && isset($dfields[$fields]) or $fields = 0;
+		isset($fromtime) or $fromtime = '';
+		isset($totime) or $totime = '';
+		isset($dfromtime) or $dfromtime = '';
+		isset($dtotime) or $dtotime = '';
+		isset($type) or $type = 0;
+		isset($order) && isset($dorder[$order]) or $order = 0;
+		$fields_select = dselect($sfields, 'fields', '', $fields);
+		$order_select = dselect($sorder, 'order', '', $order);
+		$condition = '1';
+		if($keyword) $condition .= " AND $dfields[$fields] LIKE '%$keyword%'";
+		if($fromtime) $condition .= " AND addtime>".(strtotime($fromtime.' 00:00:00'));
+		if($totime) $condition .= " AND addtime<".(strtotime($totime.' 23:59:59'));
+		if($type) $condition .= $type == 1 ? " AND amount>0" : " AND amount<0";
+		if($username) $condition .= " AND username='$username'";
+		if($itemid) $condition .= " AND itemid=$itemid";
+		if($page > 1 && $sum) {
+			$items = $sum;
+		} else {
+			$r = $db->get_one("SELECT COUNT(*) AS num FROM {$table} WHERE $condition");
+			$items = $r['num'];
+		}
+		$pages = pages($items, $page, $pagesize);	
+		$records = array();
+		$result = $db->query("SELECT * FROM {$table} WHERE $condition ORDER BY $dorder[$order] LIMIT $offset,$pagesize");
+		$income = $expense = 0;
+		while($r = $db->fetch_array($result)) {
+			$r['addtime'] = timetodate($r['addtime'], 5);
+			$r['amount'] > 0 ? $income += $r['amount'] : $expense += $r['amount'];
+			$records[] = $r;
+		}
+		include tpl('invoice', $module);
+	break;
+}*/
+?>

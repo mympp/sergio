@@ -1,0 +1,77 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+<header class="aui-bar aui-bar-nav" id="aui-header">
+        <a class="aui-pull-left aui-btn" href="comment.php?mid={$mid}&itemid={$itemid}">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+        <div class="aui-title">{$head_name}</div>
+        <a class="aui-pull-right" href="javascript:Dsheet('<a href=&#34;message.php?action=send&touser={$username}&#34; data-transition=&#34;slideup&#34;><span>发送消息</span></a>', '取消');">
+        <span class="dt-iconfont dt-icon-caidan" onclick="showPopup();"></span>
+        </a>
+</header>
+<div class="aui-bar-fix"></div>
+
+<div class="aui-content">
+    <ul class="aui-list aui-media-list dt-border-t-none">
+    <li class="aui-list-item aui-list-item-middle">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-media" style="width: 4rem;">
+                    <img src="{useravatar($username, 'large')}" class="aui-img-round aui-list-img-sm">
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title aui-font-size-14"><a href="index.php?moduleid=4&username={$username}"><strong>{$username}</strong></a></div>
+                        <div class="aui-list-item-right"></div>
+                    </div>
+                    <div class="aui-list-item-text">
+                        来自{area_pos($user[areaid], '')}，当前{if online($user[userid])==1}在线{else}离线{/if}
+                    </div>
+                </div>
+            </div>
+        </li>
+</ul>
+</div>
+
+{if $lists}
+<div class="aui-content aui-margin-b-15">
+    <ul class="aui-list aui-media-list">
+    {loop $lists $k $v}
+        <li class="aui-list-item aui-list-item-middle">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-media" style="width: 2.5rem;">
+                    <img src="{useravatar($v[uname])}" class="aui-img-round aui-list-img-sm">
+                </div>
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title aui-font-size-14"><a href="comment.php?action=user&username={$v[username]}&mid={$mid}&itemid={$itemid}" class="b">{$v[username]}</a></div>
+                        <div class="aui-list-item-right"><a href="index.php?moduleid={$v[item_mid]}&itemid={$v[item_id]}" class="b"><span>原文</span></a></div>
+                    </div>
+                    <div class="aui-list-item-text aui-font-size-12">
+                        {if $v[star]==1}差评{elseif $v[star]==2}中评{else}好评{/if} {timetodate($v[addtime], 5)}
+                    </div>
+                </div>
+            </div>
+            <div class="aui-list-item-text aui-padded-b-10">
+                       {$v[content]}
+	{if $v[reply]}
+	<br/><span class="aui-font-size-12 dt-text-gray">{if $v[editor]}<span style="color:red;">管理员</span>{else}<span style="color:blue;">{$v[replyer]}</span>{/if} {timetodate($v[replytime], 5)} 回复： </span>
+	<br/>{nl2br($v[reply])}
+	{/if}
+    </div>
+        </li>
+        {/loop}
+</ul>
+</div>
+
+	{else}
+	<div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-media-list">
+            <li class="aui-list-item aui-padded-t-15 aui-padded-b-10">
+            暂无评论
+            </li>
+</ul>
+</div>
+	{/if}
+</div>
+{if $pages}<div class="aui-content aui-margin-b-15 aui-text-center pageslist"><div class="pages">{$pages}</div></div>{/if}
+{template 'footer_v2', 'mobile'}

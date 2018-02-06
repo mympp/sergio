@@ -1,0 +1,133 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+{if $itemid}
+<link rel="stylesheet" type="text/css" href="script/swiper/swiper-3.3.1.min.css"/>
+<script type="text/javascript" src="script/swiper/swiper-3.3.1.jquery.min.js"></script>
+{/if}
+<link rel="stylesheet" type="text/css" href="css/photo_v2.css"/>
+<header class="aui-bar aui-bar-nav" id="aui-header">
+       {if $itemid || $catid || $areaid || $kw}
+        <a class="aui-pull-left aui-btn" href="{$back_link}">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+       {else}
+        <a class="aui-pull-left aui-btn" href="channel.php">
+           <span class="aui-iconfont aui-icon-left"></span>频道
+        </a>
+       {/if}
+        <div class="aui-title">{if $itemid}<div class="swiper-pagination"></div>{else}{$head_name}{/if}</div>
+        <a class="aui-pull-right">
+        <span class="dt-iconfont dt-icon-caidan" onclick="showPopup();"></span>
+        </a>
+        <a class="aui-pull-right"><i class="dt-iconfont dt-icon-sousuo aui-font-size-20" onclick="showsearchbar();"></i></a>
+</header>
+
+<div class="aui-bar-fix"></div>
+
+{if $itemid}
+    <section class="aui-content">
+        <div class="aui-card-list aui-border-t aui-border-b">
+            <div class="aui-info dt-padded-t-10 aui-padded-l-5 aui-padded-r-15">
+                <div class="aui-info-item aui-font-size-20">
+                    <span class="aui-margin-l-5 dt-text-black">{$title}</span>
+                </div>
+            </div>
+            <div class="aui-card-list-timer" style="color:#999;">
+                <div>
+                    <span class="aui-margin-r-10 aui-font-size-12"><i class="aui-iconfont aui-icon-time aui-margin-r-5 aui-font-size-12"></i>{$editdate}</span><span class="aui-margin-r-10 aui-font-size-12"><i class="aui-iconfont aui-icon-attention aui-margin-r-5 aui-font-size-12"></i>{$hits}</span>
+                </div>
+            </div>
+            {if $pass}
+            {if $user_status == 3}
+            <div class="aui-hr"></div>
+            <div class="aui-content banner-container">
+<div class="swiper-container">
+			<div class="swiper-wrapper">
+            {loop $T $i $p}
+				<div class="swiper-slide"><img src="{$p[big]}" class="dt-img-contain"/><span>{$p[introduce]}</span></div>
+            {/loop}
+			</div>
+		</div>
+</div>
+<script type="text/javascript">
+var swiper = new Swiper('.swiper-container', {
+	autoplayDisableOnInteraction:false,
+    pagination: '.swiper-pagination',
+	paginationType:'fraction'
+    });
+ </script>
+
+            <div class="aui-card-list-content-padded aui-padded-t-10 aui-padded-b-10 dt-article-content" style="color:#7b7b7b; line-height:230%;">
+                
+    {$content}
+    {else}
+    {template 'dt-chip-content', 'mobile'}
+            </div>
+ {/if}
+            {else}
+		<div class="aui-content aui-content-padded aui-padded-b-15">
+		<p>此{$MOD[name]}需要验证，{if $open == 2}请输入访问密码{elseif $open == 1}请回答<span class="dt-text-red aui-margin-l-5">{$question}</span>{/if}</p>
+		<form id="photo-form">
+		<input type="hidden" name="moduleid" value="{$moduleid}"/>
+		<input type="hidden" name="itemid" value="{$itemid}"/>
+		<input type="hidden" name="action" value="verify"/>
+		<div class="aui-list-item-input"><input type="text" name="key" id="key" class="aui-input" onblur="window.scrollTo(0,0);" placeholder="请输入密码或其他验证信息"/></div>
+        <p class="aui-text-center"><div class="aui-btn aui-btn-info" onclick="Dphoto();">立即验证</div></p>
+		</form>
+		</div>
+		<script type="text/javascript">
+		function Dphoto() {
+			if($('#key').val().length < 1) {
+				laymsg('请填写验证信息');
+				return false;
+			}
+			$.post('index.php', $('#photo-form').serialize(), function(data) {
+				if(data == 'ok') {
+					laymsg('验证成功');
+					setTimeout(function() {
+						window.location.reload();
+					}, 1000);
+				} else {
+					laymsg('验证失败，请重试');
+				}
+			});
+		}
+		</script>
+	{/if}
+        </div>
+</section>
+
+{template 'dtchip-other', 'mobile'}
+{template 'dtchip-comment', 'mobile'}
+
+{else}
+{template 'dtchip-deals', 'mobile'}
+{template 'dt-results-bar', 'mobile'}
+<section  {if $action=='listview'}class="aui-content-padded"{/if}>
+	{if $lists}
+          <ul class="dt-list-view aui-grid-view dt-margin-t-5">
+            {loop $lists $v}
+             <?php if($EXT['gl_img_echo'] && isset($v['thumb']) && $v['thumb']) $v['thumb'] =  'image/echoblank.gif" data-echo="'.str_replace('.thumb.'.file_ext($v['thumb']), '.middle.'.file_ext($v['thumb']), $v['thumb']);?>
+	          <li class="dt-list-view-cell aui-img aui-col-xs-6">
+                <a href="{mobileurl($moduleid, 0, $v['itemid'])}"><img class="aui-img-object dt-img-cover" src="{if $v[thumb]}{$v['thumb']}{else}image/nopic-80.png{/if}"/></a>
+                <div class="aui-img-body">
+                <div class="aui-waterfall-body">
+                    <a href="{mobileurl($moduleid, 0, $v['itemid'])}"><span class="aui-ellipsis-2">{$v[title]}</span></a>
+                </div>
+                    <span class="aui-pull-left">
+                        <i class="aui-iconfont aui-icon-album aui-margin-r-5"></i>{$v[items]}
+                    </span>
+                    <span class="aui-pull-right">
+                        <i class="aui-iconfont aui-icon-attention aui-margin-r-5"></i>{$v[hits]}
+                    </span>
+                </div>
+            </li>
+            {/loop}
+</ul>
+{else}
+	{template 'dtchip-empty', 'mobile'}
+	{/if}
+{/if}
+
+{if $pages}<div class="aui-content aui-margin-b-15 aui-text-center pageslist"><div class="pages">{$pages}</div></div>{/if}
+{template 'footer_v2', 'mobile'}

@@ -1,0 +1,17 @@
+<!--公司视频-->
+<div class="box w923 mb15">
+  <div class="box_tit">
+    <h2>{$main_name[$HM]}</h2>
+    <a href="{userurl($username, 'file=video', $domain)}">更多</a>
+  </div>
+  <div class="box_con">
+<!--{php $tags=tag("moduleid=14&condition=status>2 and username='$username'&pagesize=10&order=addtime desc&fields=itemid,title,linkurl,thumb,addtime,hits&template=null");}-->
+    <ul class="piclist">
+	{loop $tags $i $t}
+	<li><div class="imgmiddle">
+	<p><a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=video&itemid='.$t['itemid'], $domain)}{/if}" target="_blank"><img  src="{$t[thumb]}" /></a></p></div><a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=video&itemid='.$t['itemid'], $domain)}{/if}" target="_blank"  class="piclist_txt">{$t[title]}</a></li>
+	{/loop}
+    </ul>
+  </div>
+</div>
+<!--end-->

@@ -1,0 +1,30 @@
+{if $user_status == 3}
+{if $member}
+ <div class="aui-content dtchip-contact-module">
+       <ul class="aui-list aui-media-list dt-border-b-none aui-padded-t-10">
+        <li class="aui-list-item aui-list-item-middle">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-media" style="width: 3.25rem;">
+                    <img src="{useravatar($member[username], 'middle')}" class="aui-img-round aui-list-img-sm">
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-text aui-margin-b-5">
+                        <div class="aui-list-item-title"><a href="index.php?moduleid=4&username={$member[username]}">{$member[company]}</a></div>
+                    </div>
+                    <div class="aui-list-item-text">
+                    {php $GROUP = cache_read('group.php');}
+                     {$GROUP[$member[groupid]][groupname]}
+                    </div>
+                </div>
+                
+            </div>
+            <div class="aui-list-item-inner aui-text-center">
+                    <div class="aui-label aui-label-info aui-label-outlined"><a href="index.php?moduleid=4&username={$username}&action={$module}">全部{$MODULE[$moduleid]['name']}</a></div>
+                    <div class="aui-label aui-label-info aui-label-outlined"><a href="index.php?moduleid=4&username={$username}">进入商铺</a></div>
+                </div>
+
+        </li>
+</ul>
+ </div> 
+ {/if}
+ {/if}

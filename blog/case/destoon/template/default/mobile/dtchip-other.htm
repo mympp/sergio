@@ -1,0 +1,213 @@
+{php $WX = cache_read('weixin.php');}
+<div class="aui-content aui-padded-l-10 aui-padded-r-10 aui-padded-b-10 aui-margin-t-0" style="background:#FFF;" id="dt-share">
+<div id="dt-pc-share">
+<div class="aui-content">
+<ul class="aui-list dt-border-none">
+        <li class="aui-list-item aui-padded-l-5 dt-no-active">
+<div class="aui-list-item-inner aui-padded-r-5 aui-padded-t-10">
+                <div class="aui-list-item-title aui-font-size-14 dt-text-gray" id="glfocuson"><span class="aui-margin-r-10" onclick="Glfocuson({$moduleid},{$itemid},0)" id="gl_focuson" style="display:none;"><i class="dt-iconfont dt-icon-focuson aui-font-size-20 aui-margin-r-5 dt-top-t-1"></i><span id="nums_focuson">0</span>人关注</span><span class="aui-margin-r-10" id="gl_zan" onclick="Glfocuson({$moduleid},{$itemid},1)" style="display:none;"><i class="dt-iconfont dt-icon-zan aui-font-size-20 aui-margin-r-5"></i><span id="nums_zan">0</span>人点赞</span></div>
+                <div class="aui-list-item-right aui-padded-t-10 aui-font-size-12">举报</div>
+            </div>
+</li>
+</ul>
+</div>
+{if $DT_MOB[browser]=='weixin' && $WX['appid'] && $WX['appsecret']}
+{php include DT_ROOT.'/api/weixin/glinit.inc.php';}
+{php $wxcontent = preg_replace("/(\s|\&nbsp\;|　|\xc2\xa0)/", "", dsubstr(strip_tags($content),160));}
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+  wx.config({
+    debug: false,
+    appId: '{$signPackage["appId"]}',
+    timestamp: '{$signPackage["timestamp"]}',
+    nonceStr: '{$signPackage["nonceStr"]}',
+    signature: '{$signPackage["signature"]}',
+    jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo','onMenuShareQZone']
+  });
+   wx.ready(function () {
+	var wxs_title = '{$title}';   //分享标题
+    var wxs_link = '{$DT_URL}';    //分享链接
+    var wxs_desc = '{if $user_status == 3}{if $introduce}{$introduce}{elseif $wxcontent}{$wxcontent}{else}{$title}{/if}{else}{$title}{/if}';   //分享描述
+    var wxs_imgUrl = '{if $thumb}{$thumb}{else}{DT_PATH}apple-touch-icon-precomposed.png{/if}'; // 分享图标
+	 //分享到朋友圈
+    wx.onMenuShareTimeline({
+    title: wxs_title, // 分享标题
+    link: wxs_link, // 分享链接
+    imgUrl: wxs_imgUrl, // 分享图标
+    success: function () { 
+        laymsg('成功分享');
+    },
+    cancel: function () { 
+        laymsg('您已经取消了分享');
+    }
+   });
+    //分享给朋友
+    wx.onMenuShareAppMessage({
+    title: wxs_title, // 分享标题
+    desc: wxs_desc, // 分享描述
+    link: wxs_link, // 分享链接
+    imgUrl: wxs_imgUrl, // 分享图标
+    type: '', // 分享类型,music、video或link，不填默认为link
+    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+    success: function () { 
+        laymsg('成功分享');
+    },
+    cancel: function () { 
+        laymsg('您已经取消了分享');
+    }
+   });
+   //分享到QQ
+    wx.onMenuShareWeibo({
+    title: wxs_title, // 分享标题
+    desc: wxs_desc, // 分享描述
+    link: wxs_link, // 分享链接
+    imgUrl: wxs_imgUrl, // 分享图标
+    success: function () { 
+       laymsg('成功分享');
+    },
+    cancel: function () { 
+        laymsg('您已经取消了分享');
+    }
+   });
+   //分享到腾讯微博
+    wx.onMenuShareWeibo({
+    title: wxs_title, // 分享标题
+    desc: wxs_desc, // 分享描述
+    link: wxs_link, // 分享链接
+    imgUrl: wxs_imgUrl, // 分享图标
+    success: function () { 
+       laymsg('成功分享');
+    },
+    cancel: function () { 
+        laymsg('您已经取消了分享');
+    }
+   });   
+   //分享到QQ空间
+    wx.onMenuShareQZone({
+    title: wxs_title, // 分享标题
+    desc: wxs_desc, // 分享描述
+    link: wxs_link, // 分享链接
+    imgUrl: wxs_imgUrl, // 分享图标
+    success: function () { 
+       laymsg('成功分享');
+    },
+    cancel: function () { 
+        laymsg('您已经取消了分享');
+    }
+   });   
+   wx.error(function (res) {
+        //alert('wx.error: '+JSON.stringify(res));
+    });
+  });
+</script>
+{else}
+{php $sys = $_SERVER['HTTP_USER_AGENT'];if(stripos($sys, "QQBrowser") > 0){$dtbrowser = 'qq';}elseif (stripos($sys, "UCBrowser") > 0){$dtbrowser = 'UC';}}
+{if $dtbrowser=='qq' || $dtbrowser=='UC'}
+<script src="script/nativeShare.js"></script>
+<div class="aui-content aui-padded-l-5 aui-padded-r-5 aui-padded-t-10" style="background:#FFF;">
+<section class="aui-grid dt-margin-b-20">
+    <div class="aui-row dt-share" id="nativeShare">
+</div>
+</section>
+</div>
+    <script>
+        var config = {
+            url:'{$DT_URL}',
+            title:'{$title}',
+            desc:'{if $introduce}{$introduce}{else}{$title}{/if}',
+            img:'{if $thumb}{$thumb}{else}{DT_PATH}apple-touch-icon-precomposed.png{/if}',
+            img_title:'{$title}',
+            from:'{$title}'
+        };
+        var share_obj = new nativeShare('nativeShare',config);
+    </script>
+
+
+{else}
+<section class="aui-grid aui-margin-t-10 aui-margin-b-15">
+    <div class="aui-row dt-share aui-margin-t-0">
+    <div class="aui-col-xs-3 dt-share-to"><span class="aui-font-size-14 dt-text-gray">分享到：</span></div>
+        <div class="aui-col-xs-2" onclick="share('qzone');">
+             <div class="dt-share-div" style="background:#68ace5"><i class="dt-iconfont dt-icon-qqzone"></i></div>
+        </div>
+        <div class="aui-col-xs-2" onclick="share('qq');">
+             <div class="dt-share-div" style="background:#e6507b"><i class="dt-iconfont dt-icon-txweibo"></i></div>
+        </div>
+        <div class="aui-col-xs-2" onclick="share('sina');">
+            <div class="dt-share-div" style="background:#ff9f38"><i class="dt-iconfont dt-icon-weibo"></i></div>
+        </div>
+        <div class="aui-col-xs-2" onclick="window.location.href='share.php?moduleid={$moduleid}&itemid={$itemid}'">
+            <div class="dt-share-div" style="background:#9486FF"><i class="dt-iconfont dt-icon-more"></i></div>
+        </div>
+        </div>
+        
+</section>
+<script>
+    function share(obj){
+      var sinaShareURL="http://service.weibo.com/share/share.php?";//新浪URL
+      var qqShareURL="http://share.v.t.qq.com/index.php?c=share&a=index&";//QQURL
+	  var qzoneShareURL="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";//QQURL
+      var host_url=document.location; //host_url获取当前的路径
+      var sharetitle='{$title}';
+      var sharepic='{if $thumb}{$thumb}{else}{DT_PATH}apple-touch-icon-precomposed.png{/if}';
+      var _URL;
+      if(obj=="sina"){
+         _URL=sinaShareURL+"url="+host_url+"&title="+sharetitle+"&pic="+sharepic;//新浪
+      }else if(obj=="qq"){
+     		_URL=qqShareURL+"url="+host_url+"&title="+sharetitle+"&pic="+sharepic;//QQ
+      }else if(obj=="qzone"){
+     		_URL=qzoneShareURL+"url="+host_url+"&title="+sharetitle+"&pics="+sharepic;//QQ
+      }
+      location.href=_URL;
+      //window.open(_URL);//重新打开一个新的窗体
+    }
+  </script>     
+{/if}
+{/if}
+</div>
+</div>
+<div class="aui-content aui-margin-t-10 aui-margin-b-10 dt-bg-white aui-padded-t-15">
+            <li class="aui-list-header aui-margin-b-15" style="text-align: left;height: 20px;line-height: 20px;color: #f30701;font-size: 16px;font-weight: normal; padding-left:0.5rem;">
+                同类{$MOD[name]}
+            </li>
+        <ul class="aui-list other-list dt-border-b-none">
+        {if $keytags}
+        <!--{php $tags=tag("moduleid=$moduleid&length=44&condition=status=3 and itemid<>$itemid and keyword like '%".$keytags[0]."%'&areaid=$cityid&pagesize=4&order=".$MOD[order]."&cols=2&template=null", -2)}-->
+        {else}
+        <!--{php $tags=tag("moduleid=$moduleid&catid=$catid&condition=status=3 and itemid<>$itemid&areaid=$cityid&pagesize=4&order=addtime desc&template=null", -1)}-->
+        {/if}
+        {if $tags}
+{loop $tags $t}
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title dt-text-ellipsis"><a href="{mobileurl($moduleid, 0, $t[itemid])}" title="{$t[title]}">{$t[title]}</a></div>
+                </div>
+            </li>
+{/loop}
+{else}
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title dt-text-ellipsis">暂时没有相关信息</div>
+                </div>
+            </li>
+
+{/if}
+        </ul>
+    </div>
+<script type="text/javascript">
+var pfstar,star = 0;
+var gl_get_nums = {
+    init:function(moduleid,itemid){
+	 $.get('glajax.php?action=glnums',{job:"glnums",moduleid:moduleid,itemid:itemid}, function(data){
+		if(data){
+		if(data.focuson_check==1) $('#gl_focuson').show();
+		if(data.zan_check==1) $('#gl_zan').show();
+		$('#nums_focuson').text(data.focusenum);
+		$('#nums_zan').text(data.zannum);
+		}
+	},'json'); 
+
+    }
+};
+gl_get_nums.init({$moduleid},{$itemid});
+</script>

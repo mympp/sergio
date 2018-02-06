@@ -1,0 +1,24 @@
+body { background:#F6F6F6;}
+.dt-know-type { background-color:#FFF; padding:0.5rem 0.25rem;}
+.dt-know-type a { color:#03a9f4}
+.dt-know-type .aui-active a { color:#fff}
+
+.dt-club-item .dt-club-item-title { margin-bottom:0;}
+.dt-club-item .dt-club-item-content { line-height:180%; font-weight:bold; font-size:0.8rem; color:#000; margin-bottom:0.25rem;}
+.dt-club-item .dt-club-item-content img { width:98% !important;}
+.dt-club-item .aui-list-item { padding-left:0.5rem;}
+.dt-club-item .aui-list-item-media{ padding-right:0.5rem;}
+.dt-club-item .aui-list-item-title a { color:#000;}
+.dt-club-item .dt-club-item-passport { margin-top:0.25rem;}
+.dt-club-item .aui-list-item-text .dt-label { margin-right:0.25rem; background:#FFF;}
+
+
+.dt-club-item .dt-club-all-answers { padding:0.7rem; font-size:0.8rem; background: #F3F3F3}
+.dt-club-item .dt-club-answers-content { line-height:180%; font-size:0.8rem; color:#000; margin-bottom:0.25rem;}
+
+.dt-know-club-gaoji { padding:0.7rem !important; font-size:0.8rem !important; background: #F3F3F3 !important}
+
+.dt-club-type {}
+.club-user-list .aui-list-item { min-height: 2rem;}
+
+#club_reply { background:#FFF;}

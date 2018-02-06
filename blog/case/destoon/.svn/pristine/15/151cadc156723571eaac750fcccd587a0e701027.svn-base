@@ -1,0 +1,251 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+<style>
+a { color:#333;}
+#logintype div {
+    width: 100%;
+    height: 2.2rem;
+    line-height: 2.2rem;
+    position: relative;
+    overflow: hidden;
+    font-size: 0.7rem;
+    text-align: center;
+    color: #212121;
+    background-color: #ffffff;
+    margin-left: -1px;
+    -webkit-box-flex: 1;
+            box-flex: 1;
+}
+#logintype div.aui-active {
+    color: #039be5;
+    border-bottom: 2px solid #039be5;
+    z-index: 100;
+}
+#loginbar .aui-list-item { padding-top:0.2rem; padding-bottom:0.2rem;}
+.dt-share .aui-col-xs-3 { height:2.75rem; padding-top:0.45rem;}
+.dt-share .bg-share-wechat { background:#009688;}
+
+#loginphone .aui-list-item { padding-top:0.2rem; padding-bottom:0.2rem;}
+#loginphone .aui-list-item-title input {}
+#loginphone .aui-list-item-right { margin-right:2rem;}
+</style>
+<header class="aui-bar aui-bar-nav" id="aui-header">
+        <a class="aui-pull-left aui-btn" href="javascript:Dback();">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+        <div class="aui-title">会员登录</div>
+        <a href="register.php" class="aui-pull-right">
+        <span>注册</span>
+        </a>
+</header>
+<div class="aui-bar-fix"></div>
+{if $EXT['gl_loginmsm']}
+<div class="aui-tab" id="logintype">
+    <div class="aui-active" id="Tab0" onclick="javascript:Tab(0);">账号登录</div>
+    <div class="" id="Tab1" onclick="javascript:Tab(1);">手机登录</div>
+</div>
+{/if}
+<div id="Tabs0" style="display:;">
+    <div class="aui-content" id="loginbar">
+    	<form action="login.php" method="post" id="form-login">
+	<input type="hidden" name="forward" value="{$forward}"/>
+	<input type="hidden" name="auth" value="{$auth}"/>
+	<input type="hidden" name="ok" value="1"/>
+
+        <ul class="aui-list aui-form-list dt-border-none">
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label-icon">
+                        <i class="aui-iconfont aui-icon-people"></i>
+                    </div>
+                    <div class="aui-list-item-input">
+                        <input type="text" name="username" id="username" value="{$username}" placeholder="用户名/Email/已认证手机">
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label-icon">
+                        <i class="aui-iconfont aui-icon-lock"></i>
+                    </div>
+                    <div class="aui-list-item-input">
+                        <input type="password" name="password" id="password" placeholder="请填写密码" />
+                    </div>
+                </div>
+            </li>
+	{if $MOD[captcha_login]}
+            <li class="aui-list-item">
+            <div class="aui-list-item-inner" id="captcha-bar">{template 'captcha', 'chip'}</div>
+        </li>
+	{/if}
+            <li class="aui-list-item" style="width:100%">
+                <div class="aui-list-item-inner aui-list-item-center aui-list-item-btn" onclick="Dlogin();">
+                    <div class="aui-btn aui-btn-info aui-margin-r-5 aui-font-size-18" style="width:90%">登 录</div>
+                </div>
+            </li>
+        </ul>
+     </form>
+    </div>
+</div>
+{if $EXT['gl_loginmsm']}
+<div id="Tabs1" style="display:none;">
+    <div class="aui-content" id="loginphone">
+        <ul class="aui-list aui-form-list dt-border-none">
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label-icon">
+                        <i class="aui-iconfont aui-icon-mobile"></i>
+                    </div>
+                    <div class="aui-list-item-input">
+                        <input type="number" name="mobile" id="mobile" value="{$mobile}" placeholder="手机号码">
+                    </div>
+                </div>
+            </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+            <div class="aui-list-item-label-icon">
+                        <i class="aui-iconfont aui-icon-baby" style="margin-right:0;"></i>
+                    </div>
+                <div class="aui-list-item-input" style="width:80%"><input type="number" name="mobilecode" id="mobilecode" placeholder="手机验证码"></div>
+                <div class="aui-list-item-right"><span id="timer"></span><div class="aui-label aui-label-info aui-font-size-14" id="send" onclick="Dsendcode();" style="padding:0.35rem 0.6rem">发 送</div></div>
+                    
+            </div>
+        </li>
+            <li class="aui-list-item" style="width:100%">
+                <div class="aui-list-item-inner aui-list-item-center aui-list-item-btn" onclick="Dphonelogin();">
+                    <div class="aui-btn aui-btn-info aui-margin-r-5 aui-font-size-18" style="width:90%">登 录</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+{/if}
+<div class="aui-content aui-margin-t-10 aui-margin-b-10">
+    <ul class="aui-list dt-border-none">
+    <li class="aui-list-header dt-bg-white" style="line-height:30px; padding:0.1rem 2rem;">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title aui-font-size-16"><a href="register.php">注册账号</a></div>
+                <div class="aui-list-item-right aui-font-size-16"><a href="forgot.php">忘记密码</a></div>
+            </div>
+        </li>
+       </ul>
+</div>
+
+<!-- {if $oa}
+
+<div class="aui-content aui-margin-t-10 aui-padded-b-5">
+ <ul class="aui-list aui-list-in dt-border-none">
+        <li class="aui-list-header dt-bg-white aui-text-center aui-padded-t-15 aui-padded-b-10">
+            其他登录方式
+        </li>
+ </ul>
+<section class="aui-grid">
+    <div class="aui-row dt-share aui-margin-b-10">
+{loop $OAUTH $k $v}
+{if $v[enable]}
+        <a href="{DT_PATH}api/oauth/{$k}/connect.php" rel="external"><div class="aui-col-xs-3">
+            <div class="dt-share-div bg-share-{$k}"><i class="dt-iconfont dt-icon-{$k}"></i></div>
+        </div></a>
+{/if}        
+{/loop}
+        </div>
+</section>        
+</div>
+{/if} -->
+        
+
+<script type="text/javascript">
+function Dlogin() {
+	if(Dd('username').value.length < 3) {
+		laymsg('请填写用户名/Email/已认证手机');
+		return false;
+	}
+	if(Dd('password').value.length < 5) {
+		laymsg('请填写密码');
+		return false;
+	}
+	{if $MOD[captcha_login]}
+	if(!is_captcha(Dd('captcha').value)) {
+		laymsg('请填写验证码');
+		return false;
+	}
+	{/if}
+	Dd('form-login').submit();
+}
+
+function Dphonelogin() {
+	var mobile = $('#mobile').val();
+	if(!mobile.match(/^1[3|4|5|7|8]{1}[0-9]{9}$/)) {
+		laymsg('请填写正确的手机号码');
+		return false;
+	}
+    if($("#mobilecode").val()=="")
+        {
+            laymsg("请填写手机验证码");
+			return false;
+        }
+    else if($("#mobilecode").val().length<6)
+       {   
+            laymsg("验证码长度有误！");
+			return false;
+        }
+    var mobilecode = $("#mobilecode").val();
+	 $.post("glajax.php?action=gllogin",{job:'phonelogin',mobile: mobile, mobilecode: mobilecode ,moduleid: 2}, function(data) {
+           if (data.error=='ok') {
+                laymsg('成功登录');
+				Go('my.php');
+            }else{
+                laymsg(data.error);
+				return false;
+            } 
+            },'json');
+
+}
+
+function Dsendcode(i) {
+	var val,len;
+	var mobile = $('#mobile').val();
+	if(!mobile.match(/^1[3|4|5|7|8]{1}[0-9]{9}$/)) {
+		laymsg('请填写正确的手机号码');
+		return false;
+	}
+    if($("#mobile").val()=="")
+        {
+            laymsg("请填写手机验证码");
+			return false;
+        }
+   $('#send').text('正在发送');
+	$.post('glajax.php?action=gllogin', {job:'sendscode',mobile:mobile,moduleid: 2}, function(data) {
+		if(data.error == 'ok') {
+			if(!i) laymsg('发送成功');
+			Dtimer();
+		} else {
+			laymsg(data.error);
+			$('#timer').hide();
+			$('#send').show();
+			$('#send').text('发 送');
+			return false;
+		}
+	},'json');
+}
+function Dtimer() {
+	var i = {if $verify_type=='mobile'}180{else}60{/if};
+	$('#send').hide();
+	$('#timer').html('<div class="aui-label aui-font-size-14" style="padding:0.35rem 0.6rem">重新发送('+i+')</div>');
+	$('#timer').show();
+	var time_int=window.setInterval(
+		function() {
+			if(i == 1) {
+				$('#send').show();
+				$('#timer').hide();
+				clearInterval(time_int);
+			} else {
+				i--;
+				$('#timer').html('<div class="aui-label aui-font-size-14" style="padding:0.35rem 0.6rem">重新发送('+i+')</div>');
+			}
+		},
+	1000);
+}
+
+</script>
+{template 'footer_v2', 'mobile'}

@@ -1,0 +1,18 @@
+<div class="r_mod">
+<div class="hd01"><h2><i></i>{$main_name[$HM]}</div>
+<div class="bd">
+<!--{php $tags=tag("moduleid=16&condition=status>2 and username='$username'&pagesize=".$main_num[$HM]."&order=edittime desc&fields=itemid,title,linkurl,thumb,edittime,price&template=null");}-->
+<div class="product_list">
+<ul class="clearfix">
+	{loop $tags $i $t}
+		<li>
+			<div class="pic"><a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=mall&itemid='.$t['itemid'], $domain)}{/if}" title="{$t[alt]}" target="_blank"><img src="{imgurl($t[thumb])}"></a></div>
+			<div class="text"><a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=mall&itemid='.$t['itemid'], $domain)}{/if}" title="{$t[alt]}" target="_blank">{$t[title]}</a></div>
+			<div class="price">{$DT[money_sign]}{$t[price]}</div>
+		</li>
+	{/loop}
+ </ul>
+ </div>
+
+</div>
+</div>

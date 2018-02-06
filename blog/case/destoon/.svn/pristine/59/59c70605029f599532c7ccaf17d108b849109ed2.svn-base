@@ -1,0 +1,18 @@
+
+<!--招商代理-->
+<div class="box w923 mb15">
+  <div class="box_tit">
+    <h2>招商代理</h2>
+    <a href="{userurl($username, 'file=info', $domain)}">更多</a>
+  </div>
+  <div class="box_con">
+<!--{php $tags=tag("moduleid=22&condition=status=3 and username='$username'&pagesize=".$main_num[$HM]."&order=edittime desc&template=null");}-->
+    <ul class="piclist">
+	{loop $tags $i $t}
+	<li><div class="imgmiddle">
+	<p><a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=info&itemid='.$t[itemid], $domain)}{/if}" target="_blank"><img  src="{$t[thumb]}" /></a></p></div><a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=info&itemid='.$t[itemid], $domain)}{/if}" target="_blank"  class="piclist_txt">{$t[title]}</a></li>
+	{/loop}
+    </ul>
+  </div>
+</div>
+<!--end-->

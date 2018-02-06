@@ -1,0 +1,83 @@
+<style>
+.aui-input-row .article-content {
+  padding:5px 0 10px 0;
+  color:#666;
+  font-size:15px;
+  line-height:33px;
+  height:auto;
+}
+.aui-input-row .article-content img { width:90% !important;}
+</style>
+<input type="hidden" name="post[content]" id="content" class="aui-input" value="" placeholder="" />
+<div class="aui-input-row"><span class="aui-input-addon"></span>
+  <div class="H-textarea article-content" id="content-e">{$content}</div>
+    <img src="image/plus.png" class="H-border-none H-width-100-percent H-display-block" id="artimg" width="60" height="60" />
+    <p><i class="aui-iconfont aui-icon-location"></i>&nbsp;<span id="myaddress" class="fz12"></span>&nbsp;&nbsp;<span class="fz12 aui-text-red" id="editorup">上传中，请稍等...</span>
+    <input class="input-file" id="artUpload" type="file" name="fileInput" accept="image/*" style="display:none;">
+</p>
+</div>
+<div class="bottomtoup displaynone" id="imghistory" style="position:fixed; left:0; bottom:0; width:100%; z-index:99">
+<div class="aui-content" style="margin:0; padding:0;">
+    <ul class="aui-list-view" style="margin:0; padding:0;">
+        <li class="aui-list-view-cell" style="background-color: #F6F6F6; padding:10px 15px;">
+            <span class="aui-text-info">选择图片</span>
+            <span class="aui-pull-right aui-text-default" onclick="imghistory('imghistory',1)">关闭</span>
+            
+        </li>
+    </ul>
+</div> 
+<div class="aui-content" style=" background-color:#FFF; margin:0; padding:0;">
+<div id="iframe-wrap" class="fimghistory">
+</div>
+</div>
+</div>
+<script type="text/javascript" src="layer/artEditor.js"></script>
+<script type="text/javascript">
+{if $IMVIP || !$MG[uploadpt]}
+var maxnums = 3;
+{else}
+var maxnums = 1;
+{/if}
+$(function(){
+  $('#imgslist').on('click','.thumbs-del', function() {
+	var delid=$(this);
+		dialog.alert({
+         title:"温馨提示",
+         msg:'确定删除图片吗',
+         buttons:['取消','确定']
+        },function(ret){
+        if(ret){
+	     if(ret.buttonIndex==2){
+			delid.parent('li').remove();
+		    laymsg('已经删除了');
+	     }
+       }
+    })
+ });
+});	
+
+function imghistory(id,type){
+	if(type){
+        $("#"+id+"").hide();
+		$('.ui-mask').fadeOut('fast');
+	}else{
+        var imgnums = $("#imgslist li:not(#addpic)").size();
+	    if(imgnums>=maxnums){
+	    laymsg("您只能上传"+maxnums+"张图片");
+	    return false;
+        }
+		laymsg('数据加载中...');
+		$('.fimghistory').html('<iframe id="iframe" src="glajax.php?action=glselect&from=album&nums='+maxnums+'fid=" frameborder="0"  width="100%" height="250"></iframe>');
+        $("#"+id+"").show();
+		$('.ui-mask').fadeIn('fast');
+		}
+    }
+var myaddress = localStorage.getItem("mbaddress");
+if(!myaddress){
+		myaddress = '地理位置';
+		}
+$('#myaddress').html(myaddress);
+</script>
+{if !$_userid}
+{template 'mguest_contact', 'mobile'}
+{/if}

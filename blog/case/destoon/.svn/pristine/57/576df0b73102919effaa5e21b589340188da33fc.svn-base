@@ -1,0 +1,153 @@
+/* CSS Document */
+body,h1,h2,h3,h4,h5,h6,ul,li,ol,dl,dt,dd,p{ margin: 0; padding: 0}
+ul,li{ list-style: none}
+img, a img{ border: none}
+body{ background: #f2f7fe}
+.wrap{ width: 1190px; margin: 0 auto;/*overflow:hidden;*/}
+.rightWrap{ float: right; margin-top: 20px; width: 900px;}
+.leftWrap{ float: left; width: 270px; margin-top: 20px;}
+/* 置顶头部导航 */
+.topNav{  height: 36px; font-size: 12px;  _overflow: hidden; background: #f4f4f4; border-bottom: 1px solid #e4e4e4;}
+.topNavLeftMain{ float: left } 
+.topNavRightMain{ float: right}
+ 
+/* 网站导航 */
+.siteMap{ right: 0 !important; left: auto !important;  width: 600px; }
+.siteMap .siteMapMenu{ margin: 0 0 5px; text-align: right; border-bottom: 1px dashed #eee; padding: 5px 0; color: #666}
+.siteMap .siteMapMenu a.lookMap{  display: inline-block !important;}
+.siteMap .g-f-l,
+.siteMap .g-f-r{ width: 300px;}
+.siteMap dl{ float: left; overflow: hidden; display: inline; margin: 5px 0 0 0; padding: 0 10px; width: 280px;}
+.siteMap dt{ width: 300px; font-weight: bold;}
+.siteMap dt a{ color: #333}
+.siteMap dd{ overflow: hidden; padding: 0 0 5px; line-height: 22px;}
+.siteMap dd a{ float: left; margin: 0 20px 0 0; display: inline; white-space: nowrap; }
+.siteMap dd.first a{ margin: 0 10px 0 0}
+
+.head{ padding: 20px 0; background: #fff;  height: 40px;}
+.logo{ float: left; width: 290px; height: 40px;position:relative;}
+.logo a.logo_dianziwang {position: absolute; top: 0px; left: 0px; width: 150px; height: 40px;}
+.logo a.logo_yqj { position: absolute; top: 0px; right: 0px; width: 120px; height: 40px; }
+.logo img{width:150px;height:40px;}
+
+.searchBox{ float: right; height: 40px;}
+.searchBox .txt{ height: 32px; line-height: 32px; border: 2px solid #cc0000; float: left; outline: none; padding: 0 10px; width: 346px;}
+.searchBox .shopBtn,
+.searchBox .allBtn{float: left; padding: 0 15px; color: #fff; border: none; line-height: 36px; height: 36px; cursor: pointer; font-size: 14px; font-weight: bold;}
+.searchBox .shopBtn{background: #cc0000; }
+.searchBox .allBtn{ margin-left: 2px; background: #1057a7; }
+
+.banner{ padding: 45px 0; background:url('bj.jpg') no-repeat center center; height: 110px;}
+.shopLogo dt{ float: left; width: 105px; height: 105px; border-radius: 100%; border: 3px solid #fff; box-shadow: 0 0 10px #999; background: #fff; overflow: hidden;}
+.shopLogo dt img{ width: 105px; height: 105px;border-radius: 100%; }
+.shopLogo dd{ float: left; padding: 20px 0 0 20px;}
+.shopLogo dd h2{ color: #1057a7; padding: 0 0 5px; font-size: 30px; font-family: Microsoft YaHei, Arial, "宋体";font-weight:bold;}
+.visit {float: right;font-size: 14px;color: rgb(51, 51, 51);padding-top: 35px;}
+.visit span{ color: #cc0000; font-weight: bold}
+
+.nav{ background: #0089a7;line-height: 49px; height: 49px;}
+.nav li{ float: left}
+.nav li a.navMenu{ float: left; white-space: nowrap; height: 49px; line-height: 49px; text-decoration: none; font-size: 14px; font-weight: bold; color: #fff; padding: 0 50px; }
+.nav li a.navMenu1{padding: 0 42px;}
+.nav li div{ display: none}
+.nav li.hover{ background: #2c73c3; display: block; position: relative; z-index: 5; }
+.nav li.hover div{ display: block;background: #2c73c3; position: absolute; left: 0; z-index: 2; top: 49px; width: 100%;  _width: 187px;}
+.nav li.hover div a{ display: block; color: #fff; font-size: 12px; height: 30px; line-height: 30px; width: 100%; text-align: center}
+.nav li.hover div a:hover{ background: #09468a; }
+.navMenuList{  _margin: 16px 0 -16px; _vertical-align: middle;}
+.nav li.cur{ background: #2c73c3}
+.fu_lg{   position: fixed;  top: 0;  margin: 0 auto;  text-align: center;  width: 100%;  overflow: hidden;  z-index: 20;}
+
+.indexBanner{ position: relative; z-index: 1; overflow: hidden; margin: 0 0 20px}
+.indexBanner li{ position: absolute; z-index: 1}
+.indexBanner div{ position: absolute; z-index: 2; bottom: 20px; right: 20px;}
+.indexBanner div a.cur{ opacity: 1}
+
+.mainBox{ border: 1px solid #e4e4e4; overflow: hidden; margin: 0 0 20px;}
+.mainBox .title{ border-bottom: 1px solid #e4e4e4; padding: 0 10px 0 15px; height: 40px; line-height: 40px;
+background: rgba(255,255,255,1);
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(246,246,246,1)));
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 100%);
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 100%);
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 100%);
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6', GradientType=0 );}
+.mainBox .title h2{ float: left; color: #333; font-size: 14px;}
+.mainBox .title .more{ float: right; font-size: 12px; text-decoration: none; color: #999}
+.mainBox .con{ zoom: 1; background: #fff; overflow: hidden}
+
+/* 店长推荐 */
+.shopRecommend{ margin: 20px 3px 20px 15px; overflow: hidden; position: relative; z-index: 1; zoom: 1}
+.shopRecommend a.prev,
+.shopRecommend a.next{position: absolute; z-index: 2; top: 90px; width: 40px; height: 80px; opacity: 0.4; filter:alpha(opacity=40);  }
+.shopRecommend a.prev{  left: 0; background: #000 url('btnIcon.png') no-repeat right center; border-bottom-right-radius: 3px; border-top-right-radius: 3px; }
+.shopRecommend a.next{  right: 15px; background: #000 url('btnIcon.png') no-repeat left center; border-bottom-left-radius: 3px; border-top-left-radius: 3px;}
+.shopRecommend ul{ height:260px;  overflow: hidden; position: relative; z-index: 1; }
+.shopRecommend li{ float: left; width: 205px; margin-right: 15px; border-bottom: 0px solid #eee;overflow:hidden;}
+.shopRecommend li img{ width: 203px; height: 155px;}
+.shopRecommend li .imgBox{ display: inline-block}
+.shopRecommend li h3{ font-size: 14px; padding: 0 10px; color: #333;height:32px; line-height:32px; overflow:hidden;}
+.shopRecommend li p{ font-size: 12px; line-height: 20px; padding: 0 10px; color: #666; height:40px; overflow:hidden;}
+.shopRecommend li p.p1{ font-size: 12px; line-height: 26px; padding: 0 10px; color: #666; height:26px; overflow:hidden;}
+.shopRecommend li p.m{ font-size: 14px; padding: 2px 10px 3px; font-family: "微软雅黑", Arial, "宋体"; color: #cc0000; font-weight: bold; height:20px;}
+.shopRecommend li p.m span{ font-size: 12px;}
+.shopRecommend li .inquiryBtn{ padding: 0 10px; margin: 4px 0; border: 1px solid #e4e4e4; overflow: hidden; vertical-align: middle; background: #fff; height: 24px; line-height: 24px; border-radius: 3px; display: inline-block; font-size: 12px; color: #999}
+.shopRecommend li div{border: 1px solid #eee; overflow:  hidden; padding: 0 0 5px; }
+.shopRecommend li:hover div{border: 2px solid #cc0000; padding: 0 0 3px; }
+
+/* 公司简介 */
+.indexAbout{ padding: 20px 15px; zoom: 1; overflow: hidden}
+.indexAbout p{ line-height: 23px; color: #666; text-align: justify; font-size: 12px;}
+
+/* 公司地址 */
+.indexAddress{ padding: 20px 30px; overflow: hidden}
+.indexAddress h3{ color: #333; font-size: 14px;}
+.indexAddress p{ color: #666; padding: 8px 0 15px; font-size: 12px;}
+
+/* 友情链接 */
+.linkList{ padding: 20px 20px 10px; zoom: 1; overflow: hidden}
+.linkList a{ color: #666;  white-space: nowrap; float: left; margin: 0 25px 0 0; height: 24px; font-size: 12px;}
+
+/* 经营品牌 */
+.indexBrand li{ line-height:34px; padding-left:15px;overflow: hidden; margin: -1px;}
+.indexBrand li a{color:#999;}
+/* 产品搜索 */
+.indexProSearch{ margin: 20px 15px; overflow: hidden}
+.indexProSearch .txt{ margin-bottom: 10px; border: 1px solid #ddd; height: 28px; line-height: 28px; width: 226px; padding: 0 0 0 10px; } 
+.indexProSearch .shopBtn{ float: right; cursor: pointer; font-size: 12px; background: #cc0000; height: 30px; border: none; color: #fff; width: 66px; text-align: center;}
+.indexProSearch .siteBtn{ float: right; margin-left: 2px; cursor: pointer; font-size: 12px; background: #1057a7; height: 30px; border: none; color: #fff; width: 66px; text-align: center;}
+
+/* 公司信息 */
+.companyInfo{ border: 1px solid #e4e4e4; border-top: 3px solid #cc0000; overflow: auto; margin: 0 0 20px; background: #ffeeee;width:270px;}
+.indexBrand table tr{line-height:28px;}
+.indexBrand table tr td a{color:#333333;}
+.indexBrand{padding:20px;}
+
+.companyInfo .title{ padding: 10px 0; text-align: center; color: #000; font-family: "微软雅黑", Arial, "宋体"; font-size: 14px; line-height: 45px;}
+.companyInfo .title strong{ color: #cc0000; margin: 0 3px;}
+.companyInfo .list{ padding: 0 20px;}
+.companyInfo .list h2{ font-size: 14px; padding: 5px 0 12px; color: #000}
+.companyInfo .list dl{ width: 100%; font-size: 12px; padding: 0 0 8px; overflow: hidden}
+.companyInfo .list dt{ float: left; height: 20px; line-height: 20px; color: #999}
+.companyInfo .list dd{ overflow: hidden; line-height: 20px; color: #666} 
+.companyInfo .contact{ background: #fff; border-top: 1px solid #e4e4e4; padding: 15px; font-size: 12px;overflow:hidden;}
+.companyInfo .contact dl{ line-height: 25px;}
+.companyInfo .contact dt{ float: left; color: #999; height: 25px; width: 48px;}
+.companyInfo .contact dd{ color: #666; margin-left:48px;} 
+.companyInfo .contact dd span{ font-family: "微软雅黑", Arial, "宋体"; font-weight: bold; color: #cc0000; margin-right: 5px;}
+
+/* 公司信息 */
+.companyInfoBox{ padding: 20px 20px 10px 20px; overflow: hidden}
+.companyInfoBox dl{ padding: 0 0 15px; font-size: 12px;overflow: hidden; line-height:20px;}
+.companyInfoBox dt{ float: left; width: 70px; padding: 0 20px 0 0; text-align: right; color: #999 }
+.companyInfoBox dd{ color: #333; margin-left:90px;}
+
+/* 经营品牌 */
+.brandList{ padding: 20px 0 5px 15px; overflow: hidden}
+.brandList li{ float: left; display: inline; border: 1px solid #ddd; width: 131px; height: 78px; overflow: hidden;  margin-bottom: 15px; margin-right: 14px;}
+.brandList li img{ width: 131px; height: 78px;}
+
+a{ color: #1057a7; text-decoration: none}
+a:hover{ color: #cc0000; text-decoration: none}
+

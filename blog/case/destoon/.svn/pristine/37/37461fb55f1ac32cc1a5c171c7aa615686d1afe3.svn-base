@@ -1,0 +1,450 @@
+{template 'header_member', 'mobile'}
+{template 'cssjs', 'mobile'}
+<style>
+
+</style>
+<script type="text/javascript" src="script/iScroll5/iscroll.js"></script>
+<header class="aui-bar aui-bar-nav aui-bar-info" id="aui-header">
+        <a class="aui-btn aui-bar-info aui-pull-left" href="{if $action == ''}{$MYURL}?action=info{else}javascript:history.go(-1);{/if}">
+            <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+    <div class="aui-title">{$head_name}</div>
+    {if $action=='add'}
+{else}
+    <a href="{$MUSER}?mid={$mid}&action=add" class="aui-pull-right">
+        <span class="aui-iconfont aui-icon-add fz14">添加</span>
+    </a>
+    {/if}
+</header>
+<div class="aui-bar-fix"></div>
+{if $action=='add' || $action == 'edit'}
+{else}
+<div class="aui-content">
+			<div class="bbs-wrapper">
+				<div id="scroller">
+					<ul>
+            <li id="tabbar3"><a href="{$MUSER}?mid={$mid}status=3">已发布<span class="aui-badge aui-badge-info">{$nums[3]}</span></a></li>
+            <li id="tabbar2"><a href="{$MUSER}?mid={$mid}&status=2">审核中<span class="aui-badge aui-badge-info">{$nums[2]}</span></a></li>
+            <li id="tabbar1"><a href="{$MUSER}?mid={$mid}&status=1">未通过<span class="aui-badge aui-badge-info">{$nums[1]}</span></a></li>
+            <li id="tabbar4"><a href="{$MUSER}?mid={$mid}&status=4">已过期<span class="aui-badge aui-badge-info">{$nums[4]}</span></a></li>
+            <li id="tabbar5"><a href="{$MUSER}?mid={$mid}&action=sign&status=5">报名管理<span class="aui-badge aui-badge-info">{$nums[5]}</span></a></li>
+					</ul>
+				</div>
+			</div>
+<script type="text/javascript">
+myScroll = new IScroll('.bbs-wrapper', {
+eventPassthrough : false,
+scrollX : true,
+scrollY : false,
+preventDefault : true,
+click:true
+});
+{if $action==sign}myScroll.scrollToElement(Dd('tabbar5'), 800);{/if}
+</script>
+</div>
+{/if}
+<span id="msg"></span>
+{if $action=='add' || $action == 'edit'}
+<div class="aui-content">
+<form id="sell-form" class="fromset">
+	<input type="hidden" name="action" value="{$action}"/>
+	<input type="hidden" name="itemid" value="{$itemid}"/>
+	<input type="hidden" name="ok" value="1"/>
+    <p class="aui-padded-10 aui-text-center"><span class="aui-text-red">红色为</span>必填信息</p>
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">展会标题</label>
+                <input type="text" name="post[title]" id="title" class="aui-input" value="{$title}" placeholder="展会标题"/>
+            </div>
+
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">所属分类</span>
+                <span class="aui-input-radio aui-padded-l-10">{category_select('post[catid]', '选择分类', $catid, $moduleid, 'size="1"')}</span>
+            </div>           
+                <div class="aui-input-row"><span class="aui-input-addon aui-text-red aui-mr-10">展会日期</span>
+                {template 'thedatat', 'mobile'}
+                </div>
+             <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">展出地址</span>
+                <input type="text" name="post[address]" id="address" class="aui-input" value="{$address}" placeholder="展出地址"/>
+            </div>
+              <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">展馆名称</span>
+                <input type="text" name="post[hallname]" id="hallname" class="aui-input" value="{$hallname}" placeholder="展馆名称"/>
+            </div>  
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">主办单位</span>
+                <input type="text" name="post[sponsor]" id="sponsor" class="aui-input" value="{$sponsor}" placeholder="主办单位"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">联系人</span>
+                <input type="text" name="post[truename]" id="truename" class="aui-input" value="{$truename}" placeholder="联系人"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">联系电话</span>
+                <input type="text" name="post[telephone]" id="telephone" class="aui-input" value="{$telephone}" placeholder="联系电话"/>
+            </div>
+{template 'm_fields', 'mobile'}
+            <script src="user/dist/lrz.bundle.js"></script>
+            <div class="aui-input-row">
+
+                <span class="aui-input-addon">标题图片</span>
+                <div class="pic-list baguetteBoxOne gallery" id="imgslist">
+                {if $thumb}<li><a href="{$thumb}"><img src="{$thumb}"></a></li>{/if}
+                {if $thumb1}<li><a href="{$thumb1}"><img src="{$thumb1}"></a></li>{/if}
+                {if $thumb2}<li><a href="{$thumb2}"><img src="{$thumb2}"></a></li>{/if}
+				<li id="addpic"><img src="image/add.jpg"></li>				
+			</div>
+                    <input accept="image/*" type="file" id="uptitleimg"/>
+<div class="aui-upprogress aui-text-center displaynone" id="uptitleing"><svg id="container"></svg></div></div>
+<script>
+var moduleid = {$mid};
+var thumb_width = {$MOD['thumb_width']};
+var thumb_height = {$MOD['thumb_height']};
+$(function(){
+	{if $action == 'edit'}
+	$('#imgslist li:not(#addpic)').each(function() {
+	addPress($(this));
+	});
+    baguetteBox.run('.baguetteBoxOne');
+	//$('#imgslist li:not(#addpic)').touchTouch();
+	{/if}
+});
+</script>
+<script type="text/javascript" id="uploadjs" src="script/uptitle.js" data="{$mid}"></script>
+{template 'wang', 'mobile'}
+<script type="text/javascript">
+$(function() {
+	"use strict";
+
+	$('#content-e').artEditor({
+		 artmid: '{$mid}',
+		imgTar: '#artUpload',
+		limitSize: 8,   // 兆
+		showServer: false,
+		uploadUrl: 'br',
+		data: {},
+		uploadField: 'image',
+		placeholader: '展会详情',
+		validHtml: '',
+		uploadSuccess: function(res) {
+			// return img url
+			return res.path;
+		},
+		uploadError: function(res) {
+			// something error
+			console.log(res);
+		}
+	});
+});
+</script>
+
+            <p class="aui-padded-10 aui-text-center aui-bg-default" onclick="showother()">选填信息(点这里)</p>
+            <div class="aui-content displaynone" id="otherinfo">
+            <div class="aui-input-row"><span class="aui-input-addon">地区</span>
+{ajax_area_select('post[areaid]', '请选择', $areaid, '', 2)}</div>
+            <div class="aui-input-row"><span class="aui-input-addon">自定义分类</span><div class="aui-ml-5">{$mycatid_select}</div></div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">展出城市</span>
+                <input type="text" name="post[city]" id="city" class="aui-input" value="{$city}" placeholder="展出城市"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">承办单位</span>
+                <input type="text" name="post[undertaker]" id="undertaker" class="aui-input" value="{$undertaker}" placeholder="承办单位"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">官方网站</span>
+                <input type="text" name="post[homepage]" id="homepage" class="aui-input" value="{$homepage}" placeholder="官方网站"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">联系手机</span>
+                <input type="number" name="post[mobile]" id="mobile" class="aui-input" value="{$mobile}" placeholder="联系手机"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">通讯地址</span>
+                <input type="text" name="post[addr]" id="addr" class="aui-input" value="{$addr}" placeholder="通讯地址"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">邮政编码</span>
+                <input type="text" name="post[postcode]" id="postcode" class="aui-input" value="{$postcode}" placeholder="邮政编码"/>
+            </div>
+                        <div class="aui-input-row">
+                <span class="aui-input-addon">联系传真</span>
+                <input type="text" name="post[fax]" id="fax" class="aui-input" value="{$fax}" placeholder="联系传真"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">电子邮件</span>
+                <input type="text" name="post[email]" id="email" class="aui-input" value="{$email}" placeholder="电子邮件"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">联系MSN</span>
+                <input type="text" name="post[msn]" id="msn" class="aui-input" value="{$msn}" placeholder="联系MSN"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">联系QQ</span>
+                <input type="text" name="post[qq]" id="qq" class="aui-input" value="{$qq}" placeholder="联系QQ"/>
+            </div>
+
+            <div class="aui-input-row">
+                <span class="aui-input-addon">在线报名</span>
+                <span class="aui-input-radio aui-padded-l-10">
+                      <input type="radio" name="post[sign]" value="1" {if $sign==1}checked="checked"{/if} class="aui-checkbox aui-checkbox-info" /><label class="aui-input-addon">开启</label>
+<input type="radio" name="post[sign]" value="0" {if !$sign}checked="checked"{/if} class="aui-checkbox aui-checkbox-info"/><label class="aui-input-addon">关闭</label></span>
+            </div>
+         </div>
+            <div class="aui-btn-row" id="btn-main" onclick="Daddr();">
+                <div class="aui-btn aui-btn-info fz16" style="width:90%;" id="btn-submit">确认</div>
+            </div>
+
+        </div>
+</form>
+    </div>
+<script type="text/javascript">
+function showother() {
+        var $show = $('#otherinfo');
+        if ($show.hasClass('displaynone')) {
+            $show.removeClass('displaynone'); 
+        } else {
+            $show.addClass('displaynone');
+        }
+    }
+	
+function Daddr() {
+	var arrImgs = [];
+   $('#imgslist li:not(#addpic)').each(function() {
+   // 将图片追加到数组中
+   arrImgs.push($(this).find("img").attr("src"));
+   });
+	var len;
+	len = Dd('title').value.length;
+	if(len < 2 || len > 30) {
+		laymsg('信息标题应为2-30字，当前已输入'+len+'字');
+		return false;
+	}
+	len = Dd('catid_1').value;
+	if(len == 0) {
+		laymsg('请选择分类');
+		return false;
+	}
+	if(Dd('postfromtime').value.length != 10 || Dd('posttotime').value.length != 10) {
+		laymsg('请选择展会日期');
+		return false;
+	}
+	f = 'address';
+	l = Dd(f).value.length;
+	if(l < 6) {
+		laymsg('请填写详细的展出地址', f);
+		return false;
+	}
+	f = 'hallname';
+	l = Dd(f).value.length;
+	if(l < 2) {
+		laymsg('请填写展馆名称', f);
+		return false;
+	}
+	f = 'sponsor';
+	l = Dd(f).value.length;
+	if(l < 2) {
+		laymsg('请填写主办单位', f);
+		return false;
+	}
+	f = 'truename';
+	l = Dd(f).value.length;
+	if(l < 2) {
+		laymsg('请填写联系人', f);
+		return false;
+	}
+	f = 'telephone';
+	l = Dd(f).value.length;
+	if(l < 7) {
+		laymsg('请填写联系电话', f);
+		return false;
+	}
+
+	len = arrImgs.length;
+	if(len==0) {
+		//laymsg('请上传第一张商品图片');
+		//return false;
+	}
+
+	var edittext=$.trim($("#content-e").text());
+    var len = edittext.length;
+	if(len < 5) {
+		//laymsg('请输入详细内容');
+		//return false;
+	}	
+	{if $DT['max_len']}
+	if(len > {$DT['max_len']}) {
+		laymsg('输入这么多字累了吧亲');
+		return false;
+	}
+    {/if}
+var exitcon = $('#content-e').getValue();
+	$("#content").attr('value',exitcon);
+
+	$("#btn-submit").text("正在处理...");
+	$("#btn-main").removeAttr("onclick");
+	setTimeout(function () {
+        $("#btn-main").attr("onclick","Daddr();");
+		$("#btn-submit").text("提 交");
+    }, 5000);
+	
+    $.post('{$MUSER}?mid={$mid}&thumbs='+arrImgs+'', $('#sell-form').serialize(), function(data) {
+		if(data.error == 'ok') {
+			{if $action=='add'}laymsg('添加成功');{else}laymsg('修改成功');{/if}
+			setTimeout(function() {
+				Go('{$MUSER}?mid={$mid}');
+			}, 1000);
+		} else {
+			laymsg(data.error);
+		}
+	},'json');
+}
+
+</script>
+{elseif $action=='sign'}
+	<style type="text/css">
+		.order {
+			background: #ffffff;
+		}
+		.order-info  {
+			font-size: 0.875em;
+			width: 100%;
+		}
+		.order-info span {
+			color: #333;
+			margin-right: 5px;
+		}
+		.order-info time {
+			color: #999999;
+			font-size: 0.75em;
+		}
+		.order-info i.aui-iconfont {
+			color: #999;
+			font-size: 0.875em;
+		}
+		.order-icon img {
+			width: 80%;
+			border-radius: 5px;
+		}
+		.order-title {
+			font-size: 1em;
+			color: #333;
+			padding-bottom: 10px;
+			margin-bottom: 10px;
+		}
+		.order-title > i.aui-iconfont {
+			font-size: 0.87em;
+			color: #999999;
+		}
+		p.goods-list {
+			font-size: 0.75em;
+			color: #999;
+			margin-bottom: 8px;
+		}
+		p.count-info {
+			font-size: 0.75em;
+			color: #999;
+			padding-bottom: 5px;
+		}
+		p.count-info span {
+			margin: 0 3px;
+		}
+		p.count-info strong {
+			color: #666;
+			font-size: 1em;
+			font-weight: 700;
+		}
+		.btn {
+			/*margin: 5px;*/
+		}
+		.btn .aui-btn {
+			font-size: 0.75em;
+		}
+		.btn .aui-btn:first-child {
+			margin-right: 10px;
+		}
+		.aui-border-b:after {
+			border-color: #ddd;
+		}
+	</style>
+
+<form method="post">
+</form>
+{loop $lists $k $v}
+	<section class="aui-content order">
+		<div class="aui-flex-col order-info aui-padded-10">
+			<div class="aui-flex-item-12">
+				<span>报名时间</span>
+				<time>{$v[addtime]}&nbsp;&nbsp;报名人数：{$v[amount]}</time>
+				<i class="aui-iconfont aui-icon-delete aui-pull-right"></i>
+			</div>
+		</div>
+		<div class="aui-flex-col">
+			<div class="aui-flex-item-2 order-icon aui-text-right">
+			</div>
+			<div class="aui-flex-item-10 aui-padded-0-15">
+				<p class="order-title aui-border-b aui-ellipsis-1">{$v[title]}<i class="aui-iconfont aui-icon-right"></i></p>
+				<p class="goods-list fz14">
+					会员:<span class="aui-text-danger">{$v[truename]}</span>{if $v[username]}<a href="{userurl($v[username], 'file=contact')}" target="_blank">({$v[username]})</a>{/if}
+					<em class="aui-pull-right">{if $DT[im_web] && $v[username]}{im_web($v[username])} {/if}
+{if $v[username]}<a href="message.php?action=send&touser={$v[username]}"><img src="{DT_SKIN}/image/msg.gif" title="发送站内信" align="absmiddle"/></a> {/if}
+{if $DT[im_qq] && $v[qq]}{im_qq($v[qq])} {/if}
+{if $DT[mail_type] != 'close' && $v[email]}<a href="sendmail.php?email={$v[email]}" target="_blank"><img src="{DT_SKIN}/image/email.gif" title="发送邮件" align="absmiddle"/></a> {/if}
+{if $DT[sms] && $v[mobile]}<a href="sms.php?action=add&mob={$v[mobile]}" target="_blank"><img src="{DT_SKIN}/image/mobile.gif" title="发送短信" align="absmiddle"/></a> {/if}</em>
+				</p>
+				<p class="aui-text-left aui-border-b count-info aui-ellipsis-1">
+					{$v[company]} {$v[mobile]} {$v[email]}<br/>
+{if $v[areaid]}{area_pos($v[areaid])}{/if}{$v[address]} {$v[postcode]}
+				</p>
+			</div>
+		</div>
+		<div class="aui-flex-col aui-padded-5 btn">
+			<div class="aui-flex-item-12 aui-text-right">
+			</div>
+		</div>
+	</section>
+{/loop}
+{else}
+{if $lists}
+<form method="post">
+{template 'm_batch', 'mobile'}
+<ul class="aui-list-view aui-in" id="sell_list">
+{loop $lists $t}
+<li id="{$t[itemid]}">
+<div class="aui-list-view-cell aui-img drop-div">
+<input class="aui-pull-left aui-checkbox displaynone" type="checkbox" id="itemids" name="itemid" value="{$t[itemid]}">
+                <img class="aui-img-object aui-pull-left" src="{if $t[thumb]}{$t[thumb]}{else}image/nopic.png{/if}" width="50" height="50" alt="">
+                <div class="aui-img-body aui-pull-left">
+                    <a href="{mobileurl($moduleid, 0, $t['itemid'])}">{dsubstr($t[title], 20)}</a>
+                    <p class="aui-ellipsis-1 fz12"><span class="aui-pull-left aui-max-w80 Dt-text-ellipsis">{$t[catname]}</span>&nbsp;<span class="aui-mr-5"><i class="aui-iconfont aui-icon-attentionfill aui-text-gray"></i>{$t[hits]}</span><span class="aui-mr-5"><i class="aui-iconfont aui-icon-time aui-text-gray"></i>{timetodate($t[edittime], 4)}</span></p>
+                </div>
+                </div>
+  <div class="hidden-menu">
+    <p class="two"><a href="{$MURL}{$MUSER}?mid={$mid}&action=edit&itemid={$t[itemid]}">修改</a></p>
+    <p class="one" onclick="delitemid({$mid},{$t[itemid]});">删除</p>
+    
+  </div>
+                
+</li>
+
+{/loop}
+</ul>
+</form>
+{if $pages}<div class="pages">{$pages}</div>{/if}
+{else}
+<ul class="aui-list-view">
+<li class="aui-list-view-cell aui-img">
+                <div class="aui-img-body aui-pull-left">
+                    <p class="aui-ellipsis-1">暂无信息</p>
+                </div>
+</li>
+</ul>
+
+{/if}
+</div>
+
+<script type="text/javascript" src="script/addpan.js" charset="utf-8"></script>
+{/if}
+<script type="text/javascript">tabbar('tabbar{$status}');</script>
+{template 'footer_member', 'mobile'}

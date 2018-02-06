@@ -1,0 +1,168 @@
+/*导航栏*/
+.header_bg{ background:#fff;}
+.main_nav{background:#000; margin-top:-1px;overflow: hidden;}
+.main_nav li{height:40px; line-height:40px; }
+.main_nav li a{color:#fff; font-size:14px;}
+.main_nav li a:hover,.main_nav li.cur a{ background:#63d3e7; color:#fff;}
+
+/*banner CSS*/
+.bannerlist-container{ position:relative; overflow:hidden;}
+.bannerlist-container .banner-list{display:block; position:absolute; top:0px; bottom:0px; width:100%;}
+.bannerlist-container .banner-list li{display:block; float:left; position:relative;}/*无缝隙*/
+.bannerlist-container .banner-list li a{display:block; position:absolute; top:0px; bottom:0px; left:0px; right:0px;}
+.bannerlist-container .lr-btn{ position:absolute; display:block; top:50%; width:30px; height:60px; margin-top:-30px; z-index:99; background-image:url("../images/banner_btn.png"); background-repeat:no-repeat;}
+.bannerlist-container .leftbtn{ left:30px; background-position:0 -65px;}
+.bannerlist-container .rightbtn{ right:30px; background-position:-42px -65px;}
+.bannerlist-container .leftbtn:hover{background-position:0 -3px;}
+.bannerlist-container .rightbtn:hover{background-position:-42px -3px;}
+.bannerlist-container .button-area{ position:absolute; height:30px; bottom:10px; left:0px; width:100%; text-align:center; z-index:66; }
+.bannerlist-container .button-area a{ display:inline-block; width:12px; height:12px; margin:0 6px; vertical-align:middle; cursor:pointer; border-radius:50%; background:#999;}
+.bannerlist-container .button-area a.cur{ background:#000;}
+
+/*精品推荐*/
+.h_jp_pro{ background:#f6f6f6; margin-top:60px; padding-bottom:20px;}
+.h_jp_pro .hd{ border-top:6px solid #000;}
+.h_jp_pro .hd .arrow{display:block; width:0; height:0; border-width:6px; border-style:solid dashed dashed dashed; border-color: #000 transparent transparent transparent; font-size:0; line-height:0; margin-left:49.2%;}
+.h_jp_pro h2{ text-align:center; font-size:46px; color:#000; margin:0 0 20px 0; font-family:"宋体";}
+.h_jp_pro .bd{ padding:0 10px; position:relative;}
+.h_jp_pro .tempWrap{ width:1186px !important;}
+.h_jp_pro .prev, .h_jp_pro .next{cursor:pointer; width:42px; height:135px;background:url("../images/shop03/pro_arrow.png") no-repeat; overflow:hidden; text-indent:-10000px;}
+.h_jp_pro .prev{ position:absolute; top:100px; left:-100px;}
+.h_jp_pro .next{ background-position:-52px 0;position:absolute; top:100px; right:-20px;}
+.h_jp_pro .bd ul{ padding-bottom:6px !important;}
+.h_jp_pro .bd li{position:relative; float:left; width:380px; height:490px;margin-right:20px; margin-right:20px;}
+.h_jp_pro .bd li .con{ position:absolute; top:0; left:0; z-index:2; width:350px; height:474px; padding:14px 14px 0 14px; border:1px solid #b7b7b7; background:#fff; text-align:center; color:#333; line-height:16px;}
+.h_jp_pro .bd li .con p{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.h_jp_pro .bd li .bg{ width:140px; height:140px; background:#000; position:absolute; right:-6px; bottom:-6px; z-index:1;}
+.h_jp_pro .bd .pic {
+        /*非IE的主流浏览器识别的垂直居中的方法*/
+        display: table-cell;
+        vertical-align:middle;
+
+        /*设置水平居中*/
+        text-align:center;
+
+        /* 针对IE的Hack */
+        *display: block;
+        *font-size: 375px;/*约为高度的0.873，200*0.873 约为175*/
+        *font-family:Arial;/*防止非utf-8引起的hack失效问题，如gbk编码*/
+
+        width:350px;
+        height:430px; overflow:hidden;
+}
+.h_jp_pro .bd .pic img{vertical-align:middle;max-width:350px;max-height:430px;-webkit-transition:all .5s ease 0s;-moz-transition:all .5s ease 0s;-o-transition:all .5s ease 0s;transition:all .5s ease 0s}  
+.h_jp_pro .bd .pic:hover img{-webkit-transform:scale(1.08);-moz-transform:scale(1.08);-o-transform:scale(1.08);transform:scale(1.08)}
+.h_jp_pro .bd .rmb i{ display:inline-block; width:16px; height:16px; line-height:16px; text-align:center; color:#fff; background:#000; margin-right:5px; vertical-align:top; border-radius:50%;}
+
+/*热销产品*/
+.h_pro_bg{ width:100%; background:url("hot_bg.jpg") no-repeat; margin-top:60px;}
+.h_pro_list{ padding:30px 0 0 0;}
+.h_pro_list .hd h2,.h_new_pro .hd h2{ text-align:center; font-size:46px; color:#fff; margin:0 0 10px 0; font-family:"宋体";}
+.h_pro_list .hd .arrow,.h_new_pro .hd .arrow{display:block; width:0; height:0; border-width:10px; border-style:solid dashed dashed dashed; border-color: #fff transparent transparent transparent; font-size:0; line-height:0; margin-left:49.2%;}
+.h_pro_list .bd{ background:#fff; margin-top:20px; padding:15px 0 0 15px;}
+.h_pro_list .bd .big{float:left; width:520px; height:650px; background:#f6f6f6; position:relative;}
+.h_pro_list .bd .big .pic {
+        /*非IE的主流浏览器识别的垂直居中的方法*/
+        display: table-cell;
+        vertical-align:middle;
+
+        /*设置水平居中*/
+        text-align:center;
+
+        /* 针对IE的Hack */
+        *display: block;
+        *font-size: 565px;/*约为高度的0.873，200*0.873 约为175*/
+        *font-family:Arial;/*防止非utf-8引起的hack失效问题，如gbk编码*/
+
+        width:520px;
+        height:650px; overflow:hidden;
+}
+.h_pro_list .bd .big .pic img{vertical-align:middle;max-height:650px;max-width:520px;}  
+
+.h_pro_list .bd .text{ position:absolute; bottom:0; left:0; right:0; text-align:center; height:0; padding-top:0; overflow:hidden; color:#000;background:url("pro_bg.png");}
+.h_pro_list .bd .text a{ color:#333;}
+.h_pro_list .bd .text a:hover{ color:#ed6e00;}
+.h_pro_list .bd .text p{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.h_pro_list .bd .list{ float:left; width:650px;}
+.h_pro_list .bd li{ position:relative; float:left; margin:0 0 10px 10px; width:315px; height:320px; background:#f6f6f6;}
+.h_pro_list .bd .list li .pic {
+        /*非IE的主流浏览器识别的垂直居中的方法*/
+        display: table-cell;
+        vertical-align:middle;
+
+        /*设置水平居中*/
+        text-align:center;
+
+        /* 针对IE的Hack */
+        *display: block;
+        *font-size: 279px;/*约为高度的0.873，200*0.873 约为175*/
+        *font-family:Arial;/*防止非utf-8引起的hack失效问题，如gbk编码*/
+
+        width:315px;
+        height:320px; overflow:hidden;
+}
+.h_pro_list .bd .list li img{vertical-align:middle;max-height:320px;max-width:315px;}  
+
+/*新品上市*/
+.h_new_pro{ margin-top:40px;}
+.h_new_pro .hd h2{color:#000;}
+.h_new_pro .hd .arrow{ border-color: #000 transparent transparent transparent;}
+.h_new_pro .bd{ margin-left:15px;}
+.h_new_pro .bd li{float:left; width:285px; margin:15px 10px 0 0;text-align:center; color:#333; line-height:18px;}
+.h_new_pro .bd li p{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.h_new_pro .bd .pic {
+        /*非IE的主流浏览器识别的垂直居中的方法*/
+        display: table-cell;
+        vertical-align:middle;
+
+        /*设置水平居中*/
+        text-align:center;
+
+        /* 针对IE的Hack */
+        *display: block;
+        *font-size: 305px;/*约为高度的0.873，200*0.873 约为175*/
+        *font-family:Arial;/*防止非utf-8引起的hack失效问题，如gbk编码*/
+
+        width:285px;
+        height:350px; overflow:hidden;background:#f6f6f6;
+}
+.h_new_pro .bd .pic img{vertical-align:middle;max-width:285px;max-height:350px;-webkit-transition:all .5s ease 0s;-moz-transition:all .5s ease 0s;-o-transition:all .5s ease 0s;transition:all .5s ease 0s}  
+.h_new_pro .bd .pic:hover img{-webkit-transform:scale(1.08);-moz-transform:scale(1.08);-o-transform:scale(1.08);transform:scale(1.08)}
+.h_new_pro .bd .rmb i{ display:inline-block; width:16px; height:16px; line-height:16px; text-align:center; color:#fff; background:#000; margin-right:5px; vertical-align: middle; border-radius:50%;}
+
+/*公司简介*/
+.h_about_bg{ width:100%; background:#000; margin-top:60px; padding:30px 0 80px 0;background:url("about_bg.jpg") no-repeat center 0;}
+.h_about .hd{ position:relative; border-bottom:1px solid #fff; padding-bottom:90px; margin-bottom:70px;}
+.h_about .hd .con{ position:absolute; top:0; left:370px; line-height:60px; text-align:center; font-size:46px; color:#fff; font-family:"宋体";}
+.h_about .hd h3{ font-weight:bold;letter-spacing:5px;background:#181818; padding:0 10px;}
+.h_about .bd{ padding-left:500px; position:relative; color:#fff; min-height:300px;}
+.h_about .bd .pic{ position:absolute; top:0; left:0px; width:455px; height:300px; border:5px solid #fff;}
+.h_about .bd .pic img{width:455px; height:300px;}
+.h_about .bd .text{ line-height:30px; height:300px; overflow:hidden;}
+
+/*颜色*/
+a:hover,.highlight{color:#ed6e00;}
+.sidebar_mod .hd{background:#000; border-bottom:3px solid #666;}
+.sidebar_mod .hd i{background-color:#63d3e7;}
+.sidebar_mod .bd{border:1px solid #ddd;padding:10px;}
+.sidebar_mod .border_b{ border-bottom:1px solid #ddd;}
+.sidebar_menu .bd .til a:hover{ color:#ed6e00;}
+.sidebar_menu_til a:hover{ background:url("../images/shop03/sidebar_menu.png") no-repeat 0 -25px;}
+.tab_hd li.hover{ border-bottom:1px solid #ed6e00; color:#ed6e00;}/*诚信档案选项卡*/
+.tab_hd li i{border-color:transparent transparent #ed6e00 transparent;}/*诚信档案选项卡*/
+
+.gjc {    position: absolute;
+    top: 8px;
+    left: 30px;
+    line-height: 20px;
+    color: #bbb;
+    font-size: 12px;
+    cursor: text;}
+
+/**/
+.sidebar_mod .hd .t01{background: url("shop.png") no-repeat -72px -59px #63d3e7;width: 30px; height: 38px;}
+.sidebar_mod .hd .t02{background: url("shop.png") no-repeat -245px -59px #63d3e7;width: 30px; height: 38px;}
+.sidebar_mod .hd .t03{background: url("shop.png") no-repeat 4px -59px #63d3e7;width: 30px; height: 38px;}
+.sidebar_mod .hd .t04{background: url("shop.png") no-repeat -107px -59px #63d3e7;width: 30px; height: 38px;}
+.hd01 h2 i.m01{background: url("shop.png") no-repeat -111px 8px #ed6e00;width:40px; height:40px;}
+.banner img{width:1200px;}

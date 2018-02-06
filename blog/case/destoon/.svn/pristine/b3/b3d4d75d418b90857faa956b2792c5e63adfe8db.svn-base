@@ -1,0 +1,108 @@
+{template 'header', $template}
+<div class="dsn" id="pos_show">您当前的位置：<a href="{$COM[linkurl]}">首页</a> &raquo; <a href="{$MENU[$menuid][linkurl]}">{$MENU[$menuid][name]}</a>{if $itemid} &raquo; {$title}{/if}</div>
+<div class="main_wrap clearfix">
+{if $side_pos==0}
+	<div  id="side" class="w260">{template 'side', $template}</div>
+{/if}
+<div class="w930">
+{if $itemid}
+<div class="main_head"><div><strong>{$title}</strong></div></div>
+<div class="main_body">
+	<div class="lh18 px13">{$content}</div>
+</div>
+{else}
+<div class="r_mod">
+	<div class="hd01"><h2><i class="intro_ico"></i>{$MENU[$menuid][name]}</h2></div>
+	<div class="main_body">
+		<div class="lh18 px13">
+		<table width="98%" cellpadding="3" cellspacing="3" align="center">
+		<tr>
+		<td><img src="{$COM[thumb]}" align="right" style="margin:5px 0 5px 10px;padding:5px;border:#C0C0C0 1px solid;"/>{$content}</td>
+		</tr>
+		</table>
+		</div>
+</div>
+</div>
+{if $video}
+<div class="main_head"><div><strong>形象视频</strong></div></div>
+<div class="main_body">
+	{load('player.js')}
+	<center><script type="text/javascript">document.write(player('{$video}',480,400,'',0));</script></center>
+</div>
+{/if}
+<div class="r_mod">
+	<div class="hd01"><h2><i class="info_ico"></i>详细信息</h2></div>
+	<div class="bd">
+            	<table width="100%" border="0" class="table">
+                  <tbody><tr>
+                    <td width="18%" align="center" bgcolor="#fafafa">公司名称：</td>
+                    <td width="82%">{$COM[company]}</td>
+                  </tr>
+                  <tr>
+                    <td align="center" bgcolor="#fafafa">所在地：</td>
+                    <td>{area_pos($COM[areaid], '/')}</td>
+                  </tr>
+                  <tr>
+                    <td align="center" bgcolor="#fafafa">注册资本： </td>
+                    <td>{if $COM[capital]}{$COM[capital]}万{$COM[regunit]}{else}未填写{/if}</td>
+                  </tr>
+                  <tr>
+                    <td align="center" bgcolor="#fafafa">资料认证：</td>
+                    <td>
+						{if $COM[vcompany]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_company.gif" width="16" height="16" align="absmiddle" title="资料通过工商认证"/>{/if}
+						{if $COM[vtruename]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_truename.gif" width="16" height="16" align="absmiddle" title="资料通过实名认证"/>{/if}
+						{if $COM[vbank]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_bank.gif" width="16" height="16" align="absmiddle" title="资料通过银行帐号认证"/>{/if}
+						{if $COM[vmobile]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_mobile.gif" width="16" height="16" align="absmiddle" title="资料通过手机认证"/>{/if}
+						{if $COM[vemail]}&nbsp;<img src="{$MODULE[2][linkurl]}image/v_email.gif" width="16" height="16" align="absmiddle" title="资料通过邮件认证"/>{/if}
+						{if $COM[validated]}&nbsp;<img src="{DT_SKIN}image/check_right.gif" align="absmiddle"/> 企业资料通过{$COM[validator]}认证{/if}
+					</td>
+                  </tr>
+					{if $COM[deposit]}
+                  <tr>
+                    <td align="center" bgcolor="#fafafa">保证金：</td>
+                    <td>已缴纳 <strong class="f_green">{$COM[deposit]}</strong> {$DT[money_unit]}</td>
+                  </tr>
+				  {/if}
+                  <tr>
+                    <td align="center" bgcolor="#fafafa">经营范围：</td>
+                    <td>{$COM[business]}</td>
+                  </tr>
+                  <tr>
+                    <td align="center" bgcolor="#fafafa">主营行业：</td>
+                    <td>
+						{php $catids = explode(',', substr($COM['catid'], 1, -1));}
+						{loop $catids $i $c}
+						{cat_pos(get_cat($c), ' / ', '_blank')}
+						{/loop}
+					</td>
+                  </tr>
+                  <tr>
+                    <td align="center" bgcolor="#fafafa">公司类型：</td>
+                    <td>{$COM[type]} ({$COM[mode]})</td>
+                  </tr>
+                  <tr>
+                    <td align="center" bgcolor="#fafafa">公司规模：</td>
+                    <td>{$COM[size]}</td>
+                  </tr>
+                  <tr>
+                    <td align="center" bgcolor="#fafafa">注册年份：</td>
+                    <td>{$COM[regyear]}</td>
+                  </tr>
+                  
+                </tbody></table>
+			</div>
+	</div>
+
+{if $could_comment && in_array($moduleid, explode(',', $EXT['comment_module']))}
+<div id="comment_div" style="display:;">
+	<div class="r_mod">
+		<div class="hd01"><div><span class="f_r px12">共<span id="comment_count">0</span>条&nbsp;&nbsp;</span><strong><h2 id="message_title"><i class="info_ico"></i>相关评论</h2></strong></div></div>
+		<div class="bd"><script type="text/javascript">Df('{DT_PATH}api/comment.php?mid={$moduleid}&itemid={$COM[userid]}&proxy={$comment_proxy}', 'id="destoon_comment" style="width:100%;"');</script></div>
+	</div>
+</div>
+{/if}
+
+{/if}
+</div>
+</div>
+{template 'footer', $template}

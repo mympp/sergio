@@ -1,0 +1,20 @@
+
+<div class="product_hot">
+	<div class="tpl_title">
+		<p class="">{$main_name[$HM]}</p>
+		<!-- <a title="查看更多" href="" target="_blank" class="ThemefontH">查看更多</a> -->
+	</div>
+	{php $tags=tag("moduleid=5&condition=status>2 and username='$username' and elite=1 and thumb<>''&pagesize=4&order=edittime desc&fields=itemid,title,linkurl,thumb,edittime&template=null");}
+	<div class="hotbox clearfix">
+	{loop $tags $i $t}
+		<div class="list border_box fl">
+			<div class="new_tag">超值推荐</div>
+			<a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=sell&itemid='.$t['itemid'], $domain)}{/if}" target="_blank" class="img_box">
+				<img src="{$t[thumb]}" >
+			</a>
+			<p class="overflow p5 f14">&nbsp;&nbsp;{timetodate($t[edittime], 3)}</p>
+			<div class="current">&nbsp;&nbsp;{$t[title]}</div>
+		</div>
+	{/loop}
+	</div>
+</div>

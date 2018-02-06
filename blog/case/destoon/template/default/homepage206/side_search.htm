@@ -1,0 +1,20 @@
+<div class="m_b30 model_box" style="display:none">
+            <div class="search_inside">
+  <div class="search_t">
+<form action="{$MODULE[4][linkurl]}home.php" onsubmit="return check_kw();">
+<div class="search_type">
+<select name="file">
+{loop $MENU $k $v}
+{if in_array($menu_file[$k], array('sell', 'buy', 'news', 'credit', 'job', 'photo', 'info', 'brand', 'video', 'mall'))}
+<option  value="{$menu_file[$k]}"{if $file==$menu_file[$k]} selected{/if}>{$v[name]}</option>{/if}
+{/loop}
+</select>
+</div>
+<input type="hidden" name="action" value="search"/>
+<input type="hidden" name="homepage" value="{$username}"/>
+<input type="text" name="kw" value="{if $kw}{$kw}{else}输入关键词{/if}" size="25" id="kw" class="inp" onfocus="if(this.value=='输入关键词')this.value='';"/>
+<input type="submit" value=" 产品搜索 "class="btn"/>
+</form>
+</div>
+</div>
+</div>

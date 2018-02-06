@@ -1,0 +1,96 @@
+{php $child = get_maincat(0, $mid, 1);}
+{loop $child $i $c}
+{if $i < 7}
+{php $ii = $i+1;}
+<div id="f{$ii}" class="category2 layout" onmouseover="Ds('f{$ii}_p');" onmouseout="Dh('f{$ii}_p');">
+	<div class="header">
+		<h1 class="title2 ms-yh"><span>{$i+1}F</span><a rel="nofollow" href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" class="ms-yh">{set_style($c[catname], $c[style])}</a></h1>
+		<!--{php $tagsp=tag("moduleid=5&condition=status=3 and level=2&areaid=$cityid&pagesize=1&catid=".$c[catid]."&order=addtime desc&template=null");}-->
+		{loop $tagsp $o $p}
+		<p id="f{$ii}_p" class="sponsors" style="display:none;"><i></i><a href="{$p[linkurl]}" title="{$p[alt]}" target="_blank">{$p[title]}</a></p>
+		{/loop}
+	</div>
+	<div class="category-item">
+		{if $c[child]}
+		{php $sub = get_maincat($c[catid], $mid, 1);}
+		{loop $sub $j $s}
+		{if $j < 12}
+		<dl class="dl_{$j}">
+			<span class="dspan"><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}">{set_style($s[catname], $s[style])}</a></span>
+			{if $s[child]}
+			{php $sub2 = get_maincat($s[catid], $mid, 1);}
+			<ul>
+			{loop $sub2 $x $y}
+			{if $x < 5}
+			<a href="{$MODULE[$mid][linkurl]}{$y[linkurl]}">{set_style($y[catname], $y[style])}</a>
+			{/if}
+			{/loop}
+			</ul>
+			{/if}
+		</dl>
+		{/if}
+		{/loop}
+		{/if}
+	</div>
+	<div class="category-top">
+		<h3 class="tabNav">
+			<span class="current_2" id="f{$ii}_t_1" onmouseover="Tb(1, 2, 'f{$ii}', 'current');">推荐产品</span>
+			<span class="" id="f{$ii}_t_2" onmouseover="Tb(2, 2, 'f{$ii}', 'current');">优质供应商</span>
+		</h3>
+		<div class="tabContent">
+			<div class="tabCon" id="f{$ii}_c_1" style="display:">
+				<dl class="sliding clearfix">
+					<dt class="vertical-img">
+						<!--{php $tags1=tag("moduleid=5&condition=status=3 and level>0 and thumb<>''&areaid=$cityid&pagesize=3&catid=".$c[catid]."&order=addtime desc&template=null");}-->
+						<ul>
+						{php $count = count($tags1);}
+						{loop $tags1 $n $m}
+							<li id="s{$ii}_c_{$n+1}" style="display:{if $n==0}{else}none{/if};"><a class="box-img" href="{$m[linkurl]}" target="_blank"><img src="{$m[thumb]}" width="68" height="68" alt="{$m[alt]}"></a></li>
+						{/loop}
+						</ul>
+					</dt>
+					<dd>
+						<ul class="clearfix">
+						{loop $tags1 $n $m}
+							<li class="{if $n==0}current_2{else}{/if}" id="s{$ii}_t_{$n+1}" onmouseover="Tb({$n+1}, {$count}, 's{$ii}', 'current');"><a href="{$m[linkurl]}" target="_blank" title="{$m[alt]}">{$m[title]}</a></li>
+						{/loop}
+						</ul>
+					</dd>
+				</dl>
+				<div class="productRec li_dot">
+					<!--{php $tags2=tag("moduleid=5&condition=status=3 and level>0&areaid=$cityid&pagesize=3&catid=".$c[catid]."&order=addtime desc&template=null");}-->
+					<ul class="clearfix">
+					{loop $tags2 $l $k}
+						<li><a href="{$k[linkurl]}" target="_blank" title="{$k[alt]}">{$k[title]}</a></li>
+					{/loop}
+					</ul>
+				</div>
+			</div>
+			<div class="tabCon companyRank" id="f{$ii}_c_2" style="display:none">
+				<!--{php $tags_com=tag("moduleid=4&condition=vip>0 and catids<>''&areaid=$cityid&pagesize=6&order=fromtime desc&template=null");}-->
+				<ul class="clearfix">
+				{loop $tags_com $g $h}
+					<li><span>{$g+1}</span><a href="{$h[linkurl]}" target="_blank">{$h[company]}</a></li>
+				{/loop}
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="category-ad">
+		<div class="brand-logo hover-li">
+			{php $child_brand = get_maincat(0, 13, 1);}
+			{loop $child_brand $d $f}
+			{if $d==$i}
+			<!--{tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=9&catid=".$f[catid]."&order=addtime desc&target=_blank&lazy=$lazy&template=thumb-brand2")}-->
+			{/if}
+			{/loop}
+		</div>
+		{loop $ads $a $z}
+		{if $a==$i}
+		<p class="promotions">{ad("$z")}</p>
+		{/if}
+		{/loop}
+	</div>
+</div>
+{/if}
+{/loop}

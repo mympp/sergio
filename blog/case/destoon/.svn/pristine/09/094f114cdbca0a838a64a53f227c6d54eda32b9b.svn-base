@@ -1,0 +1,36 @@
+{php $child = get_maincat(0, $mid, 1);}
+{loop $child $i $c}
+{if $i==$ff-1}
+<div class="header"><span>{$i+1}F</span><em>{set_style($c[catname], $c[style])}</em></div>
+{if $c[child]}
+{php $sub = get_maincat($c[catid], $mid, 1);}
+<div class="category_box clr">
+	{loop $sub $j $s}
+	{if $j < 4}
+	<dl>
+		<dt>
+			<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}">{set_style($s[catname], $s[style])}</a>
+			{php $sub3 = get_maincat($s[catid], $mid, 2);}
+			{loop $sub3 $q $w}
+			{if $q < 2}<a href="{$MODULE[$mid][linkurl]}{$w[linkurl]}">{set_style($w[catname], $w[style])}</a>{/if}
+			{/loop}
+		</dt>
+		{if $s[child]}
+		{php $sub2 = get_maincat($s[catid], $mid, 1);}
+		{php $num = count($sub2);}
+		<dd>
+			{loop $sub2 $k $l}
+			{if $k < 9}
+			<a href="{$MODULE[$mid][linkurl]}{$l[linkurl]}">{set_style($l[catname], $l[style])}</a>{if $k!=$num-1}<span>|</span>{/if}
+			{/if}
+			{/loop}
+		</dd>
+		{/if}
+	</dl>
+	{if $j%2==1}<div class="c_b"></div>{/if}
+	{/if}
+	{/loop}
+</div>
+{/if}
+{/if}
+{/loop}

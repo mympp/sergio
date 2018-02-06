@@ -1,0 +1,30 @@
+{if $file != 'contact' && $could_contact}
+<div class="m_b30 model_box">
+            <div class="l_hd"><span class="adorn"></span>{$side_name[$HS]}</div>
+            <div class="contact_way">
+                <dl>
+                        <dt>联系人</dt><dd>{$COM[truename]}</dd>
+					  {if $COM[telephone]}
+					 <dt>电话</dt> <dd>{$COM[telephone]}</dd>
+					  {/if}
+					   {if $COM[address]}
+                         <dt>地址</dt> <dd>{$COM[address]}</dd>
+						{/if}
+						{if $COM[mobile]}
+                         <dt>手机</dt><dd>{$COM[mobile]}</dd>
+						{/if}
+						{if $COM[fax]}
+                        <dt>传真</dt><dd>{$COM[fax]}</dd>
+						{/if}
+						{if $COM[mail]}
+                          <dt>Email</dt><dd>{$COM[mail]}</dd>
+						{/if}
+						{if $COM[qq]}
+                       <dt>QQ</dt><dd>{$COM[qq]}</dd>
+						{/if}
+                         <dt>网址</dt>
+                        <dd><a href="{$COM[homepage]}" target="_blank">{$COM[homepage]}</a></dd>
+                </dl>
+            </div>
+        </div>
+{/if}

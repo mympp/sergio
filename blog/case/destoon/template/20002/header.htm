@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset={DT_CHARSET}"/>
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{if $city_sitename}{$city_sitename}{else}{$DT[sitename]}{/if}{/if}</title>
+{if $head_keywords}
+<meta name="keywords" content="{$head_keywords}"/>
+{/if}
+{if $head_description}
+<meta name="description" content="{$head_description}"/>
+{/if}
+{if $head_mobile} 
+<meta http-equiv="mobile-agent" content="format=html5;url={$head_mobile}">
+{/if}
+<meta name="generator" content="DESTOON B2B - www.destoon.com"/>
+<link rel="shortcut icon" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+<link rel="bookmark" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+{if $head_canonical}
+<link rel="canonical" href="{$head_canonical}"/>
+{/if}
+{if $EXT[archiver_enable]}
+<link rel="archives" title="{$DT[sitename]}" href="{$EXT[archiver_url]}"/>
+{/if}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}style.css"/>
+{if $moduleid>4}<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$module}.css"/>{/if}
+{if $CSS}
+{loop $CSS $css}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$css}.css"/>
+{/loop}
+{/if}
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}ie6.css"/>
+<![endif]-->
+{if !DT_DEBUG}<script type="text/javascript">window.onerror=function(){return true;}</script>{/if}
+<script type="text/javascript" src="{DT_STATIC}lang/{DT_LANG}/lang.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/config.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/page.js"></script>
+{if $lazy}<script type="text/javascript" src="{DT_STATIC}file/script/jquery.lazyload.js"></script>{/if}
+{if $JS}
+{loop $JS $js}
+<script type="text/javascript" src="{DT_STATIC}file/script/{$js}.js"></script>
+{/loop}
+{/if}
+{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
+<script type="text/javascript">
+{if $head_mobile && $EXT[mobile_goto]}
+GoMobile('{$head_mobile}');
+{/if}
+var searchid = {$searchid};
+{if $itemid && $DT[anticopy]}
+document.oncontextmenu=function(e){return false;};
+document.onselectstart=function(e){return false;};
+{/if}
+</script>
+<!--[以上为系统关键代码，除非您明确其含义，否则请勿修改或删除，否则会导致系统错误]-->
+<!--[模板中所有带id的元素，请勿修改或删除，否则会导致部分JS代码无法运行]-->
+<!--[以上类似的注释，在编译模板时，系统会自动移除，不会显示在实际的页面中]-->
+</head>
+<body>
+<div class="head" id="head">
+	<div class="head_m">
+		<div class="f_l" id="destoon_member"></div>
+		<div class="head_l">
+			<ul>
+			<li class="top_ico2"><a href="{$MODULE[1][linkurl]}sitemap/">网站地图</a></li>
+			<li class="shortcat"><a href="{$MODULE[1][linkurl]}extend/shortcut.php">放到桌面</a></li>
+			{if $DT[city]}<li class="h_city">[<span id="destoon_city">{$city_name}</span>] <a href="{DT_PATH}api/city.php" title="点击切换城市" rel="nofollow">切换</a></li>{/if}
+			<li class="h_fav"><script type="text/javascript">addFav('收藏本页');</script></li>
+			{if $EXT[mobile_enable]}<li class="h_mobile"><a href="{$EXT[mobile_url]}mobile.php">手机版</a>&nbsp;</li>{/if}
+			{if $head_mobile}<li class="h_qrcode"><a href="javascript:Dqrcode();">二维码</a>&nbsp;</li>{/if}
+			{if isset($MODULE[16])}<li class="h_cart"><a href="{$MODULE[16][linkurl]}cart.php" rel="nofollow">购物车</a>(<span class="head_t" id="destoon_cart">0</span>)</li>{/if}
+			</ul>
+		</div>
+	</div>
+</div>
+{if $head_mobile}<div id="destoon_qrcode" style="display:none;"></div>{/if}
+<div class="m head_s" id="destoon_space"></div>
+<div class="m"><div id="search_tips" style="display:none;"></div></div>
+<div class="m">
+	<div class="logo f_l"><a href="{$MODULE[1][linkurl]}"><img src="{if $MODULE[$moduleid][logo]}{DT_SKIN}image/logo_{$moduleid}.gif{elseif $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" alt="{$DT[sitename]}"/></a></div>
+	<div class="logo_bar">
+		<div class="main_bar">
+			<div class="nav_main">
+			  <ul class="ul_a">
+				<li class="ttt">资</li>
+				<li><a title="行业新闻" href="">新闻</a></li>
+				<li><a title="政策法规" href="">政策</a></li>
+				<li><a title="行业会讯" href="">会讯</a></li>
+				<li><a title="三农人物" href="">人物</a></li>
+				<li class="ttt">讯</li>
+				<li><a title="行业标准" href="">标准</a></li>
+				<li><a title="致富经验" href="">经验</a></li>
+				<li><a title="市场分析" href="">分析</a></li>
+				<li><a title="特色产业" href="">产业</a></li>
+			  </ul>
+			  <ul class="ul_b">
+				<li class="ttt">行</li>   
+				<li><a title="粮油价格" href="">粮油</a></li>
+				<li><a title="蔬菜价格" href="">蔬菜</a></li>
+				<li><a title="水果价格" href="">水果</a></li>
+				<li><a title="化肥价格" href="">化肥</a></li>
+				<li><a title="药材价格" href="">药材</a></li>
+				<li><a title="农药价格" href="">农药</a></li>
+				<li class="ttt">情</li>        
+				<li><a title="畜禽价格" href="">畜禽</a></li>
+				<li><a title="水产价格" href="">水产</a></li>
+				<li><a title="饲料价格" href="">饲料</a></li>     
+				<li><a title="茶叶价格" href="">茶叶</a></li>      
+				<li><a title="特养价格" href="">特养</a></li>      
+				<li><a title="干果价格" href="">干果</a></li>      
+			  </ul>
+			  <ul class="ul_a">             
+				<li class="ttt">技</li>
+				<li><a title="蔬菜技术" href="">蔬菜</a></li>
+				<li><a title="水果技术" href="">水果</a></li>
+				<li><a title="茶叶技术" href="">茶叶</a></li>
+				<li><a title="园林技术" href="">园林</a></li>
+				<li class="ttt">术</li>
+				<li><a title="水产技术" href="">水产</a></li>
+				<li><a title="畜禽技术" href="">畜禽</a></li>
+				<li><a title="药材技术" href="">药材</a></li>
+				<li><a title="特养技术" href="">特养</a></li>
+			  </ul>
+			  <ul class="con">
+				<li class="ttt">服</li>
+				<li><a title="供应信息" href="">供应</a></li>
+				<li><a title="求购信息" href="">求购</a></li>
+				<li><a title="招商代理" href="">招商</a></li>
+				<li class="ttt">务</li>                     
+				<li><a title="致富项目" href="">项目</a></li>
+				<li><a title="广告推广" href="">广告</a></li>
+				<li><a title="留言" target="_blank" href="">留言</a></li>
+			  </ul>
+			</div>
+		</div>
+	</div>
+	<div class="c_b"></div>
+</div>
+<div class="nav_head">
+	<div class="m_head">
+		<ul class="clearfix">
+		<li {if $moduleid<4} class="menuon"{/if}><a href="{$MODULE[1][linkurl]}">首&nbsp;页</a></li>
+		</li>{loop $MODULE $i $m}{if $m[ismenu] && $i<17}<li{if $m[moduleid]==$moduleid} class="menuon"{/if}><a href="{$m[linkurl]}"{if $m[isblank]} target="_blank"{/if}><span{if $m[style]} style="color:{$m[style]};"{/if}>{$m[name]}</span></a></li>{/if}{/loop}
+		</ul>
+		<div class="special"><i class="icon_hot"></i><a class="spe" href="{$MODULE[11][linkurl]}" target="_blank" title="专题">专题</a></div>
+	</div>
+</div>
+<div class="m">
+	<div id="search_module" style="display:none;" onmouseout="Dh('search_module');" onmouseover="Ds('search_module');">
+	{loop $MODULE $m}{if $m[ismenu] && !$m[islink]}<a href="javascript:void(0);" onclick="setModule('{$m[moduleid]}','{$m[name]}')">{$m[name]}</a>{/if}{/loop}
+	</div>
+</div>
+<div class="m">
+	<div class="sub_nav clearfix">
+		<div class="zt_nav">
+			<div class="zt_l_link">畜禽</div>
+			  <ul>
+				<li><a href="" title="养猪技术">养猪</a></li>
+				<li><a href="" title="养牛技术">养牛</a></li>
+				<li><a href="" title="CCTV7致富经养兔技术">养兔</a></li>
+				<li><a href="" title="养羊技术">养羊</a></li>
+				<li><a href="" title="CCTV7致富经养鸡技术">养鸡</a></li>
+				<li><a href="" title="养鸭技术">养鸭</a></li>
+				<li><a href="" title="养鹅技术">养鹅</a></li>
+				<li><a href="" title="养野猪技术">野猪</a></li>
+				<li><a href="" title="CCTV7致富经养鸽技术">养鸽</a></li>
+				<li><a href="" title="野鸡技术">野鸡</a></li>
+				<li><a href="" title="养火鸡技术">火鸡</a></li>
+				<li><a href="" title="养鸵鸟技术">鸵鸟</a></li>
+			  </ul>
+			<div class="zt_l_link">水产</div>
+			  <ul>
+				<li><a href="" title="CCTV7致富经养鱼">养鱼</a></li>
+				<li><a href="" title="">养虾</a></li>
+				<li><a href="" title="">螃蟹</a></li>
+				<li><a href="" title="CCTV7致富经黄鳝">黄鳝</a></li>
+				<li><a href="" title="CCTV7致富经泥鳅">泥鳅</a></li>
+				<li><a href="" title="CCTV7致富经养蛇">养蛇</a></li>
+				<li><a href="" title="CCTV7致富经养龟">养龟</a></li>
+				<li><a href="" title="">牛蛙</a></li>
+				<li><a href="" title="">鳄鱼</a></li>
+				<li><a href="" title="">水蛭</a></li>
+				<li><a href="" title="">甲鱼</a></li>
+				<li><a href="" title="CCTV7致富经锦鲤">锦鲤</a></li>
+			  </ul>
+			<div class="zt_l_link">特养</div>
+			  <ul>
+				<li><a href="" title="CCTV7致富经蝎子">蝎子</a></li>
+				<li><a href="" title="CCTV7致富经蜈蚣">蜈蚣</a></li>
+				<li><a href="" title="土元养殖技术">土元</a></li>
+				<li><a href="" title="蚯蚓养殖">蚯蚓</a></li>
+				<li><a href="" title="CCTV7致富经竹鼠">竹鼠</a></li>
+				<li><a href="" title="蜜蜂养殖">蜜蜂</a></li>
+				<li><a href="" title="蜗牛养殖">养蚕</a></li>
+				<li><a href="" title="CCTV7致富经黄粉虫">黄虫</a></li>
+				<li><a href="" title="豪猪养殖">豪猪</a></li>
+				<li><a href="" title="狐狸养殖">狐狸</a></li>
+				<li><a href="" title="养鹿">养鹿</a></li>
+				<li><a href="" title="孔雀养殖">孔雀</a></li>
+			  </ul>
+		</div>
+		<form id="destoon_search" action="{$MODULE[$searchid][linkurl]}search.php" onsubmit="return Dsearch(1);">
+			<input type="hidden" name="moduleid" value="{$searchid}" id="destoon_moduleid"/>
+			<input type="hidden" name="spread" value="0" id="destoon_spread"/>
+			<div class="head_search" onmouseover="this.className='head_search_on';" onmouseout="this.className='head_search';">
+				<div>
+					<input name="kw" id="destoon_kw" type="text" class="search_i" value="{if $kw}{$kw}{else}请输入关键词{/if}" onfocus="if(this.value=='请输入关键词') this.value='';"{if $DT[search_tips]} onkeyup="STip(this.value);" autocomplete="off"{/if} x-webkit-speech speech/><input type="text" id="destoon_select" class="search_m" value="{$MODULE[$searchid][name]}" readonly onfocus="this.blur();" onclick="$('#search_module').fadeIn('fast');"/><input type="submit" value=" " class="search_s"/>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

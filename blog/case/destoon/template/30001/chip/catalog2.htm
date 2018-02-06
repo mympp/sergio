@@ -1,0 +1,39 @@
+<div class="consumer bd cler" onmousemove="getFocus(this)" onmouseout="lostFocus(this)">
+			<table cellspacing="2" cellpadding="0" width="100%"><tr>
+				{if $DT[page_bigcat]}{loop $BIG $kkk $vvv}{if $kkk==$knum}<td class="c_tit"><h4>{$vvv}</h4></td>{/if}{/loop}{/if}
+				<td>
+					<div class="cn_left" {if $DT[page_bigcat]}style="width:680px"{/if}>
+						{php $child = get_maincat(0, $mid, $knum+1);}
+						{loop $child $i $c}
+						{if $i<8}
+						<div class="catalogindex" {if !$DT[page_bigcat]}style="width:335px"{/if}>
+							<table width="100%" cellspacing="0" cellpadding="0">
+								<tr>
+									<td><div class="catalogt"><i><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" class="a_cc_0" target="_blank"><span>{set_style($c[catname], $c[style])}</span></a></i></div></td>
+									<td class="c_small_bg">
+										<ul class="c_small_1 clre">
+											{if $c[child]}
+											{php $sub = get_maincat($c[catid], $mid, 2);}
+											{loop $sub $j $s}{if $j < 3}<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank"><span>{set_style($s[catname], $s[style])}</span></a></li>{/if}{/loop}
+											{/if}                                                                    
+										</ul>
+									</td> 
+								</tr>
+							</table>
+							<div class="c_b"></div>
+							{if $c[child]}
+							{php $sub = get_maincat($c[catid], $mid, 1);}
+							<div class="c_small_2 clre">							
+								{loop $sub $j $s}
+								{if $j<12}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" class="g"><span>{set_style($s[catname], $s[style])}</span></a>&nbsp;&nbsp;{/if}
+								{/loop}
+								{if $j>8}<a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank" class="g">更多</a>{/if}								
+							</div> 
+							{/if}
+						</div>
+						{/if}
+						{/loop}
+					</div> 
+				</td>
+			</tr></table> 
+		</div>

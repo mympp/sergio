@@ -1,0 +1,328 @@
+{template 'header_member', 'mobile'}
+{template 'cssjs', 'mobile'}
+<header class="aui-bar aui-bar-nav aui-bar-info" id="aui-header">
+        <a class="aui-btn aui-bar-info aui-pull-left" href="{if $action == ''}{$MYURL}?action=info{else}javascript:history.go(-1);{/if}">
+            <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+    <div class="aui-title">{$head_name}</div>
+<a href="my.php" class="aui-pull-right">
+        我的
+    </a></header>
+<div class="aui-bar-fix"></div>
+<span id="msg"></span>
+<div class="aui-tab" id="aui-tab">
+        <ul class="aui-tab-nav" id="sell_info">
+                <li id="action"><a href="?action=index"><span>申请提现</span></a></li>
+                <li id="record"><a href="?action=record"><span>提现记录</span></a></li>
+                <li id="setting"><a href="?action=setting"><span>帐号设置</span></a></li>
+        </ul>
+</div>
+</div>
+
+{if $action == 'record'}
+	<style type="text/css">
+		.order {
+			background: #ffffff;
+			margin-top:10px;
+		}
+		.order-info  {
+			font-size: 0.875em;
+			width: 100%;
+		}
+		.order-info span {
+			color: #333;
+			margin-right: 5px;
+		}
+		.order-info time {
+			color: #999999;
+			font-size: 0.75em;
+		}
+		.order-info i.aui-iconfont {
+			color: #999;
+			font-size: 0.875em;
+		}
+		.order-icon img {
+			width: 80%;
+			border-radius: 5px;
+		}
+		.order-title {
+			font-size: 1em;
+			color: #333;
+			padding-bottom: 10px;
+			margin-bottom: 10px;
+		}
+		.order-title > i.aui-iconfont {
+			font-size: 0.87em;
+			color: #999999;
+		}
+		p.goods-list {
+			font-size: 0.75em;
+			color: #999;
+			margin-bottom: 8px;
+		}
+		p.count-info {
+			font-size: 0.75em;
+			color: #999;
+			padding-bottom: 5px;
+		}
+		p.count-info span {
+			margin: 0 3px;
+		}
+		p.count-info strong {
+			color: #666;
+			font-size: 1em;
+			font-weight: 700;
+		}
+		.btn {
+			/*margin: 5px;*/
+		}
+		.btn .aui-btn {
+			font-size: 0.75em;
+		}
+		.btn .aui-btn:first-child {
+			margin-right: 10px;
+		}
+		.aui-border-b:after {
+			border-color: #ddd;
+		}
+	</style>
+
+{loop $cashs $k $v}
+	<section class="aui-content order">
+		<div class="aui-flex-col order-info aui-padded-10">
+			<div class="aui-flex-item-12">
+				<span>申请时间</span>
+				<time>{$v[addtime]}&nbsp;&nbsp;受理时间：{$v[edittime]}</time>
+				<i class="aui-iconfont aui-icon-delete aui-pull-right"></i>
+			</div>
+		</div>
+		<div class="aui-flex-col">
+			<div class="aui-flex-item-2 order-icon aui-text-right">
+			</div>
+			<div class="aui-flex-item-10 aui-padded-0-15">
+				<p class="order-title aui-border-b aui-ellipsis-1">{$v[truename]}<i class="aui-iconfont aui-icon-right"></i><span class="fz14">{$v[bank]}</span></p>
+				<p class="goods-list fz14">
+					收款账号:<span class="aui-text-danger">{$v[account]}</span>
+				</p>
+				<p class="aui-text-left aui-border-b count-info aui-ellipsis-1">
+					实收：<span class="aui-text-red">{$v[amount]}</span>&nbsp;手续费：<span class="f_blue">{$v[fee]}</span>&nbsp;状态：{$v[dstatus]}
+				</p>
+			</div>
+		</div>
+		<div class="aui-flex-col aui-padded-5 btn">
+			<div class="aui-flex-item-12 aui-text-right">
+			</div>
+		</div>
+	</section>
+{/loop}
+ <div class="aui-form">
+           <div class="aui-input-row">
+            <div class="aui-input-addon">小计</div>
+            <span class="fz14"><p class="aui-padded-t10 aui-ml-10">实收：<span class="aui-text-red">{$amount}</span>&nbsp;&nbsp;手续费：<span class="aui-text-blue">{$fee}</span></p></span>
+            </div>
+            </div>
+</div>
+{if $pages}<div class="aui-content"><div class="pages" id="scroller">{$pages}</div></div>{/if}
+<script type="text/javascript">s('cash');tabbar('record');</script>
+{elseif $action == 'setting'}
+{if $vbank}
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">开户银行</span>
+                <input type="text" class="aui-input aui-text-red" value="{$member[bank]}" readonly="readonly"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">开户网点</span>
+                <input type="text" class="aui-input aui-text-red" name="branch" value="{$member[branch]}" readonly="readonly"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">收款户名</span>
+                <input type="text" class="aui-input aui-text-red" value="{if $member[banktype]}{$member[company]}{else}{$member[truename]}{/if}" readonly="readonly"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">帐号类型</span>
+                <input type="text" class="aui-input aui-text-red" value="{if $member[banktype]}对公{else}对私{/if}" readonly="readonly"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">收款帐号</span>
+                <input type="text" class="aui-input aui-text-red" name="account" value="{$member[account]}"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">认证状态</span>
+                <input type="text" class="aui-input aui-text-red" value="已认证" readonly="readonly"/>
+            </div>
+        </div>
+
+{else}
+<form method="post" action="?" onsubmit="return check();">
+<input type="hidden" name="action" value="{$action}"/>
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">开户银行</span>
+                <span>{$bank_select}</span>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">帐号类型</span>
+                <span class="aui-ml-10"><input type="radio" name="banktype" value="0"{if $member[banktype]==0} checked{/if} onclick="Dd('name').innerHTML='{$member[truename]}';"/> 对私
+<input type="radio" name="banktype" value="1"{if $member[banktype]==1} checked{/if} onclick="Dd('name').innerHTML='{$member[company]}';"/> 对公</span>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">开户网点</span>
+                <input type="text" class="aui-input aui-text-red" name="branch" value="{$member[branch]}" id="branch" placeholder="例：陕西省西安市高新支行" />
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">收款户名</span>
+                <input type="text" class="aui-input aui-text-red" value="{$member[truename]}" readonly="readonly"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">收款帐号</span>
+                <input type="text" class="aui-input aui-text-red" name="account" value="{$member[account]}" id="account" placeholder="收款帐号"/>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">支付密码</label>
+<div class="aui-list-item" id="captcha-bar">{template 'password', 'chip'}</div>
+            </div>
+
+        </div>
+        
+<div class="aui-btn-row aui-borderb-no" style="background-color:#FFF;">
+ <input type="submit" name="submit" value=" 确 定 " class="aui-btn aui-btn-danger fz16"/>
+</div>
+
+</form>
+<script type="text/javascript">
+function check() {
+	var f,l;
+	f = 'bank';
+	if(Dd(f).value == '') {
+		laymsg('请选择开户银行', f);
+		return false;
+	}
+	f = 'branch';
+	l = Dd(f).value.length;
+	if(l < 4) {
+		laymsg('请填写开户网点', f);
+		return false;
+	}
+	f = 'account';
+	l = Dd(f).value.length;
+	if(l < 6) {
+		laymsg('请填写收款帐号', f);
+		return false;
+	}
+	f = 'password';
+	l = Dd(f).value.length;
+	if(l < 6) {
+		laymsg('请填写支付密码', f);
+		return false;
+	}
+	return true;
+}
+$(document).ready(function(){
+	$('#bank').change(function(){
+		var bank = $('#bank').val();
+		if(bank == '支付宝') {
+			$('#branch').val('支付宝（中国）网络技术有限公司');
+		} else if(bank == '财付通') {
+			$('#branch').val('深圳市财付通科技有限公司');
+		}
+	});
+});
+</script>
+{/if}
+<script type="text/javascript">s('cash');tabbar('setting');</script>
+{elseif $action == 'confirm'}
+<form method="post" action="?" onsubmit="return check();">
+<input type="hidden" name="action" value="confirm"/>
+<input type="hidden" name="amount" value="{$amount}"/>
+
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">可用金额</span>
+                <input type="text" class="aui-input aui-text-red" value="{$_money}" readonly="readonly"/><span class="aui-input-addon">{$DT[money_unit]}</span>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">提现金额</span>
+                <input type="text" class="aui-input aui-text-red" value="{$amount}" readonly="readonly"/><span class="aui-input-addon">{$DT[money_unit]}</span>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">手续费</span>
+                <input type="text" class="aui-input aui-text-red" value="{$fee}" readonly="readonly"/><span class="aui-input-addon">{$DT[money_unit]}</span>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">实收金额</span>
+                <input type="text" class="aui-input aui-text-red" value="{$money}" readonly="readonly"/><span class="aui-input-addon">{$DT[money_unit]}</span>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">支付密码</label>
+<div class="aui-list-item" id="captcha-bar">{template 'password', 'chip'}</div>
+            </div>
+
+        </div>
+        
+<div class="aui-btn-row aui-borderb-no" style="background-color:#FFF;">
+ <input type="submit" name="submit" value=" 确 定 " class="aui-btn aui-btn-danger fz16"/>&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="submit" value=" 取 消 " class="aui-btn aui-btn-info fz16" onclick="history.back(-1);"/>
+</div>
+</form>
+<script type="text/javascript">
+function check() {
+	var f,l;
+	f = 'password';
+	l = Dd(f).value.length;
+	if(l < 6) {
+		laymsg('请填写支付密码', f);
+		return false;
+	}
+	return true;
+}
+</script>
+<script type="text/javascript">s('cash');tabbar('action');</script>
+{else}
+<form method="post" action="?" onsubmit="return check();">
+<input type="hidden" name="action" value="confirm"/>
+
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">可用金额</span>
+                <span class="aui-ml-10 f_blue">{$_money}</span> {$DT[money_unit]}
+            </div>
+           <div class="aui-input-row">
+            <div class="aui-input-addon">提现说明</div>
+            <span class="fz14"><p class="aui-padded-t10 aui-ml-10">{if $MOD[cash_times]}- 24小时可提现次数{$MOD[cash_times]}次<br/>{/if}
+{if $MOD[cash_min]}- 单次提现最小金额{$MOD[cash_min]}{$DT[money_unit]}<br/>{/if}
+{if $MOD[cash_max]}- 单次提现最大金额{$MOD[cash_max]}{$DT[money_unit]}<br/>{/if}
+{if $MOD[cash_fee]}- 提现费率{$MOD[cash_fee]}%<br/>{/if}
+{if $MOD[cash_fee_min]}- 提现费率最小值{$MOD[cash_fee_min]}{$DT[money_unit]}<br/>{/if}
+{if $MOD[cash_fee_max]}- 提现费率封顶值{$MOD[cash_fee_max]}{$DT[money_unit]}<br/>{/if}</p></span>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">提现金额</span>
+                <input type="text" class="aui-input aui-text-red"  name="amount" id="amount" value=""/>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">支付密码</label>
+<div class="aui-list-item" id="captcha-bar">{template 'password', 'chip'}</div>
+            </div>
+        </div>
+        
+<div class="aui-btn-row aui-borderb-no" style="background-color:#FFF;">
+ <input type="submit" name="submit" value="申请提现" class="aui-btn aui-btn-success fz16"/>
+</div>
+
+</form>
+<script type="text/javascript">
+function check() {
+	var f,l;
+	f = 'amount';
+	l = Dd(f).value.length;
+	if(l < 1) {
+		laymsg('请填写提现金额', f);
+		return false;
+	}
+	return true;
+}
+</script>
+<script type="text/javascript">s('cash');tabbar('action');</script>
+{/if}
+
+{template 'footer_member', 'mobile'}

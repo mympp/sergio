@@ -1,0 +1,69 @@
+<div class="m b10">&nbsp;</div>
+<div class="footer">
+	<div class="wrap border_b clearfix pb20">
+		<div class="footer_l tc lh24">
+			<a href="{$MODULE[1][linkurl]}"><img src="{if $MODULE[$moduleid][logo]}{DT_SKIN}image/logo_{$moduleid}.gif{elseif $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" alt="{$DT[sitename]}"/></a>
+			<p class="f24 gray9 arial bold mt10">{$DT[telephone]}</p>
+			<p class="f18 gray9"><a href="mailto:javascript:void();">kefu@kefu.com</a></p>
+		</div>
+		<div class="footer_c">
+			<dl>
+				<dt>新手指南</dt>
+				<dd><a href="" target="_blank" rel="nofollow">买家入门</a></dd>
+				<dd><a href="" target="_blank" rel="nofollow">卖家入门</a></dd>
+				<dd><a href="" target="_blank" rel="nofollow">常见问题</a></dd>
+			</dl>
+			<dl>
+				<dt>关注我们</dt>
+				<dd><a href="" target="_blank" rel="nofollow">关于我们</a></dd>
+				<dd><a href="" target="_blank" rel="nofollow">联系方式</a></dd>
+				<dd><a href="" target="_blank" rel="nofollow">用户协议</a></dd>
+			</dl>
+			<dl>
+				<dt>会员服务</dt>
+				<dd><a href="{$MODULE[2][linkurl]}my.php?mid=5&action=add" target="_blank" rel="nofollow">发布供应产品</a></dd>
+				<dd><a href="{$MODULE[2][linkurl]}my.php?mid=6&action=add" target="_blank" rel="nofollow">发布求购信息</a></dd>
+				<dd><a href="{$MODULE[2][linkurl]}" target="_blank" rel="nofollow">商务中心</a></dd>
+			</dl>
+			<dl>
+				<dt>导航</dt>
+				<dd><a href="{$MODULE[1][linkurl]}sitemap/" target="_blank">网站导航</a></dd>
+				<dd><a href="{$EXT[ad_url]}" target="_blank">广告服务</a></dd>
+				<dd><a href="{$EXT[gift_url]}" target="_blank">积分换礼</a></dd>
+			</dl>
+		</div>
+		<div class="footer_r fl">
+			<div class="fl tc"><img src="{DT_SKIN}image/wx.png" width="120" height="120"><br>微信</div>
+			<div class="fl tc ml20"><img src="{DT_SKIN}image/wx.png" width="120" height="120"><br>微博</div>
+		</div>
+	</div>
+	<div class="footer_nav tc mt15 mb5">
+		<a href="{$MODULE[1][linkurl]}">网站首页</a>
+	<!--{tag("table=webpage&condition=item=1&areaid=$cityid&order=listorder desc,itemid desc&template=list-webpage")}-->
+	| <a href="{$MODULE[1][linkurl]}sitemap/">网站地图</a>
+	| <a href="{$EXT[spread_url]}">排名推广</a>
+	{if $EXT[ad_enable]} | <a href="{$EXT[ad_url]}">广告服务</a>{/if}
+	{if $EXT[gift_enable]} | <a href="{$EXT[gift_url]}">积分换礼</a>{/if}
+	{if $EXT[guestbook_enable]} | <a href="{$EXT[guestbook_url]}">网站留言</a>{/if}
+	{if $EXT[feed_enable]} | <a href="{$EXT[feed_url]}">RSS订阅</a>{/if}
+	</div>
+	<div class="footer_copyright tc lh24">
+		<p>{$DT[copyright]}</p>
+		<p>{$DT[icpno]}</p>
+	</div>
+</div>
+<script src="{DT_SKIN}js/common.js"></script>
+<script src="{DT_SKIN}js/SuperSlide.js"></script>
+<script src="{DT_SKIN}js/index.js"></script>
+<!--[以下为系统关键代码，请勿删除]-->
+<script type="text/javascript">
+{if $destoon_task}
+show_task('{$destoon_task}');
+{else}
+{php include DT_ROOT.'/api/task.inc.php';}
+{/if}
+{if $lazy}$(function(){$("img").lazyload();});{/if}
+</script>
+<!--底部-->
+</body>
+</html>

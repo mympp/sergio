@@ -1,0 +1,153 @@
+{template 'header_member', 'mobile'}
+{template 'cssjs', 'mobile'}
+<style>
+.tb {background:#FFFFFF;width:100%;}
+.tl {background:#F7F7F7;width:115px;text-align:left; letter-spacing:1px;}
+.tr {background:#FFFFFF;}
+#area-select { max-width:80px !important;}
+#type { margin-left:15px;}
+.aui-content-padded {
+    margin-top: 15px;
+}
+.aui-content {
+    margin-bottom: 0px;
+}
+.aui-tab {
+    margin-bottom: 15px;
+}
+.aui-tab li.active { color:#FFF !important;}
+</style>
+<script type="text/javascript" src="script/iScroll5/iscroll.js"></script>
+
+<header class="aui-bar aui-bar-nav aui-bar-info" id="aui-header">
+        <a class="aui-btn aui-btn-info aui-pull-left" href="my.php?action=home">
+            <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+    <div class="aui-title">{$head_name}</div>
+    <a href="my.php" class="aui-pull-right">我的</a>
+    <a href="?action=add" class="aui-pull-right">添加</a>
+</header>
+<div class="aui-bar-fix"></div>
+<div class="aui-content aui-mb-15" style="background-color:#FFF;">
+			<div class="bbs-wrapper">
+				<div id="scroller">
+					<ul>
+            <li id="tabbar5"><a href="?action=add">添加链接</a></li>
+            <li id="tabbar3"><a href="?action=index">已发布<span class="aui-badge aui-badge-info">{$nums[3]}</span></a></li>
+            <li id="tabbar2"><a href="?status=2">审核中<span class="aui-badge aui-badge-info">{$nums[2]}</span></a></li>
+					</ul>
+				</div>
+			</div>
+
+<script type="text/javascript">
+myScroll = new IScroll('.bbs-wrapper', {
+eventPassthrough : false,
+scrollX : true,
+scrollY : false,
+preventDefault : true,
+click:true
+});
+myScroll.scrollToElement(Dd('tabbar{$status}'), 800);
+</script>
+</div>
+
+{if $action=='add' || $action=='edit'}
+<form method="post" action="?" id="dform" onsubmit="return check();">
+<input type="hidden" name="action" value="{$action}"/>
+<input type="hidden" name="itemid" value="{$itemid}"/>
+<input type="hidden" name="forward" value="{$forward}"/>
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">网站名称</span>
+                <input type="text" name="post[title]" id="title" class="aui-input" value="{$title}" placeholder="网站名称"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">链接地址</span>
+                <input type="text" name="post[linkurl]" id="linkurl" class="aui-input" value="{$linkurl}" placeholder="链接地址"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">排序</span>
+                <input type="number" name="post[listorder]" id="listorder" class="aui-input" value="{$listorder}" placeholder="请填写数字，数字越大越靠前"/>
+            </div>
+</div>
+<div class="aui-btn-row" style="background-color:#FFF;">
+ <input type="submit" name="submit" value=" 提 交 " class="aui-btn aui-btn-danger fz16"/>&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="submit" value=" 取 消 " class="aui-btn aui-btn-info fz16" onclick="history.back(-1);"/>
+</div>
+
+</form>
+{load('clear.js')}
+<script type="text/javascript">tabbar('tabbar{$status}');</script>
+{else}
+{if $lists}
+<form method="post">
+
+<ul class="aui-list-view aui-in" id="sell_list">
+{loop $lists $t}
+<li id="{$t[itemid]}">
+<div class="aui-list-view-cell aui-img aui-counter-list drop-div">
+<input class="aui-pull-left aui-checkbox" type="checkbox" id="itemids" name="itemid" value="{$t[itemid]}">                <div class="aui-img-body aui-pull-left">
+                    <span class="Dt-text-ellipsis">{if $status==3}<a href="{$t[linkurl]}">{else}<a href="?action=edit&itemid={$t[itemid]}">{/if}{$t[title]}</a></span>
+                    <p class="aui-ellipsis-1 fz12"><a href="{$t[linkurl]}" target="_blank">{$t[linkurl]}</a></p>
+                    <p class="aui-ellipsis-1 fz12"><span class="aui-mr-5"><i class="aui-iconfont aui-icon-time aui-text-gray"></i>{timetodate($t[edittime], 4)}</span></p>
+                </div>
+                </div>
+  <div class="hidden-menu">
+    <p class="two"><a href="?action=edit&itemid={$t[itemid]}">修改</a></p>
+    {if $MG[delete]}<p class="one"><a href="?action=delete&itemid={$t[itemid]}" onclick="if(!confirm('确定要删除吗？此操作将不可撤销')) return false;">删除</a></p>{/if}
+    
+  </div>
+                
+</li>
+
+{/loop}
+</ul>
+<ul class="aui-list-view check-menu-in" id="check-menu">
+<li>
+<div class="aui-list-view-cell aui-img" style="width:100%">
+<input class="aui-pull-left aui-checkbox" type="checkbox" onclick="checkall(this.form);" style="height:15px; width:15px;">
+    <div class="aui-pull-left check-menu">
+    <input type="submit" value=" 删除选中 " class="aui-btn aui-btn-danger" style="padding: 3px 10px;" onclick="if(confirm('确定要删除选中证书吗？')){this.form.action='?action=delete'}else{return false;}"/>
+</div>
+</div>
+                
+</li>
+</ul>
+{if $MG[link_limit]}
+<div class="aui-content aui-bg-white">
+  <div class="aui-ellipsis-2" style="padding:10px; font-size:12px">
+<div class="limit">总共可发 <span class="aui-text-red">{$MG[link_limit]}</span> 条&nbsp;&nbsp;&nbsp;当前已发 <span class="f_b">{$limit_used}</span> 条&nbsp;&nbsp;&nbsp;还可以发 <span class="aui-text-info">{$limit_free}</span> 条</div>
+  </div>
+</div>
+{/if}
+</form>
+{if $pages}<div class="pages aui-text-center">{$pages}</div>{/if}
+{else}
+<ul class="aui-list-view">
+<li class="aui-list-view-cell aui-img">
+                <div class="aui-img-body aui-pull-left">
+                    <p class="aui-ellipsis-1">暂无信息</p>
+                </div>
+</li>
+</ul>
+
+{/if}
+</div>
+<script type="text/javascript">tabbar('tabbar{$status}');</script>
+<script type="text/javascript" src="script/addpan.js" charset="utf-8"></script>
+{/if}
+{if $action=='add' || $action=='edit'}
+<script type="text/javascript">
+function check() {
+	if(Dd('title').value == '') {
+		laymsg('请填写网站名称', 'title');
+		return false;
+	}
+	if(Dd('linkurl').value.length < 15) {
+		laymsg('请填写网站地址', 'linkurl');
+		return false;
+	}
+	return true;
+}
+</script>
+{/if}
+{template 'footer_member', 'mobile'}

@@ -1,0 +1,41 @@
+{template 'header', $template}
+<div class="dsn" id="pos_show">您当前的位置：<a href="{$COM[linkurl]}">首页</a> &raquo; <a href="{$MENU[$menuid][linkurl]}">{$MENU[$menuid][name]}</a>{if $itemid} &raquo; {$title}{/if}</div>
+
+<div class="main_head"><div><strong>{$MENU[$menuid][name]}</strong></div></div>
+<div class="main_body">
+{if $itemid}
+	<div class="title">{$title}</div>
+	<div class="info">发布时间：{timetodate($addtime, 3)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浏览次数：{$hits}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{$MENU[$menuid][linkurl]}">返回列表</a></div>
+	<div class="content" id="content">{$content}</div>
+	<script type="text/javascript">
+	var content_id = 'content';
+	var img_max_width = 600;
+	</script>
+	<script type="text/javascript" src="{DT_STATIC}file/script/content.js"></script>
+{else}
+<div class="xc_right ">
+	<div class="p20">
+	  <div class="newlist_box">
+			<ul class="newlist">
+				{loop $lists $v}
+				<li class="clearfix">
+				<div class="imgBox">
+				<img src="{$v[thumb]}"  alt=""></div>
+				<h3>
+				  <a title="{$v[title]}" href="{$v[linkurl]}" target="_blank">{$v[title]}</a>
+				  <time>{timetodate($t[edittime], 3)}</time>
+				</h3>
+				<p>{$v[introduce]}</p><a href="{$v[linkurl]}" class="Themefont">[ 查看详情 ]</a>
+				</li>
+				{/loop}
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="pages">{$pages}</div>
+{/if}
+</div>
+<script type="text/javascript">
+try {Dd('type_{$typeid}').innerHTML = '<strong>'+Dd('name_{$typeid}').innerHTML+'</strong>';}catch (e){}
+</script>
+{template 'footer', $template}

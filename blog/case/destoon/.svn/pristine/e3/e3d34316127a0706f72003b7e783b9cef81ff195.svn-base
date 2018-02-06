@@ -1,0 +1,4 @@
+        <div class="aui-content dt-paths-bar">
+                    <span class="aui-margin-l-5 aui-padded-t-5 dt-text-gray"><a href="{$MODULE[1][linkurl]}">首页</a>&nbsp;&gt;&nbsp;<a href="{$MOD[linkurl]}">{$MOD[name]}</a>&nbsp;&gt;&nbsp;{cat_pos($CAT, '&nbsp;&gt;&nbsp;')}</span>
+            </div>
+            <div class="aui-hr"></div>

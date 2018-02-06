@@ -1,0 +1,121 @@
+<div class="m">&nbsp;</div>
+ <div id="footer"> 
+	<div class="wrapper"> 
+		<div class="footLeft left">
+		<p> 
+			<a href="{$MODULE[1][linkurl]}">网站首页</a>
+			<!--{tag("table=webpage&condition=item=1&areaid=$cityid&order=listorder desc,itemid desc&template=list-webpage1")}-->
+			<a href="{$MODULE[1][linkurl]}sitemap/">网站地图</a>
+			<a href="{$EXT[spread_url]}">排名推广</a>
+			{if $EXT[ad_enable]}<a href="{$EXT[ad_url]}">广告服务</a>{/if}
+			{if $EXT[gift_enable]}<a href="{$EXT[gift_url]}">积分换礼</a>{/if}
+			{if $EXT[guestbook_enable]}<a href="{$EXT[guestbook_url]}">网站留言</a>{/if}
+			{if $EXT[feed_enable]}<a href="{$EXT[feed_url]}">RSS订阅</a>{/if}
+			{if $DT[icpno]}<a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow">{$DT[icpno]}</a>{/if}
+		</p>
+		<p><div id="copyright" style="line-height:22px;text-align:left;color:#999;">{$DT[copyright]}</div></p>
+		<p>{if DT_DEBUG}<div class="px11" style="text-align:center;">{debug()}</div>{/if}</p>
+		<p><div id="powered" style="text-align:left;">
+		<a href="http://www.destoon.com/" target="_blank">
+		<img src="{DT_STATIC}file/image/powered.gif" width="136" height="10" alt="Powered by DESTOON"/></a></div></p> 
+		<div class="clear"></div> 
+	</div> 
+	<div class="footRight left"> 
+		<img src="{DT_SKIN}image/qrcode.png" alt="" /> 
+			<div> 
+				<p>手机扫描二维码</p> 
+				<p>下载APP</p> 
+			</div> 
+		</div>
+	</div>
+<!-- 侧边栏返回顶部 --> 
+<div class="return_top" id="fixed_box">
+	<ul class="return_lists"> 
+		<li class="lists1" id="lists1">
+		<i class="top_sj"></i><em></em><a href="javascript:;">TOP</a></li>
+		<li class="lists2" id="lists2"><a href="javascript:;">
+		<img src="{DT_SKIN}image/001_03.png" alt="" /></a> 
+		<div class="fixed_ewm hides" id="fixed_ewm">
+		<i class="left_sj"></i><em></em> 
+		<a href="javascript:;">
+		<img src="{DT_SKIN}image/002_03.png" alt="" /></a>
+		</div> 
+		</li> 
+	</ul>
+</div> 
+
+ <script type="text/javascript" src="{DT_SKIN}slideBanner.js"></script>
+ <script type="text/javascript" src="{DT_SKIN}navs.js"></script>
+ <script>
+ $(document).ready(function () {
+
+ detectOS();
+ 
+ });
+
+ //设为主页
+ /*function SetHome(obj, vrl) {
+ try {
+ obj.style.behavior = 'url(#default#homepage)'; 4047
+ obj.setHomePage(vrl);
+ }
+ catch (e) {
+ if (window.netscape) {
+ window.sidebar.addPanel(document.title, vrl, "")
+ }
+ }
+ }*/
+ window.onload = function () {
+ var fixed_box = document.getElementById("fixed_box");
+ var lists2 = document.getElementById("lists2");
+ var fixed_ewm = document.getElementById("fixed_ewm");
+ var lists1 = document.getElementById("lists1");
+ var oFoot = document.getElementById('footer');
+ var _scrollTop = '';
+ var timer = '';
+ lists2.onmouseover = function () {
+ fixed_ewm.className = 'fixed_ewm shows';
+ }
+ lists2.onmouseout = function () {
+ fixed_ewm.className = 'fixed_ewm hides';
+ }
+
+ /* 返回顶部 */
+ function returnTop(obj) {
+ obj.timer = setInterval(function () {
+ var leg = _scrollTop - _scrollTop / 3;
+ if (leg <= 0) {
+ leg = 0;
+ clearInterval(obj.timer);
+ }
+ if (document.body.scrollTop) {
+ document.body.scrollTop = leg;
+ } else {
+ document.documentElement.scrollTop = leg;
+ }
+ }, 20)
+ }
+ /* 返回顶部显示与隐藏 */
+ function showHidn() {
+ _scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+ _scrollTop > 500 && parseInt(oFoot.offsetTop) - parseInt(_scrollTop) - 400 > 0 ? fixed_box.style.display = 'block' : fixed_box.style.display = 'none';
+ }
+
+ window.onscroll = showHidn;
+ showHidn(); //返回顶部消失和隐藏函数
+
+ fixed_box.onclick = function () { returnTop(this) }; //返回顶部的动画函数
+
+ }
+ </script>
+
+<script type="text/javascript">
+{if $destoon_task}
+show_task('{$destoon_task}');
+{else}
+{php include DT_ROOT.'/api/task.inc.php';}
+{/if}
+{if $lazy}$(function(){$("img").lazyload();});{/if}
+</script>
+ </body> 
+ </html>

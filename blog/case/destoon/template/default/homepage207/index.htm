@@ -1,0 +1,30 @@
+{template 'header', $template}
+
+  <div class="con_main">
+    <!--焦点图-->
+	{if $bannert || $banner}
+<div class="slideBox banner mb15" id="banner">
+{if $bannert == 2}
+<div id="slide_banner" style="width:928px;height:266px;background:#FAFAFA;overflow:hidden;">
+<a href="###"><img src="{$banner1}" width="{$bannerw}" height="{$bannerh}" alt=""/></a>
+<a href="###"><img src="{$banner2}" width="{$bannerw}" height="{$bannerh}" alt=""/></a>
+{if $banner3}<a href="###"><img src="{$banner3}" width="{$bannerw}" height="{$bannerh}" alt=""/></a>{/if}
+{if $banner4}<a href="###"><img src="{$banner4}" width="{$bannerw}" height="{$bannerh}" alt=""/></a>{/if}
+{if $banner5}<a href="###"><img src="{$banner5}" width="{$bannerw}" height="{$bannerh}" alt=""/></a>{/if}
+</div>
+{load('slide.js')}
+<script type="text/javascript">new dslide('slide_banner');</script>
+{elseif $bannert == 1}
+<embed src="{$bannerf}" quality="high" loop="true" extendspage="http://get.adobe.com/flashplayer/" type="application/x-shockwave-flash" width="{$bannerw}" height="{$bannerh}" allowscriptaccess="never"></embed>
+{elseif $banner}
+<img src="{$banner}" width="100%"/>
+{/if}
+</div>
+ {/if}
+<!--end--> 
+{loop $HMAIN $HM $MAIN}
+{template 'main_'.$main_file[$HM], $template}
+{/loop}
+</div>
+
+{template 'footer', $template}

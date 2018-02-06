@@ -1,0 +1,57 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+<style>
+.type-list li a { width:100%; text-decoration:none; list-style:none;}
+</style>
+<header class="aui-bar aui-bar-nav" id="aui-header">
+        <a class="aui-pull-left aui-btn" href="{gl_mobile_homeurl($moduleid,$username,$item,0)}">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+        <div class="aui-title">{$head_name}</div>
+</header>
+
+<div class="aui-bar-fix"></div>
+
+{if $_TYPE}
+<div class="aui-content aui-margin-b-15 type-list">
+    <ul class="aui-list aui-list-in dt-border-t-none">
+     <li class="aui-list-item">
+      <a href="{gl_mobile_homeurl($moduleid,$username,$item,0,0)}">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title">全部分类</div>
+            </div>
+            </a>
+        </li>
+
+{loop $_TP[0] $k0 $v0}
+     
+     <li class="aui-list-item">
+       <a href="{gl_mobile_homeurl($moduleid,$username,$item,$v0[typeid],0)}">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title">{$v0[typename]}</div>
+                
+            </div>
+          </a>
+     </li>
+        
+        
+{if isset($_TP[1][$v0[typeid]])}
+{loop $_TP[1][$v0[typeid]] $v1}
+     
+     <li class="aui-list-item">
+          <a href="{gl_mobile_homeurl($moduleid,$username,$item,$v1[typeid],0)}">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title">&nbsp;&nbsp;- {$v1[typename]}</div>
+            </div>
+            </a>
+        </li>
+       
+{/loop}
+{/if}
+{/loop}
+</ul>
+</div>
+{else}
+<div class="aui-content-padded aui-text-center" style="height:5rem;"><div class="list-empty">暂无分类</div></div>
+{/if}
+{template 'footer_v2', 'mobile'}

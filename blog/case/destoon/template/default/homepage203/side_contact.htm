@@ -1,0 +1,14 @@
+{if $file != 'contact' && $could_contact}
+<!--联系方式开始-->
+		<div class="sidebar_mod sidebar_contact">
+			<div class="hd"><h2><i></i>{$side_name[$HS]}</h2></div>
+			<div class="bd">联系人：{$COM[truename]}<br>
+						{if $COM[telephone]}电话： {$COM[telephone]}<br>{/if}
+						{if $COM[mobile]}手机： {$COM[mobile]}<br>{/if}
+						{if $COM[fax]}传真： {$COM[fax]}<br>{/if}
+						{if $COM[mail]}邮编： {$COM[mail]}<br>{/if}
+			  <div class="address_line"><span>地址：</span>{$COM[address]}</div>
+			</div>
+		</div>
+		<!--联系方式结束-->
+{/if}

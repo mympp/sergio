@@ -1,0 +1,21 @@
+
+<div class="companyInfo">
+	<div class="title" style="background:none;" >会员第<strong>{$COM[vip]}</strong>年</div>
+	<div class="list">
+		<h2>{$COM[company]}</h2>
+		<dl>
+			<dt>公司类型：</dt>
+			<dd><strong>{$COM[type]}</strong></dd>
+		</dl>
+		<dl><dt>经营范围：</dt><dd><strong>{$COM[business]}</strong></dd></dl>
+		<dl><dt>积分余额：</dt><dd>{$COM[credit]}</dd></dl>
+	</div>
+	<div class="contact">
+		<dl><dt>电　话：</dt><dd><span>{$COM[telephone]}</span><br /></dd></dl>
+		<dl><dt>手　机：</dt><dd>{$COM[mobile]}<br /></dd></dl>
+		<dl><dt>Q　Q：</dt><dd>{$COM[qq]}<br /></dd></dl>
+		<dl><dt>传　真：</dt><dd>{$COM[fax]}<br /></dd></dl>
+		<dl><dt>Email：</dt><dd>{$COM[mail]}<br /></dd></dl>
+	</div>
+</div>
+

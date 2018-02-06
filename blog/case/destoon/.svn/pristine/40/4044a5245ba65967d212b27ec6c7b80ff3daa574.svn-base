@@ -1,0 +1,20 @@
+{if $file != 'honor'}
+<!--荣誉资质-->
+<div class="sidebox mb15">
+    <div class="box_tit">
+    <h2>{$side_name[$HS]}</h2>
+	<a href="{userurl($username, 'file=honor', $domain)}">更多</a>
+    </div>
+	<!--{php $tags=tag("table=honor&condition=status=3 and username='$username'&pagesize=8&order=addtime desc&template=null")}-->
+    <ul class="news">
+	{if $tags}
+	{loop $tags $t}
+	<li><a href="{userurl($username, 'file=honor&itemid='.$t['itemid'], $domain)}" title="{$t[alt]}">{$t[title]}</a></li>
+	{/loop}
+	{else}
+	<li>暂未上传</li>
+	{/if}
+    </ul>
+</div>
+<!--end-->
+{/if}

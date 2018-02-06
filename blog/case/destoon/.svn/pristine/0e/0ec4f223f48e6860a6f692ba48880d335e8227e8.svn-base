@@ -1,0 +1,80 @@
+<div class="m b10"></div>
+
+<div class="footer-top-out">
+<div class="footer-top">
+<div class="fT-service">
+<img src="{if $MODULE[$moduleid][logo]}{DT_SKIN}image/logo_{$moduleid}.gif{elseif $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" alt="{$DT[sitename]}"/>
+<span class="tel">{$DT[telephone]}</span>
+<span>周一到周五 09:00-18:00</span>
+<span>邮箱：service@88888888.com</span>
+</div>
+<div class="fT-line fl"></div>
+<div class="fT-center">
+<div class="fT-help fl">
+<dl class="pr-20">
+<dt>帮助中心</dt>
+<dd><a target="_blank" href="{$MODULE[1][linkurl]}#">如何注册新用户？</a></dd>
+<dd><a target="_blank" href="{$MODULE[1][linkurl]}#">账号密码忘记了怎么办？</a></dd>
+<dd><a target="_blank" href="{$MODULE[1][linkurl]}#">如何推荐产品到自己商铺的首页？</a></dd>
+<dd><a target="_blank" href="{$MODULE[1][linkurl]}#">怎样让客户第一时间找到您的商铺？</a></dd></dl>
+</div>
+<div class="fT-line-copy fl"></div>
+<div class="fT-help fl">
+<dl class="pr-20 pl-20">
+<dt>会员服务</dt>
+<dd><a target="_blank" href="{$MODULE[1][linkurl]}#">VIP会员能享受到什么服务？</a></dd>
+<dd><a target="_blank" href="{$MODULE[1][linkurl]}#">如何开通中国机械大全网VIP？</a></dd>
+<dd><a target="_blank" href="{$MODULE[1][linkurl]}#">中国机械网付款方式</a></dd>
+<dd><a target="_blank" href="{$MODULE[1][linkurl]}#">如何免费信息发布？</a></dd>
+</dl>
+</div>
+<div class="fT-line-copy fl"></div>
+<div class="fT-cooperate fl">
+<dl class="pl-20">
+<dt>渠道合作</dt>
+<dd><a target="_blank" href="{$MODULE[1][linkurl]}#">代理咨询</a>
+<a target="_blank" href="{$MODULE[1][linkurl]}#">广告投放</a></dd>
+<dd><a target="_blank" href="{$MODULE[1][linkurl]}#">跨境电商</a></dd>
+<dd><a target="_blank" href="{$MODULE[1][linkurl]}#">电子商务人才计划</a></dd>
+</dl>
+</div>
+</div>
+<div class="fT-right">
+<p class="fT-title">扫一扫打开手机版</p>
+<div class="fT-ios fl">
+<dl><dd><img src="{DT_SKIN}img/ewm.png" width="130" height="130"></dd></dl>
+</div>
+</div>
+</div>
+</div>
+<div class="foot_bg" style="padding-bottom: 15px;">
+<div class="m">
+<div class="foot_page1">
+	<a href="{$MODULE[1][linkurl]}">网站首页</a>
+	<!--{tag("table=webpage&condition=item=1&areaid=$cityid&order=listorder desc,itemid desc&template=list-webpage")}-->
+	| <a href="{$MODULE[1][linkurl]}sitemap/">网站地图</a>
+	| <a href="{$EXT[spread_url]}">排名推广</a>
+	{if $EXT[ad_enable]} | <a href="{$EXT[ad_url]}">广告服务</a>{/if}
+	{if $EXT[gift_enable]} | <a href="{$EXT[gift_url]}">积分换礼</a>{/if}
+	{if $EXT[guestbook_enable]} | <a href="{$EXT[guestbook_url]}">网站留言</a>{/if}
+	{if $EXT[feed_enable]} | <a href="{$EXT[feed_url]}">RSS订阅</a>{/if}
+	{if $DT[icpno]} | <a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow">{$DT[icpno]}</a>{/if}
+ 
+ </div>
+<div id="copyright">{$DT[copyright]} <a href="{$MODULE[1][linkurl]}">{$DT[sitename]}</a>
+</div>
+
+</div>
+</div>
+<!--[以下为系统关键代码，请勿删除]-->
+<div class="back2top"><a href="javascript:void(0);" title="返回顶部">&nbsp;</a></div>
+<script type="text/javascript">
+{if $destoon_task}
+show_task('{$destoon_task}');
+{else}
+{php include DT_ROOT.'/api/task.inc.php';}
+{/if}
+{if $lazy}$(function(){$("img").lazyload();});{/if}
+</script>
+</body>
+</html>

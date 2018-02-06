@@ -1,0 +1,68 @@
+/*
+	[Destoon B2B System] Copyright (c) 2008-2015 www.destoon.com
+	This is NOT a freeware, use is subject to license.txt
+
+ global*/
+body {margin:0px;font-size:12px;color:#000000;} /*background:#f6f6f6;*/
+/* common */
+.m {width:1200px;margin:0 auto;}
+.top {width:500px;float:left;height:34px;line-height:34px;color:#949494;}
+.container{width:100%;height:34px;line-height:34px;font-size:12px;background:#000;}
+.top a{color:#949494;text-decoration:none;}
+
+/*#top a {color:#FFFFFF;text-decoration:none;}*/
+
+.head {height:115px;overflow:hidden;}
+.head div {float:left;}
+.head .logo {padding:15px 10px 0 0px;height:90px;overflow:hidden;}
+.head h1 {font-size:24px;margin:32px 0 5px 10px;color:#7F868C;;font-family:\9ED1\4F53;filter:glow(color=#FFFFFF,strength=3);}
+.head h4 {font-size:15px;margin:0 0 0 10px;color:#7F868C;;}
+
+#menu a{text-decoration:none;}
+.menu {/*background:url('menu_bg.gif');*/height:auto;line-height:40px;overflow:hidden;/*padding:0 0 0 20px;*/font-size:14px;font-weight:bold;}
+.menu ul {overflow:hidden;}
+.menu a{color:#9E9E9E;}
+.menu_li {float:left;/*white-space:nowrap;border-right:#197197 1px solid;*/line-height:40px;padding:0 20px 0 20px;}
+.menu_on {float:left;/*white-space:nowrap;border-right:#197197 1px solid;*/line-height:40px;padding:0 20px 0 20px;background:#C60402;color:#fff;}
+.menu_on a{color:#fff;}
+
+.m1{width:100%;height:400px;}
+.side_head {height:40px;line-height:40px;background:#6E6E6E;/*border:#99C4D5 1px solid;border-bottom:none;background:url('side_head.gif') repeat-x;*/}
+.side_head div {padding:0 10px 0 10px;font-size:16px;height:40px;line-height:40px;overflow:hidden;letter-spacing:1px;   
+border-left: 5px #C60402 solid;color:#E8E0E0;margin-top:6px;font-family:"Mircosoft Yahei";font-weight:bold;}
+.f_r{font-size:12px;}
+.f_r a{color:#D4CACA;text-decoration:none;}
+.side_body {/*border:#99C4D5 1px solid;border-top:none;*/background:#FFFFFF;padding:10px;margin:0 0 10px;}
+.side_body li {background:url('../../image/ico_arrow.gif') no-repeat 5px 12px;padding:0 0 0 20px;height:30px;line-height:30px;overflow:hidden;/*border-bottom:1px dashed #5f5f5f;*/}
+
+.main_head {height:40px;line-height:40px;background:#6E6E6E;/*border:#99C4D5 1px solid;border-bottom:none;background:url('main_head.gif') repeat-x;*/}
+.main_head div {padding:0 10px 0 10px;font-size:16px;height:40px;line-height:40px;overflow:hidden;letter-spacing:1px;
+border-left: 5px #C60402 solid;color:#E8E0E0;margin-top:6px;font-family:"Mircosoft Yahei";font-weight:bold;}
+.main_body {/*border:#99C4D5 1px solid;border-top:none;*/background:#FFFFFF;padding:10px;margin:0 0 10px;overflow:hidden;}
+
+.footer{width:100%;background:#000;height:34px;}
+.foot1{/*border:#DDDDDD 1px solid;*/text-align:center;/*padding:15px;*/line-height:34px;color:#CACAB2;}
+.foot1 div a{color:#CACAB2;text-decoration:none;}
+.foot-logo div{color:#989898;padding:40px 0 30px 0;}
+.foot-logo div h1{margin:0;padding:0;line-height:35px;font-size:24px;font-weight:bold;}
+.foot-logo div h4{margin:0;padding:0;line-height:35px;font-size:18px;}
+.footer1{width:100%;height:auto;overflow:hidden;background:#2F2F2F;}
+.right{float:right;}
+.right ul{float:left;width:180px;height:160px;border-right:1px solid #4A4A4A;margin-top:40px;margin-bottom:40px;text-align:center;}
+.right ul h4{color:#fff;font-size:18px;padding:5px 0;margin:0;}
+.right ul li{padding-top:3px;padding-bottom:3px;font-size:14px;line-height:26px;color:#989898;font-family: "Microsoft YaHei",Arial,sans-serif;list-style: disc inside;text-align:left;padding-left:55px;}
+
+.left{width:470px;float:left;overflow:hidden;}
+.kf{overflow:hidden;}
+.kf span{width:50px;height:50px;border-radius:25px;background:#6E6E6E;float:left;}
+.kf_l{float:left;overflow:hidden;padding-right:20px;}
+.kf_l ul{float:left;padding:0 10px;font-size:14px;color:#989898;font-weight:bold;line-height:24px;}
+.kf_right{float:left;overflow:hidden;padding-left:40px;}
+.kf_right ul{float:left;padding:0 10px;font-size:14px;color:#989898;font-weight:bold;line-height:24px;}
+
+/*introduce*/
+.f_b1{font-size:14px;line-height:35px;font-weight:bold;background:#D7EDEF;text-align:center;}
+.f_b2{background:#D7EDEF;font-size:14px;}
+a:link, a:visited, a:active {text-decoration:none;}
+
+

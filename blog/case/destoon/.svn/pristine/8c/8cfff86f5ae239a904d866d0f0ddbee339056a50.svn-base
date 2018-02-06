@@ -1,0 +1,61 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+<style>
+.aui-list a:link { color:#000;}
+</style>
+<header class="aui-bar aui-bar-nav" id="aui-header">
+        <a class="aui-pull-left aui-btn" href="{$back_link}">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+        <div class="aui-title">网站公告</div>
+</header>
+
+<div class="aui-bar-fix"></div>
+
+{if $itemid}
+    <section class="aui-content">
+        <div class="aui-card-list aui-border-t aui-border-b">
+            <div class="aui-info dt-padded-t-20 aui-padded-l-5 aui-padded-r-15">
+                <div class="aui-info-item aui-font-size-20">
+                    <span class="aui-margin-l-5 dt-text-black">{$title}</span>
+                </div>
+            </div>
+            {if $islink}
+            <div class="aui-card-list-timer aui-font-size-14" style="color:#999;">
+            <a href="{$linkurl}" rel="external" class="b">{$linkurl}</a>
+            </div>
+            {else}
+              <div class="aui-card-list-timer aui-font-size-14" style="color:#999;">
+                <div class="dt-article-times">
+                    <span class="aui-margin-r-10"><i class="aui-iconfont aui-icon-time aui-font-size-12 aui-margin-r-5"></i>{$adddate}</span><span class="aui-margin-r-10"><i class="aui-iconfont aui-icon-attention aui-font-size-12 aui-margin-r-5"></i>{$hits}</span>
+                </div>
+            </div>
+            {/if}
+            <div class="aui-hr"></div>
+            <div class="aui-card-list-content-padded aui-padded-t-10 aui-padded-b-10 dt-article-content" style="color:#7b7b7b; line-height:230%; word-wrap:break-word; overflow:hidden;">
+                {$content}
+            </div>
+        </div>
+</section>
+{else}
+<div class="aui-content aui-margin-b-15">
+    <ul class="aui-list aui-media-list">
+    {loop $lists $v}
+
+        <li class="aui-list-item aui-list-item-arrow">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title aui-ellipsis-2"><a href="announce.php?itemid={$v[itemid]}"><strong>{$v[title]}</a></strong></div>
+                    </div>
+                    <div class="aui-list-item-text">
+                        {$v[date]}
+                    </div>
+                </div>
+            </div>
+        </li>
+        {/loop}
+ </ul>
+ </div>
+{/if}
+{template 'footer_v2', 'mobile'}

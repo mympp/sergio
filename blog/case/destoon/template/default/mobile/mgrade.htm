@@ -1,0 +1,640 @@
+{template 'header_member', 'mobile'}
+{template 'othercss', 'mobile'}
+<header class="aui-bar aui-bar-nav aui-bar-danger" id="aui-header">
+        <a class="aui-btn aui-btn-danger aui-pull-left" href="{if $action}javascript:history.go(-1);{else}my.php{/if}">
+            <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+    <div class="aui-title">{$head_name}</div>
+            <a href="my.php" class="aui-pull-right">我的
+  </a>
+
+</header>
+<div class="aui-bar-fix"></div>
+<style>
+/*展开收缩*/
+.csshrink{ float:right; width:45px; font-size:12px; line-height:32px;}
+.csshrink span{ padding-left:12px; cursor:pointer; color:#333}
+.csshrink span.unfold{padding-left:10px; cursor:pointer;}
+.display{ display:none;}
+.hidden{display:none;clear:both;}
+
+</style>
+<div class="aui-content">
+	<table cellpadding="8" cellspacing="1" width="100%" bgcolor="#DDDDDD">
+	<tr bgcolor="#F4F4F4" align="center">
+	<td class="f_b px14" width="{$percent}">服务范围\会员组</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td class="f_b px14" width="{$percent}">{$v[groupname]}</td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>收费模式</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>{if $v[fee_mode]}<span class="f_red">包年</span>{else}<span class="f_green">免费</span>{/if}</td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>年 费</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>{if $v[fee]}<span class="f_red"><strong>{$v[fee]}</strong> {$DT[money_unit]}/年</span>{else}--{/if}</td>
+	{/if}{/loop}
+	</tr>
+	{if $UP}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>&nbsp;</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>{if isset($UP[$k])}<a href="?groupid={$v[groupid]}#up">
+                <div class="aui-btn aui-btn-warning">升级</div></a>{else}&nbsp;{/if}</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>允许发布信息</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td valign="top" class="f_gray">
+	{loop $DM $m}
+		{if in_array($m[moduleid], $v[moduleids])}<a href="{$m[linkurl]}" target="_blank">{$m[name]}</a> | {/if}
+	{/loop}
+	</td>
+	{/if}
+	{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>拥有{VIP}标识 <img src="{DT_SKIN}image/vip.gif" align="absmiddle" alt="{VIP}" title="{VIP}"/></td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[vip]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>信息优先排序</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[vip]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>产品首页推荐</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[vip]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>产品在线销售</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[trade_sell]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>信息关键字排名</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[spread]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>拥有公司主页</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[homepage]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>自定义公司主页</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[home]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>自定义公司模板</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[style]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>客户服务</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[ask]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>商机订阅</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[mail]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>邮件发送</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[sendmail]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+</table>
+	<table cellpadding="8" cellspacing="1" width="100%" bgcolor="#DDDDDD">
+                <thead class="background_1">
+                    <tr><td style="text-align: left;" colspan="9" >
+                        <b class="titlehh">详细信息配送明细</b><span class="csshrink"><span class="">收起</span></span></td>
+                </tr></thead>
+                <tbody class="">
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>收件箱容量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[inbox_limit] == -1}
+	0
+	{elseif $v[inbox_limit] == 0}
+	不限
+	{else}
+	{$v[inbox_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>每日可发站内信</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[message_limit] == -1}
+	0
+	{elseif $v[message_limit] == 0}
+	不限
+	{else}
+	{$v[message_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>每日询盘次数</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[inquiry_limit] == -1}
+	0
+	{elseif $v[inquiry_limit] == 0}
+	不限
+	{else}
+	{$v[inquiry_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>每日报价次数</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[price_limit] == -1}
+	0
+	{elseif $v[price_limit] == 0}
+	不限
+	{else}
+	{$v[price_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>商友数量数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[friend_limit] == -1}
+	0
+	{elseif $v[friend_limit] == 0}
+	不限
+	{else}
+	{$v[friend_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>贸易提醒数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[alert_limit] == -1}
+	0
+	{elseif $v[alert_limit] == 0}
+	不限
+	{else}
+	{$v[alert_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>商机收藏数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[favorite_limit] == -1}
+	0
+	{elseif $v[favorite_limit] == 0}
+	不限
+	{else}
+	{$v[favorite_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+
+	{if $MODULE[16]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>发布商品数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[mall_limit] == -1}
+	0
+	{elseif $v[mall_limit] == 0}
+	不限
+	{else}
+	{$v[mall_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	{if $MODULE[5]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>供应信息数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[sell_limit] == -1}
+	0
+	{elseif $v[sell_limit] == 0}
+	不限
+	{else}
+	{$v[sell_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	{if $MODULE[6]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>求购信息数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[buy_limit] == -1}
+	0
+	{elseif $v[buy_limit] == 0}
+	不限
+	{else}
+	{$v[buy_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>招商信息数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[info_limit] == -1}
+	0
+	{elseif $v[info_limit] == 0}
+	不限
+	{else}
+	{$v[info_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+
+	{if $MODULE[8]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>展会信息数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[exhibit_limit] == -1}
+	0
+	{elseif $v[exhibit_limit] == 0}
+	不限
+	{else}
+	{$v[exhibit_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	{if $MODULE[9]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>招聘信息数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[job_limit] == -1}
+	0
+	{elseif $v[job_limit] == 0}
+	不限
+	{else}
+	{$v[job_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>新闻稿件数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[article_limit] == -1}
+	0
+	{elseif $v[article_limit] == 0}
+	不限
+	{else}
+	{$v[article_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+
+	{if $MODULE[9]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>个人简历数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[resume_limit] == -1}
+	0
+	{elseif $v[resume_limit] == 0}
+	不限
+	{else}
+	{$v[resume_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	{if $MODULE[10]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>行业知道数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[know_limit] == -1}
+	0
+	{elseif $v[know_limit] == 0}
+	不限
+	{else}
+	{$v[know_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	{if $MODULE[13]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>公司品牌数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[brand_limit] == -1}
+	0
+	{elseif $v[brand_limit] == 0}
+	不限
+	{else}
+	{$v[brand_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	{if $MODULE[17]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>发布团购数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[group_limit] == -1}
+	0
+	{elseif $v[group_limit] == 0}
+	不限
+	{else}
+	{$v[group_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	{if $MODULE[12]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>公司相册数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[photo_limit] == -1}
+	0
+	{elseif $v[photo_limit] == 0}
+	不限
+	{else}
+	{$v[photo_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	{if $MODULE[14]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>公司视频数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[video_limit] == -1}
+	0
+	{elseif $v[video_limit] == 0}
+	不限
+	{else}
+	{$v[video_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	{if $MODULE[15]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>上传资料数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[down_limit] == -1}
+	0
+	{elseif $v[down_limit] == 0}
+	不限
+	{else}
+	{$v[down_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+
+	{/if}
+
+	{if $UP}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>&nbsp;</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>{if isset($UP[$k])}<a href="?groupid={$v[groupid]}#up"><div class="aui-btn aui-btn-warning">升级</div></a>{else}&nbsp;{/if}</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+	<tr bgcolor="#F4F4F4" align="center">
+	<td class="f_b px14" width="{$percent}">服务范围\会员组</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td class="f_b px14" width="{$percent}">{$v[groupname]}</td>
+	{/if}{/loop}
+	</tr>
+	</tbody>
+            </table>
+
+</div>
+<a name="up"></a>
+    <div class="aui-content aui-bg-white">
+    <p class="aui-padded-10 aui-text-center">在线升级</p>
+
+    		<form method="post" action="?" onsubmit="return check();">
+		<input type="hidden" name="groupid" value="{$groupid}"/>
+
+        <p class="aui-padded-10 aui-text-left">升级为：{if $UP}
+			{if $groupid}
+			<span class="aui-text-red">{$UP[$groupid][groupname]}</span>
+			{else}
+			请选择升级会员组
+			{/if}
+		{else}
+			暂时没有供您升级的会员组
+		{/if}</p>
+        <p class="aui-padded-10 aui-text-left">{if $_userid}
+		您的当前会员组为&nbsp;<span class="aui-text-info">{$GROUP[$_groupid][groupname]}</span>
+		{else}
+		您还没有登录，建议您先 <a href="{$DT[file_login]}" class="f_b">登录</a > 或 <a href="{$DT[file_register]}" class="f_b">注册会员</a>
+		{/if}</p>
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <label class="aui-input-addon">费用</label>
+                <input type="text" class="aui-input aui-text-red" value="{$fee}{$DT[money_unit]}/年" readonly="readonly"/>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon">优惠码</label>
+                <input name="promo_code" type="text" id="promo_code" class="aui-input" value="" style="border:green 2px solid;padding:2px;font-size:14px;margin:5px 5px 5px 10px;" onblur="pcode(this.value);" placeholder="优惠码"/>
+            </div>
+            {if $need_fee}
+            <div class="aui-input-row">
+                <label class="aui-input-addon">账户余额</label>
+                <input type="text" class="aui-input aui-text-red" value="{$_money} {$DT[money_unit]}" readonly="readonly"/>
+                <span class="aui-input-addon">{if $fee>$_money}&nbsp;&nbsp;余额不足， <a href="charge.php?action=pay" target="_blank" class="f_b">请充值</a>{/if}</span>
+            </div>
+            {/if}
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">公司全称</label>
+                <input type="text" name="company" id="company" value="{$company}" class="aui-input" placeholder="公司全称"/>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">联系人</label>
+                <input name="truename" type="text" id="truename" value="{$truename}" class="aui-input" placeholder="联系人"/>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">电话号码</label>
+                <input name="telephone" id="telephone" type="text" value="{$telephone}" class="aui-input" placeholder="电话号码"/>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon">手机号码</label>
+                <input name="mobile" id="mobile" type="number" value="{$mobile}" class="aui-input" placeholder="手机号码"/>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon">电子邮件</label>
+                <input name="email" id="email" type="text" value="{$email}" class="aui-input" placeholder="电子邮件"/>
+            </div>
+            {if $DT[im_qq]}
+            <div class="aui-input-row">
+                <label class="aui-input-addon">QQ</label>
+                <input name="qq" type="text" value="{$qq}" class="aui-input" placeholder="QQ"/>
+            </div>
+            {/if}
+            {if $DT[im_ali]}
+            <div class="aui-input-row">
+                <label class="aui-input-addon">阿里旺旺</label>
+                <input name="ali" type="text" value="{$ali}" class="aui-input" placeholder="阿里旺旺"/>
+            </div>
+            {/if}
+    <div class="aui-input-row">
+     <span class="aui-input-addon">附言{$groupid}</span>
+      <textarea name="content" id="content" class="H-textarea H-form-text H-flex-item" ></textarea>
+    </div>
+            <div class="aui-btn-row">
+            <input type="submit" name="submit" class="aui-btn aui-btn-success" value=" 提 交 "/>
+                <div class="aui-btn aui-btn-warning" onclick="return false;">取消</div>
+            </div>
+            </div>
+            </form>
+</div>
+<script>
+ $(function () {
+    $("span.csshrink").find("span").each(function () {
+		   var that = $(this), tbody = that.parents("thead").next();
+                that.addClass("unfold").text("展开");
+                tbody.addClass("display");
+
+        $(this).bind("click", function () {
+            var that = $(this), tbody = that.parents("thead").next();
+            if (that.hasClass("unfold")) {
+                that.removeClass("unfold").text("收起");
+                tbody.removeClass("display");
+            } else {
+                that.addClass("unfold").text("展开");
+                tbody.addClass("display");
+            }
+        });
+    });
+});
+function pcode(s) {
+	if(s.length > 4) {
+		makeRequest('action={crypt_action('promo')}&code='+s, '?', '_pcode');
+	}
+}
+function _pcode() {
+	if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+		if(xmlHttp.responseText) Dd('code').innerHTML = '<span class="f_red">'+xmlHttp.responseText+'</span>';
+	}
+}
+function check() {
+	{if !$could_up}
+	laymsg('请选择要升级的会员组');
+	return false;
+	{/if}
+	if(Dd('company').value.length < 2) {
+		laymsg('请填写公司全称', 'company');
+		return false;
+	}
+	if(Dd('truename').value.length < 2) {
+		laymsg('请填写联系人', 'truename');
+		return false;
+	}
+	if(Dd('telephone').value.length < 6) {
+		laymsg('请填写电话号码', 'telephone');
+		return false;
+	}
+	if(Dd('content').value.length > 500) {
+		laymsg('附言最多500字 当前已输入'+Dd('content').value.length+' 字', 'content');
+		return false;
+	}
+	return confirm('确认填写无误，提交此升级申请吗？');
+}
+
+</script>
+{template 'footer_member', 'mobile'}

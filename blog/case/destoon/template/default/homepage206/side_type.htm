@@ -1,0 +1,38 @@
+<?php
+isset($typeid) or $typeid = 0;
+$_file = $file;
+if($file == 'mall') {
+	$_item = 'mall-'.$userid;
+	$_name = '商品分类';
+} else if($file == 'news') {
+	$_item = 'news-'.$userid;
+	$_name = '新闻分类';
+} else {
+	$_item = 'product-'.$userid;
+	$_name = '产品分类';
+	$_file = 'sell';
+}
+$_TYPE = get_type($_item);
+$_TP = $_TYPE ? sort_type($_TYPE) : array();
+?>
+
+        <div class="m_b30 model_box">
+            <div class="l_hd"><span class="adorn"></span>{$_name}</div>
+            <div class="product_nav">
+			 <dl>
+				{if $_TYPE}
+				<dt id="type_0"><a href="{userurl($username, 'file='.$_file, $domain)}">全部分类</a></dt>
+					{loop $_TP[0] $v0}
+					<dt id="type_{$v0[typeid]}"><a href="{userurl($username, 'file='.$_file.'&typeid='.$v0['typeid'], $domain)}" title="{$v0[typename]}">{set_style($v0[typename], $v0[style])}</a></dt>
+						{if isset($_TP[1][$v0[typeid]])}
+						{loop $_TP[1][$v0[typeid]] $v1}
+						<dd id="type_{$v1[typeid]}"><a href="{userurl($username, 'file='.$_file.'&typeid='.$v1['typeid'], $domain)}" title="{$v1[typename]}">{set_style($v1[typename], $v1[style])}</a></dd>
+						{/loop}
+						{/if}
+					{/loop}
+					{else}
+				<dt>暂无分类</dt>
+				{/if}
+                </dl>
+			 </div>
+        </div>

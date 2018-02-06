@@ -1,0 +1,182 @@
+{template 'header_member', 'mobile'}
+{template 'cssjs', 'mobile'}
+<style>
+.tb {background:#FFFFFF;width:100%;}
+.tl {background:#F7F7F7;width:115px;text-align:left; letter-spacing:1px;}
+.tr {background:#FFFFFF;}
+#area-select { max-width:80px !important;}
+#type { margin-left:15px;}
+.aui-content-padded {
+    margin-top: 15px;
+}
+.aui-content {
+    margin-bottom: 0px;
+}
+.aui-tab {
+    margin-bottom: 15px;
+}
+.aui-tab li.active { color:#FFF !important;}
+</style>
+
+<header class="aui-bar aui-bar-nav aui-bar-info" id="aui-header">
+        <a class="aui-btn aui-btn-info aui-pull-left" href="my.php?action=member">
+            <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+    <div class="aui-title">{$head_name}</div>
+    <a href="my.php" class="aui-pull-right">我的</a>
+</header>
+<div class="aui-bar-fix"></div>
+<script type="text/javascript" src="script/iScroll5/iscroll.js"></script>
+<div class="aui-content" style="margin-bottom:10px;">
+			<div class="bbs-wrapper">
+				<div id="scroller">
+					<ul>
+            {loop $focuson_menu $i $t}
+            <li id="tabbar{$t[moduleid]}"><a href="?mid={$t[moduleid]}{if $typeid}&typeid={$typeid}{/if}"><span>{$t[name]}</span></a></li>
+            {/loop}
+					</ul>
+				</div>
+			</div>
+</div>
+<script type="text/javascript">
+myScroll = new IScroll('.bbs-wrapper', {
+eventPassthrough : false,
+scrollX : true,
+scrollY : false,
+preventDefault : true,
+click:true
+});
+myScroll.scrollToElement(Dd('tabbar{$mid}'), 800);
+
+</script>
+
+{if $action=='add'}
+{elseif $action == 'edit'}
+{else}
+{if $lists}
+	<style type="text/css">
+		.order {
+			background: #ffffff;
+		}
+		.order-info  {
+			font-size: 0.875em;
+			width: 100%;
+		}
+		.order-info span {
+			color: #333;
+			margin-right: 5px;
+		}
+		.order-info time {
+			color: #999999;
+			font-size: 0.75em;
+		}
+		.order-info i.aui-iconfont {
+			color: #999;
+			font-size: 0.875em;
+		}
+		.order-icon img {
+			width: 80%;
+			border-radius: 5px;
+		}
+		.order-title {
+			font-size: 1em;
+			color: #333;
+			padding-bottom: 10px;
+			margin-bottom: 10px;
+		}
+		.order-title > i.aui-iconfont {
+			font-size: 0.87em;
+			color: #999999;
+		}
+		p.goods-list {
+			font-size: 0.75em;
+			color: #999;
+			margin-bottom: 8px;
+		}
+		p.count-info {
+			font-size: 0.75em;
+			color: #999;
+			padding-bottom: 10px;
+		}
+		p.count-info span {
+			margin: 0 3px;
+		}
+		p.count-info strong {
+			color: #666;
+			font-size: 1em;
+			font-weight: 700;
+		}
+		.btn {
+			/*margin: 5px;*/
+		}
+		.btn .aui-btn {
+			font-size: 0.75em;
+		}
+		.btn .aui-btn:first-child {
+			margin-right: 10px;
+		}
+		.aui-border-b:after {
+			border-color: #ddd;
+		}
+	</style>
+
+<ul class="aui-list-view aui-in" id="sell_list">
+{loop $lists $t}
+<li id="{$t[itemid]}">
+<div class="aui-list-view-cell aui-img drop-div">
+<input class="aui-pull-left aui-checkbox displaynone" type="checkbox" id="itemids" name="itemid" value="{$t[itemid]}">
+                <div class="aui-img-body aui-pull-left">
+                    <a href="{$t[linkurl]}" class="Dt-text-ellipsis">{$t[title]}</a>
+                    <p class="aui-ellipsis-1 fz12"><span class="aui-mr-5"><i class="aui-iconfont aui-icon-time aui-text-gray"></i>{timetodate($t[edittime], 6)}</span></p>
+                </div>
+                </div>
+  <div class="hidden-menu">
+    <p class="one"><a href="?action=delete&itemid={$t[itemid]}" onclick="return confirm('确定要删除吗？此操作将不可撤销');">删除</a></p>
+    
+  </div>
+                
+</li>
+
+{/loop}
+</ul>
+
+{if $EXT['gl_focuson_limit'] && $typeid==0}
+<div class="aui-content aui-bg-white">
+  <div class="aui-ellipsis-2" style="padding:10px; font-size:12px">
+<div class="limit">关注上限 <span class="aui-text-red">{$EXT['gl_focuson_limit']}</span> 条&nbsp;&nbsp;&nbsp;当前已关注 <span class="f_b">{$limit_used}</span> 条&nbsp;&nbsp;&nbsp;还可以关注 <span class="aui-text-info">{$limit_free}</span> 条</div>
+</div>
+</div>
+{/if}
+
+{if $pages}<div class="pages aui-text-center">{$pages}</div>{/if}
+{else}
+<ul class="aui-list-view">
+<li class="aui-list-view-cell aui-img">
+                <div class="aui-img-body aui-pull-left">
+                    <p class="aui-ellipsis-1">暂无任何关注信息</p>
+                </div>
+</li>
+</ul>
+
+{/if}
+</div>
+<script type="text/javascript">tabbar('tabbar{$mid}');</script>
+<script type="text/javascript" src="script/addpan.js" charset="utf-8"></script>
+{/if}
+{if $action=='add' || $action=='edit'}
+<script type="text/javascript">
+function check() {
+	if(Dd('title').value.length < 2) {
+		laymsg('请填写标题', 'title');
+		return false;
+	}
+	if(Dd('url').value.length < 12) {
+		laymsg('请填写网址', 'url');
+		return false;
+	}
+
+	return true;
+}
+</script>
+{/if}
+{template 'footer_member', 'mobile'}

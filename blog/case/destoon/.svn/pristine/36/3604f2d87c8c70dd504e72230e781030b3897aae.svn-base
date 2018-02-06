@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+<title>关于我们_雀搜 B2B网站管理系统</title>
+<meta http-equiv="mobile-agent" content="format=html5;url=http://m.5276mall.com/about.php?itemid=1">
+<meta name="generator" content="DESTOON B2B - www.destoon.com"/>
+<link rel="shortcut icon" type="image/x-icon" href="http://www.5276mall.com/favicon.ico"/>
+<link rel="bookmark" type="image/x-icon" href="http://www.5276mall.com/favicon.ico"/>
+<link rel="archives" title="雀搜 B2B网站管理系统" href="http://www.5276mall.com/archiver/"/>
+<link rel="stylesheet" type="text/css" href="http://www.5276mall.com/skin/30010/style.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.5276mall.com/skin/30010/style1.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.5276mall.com/skin/30010/malls.css"/>
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="http://www.5276mall.com/skin/30010/ie6.css"/>
+<![endif]-->
+<script type="text/javascript">window.onerror=function(){return true;}</script><script type="text/javascript" src="http://www.5276mall.com/lang/zh-cn/lang.js"></script>
+<script type="text/javascript" src="http://www.5276mall.com/file/script/config.js"></script>
+<script type="text/javascript" src="http://www.5276mall.com/file/script/jquery.js"></script>
+<script type="text/javascript" src="http://www.5276mall.com/file/script/common.js"></script>
+<script type="text/javascript" src="http://www.5276mall.com/file/script/page.js"></script>
+<script type="text/javascript" src="http://www.5276mall.com/file/script/jsonp.js"></script>
+<script type="text/javascript" src="http://www.5276mall.com/skin/30010/page2.js"></script>
+<script type="text/javascript">
+GoMobile('http://m.5276mall.com/about.php?itemid=1');
+var searchid = 5;
+</script>
+</head>
+<body onload="login()">
+<div class="top">
+<div class="main" id="head">
+<div class="head_m">
+<div class="f_r" id="destoon_member"></div>
+<div class="head_l">
+<ul>
+<li class="h_fav"><script type="text/javascript">addFav('收藏本页');</script></li>
+<li class="h_mobile"><a href="http://m.5276mall.com/mobile.php">手机版</a>&nbsp;</li><li class="h_qrcode"><a href="javascript:Dqrcode();">二维码</a>&nbsp;</li><li class="h_cart"><a href="http://www.5276mall.com/mall/cart.php" rel="nofollow">购物车</a>(<span class="head_t" id="destoon_cart">0</span>)</li></ul>
+</div>
+</div>
+</div>
+</div>
+<div id="destoon_qrcode" style="display:none;"></div><div class="m head_s" id="destoon_space"></div>
+<!--top-->  
+<script type="text/javascript">var searchid = 5;</script>
+<div class="m">
+<div class="logo f_l">
+<a href="http://www.5276mall.com/">
+<img src="http://www.5276mall.com/file/upload/201707/07/143830401.gif" alt="雀搜 B2B网站管理系统"/></a>
+</div>
+<div class="search fl">
+<form id="destoon_search" action="http://www.5276mall.com/api/search.php" onsubmit="return Dsearch();">
+<input type="hidden" name="moduleid" value="5" id="destoon_moduleid"/>
+<input type="hidden" name="spread" value="0" id="destoon_spread"/>
+<div class="lm" id="search_moduleli" style="overflow:hidden;">
+<a class="cur" onclick="setModuleli(5, this);">
+供应</a><b>丨</b>
+<a onclick="setModuleli(16, this);">
+商城</a><b>丨</b>
+<a onclick="setModuleli(21, this);">
+资讯</a><b>丨</b>
+</div>
+<div class="sear">
+<input type="text" value="请输入关键词" id="destoon_kw" class="inp" name="kw" maxlength="30" onfocus="if(this.value=='请输入关键词') this.value='';" onkeyup="STip(this.value);" autocomplete="off" x-webkit-speech speech/>
+<button type="submit" value=" " class="btn">搜&nbsp;索</button>
+</div>
+</form>
+</div>
+<div class="hot">
+<!--
+<a href="" onclick="Dsearch_top();return false;"><strong>标王</strong></a> 
+<a href="" onclick="Dsearch_adv();return false;"><strong>热搜：</strong></a>
+-->
+<span id="destoon_word">
+<a href="http://www.5276mall.com/sell/search.php?kw=%E7%BE%8E%E5%AE%B9" class="b" rel="nofollow">美容</a>&nbsp; <a href="http://www.5276mall.com/sell/search.php?kw=%E5%8C%85%E8%A3%85" class="b" rel="nofollow">包装</a>&nbsp; <a href="http://www.5276mall.com/sell/search.php?kw=%E9%97%A8%E8%8A%B1" class="b" rel="nofollow">门花</a>&nbsp; <a href="http://www.5276mall.com/sell/search.php?kw=%E8%8A%82%E8%83%BD%E8%AE%BE%E5%A4%87" class="b" rel="nofollow">节能设备</a>&nbsp; <a href="http://www.5276mall.com/sell/search.php?kw=%E6%9C%BA%E6%A2%B0" class="b" rel="nofollow">机械</a>&nbsp; <a href="http://www.5276mall.com/sell/search.php?kw=%E6%9C%8D%E8%A3%85" class="b" rel="nofollow">服装</a>&nbsp; <a href="http://www.5276mall.com/sell/search.php?kw=%E6%97%A5%E5%8C%96" class="b" rel="nofollow">日化</a>&nbsp; <a href="http://www.5276mall.com/sell/search.php?kw=%E5%A1%91%E8%83%B6" class="b" rel="nofollow">塑胶</a>&nbsp; <a href="http://www.5276mall.com/sell/search.php?kw=%E8%8B%B9%E6%9E%9C" class="b" rel="nofollow">苹果</a>&nbsp; <a href="http://www.5276mall.com/sell/search.php?kw=%E7%89%9B%E4%BB%94" class="b" rel="nofollow">牛仔</a>&nbsp; </span>
+</div>
+<div class="index_bz fr">
+<ul>
+<li><span class="index_bz_icon index_bz_icon1 fl"></span><span class="bz_txt fl">正品保障</span></li>
+<li><span class="index_bz_icon index_bz_icon2 fl"></span><span class="bz_txt fl">极速响应</span></li>
+<li><span class="index_bz_icon index_bz_icon3 fl"></span><span class="bz_txt fl">15天退换</span></li>
+</ul>
+</div>
+</div>
+<div class="top_nav">
+<div class="main">
+<ul class="nav_r">
+<li><a   class="cur" href="http://www.5276mall.com/">首页</a></li>
+<li><a  target="_blank" href="http://www.5276mall.com/mall/" >商城</a></li>
+<li><a  target="_blank" href="http://www.5276mall.com/sell/" >供应</a></li>
+<li><a  target="_blank" href="http://www.5276mall.com/buy/" >求购</a></li>
+<li><a  target="_blank" href="http://www.5276mall.com/company/" >公司</a></li>
+<li><a  target="_blank" href="http://www.5276mall.com/exhibit/" >展会</a></li>
+<li><a  target="_blank" href="http://www.5276mall.com/news/" >资讯</a></li>
+<li><a  target="_blank" href="http://www.5276mall.com/photo/" >图库</a></li>
+</ul>
+</div>
+</div>
+<div class="m b10">&nbsp;</div><div class="m">
+<table cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top" class="left_menu">
+<ul>
+<li class="left_menu_li"><a href="http://www.5276mall.com/">网站首页</a></li>
+<li class="left_menu_li" id="webpage_1"><a href="http://www.5276mall.com/about/index.html">关于我们</a></li>
+<li class="left_menu_li" id="webpage_2"><a href="http://www.5276mall.com/about/contact.html">联系方式</a></li>
+<li class="left_menu_li" id="webpage_3"><a href="http://www.5276mall.com/about/agreement.html">使用协议</a></li>
+<li class="left_menu_li" id="webpage_4"><a href="http://www.5276mall.com/about/copyright.html">版权隐私</a></li>
+</ul>
+</td>
+<td valign="top">
+<div class="left_box">
+<div class="pos">当前位置: <a href="http://www.5276mall.com/">首页</a> &raquo; <a href="http://www.5276mall.com/about/index.html">关于我们</a></div>
+<div style="border-bottom:#C0C0C0 1px dotted;margin:5px 15px 5px 15px;line-height:36px;" class="t_c px14"><strong>关于我们</strong></div>
+<div class="content" id="content"><p>广东雀鸟科技有限公司致力于为企业聚合消费需求信息，帮助企业主动发掘市场需求，并满足填补现行电子商务模式中的空白区域。通过对消费需求信息的聚合、再加工，使需求信息规模化、价值化、精确化，并辅助以为企业量身定制的电商体系，及打造全国地方产业网上交易会，从而使得企业全网营销效果最大化。</p>
+<p><a href="http://www.527so.com">雀搜</a>是广东雀鸟科技有限公司研发的全网供求大数据信息营销平台，致力于为广大中小企业提供最新的需求信息，普及新的网络营销理念，让更多的中小企业通过电子商务平台来做大做强为己任，让网络营销真正的成为企业的营销利器。雀搜通过有效地采集、聚合、加工手段，把大量的、零散的需求信号转化成一个个真实有效的订单。雀搜就是一个需求信息库，以海量的、零散的、无序的、隐形的需求为原料，经过网络智能识别技术进行催化，加工、生产，精准推送到商家面前，从而缩短了交易距离、交易时间、交易成本，提升了企业盈利空间。借助雀搜的聚合信息，企业通过雀搜的搜索平台可以做到先发现、先满足、先盈利。即通过需求信息的搜索、并对新需求进行聚合、分析，发现新的消费趋势，进而创造一种新的消费市场，获得竞争优势。</p>
+<p>雀搜模式可以帮助企业准确锁定目标客户群，实现主动营销，这种营销模式称之为超视距营销。不仅仅是增强企业的营销视野，还包括提升自己产品展示广告的智能化、精确化。借助于网络工具的优势，确保零散的需求信息得到价值化的聚合，将催生消费市场的隐形价值。</p>
+<p>&nbsp;</p>
+<p>企业使命：</p>
+<p>给力中国制造，赋能企业生产力！赋能中国制造企业三大能力：企业SaaS能力、大数据能力、供应链金融能力。为生产制造业提供在线采购交易管理、供应链金融、企业数据资产化系统和企业采购信贷指数等大数据服务。</p>
+<p>&nbsp;</p>
+<p>企业价值观：</p>
+<p>市场观：只有淡季观念，只有淡季市场。</p>
+<p>人才观：用&ldquo;才&rdquo;才长，使&ldquo;智&rdquo;智深。适用即才，高效为先。</p>
+<p>学习观：学以致用、学用相长、智慧创业。</p>
+<p>利益观：顾客利益是企业和员工利益的前提。</p>
+<p>竞争观：竞争法则是天则，唯有竞争，企业才有鲜活的生命，打价值战，不打价格战。</p>
+<p>服务观：客户满意是服务的衡量标准及目标。</p>
+<p>客户观：客户是我们的衣食父母。</p>
+<p>成功观：共同成功，是成功的成功。</p>
+<p>&nbsp;</p>
+<p>三大目标：</p>
+<p>1、以感恩的心态对待周边的一切，以归零的心态及时清理负能量，做到知行合一。</p>
+<p>2、牢记团队使命，齐心完成公司既定目标，随时随地的学习，努力成为职业专家。</p>
+<p>3、发现并培养自己的兴趣，敢于突破自我，努力钻研，有激情的工作生活。</p>
+<p>&nbsp;</p>
+<p>公司愿景：</p>
+<p>在全球&ldquo;工业4.0&rdquo;的浪潮，以及&ldquo;中国制造2025&rdquo;的改革的大环境下，<a href="http://www.527so.com">雀搜</a>将承载起延续中国传统制造产业集群生态优势，重新构建和打造网上产业带和产业集群生态系统的使命，以实现&ldquo;全球生产制造产业集群生态平台&rdquo;的企业愿景。</p>
+<p>&nbsp;</p>
+<p>您只需要做好产品，剩下的事交给我们</p>
+<p>随着互联网的发展，向网络营销转型成为传统企业扩大效益的主旋律。<a href="http://www.527so.com">雀搜</a>整合品牌塑造、网站开发、网络推广三大自身优势服务项目，创立从市场调研、战略规划到品牌策划包装、营销型网站建设和网络推广解决方案的全网营销一站式定制服务体系，帮助中小企业更快、更好地融入互联网，解决互联网数字化及运营难题，实现品牌大电商化、网络推广实效化和商业价值最大化。</p>
+<p>面向未来，自主创新，是雀搜网坚持的发展原则。公司以成为&ldquo;中小企业首选的互联网服务及信息化建设提供商&rdquo;为目标，以推动企业实现&ldquo;互联网+&ldquo;为己任，不断细化用户体验，丰富服务内容。展示出<a href="http://www.527so.com">雀搜</a>成立以来的成就。</p></div>
+<br/>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<script type="text/javascript">try{Dd('webpage_1').className='left_menu_on';}catch(e){}</script>
+<div class="clear_h20"></div>
+<div class="foot_help">
+<div class="main">
+<ul>
+<li><h3>购物指南</h3>
+<p><a href="http://www.5276mall.com/member/login.php">登录</a></p>
+<p><a href="http://www.5276mall.com/member/register.php">注册</a></p>
+<p><a href="http://www.5276mall.com/sell/search.php">产品查找</a></p>
+<p><a href="http://www.5276mall.com/member/trade.php">订单查询</a></p>
+</li>
+<li><h3>会员中心</h3>
+<p><a href="http://www.5276mall.com/member/trade.php">我的订单</a></p>
+<p><a href="http://www.5276mall.com/member/credit.php">积分管理</a></p>
+<p><a href="http://www.5276mall.com/member/my.php?mid=5&action=add">发布供应</a></p>
+<p><a href="http://www.5276mall.com/member/my.php?mid=6&action=add">发布求购</a></p>
+</li>
+<li><h3>服务保障</h3>
+<p><a href="http://www.5276mall.com/member/favorite.php?action=add">收藏商机</a></p>
+<p><a href="http://www.5276mall.com/member/ask.php">客服中心</a></p>
+</li>
+<li><h3>商家服务</h3>
+<p><a href="http://www.5276mall.com/member/my.php?mid=13&action=add">发布招商</a></p>
+<p><a href="http://www.5276mall.com/member/friend.php">我的商友</a></p>
+<p><a href="http://www.5276mall.com/member/ad.php">品牌推广</a></p>
+</li>
+<li class="foc"><h3>关注我们</h3>
+<div>
+<span><img src="http://www.5276mall.com/skin/30010/image/erweima_pho.jpg" /><p>微信公众号</p></span>
+<span><img src="http://www.5276mall.com/skin/30010/image/m.5276mall.com.png" /><p>平台移动版</p></span>
+</div>
+<p>
+<!--<a target="_blank" rel="nofollow" href="http://weibo.com/u/5782903017"><i class="sina">新浪</i></a>-->
+<!-- <a rel="nofollow" href='javascript:;'><i class="qwb">腾讯微博</i></a> -->
+</p>
+</li>
+<li class="tel"><h3>联系我们<em>（8:30-18:30）</em></h3>
+<p><b>020-37362495</b>（业务咨询）</p>
+<span class="btn1 fl"><a class="callback">联系客服:400-808-8770</a></span>
+</li>
+</ul>
+</div>
+</div>
+<div class="foot">
+<div class="main">
+<div class="foot_nav">
+    <a href="http://www.5276mall.com/">网站首页</a>
+    | <a href="http://www.5276mall.com/about/index.html">关于我们</a> 
+| <a href="http://www.5276mall.com/about/contact.html">联系方式</a> 
+| <a href="http://www.5276mall.com/about/agreement.html">使用协议</a> 
+| <a href="http://www.5276mall.com/about/copyright.html">版权隐私</a> 
+| <a href="http://www.5276mall.com/sitemap/">网站地图</a>
+| <a href="http://www.5276mall.com/spread/">排名推广</a>
+ | <a href="http://www.5276mall.com/ad/">广告服务</a> | <a href="http://www.5276mall.com/gift/">积分换礼</a> | <a href="http://www.5276mall.com/guestbook/">网站留言</a> | <a href="http://www.5276mall.com/feed/">RSS订阅</a> | <a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow">粤ICP备16023140号-2</a>    <!-- <b>丨</b><a href='javascript:;'>九域移动版</a> -->
+</div>
+<div class="foot_fir">
+友情链接：
+<a href="http://www.jzjxqm.com">企贸网</a>
+<a href="http://www.jzdhyl.com">慧赢网</a>
+<a href="http://www.hbzl5.com">中联商务网</a>
+<a href="http://www.b2b168.com">八方资源网</a>
+<a href="http://www.jzzshg.com">展商网</a>
+<a href="http://www.dxb2b.com">电线网</a>
+</div>
+<div class="foot_about">(c)2017 QUESOU B2B SYSTEM All Rights Reserved</div>
+<!--<div class="foot_bz">
+<a><img alt="郑州市网络警察" src="http://www.5276mall.com/skin/30010/image/160507094148761.png" /></a>
+<a><img alt="银联特约商户" src="http://www.5276mall.com/skin/30010/image/f_icon_yl.jpg" /></a>
+<a><img alt="支付宝合作商家" src="http://www.5276mall.com/skin/30010/image/160507094149111.png" /></a>
+<a><img alt="网络社会征信网" src="http://www.5276mall.com/skin/30010/image/f_icon_zx.jpg" /></a>
+<a><img alt="中国互联网举报中心" src="http://www.5276mall.com/skin/30010/image/160507094149406.png" /></a>
+<a><img alt="公共信息网络安全监察" src="http://www.5276mall.com/skin/30010/image/f_icon_aqjc.jpg" /></a> 
+</div>-->
+<div class="clear"></div>
+</div>
+</div>
+<div class="tooltip store_tooltip">
+  <ul class="tool1">
+    <li class="">
+      <div class="tool_nav"><a href="http://wpa.qq.com/msgrd?v=3&uin=3503962954&site=qq&menu=yes" target="_blank"><i class="store_tooltip_ser">图标</i></a></div>
+    </li>
+    <li>
+      <div class="tool_nav">
+<a href="http://www.5276mall.com/member/message.php" rel="nofollow" target="_blank">
+<i class="store_tooltip_mes">消息提醒</i>
+      </a>
+  </div>
+    </li>
+    <li>
+      <div class="tool_nav"><a href="http://www.5276mall.com/member/message.php?action=send" target="_blank">
+  <i class="store_tooltip_idea">意见反馈</i></a></div>
+    </li>
+    <li>
+      <div class="tool_nav back_top"><a href="javascript:void(0)"><i class="store_tooltip_top">返回顶部</i></a></div>
+    </li>
+  </ul>
+</div>
+<script type="text/javascript">$(function(){$(".focus_pic").slide({titCell:".hd ul",mainCell:".bd ul",effect:"leftLoop",autoPlay:true,vis:2,autoPage:true,trigger:"click",interTime:5000});$(".in_banner").slide({mainCell:".bd ul",autoPlay:true,interTime:5000,delayTime:500});var bd="";var guideIndex=0;if(bd=="y"){guideIndex=layer.open({type:1,title:false,closeBtn:0,content:$(".pop_guide"),area:"500px"})}$(".bdbtn").live("click",function(){layer.close(guideIndex)});var si;var myDate=new Date();var downad=getCookie("downad");setCookie("downad",myDate.toLocaleDateString(),30*24*60*60*1000);if(downad==null){$(window).load(function(){si=setTimeout("$('.delay-smallbox').slideDown(300)",7700);$(".delay-bigbox").delay(2000).slideDown(300);$(".delay-bigbox").delay(5000).slideUp(300);$(".delay-smallbox span").click(function(){$(this).parent().slideUp(300)})});$(".delay-bigbox span").live("click",function(){$(".delay-bigbox").stop();clearTimeout(si);$(this).parents(".delay-bigbox").slideUp(300);$(this).parents(".delay-bigbox").siblings(".delay-smallbox").slideDown(300)})}else{if(downad==myDate.toLocaleDateString()){$(".delay-smallbox").slideDown(300)}else{$(window).load(function(){si=setTimeout("$('.delay-smallbox').slideDown(300)",7700);$(".delay-bigbox").delay(2000).slideDown(300);$(".delay-bigbox").delay(5000).slideUp(300);$(".delay-smallbox span").click(function(){$(this).parent().slideUp(300)})});$(".delay-bigbox span").live("click",function(){$(".delay-bigbox").stop();clearTimeout(si);$(this).parents(".delay-bigbox").slideUp(300);$(this).parents(".delay-bigbox").siblings(".delay-smallbox").slideDown(300)})}}$(".delay-smallbox span").live("click",function(){$(".delay-smallbox").slideUp(300);setCookie("downad",myDate.toLocaleDateString(),0)})});</script>
+<!--<div class="back2top"><a href="javascript:void(0);" title="返回顶部">&nbsp;</a></div>-->
+<script type="text/javascript">
+show_task('moduleid=3&html=webpage&itemid=1');
+</script>
+</body>
+</html>

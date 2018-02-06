@@ -1,0 +1,119 @@
+<div class="m">&nbsp;</div>
+<div class="w-ft"> 
+	<div class="w-ensure mb20">
+		<div class="w-main">
+        	<ul>
+            	<li><img src="{DT_SKIN}image/ft-svr1.gif" width="300" height="90" /></li>
+            	<li><img src="{DT_SKIN}image/ft-svr2.gif" width="300" height="90" /></li>
+            	<li><img src="{DT_SKIN}image/ft-svr3.gif" width="300" height="90" /></li>
+            	<li><img src="{DT_SKIN}image/ft-svr4.gif" width="300" height="90" /></li>
+            </ul>
+        </div>
+    </div>
+    <div class="w-main mb20">
+		<div class="ft-service clrhz">
+			<dl>
+				<dt>公司简介</dt>
+				<dd>
+					<p><a href="{$MODULE[1][linkurl]}sitemap/" rel="nofollow" target="_blank">网站地图</a></p>
+					<p><a href="{$MODULE[1][linkurl]}" rel="nofollow" target="_blank">网站首页</a></p>
+					<p><a href="{$EXT[spread_url]}" rel="nofollow" target="_blank">排名推广</a></p>
+					<p><a href="{$EXT[ad_url]}" rel="nofollow" target="_blank">广告服务</a></p>
+					<p><a href="{$EXT[gift_url]}" rel="nofollow" target="_blank">积分换礼</a></p>
+				</dd>
+            </dl>
+			<dl>
+				<dt>发布信息</dt>
+				<dd>
+					<p><a href="{$MODULE[1][linkurl]}member/register.php" rel="nofollow" target="_blank">免费注册</a></p>
+					<p><a href="{$MODULE[1][linkurl]}member/my.php?mid=6&action=add" rel="nofollow" target="_blank">发布求购</a></p>
+					<p><a href="{$MODULE[1][linkurl]}member/my.php?mid=5&action=add" rel="nofollow" target="_blank">发布供应</a></p>
+					<p><a href="{$EXT[guestbook_url]}" rel="nofollow" target="_blank">网站留言</a></p>
+				</dd>
+			</dl>
+			<dl>
+				<dt>支付方式</dt>
+				<dd>
+						<p><a href="{$MODULE[1][linkurl]}member/login.php" rel="nofollow" target="_blank">会员登录</a></p>
+						<p><a href="{$MODULE[1][linkurl]}about.html" rel="nofollow" target="_blank">本站服务</a></p>
+						<p><a href="{$MODULE[1][linkurl]}about.html" rel="nofollow" target="_blank">帮助中心</a></p>
+				</dd>
+			</dl>
+			<dl>
+				<dt>会员服务</dt>
+				<dd>
+					<p><a href="{$MODULE[1][linkurl]}member" rel="nofollow" target="_blank">会员中心</a></p>
+					<p><a href="{$MODULE[1][linkurl]}member/message.php" rel="nofollow" target="_blank">站内信件</a></p>
+					<p><a href="{$MODULE[1][linkurl]}member/chat.php" rel="nofollow" target="_blank">站内交谈</a></p>
+				</dd>
+			</dl>         	
+			<dl>
+				<dt>商家服务</dt>
+				<dd>
+					<p><a href="{$MODULE[1][linkurl]}member/friend.php" rel="nofollow" target="_blank">我的商友</a></p>
+					<p><a href="{$MODULE[1][linkurl]}member/favorite.php" rel="nofollow" target="_blank">商机收藏</a></p>
+					<p><a href="{$MODULE[1][linkurl]}member/mail.php" rel="nofollow" target="_blank">邮件订阅</a></p>
+				</dd>
+			</dl>
+            <dl class="ft-svr-con">
+                <dt>联系我们：<strong>{$DT[telephone]}</strong></dt>
+                <dd>
+                	<p>周一至周日 9:00-22:00 欢迎致电</p>
+                    <img src="{DT_SKIN}image/ft-svr5.gif" width="236" height="130" />
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div class="w-main mb15">
+    	<div class="ft-link">
+        	<div class="hd">
+            	<h3>友情链接</h3>
+                <p><a href="{$EXT[link_url]}{rewrite('index.php?action=reg')}">申请友情链接</a> 联系QQ： 2724985649</p>
+            </div>
+            <div class="bd" id="bd" >
+                <div id="fl1" class="j-linkTab clrhz" >
+                    <ul class="ft-link-list">
+						{if $DT[page_text]}
+						<!--{php $tags=tag("table=link&condition=status=3 and level>0 and thumb='' and username=''&areaid=$cityid&pagesize=".$DT['page_text']."&order=listorder desc,itemid desc&template=null")}-->
+						{loop $tags $t}
+							<li><a href="{$t[linkurl]}">{$t[title]}</a></li>
+						{/loop}
+						{/if}
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	<div class="ft-copyright">
+		<div class="ft-cp-link">
+			<a href="{$MODULE[1][linkurl]}" target="_blank" rel="nofollow">首页</a>
+			<!--{tag("table=webpage&condition=item=1&areaid=$cityid&order=listorder desc,itemid desc&template=list-webpage")}-->
+			<a href="{$MODULE[1][linkurl]}sitemap/" target="_blank" rel="nofollow">网站地图</a> |
+			<a href="{$EXT[spread_url]}" target="_blank" rel="nofollow">排名推广</a> |
+			<a href="{$EXT[ad_url]}" target="_blank" rel="nofollow">广告服务</a> |
+			<a href="{$EXT[guestbook_url]}" target="_blank" rel="nofollow">网站留言</a> |
+			<a href="{$EXT[feed_url]}" target="_blank" rel="nofollow">RSS订阅</a>
+		</div>
+		<p>{$DT[copyright]}</p>
+	</div>
+</div> 
+<div class="rt-ftBar js-rtftBar" style="display: block;">
+	<ul>
+		<li class="rtsvr-qq"><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=906172833&amp;site=qq&amp;menu=yes" rel="nofollow"  target="_blank"></a></li>
+		<li class="rtsvr-wx js-svr-sh"><a href="javascript:;"></a><p style="display: none;"></p></li>
+		<li class="rtsvr-phone js-svr-sh"><a href="javascript:;"></a><p style="display: none;"></p></li>
+		<li class="rtsvr-top js-svr-top"><a href="javascript:;"></a></li>
+	</ul>
+</div>
+<!--[以下为系统关键代码，请勿删除]-->
+<script type="text/javascript">
+{if $destoon_task}
+show_task('{$destoon_task}');
+{else}
+{php include DT_ROOT.'/api/task.inc.php';}
+{/if}
+{if $lazy}$(function(){$("img").lazyload();});{/if}
+</script>
+</body>
+</html>

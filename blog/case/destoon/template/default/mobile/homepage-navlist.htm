@@ -1,0 +1,24 @@
+<div class="aui-content">
+			<div class="bbs-wrapper">
+				<div class="menu-bar aui-margin-b-10" id="scroller">
+					<ul>
+            <li><a href="{$HURL}">首页</a></li>
+            {php $M = array();foreach($MENU as $v) {if(in_array($v['file'], array('introduce', 'news', 'credit', 'contact'))) continue;$M[] = $v;}}
+            {loop $M $i $m}
+<li {if $action==$m['file']}class="active"{/if} id="f{$m[file]}"><a href="{gl_mobile_homeurl($moduleid,$username,$m[file],0)}">{$m[name]}</a></li>
+{/loop}
+					</ul>
+				</div>
+			</div>
+</div>
+<script type="text/javascript" src="{$glmobileurl}script/iScroll5/iscroll.js"></script>
+<script type="text/javascript">
+myScroll = new IScroll('.bbs-wrapper', {
+eventPassthrough : false,
+scrollX : true,
+scrollY : false,
+preventDefault : true,
+click:true
+});
+myScroll.scrollToElement(Dd('f{$action}'), 800,-10);
+</script>

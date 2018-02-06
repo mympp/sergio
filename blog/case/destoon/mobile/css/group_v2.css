@@ -1,0 +1,132 @@
+body {
+	background-color: #fff;
+}
+.banner-container .swiper-container {
+        width: 100%;
+        height: 20rem;
+        margin: 0px auto 0px auto;
+		padding:0 ;
+		overflow:hidden;
+    }
+.banner-container .swiper-slide {
+        text-align: center;
+        background: #fff;
+		margin:0;
+		padding:0;
+    }
+.swiper-container-horizontal>.swiper-pagination-bullets,.swiper-pagination-custom,.swiper-pagination-fraction{bottom:0px;left:0;width:100%}	
+.banner-container .swiper-slide img { margin:0; padding:0; border:0; width:100%; height:100%;}
+.banner-container .swiper-slide a { display:inline; text-decoration:none; margin:0; padding:0;}
+.banner-container .swiper-slide span {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: 10;
+  min-height: 1.7rem;
+  padding:0.5rem;
+  background: rgba(255,255,255,0.6);
+  filter: progid:DXImageTransform.Microsoft.gradient( GradientType = 0,startColorstr = '#80000000',endColorstr = '#80000000')\9;
+  display: block;
+  line-height: 1.25rem;
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  overflow: hidden;
+  text-align: left;
+  text-indent:10px;
+  margin:0;
+}
+
+.aui-list .dt-sell-list-item .aui-list-item { padding-left:0.25rem !important;}
+.aui-list .dt-sell-list-item .aui-list-item-inner { padding-right:0.25rem !important;}
+
+.dt-sell-list .aui-list-item { padding-left:0.25rem;}
+.dt-sell-list-item .aui-col-xs-6 {
+height:11.5rem; margin-bottom:0.5rem;	
+}
+.dt-sell-list-item .aui-img {
+background: #fff;	
+}
+.dt-sell-list-item .aui-img img {
+	width:100%;
+	height:8rem;
+	overflow:hidden;
+}
+.dt-sell-list-item .aui-img-body { padding: 0 0.35rem; background: #fff; height:3.5rem; font-size: 0.7rem;}
+.dt-sell-list-item .aui-img-body .aui-waterfall-body {
+    background: #fff;
+    color: #666;
+	height:1.9rem;
+    font-size: 0.7rem;
+	margin-bottom:0.25rem;
+	text-align:left;
+	overflow:hidden;
+}
+.dt-sell-list-item .aui-img-body .aui-iconfont { font-size: 0.6rem; color:#999}
+.dt-sell-list-item .aui-img-body .aui-pull-right { margin-top:3px;}
+.dt-sell-list-item .aui-img-body .aui-pull-right { font-size: 0.6rem; color:#999}
+.dt-sell-list-item .aui-img-body .aui-pull-left { font-size: 0.7rem; color:#ff0000}
+.dt-sell-list-item .aui-img-body .aui-waterfall-body span { font-size:0.7rem;color:#000;}
+
+.mall-price-show { padding-bottom:0.125rem;}
+.mall-price-show .aui-card-list-header {
+	min-height: 2rem;
+    padding: 0.5rem 0.75rem 0.125rem 0.75rem;
+	font-size:0.9rem;
+	overflow:hidden;
+}
+
+.mall-price-show .aui-card-list-footer { min-height: 1.5rem; padding: 0.25rem 0.75rem; color:#999; font-size:0.6rem; }
+
+.mall-price-show .aui-card-list-footer .nv_1 {
+	display: inline-block;
+	padding: 0.6em 0.65em;
+	font-size: 0.6rem;
+	line-height: 1;
+	color: #616161;
+    background-color: #F3F3F3;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: 0.25em;
+}
+
+.mall-price-show .aui-card-list-footer .nv_2 {
+	display: inline-block;
+	padding: 0.6em 0.65em;
+	font-size: 0.6rem;
+	line-height: 1;
+	color: #ffffff;
+    background-color: #03a9f4;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: 0.25em;
+}
+
+.mall-content-list { margin-top:0.75rem;}
+.mall-content-list .list-empty { padding:40px 20px;line-height:200%;background:#FFFFFF;text-align:center; font-size:0.6rem;}
+#itemfoot .aui-bar-tab-item { width:15%; border-right:#e7e7e7 1px solid;}
+#itemfoot .aui-bar-tab-label { color:#000; font-size:0.6rem; margin-top:-0.25rem;}
+#itemfoot .dt-bar-tab-contact { font-size:0.8rem;}
+.returnTop .mall-cart { margin-bottom:0.25rem; background: #039be5; border: #039be5 1px solid; color:#FFF;}
+/*角标*/
+.returnTop .mall-cart em {
+	display: inline-block;
+	width: auto;
+	text-align: center;
+	min-width: 0.8rem;
+	height: 0.8rem;
+    line-height: 0.8rem;
+    padding: 0 0.2rem;
+    font-size: 0.6rem;
+    color: #ffffff;
+    background-color: #ff2600;
+    border-radius: 0.4rem;
+    position: absolute;
+    top: 0.2rem;
+    left: 60%;
+    z-index: 99;
+}

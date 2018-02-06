@@ -1,0 +1,184 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+
+<link rel="stylesheet" type="text/css" href="css/buy_v2.css"/>
+<header class="aui-bar aui-bar-nav dt-bg-orange" id="aui-header">
+       {if $itemid || $catid || $areaid || $kw}
+        <a class="aui-pull-left aui-btn" href="{$back_link}">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+       {else}
+        <a class="aui-pull-left aui-btn" href="channel.php">
+           <span class="aui-iconfont aui-icon-left"></span>频道
+        </a>
+       {/if}
+        <div class="aui-title">{$head_name}</div>
+        <a class="aui-pull-right">
+        <span class="dt-iconfont dt-icon-caidan" onclick="showPopup();"></span>
+        </a>
+                <span class="aui-pull-right" style="margin:0; padding:0">
+        <a class="aui-pull-left" href="user.php?mid={$moduleid}&action=add&backpath=1"><i class="dt-iconfont dt-icon-edit"></i></a>
+        <a class="aui-pull-right"><i class="dt-iconfont dt-icon-search" onclick="showsearchbar();"></i></a>
+</span>
+</header>
+<div class="aui-bar-fix"></div>
+
+{if $itemid}
+    <section class="aui-content">
+        <div class="aui-card-list aui-border-t aui-border-b">
+{template 'dt-paths-bar', 'mobile'}
+            <div class="aui-info dt-padded-t-20 aui-padded-l-5 aui-padded-r-15 dt-bg-gray">
+                <div class="aui-info-item aui-font-size-20">
+                    <span class="aui-margin-l-10 dt-text-black">{$title}</span>
+                </div>
+            </div>
+              <div class="aui-card-list-timer dt-bg-gray aui-padded-b-15">
+                <div class="aui-pull-left aui-font-size-12">
+                    <span class="aui-margin-r-10"><i class="aui-iconfont aui-icon-time aui-font-size-14 aui-margin-r-5"></i>{$editdate}</span><span class="aui-margin-r-10"><i class="aui-iconfont aui-icon-attention aui-font-size-14 aui-margin-r-5"></i>{$hits}</span>
+                </div>
+                <div class="aui-pull-right aui-font-size-12"><a {if $DT_MOB[browser]=='weixin'||$DT_MOB[browser]=='qq'}href="javascript:share_tips();"{else}onclick="gotoTop('dt-share'){/if}"><span class="dt-share-box"><i class="aui-iconfont aui-icon-share dt-text-orange aui-font-size-18 aui-margin-r-5 dt-top-t-3"></i>分享</span></a></div>
+            </div>
+         {if $thumb}<div class="aui-card-list-content">{template 'dtchip-album', 'mobile'} </div>{/if}
+    <ul class="aui-list">
+     <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title">{php echo $db->count($DT_PRE.'comment', "item_mid=$moduleid and item_id=$itemid and status=3", 1800);}人评价</div>
+                <div class="aui-list-item-right">
+                    <div class="aui-label aui-label-info">{$hits}查看</div>
+                </div>
+            </div>
+        </li>
+    </ul>
+{if $user_status == 3}    
+    <ul class="aui-list dt-border-none dt-contact-list aui-padded-t-10">
+        <li class="aui-list-nitem">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title aui-font-size-16">服务类型：</div>
+            </div>
+        </li>
+        <li class="aui-list-nitem">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title aui-font-size-16">服务区域：{cat_pos($catid,'/')}</div>
+            </div>
+        </li>
+        <li class="aui-list-nitem">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title aui-font-size-16">联系人：{$truename}</div>
+            </div>
+        </li>
+        <li class="aui-list-nitem">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title aui-font-size-16">联系电话：{$telephone}</div>
+            </div>
+        </li>
+        <li class="aui-list-item dt-no-active dt-atext-white">
+                <div class="aui-list-item-inner aui-list-item-center aui-list-item-btn aui-padded-t-10 aui-padded-b-15">
+                    <div class="aui-btn aui-btn-info aui-margin-r-15 dt-text-white" style="width:45%">{if $mobile}<a href="tel:{$mobile}">电话联系</a>{else}电话联系{/if}</div>
+                    <div class="aui-btn aui-btn-danger" style="width:45%">免费预约</div>
+                </div>
+         </li>
+        </ul>
+    <ul class="aui-list aui-media-list">
+            <li class="aui-list-item aui-list-item-arrow">
+                <div class="aui-media-list-item-inner aui-padded-t-5">
+                  <div class="aui-list-item-media" style="width: 3rem;">
+                       <a href="{userurl($username)}"><img src="{useravatar($v[username], 'smaill')}" class="aui-img-round aui-list-img-sm"></a>
+                    </div>
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text aui-margin-b-5">
+                            <div class="aui-list-item-title"><a href="{userurl($username)}">{$company}</a>&nbsp;&nbsp; <i class="aui-iconfont aui-icon-addressbook dt-text-color5"></i>{if $member[vtruename]}&nbsp;<span class="aui-font-size-12">实名认证</span>{/if}</div>
+                        </div>
+                        <div class="aui-list-item-text aui-ellipsis-2">
+                            {area_pos($areaid,'-')}
+                        </div>
+                    </div>
+                </div>
+            </li>
+        <li class="aui-list-nitem">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title aui-font-size-14 dt-chip-content">{$content}</div>
+            </div>
+        </li>
+        </ul>
+{else}
+    {template 'dtchip-content', 'mobile'}
+{/if}        
+</div>
+
+<ul class="aui-list dt-border-none">
+     <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title aui-font-size-12">如遇无效、虚假、诈骗信息，请立即举报</div>
+                <div class="aui-list-item-right">
+                    <div class="aui-label aui-label-info"><i class="dt-iconfont dt-icon-zhifa dt-text-white aui-font-size-16"></i>举报</div>
+                </div>
+            </div>
+        </li>
+</ul>
+
+</section>
+
+<div class="aui-content-padded">
+<p><div class="aui-btn aui-btn-info aui-btn-block aui-btn-outlined aui-btn-sm"><a href="index.php?moduleid={$moduleid}">有新的<span class="dt-text-red">{$MOD['name']}</span>信息发布了，快去看看</a></div></p>
+</div>
+{template 'dtchip-other', 'mobile'}
+
+<div class="aui-footer-fix"></div>
+    <footer class="aui-bar aui-bar-tab" id="itemfoot">
+        <div class="aui-bar-tab-item aui-active" onclick="glfavorite({$moduleid},{$itemid});">
+            <i class="dt-iconfont dt-icon-star"></i>
+            <div class="aui-bar-tab-label">收藏</div>
+        </div>
+        <div class="aui-bar-tab-item aui-active aui-col-5" onclick="window.location.href='register.php'">
+            <i class="dt-iconfont dt-icon-my"></i>
+            <div class="aui-bar-tab-label">入驻</div>
+        </div>
+        <div class="aui-bar-tab-item aui-active aui-col-5">
+            <i class="dt-iconfont dt-icon-dianhua"></i>
+            {if $user_status == 3} 
+            <div class="aui-bar-tab-label"><a href="tel:{$mobile}">立即联系</a></div>
+            {elseif $user_status == 2}
+            <div class="aui-bar-tab-label"><a href="javascript:laymsg('查看联系方式需支付{$fee}{$fee_unit}');">立即联系</a></div>
+            {elseif $user_status == 1}
+            <div class="aui-bar-tab-label"><a href="javascript:laymsg('无权查看，请升级会员级别');">立即联系</a></div>
+            {elseif $user_status == 0}
+            <div class="aui-bar-tab-label"><a href="javascript:laymsg('请登录查看');">立即联系</a></div>
+            {/if}
+        </div>
+        <div class="dt-bar-item-contact dt-bg-orange">
+            <a href="message.php?action=send&typeid=2&touser={$username}&title={encrypt('我对您发布的“'.$title.'”很感兴趣', DT_KEY.'SEND')}"><div class="dt-bar-tab-contact">立即报价</div></a>
+        </div>
+    </footer>
+{else}
+{template 'dtchip-deals', 'mobile'}
+{template 'dt-results-bar', 'mobile'}
+	{if $lists}
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-media-list dt-buy-list">
+	{loop $lists $v}
+            <li class="aui-list-item">
+                <div class="aui-media-list-item-inner"  style=" padding-bottom:0; margin-bottom:0;">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text aui-margin-b-5">
+                            <div class="aui-list-item-title aui-ellipsis-2"><a href="{mobileurl($moduleid, 0, $v['itemid'])}" id="gl{$v[itemid]}-titles">{$v[title]}</a>{if $v[thumb]}<i class="aui-iconfont aui-icon-pic aui-text-info aui-margin-l-5"></i>{/if}{if $EXT['gl_edit_items'] && $_userid && ($_username==''.$v[username].'' || $_groupid==1)}<i class="dt-iconfont dt-icon-pencil aui-font-size-18 dt-margin-l-3 aui-text-info" onclick="showItems({$moduleid},{$v[itemid]});"></i>{/if}</div>
+                        </div>
+                         <div class="aui-list-item-text aui-margin-b-5">
+                            <div class="aui-list-item-title aui-font-size-14 dt-text-gray aui-ellipsis-2">{if $v[vip]}<i class="dt-iconfont dt-icon-vip dt-text-orange dt-top-t-3"></i>{/if}{$v[company]}</div>
+                            <div class="aui-list-item-right {if $v[price]<=0}displaynone{/if}" id="gl{$v[itemid]}-dprice"><i class="dt-iconfont dt-icon-jiage aui-font-size-16 dt-text-orange"></i><span style="font-size:0.8rem !important; margin-right:0.1rem;" id="gl{$v[itemid]}-price" class="dt-text-orange">{$v[price]}</span><span style="font-size:0.7rem !important;" class="dt-margin-r-3">{$DT[money_unit]}</span></div>
+                        </div>
+                         <div class="aui-list-item-text aui-margin-b-5">
+                             <div><span class="dt-label aui-label-info aui-label-outlined">{gl_cat_name($v[catid])}</span><span class="dt-label aui-label-warning aui-label-outlined">{gl_area_name($v[areaid])}</span></div>
+                            <div class="aui-list-item-right">{timetodate($v[addtime],5)}</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+	{/loop}
+</ul>
+</div>
+	{else}
+	{template 'dtchip-empty', 'mobile'}
+	{/if}
+{/if}
+{if $pages}<div class="aui-content aui-margin-b-15 aui-text-center pageslist"><div class="pages">{$pages}</div></div>{/if}
+{template 'footer_v2', 'mobile'}

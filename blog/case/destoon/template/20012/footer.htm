@@ -1,0 +1,115 @@
+<div class="b10"></div>
+<div class="footer">
+	<div class="m">
+		<div class="b10">&nbsp;</div>
+		<div class="foot_page">
+		<a href="{$MODULE[1][linkurl]}">网站首页</a>
+		<!--{tag("table=webpage&condition=item=1&areaid=$cityid&order=listorder desc,itemid desc&template=list-webpage")}-->
+		| <a href="{$MODULE[1][linkurl]}sitemap/">网站地图</a>
+		| <a href="{$EXT[spread_url]}">排名推广</a>
+		{if $EXT[ad_enable]} | <a href="{$EXT[ad_url]}">广告服务</a>{/if}
+		{if $EXT[gift_enable]} | <a href="{$EXT[gift_url]}">积分换礼</a>{/if}
+		{if $EXT[guestbook_enable]} | <a href="{$EXT[guestbook_url]}">网站留言</a>{/if}
+		{if $EXT[feed_enable]} | <a href="{$EXT[feed_url]}">RSS订阅</a>{/if}
+		{if $DT[icpno]} | <a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow">{$DT[icpno]}</a>{/if}
+		</div>
+	</div>
+	<div class="m">
+		<div class="foot">
+			<div id="copyright">{$DT[copyright]}</div>
+			{if DT_DEBUG}<div class="px11">{debug()}</div>{/if}
+			<div id="powered"><a href="http://www.destoon.com/" target="_blank"><img src="{DT_STATIC}file/image/powered.gif" width="136" height="10" alt="Powered by DESTOON"/></a></div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="{DT_STATIC}file/script/marquee.js"></script>
+<script type="text/javascript">
+new dmarquee(26, 30, 3000, 'company');
+{if $destoon_task}
+show_task('{$destoon_task}');
+{else}
+{php include DT_ROOT.'/api/task.inc.php';}
+{/if}
+{if $lazy}$(function(){$("img").lazyload();});{/if}
+</script>
+
+<script type="text/javascript">
+var txtpos = 1
+txtposset()
+function txtposset(){
+setTimeout(function(){
+if (txtpos == 1) {
+gunUp()
+txtpos = 0
+}else{
+gunDowm()
+txtpos = 1
+};
+txtposset()
+},5000)
+}
+function gunUp(){
+$(".logotxt ul").animate({
+"margin-top":-60
+},1200)
+}
+function gunDowm(){
+$(".logotxt ul").animate({
+"margin-top":0
+},1200)
+}
+(function($){
+    $.fn.FontScroll = function(options){
+        var d = {time: 3000,s: 'fontColor',num: 1}
+        var o = $.extend(d,options);
+        
+        this.children('ul').addClass('line');
+        var _con = $('.line').eq(0);
+        var _conH = _con.height(); //滚动总高度
+        var _conChildH = _con.children().eq(0).height();//一次滚动高度
+        var _temp = _conChildH;  //临时变量
+        var _time = d.time;  //滚动间隔
+        var _s = d.s;  //滚动间隔
+        _con.clone().insertAfter(_con);//初始化克隆
+        //样式控制
+        var num = d.num;
+        var _p = this.find('li');
+        var allNum = _p.length;
+        _p.eq(num).addClass(_s);
+        var timeID = setInterval(Up,_time);
+this.hover(function() {
+clearInterval(timeID)
+},
+function() {
+imeID = setInterval(Up,_time);
+});
+        function Up(){
+            _con.animate({marginTop: '-'+_conChildH});
+            //样式控制
+            _p.removeClass(_s);
+            num += 1;
+            _p.eq(num).addClass(_s);
+            
+            if(_conH == _conChildH){
+                _con.animate({marginTop: '-'+_conChildH},"normal",over);
+            } else {
+                _conChildH += _temp;
+            }
+        }
+        function over(){
+            _con.attr("style",'margin-top:0');
+            _conChildH = _temp;
+            num = 1;
+            _p.removeClass(_s);
+            _p.eq(num).addClass(_s);
+        }
+    }
+})(jQuery);
+$('#joininfo').FontScroll({time: 2000,num: 1});
+var $guideSlider = $("#guideSlider").eq(0);
+$guideSlider.find(".guide-list .guide").hover(function() {
+    $(this).addClass("on").siblings().removeClass("on");
+});
+</script>
+</body>
+</html>

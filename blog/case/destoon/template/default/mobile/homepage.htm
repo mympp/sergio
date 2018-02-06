@@ -1,0 +1,160 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+<link rel="stylesheet" type="text/css" href="{$glmobileurl}css/homepage_v2.css"/>
+
+<header class="aui-bar aui-bar-nav dt-bg-orange dt-bgcolor-none" id="company-header">
+        <a class="aui-pull-left aui-btn" href="javascript:history.go(-1);" style="margin-top:0.1rem">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+        <div class="company-title">
+        <div class="aui-searchbar dt-bgcolor-none" id="search">
+        <div class="aui-searchbar-input aui-border-radius" style="height:1.5rem; border-radius:1.15rem;">
+            <i class="aui-iconfont aui-icon-search aui-text-info aui-font-size-20 dt-top-t-1" onclick="doSearch()"></i>
+            <form action="javascript:search();">
+                <input type="search" placeholder="请输入搜索内容" id="search-input" class="aui-font-size-16">
+            </form>
+        </div>
+        <div class="aui-searchbar-cancel dt-text-white" tapmod>取消</div>
+    </div>
+        </div>
+        <a class="aui-pull-right" onclick="openDivbox('footer-morebox')">
+        <span class="dt-iconfont dt-icon-caidan"></span>
+    </a>
+</header>
+<div class="aui-bar-fix"></div>
+
+    <div class="aui-content aui-margin-t-15 aui-margin-b-15 ">
+        <ul class="aui-list aui-media-list dt-border-none">
+            <li class="aui-list-item aui-list-item-middle dt-bgcolor-none">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media" style="width: 3.75rem;">
+                        <img src="{if $COM['thumb']}{$COM['thumb']}{else}{$glmobileurl}static/img/home-logo.png{/if}" class="aui-img-round aui-list-img-sm" style="border: #FFF 1px solid;">
+                    </div>
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text aui-margin-b-5">
+                            <div class="aui-list-item-title aui-font-size-18 dt-text-white">{$COM[company]}</div>
+                        </div>
+                        <div class="aui-list-item-text dt-text-white aui-pull-left">
+                        {if $COM[vtruename]}<i class="dt-iconfont dt-icon-shiming aui-font-size-16 dt-text-white aui-margin-r-5"></i>实名认证{/if}&nbsp;{if $COM[vip]}<i class="dt-iconfont dt-icon-vipcard aui-font-size-18 dt-text-white aui-margin-r-5"></i>第{$COM[year]}年{else}普通会员{/if}
+                        
+                    </div>
+                </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+<div class="aui-content">
+			<div class="bbs-wrapper">
+				<div class="menu-bar aui-margin-b-10" id="scroller">
+					<ul>
+            <li class="active"><a href="">{$MOD[name]}首页</a></li>
+            {loop $M $i $m}
+<li><a href="{gl_mobile_homeurl($moduleid,$username,$m[file],0)}">{$m[name]}</a></li>
+{/loop}
+					</ul>
+				</div>
+			</div>
+</div>
+
+<script type="text/javascript" src="{$glmobileurl}script/iScroll5/iscroll.js"></script>
+<script type="text/javascript">
+myScroll = new IScroll('.bbs-wrapper', {
+eventPassthrough : false,
+scrollX : true,
+scrollY : false,
+preventDefault : true,
+click:true
+});
+//myScroll.scrollToElement(that[0], 800);
+    var searchBar = document.querySelector(".aui-searchbar-input");
+    if(searchBar){
+        searchBar.onclick = function(){
+            document.querySelector(".aui-searchbar-cancel").style.marginRight = 0;
+        }
+    }
+    document.querySelector(".aui-searchbar-cancel").onclick = function(){
+        this.style.marginRight = "-"+this.offsetWidth+"px";
+        document.getElementById("search-input").value = '';
+        document.getElementById("search-input").blur();
+    }
+    function doSearch(){
+        var searchValue = document.getElementById("search-input").value;
+        if(searchValue){
+            openDialog('text','您输入的内容是',searchValue);
+        }
+    }
+$('.setTab').click(function (){
+            $('.setTab').removeClass('Themebg');
+            $(this).addClass('Themebg');
+        });
+</script>
+
+<div class="aui-content aui-margin-b-10">
+<div class="dt-index-title aui-text-warning aui-padded-t-5 aui-padded-b-10 dt-bg-white aui-list-item-arrow">
+  <div class="box-title dt-text-color8">{$MOD[name]}推荐</div>
+  <span class="aui-right-more aui-text-gray aui-font-size-12" onclick="window.location.href='{$HURL}&action=sell'">更多</span></div>        
+  <!--{php $tags=tag("table=sell_5&condition=status=3 and username='$username' and thumb<>''&areaid=$cityid&pagesize=6&fields=itemid,title,thumb,truename,company,hits,price,edittime&order=edittime desc&template=null");}-->
+        <ul class="aui-list aui-media-list dt-sell-list dt-border-none" >
+            <li class="aui-list-item dt-sell-list-item dt-bg-gray">
+                <div class="aui-list-item-inner aui-padded-t-5">
+                    <div class="aui-row aui-row-padded">
+                     {loop $tags $v}
+                     {php if($EXT['gl_img_echo'] && isset($v['thumb']) && $v['thumb']) $v['thumb'] =  ''.$glmobileurl.'image/echoblank.gif" data-echo="'.$v['thumb'];}
+
+                        <div class="aui-col-xs-6">
+                            <div class="" style="height:8rem; background-color:#fff"><a href="{$glmobileurl}{mobileurl(5, 0, $v['itemid'])}"><img src="{if $v[thumb]}{$v[thumb]}{else}{$glmobileurl}image/nopic-80.png{/if}" class="dt-img-contain" height="100%"/></a></div>
+               <div class="aui-img-body">
+                <div class="aui-waterfall-body">
+                    <a href="{$glmobileurl}{mobileurl(5, 0, $v['itemid'])}"><span class="aui-ellipsis-2">{$v[title]}</span></a>
+                </div>
+                    <div class="aui-pull-left">
+                        <i class="aui-iconfont aui-icon-attention dt-margin-r-3 aui-font-size-12"></i>{$v[hits]}
+                    </div>
+                    <div class="aui-pull-right">{if $v[price]>0}<span class="">{$DT[money_sign]}</span><span class="aui-font-size-16">{$v[price]}</span>{/if}
+                    </div>
+                </div>
+                        </div>
+                      {/loop}
+                    </div>
+                </div>
+            </li>
+</ul>
+</div>
+{php $could_contact = check_group($_groupid, $MOD['group_contact']);}
+{if $could_contact}
+<div class="aui-content aui-margin-b-10">
+<div class="dt-index-title aui-padded-t-5 aui-padded-b-10 dt-bg-white aui-list-item-arrow">
+  <div class="box-title aui-text-info">公司简介/联系方式</div>
+  <span class="aui-right-more aui-text-gray aui-font-size-12" onclick="window.location.href='{$HURL}&action=sell'">更多</span></div> 
+    <ul class="aui-list">
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title">公司名称：{$COM[company]}</div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title">公司地址：<a href="map.php?auth={encrypt($COM[address], DT_KEY.'MAP')}" rel="external">{$COM[address]}</a></div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title">公司电话：<a href="tel:{$COM[telephone]}">{$COM[telephone]}</a></div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title">联 系 人：{$COM[truename]} （{if $COM[gender]==1}先生{else}女士{/if}）</div>
+            </div>
+        </li>
+	{if $COM[mobile]}
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">手机号码：<a href="tel:{$COM[mobile]}">{$COM[mobile]}</a></div>
+            </div>
+        </li>
+        {/if}
+       </ul>         
+{/if}
+{template 'footer_company_v2', 'mobile'}

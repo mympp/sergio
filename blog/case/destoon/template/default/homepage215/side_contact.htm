@@ -1,0 +1,34 @@
+<div class="side_1">
+	<div id="mod-cert" class="box" name="4_4_">
+		<h2  style="border:none;">
+		 <div class="mod-cert-hd">
+			 <div class="hL"></div>
+			 <div class="hR"></div>
+			<a href="{userurl($username, 'file=contact', $domain)}"><span>{$side_name[$HS]}</span></a>
+		</div>
+		</h2>
+		<div class="boxCont">
+			<div class="box-cont-logo">
+				<a href="{userurl($username, 'file=contact', $domain)}">点击查看诚信档案</a>
+			</div>
+			<ul class="cert-info">
+				<li class="menu-company-name">
+				<a href="{$COM[linkurl]}">{$COM[company]}</a> </li>
+				<li>{$COM[truename]}&nbsp;</li>
+				<li>经营模式：{$COM[mode]}</li>
+				<li>所在地区：{$COM[areaid]}</li>
+				{if $COM[telephone]}
+				<li title="{$COM[telephone]}">电话：{$COM[telephone]}</li>
+				{/if}
+				{if $COM[mail]}
+				<li title="{$COM[mail]}">邮件：{$COM[mail]}</li>
+				{/if}
+				{if $COM[mobile]}
+				<li title="{$COM[mobile]}">手机：{$COM[mobile]}</li>
+				{/if}
+				{if $COM[fax]}
+				<li title="{$COM[fax]}">传真：{$COM[fax]}</li>
+				{/if}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,36 @@
+{template 'header', $template}
+{if $bannert || $banner}
+<div class="m">
+<div class="banner">
+{if $bannert == 2}
+<div id="slide_banner" style="width:1200px;height:{$bannerh}px;background:#FAFAFA;overflow:hidden;">
+<a href="###"><img src="{$banner1}" width="{$bannerw}" height="{$bannerh}" alt=""/></a>
+<a href="###"><img src="{$banner2}" width="{$bannerw}" height="{$bannerh}" alt=""/></a>
+{if $banner3}<a href="###"><img src="{$banner3}" width="{$bannerw}" height="{$bannerh}" alt=""/></a>{/if}
+{if $banner4}<a href="###"><img src="{$banner4}" width="{$bannerw}" height="{$bannerh}" alt=""/></a>{/if}
+{if $banner5}<a href="###"><img src="{$banner5}" width="{$bannerw}" height="{$bannerh}" alt=""/></a>{/if}
+</div>
+{load('slide.js')}
+<script type="text/javascript">new dslide('slide_banner');</script>
+{elseif $bannert == 1}
+<embed src="{$bannerf}" quality="high" loop="true" extendspage="http://get.adobe.com/flashplayer/" type="application/x-shockwave-flash" width="{$bannerw}" height="{$bannerh}" allowscriptaccess="never"></embed>
+{elseif $banner}
+<img src="{$banner}" width="100%"/>
+{/if}
+</div>
+</div>
+{/if}
+<div class="m">
+<div  id="pos">您当前的位置：<a href="{$COM[linkurl]}">首页</a> &raquo; 欢迎光临</div>
+</div>
+<div class="main_wrap">
+{if $side_pos==0}
+	<div  id="side" class="w260">{template 'side', $template}</div>
+{/if}
+<div class="w930">
+	{loop $HMAIN $HM $MAIN}
+	{template 'main_'.$main_file[$HM], $template}
+	{/loop}
+ </div>
+</div>
+{template 'footer', $template}

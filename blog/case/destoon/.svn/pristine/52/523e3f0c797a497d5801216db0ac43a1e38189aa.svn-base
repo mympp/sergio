@@ -1,0 +1,1029 @@
+{template 'header'}
+<style>
+	.col-300{
+		width: 300px;
+	}
+	.width_label{
+	    width: 65px;
+	    display: inline-block;
+	}
+	.ps-xh{
+		position: relative;
+		top: 2px;
+	}
+	#code_yzm{
+	    width: 200px !important;
+	    height: 28px;
+	    line-height: 28px;
+	    font-size: 12px;
+	    padding-left: 2px;
+	    box-sizing: border-box;
+	}
+	.input-sm{
+		height: 28px;
+	    line-height: 28px;
+	    box-sizing: border-box;
+	    padding-left: 2px;
+	}
+	.huoqu-yzm {
+		height: 28px;
+	    border: 1px solid #A9A9A9;
+	    background: #fff;
+	    color: #888;
+	    width: 100px !important;
+	    position: relative;
+	    top: 2px;
+	    line-height: 28px;
+	    right: 4px;
+	    border-left: none;
+	    cursor: pointer;
+	}
+	.weui_uploader_input_wrp {
+	    float: left;
+	    position: relative;
+	    margin-right: 5px;
+	    margin-bottom: 5px;
+	    width: 80px;
+	    height: 80px;
+	    border: 1px solid #d9d9d9;
+	    box-sizing: border-box;
+	}
+	.weui_uploader_input {
+	    position: absolute;
+	    z-index: 1;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    opacity: 0;
+	    -webkit-tap-highlight-color: rgba(0,0,0,0);
+	}
+	.weui_uploader_input_wrp:after, .weui_uploader_input_wrp:before {
+	    content: " ";
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    -webkit-transform: translate(-50%,-50%);
+	    transform: translate(-50%,-50%);
+	    background-color: #d9d9d9;
+	}
+	.weui_uploader_input_wrp:before {
+	    width: 2px;
+	    height: 25px;
+	}
+	.weui_uploader_input_wrp:after {
+	    width: 25px;
+	    height: 2px;
+	}
+	.weui_uploader_status {
+	    position: relative;
+	}
+	.weui_uploader_file {
+	    float: left;
+	    margin-right: 5px;
+	    margin-bottom: 5px;
+	    width: 80px;
+	    height: 80px !important;
+	    line-height: normal !important;
+	}
+	.upload-img {
+	    width: 100%;
+	    height: 100%;
+	    cursor: pointer;
+	}
+	img{
+		border: none;
+	}
+	#IsCk{
+		position: relative;
+    	left: 10px;
+	}
+	.org {
+    	color: #FE9D34;
+	}
+	.shouzhi{
+		cursor: pointer;
+	}
+	.select1,.select2{
+		width: 148px;
+	    height: 28px;
+	    line-height: 28px;
+	    color: #757575;
+	    border: 1px solid #a9a9a9;
+	}
+	#content::placeholder{
+		padding-left: 1px;
+	}
+	       
+</style>
+<div class="m b10">&nbsp;</div>
+<div class="m">
+	<h1 class="title">{$DT[sitename]}会员服务一览表</h1>
+	<table cellpadding="8" cellspacing="1" width="100%" bgcolor="#DDDDDD">
+	<tr bgcolor="#F4F4F4" align="center">
+	<td class="f_b px14" width="{$percent}">服务范围\会员组</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td class="f_b px14" width="{$percent}">{$v[groupname]}</td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>收费模式</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>{if $v[fee_mode]}<span class="f_red">包年</span>{else}<span class="f_green">免费</span>{/if}</td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>年 费</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>{if $v[fee]}<span class="f_red"><strong>{$v[fee]}</strong> {$DT[money_unit]}/年</span>{else}--{/if}</td>
+	{/if}{/loop}
+	</tr>
+	{if $UP}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>&nbsp;</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>{if isset($UP[$k])}<a href="?groupid={$v[groupid]}#up"><img src="{DT_SKIN}image/btn_upgrade.gif"/></a>{else}&nbsp;{/if}</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>允许发布信息</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td valign="top" class="f_gray">
+	{loop $DM $m}
+		{if in_array($m[moduleid], $v[moduleids])}<a href="{$m[linkurl]}" target="_blank">{$m[name]}</a> | {/if}
+	{/loop}
+	</td>
+	{/if}
+	{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>拥有{VIP}标识 <img src="{DT_SKIN}image/vip.gif" align="absmiddle" alt="{VIP}" title="{VIP}"/></td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[vip]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>信息优先排序</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[vip]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>产品首页推荐</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[vip]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>产品在线销售</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[trade_sell]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>信息关键字排名</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[spread]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>拥有公司主页</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[homepage]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>自定义公司主页</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[home]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>自定义公司模板</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[style]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>客户服务</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[ask]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>商机订阅</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[mail]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>邮件发送</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td><img src="{DT_SKIN}image/{if $v[sendmail]}yes{else}no{/if}.gif"/></td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>收件箱容量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[inbox_limit] == -1}
+	0
+	{elseif $v[inbox_limit] == 0}
+	不限
+	{else}
+	{$v[inbox_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>每日可发站内信</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[message_limit] == -1}
+	0
+	{elseif $v[message_limit] == 0}
+	不限
+	{else}
+	{$v[message_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>每日询盘次数</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[inquiry_limit] == -1}
+	0
+	{elseif $v[inquiry_limit] == 0}
+	不限
+	{else}
+	{$v[inquiry_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>每日报价次数</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[price_limit] == -1}
+	0
+	{elseif $v[price_limit] == 0}
+	不限
+	{else}
+	{$v[price_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>商友数量数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[friend_limit] == -1}
+	0
+	{elseif $v[friend_limit] == 0}
+	不限
+	{else}
+	{$v[friend_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>贸易提醒数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[alert_limit] == -1}
+	0
+	{elseif $v[alert_limit] == 0}
+	不限
+	{else}
+	{$v[alert_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>商机收藏数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[favorite_limit] == -1}
+	0
+	{elseif $v[favorite_limit] == 0}
+	不限
+	{else}
+	{$v[favorite_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+
+	{if $MODULE[16]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>发布商品数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[mall_limit] == -1}
+	0
+	{elseif $v[mall_limit] == 0}
+	不限
+	{else}
+	{$v[mall_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	{if $MODULE[5]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>供应信息数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[sell_limit] == -1}
+	0
+	{elseif $v[sell_limit] == 0}
+	不限
+	{else}
+	{$v[sell_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	{if $MODULE[6]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>求购信息数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[buy_limit] == -1}
+	0
+	{elseif $v[buy_limit] == 0}
+	不限
+	{else}
+	{$v[buy_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>招商信息数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[info_limit] == -1}
+	0
+	{elseif $v[info_limit] == 0}
+	不限
+	{else}
+	{$v[info_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+
+	{if $MODULE[8]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>展会信息数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[exhibit_limit] == -1}
+	0
+	{elseif $v[exhibit_limit] == 0}
+	不限
+	{else}
+	{$v[exhibit_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	{if $MODULE[9]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>招聘信息数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[job_limit] == -1}
+	0
+	{elseif $v[job_limit] == 0}
+	不限
+	{else}
+	{$v[job_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>新闻稿件数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[article_limit] == -1}
+	0
+	{elseif $v[article_limit] == 0}
+	不限
+	{else}
+	{$v[article_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+
+	{if $MODULE[9]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>个人简历数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[resume_limit] == -1}
+	0
+	{elseif $v[resume_limit] == 0}
+	不限
+	{else}
+	{$v[resume_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	{if $MODULE[10]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>行业知道数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[know_limit] == -1}
+	0
+	{elseif $v[know_limit] == 0}
+	不限
+	{else}
+	{$v[know_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	{if $MODULE[13]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>公司品牌数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[brand_limit] == -1}
+	0
+	{elseif $v[brand_limit] == 0}
+	不限
+	{else}
+	{$v[brand_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	{if $MODULE[17]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>发布团购数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[group_limit] == -1}
+	0
+	{elseif $v[group_limit] == 0}
+	不限
+	{else}
+	{$v[group_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	{if $MODULE[12]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>公司相册数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[photo_limit] == -1}
+	0
+	{elseif $v[photo_limit] == 0}
+	不限
+	{else}
+	{$v[photo_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	{if $MODULE[14]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>公司视频数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[video_limit] == -1}
+	0
+	{elseif $v[video_limit] == 0}
+	不限
+	{else}
+	{$v[video_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	{if $MODULE[15]}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>上传资料数量</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>
+	{if $v[down_limit] == -1}
+	0
+	{elseif $v[down_limit] == 0}
+	不限
+	{else}
+	{$v[down_limit]}
+	{/if}
+	</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	{if $UP}
+	<tr bgcolor="#FFFFFF" align="center">
+	<td>&nbsp;</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td>{if isset($UP[$k])}<a href="?groupid={$v[groupid]}#up"><img src="{DT_SKIN}image/btn_upgrade.gif"/></a>{else}&nbsp;{/if}</td>
+	{/if}{/loop}
+	</tr>
+	{/if}
+
+	<tr bgcolor="#F4F4F4" align="center">
+	<td class="f_b px14" width="{$percent}">服务范围\会员组</td>
+	{loop $GROUPS $k $v}{if $k > 4}
+	<td class="f_b px14" width="{$percent}">{$v[groupname]}</td>
+	{/if}{/loop}
+	</tr>
+	</table>
+</div>
+
+<div class="m b10">&nbsp;</div>
+
+<div class="m">
+<div class="m_l f_l">
+	<div class="box_head"><div><strong>在线升级</strong><a name="up"></a></div></div>
+	<div class="box_body">
+		<form method="post" action="?" onsubmit="return check();">
+		<input type="hidden" name="groupid" id='groupid' value="{$groupid}" />
+		<input type="hidden" id='imgsrc' name="imgsrc" value="{$business_licence}" />
+		{if $mobile} 
+		<input type="hidden" id='changephone' name="changephone" value="1" />
+		{else}
+		<input type="hidden" id='changephone' name="changephone" value="0" />
+		{/if}
+		<table cellpadding="6" cellspacing="0" width="100%">
+		<tr>
+		<td align="right" width="100" height="25"><span class="f_red ps-xh">*</span><span class="width_label">升<span style="padding: 0 6px;">级</span>为：</span></td>
+		<td>
+		<span class="f_orange f_b">
+		{if $UP}
+			{if $groupid}
+			{$UP[$groupid][groupname]}
+			{else}
+			请选择升级会员组
+			{/if}
+		{else}
+			暂时没有供您升级的会员组
+		{/if}
+		</span>
+		&nbsp;&nbsp;
+		{if $_userid}
+		您的当前会员组为<strong>{$GROUP[$_groupid][groupname]}</strong>
+		{else}
+		您还没有登录，建议您先 <a href="{$DT[file_login]}" class="f_b">登录</a > 或 <a href="{$DT[file_register]}" class="f_b">注册会员</a>
+		{/if}
+		</td>
+		</tr>
+		{if $fee}
+		<tr>
+		<td align="right"><span class="f_red ps-xh">*</span><span class="width_label">所需费用：</span></td>
+		<td><span class="f_red f_b">{$fee}{$DT[money_unit]}/年</span></td>
+		</tr>
+		<!--<tr>
+		<td align="right">优惠码：</td>
+		<td><input name="promo_code" type="text" id="promo_code" size="20" value="" style="border:green 2px solid;padding:2px;font-size:14px;margin:0 0 5px;" onblur="pcode(this.value);"/><br/><span class="f_gray" id="code">使用优惠码可充抵部分费用或获赠一段有效期</span>
+		</td>
+		</tr>-->
+		{/if}
+		{if $need_fee}
+		<!--<tr>
+		<td align="right">账户余额：</td>
+		<td><span class="f_blue f_b">{$_money} {$DT[money_unit]}</span> {if $fee>$_money}&nbsp;&nbsp;您的余额不足， <a href="charge.php?action=pay" target="_blank" class="f_b">请充值</a>{/if}</td>
+		</tr>-->
+		{/if}
+		<tr>
+		<td align="right"><span class="f_red ps-xh">*</span><span class="width_label">联系姓名：</span></td>
+		<td><input class="input-sm col-300" name="truename" type="text" id="truename" size="20" placeholder="请输入联系姓名" value="{$truename}" /> <br/><span id="dtruename" class="f_red"></span></td>
+		</tr>
+		<tr>
+		<td align="right"><span class="f_red ps-xh">*</span><span class="width_label">联系电话：</span></td>
+		<td><input class="input-sm col-300" name="telephone" id="telephone" type="text" size="30" placeholder="请输入联系电话" value="{$telephone}" /> <span id="dtelephone" class="f_red"></span></td>
+		</tr>
+		<tr>
+		<td align="right"><span class="f_red ps-xh">*</span><span class="width_label">联系手机：</span></td>
+		<td><input class="input-sm col-300" name="mobile" id="mobile" type="text" size="30" placeholder="请输入联系手机" value="{$mobile}" {if $mobile} disabled {/if} /> <span id="dmobile" class="f_red"></span></td>
+		</tr>
+		{if !$mobile}
+		<tr>
+		<td align="right"><span class="f_red ps-xh">*</span><span class="width_label">验<span style="padding: 0 6px;">证</span>码：</span></td>
+		<td>
+			<input id="code_yzm" type="text" size="30" name="code_yzm" placeholder="请输入验证码" value="" />
+			<input class="huoqu-yzm input-sm col-300" type="button" value="获取验证码" onclick="sendMessage()">
+		</td>
+		</tr>
+		{/if}
+		<tr>
+		<td align="right"><span class="f_red ps-xh">*</span><span class="width_label">所在地区：</span></td>
+			<td>
+				<!--<input type="text" class="icon-psd" style="width: 144px;"/>-->
+				<!--<input type="text" class="icon-psd" style="width: 144px;"/>-->
+				<select name="select1" class="select1" onchange="getcity()">
+					<option value="" >选择省份</option>
+					{loop $area_data $k $v}
+					{if $v[areaid]==$parentid}
+					<option value="{$v[areaid]}" selected="selected" >{$v[areaname]}</option>
+					{else}
+					<option value="{$v[areaid]}"  >{$v[areaname]}</option>
+					{/if}
+					{/loop}
+				</select>
+				<select name="select2" class="select2" onChange="">
+					<option value="" >选择城市</option>
+					{loop $area_city $k $v}
+					{if $v[areaid]==$areaid}
+					<option value="{$v[areaid]}" selected="selected" >{$v[areaname]}</option>
+					{else}
+					<option value="{$v[areaid]}" >{$v[areaname]}</option>
+					{/if}
+					{/loop}
+				</select>
+			</td>
+		</tr>
+		<td align="right"><span class="f_red ps-xh">*</span><span class="width_label">电子邮箱：</span></td>
+		<td><input class="input-sm col-300" name="email" id="email" type="text" size="30" placeholder="请输入电子邮箱" value="{$email}" /></td>
+		</tr>
+		<tr>
+		<td align="right"><span class="f_red ps-xh">*</span><span class="width_label">公司名称：</span></td>
+		<td><input class="input-sm col-300" type="text" name="company" id="company" placeholder="请输入公司名称" value="{$company}" size="50"/><br/><span id="dcompany" class="f_red"></span></td>
+		</tr>
+		<tr>
+		<td align="right" style="vertical-align: top;"><span class="f_red ps-xh">*</span><span class="width_label">公司地址：</span></td>
+		<td>
+		<textarea style="width:294px;height:60px;resize:none;border: 1px solid #a9a9a9;" name="content" value="" maxlength="200" placeholder="请输入公司地址" id="content">{$address}</textarea><br/>
+		<span id="dcontent" class="f_red"></span>
+		</td>
+		</tr>
+		<tr>
+		<td align="right"><span class="f_red ps-xh">*</span><span class="width_label">营业执照：</span></td>
+		<td>
+			<ul class="weui_uploader_files" id="ImgList">
+			{if $business_licence}
+			<li class="weui_uploader_file weui_uploader_status delimg"><img src="{$business_licence}" class="upload-img"/></li>
+			{/if}
+			</ul>
+			<div class="weui_uploader_input_wrp">
+				 <input class="weui_uploader_input" id="inputfile"  style="font-size: 0 !important;" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" onchange="previewImage(this)" multiple="multiple">
+			</div>
+
+
+		</td>
+		</tr>
+		<tr>
+			<td align="right">
+        		<input type="checkbox" checked="checked" id="IsCk">		
+	        </td>			
+	        <td>
+        		<span>我已经阅读并同意<span class="org shouzhi" onclick="window.open('{DT_PATH}about/attestation.html')">《会员认证服务协议》</span>及<span class="org shouzhi" onclick="window.open('{DT_PATH}about/relevance.html">《账号关联关系协议》</span></span>			
+	        </td>
+		</tr>
+		<tr>
+		<td align="right"></td>
+		<td><input class="input-sm col-300 qwe" type="button" {if $groupid&&$wait} value="下一步 " id="Next" {else} value="下一步 " disabled="disabled" {/if} /></td>
+		</tr>
+		</table>
+		</form>
+	</div>
+</div>
+ <div id="msg">
+ </div>
+<div class="m_n f_l">&nbsp;</div>
+<div class="m_r f_l">
+	<div class="box_head"><div><strong>相关说明</strong></div></div>
+	<div class="box_body">
+		<div style="line-height:24px;font-size:13px;padding:5px;">
+		- 如果升级有任何问题，请致电客户专员<br/>
+		&nbsp;&nbsp;服务电话：{$DT[telephone]}<br/>
+		</div>
+	</div>
+	<div class="b10"> </div>
+	<div class="box_head"><div><span class="f_r"><a href="{$MODULE[4][linkurl]}{rewrite('search.php?vip=1')}">更多&raquo;</a></span><strong>最新{VIP}</strong></div></div>
+	<div class="box_body li_dot f_gray">
+		<div id="vips" style="height:220px;overflow:hidden;">
+		<!--{tag("moduleid=4&condition=vip>0&areaid=$cityid&pagesize=20&order=fromtime desc&template=list-com")}-->
+		</div>
+	</div>
+</div>
+</div>
+
+<script type="text/javascript" src="{DT_STATIC}file/script/marquee.js"></script>
+<script type="text/javascript">
+function stopSend(str){
+ var im="<img src='upload/images/"+str+"'>";
+ $("#msg").append(im);
+
+}
+
+$("#Next").bind("click",function(){
+		var noNull = '不能为空';
+		var truename = $('#truename').val();
+		var telephone = $('#telephone').val();
+		var mobile = $('#mobile').val();
+		var code_yzm = $('#code_yzm').val();
+		var select1=$('.select1 option:selected').val();
+		var select2 = $('.select2 option:selected').val();
+		var email = $('#email').val();
+		var company = $('#company').val();
+		var content = $('#content').val();
+		var hasImg = $('#ImgList>li').length;
+		var imgPath = $('#ImgList>li>img').attr('src');
+		var IsCk = $('#IsCk').is(':checked');
+		var dhRegex = /^(0\d{2,3}-?)?\d{7,8}$/;//电话号码验证
+		var sjRegex = /((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\d{8}/;//手机号码验证
+		var yxRegex = /([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})/;//邮箱验证
+		if(truename == ''){
+			alert("联系姓名"+noNull);
+		}else if(truename.length<2){
+			alert("联系姓名不能小于2位");
+		}else if(telephone == ''){
+			alert("联系电话"+noNull);
+		}else if(!dhRegex.test(telephone)){
+			alert("联系电话不正确");
+		}else if(mobile == ''){
+			alert("联系手机"+noNull);
+		}else if(!sjRegex.test(mobile)){
+			alert("联系手机不正确");
+		}else if(code_yzm == ''){
+			alert("验证码"+noNull);
+		}else if(select1 == ''){
+			alert("省份"+noNull);
+		}else if(select2 == ''){
+			alert("城市"+noNull);
+		}else if(email == ''){
+			alert("电子邮箱"+noNull);
+		}else if(!yxRegex.test(email)){
+			alert("电子邮箱不正确");
+		}else if(company == ''){
+			alert("公司名称"+noNull);
+		}else if(company.length<=4){
+			alert("公司名称要大于4位");
+		}else if(content == ''){
+			alert("公司地址"+noNull);
+		}else if(content.length<6){
+			alert("公司地址不能少于6为");
+		}else if(hasImg == '0'){
+			alert("营业执照"+noNull);
+		}else if(IsCk == false){
+			alert("请选择同意协议");
+		}
+		var img_src=$('#imgsrc').val();
+		var groupid=$('#groupid').val();
+		var changephone=$('#changephone').val();
+		$.post("{DT_PATH}api/ajax/myajax/user_rz.inc.php", {
+					'truename': truename,
+					'img_src':img_src,
+					'telephone': telephone,
+					'mobile': mobile,
+					'code_yzm': code_yzm,
+					'select1': select1,
+					'select2': select2,
+					'email': email,
+					'company': company,
+					'content': content,
+					'groupid': groupid,
+					'changephone': changephone,
+				}, function(ret) {
+					if(ret.code==1){
+						if(ret.fee=='1'){
+							alert('已付');
+						    
+						    return false
+						}else{
+							var total = {$fee};
+					
+							if(total > 0.00) {
+								 //Go('<?php echo DT_PATH ;?>api/pay/my_success.inc.php?type=pay&reason=upgrade&amount='+total);
+									Go('my_charge.php?action=pay&reason=upgrade&amount='+total);
+									return false;
+							}
+							if(Dd('password').value.length < 6) {
+									Dmsg('请填写支付密码', 'password');
+									return false;
+								}
+							return confirm('您确认此订单，并立即支付吗？');
+						
+							window.setInterval(
+								function() {
+									total > {$_money} ? Dh('payword') : Ds('payword');
+								}, 
+							500);  
+						}
+					}else{
+                      alert(ret.message);
+					}
+				
+				});      
+		
+});	
+	
+var InterValObj; //timer变量，控制时间
+var count = 60; //间隔函数，1秒执行
+var curCount; //当前剩余秒数
+var phone; //初始化手机号码
+//发送消息函数
+function sendMessage(){　
+	var mobile=$('#mobile').val();
+	var sjRegex = /((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\d{8}/;//手机号码验证
+	if(!sjRegex.test(mobile)){
+		alert("请输入正确的手机号码");
+		return false;
+	};
+
+	$.ajax({
+		type:'GET',
+		url:"{DT_PATH}api/ajax/myajax/check_phone.inc.php",
+		data:{
+			'mobile':mobile,
+		},
+		dataType:'JSON',
+		success:function(res){
+			if(res.code=='1'){
+				curCount = 60; //设置button效果，开始计时
+				$(".huoqu-yzm").attr("disabled", "true");
+				$(".huoqu-yzm").val(curCount+"秒后重新获取");
+				var phone = $(".Tel").val();//获取手机号码
+				InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+			}else{
+				alert(res.message);
+			}
+		},
+		error: function(xhr, type) {
+				
+		}
+	});
+
+
+	
+
+}
+
+//timer处理函数
+function SetRemainTime(){
+	if(curCount == 0) {
+		window.clearInterval(InterValObj); //停止计时器
+		$(".huoqu-yzm").removeAttr("disabled"); //启用按钮
+		$(".huoqu-yzm").val("重新获取验证码");
+	} else {
+		curCount--;
+		$(".huoqu-yzm").val(curCount+"秒后重新获取");
+	}
+}
+
+new dmarquee(22, 20, 2000, 'vips');
+function pcode(s) {
+	if(s.length > 4) {
+		makeRequest('action={crypt_action('promo')}&code='+s, '?', '_pcode');
+	}
+}
+function _pcode() {
+	if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+		if(xmlHttp.responseText) Dd('code').innerHTML = '<span class="f_red">'+xmlHttp.responseText+'</span>';
+	}
+}
+function check() {
+	{if !$could_up}
+	return false;
+	{/if}
+	if(Dd('company').value.length < 2) {
+		Dmsg('请填写公司全称', 'company');
+		return false;
+	}
+	if(Dd('truename').value.length < 2) {
+		Dmsg('请填写联系人', 'truename');
+		return false;
+	}
+	if(Dd('telephone').value.length < 6) {
+		Dmsg('请填写电话号码', 'telephone');
+		return false;
+	}
+	if(Dd('content').value.length > 500) {
+		Dmsg('附言最多500字 当前已输入'+Dd('content').value.length+' 字', 'content');
+		return false;
+	}
+	return confirm('确认填写无误，提交此升级申请吗？');
+}
+function getcity(){
+	var areaid=$('.select1 option:selected').val();
+	  $.ajax({
+			type: 'GET',
+			data:{
+				'areaid' :areaid,
+			},
+			url: "{DT_PATH}api/ajax/myajax/get_city.inc.php",
+			dataType: 'json',
+			success: function(data) {
+			   
+			  $(".select2").empty();
+			  var city_html='<option value=""  >选择城市</option>';
+	          for (var i = 0; i < data.length; i++) {
+	            city_html+='<option value="'+data[i].areaid+'"  >'+data[i].areaname+'</option>';
+	           }
+              
+	          $('.select2').append(city_html);
+              //console.log(city_html);
+			},
+			error: function(xhr, type) {
+				
+			}
+		});
+}
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+    //响应文件添加成功事件
+    var feedback = $("#feedback");
+    $("#inputfile").change(function(){
+    if (feedback.children('img').length>0) {
+        alert("最多只能选择一张图片");
+        return false;
+    }
+        //创建FormData对象
+        var data = new FormData();
+        //为FormData对象添加数据
+        $.each($('#inputfile')[0].files, function(i, file) {
+            data.append('upload_file'+i, file);
+        });
+        $(".loading").show();    //显示加载图片
+        //发送数据
+        $.ajax({
+            url:"{DT_PATH}api/ajax/myajax/upload_img.inc.php", /*去过那个php文件*/
+            type:'POST',  /*提交方式*/
+            data:data,
+            cache: false,
+            contentType: false,        /*不可缺*/
+            processData: false,         /*不可缺*/
+            success:function(data){        
+             console.log(data);
+	           	if(data.code==1){
+				$('#ImgList').html('<li class="weui_uploader_file weui_uploader_status delimg"><img src="'+data.img+'" class="upload-img"/></li>');
+			 		$('#imgsrc').val(data.img);
+				}else{
+	              alert(ret.message);
+				}
+            },
+            error:function(){
+                alert('上传出错');
+            }
+        });
+    });
+
+});
+</script>
+{template 'footer'}

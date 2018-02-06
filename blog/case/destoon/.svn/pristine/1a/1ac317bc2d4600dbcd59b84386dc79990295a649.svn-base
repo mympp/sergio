@@ -1,0 +1,240 @@
+{template 'header_member', 'mobile'}
+{template 'cssjs', 'mobile'}
+<style>
+#area-select { max-width:80px !important;}
+#type { margin-left:15px;}
+.aui-content-padded {
+    margin-top: 15px;
+}
+.aui-tab {
+    margin-bottom: 15px;
+}
+.aui-tab li.active a { color:#FFF !important;}
+</style>
+<script type="text/javascript" src="script/iScroll5/iscroll.js"></script>
+<header class="aui-bar aui-bar-nav aui-bar-info" id="aui-header">
+        <a class="aui-btn aui-bar-info aui-pull-left" href="{if $action == ''}{$MYURL}?action=info{else}javascript:history.go(-1);{/if}">
+            <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+    <div class="aui-title">{$head_name}</div>
+    {if $action=='member'}
+    <a href="javascript:Dsheet('<a href=&#34;logout.php&#34;><span style=&#34;color:red&#34;>注销登录</span></a>', '取消', '确定要注销本次登录吗？');" class="aui-pull-right">
+        <span class="aui-iconfont aui-icon-add h5">注销</span>
+    </a>
+{elseif $action == 'info'}
+    <a href="channel.php" class="aui-pull-right">
+        <span class="aui-iconfont aui-icon-add h5">频道</span>
+    </a>
+{elseif $action == 'home'}
+    <a href="index.php?moduleid=4&username={$_username}" class="aui-pull-right">
+        <span class="aui-iconfont aui-icon-add h5">预览</span>
+    </a>
+    {/if}
+</header>
+<div class="aui-bar-fix"></div>
+<div class="aui-content-padded">
+        <div class="aui-tab aui-tab-info">
+            <ul class="aui-tab-nav aui-tab-border">
+            <li id="tabbaradd" {if $action == 'add'}class="active"{/if}><a href="?mid={$mid}&job={$job}&action=add">发表回复</a></li>
+                <li id="tabbar3"><a href="?mid={$mid}&job={$job}">已发布<span class="aui-badge aui-badge-info">{$nums[3]}</span></a></li>
+                <li id="tabbar2"><a href="?mid={$mid}&job={$job}&status=2">审核中<span class="aui-badge aui-badge-info">{$nums[2]}</span></a></li>
+                <li id="tabbar1"><a href="?mid={$mid}&job={$job}&status=1">未通过<span class="aui-badge aui-badge-info">{$nums[1]}</span></a></li>
+            </ul>
+        </div>
+    </div>
+{if $action=='add' || $action == 'edit'}
+{else}
+<div class="aui-content">
+			<div class="bbs-wrapper">
+				<div id="scroller">
+					<ul>
+                    {template 'my_club_menu', 'mobile'}
+					</ul>
+				</div>
+			</div>
+<script type="text/javascript">
+myScroll = new IScroll('.bbs-wrapper', {
+eventPassthrough : false,
+scrollX : true,
+scrollY : false,
+preventDefault : true,
+click:true
+});
+//myScroll.scrollToElement(that[0], 800);
+</script>
+</div>
+{/if}
+
+{if $action=='add' || $action == 'edit'}
+<div class="aui-content">
+<form id="sell-form" class="fromset">
+	<input type="hidden" name="action" value="{$action}"/>
+	<input type="hidden" name="itemid" value="{$itemid}"/>
+	<input type="hidden" name="ok" value="1"/>
+    <input type="hidden" name="job" value="{$job}"/>
+    <input type="hidden" name="tid" value="{$tid}"/>
+    <input type="hidden" name="forward" value="{$forward}"/>
+
+    <p class="aui-padded-10 aui-text-center"><span class="aui-text-red">红色为</span>必填信息</p>
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">回复帖子</span>
+                <input type="text" class="aui-input" value="{$T[title]}" readonly="readonly" />
+            </div>
+{if $action=='add' && $R}
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">引用回复</span>
+                <div class="aui-padded-10"><input type="hidden" name="rid" id="rid" value="{$rid}"/>
+                <p>{$R[quote]}</p>
+                </div>
+            </div>
+
+{/if}
+<p class="aui-padded-10 aui-text-left aui-ml-5 fz16"><span class="aui-text-red">回复内容</span></p>         
+{template 'wang', 'mobile'}
+<script type="text/javascript">
+$(function() {
+	"use strict";
+
+	$('#content-e').artEditor({
+		 artmid: '{$mid}',
+		imgTar: '#artUpload',
+		limitSize: 8,   // 兆
+		showServer: false,
+		uploadUrl: 'br',
+		data: {},
+		uploadField: 'image',
+		placeholader: '回复内容',
+		validHtml: '',
+		uploadSuccess: function(res) {
+			// return img url
+			return res.path;
+		},
+		uploadError: function(res) {
+			// something error
+			console.log(res);
+		}
+	});
+});
+</script>{if $need_question1}
+<div class="aui-input-row">
+                <span class="aui-input-addon fz16">验证问题</span>
+                <div class="" id="captcha-bar">{template 'question', 'chip'}</div>
+            </div>
+{/if}
+{if $need_captcha1}
+<div class="aui-input-row">
+                <span class="aui-input-addon fz16">验证码</span>
+                <div class="" id="captcha-bar">{template 'captcha', 'chip'}</div>
+</div>
+{/if}
+            <div class="aui-btn-row" id="btn-main" onclick="Daddr();">
+                <div class="aui-btn aui-btn-info fz16" style="width:90%;" id="btn-submit">确认</div>
+            </div>
+
+        </div>
+</form>
+    </div>
+<script type="text/javascript">
+	
+function Daddr() {
+	var arrImgs = [];
+   $('#imgslist li:not(#addpic)').each(function() {
+   // 将图片追加到数组中
+   arrImgs.push($(this).find("img").attr("src"));
+   });
+	
+	var edittext=$.trim($("#content-e").text());
+    var len = edittext.length;
+	if(len < 5) {
+		laymsg('请输入详细内容');
+		return false;
+	}
+	if(len > 20000) {
+		laymsg('输入这么多字累了吧亲');
+		return false;
+	}
+
+{if $need_password1}
+	f = 'password';
+	l = Dd(f).value.length;
+	if(l < 6) {
+		laymsg('请填写支付密码', f);
+		return false;
+	}
+{/if}
+	var exitcon = $('#content-e').getValue();
+    var bool = exitcon.indexOf('<hr class="club_break">');
+	if(bool>0){exitcon = exitcon.replace('<hr class="club_break">','<hr class="club_break" />')}
+	$("#content").attr('value',exitcon);
+	$("#btn-submit").text("正在处理...");
+	$("#btn-main").removeAttr("onclick");
+
+    $.post('{$MUSER}?mid={$mid}&thumbs='+arrImgs+'', $('#sell-form').serialize(), function(data) {
+		if(data.error == 'ok') {
+			{if $action=='add'}data.msg = data.msg ? data.msg:"添加成功";laymsg(data.msg);{else}laymsg('修改成功');{/if}
+		$("#btn-main").attr("onclick","Daddr();");
+		$("#btn-submit").text("成 功");
+			setTimeout(function() {
+				if(data.path){
+				Go(data.path);
+				}else{
+				Go('{$MUSER}?mid={$mid}&job={$job}');	
+					}
+			}, 1000);
+		} else {
+		laymsg(data.error);
+		$("#btn-main").attr("onclick","Daddr();");
+		$("#btn-submit").text("重 新 提 交");
+		}
+	},'json');
+}
+
+</script>
+{else}
+{if $lists}
+<p class="aui-text-center fz12" style="padding-bottom:10px;">今日可回复 <span class="aui-text-red">{$MG[club_reply_limit]}</span> 次&nbsp;&nbsp;&nbsp;
+当前已回复 <span class="aui-text-red">{$limit_used}</span> 次&nbsp;&nbsp;&nbsp;
+还可以回复 <span class="aui-text-info">{$limit_free}</span> 次&nbsp;&nbsp;&nbsp;</p>
+<form method="post">
+{template 'm_batch', 'mobile'}
+<ul class="aui-list-view aui-in" id="sell_list">
+{loop $lists $k $t}
+<li id="{$t[itemid]}">
+<div class="aui-list-view-cell aui-img drop-div">
+<input class="aui-pull-left aui-checkbox displaynone" type="checkbox" id="itemids" name="itemid" value="{$t[itemid]}">
+                <div class="aui-img-body aui-pull-left">
+                    <a href="{$t[linkurl]}">{dsubstr($t[title], 20)}</a>
+                    <p class="aui-ellipsis-1 fz12"><span class="aui-mr-5"><i class="aui-iconfont aui-icon-time aui-text-gray"></i>{$t[adddate]}</span></p>
+                </div>
+                </div>
+  <div class="hidden-menu">
+    <p class="two"><a href="?mid={$mid}&job={$job}&action=edit&itemid={$t[itemid]}">修改</a></p>
+    <p class="one" onclick="delitemid({$mid},{$t[itemid]});">删除</p>
+    
+  </div>
+                
+</li>
+
+{/loop}
+</ul>
+</form>
+
+{if $pages}<div class="pages">{$pages}</div>{/if}
+{else}
+<ul class="aui-list-view">
+<li class="aui-list-view-cell aui-img">
+                <div class="aui-img-body aui-pull-left">
+                    <p class="aui-ellipsis-1">暂无信息</p>
+                </div>
+</li>
+</ul>
+
+{/if}
+</div>
+
+<script type="text/javascript" src="script/addpan.js" charset="utf-8"></script>
+{/if}
+
+<script type="text/javascript">tabbar('tabbar{$status}');</script>
+{template 'footer_member', 'mobile'}

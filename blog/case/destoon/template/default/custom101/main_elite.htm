@@ -1,0 +1,49 @@
+	<div class="h_jp_pro wrap">
+		<div class="hd title-container">
+	    	<h2>精品推荐</h2>
+	  	</div>
+	  	<div class="bd">
+	    	<div class="recommend-container clearfix">
+			<!--{php $tags=tag("moduleid=5&condition=status>2 and username='$username' and elite=1 and thumb<>''&pagesize=1&order=edittime desc&fields=itemid,title,linkurl,thumb,edittime,price&template=null");}-->
+			{loop $tags $i $t}
+		    	<div class="left-pic">
+		      		<div class="big-pic">
+			    		<div class="text">
+				        	<p class="title">{$t[title]}</p>
+							<p class="price">推荐价：￥{$t[price]}元</p>
+						</div>
+		        		<img src="{imgurl($t[thumb])}"/>
+		        	</div>
+		      	</div>
+				{/loop}
+	      		<div class="right-list">
+			        <div class="list-container">
+			        	<ul class="clearfix">
+			        			<!--{php $tags=tag("moduleid=5&condition=status>2 and username='$username' and elite=1 and thumb<>''&pagesize=6&order=edittime desc&fields=itemid,title,linkurl,thumb,edittime,price&template=null");}-->
+								{loop $tags $i $t}
+			        		<li class="recommend-item">
+				              		<div class="item-box">
+					              		<div class="text-bg"><p><a class="btn" title="{$t[title]}" href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=sell&itemid='.$t['itemid'], $domain)}{/if}" target="_blank">查看详情</a></p></div>
+					                	<div class="small-pic-box">
+					                		<div class="small-pic">
+					                			<a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=sell&itemid='.$t['itemid'], $domain)}{/if}" target="_blank">
+							                		<img src="{imgurl($t[thumb])}">
+							                	</a>
+					                		</div>
+					                	</div>
+					                	<div class="text">
+					                		<h4 class="title">{$t[title]}</h4>
+					                		<p class="price">推荐价：<span>￥{$t[price]}元</span></p>
+					                	</div>
+				              		</div>
+				            	</li>
+			            	{/loop}
+			            	
+			        	</ul>
+			       </div>
+	      		</div>
+	    	</div>
+	  	</div>
+	</div>
+
+<!--精品推荐结束-->

@@ -1,0 +1,433 @@
+{template 'header_member', 'mobile'}
+{template 'cssjs', 'mobile'}
+
+<script type="text/javascript" src="script/iScroll5/iscroll.js"></script>
+<header class="aui-bar aui-bar-nav aui-bar-danger" id="aui-header">
+        <a class="aui-btn aui-bar-danger aui-pull-left" href="{if $action == ''}{$MYURL}?action=info{else}javascript:history.go(-1);{/if}">
+            <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+    <div class="aui-title">{$head_name}</div>
+    {if $action=='add'}
+{else}
+    <a href="{$MUSER}?mid={$mid}&action=add" class="aui-pull-right">
+        <span class="aui-iconfont aui-icon-add fz14">添加</span>
+    </a>
+    {/if}
+</header>
+<div class="aui-bar-fix"></div>
+{if $action=='add' || $action == 'edit'}
+{else}
+<div class="aui-content">
+			<div class="bbs-wrapper">
+				<div id="scroller">
+					<ul>
+            <li id="tabbar3"><a href="{$MUSER}?mid={$mid}status=3">已上架<span class="aui-badge aui-badge-info">{$nums[3]}</span></a></li>
+            <li id="tabbar2"><a href="{$MUSER}?mid={$mid}&status=2">审核中<span class="aui-badge aui-badge-info">{$nums[2]}</span></a></li>
+            <li id="tabbar1"><a href="{$MUSER}?mid={$mid}&status=1">未通过<span class="aui-badge aui-badge-info">{$nums[1]}</span></a></li>
+            <li id="tabbar4"><a href="{$MUSER}?mid={$mid}&status=4">已下架<span class="aui-badge aui-badge-info">{$nums[4]}</span></a></li>
+            <li id="tabbar5"><a href="/member/trade.php">订单管理</a></li>
+            <li><a href="mtype.php?item=mall&mid={$mid}&opentype=1"><span>{$MODULE[$mid][name]}分类<span class="px10">({$nums[0]})</span></span></a></li>
+					</ul>
+				</div>
+			</div>
+<script type="text/javascript">
+myScroll = new IScroll('.bbs-wrapper', {
+eventPassthrough : false,
+scrollX : true,
+scrollY : false,
+preventDefault : true,
+click:true
+});
+//myScroll.scrollToElement(that[0], 800);
+</script>
+</div>
+{/if}
+<span id="msg"></span>
+{if $action=='add' || $action == 'edit'}
+<div class="aui-content">
+<form id="sell-form" class="fromset">
+	<input type="hidden" name="action" value="{$action}"/>
+	<input type="hidden" name="itemid" value="{$itemid}"/>
+	<input type="hidden" name="ok" value="1"/>
+    <p class="aui-padded-10 aui-text-center"><span class="aui-text-red">红色为</span>必填信息</p>
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">商品名称</label>
+                <input type="text" name="post[title]" id="title" class="aui-input" value="{$title}" placeholder="商品名称"/>
+            </div>
+
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">商品分类</span>
+                {ajax_category_select('post[catid]', '选择分类', $catid, $moduleid, 'size="1"')}
+            </div>
+                <div class="aui-input-row"><span class="aui-input-addon aui-text-red">商品单价</span>
+                <div class="aui-pull-left"><input name="post[a1]" type="number" size="10" value="{$a1}" class="aui-inputb aui-bfb30 aui-ml-15" placeholder="几件以上" id="a1"/>&nbsp;<input name="post[p1]" type="number" size="10" value="{$p1}" id="p1" class="aui-inputb aui-bfb35" placeholder="商品单价" onblur="Dstep();"/></div>
+                <div class="aui-pull-left"><input name="post[a2]" type="number" size="10" value="{$a2}" class="aui-inputb aui-bfb30 aui-ml-15" placeholder="几件以上" id="a2"/>&nbsp;<input name="post[p2]" type="number" size="10" value="{$p2}" id="p2" class="aui-inputb aui-bfb35" placeholder="商品单价" onblur="Dstep();"/></div>
+                <div class="aui-pull-left"><input name="post[a3]" type="number" size="10" value="{$a3}" class="aui-inputb aui-bfb30 aui-ml-15" placeholder="几件以上" id="a3"/>&nbsp;<input name="post[p3]" type="number" size="10" value="{$p3}" id="p3" class="aui-inputb aui-bfb35" placeholder="商品单价" onblur="Dstep();"/></div>
+                </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">商品库存</span>
+                <input type="number" name="post[amount]" id="amount" class="aui-inputb aui-bfb25 aui-ml-15" value="{$amount}" placeholder="商品库存"/><input name="post[unit]" class="aui-inputb aui-bfb25 aui-ml-15" type="text" size="2" value="{if $unit}{$unit}{else}件{/if}" id="unit" title="计量单位"/>
+            </div>
+            
+{template 'm_fields', 'mobile'}
+            <script src="user/dist/lrz.bundle.js"></script>
+            <div class="aui-input-row">
+
+                <span class="aui-input-addon aui-text-red">图片</span>
+                <div class="pic-list baguetteBoxOne gallery" id="imgslist">
+                {if $thumb}<li><a href="{$thumb}"><img src="{$thumb}"></a><span class="thumbs-del"><i class="aui-iconfont aui-icon-close aui-text-white fz22"></i></span></li>{/if}
+                {if $thumb1}<li><a href="{$thumb1}"><img src="{$thumb1}"></a><span class="thumbs-del"><i class="aui-iconfont aui-icon-close aui-text-white fz22"></i></span></li>{/if}
+                {if $thumb2}<li><a href="{$thumb2}"><img src="{$thumb2}"></a><span class="thumbs-del"><i class="aui-iconfont aui-icon-close aui-text-white fz22"></i></span></li>{/if}
+				<li id="addpic"><img src="image/add.jpg"></li>				
+			</div>
+                    <input accept="image/*" type="file" id="uploadimg" multiple/>
+<div class="aui-upprogress aui-text-center displaynone" id="uploading"><svg id="container"></svg></div></div>
+<script>
+var moduleid = {$mid};
+var thumb_width = {$MOD['thumb_width']};
+var thumb_height = {$MOD['thumb_height']};
+$(function(){
+	{if $action == 'edit'}
+	$('#imgslist li:not(#addpic)').each(function() {
+	addPress($(this));
+	});
+    baguetteBox.run('.baguetteBoxOne');
+	//$('#imgslist li:not(#addpic)').touchTouch();
+	{/if}
+});
+</script>
+<script type="text/javascript" id="uploadjs" src="script/upload.js" data="{$mid}"></script>
+{template 'wang', 'mobile'}
+<script type="text/javascript">
+$(function() {
+	"use strict";
+
+	$('#content-e').artEditor({
+		 artmid: '{$mid}',
+		imgTar: '#artUpload',
+		limitSize: 8,   // 兆
+		showServer: false,
+		uploadUrl: 'br',
+		data: {},
+		uploadField: 'image',
+		placeholader: '商品详情',
+		validHtml: '',
+		uploadSuccess: function(res) {
+			// return img url
+			return res.path;
+		},
+		uploadError: function(res) {
+			// something error
+			console.log(res);
+		}
+	});
+});
+</script>
+            {if $_userid}
+            <div class="aui-input-row"><span class="aui-input-addon">自定义分类</span><div class="aui-ml-5" id="type_box">{$mycatid_select}</div><span class="aui-input-addon aui-text-info fz12" onclick="showTypef()">管理分类</span></div>
+            {/if}
+            {template 'm_batch_fee', 'mobile'}
+            <p class="aui-padded-10 aui-text-center aui-bg-default" onclick="showother()">选填信息(点这里)</p>
+            <div class="aui-content displaynone" id="otherinfo">
+            <div class="aui-input-row"><span class="aui-input-addon">商品品牌</span><input type="text" name="post[brand]" id="brand" value="{$brand}" placeholder="商品品牌" class="aui-input"/></div>
+<div class="aui-input-row"><span class="aui-input-addon">可选属性</span>
+<div class="aui-pull-left"><input type="text" name="post[n1]" id="n1" value="{$n1}" placeholder="属性名称:如：颜色" class="aui-inputb aui-bfb40 aui-ml-15" size="10"/>&nbsp;<input type="text" name="post[v1]" id="v1" value="{$v1}" placeholder="属性值:如：红色" class="aui-inputb aui-bfb40" size="20"/></div>
+<div class="aui-pull-left"><input type="text" name="post[n2]" id="n2" value="{$n2}" placeholder="属性名称:如：颜色" class="aui-inputb aui-bfb40 aui-ml-15" size="10"/>&nbsp;<input type="text" name="post[v2]" id="v2" value="{$v2}" placeholder="属性值:如：红色" class="aui-inputb aui-bfb40" size="20"/></div>
+<div class="aui-pull-left"><input type="text" name="post[n3]" id="n3" value="{$n3}" placeholder="属性名称:如：颜色" class="aui-inputb aui-bfb40 aui-ml-15" size="10"/>&nbsp;<input type="text" name="post[v3]" id="v3" value="{$v3}" placeholder="属性值:如：红色" class="aui-inputb aui-bfb40" size="20"/></div>
+</div>
+<div class="aui-input-row aui-padded-t10"><span class="aui-input-addon">运费设置</span>
+<p><input name="post[express_name_1]" type="text" id="express_name_1" placeholder="快递" class="aui-inputb aui-bfb25 aui-ml-15" size="10" value="{$express_name_1}" />&nbsp;<input name="post[fee_start_1]" type="number" id="fee_start_1" size="5" placeholder="默认运费" class="aui-inputb aui-bfb25" value="{$fee_start_1}" />&nbsp;<input name="post[fee_step_1]" type="number" id="fee_step_1" size="5" placeholder="增加一件" class="aui-inputb aui-bfb30" value="{$fee_step_1}" />&nbsp;<select name="post[express_1]" id="express_1" onchange="Dexpress(1, this.options[selectedIndex].innerHTML);">
+	<option value="0">选择模板</option>
+	{loop $EXP $v}
+	<option value="{$v[itemid]}"{if $express_1==$v[itemid]} selected{/if}>{$v[title]}[{$v[express]},{$v[fee_start]},{$v[fee_step]},{$v[note]}]</option>
+	{/loop}
+	</select></p>
+ <p><input name="post[express_name_2]" type="text" id="express_name_2" placeholder="快递" class="aui-inputb aui-bfb25 aui-ml-15" size="10" value="{$express_name_2}" />&nbsp;<input name="post[fee_start_2]" type="number" id="fee_start_2" size="5" placeholder="默认运费" class="aui-inputb aui-bfb25" value="{$fee_start_2}" />&nbsp;<input name="post[fee_step_2]" type="number" id="fee_step_2" size="5" placeholder="增加一件" class="aui-inputb aui-bfb30" value="{$fee_step_2}" />&nbsp;<select name="post[express_2]" id="express_2" onchange="Dexpress(2, this.options[selectedIndex].innerHTML);">
+	<option value="0">选择模板</option>
+	{loop $EXP $v}
+	<option value="{$v[itemid]}"{if $express_2==$v[itemid]} selected{/if}>{$v[title]}[{$v[express]},{$v[fee_start]},{$v[fee_step]},{$v[note]}]</option>
+	{/loop}
+	</select></p>
+ <p><input name="post[express_name_3]" type="text" id="express_name_3" placeholder="快递" class="aui-inputb aui-bfb25 aui-ml-15" size="10" value="{$express_name_3}" />&nbsp;<input name="post[fee_start_3]" type="number" id="fee_start_3" size="5" placeholder="默认运费" class="aui-inputb aui-bfb25" value="{$fee_start_3}" />&nbsp;<input name="post[fee_step_3]" type="number" id="fee_step_3" size="5" placeholder="增加一件" class="aui-inputb aui-bfb30" value="{$fee_step_3}" />&nbsp;<select name="post[express_3]" id="express_3" onchange="Dexpress(3, this.options[selectedIndex].innerHTML);">
+	<option value="0">选择模板</option>
+	{loop $EXP $v}
+	<option value="{$v[itemid]}"{if $express_3==$v[itemid]} selected{/if}>{$v[title]}[{$v[express]},{$v[fee_start]},{$v[fee_step]},{$v[note]}]</option>
+	{/loop}
+	</select></p>
+    </div>
+            <div class="aui-input-row {if !$_userid}displaynone{/if}">
+                <span class="aui-input-addon">我的推荐</span>
+                <span class="aui-input-radio aui-padded-l-10">
+                      <input type="radio" name="post[elite]" value="1" {if $elite==1}checked="checked"{/if} class="aui-checkbox aui-checkbox-info" /><label class="aui-input-addon">是</label>
+<input type="radio" name="post[elite]" value="0" {if $elite==0}checked="checked"{/if} class="aui-checkbox aui-checkbox-info"/><label class="aui-input-addon">否</label></span>
+            </div>
+         </div>
+            <div class="aui-btn-row" id="btn-main" onclick="Daddr();">
+                <div class="aui-btn aui-btn-danger fz16" style="width:90%;" id="btn-submit">确认</div>
+            </div>
+
+        </div>
+</form>
+    </div>
+    
+{template 'm_batch_type', 'mobile'}
+<script type="text/javascript">
+function showother() {
+        var $show = $('#otherinfo');
+        if ($show.hasClass('displaynone')) {
+            $show.removeClass('displaynone'); 
+        } else {
+            $show.addClass('displaynone');
+        }
+    }
+	
+function Daddr() {
+	var arrImgs = [];
+   $('#imgslist li:not(#addpic)').each(function() {
+   // 将图片追加到数组中
+   arrImgs.push($(this).find("img").attr("src"));
+   });
+	var len;
+	len = Dd('title').value.length;
+	if(len < 2 || len > 30) {
+		laymsg('信息标题应为2-30字，当前已输入'+len+'字');
+		return false;
+	}
+	len = Dd('catid_1').value;
+	if(len == 0) {
+		laymsg('请选择分类');
+		return false;
+	}
+	len = Dd('p1').value;
+	if(len == 0) {
+		laymsg('请填写价格');
+		return false;
+	}
+	len = Dd('amount').value;
+	if(len == 0) {
+		laymsg('请填写库存');
+		return false;
+	}
+
+	len = arrImgs.length;
+	if(len==0) {
+		laymsg('请上传第一张商品图片');
+		return false;
+	}
+
+	var edittext=$.trim($("#content-e").text());
+    var len = edittext.length;
+	if(len < 5) {
+		laymsg('请输入详细内容');
+		return false;
+	}	
+	{if $DT['max_len']}
+	if(len > {$DT['max_len']}) {
+		laymsg('输入这么多字累了吧亲');
+		return false;
+	}
+    {/if}
+	
+	if(Dd('v1').value) {
+		if(!Dd('n1').value) {
+			laymsg('请填写属性名称');
+			Dd('n1').focus();
+			return false;
+		}
+		if(Dd('v1').value.indexOf('|') == -1) {
+			laymsg(Dd('n1').value+'至少需要两个属性');
+			Dd('v1').focus();
+			return false;
+		}
+	}
+	if(Dd('v2').value) {
+		if(!Dd('n2').value) {
+			laymsg('请填写属性名称');
+			Dd('n2').focus();
+			return false;
+		}
+		if(Dd('v2').value.indexOf('|') == -1) {
+			laymsg(Dd('n2').value+'至少需要两个属性');
+			Dd('v2').focus();
+			return false;
+		}
+	}
+	if(Dd('v3').value) {
+		if(!Dd('n3').value) {
+			laymsg('请填写属性名称');
+			Dd('n3').focus();
+			return false;
+		}
+		if(Dd('v3').value.indexOf('|') == -1) {
+			laymsg(Dd('n3').value+'至少需要两个属性');
+			Dd('v3').focus();
+			return false;
+		}
+	}
+	if(Dd('n1').value && (Dd('n1').value == Dd('n2').value || Dd('n1').value == Dd('n3').value)) {
+		laymsg('属性名称不能重复');
+		return false;
+	}
+	if(Dd('n2').value && (Dd('n2').value == Dd('n1').value || Dd('n2').value == Dd('n3').value)) {
+		laymsg('属性名称不能重复');
+		return false;
+	}
+	if(Dd('n3').value && (Dd('n3').value == Dd('n1').value || Dd('n3').value == Dd('n2').value)) {
+		laymsg('属性名称不能重复');
+		return false;
+	}
+	if(Dd('express_name_1').value && (Dd('express_name_1').value == Dd('express_name_2').value || Dd('express_name_1').value == Dd('express_name_3').value)) {
+		laymsg('快递名称不能重复');
+		return false;
+	}
+	if(Dd('express_name_2').value && (Dd('express_name_2').value == Dd('express_name_1').value || Dd('express_name_2').value == Dd('express_name_3').value)) {
+		laymsg('快递名称不能重复');
+		return false;
+	}
+	if(Dd('express_name_3').value && (Dd('express_name_3').value == Dd('express_name_1').value || Dd('express_name_3').value == Dd('express_name_2').value)) {
+		laymsg('快递名称不能重复');
+		return false;
+	}
+
+    var exitcon = $('#content-e').getValue();
+	$("#content").attr('value',exitcon);
+
+	$("#btn-submit").text("正在处理...");
+	$("#btn-main").removeAttr("onclick");
+	setTimeout(function () {
+        $("#btn-main").attr("onclick","Daddr();");
+		$("#btn-submit").text("提 交");
+    }, 5000);
+	
+    $.post('{$MUSER}?mid={$mid}&thumbs='+arrImgs+'', $('#sell-form').serialize(), function(data) {
+		if(data.error == 'ok') {
+			{if $action=='add'}laymsg('添加成功');{else}laymsg('修改成功');{/if}
+			setTimeout(function() {
+				if(data.path){
+				Go(data.path);
+				}else{
+				Go('{$MUSER}?mid={$mid}');	
+					}
+			}, 1000);
+		} else {
+			laymsg(data.error);
+		}
+	},'json');
+}
+
+function Dexpress(i, s) {
+	if(Dd('express_'+i).value > 0) {
+		var t1 = s.split('[');
+		var t2 = t1[1].split(',');
+		Dd('express_name_'+i).value = t2[0];
+		Dd('fee_start_'+i).value = t2[1];
+		Dd('fee_step_'+i).value = t2[2];
+	} else {
+		Dd('express_name_'+i).value = '';
+		Dd('fee_start_'+i).value = '';
+		Dd('fee_step_'+i).value = '';
+	}
+}
+
+function Dstep() {
+
+	var a1 = parseInt(Dd('a1').value);
+	var p1 = parseFloat(Dd('p1').value);
+	var a2 = parseInt(Dd('a2').value);
+	var p2 = parseFloat(Dd('p2').value);
+	var a3 = parseInt(Dd('a3').value);
+	var p3 = parseFloat(Dd('p3').value);
+	var u = Dd('unit').value;
+	if(u.length < 1) Dd('unit').value = u = '件';
+	var m = '{$DT[money_unit]}';
+	if(!a1 || a1 < 1) {
+		laymsg('起订量必须大于0');
+		Dd('a1').value = '1';
+		Dd('a1').focus();
+		return false;
+	}
+	if(!p1 || p1 < 0.1) {
+		laymsg('请填写商品价格');
+		Dd('p1').value = '';
+		Dd('p1').focus();
+		return false;
+	}
+
+	if(a2 > 1 && p2 > 0.01) {
+		if(a2 <= a1) {
+			laymsg('数量必须大于'+a1);
+			Dd('a2').value = '';
+			Dd('a2').focus();
+			return false;
+		}
+		if(p2 >= p1) {
+			laymsg('价格必须小于'+p1);
+			Dd('p2').value = '';
+			Dd('p2').focus();
+			return false;
+		}
+
+	}
+	if(a3 > 1 && p3 > 0.01) {
+		if(a3 <= a2) {
+			laymsg('数量必须大于'+a2);
+			Dd('a3').value = '';
+			Dd('a3').focus();
+			return false;
+		}
+		if(p3 >= p2) {
+			laymsg('价格必须小于'+p2);
+			Dd('p3').value = '';
+			Dd('p3').focus();
+			return false;
+		}
+
+	}
+	return true;
+}
+</script>
+{else}
+{if $lists}
+<form method="post">
+{template 'm_batch', 'mobile'}
+<ul class="aui-list-view aui-in" id="sell_list">
+{loop $lists $t}
+<li id="{$t[itemid]}">
+<div class="aui-list-view-cell aui-img drop-div">
+<input class="aui-pull-left aui-checkbox displaynone" type="checkbox" id="itemids" name="itemid" value="{$t[itemid]}">
+                <img class="aui-img-object aui-pull-left" src="{if $t[thumb]}{$t[thumb]}{else}image/nopic-60.png{/if}" width="50" height="50" alt="">
+                <div class="aui-img-body aui-pull-left">
+                    <a href="{mobileurl($moduleid, 0, $t['itemid'])}">{dsubstr($t[title], 20)}</a>
+                    <p class="aui-ellipsis-1 fz12"><span class="aui-pull-left aui-max-w80 Dt-text-ellipsis">{$t[catname]}</span>&nbsp;<span class="aui-mr-5"><i class="aui-iconfont aui-icon-attentionfill aui-text-gray"></i>{$t[hits]}</span><span class="aui-mr-5"><i class="aui-iconfont aui-icon-time aui-text-gray"></i>{timetodate($t[edittime], 4)}</span></p>
+                </div>
+                </div>
+  <div class="hidden-menu">
+    <p class="two"><a href="{$MURL}{$MUSER}?mid={$mid}&action=edit&itemid={$t[itemid]}">修改</a></p>
+    {if $MG[copy]}<p class="one aui-bg-success"><a href="{$MURL}{$MUSER}?mid={$mid}&action=add&itemid={$t[itemid]}&catid={$t[catid]}">复制</a></p>{/if}
+    <p class="one" onclick="delitemid({$mid},{$t[itemid]});">删除</p>
+    
+  </div>
+                
+</li>
+
+{/loop}
+</ul>
+</form>
+{if $pages}<div class="pages">{$pages}</div>{/if}
+{else}
+<ul class="aui-list-view">
+<li class="aui-list-view-cell aui-img">
+                <div class="aui-img-body aui-pull-left">
+                    <p class="aui-ellipsis-1">暂无信息</p>
+                </div>
+</li>
+</ul>
+
+{/if}
+</div>
+
+<script type="text/javascript" src="script/addpan.js" charset="utf-8"></script>
+{/if}
+<script type="text/javascript">tabbar('tabbar{$status}');</script>
+{template 'footer_member', 'mobile'}

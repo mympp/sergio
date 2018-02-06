@@ -1,0 +1,67 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+<link rel="stylesheet" type="text/css" href="css/know_v2.css"/>
+<header class="aui-bar aui-bar-nav" id="aui-header">
+        <a class="aui-pull-left aui-btn" href="index.php?moduleid={$moduleid}&itemid={$itemid}">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+        <div class="aui-title">{$head_name}</div>
+        <a class="aui-pull-right" href="javascript:towindow('<a href=&#34;{$MURL}{$DT[file_my]}?mid={$moduleid}&action=add&askto={$username}&#34; rel=&#34;external&#34;><span>向TA提问</span></a>|<a href=&#34;message.php?action=send&touser={$username}&#34; data-transition=&#34;slideup&#34;><span>发送消息</span></a>|<a href=&#34;{mobileurl($moduleid)}&#34; data-direction=&#34;reverse&#34;><span>{$MOD[name]}首页</span></a>|<a href=&#34;channel.php&#34; data-direction=&#34;reverse&#34;><span>频道列表</span></a>', '取消');"><i class="dt-iconfont dt-icon-caidan aui-font-size-24"></i></a>
+</header>
+<div class="aui-bar-fix"></div>
+
+<div class="aui-content">
+    <ul class="aui-list aui-media-list dt-border-t-none">
+    <li class="aui-list-item aui-list-item-middle">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-media" style="width: 4rem;">
+                    <img src="{useravatar($username, 'large')}" class="aui-img-round aui-list-img-sm">
+                </div>
+                <div class="aui-list-item-inner aui-list-item-arrow">
+                    <div class="aui-list-item-text">
+                        <div class="aui-list-item-title aui-font-size-14"><a href="index.php?moduleid=4&username={$username}"><strong>{$user[passport]}</strong></a></div>
+                        <div class="aui-list-item-right"></div>
+                    </div>
+                    <div class="aui-list-item-text">
+                        来自{area_pos($user[areaid], '')}，当前{if online($user[userid])==1}在线{else}离线{/if}
+                    </div>
+                </div>
+            </div>
+        </li>
+</ul>
+</div>
+
+<div class="aui-content dt-know-type">
+<div class="aui-bar aui-bar-btn" style="width:100%; margin:0.25rem 0;">
+    <div class="aui-bar-btn-item {if $typeid==0}aui-active{/if}"><a href="know.php?action={$action}&username={$username}&itemid={$itemid}&typeid=0"><span>提出的问题</span></a></div>
+    <div class="aui-bar-btn-item {if $typeid==1}aui-active{/if}"><a href="know.php?action={$action}&username={$username}&itemid={$itemid}&typeid=1"><span>回答的问题</span></a></div>
+</div>
+</div>
+
+{if $lists}
+        <div class="aui-content aui-margin-b-10">
+        <ul class="aui-list aui-media-list know-user-list" id="slistdiv">
+
+{loop $lists $v}
+            <li class="aui-list-item aui-padded-t-5">
+                <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title aui-ellipsis-2"><a href="index.php?moduleid={$moduleid}&itemid={if $typeid==1}{$v[qid]}{else}{$v[itemid]}{/if}">{$v[title]}</a></div>
+               <div class="aui-info" style="padding-top:0; margin-top:0.25rem; padding-bottom:0.125rem;">
+                <div class="aui-info-item">
+                    <span>{gl_cat_name($v[catid])}<span class="aui-margin-l-5 aui-font-size-12"><i class="aui-iconfont aui-icon-time  aui-font-size-12 dt-margin-r-3"></i>{$v[date]}</span></span>
+                    </div>
+                <div class="aui-info-item">{if $typeid==0}<span class="{if $v[process]==3}aui-text-info{/if}">{$PROCESS[$v[process]]}</span>{/if}</div>
+            </div>
+                </div>
+            </div>
+            </li>
+{/loop}
+    </ul>
+    </div>
+
+{else}
+{template 'dtchip-empty', 'mobile'}
+{/if}
+{if $pages}<div class="pages">{$pages}</div>{/if}
+{template 'footer_v2', 'mobile'}

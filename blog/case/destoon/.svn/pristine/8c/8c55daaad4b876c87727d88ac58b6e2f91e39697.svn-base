@@ -1,0 +1,39 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+<style>
+.aui-list a:link { color:#000;}
+</style>
+<header class="aui-bar aui-bar-nav" id="aui-header">
+        <a class="aui-pull-left aui-btn" href="{$back_link}">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+        <div class="aui-title">{$head_name}</div>
+</header>
+
+<div class="aui-bar-fix"></div>
+
+{if $itemid}
+<div class="aui-content-padded">
+	<div class="content">
+	{if $islink}
+	<a href="{$linkurl}">{$linkurl}</a><br/>
+	{else}
+	{$content}
+	{/if}
+	</div>
+</div>
+{else}
+<div class="aui-content aui-margin-b-15">
+    <ul class="aui-list aui-list-in dt-border-t-none">
+{loop $lists $k $v}
+<li class="aui-list-item">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title"><a href="about.php?itemid={$v[itemid]}">{$v[title]}</a></div>
+                <div class="aui-list-item-right"></div>
+            </div>
+        </li>
+{/loop}
+</ul>
+</div>
+{/if}
+{template 'footer_v2', 'mobile'}

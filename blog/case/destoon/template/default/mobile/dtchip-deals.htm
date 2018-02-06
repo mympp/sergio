@@ -1,0 +1,94 @@
+<div class="de_wraper">
+<div class="deals_index">
+<div class="de_hide_list">
+	  	<div class="de_abbr">
+	  	   	<div class="first_list webkit-box-flex" id="first_list">
+	  	   	  <ul>
+                <li class="directory">全部分类</li>
+                {php $child = get_maincat(0, $moduleid, 1);}
+                {loop $child $i $c}
+				<li class="directory">{$c[catname]}</li>
+                {/loop}
+               </ul>
+	  	   	</div>
+		   	<div class="second_list webkit-box-flex" id="second_list">
+              <ul>
+                  <li class="two_directory"><a href="index.php?moduleid={$moduleid}&catid=0&areaid={$areaid}{if $listview}&listview=1{/if}">全部</a></li>
+              </ul>
+               {loop $child $i $c}
+		   		<ul>
+                  <li class="two_directory"><a href="index.php?moduleid={$moduleid}&catid={$c[catid]}&areaid={$areaid}{if $listview}&listview=1{/if}">全部</a></li>
+                   {php $sub = get_maincat($c[catid], $moduleid, 1);}
+		   	       {loop $sub $j $s}
+                  <li class="two_directory"><a href="index.php?moduleid={$moduleid}&catid={$s[catid]}&areaid={$areaid}{if $listview}&listview=1{/if}">{$s[catname]}</a></li>
+                  {/loop}
+	  	   	    </ul>
+                {/loop}
+			</div>
+	  	</div>
+	  	<div class="de_abbr">
+	  	   	<div class="first_list webkit-box-flex" id="first_list">
+	  	   	   <ul>
+                {php $mainarea = get_mainarea(0)}
+                <li class="directory">全国</li>
+                {loop $mainarea $k $v}
+				<li class="directory">{$v[areaname]}</li>
+                {/loop}
+			 </ul>
+	  	   	</div>
+		   	<div class="second_list webkit-box-flex" id="second_list">
+            <ul>
+             <li class="two_directory">{if $EXT['gl_mobile_city']}<a href="javascript:" onclick="Setmycity(0);">全国</a>{else}<a href="index.php?moduleid={$moduleid}&catid={$catid}&areaid=0{if $listview}&listview=1{/if}">全国</a>{/if}</li>
+             </ul>
+            {loop $mainarea $k $v}
+             <ul>
+             {php $mainarea = get_mainarea($v[areaid])}
+             <li class="two_directory">{if $EXT['gl_mobile_city']}<a href="javascript:" onclick="Setmycity({$v[areaid]});">{$v[areaname]}</a>{else}<a href="index.php?moduleid={$moduleid}&catid={$catid}&areaid={$v[areaid]}{if $listview}&listview=1{/if}">{$v[areaname]}</a>{/if}</li>
+             {loop $mainarea $k $s}
+             <li class="two_directory">{if $EXT['gl_mobile_city']}<a href="javascript:" onclick="Setmycity({$s[areaid]});">{$s[areaname]}</a>{else}<a href="index.php?moduleid={$moduleid}&catid={$catid}&areaid={$s[areaid]}{if $listview}&listview=1{/if}">{$s[areaname]}</a>{/if}</li>
+             {/loop}
+             </ul>
+             {/loop}
+            </div>
+	  	</div>
+	  	<div class="de_abbr">
+	  	   	<div class="all_list" id="first_list">
+	  	   	    <ul>
+	  	   	    	<li class="directory"><a href="#" class="current">最新发布</a></li>
+										<li class="directory"><a href="#">人气优先</a></li>
+                                        {if $moduleid==16}
+										<li class="directory"><a href="#">价格最低</a></li>
+										<li class="directory"><a href="#">价格最高</a></li>
+                                        {/if}
+                                        {if $listview}
+                                        <li class="directory"><a href="index.php?moduleid={$moduleid}">默认视图</a></li>
+                                        {else}
+                                        <li class="directory"><a href="index.php?moduleid={$moduleid}&listview=1">列表视图</a></li>
+                                        {/if}
+						
+	  	   	    </ul>
+	  	   	</div>  
+	  	</div>
+	</div>
+ 	<div class="de_main_list">
+ 	   <ul class="de_mall-cate webkit-box">
+ 	   	   	<li class="webkit-box-flex dt-text-ellipsis {if $catid}curr{/if}">{if $catid}{gl_cat_name($catid)}{else}全部分类{/if}<i class="fa fa-sort-desc ml5"></i></li>
+		   	<li class="webkit-box-flex dt-text-ellipsis {if $areaid}curr{/if}">{if $areaid}{gl_area_name($areaid)}{else}所在地区{/if}<i class="fa fa-sort-desc ml5"></i></li>
+		   	<li class="webkit-box-flex dt-text-ellipsis">排序方式<i class="fa fa-sort-desc ml5"></i></li>
+ 	   </ul>
+ 	</div>
+<script type="text/javascript" src="script/deals.js"></script>
+<script type="text/javascript">
+function Setmycity(cityid){
+   laymsg('正在定位...');
+   $.post("glajax.php", { "action": "gllocal","job": "setcity","mcityid": cityid},
+            function(data){
+				if(data.error=='ok'){
+					laymsg('定位成功,跳转中...');
+					window.location.reload();
+				}
+            }, "json");
+
+}
+</script>
+</div></div><div class="aui-bar-fix" style="height:2.55rem"></div>

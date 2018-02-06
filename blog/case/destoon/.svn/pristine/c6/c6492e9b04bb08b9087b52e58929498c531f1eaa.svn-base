@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset={DT_CHARSET}"/>
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{if $city_sitename}{$city_sitename}{else}{$DT[sitename]}{/if}{/if}</title>
+{if $head_keywords}
+<meta name="keywords" content="{$head_keywords}"/>
+{/if}
+{if $head_description}
+<meta name="description" content="{$head_description}"/>
+{/if}
+{if $head_mobile}
+<meta http-equiv="mobile-agent" content="format=html5;url={$head_mobile}">
+{/if}
+<meta name="generator" content="DESTOON B2B - www.destoon.com"/>
+<link rel="shortcut icon" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+<link rel="bookmark" type="image/x-icon" href="{DT_STATIC}favicon.ico"/>
+{if $head_canonical}
+<link rel="canonical" href="{$head_canonical}"/>
+{/if}
+{if $EXT[archiver_enable]}
+<link rel="archives" title="{$DT[sitename]}" href="{$EXT[archiver_url]}"/>
+{/if}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}style.css"/>
+{if $moduleid>4}<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$module}.css"/>{/if}
+{if $CSS}
+{loop $CSS $css}
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}{$css}.css"/>
+{/loop}
+{/if}
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="{DT_SKIN}ie6.css"/>
+<![endif]-->
+{if !DT_DEBUG}<script type="text/javascript">window.onerror=function(){return true;}</script>{/if}
+<script type="text/javascript" src="{DT_STATIC}lang/{DT_LANG}/lang.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/config.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/page.js"></script>
+<script type="text/javascript" src="{DT_SKIN}remove.js"></script>
+{if $lazy}<script type="text/javascript" src="{DT_STATIC}file/script/jquery.lazyload.js"></script>{/if}
+{if $JS}
+{loop $JS $js}
+<script type="text/javascript" src="{DT_STATIC}file/script/{$js}.js"></script>
+{/loop}
+{/if}
+{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
+<script type="text/javascript">
+{if $head_mobile && $EXT[mobile_goto]}
+GoMobile('{$head_mobile}');
+{/if}
+var searchid = {$searchid};
+{if $itemid && $DT[anticopy]}
+document.oncontextmenu=function(e){return false;};
+document.onselectstart=function(e){return false;};
+{/if}
+</script>
+<!--[以上为系统关键代码，除非您明确其含义，否则请勿修改或删除，否则会导致系统错误]-->
+<!--[模板中所有带id的元素，请勿修改或删除，否则会导致部分JS代码无法运行]-->
+<!--[以上类似的注释，在编译模板时，系统会自动移除，不会显示在实际的页面中]-->
+</head>
+<body>
+<div class="head" id="head">
+	<div class="head_m">
+		<div class="f_l top-bar-l">
+			<ul>
+				{if $EXT[mobile_enable]}<li class="h_mobile"><a href="{$EXT[mobile_url]}mobile.php">手机版</a>&nbsp;</li>{/if}
+				{if $head_mobile}<li class="h_qrcode"><a href="javascript:Dqrcode();">二维码</a>&nbsp;</li>{/if}
+				<li id="destoon_member"></li>
+			</ul>
+		</div>
+		<div class="head_l">
+			<ul class="f_r">
+			<li id="topli1" class="extra first"><span><a title="我的商友" href="{$MODULE[2][linkurl]}">我的商友</a></span></li>
+			<li id="topli2" class="extra"><span><a title="VIP服务" href="{$MODULE[2][linkurl]}">VIP服务</a></span></li>
+			<li><span><a title="客服中心" href="{DT_PATH}kf" target="_blank">客服中心</a></span></li>
+			{if $DT[city]}<li class="h_city">[<span id="destoon_city">{$city_name}</span>] <a href="{DT_PATH}api/city.php" title="点击切换城市" rel="nofollow">切换</a></li>{/if}
+			{if isset($MODULE[16])}<li class="h_cart"><span><a href="{$MODULE[16][linkurl]}cart.php" rel="nofollow">购物车</a>(<em class="head_t" id="destoon_cart">0</em>)</span></li>{/if}
+			<li id="topli3" class="extra"><span><i></i><a title="网站导航" href="{$MODULE[1][linkurl]}sitemap/">网站导航</a></span></li>
+			</ul>
+		</div>
+		<div id="topsub">
+			<div id="topdiv1" class="nav-content" style="display: none; left: 592px;">
+				<dl>
+				<dt>销售</dt>
+				<dd><a title="发布供应产品" href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid=5&amp;action=add">发布供应产品</a></dd>
+				<dd><a title="管理供应产品" href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid=5">管理供应产品</a></dd>
+				</dl>
+				<dl>
+				<dt>采购</dt>
+				<dd><a title="发布询价单" href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid=6&amp;action=add">发布询价单</a></dd>
+				<dd><a title="管理询价单" href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid=6">管理询价单</a></dd>
+				</dl>
+				<dl>
+				<dt>工具</dt>
+				<dd><a title="收藏夹" href="{$MODULE[2][linkurl]}favorite.php?action=add">收藏夹</a></dd>
+				<dd><a title="管理旺铺" href="{$MODULE[2][linkurl]}style.php">管理旺铺</a></dd>
+				</dl>
+			</div>
+			<div id="topdiv2" class="nav-content" style="display: none;left: 669px;">
+				<ul class="clearfix">
+					<li class="top-contact"><i></i><a title="免费联系我们" href="{DT_PATH}kf/contact.html">免费联系我们</a></li>
+					<li class="top-online"><i></i><a title="在线办理续费" href="{$MODULE[2][linkurl]}grade.php">在线办理续费</a></li>
+					<li class="top-form"><i></i><a title="免费商友通讯录" href="{DT_PATH}kf/syl.php">免费商友通讯录</a></li>
+					<li class="top-promotion"><i></i><a title="竞价排名产品" href="{$EXT[spread_url]}">竞价排名产品</a></li>
+				</ul>
+			</div>
+			<div id="topdiv3" class="nav-content" style="display: none; right: 0px;">
+				<div class="clrdl">
+					<dl>
+						<dt>行业市场</dt>
+						<dd>
+							<span><a title="塑料机械" href="#" rel="nofollow">塑料机械</a></span>
+							<span class="spacing"></span>
+							<span><a title="五金工具" href="#" rel="nofollow">五金工具</a></span>
+							<span class="spacing"></span>
+							<span><a title="电子" href="#" rel="nofollow">电子</a></span>
+							<span class="spacing"></span>
+							<span><a title="包装" href="#" rel="nofollow">包装</a></span>
+							<span><a title="纺织" href="#" rel="nofollow">纺织</a></span>
+							<span class="spacing"></span>
+							<span><a title="服装" href="#" rel="nofollow">女装</a></span>
+							<span class="spacing"></span>
+							<span><a title="箱包" href="#" rel="nofollow">箱包</a></span>
+							<span class="spacing"></span>
+							<span><a title="家装" href="#" rel="nofollow">家装</a></span>
+							<span><a title="家居" href="#" rel="nofollow">家居</a></span>
+							<span class="spacing"></span>
+							<span><a title="数码家电" href="#" rel="nofollow">数码</a></span>
+							<span class="spacing"></span>
+							<span><a title="食品" href="#" rel="nofollow">食品</a></span>
+							<span class="spacing"></span>
+							<span><a title="美妆" href="#" rel="nofollow">美妆</a></span>
+						</dd>
+						<div class="c_b"></div>
+					</dl>
+					<span class="dashedline"></span>
+					<dl>
+						<dt>行业求购</dt>
+						<dd>
+							<span><a title="工业品" href="#" rel="nofollow">工业品</a></span>
+							<span class="spacing"></span>
+							<span><a title="原材料" href="#" rel="nofollow">原材料</a></span>
+							<span class="spacing"></span>
+							<span><a title="五金工具" href="#" rel="nofollow">五金工具</a></span>
+							<span><a title="商业服务" href="#" rel="nofollow">商业服务</a></span>
+							<span class="spacing"></span>
+							<span><a title="交通运输" href="#" rel="nofollow">交通运输</a></span>
+							<span class="spacing"></span>
+							<span><a title="装饰材料" href="#" rel="nofollow">装饰材料</a></span>
+							<span class="spacing"></span>
+							<span><a title="包装" href="#" rel="nofollow">包装</a></span>
+							<span class="spacing"></span>
+							<span><a title="印刷" href="#" rel="nofollow">印刷</a></span>
+						</dd>
+						<div class="c_b"></div>
+					</dl>
+					<span class="dashedline"></span>
+					<dl>
+						<dt>特色频道</dt>
+						<dd>
+							<span><a title="企业黄页" href="{$MODULE[4][linkurl]}" rel="nofollow">企业黄页</a></span>
+							<span class="spacing"></span>
+							<span><a title="行业展会" href="{$MODULE[8][linkurl]}" rel="nofollow">行业展会</a></span>
+							<span class="spacing"></span>
+							<span><a title="品牌库" href="{$MODULE[13][linkurl]}" rel="nofollow">品牌库</a></span>
+							<span><a title="人才库" href="{$MODULE[9][linkurl]}" rel="nofollow">人才库</a></span>
+							<span class="spacing"></span>
+							<span><a title="问题库" href="{$MODULE[10][linkurl]}" rel="nofollow">问题库</a></span>
+						</dd>
+						<div class="c_b"></div>
+					</dl>
+				 </div>
+				<div class="more">
+					<a href="{$MODULE[1][linkurl]}sitemap/" class="moreBtn" rel="nofollow">更多内容</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{if $head_mobile}<div id="destoon_qrcode" style="display:none;"></div>{/if}
+<div class="m head_s" id="destoon_space"></div>
+<div class="m"><div id="search_tips" style="display:none;"></div></div>
+<div class="m">
+	<div class="logo f_l"><a href="{$MODULE[1][linkurl]}"><img src="{if $MODULE[$moduleid][logo]}{DT_SKIN}image/logo_{$moduleid}.gif{elseif $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" alt="{$DT[sitename]}"/></a></div>
+	{php $searchid = ($moduleid > 3 && $MODULE[$moduleid]['ismenu'] && !$MODULE[$moduleid]['islink']) ? $moduleid : 5;}
+	{php $searchids = array(5,16,6,4,21,22);}
+	{if !in_array($searchid, $searchids)}
+		{php $searchids[] = $searchid;}
+	{/if}
+	<script type="text/javascript">var searchid = {$searchid};</script>
+	<form id="destoon_search" action="{DT_PATH}api/search.php" onsubmit="return Dsearch();">
+	<input type="hidden" name="moduleid" value="{$searchid}" id="destoon_moduleid"/>
+	<input type="hidden" name="spread" value="0" id="destoon_spread"/>
+	<div class="f_l head_search">
+		<ul id="search_moduleli">
+			{loop $searchids $s}
+			{if isset($MODULE[$s])}<li{if $searchid == $s} class="head_search_on"{/if} onclick="setModuleli({$s}, this);"><span>{$MODULE[$s][name]}</span></li>{/if}
+			{/loop}
+		</ul>
+		<div class="head_search_div">
+			<span class="ipt-kw f_l"><input name="kw" id="destoon_kw" type="text" class="search_i" value="{if $kw}{$kw}{else}请输入关键词{/if}" onfocus="if(this.value=='请输入关键词') this.value='';"{if $DT[search_tips]} onkeyup="STip(this.value);" autocomplete="off"{/if} x-webkit-speech speech/><a class="vip-king" title="标王" href="javascript:void(0);" onClick="Dsearch_top();return false;">标王</a></span>
+			<span class="f_l"><input type="submit" value=" " class="search_s"/></span>
+		</div>
+		<div class="head_search_kw">
+			<span id="destoon_word"><!--{tag("moduleid=$searchid&table=keyword&condition=moduleid=$searchid and status=3&pagesize=8&order=total_search desc&template=list-search_kw")}--></span>
+		</div>
+	</div>
+	</form>
+	<div class="f_r site_stats">
+		<div class="f_l">网站动态：</div>
+		<div id="site_stats">
+			<ul>
+			<li>产品总数:<span>{php echo $db->count($DT_PRE.'sell_5', 'status=3', 1800);}</span></li>
+			<li>求购总数:<span>{php echo $db->count($DT_PRE.'buy_6', 'status=3', 1800);}</span></li>
+			<li>企业总数:<span>{php echo $db->count($DT_PRE.'company', '1', 1800);}</span></li>
+			<li>在线会员:<span>{php echo $db->count($DT_PRE.'online', '1', 1800);}</span></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="dm">
+	<div class="m">
+		<div>
+			{php $menuarr = array(4,5,6,7,8,13,16,22);}
+			<ul class="f_l menu"><li{if $moduleid<4} class="menuon"{/if}><a href="{$MODULE[1][linkurl]}"><span>首页</span></a></li>{loop $MODULE $i $m}{if in_array($i,$menuarr)}{if $m[ismenu]}<li{if $m[moduleid]==$moduleid} class="menuon"{/if}><a href="{$m[linkurl]}"{if $m[isblank]} target="_blank"{/if}><span{if $m[style]} style="color:{$m[style]};"{/if}>{$m[name]}</span></a></li>{/if}{/if}{/loop}</ul>
+			<ul class="f_r menu_r">
+				<li><a href="{$MODULE[14][linkurl]}" target="_blank">视频</a></li>
+				<li><a href="{$MODULE[10][linkurl]}" target="_blank">知道</a></li>
+				<li><a href="{$MODULE[9][linkurl]}" target="_blank">人才</a></li>
+				<li><a href="{$MODULE[21][linkurl]}" target="_blank">资讯</a></li>
+                <li><a href="{$MODULE[17][linkurl]}" target="_blank">团购</a></li>
+			</ul>
+			<div class="c_b"></div>
+		</div>
+	</div>
+</div>
+{if $moduleid!=1}<div class="m b10">&nbsp;</div>{/if}

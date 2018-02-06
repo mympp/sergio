@@ -1,0 +1,162 @@
+body{ background:#f5eede;}
+
+/*导航栏*/
+.header_bg{ background:#fff;}
+.main_nav{background:#450600; margin-top:-1px;}
+.main_nav li{height:60px; line-height:60px; }
+.main_nav li a{color:#fff1cc; font-size:14px;}
+.main_nav li a:hover,.main_nav li.cur a{ background:#821100; color:#fff1cc;}
+
+/*banner CSS*/
+.bannerlist-container{ position:relative; overflow:hidden;}
+.bannerlist-container .banner-list{display:block; position:absolute; top:0px; bottom:0px; width:100%;}
+.bannerlist-container .banner-list li{display:block; float:left; position:relative;}/*无缝隙*/
+.bannerlist-container .banner-list li a{display:block; position:absolute; top:0px; bottom:0px; left:0px; right:0px;}
+.bannerlist-container .lr-btn{ position:absolute; display:block; top:50%; width:80px; height:80px; margin-top:-40px; z-index:99; background-image:url("banner_btn.png"); background-repeat:no-repeat;}
+.bannerlist-container .leftbtn{ left:30px; background-position:0 -80px;}
+.bannerlist-container .rightbtn{ right:30px; background-position:-80px -80px;}
+.bannerlist-container .leftbtn:hover{background-position:0 -0px;}
+.bannerlist-container .rightbtn:hover{background-position:-80px -0px;}
+.bannerlist-container .button-area{ position:absolute; height:30px; bottom:10px; left:0px; width:100%; text-align:center; z-index:66; }
+.bannerlist-container .button-area a{ display:inline-block; width:14px; height:14px; margin:0 10px; vertical-align:middle; cursor:pointer; border-radius:50%; background:#ffffff; border:2px solid #faedc8;}
+.bannerlist-container .button-area a.cur{ background:#7b2111;}
+
+/*精品推荐*/
+.h_jp_pro{ background:none; margin-top:60px;}
+.title-container{ background:url('title-1-bg.png') center center no-repeat; height:120px;}
+.h_jp_pro h2{ display:block; height:120px; line-height:120px; text-align:center; text-indent:63px; *text-indent:0px;font-size:46px; font-weight:bold; letter-spacing:64px; color:#821100;}
+
+.recommend-container{ margin-top:20px;}
+.recommend-container .left-pic{ float:left; width:500px; height:500px;}
+.recommend-container .big-pic{ position:relative; border:10px solid #821100; background:#ffffff;
+display: table-cell;
+        vertical-align:middle;
+
+        /*设置水平居中*/
+        text-align:center;
+
+        /* 针对IE的Hack */
+        *display: block;
+        *font-size: 419px;/*约为高度的0.873，200*0.873 约为175*/
+        *font-family:Arial;/*防止非utf-8引起的hack失效问题，如gbk编码*/
+
+        width:480px;
+        height:480px; overflow:hidden;
+}
+.recommend-container .big-pic img{ max-width:480px; max-height:480px; vertical-align: middle;display:block\0;}
+.recommend-container .big-pic .text{ position:absolute; bottom:0px; left:0px; width:100%; height:80px; z-index:50; font-size:18px; background:url(../images/shop10/recommend_text.png); color:#821100;}
+.recommend-container .big-pic .text p{ padding-left:20px; padding-right:20px; text-align:left; height:30px; line-height:30px; overflow:hidden; white-space:nowrap; text-overflow: ellipsis;}
+.recommend-container .big-pic .text .title{ padding-top:10px;}
+.recommend-container .right-list{ float:right; width:694px; background:#821100; height:500px;}
+.recommend-container .list-container{ padding:3px;}
+.recommend-item{ float:left; width:50%; height:164px;}
+.recommend-item .item-box{ position:relative; margin:3px; background:#f5eede; height:158px; padding-left:158px;}
+.recommend-item .item-box .small-pic-box{ position:absolute;  width:158px; height:158px; left:0px; top:0px; overflow:hidden; }
+.recommend-item .item-box .small-pic{
+	 /*非IE的主流浏览器识别的垂直居中的方法*/
+        display: table-cell;
+        vertical-align:middle;
+
+        /*设置水平居中*/
+        text-align:center;
+
+        /* 针对IE的Hack */
+        *display: block;
+        *font-size: 137px;/*约为高度的0.873，200*0.873 约为175*/
+        *font-family:Arial;/*防止非utf-8引起的hack失效问题，如gbk编码*/
+
+        width:158px;
+        height:158px; overflow:hidden;
+	}
+.recommend-item .item-box .small-pic img{ max-width:158px; max-height:158px;vertical-align: middle;display:block\0; }
+.recommend-item .item-box .text{ padding:40px 10px 10px 10px; color:#821100;}
+.recommend-item .item-box .text .title{ display:block; height:30px; line-height:30px; overflow:hidden; white-space:nowrap; text-overflow: ellipsis;}
+.recommend-item .text-bg p{ padding-top:60px;}
+
+/*热销产品*/
+.title-container-2{background:url('title-2-bg.png') center center no-repeat; height:120px; }
+.title-container-2 h2{ display:block; height:120px; line-height:120px; text-align:center; text-indent:53px; *text-indent:0px;font-size:36px; font-weight:bold; letter-spacing:54px; color:#fff1cc;}
+.h_pro_bg{margin-top:60px; padding-top:16px;background: url('hot_line_bg.gif') left top repeat-x scroll #821100;}
+.h_pro_bg .bd .list{ padding:15px; background: url('hot_line_bg.gif') left bottom repeat-x}
+.h_pro_bg .bd li{ position:relative; float:left; width:33.333333333%; height:360px; margin-bottom:30px;}
+.h_pro_bg .bd li .pic-box{ position:relative; width:360px; height:360px; margin:0 auto; text-align:center; background:#FFF; overflow:hidden;}
+.text-bg{zoom:1; position:absolute; width:100%; background:url('h_pro_text.png'); filter:alpha(opacity:0);opacity:0;  top:0px; bottom:0px; left:0px; z-index:60; }
+.h_pro_bg .bd li .text-bg h2{ color:#FFF; padding-top:140px; padding-left:20px; padding-right:20px; font-size:18px;overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+.h_pro_bg .bd li .text-bg p{ padding:10px 0;}
+.text-bg .btn{ display:block; width:200px; height:38px; text-align:center; margin:0 auto; line-height:38px; font-size:18px; border:2px solid #FFF; color:#FFF; border-radius:8px;}
+.h_pro_bg .bd li .pic {
+        /*非IE的主流浏览器识别的垂直居中的方法*/
+        display: table-cell;
+        vertical-align:middle;
+
+        /*设置水平居中*/
+        text-align:center;
+
+        /* 针对IE的Hack */
+        *display: block;
+        *font-size: 314px;/*约为高度的0.873，200*0.873 约为175*/
+        *font-family:Arial;/*防止非utf-8引起的hack失效问题，如gbk编码*/
+
+        width:360px;
+        height:360px; overflow:hidden;
+}
+.h_pro_bg .bd li img{vertical-align:middle;max-height:360px;max-width:360px;display:block\0;}  
+
+/*新品上市*/
+.h_new_pro{ margin-top:60px;}
+.title-container-3{background:url('title-3-bg.png') center -20px no-repeat; height:90px; }
+.title-container-3 h2{ display:block; height:80px; line-height:80px; text-align:center; text-indent:53px; *text-indent:0px;font-size:36px; font-weight:bold; letter-spacing:54px; color:#821100;}
+.h_new_pro .bd{ padding-top:20px;}
+.h_new_pro .bd li{float:left; width:25%; text-align:center; color:#333; line-height:18px; margin-bottom:30px;}
+.h_new_pro .bd .item-box{ width:280px; height:360px; background:#ffffff; margin:0 auto; }
+.h_new_pro .bd .item-box .text{ padding:10px 20px; text-align:left; line-height:26px;}
+.h_new_pro .bd li p{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.h_new_pro .bd li .price{ font-size:16px; font-weight:bold; color:#821100;text-align: center;}
+.h_new_pro .bd li .title{ font-size:16px; color:#666666; display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.h_new_pro .bd li .title:hover{color:#821100;}
+.h_new_pro .bd .pic {
+        /*非IE的主流浏览器识别的垂直居中的方法*/
+        display: table-cell;
+        vertical-align:middle;
+
+        /*设置水平居中*/
+        text-align:center;
+
+        /* 针对IE的Hack */
+        *display: block;
+        *font-size: 244px;/*约为高度的0.873，200*0.873 约为175*/
+        *font-family:Arial;/*防止非utf-8引起的hack失效问题，如gbk编码*/
+
+        width:280px;
+        height:280px; overflow:hidden;
+}
+.h_new_pro .bd .pic img{vertical-align:middle;max-width:285px;max-height:280px;-webkit-transition:all .5s ease 0s;-moz-transition:all .5s ease 0s;-o-transition:all .5s ease 0s;transition:all .5s ease 0s;display:block\0;}  
+.h_new_pro .bd .pic:hover img{-webkit-transform:scale(1.08);-moz-transform:scale(1.08);-o-transform:scale(1.08);transform:scale(1.08)}
+.h_new_pro .bd .rmb i{ display:inline-block; width:16px; height:16px; line-height:16px; text-align:center; color:#fff; background:#000; margin-right:5px; vertical-align: middle; border-radius:50%;}
+
+/*公司简介*/
+.h_about_bg{ width:100%; background:#450600; margin-top:60px; padding:40px 0;}
+.h_about .hd{ position:relative; border-bottom:1px solid #fff; padding-bottom:90px; margin-bottom:70px;}
+.h_about .hd .con{ position:absolute; top:0; left:370px; line-height:60px; text-align:center; font-size:46px; color:#fff; font-family:"宋体";}
+.h_about .hd h3{ font-weight:bold;letter-spacing:5px;background:#181818; padding:0 10px;}
+.h_about .bd{ padding-left:480px; position:relative; color:#fff; min-height:274px;}
+.h_about .bd .pic{ position:absolute; top:0; left:0px; width:400px; height:264px;}
+.h_about .bd .text{ line-height:30px; height:274px; overflow:hidden;}
+.about-title{ font-size:36px; display:block; height:36px; line-height:36px; margin-bottom:20px;}
+.h_about .bd .text p{ text-indent:2em; font-size:16px;}
+.h_about .bd .text p .more{ color:#fff1cc;}
+.h_about .bd .text p .more:hover{ text-decoration:underline;}
+
+/*颜色*/
+a:hover,.highlight{color:#450600;}
+.sidebar_mod .hd{background:#450600; border-bottom:3px solid #821100;}
+.sidebar_mod .hd i{background-color:#821100;}
+.sidebar_mod .bd{border:1px solid #ddd;    padding: 10px;}
+.sidebar_mod .border_b{ border-bottom:1px solid #ddd;}
+.sidebar_menu .bd .til a:hover{ color:#450600;}
+.sidebar_menu_til a:hover{ background:url("sidebar_menu.png") no-repeat 0 -25px;}
+.tab_hd li.hover{ border-bottom:1px solid #450600; color:#450600;}/*诚信档案选项卡*/
+.tab_hd li i{border-color:transparent transparent #450600 transparent;}/*诚信档案选项卡*/
+.footer{ background:#fff;}
+.gjc { position: absolute; top: 8px;left: 30px; line-height: 20px; color: #bbb; font-size: 12px; cursor: text;}
+.banner-list img { width: 100%;}

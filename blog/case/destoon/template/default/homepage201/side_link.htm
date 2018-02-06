@@ -1,0 +1,19 @@
+{if $file != 'link'}
+		<!--友情链接开始-->
+		<div class="sidebar_mod sidebar_link">
+		 	<div class="hd"><h2><i></i>{$side_name[$HS]}</h2></div>
+			 <div class="bd">
+				 <!--{php $tags=tag("table=link&condition=status=3 and username='$username'&pagesize=".$side_num[$HS]."&order=listorder desc&template=null");}-->
+					<ul>
+					{if $tags}
+						{loop $tags $t}
+						<li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">&gt; {$t[title]}</a></li>
+						{/loop}
+					{else}
+						<li>暂无链接</li>
+					{/if}
+					</ul>
+			 </div>
+		 </div>
+		<!--友情链接结束-->
+{/if}

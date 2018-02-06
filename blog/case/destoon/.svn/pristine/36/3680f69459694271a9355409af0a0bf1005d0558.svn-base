@@ -1,0 +1,27 @@
+{template 'header', $template}
+  <div class="w990 right">
+ {if $bannert || $banner}
+<div class="banner right w990">
+{if $bannert == 2}
+<ul class="rslides f990x300">
+<li><a href="###"><img src="{$banner1}" width="{$bannerw}" height="{$bannerh}" alt=""/></a></li>
+<li><a href="###"><img src="{$banner2}" width="{$bannerw}" height="{$bannerh}" alt=""/></a></li>
+{if $banner3}<li><a href="###"><img src="{$banner3}" width="{$bannerw}" height="{$bannerh}" alt=""/></a></li>{/if}
+{if $banner4}<li><a href="###"><img src="{$banner4}" width="{$bannerw}" height="{$bannerh}" alt=""/></a></li>{/if}
+{if $banner5}<li><a href="###"><img src="{$banner5}" width="{$bannerw}" height="{$bannerh}" alt=""/></a></li>{/if}
+</ul>
+
+{load('slide.js')}
+<script type="text/javascript">new dslide('slide_banner');</script>
+{elseif $bannert == 1}
+<embed src="{$bannerf}" quality="high" loop="true" extendspage="http://get.adobe.com/flashplayer/" type="application/x-shockwave-flash" width="{$bannerw}" height="{$bannerh}" allowscriptaccess="never"></embed>
+{elseif $banner}
+<img src="{$banner}" width="100%"/>
+{/if}
+</div>
+{/if}
+<div class="w940 p25 right" id="rightbar"> 
+	{loop $HMAIN $HM $MAIN}
+	{template 'main_'.$main_file[$HM], $template}
+	{/loop}
+	{template 'footer', $template}

@@ -1,0 +1,92 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+<link rel="stylesheet" type="text/css" href="css/know_v2.css"/>
+<header class="aui-bar aui-bar-nav" id="aui-header">
+        <a class="aui-pull-left aui-btn" href="javascript:Dback('index.php?moduleid={$moduleid}&catid={$gid}&itemid={$itemid}');">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+        <div class="aui-title">我来回答</div>
+        <a class="aui-pull-right" href="javascript:Danswer();">提交</a>
+</header>
+<div class="aui-bar-fix"></div>
+
+<div class="aui-content" id="know_answer">
+<ul class="aui-list aui-form-list dt-border-none">
+	<form method="post" id="know-answer">
+	<input type="hidden" name="action" value="{$action}"/>
+	<input type="hidden" name="itemid" value="{$itemid}"/>
+	<input type="hidden" name="ok" value="1"/>
+	<li class="aui-list-item" style="margin:0; padding:0;">
+    <div style="width:100%;min-height:7.5rem;"><textarea name="content" id="content" placeholder="答案内容" onblur="window.scrollTo(0,0);" style="width:98%;height:7.5rem;line-height:1.2rem;border:none;padding-top:0.5rem; padding-left:0.5rem; margin:0;font-size:0.8rem;" autofocus="autofocus"></textarea></div>
+
+       <li class="aui-list-item dt-border-b-none" style="min-height:1.5rem; padding-top:0.5rem;">
+            <a href="javascript:towindow('<a href=&#34;user.php?mid={$moduleid}&action=answer&itemid={$itemid}&#34; rel=&#34;external&#34;><span>确定切换</span></a>', '取消', '确定要切换到高级模式吗<br/>当前填写的内容会被丢弃');" class="b">高级模式</a>
+        </li>
+            {if $need_captcha}
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                        <div class="aui-list-item-inner" id="captcha-bar">{template 'captcha', 'chip'}</div>
+                </div>
+            </li>
+            {/if}
+	</form>
+	            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-list-item-center aui-list-item-btn" onclick="Danswer();">
+                    <div class="aui-btn aui-btn-info aui-margin-r-5 aui-font-size-18" style="width:95%">我来回答</div>
+                </div>
+            </li>
+</ul>
+
+</div>
+
+<script type="text/javascript">
+function Danswer() {
+	var len;
+	len = Dd('content').value.length;
+	if(len < 5) {
+		laymsg('正文最少个5字，已填写'+len+'个字');
+		return false;
+	}
+	if(len > 5000) {
+		laymsg('正文最多个5000字，已填写'+len+'个字');
+		return false;
+	}
+	{if $need_captcha}
+	val = $('#captcha').val();
+	if(!is_captcha(val)) {
+		laymsg('请填写验证码');
+		return false;
+	}
+	{/if}
+	$.post('know.php', $('#know-answer').serialize(), function(data) {
+		if(data == 'ok') {
+			laymsg('回答成功');
+			setTimeout(function() {
+				Go('index.php?moduleid={$moduleid}&itemid={$itemid}');
+			}, 1000);
+		} else if(data == 'check') {
+			laymsg('回答成功，请等待审核');
+			setTimeout(function() {
+				Go('index.php?moduleid={$moduleid}&itemid={$itemid}');
+			}, 1000);
+		} else if(data == 'captcha') {
+			laymsg('验证码错误');
+			reloadcaptcha();
+		} else {
+			laymsg('发表失败，请重试');
+			setTimeout(function() {
+				window.location.reload();
+			}, 1000);
+		}
+	});
+	return;
+}
+{if $need_captcha}
+$(document).ready(function(){
+	$('#captcha').on('blur', function(){window.scrollTo(0,0);});
+	$('#captcha').css({'width':'100px','border':'none','padding':'0','font-size':'16px'});
+	showcaptcha();
+});
+{/if}
+</script>
+{template 'footer_v2', 'mobile'}

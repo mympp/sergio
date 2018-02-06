@@ -1,0 +1,34 @@
+<div class="aui-content aui-margin-t-10 aui-margin-b-10">
+
+{if $lists}
+<div class="bd-b" style="line-height:44px;text-align:center;color:#007AFF;font-size:13px;padding:0 10px;">
+	<span {if $star==0} class="f_b"{/if} onclick="load_comment('1&star=0');">全部({$items})</span>&nbsp;&nbsp;
+	<span {if $star==3} class="f_b"{/if} onclick="load_comment('1&star=3');">好评({$stat[s3]})</span>&nbsp;&nbsp;
+	<span {if $star==2} class="f_b"{/if} onclick="load_comment('1&star=2');">中评({$stat[s2]})</span>&nbsp;&nbsp;
+	<span {if $star==1} class="f_b"{/if} onclick="load_comment('1&star=1');">差评({$stat[s1]})</span>
+</div>
+{loop $lists $k $v}
+    <ul class="aui-list aui-list-in aui-font-size-12">
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title"><span class="f_r px12"><span class="f_gray">{$v[addtime]}</span> {$STARS[$v[seller_star]]}</span>
+	{hide_name($v[buyer])}</div>
+            </div>
+        </li>
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title"><span class="dt-text-red">{if $v[seller_comment]}{nl2br($v[seller_comment])}{else}买家没有发表评价内容{/if}
+{if $v[buyer_reply]}</span>
+<br/><span class="px12 f_gray"><span style="color:blue;">卖家</span> {$v[replytime]} 回复： </span>
+<br/>{nl2br($v[buyer_reply])}
+{/if}</div>
+            </div>
+        </li>
+</ul>
+{/loop}
+{if $pages}<div class="pages bd-b">{$pages}</div>{/if}
+</div> 
+{else}
+<div class="bd-b"><br/><br/><center>暂无评价</center><br/><br/></div>
+{/if}
+</div>

@@ -1,0 +1,308 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+<link rel="stylesheet" type="text/css" href="css/job_v2.css"/>
+<header class="aui-bar aui-bar-nav dt-bg-orange" id="aui-header">
+       {if $itemid || $catid || $areaid || $kw}
+        <a class="aui-pull-left aui-btn" href="{$back_link}">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+       {else}
+        <a class="aui-pull-left aui-btn" href="channel.php">
+           <span class="aui-iconfont aui-icon-left"></span>频道
+        </a>
+       {/if}
+        <div class="aui-title">{$head_name}</div>
+        <a class="aui-pull-right">
+        <span class="dt-iconfont dt-icon-caidan" onclick="showPopup();"></span>
+        </a>
+        <a class="aui-pull-right"><i class="dt-iconfont dt-icon-sousuo aui-font-size-20" onclick="showsearchbar();"></i></a>
+</header>
+<div class="aui-bar-fix"></div>
+
+{if $itemid}
+    <section class="aui-content">
+        <div class="aui-card-list aui-border-t aui-border-b">
+          <div class="aui-info">
+                <div class="aui-info-item">
+                    <span class="aui-margin-l-5 aui-padded-t-5 dt-text-gray"><a href="{$MODULE[1][linkurl]}">首页</a>&nbsp;&gt;&nbsp;<a href="{$MOD[linkurl]}">{$MOD[name]}</a>&nbsp;&gt;&nbsp;{cat_pos($CAT, ' &gt; ')}</span>
+                </div>
+            </div>
+            <div class="aui-hr"></div>
+            <div class="aui-content aui-margin-b-5">
+        <ul class="aui-list aui-media-list dt-border-t-none">
+         <li class="aui-list-item">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title aui-font-size-18"><b>{$title}</b><div class="dt-label-vip aui-margin-l-5">VIP</div>{if $v[vip]}{/if}</div>
+                        </div>
+                        <div class="aui-list-item-text aui-font-size-18 aui-margin-t-10 dt-text-orange">
+                            {if $minsalary && $maxsalary}{$minsalary}-{$maxsalary}{$DT[money_unit]}/月{elseif $minsalary}{$minsalary}{$DT[money_unit]}/月以上{elseif $maxsalary}{$maxsalary}{$DT[money_unit]}/月以内{else}面议{/if}
+                        </div>
+                    </div>
+                    <div class="dt-list-item-text aui-padded-t-10 aui-padded-r-15">
+                        <div class="aui-pull-right"><i class="dt-iconfont dt-icon-star dt-text-orange dt-fz26"></i>
+            <div class="aui-bar-tab-label aui-font-size-12 dt-text-orange">收藏</div></div>
+                    </div>
+                </div>
+                <div class="aui-info" style="padding-top:0">
+                    <div class="aui-info-item">
+                        <span class="aui-margin-l-5"><span class="aui-margin-r-10"><i class="aui-iconfont aui-icon-time aui-font-size-14 aui-margin-r-5"></i>{$editdate}</span><span class="aui-margin-r-10"><i class="aui-iconfont aui-icon-attention aui-font-size-14 aui-margin-r-5"></i>{$hits}</span></span>
+                        </div>
+                    <div class="aui-info-item">分享</div>
+                </div>
+            </li>
+        </ul>
+        </div>
+
+    <ul class="aui-list dt-border-t-none dt-contact-job-list aui-padded-t-10 aui-padded-b-10 dt-border-b-none">
+        <li class="aui-list-nitem">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">行业:<span class="">{$CATEGORY[$parentid][catname]}</span></div>
+            </div>
+        </li>
+        <li class="aui-list-nitem">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">职位: <span class="">{$CATEGORY[$catid][catname]}</span></div>
+            </div>
+        </li>
+        <li class="aui-list-nitem">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">部门:<span class="">{$department}</span></div>
+            </div>
+        </li>
+        <li class="aui-list-nitem">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">地区:<span class="">{area_pos($areaid, '')}</span></div>
+            </div>
+        </li>
+        <li class="aui-list-nitem">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">学历:<span class="">{$EDUCATION[$education]}</span></div>
+            </div>
+        </li>
+        <li class="aui-list-nitem">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">经验:<span class="">{if $experience}{$experience}年以上{else}不限{/if}</span></div>
+            </div>
+        </li>
+        <p style="padding:0.25rem 0.75rem;" onclick="showmores('moreinfo')">更多(点击查看)</p>
+        <div class="aui-content displaynone" id="moreinfo">
+        <li class="aui-list-nitem">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">人数:<span class="">{if $total}{$total}人{else}若干{/if}</span></div>
+            </div>
+        </li>
+        <li class="aui-list-nitem">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">性质:<span class="">{$TYPE[$type]}</span></div>
+            </div>
+        </li>
+        <li class="aui-list-nitem">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">性别:<span class="">{$GENDER[$gender]}</span></div>
+            </div>
+        </li>
+        <li class="aui-list-nitem">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">婚姻:<span class="">{$MARRIAGE[$marriage]}</span></div>
+            </div>
+        </li>
+        <li class="aui-list-nitem">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">年龄:<span class="">{if $minage && $maxage}{$minage}-{$maxage}岁{elseif $minage}{$minage}岁以上{elseif $maxage}{$maxage}岁以内{else}不限年龄{/if}</span></div>
+            </div>
+        </li>
+        </div>
+        </ul>
+    <ul class="aui-list aui-media-list">
+            <li class="aui-list-item aui-list-item-arrow">
+                <div class="aui-media-list-item-inner aui-padded-t-5">
+                  <div class="aui-list-item-media" style="width: 3rem;">
+                       <a href="{userurl($username)}"><img src="{useravatar($v[username], 'smaill')}" class="aui-img-round aui-list-img-sm"></a>
+                    </div>
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text aui-margin-b-5">
+                            <div class="aui-list-item-title"><a href="{userurl($username)}">{$company}</a>&nbsp;&nbsp; <i class="aui-iconfont aui-icon-addressbook dt-text-color5"></i>{if $member[vtruename]}&nbsp;<span class="aui-font-size-12">实名认证</span>{/if}</div>
+                        </div>
+                        <div class="aui-list-item-text aui-ellipsis-2">
+                            {area_pos($areaid,'-')}
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <p style=" padding:0.5rem 0.75rem; color:#000; font-size:0.85rem;">职位简介</p>
+        <li class="aui-list-nitem">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title aui-font-size-14">{$content}</div>
+            </div>
+        </li>
+        </ul>
+
+</div>
+
+<ul class="aui-list dt-border-none">
+     <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title aui-font-size-12">如遇无效、虚假、诈骗信息，请立即举报</div>
+                <div class="aui-list-item-right">
+                    <div class="aui-label aui-label-info"><i class="dt-iconfont dt-icon-zhifa dt-text-white aui-font-size-16"></i>举报</div>
+                </div>
+            </div>
+        </li>
+</ul>
+
+</section>
+
+<div class="aui-content-padded">
+<p><div class="aui-btn aui-btn-info aui-btn-block aui-btn-outlined aui-btn-sm"><a href="index.php?moduleid={$moduleid}">有新的<span class="dt-text-red">{$MOD['name']}</span>信息发布了，快去看看</a></div></p>
+</div>
+{template 'dtchip-other', 'mobile'}
+
+<div class="aui-footer-fix"></div>
+    <footer class="aui-bar aui-bar-tab" id="itemfoot">
+        <div class="dt-bar-item-contact dt-bg-orange">
+            <a href="message.php?action=send&typeid=2&touser={$username}&title={encrypt('我对您发布的“'.$title.'”很感兴趣', DT_KEY.'SEND')}"><div class="dt-bar-tab-contact">申请职位</div></a>
+        </div>
+        <div class="aui-bar-tab-item aui-active aui-col-5">
+            <i class="dt-iconfont dt-icon-dianhua"></i>
+            <div class="aui-bar-tab-label"><a href="tel:{$mobile}">立即联系</a></div>
+        </div>
+        <div class="aui-bar-tab-item aui-active aui-col-5" onclick="window.location.href='index.php'">
+            <i class="dt-iconfont dt-icon-kefu1"></i>
+            <div class="aui-bar-tab-label">在线沟通</div>
+        </div>
+    </footer>
+<script type="text/javascript">
+function showmores(id) {
+        var $show = $('#'+id+'');
+        if ($show.hasClass('displaynone')) {
+            $show.removeClass('displaynone'); 
+        } else {
+            $show.addClass('displaynone');
+        }
+    }
+</script>    
+{else}
+{if !$EXT[gl_module_index] || $catid || $areaid || $kw || $listview==1}
+{template 'dtchip-deals', 'mobile'}
+{template 'dt-results-bar', 'mobile'}
+	{if $lists}
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-media-list dt-media-job dt-border-none">
+	{loop $lists $v}
+            <li class="aui-list-item dt-border-b-none aui-margin-b-10">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text aui-margin-b-5">
+                            <a href="{$v[linkurl]}"><div class="aui-list-item-title aui-ellipsis-1">{$v[title]}</div></a><div class="aui-list-item-right">{gl_format_date($v[addtime])}</div>
+                        </div>
+                        <div class="aui-media-list-item-inner">
+                        <div class="aui-list-item-inner aui-padded-t-0">
+                       <div class="aui-list-item-title"><span class="dt-text-orange">{if $v[minsalary] && $v[maxsalary]}{$v[minsalary]}-{$v[maxsalary]}{$DT[money_unit]}/月{elseif $v[minsalary]}{$v[minsalary]}{$DT[money_unit]}/月以上{elseif $v[maxsalary]}{$v[maxsalary]}{$DT[money_unit]}/月以内{else}面议{/if}</span><span class="aui-font-size-14 aui-margin-l-10 dt-text-gray"><i class="dt-iconfont dt-icon-cate  aui-margin-r-5 aui-font-size-12"></i>{gl_cat_name($v[catid])}</span></div>
+                    <div class="aui-list-item-text dt-margin-t-5">
+                    <div>
+                        <span class="dt-label aui-label-info aui-label-outlined">{$TYPE[$v[type]]}</span><span class="dt-label aui-label-info aui-label-outlined">{$EDUCATION[$v[education]]}</span><span class="dt-label aui-label-info aui-label-outlined">{$GENDER[$v[gender]]}</span></div>
+                    </div>
+                </div>
+                <div class="dt-list-item-text">
+                    <div class="dt-btn dt-bg-orange">申请</div>
+                </div>
+            </div>
+            <div class="dt-job-list-company">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title aui-ellipsis-1"><a href="{mobileurl($moduleid, 0, $v['itemid'])}">{$v[company]}{if $v[vip]}<span class="dt-label-small dt-bg-orange dt-text-white aui-margin-l-5">VIP</span>{/if}</a></div><div class="aui-list-item-right">{area_pos($member[$v[areaid]], '')}</div>
+                        </div>
+                    </div>
+                    
+                </div>
+               
+              </div>
+            </li>
+	{/loop}
+</ul>
+</div>
+	{else}
+	{template 'dtchip-empty', 'mobile'}
+	{/if}
+{if $pages}<div class="aui-content aui-margin-b-15 aui-text-center pageslist"><div class="pages">{$pages}</div></div>{/if}   
+{else}
+    <div class="aui-content job-list-title">
+    <div class="aui-col-xs-4"><a href=""><i class="dt-iconfont dt-icon-jianli"></i>写简历</a></div>
+    <div class="aui-col-xs-4"><a href=""><i class="dt-iconfont dt-icon-zhiwei"></i>发职位</a></div>
+    <div class="aui-col-xs-4"><a href=""><i class="dt-iconfont dt-icon-jianliku"></i>简历库</a></div>
+    </div>
+    <div class="aui-content dt-bg-white">
+    <p class="dt-zhiwei-title">全部职位</p>
+    <div class="aui-content aui-margin-b-15">
+    {php $child = get_maincat(0, $moduleid, 1);}
+                {loop $child $i $c}
+    <ul class="aui-list dt-zhiwei-list dt-border-b-none">
+        <li class="dt-zhiwei-list-title">
+            <a href="index.php?moduleid={$moduleid}&catid={$c[catid]}">{$c[catname]}</a>
+        </li>
+        <li class="aui-padded-b-10">
+            <div class="aui-list-item-inner">
+                 <section class="aui-grid">
+                   <div class="aui-row">
+                    {php $sub = get_maincat($c[catid], $moduleid, 1);}
+                    {loop $sub $j $s}
+                    <div class="aui-col-xs-3">
+                      <a href="index.php?moduleid={$moduleid}&catid={$s[catid]}"><div class="aui-grid-label aui-ellipsis-1">{$s[catname]}</div></a>
+                    </div>
+                    {/loop}
+        </div>
+        </section>
+                
+               
+                </div>
+                
+        </li>
+     </ul>
+      {/loop}
+     </div>
+    </div>
+      <!--{php $tags=tag("moduleid=9&condition=status=3&areaid=$cityid&pagesize=8&fields=".$MOD[fields]."&order=addtime desc&template=null");}-->
+	{if $tags}
+    <div class="aui-content aui-margin-b-15">
+    <p class="dt-zhiwei-title dt-bg-white">最新招聘</p>
+        <ul class="aui-list aui-media-list dt-media-job dt-border-none">
+	{loop $tags $v}
+            <li class="aui-list-item dt-border-b-none aui-margin-b-10">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text aui-margin-b-5">
+                            <a href="{mobileurl($moduleid, 0, $v['itemid'])}"><div class="aui-list-item-title aui-ellipsis-1">{$v[title]}</div></a><div class="aui-list-item-right"><span>{gl_format_date($v[addtime])}</span></div>
+                        </div>
+                        <div class="aui-media-list-item-inner">
+                        <div class="aui-list-item-inner aui-padded-t-0">
+                       <div class="aui-list-item-title"><span class="dt-text-orange">{if $v[minsalary] && $v[maxsalary]}{$v[minsalary]}-{$v[maxsalary]}{$DT[money_unit]}/月{elseif $v[minsalary]}{$v[minsalary]}{$DT[money_unit]}/月以上{elseif $v[maxsalary]}{$v[maxsalary]}{$DT[money_unit]}/月以内{else}面议{/if}</span><span class="aui-font-size-14 aui-margin-l-10 dt-text-gray"><i class="dt-iconfont dt-icon-cate  aui-margin-r-5 aui-font-size-12"></i>{gl_cat_name($v[catid])}</span></div>
+                    <div class="aui-list-item-text dt-margin-t-5">
+                    <div>
+                        <span class="dt-label aui-label-info aui-label-outlined">{$TYPE[$v[type]]}</span><span class="dt-label aui-label-info aui-label-outlined">{$EDUCATION[$v[education]]}</span><span class="dt-label aui-label-info aui-label-outlined">{$GENDER[$v[gender]]}</span></div>
+                    </div>
+                </div>
+                <div class="dt-list-item-text">
+                    <div class="dt-btn dt-bg-orange">申请</div>
+                </div>
+            </div>
+            <div class="dt-job-list-company">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title aui-ellipsis-1"><a href="{$v[linkurl]}">{$v[company]}{if $v[vip]}<span class="dt-label-small dt-bg-orange dt-text-white aui-margin-l-5">VIP</span>{/if}</a></div><div class="aui-list-item-right">{area_pos($member[$v[areaid]], '')}</div>
+                        </div>
+                    </div>
+                    
+                </div>
+               
+              </div>
+            </li>
+	{/loop}
+    <p class="dt-zhiwei-title dt-bg-white aui-text-center aui-font-size-16"><a href="index.php?moduleid=9&listview=1">更多招聘</a></p>
+</ul>
+</div>
+	{else}
+	{template 'dtchip-empty', 'mobile'}
+	{/if}
+{/if}
+{/if}
+{template 'footer_v2', 'mobile'}

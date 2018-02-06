@@ -1,0 +1,489 @@
+{if $EXT['gl_edit_items'] && $_userid}
+{template 'dt-edit-items', 'mobile'}
+{/if}
+<script type="text/javascript">
+var glajax = 'glajax.php';
+var mid ='{$moduleid}';
+var moduleid = '{$moduleid}';
+var itemid = '{$itemid}';
+var catid = '{$catid}';
+var areaid = '{$areaid}';
+var userid = '{$_userid}';
+var kw ='{$kw}';
+var thisurl = '{rawurlencode($DT_URL)}';
+var listview ='{$listview}';
+{if $EXT['gl_mobile_city'] && $mindex}
+var mindex = {$mindex}
+{/if};
+{if $EXT[gl_img_echo]}
+var glimgecho = 1;
+echo.init({
+ offset : 50,
+ throttle : 200,
+ unload : false,
+});
+{/if}
+{if $GL_MOB}
+var glshareapp=1;
+$('#dt-pc-share').hide();
+{/if}
+set_local('backpath','{$DT_URL}');
+{if !$mlat}
+function getLocation(){
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML="浏览器不支持获取地理位置信息";}
+  }
+function showPosition(position){
+   var longx = position.coords.longitude; //经度
+   var laty = position.coords.latitude; //维度
+   if(mindex==1){
+   laymsg('正在获取位置信息...');
+   $.post("{$glmobileurl}glajax.php", { "action": "gllocal","job": "initial","x": longx,"y": laty },
+            function(data){
+				var html = "";
+				var arealist = data.arealist;
+                for(var i in arealist){
+                html += '<div class="aui-col-xs-3" onclick=\"Setmycity('+arealist[i].areaid+')\"><div class="aui-grid-label dt-text-ellipsis">'+arealist[i].areaname+'</div></div>';
+				
+                  };
+				if(data.areaname){
+				var areaname = data.areaname;
+				}else{
+				var areaname = bdcity
+					}
+				//alert(data.areaid);
+				$('#bdcity').html(areaname);
+				localStorage.setItem("mbcity",areaname);//设置手机版城市地区为areaname
+				var localaddress = data.localaddress;
+				localStorage.setItem("mbaddress",localaddress);	
+                $("#citylist").prepend(html);
+				//$("#citylist").empty().prepend(html);
+				if(get_cookie('localgoto')!=1)openDialog('gotocity','所在位置'+areaname,'是否跳转到该地区浏览信息','index.php?gocity='+data.areaid);
+            }, "json");
+   }else{
+  $.get('{$glmobileurl}glajax.php?action=gllocal&job=gps&x='+longx+'&y='+laty,function(data){
+   var lat = data.y;
+   var lng = data.x;
+   //alert(lat+','+lng);
+  },'json');
+   }
+	
+}
+getLocation();
+{/if}
+toast.hide();  
+</script>
+{if $share_icon == 'auto'}
+<div class="share_icon"><img src="{DT_PATH}apple-touch-icon-precomposed.png"/></div>
+{/if}
+<div class="aui-popup dt-popup-appsharebar" id="dt-appshare-bar">
+<section class="aui-grid dt-appsharebar">
+    <div class="aui-row dt-share">
+        <div class="aui-col-xs-3" onclick="glshare_qq();">
+             <div class="dt-share-div" style="background:#68ace5"><i class="dt-iconfont dt-icon-qq"></i></div>
+        </div>
+        <div class="aui-col-xs-3" onclick="glshare_weixin('session');">
+             <div class="dt-share-div" style="background:#e6507b"><i class="dt-iconfont dt-icon-wechat"></i></div>
+        </div>
+        <div class="aui-col-xs-3" onclick="glshare_weixin('timeline');">
+            <div class="dt-share-div" style="background:#0C0"><i class="dt-iconfont dt-icon-pengyouquan"></i></div>
+        </div>
+        <div class="aui-col-xs-3" onclick="glshareAction('session');">
+            <div class="dt-share-div" style="background:#ff9f38"><i class="dt-iconfont dt-icon-setting"></i></div>
+        </div>
+        <div class="aui-col-xs-3" onclick="window.location.href='share.php?moduleid={$moduleid}&itemid={$itemid}'">
+            <div class="dt-share-div" style="background:#9486FF"><i class="dt-iconfont dt-icon-more"></i></div>
+        </div>
+        </div>
+        
+</section>
+</div>
+{template 'dt-app-share', 'mobile'}
+    <div class="aui-popup dt-popup-searchbar" id="dt-search-bar">
+    <div class="dt-searchbar" id="dt-searchbar">
+        <div class="dt-searchbar-input aui-border-radius" style="">
+            <i class="aui-iconfont aui-icon-search aui-text-info aui-font-size-18" onclick="doSearch()"></i>
+            <form action="search.php" method="post" id="dform">
+                <input type="hidden" name="ok" value="1"/>
+                <input type="hidden" name="action" value="mod{$moduleid}"/>
+                <input name="wd" type="search" placeholder="请输入搜索内容" id="search-input" class="aui-font-size-16">
+            </form>
+        </div>
+        <div class="dt-searchbar-cancel" tapmod>取消</div>
+    </div>
+<script type="text/javascript">
+    var searchBar = document.querySelector(".dt-searchbar-input");
+    if(searchBar){
+        searchBar.onclick = function(){
+            document.querySelector(".dt-searchbar-cancel").style.marginRight = 0;
+        }
+    }
+    document.querySelector(".dt-searchbar-cancel").onclick = function(){
+        this.style.marginRight = "-"+this.offsetWidth+"px";
+        document.getElementById("search-input").value = '';
+        document.getElementById("search-input").blur();
+		popup.hide(document.getElementById("dt-search-bar"));
+    }
+    function doSearch(){
+        var searchValue = document.getElementById("search-input").value;
+        if(searchValue){
+			Dd('dform').submit();
+            //openDialog('text','您输入的内容是',searchValue);
+        }else{
+		openDialog('text','请输入搜索关键词','请输入搜索关键词');
+		}
+    }
+</script>
+</div>
+    <div class="aui-popup aui-popup-menu-right" id="top-right">
+    <div class="dt-popup-arrow"></div>
+        <div class="aui-popup-content">
+    <ul class="aui-list aui-list-noborder">
+       {if $moduleid=='10'}
+        <li class="aui-list-item">
+        <a href="user.php?mid={$moduleid}&action=add&cid={$catid}">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-pencil aui-text-info dt-fz24"></i>
+                    </div>
+                <div class="aui-list-item-inner">我要提问</div>
+            </div>
+            </a>
+        </li>
+        {/if}
+    {if $itemid}
+       {if $moduleid=='18'}
+        <li class="aui-list-item">
+        <a href="club.php?action=reply&gid={$gid}&itemid={$itemid}&page={$page}">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-pencil aui-text-info dt-fz24"></i>
+                    </div>
+                <div class="aui-list-item-inner">发表回复</div>
+            </div>
+            </a>
+        </li>
+        <li class="aui-list-item">
+        <a href="club.php?action=post&itemid={$itemid}&gid={$gid}">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-edit aui-text-info dt-fz24"></i>
+                    </div>
+                <div class="aui-list-item-inner">发表帖子</div>
+            </div>
+            </a>
+        </li>
+        {/if}
+    {if $could_inquiry}
+        <li class="aui-list-item">
+        <a href="message.php?action=send&typeid=1&touser={$username}&title={encrypt('我对您发布的“'.$title.'”很感兴趣', DT_KEY.'SEND')}">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-edit aui-text-info"></i>
+                    </div>
+                <div class="aui-list-item-inner">发送询价</div>
+            </div>
+            </a>
+        </li>
+        {/if}
+    {if $could_price}
+        <li class="aui-list-item">
+        <a href="message.php?action=send&typeid=2&touser={$username}&title={encrypt('我对您发布的“'.$title.'”很感兴趣', DT_KEY.'SEND')}">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-edit aui-text-info"></i>
+                    </div>
+                <div class="aui-list-item-inner">发送报价</div>
+            </div>
+            </a>
+        </li>
+        {/if}
+        {if $moduleid=='16' && $itemid}
+        <li class="aui-list-item" onclick="BuyNow();">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-gouwu aui-text-info dt-fz24"></i>
+                    </div>
+                <div class="aui-list-item-inner">立刻购买</div>
+            </div>
+        </li>
+        <li class="aui-list-item" onclick="AddCart();">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-cart aui-text-info"></i>
+                    </div>
+                <div class="aui-list-item-inner">加入购物车</div>
+            </div>
+        </li>
+        {/if}
+        <li class="aui-list-item">
+        <a {if $DT_MOB[browser]=='weixin' || $DT_MOB[browser]=='qq'}href="javascript:share_tips();"{elseif $GL_MOB['browser']=='aqq'}href="javascript:share_tips();"{elseif $GL_MOB}onclick="shareappbar()"{else}onclick="gotoTop('dt-share')"{/if}>
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-fenxiang aui-text-info"></i>
+                    </div>
+                <div class="aui-list-item-inner">分享好友</div>
+            </div>
+            </a>
+        </li>
+        <li class="aui-list-item">
+        <a href="{mobileurl($moduleid)}">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-shouye aui-text-info"></i>
+                    </div>
+                <div class="aui-list-item-inner"><span class="aui-ellipsis-1" style="width:90%">{$MOD[name]}首页</span></div>
+            </div>
+            </a>
+        </li>
+        <li class="aui-list-item">
+        <a href="channel.php">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-moremenu aui-text-info"></i>
+                    </div>
+                <div class="aui-list-item-inner">频道列表</div>
+            </div>
+            </a>
+        </li>
+        <li class="aui-list-item" onclick="Go('comment.php?mid={$moduleid}&itemid={$itemid}');">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-comment aui-text-info"></i>
+                    </div>
+                <div class="aui-list-item-inner">我要评论</div>
+            </div>
+        </li>
+        {else}
+        <li class="aui-list-item">
+        <a href="search.php?action=mod{$moduleid}&catid={$catid}&areaid={$areaid}">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-sousuo aui-text-info"></i>
+                    </div>
+                <div class="aui-list-item-inner">我要搜索</div>
+            </div>
+            </a>
+        </li>
+        <li class="aui-list-item">
+        <a href="category.php?moduleid={$moduleid}">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-sort aui-text-info"></i>
+                    </div>
+                <div class="aui-list-item-inner">按分类浏览</div>
+            </div>
+            </a>
+        </li>
+        <li class="aui-list-item">
+           <a href="area.php?moduleid={$moduleid}">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-diqu aui-text-info"></i>
+                    </div>
+                <div class="aui-list-item-inner">按地区浏览</div>
+            </div>
+            </a>
+        </li>
+        {if $catid || $areaid || $kw || $listview==1}{else}
+        <li class="aui-list-item">
+           <a href="index.php?moduleid={$moduleid}&listview=1">
+            <div class="aui-list-item-inner">
+                     <div class="aui-list-item-label-icon">
+                        <i class="dt-iconfont dt-icon-lists aui-text-info"></i>
+                    </div>
+                <div class="aui-list-item-inner">全部列表</div>
+            </div>
+            </a>
+        </li>
+        {/if}
+        {/if}
+            </ul>
+        </div>
+    </div>
+    
+{if $foot && $foot!='my'}
+{if $footcopy<>1}{template 'footer_copy_v2', 'mobile'}{/if}
+<div class="aui-footer-fix"></div>
+    <footer class="aui-bar aui-bar-tab" id="footer">
+    <div class="aui-hr"></div>
+        <div class="aui-content">
+        <div class="aui-bar-tab-item {if $foot=='home'}aui-active{/if}">
+          <a href="index.php" title="首页">
+            <i class="aui-iconfont aui-icon-homefill"></i>
+            <div class="aui-bar-tab-label">首页</div>
+            </a>
+        </div>
+        <div class="aui-bar-tab-item {if $foot=='channel'}aui-active{/if}">
+        <a href="channel.php" title="频道">
+            <i class="aui-iconfont aui-icon-likefill"></i>
+            <div class="aui-bar-tab-label">频道</div>
+            </a>
+        </div>
+        <div class="aui-bar-tab-item" onclick="openDivbox('footer-morebox')">
+					<div class="dt-chat">
+						<i class="aui-iconfont aui-icon-add dt-fz34" style="color:#fff; font-size:1.85rem !important; top:0.25rem;"></i>
+					</div>
+        </div>
+         <div class="aui-bar-tab-item">
+            <div class="aui-badge">{if $_cart>99}99{else}{$_cart}{/if}</div>
+            <a href="cart.php" title="购物车">
+            <i class="aui-iconfont aui-icon-cartfill"></i>
+            <div class="aui-bar-tab-label">购物车</div>
+            </a>
+        </div>
+        <div class="aui-bar-tab-item {if $foot=='my'}aui-active{/if}">
+        <a href="my.php" rel="nofollow">
+            {if $_message}<div class="aui-dot"></div>{/if}
+            <i class="aui-iconfont aui-icon-peoplefill"></i>
+            <div class="aui-bar-tab-label">我的</div>
+            </a>
+        </div>
+        </div>
+    </footer>
+
+{/if}
+<div class="returnTop">
+{if $moduleid=='123' && $itemid}<div class="sideList live-refresh"><i class="dt-iconfont dt-icon-refresh"></i></div>{/if}
+{if $moduleid=='16' && $itemid}<div class="sideList mall-cart" onclick="Go('cart.php');"><i class="dt-iconfont dt-icon-cart"></i><div class="my-cart">{if $_cart}<em>{$_cart}</em>{/if}</div></div>{/if}
+<div class="sideList topIcon"><i class="aui-iconfont aui-icon-top"></i></div>
+</div>
+<div id="footer-morebox">
+<div class="aui-grid dt-more-grid">
+<div class="aui-content" style=" width:100%; position:absolute; top:-1.45rem; left:1rem;">
+<img src="{useravatar($_username, 'large')}" class="aui-img-round" style="border:#FFF 0.125rem solid;" width="48" height="48">{if $_truename}<span class="dt-more-truename">{$_truename}</span>{/if}
+</div>
+
+        <div class="aui-row aui-padded-t-10 aui-padded-b-5 aui-padded-l-10 aui-padded-r-10 dt-no-active">
+            <div class="aui-col-xs-3">
+            <a href="about.php">
+                <div class="moregrid-div"><i class="aui-iconfont aui-icon-info"></i></div>
+                <div class="aui-grid-label">关于网站</div>
+                </a>
+            </div>
+            <div class="aui-col-xs-3">
+            <a href="announce.php">
+                <div class="moregrid-div"><i class="aui-iconfont aui-icon-notification"></i></div>
+                <div class="aui-grid-label">最新公告</div>
+                </a>
+            </div>
+            <div class="aui-col-xs-3">
+            <a href="guestbook.php">
+                <div class="moregrid-div"><i class="aui-iconfont aui-icon-write"></i></div>
+                <div class="aui-grid-label">意见反馈</div>
+                </a>
+            </div>
+            <div class="aui-col-xs-3">
+            <a href="tips.php">
+                <div class="moregrid-div"><i class="aui-iconfont aui-icon-countdown"></i></div>
+                <div class="aui-grid-label">技巧提示</div>
+                </a>
+            </div>
+        {if $moduleid<>1}
+         <div class="aui-col-xs-3">
+            <a href="index.php">
+                <div class="moregrid-div"><i class="dt-iconfont dt-icon-shouye"></i></div>
+                <div class="aui-grid-label">网站首页</div>
+                </a>
+            </div>
+            {/if}
+            <div class="aui-col-xs-3">
+            <a href="channel.php">
+                <div class="moregrid-div"><i class="dt-iconfont dt-icon-moremenu"></i></div>
+                <div class="aui-grid-label">更多栏目</div>
+                </a>
+            </div>
+            {if $DT[city]}
+            <div class="aui-col-xs-3">
+            <a href="city.php">
+                <div class="moregrid-div"><i class="dt-iconfont dt-icon-diqu"></i></div>
+                <div class="aui-grid-label">切换地区</div>
+                </a>
+            </div>
+            {/if}
+            <div class="aui-col-xs-3">
+            <a href="mobile.php?action=pc">
+                <div class="moregrid-div"><i class="dt-iconfont dt-icon-compute"></i></div>
+                <div class="aui-grid-label">电脑版</div>
+                </a>
+            </div>
+            <div class="aui-col-xs-3">
+             <a href="{$app}">
+                <div class="moregrid-div"><i class="dt-iconfont dt-icon-app"></i></div>
+                <div class="aui-grid-label">安装app</div>
+                </a>
+            </div>
+            <div class="aui-col-xs-3">
+             <a href="more.php">
+                <div class="moregrid-div"><i class="dt-iconfont dt-icon-more dt-fz26"></i></div>
+                <div class="aui-grid-label">更多</div>
+                </a>
+            </div>
+            {if $_userid}
+            <div class="aui-col-xs-3" onclick="openDialog('goto','退出会员中心','确定要退出吗?','logout.php')">
+                <div class="moregrid-div"><i class="dt-iconfont dt-icon-logout dt-fz26"></i></div>
+                <div class="aui-grid-label">退出</div>
+            </div>
+            {else}
+            <div class="aui-col-xs-3">
+            <a href="login.php">
+                <div class="moregrid-div"><i class="dt-iconfont dt-icon-my"></i></div>
+                <div class="aui-grid-label">登录</div>
+             </a>
+            </div>
+            {/if}
+            {if $moduleid>=5 && $moduleid<>4}
+            <a href="user.php?mid={$moduleid}" rel="nofollow">
+            <div class="aui-col-xs-3">
+                <div class="moregrid-div"><i class="dt-iconfont dt-icon-edit dt-fz26"></i></div>
+                <div class="aui-grid-label">发布</div>
+            </div>
+            </a>
+            {/if}
+        </div>
+
+<div class="aui-content dt-hor-center">
+<div class="gldiv-colse-btn" style="height:2.5rem;line-height: 2.5rem;"><i class="aui-iconfont aui-icon-close dt-text-gray dt-fz24"></i></div>
+</div>
+ </div>
+ </div>
+<script>
+var scroll = new auiScroll({
+        listen:true,
+        distance:200 //判断到达底部的距离，isToBottom为true
+    },function(ret){
+        if(ret.scrollTop>=30){
+	       $('.returnTop .topIcon').show()
+
+        }else{
+		   $('.returnTop .topIcon').hide()
+        }
+
+    });
+$('div.returnTop .topIcon').click(function()
+   {
+  $('html,body').animate({scrollTop: 0}, 400);
+  return false;
+ });
+
+{if $DT_MOB[browser] == 'weixin' || $DT_MOB[browser] == 'qq'}
+$(document).on('pageshow', function(event) {
+	$("[data-role='page']").each(function(i) {
+		if($(this).attr('class').indexOf('-active') != -1) {
+			$(this).find('.share_icon img').css('display', 'block');
+		} else {
+			$(this).find('.share_icon img').css('display', 'none');
+		}
+	});
+});
+{/if}
+</script>
+<div style="display:none">
+</div>
+</div>
+{template 'footer_other_v2', 'mobile'}
+</body>
+</html>

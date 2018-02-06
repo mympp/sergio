@@ -1,0 +1,107 @@
+<div class="bottom">
+	<div class="bottomin">
+		<div class="cl"></div>
+		<div class="bottom2">
+			{if $DT[page_logo]}
+			<!--{tag("table=link&condition=status=3 and level>0 and thumb<>'' and username=''&areaid=$cityid&pagesize=".$DT['page_logo']."&order=listorder desc,itemid desc&lazy=$lazy&template=list-link&cols=9")}-->
+			{/if}
+			{if $DT[page_text]}
+			<!--{tag("table=link&condition=status=3 and level>0 and thumb='' and username=''&areaid=$cityid&pagesize=".$DT['page_text']."&order=listorder desc,itemid desc&template=list-link&cols=9")}-->
+			{/if}
+		</div>
+		<div class="bottom3">
+			<table border="0" cellspacing="0" cellpadding="0" width="1200">
+				<tbody>
+				<tr>
+				<td>
+					<a href="{$MODULE[1][linkurl]}">网站首页</a>
+					<!--{tag("table=webpage&condition=item=1&areaid=$cityid&order=listorder desc,itemid desc&template=list-webpage")}-->
+					| <a href="{$MODULE[1][linkurl]}sitemap/">网站地图</a>
+					| <a href="{$EXT[spread_url]}">排名推广</a>
+					{if $EXT[ad_enable]} | <a href="{$EXT[ad_url]}">广告服务</a>{/if}
+					{if $EXT[gift_enable]} | <a href="{$EXT[gift_url]}">积分换礼</a>{/if}
+					{if $EXT[guestbook_enable]} | <a href="{$EXT[guestbook_url]}">网站留言</a>{/if}
+					{if $EXT[feed_enable]} | <a href="{$EXT[feed_url]}">RSS订阅</a>{/if}
+					{if $DT[icpno]} | <a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow">{$DT[icpno]}</a>{/if}<br>
+					<table border="0" cellspacing="0" cellpadding="0">
+					<tbody><tr>
+					<td>{$DT[copyright]}</td>
+					<td width="140"><div class="goepe_mail"></div></td>
+					<td width="320"> 服务热线：{$DT[telephone]}</td>
+					<td align="left">客服:</td>
+					<td width="40" align="left"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=888888888&site=qq&menu=yes"><img title="点击这里给我发消息" border="0" alt="点击这里给我发消息" align="absmiddle" width="20" height="20" src="{DT_SKIN}img/counseling_style_51.png"></a> </td>
+					<td align="left">审核:</td>
+					<td width="40" align="left"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=888888888&site=qq&menu=yes"><img title="点击这里给我发消息" border="0" alt="点击这里给我发消息" align="absmiddle" width="20" height="20" src="{DT_SKIN}img/counseling_style_51.png"></a> </td>
+					<td align="left">投诉:</td>
+					<td width="40" align="left"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=888888888&site=qq&menu=yes"><img title="点击这里给我发消息" border="0" alt="点击这里给我发消息" align="absmiddle" width="20" height="20" src="{DT_SKIN}img/counseling_style_51.png"></a> </td>
+					<td align="left"> 售后:</td>
+					<td width="40" align="left"><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=888888888&site=qq&menu=yes"><img title="点击这里给我发消息" border="0" alt="点击这里给我发消息" align="absmiddle" width="20" height="20" src="{DT_SKIN}img/counseling_style_51.png"></a> </td>
+					</tr>
+					</tbody>
+					</table>
+				</td>
+				<td align="right">
+					<table width="0" border="0" cellspacing="0" cellpadding="0">
+					<tbody><tr>
+					<td></td>
+					<td width="48">&nbsp;</td>
+					</tr>
+					</tbody>
+					</table>
+				</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="bottom4">
+		<table border="0" cellspacing="0" cellpadding="0" align="left" height="40" style="float:left;" width="100%">
+		<tbody>
+		<tr>
+		<td valign="center" width="74"><a href="http://zjnet.zjaic.gov.cn/"><img src="{DT_SKIN}img/newindex2016_ppan3.jpg"></a></td>
+		<td width="5"></td>
+		<td valign="center" width="74"><a href="http://zjnet.zjaic.gov.cn/"><img src="{DT_SKIN}img/newindex2016_ppan2.jpg"></a></td>
+		<td width="5"></td>
+		<td valign="center" width="74"><a href="http://www.pingpinganan.gov.cn/"><img src="{DT_SKIN}img/newindex2016_ppan1.jpg"></a></td>
+		<td width="5"></td>
+		<td valign="center"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33011802000480" style="display:inline-block;text-decoration:none;height:32px;line-height:32px;"><img src="{DT_SKIN}img/newindex2016_ppan4.jpg" style="float:left;"><p style="float:left;height:32px;line-height:32px;margin: 0px 0px 0px 5px; color:#6a6a6a;">浙公网安备 33011802000480号</p></a></td>
+		</tr>
+		</tbody>
+		</table>
+		</div>
+	</div>
+</div>
+<div style="display: none;" class="main_menu" id="hyzd">
+	<div class="main_menutl">行业直达</div>
+	<div class="main_menuin">
+		<ul>
+			<li class="main_menu1 main_menuin_liover" t="1"><div class="main_menuin_li">污水处理</div></li>
+			<li class="main_menu2" t="2"><div class="main_menuin_li">纯水处理</div></li>
+			<li class="main_menu3" t="3"><div class="main_menuin_li">大气治理</div></li>
+			<li class="main_menu4" t="4"><div class="main_menuin_li">防腐处理</div></li>
+			<li class="main_menu5" t="5"><div class="main_menuin_li">仪器仪表</div></li>
+			<li class="main_menu6" t="6"><div class="main_menuin_li">工控设备</div></li>
+			<li class="main_menu7" t="7"><div class="main_menuin_li">安全防护</div></li>
+			<li class="main_menu8" t="8"><div class="main_menuin_li">五金暖通</div></li>
+			<li class="main_menu9" t="9"><div class="main_menuin_li">新能源</div></li>
+			<li class="main_menu10" t="10"><div class="main_menuin_li">环卫农机</div></li>
+			<li class="main_menu11" t="11"><div class="main_menuin_li">环保工程</div></li>
+			<li class="main_menu12" t="12"><div class="main_menuin_li">化工混合</div></li>
+			<li class="main_menu13" t="13"><div class="main_menuin_li">食品制药</div></li>
+			<li class="main_menu14" t="14"><div class="main_menuin_li">矿冶机械</div></li>
+			<li class="main_menu15" t="15"><div class="main_menuin_li">通用设备</div></li>
+		</ul>
+	</div>
+</div>
+
+<!--[以下为系统关键代码，请勿删除]-->
+<div class="back2top"><a href="javascript:void(0);" title="返回顶部">&nbsp;</a></div>
+<script type="text/javascript">
+{if $destoon_task}
+show_task('{$destoon_task}');
+{else}
+{php include DT_ROOT.'/api/task.inc.php';}
+{/if}
+{if $lazy}$(function(){$("img").lazyload();});{/if}
+</script>
+</body>
+</html>

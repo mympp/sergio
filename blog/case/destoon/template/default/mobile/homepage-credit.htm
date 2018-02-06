@@ -1,0 +1,176 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+{template 'header_company_v2', 'mobile'}
+<style>
+#tab .aui-tab-item { font-size:0.85rem;}
+#credit-list .aui-list-item { line-height:2.5rem}
+</style>
+<div class="aui-tab" id="tab">
+        <div class="aui-tab-item {if $typeid==0}aui-active{/if}" onclick="window.location.href='{gl_mobile_homeurl($moduleid,$username,$action,0)}'">公司档案</div>
+        <div class="aui-tab-item {if $typeid==1}aui-active{/if}" onclick="window.location.href='{gl_mobile_homeurl($moduleid,$username,$action,1)}'">收到的评价</div>
+        <div class="aui-tab-item {if $typeid==2}aui-active{/if}" onclick="window.location.href='{gl_mobile_homeurl($moduleid,$username,$action,2)}'">发出的评价</div>
+    </div>
+
+{if $typeid==2}
+<div id="Tabs2">
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-media-list dt-border-t-none">
+        {if $lists}
+	{loop $lists $k $v}
+            <li class="aui-list-item aui-list-item-arrow">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">买家 <span id="i_{$v[itemid]}">{hide_name($v[buyer])}于</span><span class="comment_time">{timetodate($v[buyer_ctime])}</span> 评论：</div>
+                            <div class="aui-list-item-right">{$STARS[$v[buyer_star]]} <img src="{DT_STATIC}file/image/star{$v[buyer_star]}.gif" width="18" height="6" alt="" align="absmiddle"/></div>
+                        </div>
+                        <div class="aui-list-item-text aui-ellipsis-2">
+                            {nl2br($v[buyer_comment])}
+                        </div>
+                        {if $v[seller_reply]}
+                        <div class="aui-list-item-text aui-ellipsis-2">
+                            卖家：{timetodate($v[seller_rtime])} 回复： {nl2br($v[seller_reply])}
+                        </div>
+                        {/if}
+                    </div>
+                </div>
+            </li>
+            {/loop}
+	{else}
+	<br/><br/><center>暂无评价</center><br/><br/>
+	{/if}
+   </ul>
+ </div>
+</div>
+{elseif $typeid==1}
+<div id="Tabs1">
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-media-list dt-border-t-none">
+        {if $lists}
+	{loop $lists $k $v}
+            <li class="aui-list-item aui-list-item-arrow">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">买家 <span id="i_{$v[itemid]}">{hide_name($v[buyer])}于</span><span class="comment_time">{timetodate($v[seller_ctime])}</span> 评论：</div>
+                            <div class="aui-list-item-right">{$STARS[$v[seller_star]]} <img src="{DT_STATIC}file/image/star{$v[buyer_star]}.gif" width="18" height="6" alt="" align="absmiddle"/></div>
+                        </div>
+                        <div class="aui-list-item-text aui-ellipsis-2">
+                            {nl2br($v[seller_comment])}
+                        </div>
+                        {if $v[seller_reply]}
+                        <div class="aui-list-item-text aui-ellipsis-2">
+                            卖家：{timetodate($v[buyer_rtime])} 回复： {nl2br($v[buyer_reply])}
+                        </div>
+                        {/if}
+                    </div>
+                </div>
+            </li>
+            {/loop}
+	{else}
+	<br/><br/><center>暂无评价</center><br/><br/>
+	{/if}
+   </ul>
+ </div>
+</div>
+
+{else}   
+<div id="Tabs0">
+
+   <div class="aui-content aui-margin-b-15" id="credit-list">
+        <ul class="aui-list dt-border-t-none">
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">公司名称：{$COM[company]}</div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">公司类型：{$COM[type]} ({$COM[mode]})</div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">所在地区：{area_pos($COM[areaid], '/')}</div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">公司规模：{$COM[size]}</div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">注册资本：{if $COM[capital]}{$COM[capital]}万{$COM[regunit]}{else}未填写{/if}</div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">注册年份：{$COM[regyear]}</div>
+                </div>
+            </li>
+          {if $COM[validated]}
+           <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">企业资料：<span class="f_green">通过{$COM[validator]}</span>认证</div>
+                </div>
+            </li>
+          {/if}            
+          {if $COM[vcompany]}
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">工商认证：<div class="aui-label aui-label-info">已通过</div></div>
+                </div>
+            </li>
+            {/if}
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">资料认证：{if $COM[vtruename]}<span class="dt-iconfont dt-icon-shiming aui-text-info aui-margin-r-10"></span>{/if}
+	{if $COM[vbank]}<span class="dt-iconfont dt-icon-yinhangka aui-text-info aui-margin-r-10"></span>{/if}
+	{if $COM[vmobile]}<span class="dt-iconfont dt-icon-shouji aui-text-info aui-margin-r-10"></span>{/if}
+	{if $COM[vemail]}<span class="dt-iconfont dt-icon-youjian aui-text-info aui-margin-r-10"></span>{/if}</div>
+                </div>
+            </li>
+            {if $COM[deposit]}
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">保&nbsp;&nbsp;证&nbsp;&nbsp;金：已缴纳 <span class="aui-text-info">{$DT[money_sign]}{$COM[deposit]}</span>&nbsp;{$DT[money_unit]}</div>
+                </div>
+            </li>
+            {/if}
+            {if $COM[mode]}
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">经营模式：{$COM[mode]}</div>
+                </div>
+            </li>
+            {/if}
+            {if $COM[business]}
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner aui-ellipsis-2">
+                    <div class="aui-list-item-title" style="line-height:150%; padding:0.5rem 0;">经营范围：{$COM[business]}</div>
+                </div>
+            </li>
+            {/if}
+            {if $COM[sell]}
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">销售产品：{$COM[sell]}</div>
+                </div>
+            </li>
+            {/if}
+            {if $COM[buy]}
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-title">采购产品：{$COM[buy]}</div>
+                </div>
+            </li>
+            {/if}
+    </ul>
+  </div>  
+</div>
+
+
+{/if}
+{if $pages}<div class="aui-content aui-margin-b-15 aui-text-center pageslist"><div class="pages">{$pages}</div></div>{/if}
+{template 'footer_company_v2', 'mobile'}

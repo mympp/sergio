@@ -1,0 +1,132 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+{if $itemid}
+<link rel="stylesheet" type="text/css" href="script/swiper/swiper-3.3.1.min.css"/>
+<script type="text/javascript" src="script/swiper/swiper-3.3.1.jquery.min.js"></script>
+{/if}
+<link rel="stylesheet" type="text/css" href="css/group_v2.css"/>
+<header class="aui-bar aui-bar-nav" id="aui-header">
+       {if $itemid || $catid || $areaid || $kw}
+        <a class="aui-pull-left aui-btn" href="{$back_link}">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+       {else}
+        <a class="aui-pull-left aui-btn" href="channel.php">
+           <span class="aui-iconfont aui-icon-left"></span>频道
+        </a>
+       {/if}
+        <div class="aui-title">{if $itemid}{$MOD[name]}详情{else}{$head_name}{/if}</div>
+        <a class="aui-pull-right">
+        <span class="dt-iconfont dt-icon-caidan" onclick="showPopup();"></span>
+        </a>
+        <a class="aui-pull-right"><i class="dt-iconfont dt-icon-sousuo aui-font-size-20" onclick="showsearchbar();"></i></a>
+</header>
+
+<div class="aui-bar-fix"></div>
+
+{if $itemid}
+<section class="aui-content">
+<div class="aui-card-list-content">
+ {if $thumb}{template 'dtchip-album', 'mobile'}{/if}
+</div>
+</section>
+<section class="aui-content mall-price-show">
+    <div class="aui-card-list aui-margin-b-5">
+        <div class="aui-card-list-header">{$title}</div>
+        <div class="aui-card-list-footer">
+        <div class="dt-text-red">{$DT[money_sign]}<span class="aui-font-size-18">{floatval($price)}</span></div><div>人气:{$hits}&nbsp;&nbsp;销量:{$orders}</div>
+        </div>
+        <div class="aui-card-list-footer">
+        <div>原价:{$DT[money_sign]}{$marketprice}</div>
+        </div>
+        <div class="aui-card-list-footer">
+        <div>折扣:{$discount}折</div>
+        </div>
+        <div class="aui-card-list-footer">
+        <div>状态:<span class="aui-text-info">{if $process == 0}正在成团，距离团购人数还差{$left}人{elseif $process == 1}团购已成功，还可以继续购买...{else}团购已结束{/if}</span></div>
+        </div>
+        <div class="aui-card-list-footer">
+         {if $purchase}<a href="purchase.php?moduleid={$moduleid}&itemid={$itemid}" style="width:100%"><div class="aui-btn aui-btn-danger" style="width:100%">立刻购买</div></a>{/if}
+         </div>
+
+    </div>
+</section>
+<div class="aui-hr"></div>
+
+            <div class="aui-card-list-content-padded aui-padded-t-10 aui-padded-b-10 dt-article-content" style="color:#7b7b7b; line-height:230%; word-wrap:break-word; overflow:hidden;">
+    <p>{$content}</p>
+            </div>
+    <div class="aui-content dtchip-contact-div aui-margin-t-5">
+    <ul class="aui-list aui-maigin-b-10">
+    <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title">联系方式</div>
+            </div>
+        </li>
+    </ul>
+    <div class="dtchip-contact">
+    {template 'dtchip-contact', 'mobile'}
+    </div>
+    </div>
+
+{template 'dtchip-other', 'mobile'}
+<div class="aui-footer-fix mall-footer-cart"></div>
+    <footer class="aui-bar aui-bar-tab" id="itemfoot">
+        <div class="aui-bar-tab-item aui-active" onclick="window.location.href='index.php'">
+            <i class="dt-iconfont dt-icon-kefu1"></i>
+            <div class="aui-bar-tab-label">客服</div>
+        </div>
+        <div class="aui-bar-tab-item aui-active" onclick="window.location.href='{if $member}index.php?moduleid=4&username={$member[username]}{else}my.php{/if}'">
+            <i class="dt-iconfont dt-icon-shangjia"></i>
+            <div class="aui-bar-tab-label">商家</div>
+        </div>
+        <div class="aui-bar-tab-item aui-active">
+            <i class="dt-iconfont dt-icon-star"></i>
+            <div class="aui-bar-tab-label">收藏</div>
+        </div>
+        {if $purchase}<div class="aui-bar-tab-item aui-active" style="width:20%; border-right:0; background-color:#F91546"><a href="purchase.php?moduleid={$moduleid}&itemid={$itemid}"><div class="dt-bar-tab-contact">购买</div></a>
+        </div>
+        {/if}
+    </footer>
+{else}
+{template 'dtchip-deals', 'mobile'}
+{template 'dt-results-bar', 'mobile'}
+	{if $lists}
+      {if $listview==1}
+     {loop $lists $v}
+    {/loop}
+     {else}
+<div class="aui-content" id="content">
+            <ul class="aui-list aui-media-list dt-sell-list dt-border-none" >
+            <li class="aui-list-item dt-sell-list-item dt-bg-gray">
+                <div class="aui-list-item-inner">
+                    <div class="aui-row aui-row-padded">
+                    {loop $lists $v}
+                        <div class="aui-col-xs-6">
+                            <div class="" style="height:8rem; background-color:#fff"><a href="{mobileurl($moduleid, 0, $v[itemid])}"><img src="{if $v[thumb]}{str_replace('.thumb.'.file_ext($v['thumb']), '.middle.'.file_ext($v['thumb']), $v['thumb'])}{else}image/nopic-80.png{/if}" class="dt-img-contain" height="100%"/></a></div>
+               <div class="aui-img-body">
+                <div class="aui-waterfall-body">
+                    <a href="{mobileurl($moduleid, 0, $v[itemid])}"><span class="aui-ellipsis-2">{$v[title]}</span></a>
+                </div>
+                    <div class="aui-pull-left">
+                    {if $v[price]>0}<span class="aui-font-size-12">{$DT[money_sign]}</span><span class="aui-font-size-16">{floatval($v[price])}</span>{/if}
+                    </div>
+                    <div class="aui-pull-right">
+                    <i class="dt-iconfont dt-icon-hot1 aui-margin-r-5 aui-font-size-12"></i>{$v[sales]}&nbsp;已售
+                    </div>
+                </div>
+                        </div>
+                     {/loop}
+                    </div>
+                </div>
+            </li>
+</ul>
+</div>
+{/if}
+{else}
+	{template 'dtchip-empty', 'mobile'}
+	{/if}
+{/if}
+
+{if $action=='listview'}{if $pages}<div class="aui-content aui-margin-b-15 aui-text-center pageslist"><div class="pages">{$pages}</div></div>{/if}{/if}
+{template 'footer_v2', 'mobile'}

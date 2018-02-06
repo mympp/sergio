@@ -1,0 +1,136 @@
+html, body, h1, h2, h3, h4, h5, h6, div, dl, dt, dd, ul, ol, li, p, blockquote, pre, hr, figure, caption, form, fieldset, legend, input, button, textarea, menu {
+  margin: 0;
+  padding: 0; }
+
+header, footer, section, article, aside, nav, hgroup, address, figure, figcaption, menu, details {
+  display: block; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th {
+  text-align: left;
+  font-weight: normal; }
+
+html, body, fieldset, img, iframe, abbr {
+  border: 0; }
+
+i, cite, em, var, address, dfn {
+  font-style: normal; }
+
+[hidefocus], summary {
+  outline: 0; }
+
+li {
+  list-style: none; }
+
+h1, h2, h3, h4, h5, h6, small {
+  font-size: 100%; }
+
+sup, sub {
+  font-size: 83%; }
+
+pre, code, kbd, samp {
+  font-family: inherit; }
+
+textarea {
+  overflow: auto;
+  resize: none; }
+
+label, summary {
+  cursor: default; }
+
+a, button {
+  cursor: pointer; }
+
+h1, h2, h3, h4, h5, h6, em, strong, b {
+  font-weight: bold; }
+
+del, ins, u, s, a, a:hover {
+  text-decoration: none; }
+
+body, textarea, input, button, select, keygen, legend {
+  font: 14px / 1.5 \5FAE\8F6F\96C5\9ED1, "Arial Narrow", HELVETICA;
+  color: #333;
+  outline: 0; }
+
+body {
+  background: #fff;
+  -webkit-tap-highlight-color: transparent; }
+
+html {
+  overflow-x: hidden;
+  overflow-y: auto; }
+
+a {
+  color: #333; }
+
+a:hover {
+  color: #fa4e68; }
+
+h2 {
+  font-size: 20px; }
+
+h3 {
+  font-size: 16px; }
+
+input[type="button"], input[type="submit"], input[type="reset"], button, input[type="text"] {
+  background: none;
+  border: none; }
+
+input[type="button"], input[type="submit"], input[type="reset"], button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background: none; }
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #ccc !important; }
+/**返回顶部&& 二维码**/
+.sidebar{ width:40px; position:fixed; right:30px; bottom:150px;_position: absolute; _margin-bottom:150px; _bottom: auto; _top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0))); }
+.sidebar span,.sidebar .ewm .ico{ display:inline-block; width:40px; height:40px; float:left; margin-bottom:1px}
+.sidebar .gotop{ display:none;background:url("./img/gotop.png") 0 -43px no-repeat}
+.sidebar .ewm{ position:relative;}
+.sidebar .ewm .ico{background:url("./img/gotop.png") 0 0 no-repeat}
+.sidebar .ewm s{ display:none; position:absolute; left:-275px; top:-20px; width:260px; padding:5px; border:1px solid #ededed;background-color:#fff;}
+.sidebar .ewm img{ float:left; width:80px; height:80px;}
+.sidebar .ewm b{ display:inline-block; float:left; height:50px; padding:15px 10px 15px 12px; font-size:15px; font-weight:normal;}
+.sidebar .ewm u{ font-size:12px;}
+
+.actives{
+	position:relative;
+	height: 38px;
+	float: left;
+	line-height: 38px;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.ones {
+	display:block;
+	color: #fa4e68;
+	background: url(./img/video_arr.png) center bottom no-repeat
+}
+.tool-fitness a {
+  width: 13px;
+  height: 20px;
+  float: left;
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+  border-radius: 1px;
+  margin: 0 1px;
+  background-color: #ffebeb; }
+
+.search{ float:right; margin-top:20px; overflow:hidden;}
+.search .search_list{ overflow:auto;}
+.search .search_list li{ padding:0 15px; float:left; border-right:1px solid #808080}
+.search .search_list .a-hover a{ color:#009237!important;}
+.search .input{ line-height:32px; height:32px; width:270px; *width:245px;border:1px solid #009237; margin-top:8px; float:left; background:url("../image/search_icon.png") 5px center no-repeat; padding-left:40px; }
+.search .inputIndex{ line-height:32px; height:32px; width:270px; *width:245px;border:1px solid #009237; margin-top:8px; float:left; background:url("../image/search_icon.png") 5px center no-repeat; padding-left:40px; }
+.search .input_btn{ height:36px; width:70px; line-height:36px; text-align:center; background:#009237; border:none; color:#FFFFFF; float:left; margin-top:8px; float:left; cursor:pointer;}
+.search .index-input_btn{ *height:38px;}
+.search_on{ color:#fa4e68!important;}

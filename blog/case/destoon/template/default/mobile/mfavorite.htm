@@ -1,0 +1,270 @@
+{template 'header_member', 'mobile'}
+{template 'cssjs', 'mobile'}
+<style>
+.tb {background:#FFFFFF;width:100%;}
+.tl {background:#F7F7F7;width:115px;text-align:left; letter-spacing:1px;}
+.tr {background:#FFFFFF;}
+#area-select { max-width:80px !important;}
+#type { margin-left:15px;}
+.aui-content-padded {
+    margin-top: 15px;
+}
+.aui-content {
+    margin-bottom: 0px;
+}
+.aui-tab {
+    margin-bottom: 15px;
+}
+.aui-tab li.active { color:#FFF !important;}
+</style>
+
+<header class="aui-bar aui-bar-nav aui-bar-info" id="aui-header">
+        <a class="aui-btn aui-btn-info aui-pull-left" href="my.php?action=member">
+            <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+    <div class="aui-title">{$head_name}</div>
+    <a href="my.php" class="aui-pull-right">我的</a>
+    <a href="?action=add" class="aui-pull-right">添加</a>
+</header>
+<div class="aui-bar-fix"></div>
+<div class="aui-content">
+<div class="aui-tab" id="aui-tab">
+        <ul class="aui-tab-nav">
+            <li id="tabbaradd"><a href="?action=add"><span>添加收藏</span></a></li>
+            <li id="tabbarindex"><a href="?action=index"><span>我的收藏</span></a></li>
+            <li><a href="mtype.php?item=favorite&opentype=1"><span>收藏分类</span></a></li>
+        </ul>
+</div>
+</div>
+
+{if $action=='add'}
+<form method="post" action="?" onsubmit="return check();">
+<input type="hidden" name="action" value="{$action}"/>
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">分类</span>
+                <span class="aui-ml-5" id="type_box">{$type_select}</span><span class="aui-input-addon aui-text-info fz12" onclick="showmType()">管理分类</span>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">标题</span>
+                <input type="text" name="post[title]" id="title" class="aui-input" value="{$title}" placeholder="标题"/>
+                <span class="aui-input-addon">{dstyle('post[style]')}</span>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">网址</span>
+                <input type="text" name="post[url]" id="url" class="aui-input" value="{$url}" placeholder="网址"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">备注</span>
+                <input type="text" name="post[note]" id="note" class="aui-input" value="{$note}" placeholder="备注"/>
+            </div>
+
+</div>
+<div class="aui-btn-row" style="background-color:#FFF;">
+ <input type="submit" name="submit" value=" 提 交 " class="aui-btn aui-btn-danger fz16"/>
+</div>
+
+</form>
+{load('clear.js')}
+<div class="displaynone" id="bottomup" style="position:fixed; left:0; bottom:0; width:100%; z-index:99">
+<div class="aui-content" style="margin:0; padding:0;">
+    <ul class="aui-list-view" style="margin:0; padding:0;">
+        <li class="aui-list-view-cell" style="background-color: #F6F6F6; padding:10px 15px;">
+            <span class="aui-text-info">收藏分类管理</span>
+            <span class="aui-pull-right aui-text-default" onclick="showmType(1)">关闭</span>
+            
+        </li>
+    </ul>
+</div> 
+<div class="aui-content" style=" background-color:#FFF; margin:0; padding:0;"><div id="iframe-wrap">
+        <iframe id="iframe" src="mtype.php?item=favorite" frameborder="0"  width="100%" height="250">
+        </iframe>
+    </div>
+
+</div>
+<script>
+var dtshowmType=0,type_item='favorite-{$_userid}',type_name='post[typeid]',type_default='默认',type_id={$typeid},type_interval=setInterval('mtype_reload()',500);
+</script>
+
+</div>
+<script type="text/javascript">tabbar('tabbar{$action}');</script>
+{elseif $action == 'edit'}
+<form method="post" action="?" onsubmit="return check();">
+<input type="hidden" name="action" value="{$action}"/>
+<input type="hidden" name="itemid" value="{$itemid}"/>
+<input type="hidden" name="forward" value="{$forward}"/>
+        <div class="aui-form">
+           <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">分类</span>
+                <span class="aui-ml-5" id="type_box">{$type_select}</span><span class="aui-input-addon aui-text-info fz12" onclick="showmType()">管理分类</span>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">标题</span>
+                <input type="text" name="post[title]" id="title" class="aui-input" value="{$title}" placeholder="标题"/>
+                <span class="aui-input-addon">{dstyle('post[style]')}</span>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">网址</span>
+                <input type="text" name="post[url]" id="url" class="aui-input" value="{$url}" placeholder="网址"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon">备注</span>
+                <input type="text" name="post[note]" id="note" class="aui-input" value="{$note}" placeholder="备注"/>
+            </div>
+
+</div>
+<div class="aui-btn-row" style="background-color:#FFF;">
+ <input type="submit" name="submit" value=" 提 交 " class="aui-btn aui-btn-danger fz16"/>
+{load('clear.js')}
+<div class="displaynone" id="bottomup" style="position:fixed; left:0; bottom:0; width:100%; z-index:99">
+<div class="aui-content" style="margin:0; padding:0;">
+    <ul class="aui-list-view" style="margin:0; padding:0;">
+        <li class="aui-list-view-cell" style="background-color: #F6F6F6; padding:10px 15px;">
+            <span class="aui-text-info">收藏分类管理</span>
+            <span class="aui-pull-right aui-text-default" onclick="showmType(1)">关闭</span>
+            
+        </li>
+    </ul>
+</div> 
+<div class="aui-content" style=" background-color:#FFF; margin:0; padding:0;"><div id="iframe-wrap">
+        <iframe id="iframe" src="mtype.php?item=favorite" frameborder="0"  width="100%" height="250">
+        </iframe>
+    </div>
+
+</div>
+<script>
+var dtshowmType=0,type_item='favorite-{$_userid}',type_name='post[typeid]',type_default='默认',type_id={$typeid},type_interval=setInterval('mtype_reload()',500);
+</script>
+
+</div>
+<script type="text/javascript">tabbar('tabbarhome');</script>
+
+{else}
+{if $lists}
+	<style type="text/css">
+		.order {
+			background: #ffffff;
+		}
+		.order-info  {
+			font-size: 0.875em;
+			width: 100%;
+		}
+		.order-info span {
+			color: #333;
+			margin-right: 5px;
+		}
+		.order-info time {
+			color: #999999;
+			font-size: 0.75em;
+		}
+		.order-info i.aui-iconfont {
+			color: #999;
+			font-size: 0.875em;
+		}
+		.order-icon img {
+			width: 80%;
+			border-radius: 5px;
+		}
+		.order-title {
+			font-size: 1em;
+			color: #333;
+			padding-bottom: 10px;
+			margin-bottom: 10px;
+		}
+		.order-title > i.aui-iconfont {
+			font-size: 0.87em;
+			color: #999999;
+		}
+		p.goods-list {
+			font-size: 0.75em;
+			color: #999;
+			margin-bottom: 8px;
+		}
+		p.count-info {
+			font-size: 0.75em;
+			color: #999;
+			padding-bottom: 10px;
+		}
+		p.count-info span {
+			margin: 0 3px;
+		}
+		p.count-info strong {
+			color: #666;
+			font-size: 1em;
+			font-weight: 700;
+		}
+		.btn {
+			/*margin: 5px;*/
+		}
+		.btn .aui-btn {
+			font-size: 0.75em;
+		}
+		.btn .aui-btn:first-child {
+			margin-right: 10px;
+		}
+		.aui-border-b:after {
+			border-color: #ddd;
+		}
+	</style>
+
+<ul class="aui-list-view aui-in" id="sell_list">
+{loop $lists $t}
+<li id="{$t[itemid]}">
+<div class="aui-list-view-cell aui-img drop-div">
+<input class="aui-pull-left aui-checkbox displaynone" type="checkbox" id="itemids" name="itemid" value="{$t[itemid]}">
+                <div class="aui-img-body aui-pull-left">
+                    <a href="{$t[linkurl]}" class="Dt-text-ellipsis">{$t[title]}</a>
+                    <p class="aui-ellipsis-1 fz12"><span class="aui-pull-left aui-max-w80 Dt-text-ellipsis"><a href="?typeid={$t[typeid]}">{$t[type]}</a></span>&nbsp;<span class="aui-mr-5"><i class="aui-iconfont aui-icon-time aui-text-gray"></i>{timetodate($t[edittime], 4)}</span></p>
+                </div>
+                </div>
+  <div class="hidden-menu">
+    <p class="two"><a href="?action=edit&itemid={$t[itemid]}">修改</a></p>
+    <p class="one"><a href="?action=delete&itemid={$t[itemid]}" onclick="return confirm('确定要删除吗？此操作将不可撤销');">删除</a></p>
+    
+  </div>
+                
+</li>
+
+{/loop}
+</ul>
+
+{if $MG[favorite_limit]}
+<div class="aui-content aui-bg-white">
+  <div class="aui-ellipsis-2" style="padding:10px; font-size:12px">
+<div class="limit">收藏夹容量 <span class="aui-text-red">{$MG[favorite_limit]}</span> 条&nbsp;&nbsp;&nbsp;当前已收藏 <span class="f_b">{$limit_used}</span> 条&nbsp;&nbsp;&nbsp;还可以收藏 <span class="aui-text-info">{$limit_free}</span> 条</div>
+</div>
+</div>
+{/if}
+
+{if $pages}<div class="pages aui-text-center">{$pages}</div>{/if}
+{else}
+<ul class="aui-list-view">
+<li class="aui-list-view-cell aui-img">
+                <div class="aui-img-body aui-pull-left">
+                    <p class="aui-ellipsis-1">暂无信息</p>
+                </div>
+</li>
+</ul>
+
+{/if}
+</div>
+<script type="text/javascript">tabbar('tabbar{$action}');</script>
+<script type="text/javascript" src="script/addpan.js" charset="utf-8"></script>
+{/if}
+{if $action=='add' || $action=='edit'}
+<script type="text/javascript">
+function check() {
+	if(Dd('title').value.length < 2) {
+		laymsg('请填写标题', 'title');
+		return false;
+	}
+	if(Dd('url').value.length < 12) {
+		laymsg('请填写网址', 'url');
+		return false;
+	}
+
+	return true;
+}
+</script>
+{/if}
+{template 'footer_member', 'mobile'}

@@ -1,0 +1,17 @@
+{if $file != 'link'}
+<div class="m_b30 model_box">
+	<div class="l_hd"><span class="adorn"></span>{$side_name[$HS]}</div>
+	<div class="links">
+	<!--{php $tags=tag("table=link&condition=status=3 and username='$username'&pagesize=8&order=listorder desc&template=null");}-->
+		<ul>
+			 {if $tags}
+			{loop $tags $t}
+			<li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
+			{/loop}
+			{else}
+			<li>暂无链接</li>
+			{/if}
+		</ul>
+	</div>
+</div>
+{/if}

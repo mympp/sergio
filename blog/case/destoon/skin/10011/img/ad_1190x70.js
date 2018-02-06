@@ -1,0 +1,1 @@
+document.writeln("<div class=\"g-row gg\" style=\"margin-bottom: 10px;position: relative;\"><a href=\"http://zt1.bmlink.com/event/2017topbrand/\" rel=\"nofollow\" target=\"_blank\"><img src=\"http://meta.bmlink.com/bmlinkad/action/2016/gg_1190x70.gif\" alt=\"2017中国建材网推荐十大品牌\"><i class=\"icon_tg\"></i></a></div>");

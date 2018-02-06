@@ -1,0 +1,74 @@
+<div class="m b10">&nbsp;</div>
+<div class="upDate">
+<a href="{$MODULE[1][linkurl]}">网站首页</a>
+<!--{tag("table=webpage&condition=item=1&areaid=$cityid&order=listorder desc,itemid desc&template=list-webpage")}-->
+	| <a href="{$MODULE[1][linkurl]}sitemap/">网站地图</a>
+	| <a href="{$EXT[spread_url]}">排名推广</a>
+	{if $EXT[ad_enable]} | <a href="{$EXT[ad_url]}">广告服务</a>{/if}
+	{if $EXT[gift_enable]} | <a href="{$EXT[gift_url]}">积分换礼</a>{/if}
+	{if $EXT[guestbook_enable]} | <a href="{$EXT[guestbook_url]}">网站留言</a>{/if}
+	{if $EXT[feed_enable]} | <a href="{$EXT[feed_url]}">RSS订阅</a>{/if}
+	
+</div>
+<div id="footer">
+  <strong>{$DT[copyright]}</strong>
+  <strong>ICP备案号：{if $DT[icpno]}<a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow">{$DT[icpno]}</a>{/if}</strong>
+</div>
+<div style="width:300px;margin:0 auto; ">
+     <a target="_blank" href="javascript:void();" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;" rel="nofollow"></a>
+    </div>
+<!--goTop-->
+<div class="backHome" id="goTop"><p><a title="关注微信" target="_blank" href="javascript:" class="rightWx">关注微信</a><img src="{DT_SKIN}image/weixinPic.png" class="weixinImg" style="display: none;"></p></div>
+<div class="toTop" style="right: 10px; display: block;"><a title="回到顶部" target="_self" href="javascript:void(0)">回到顶部</a></div>
+<script type="text/javascript">
+    var goNav = jQuery(".toTop");
+    var sct =50;
+    function heartBeat() {
+        try{
+            goNav.css("right", 10 + "px");
+             ((document.documentElement.scrollTop + document.body.scrollTop) > sct) ? goNav.fadeIn(): goNav.fadeOut();
+        }
+        catch (e){}
+    }
+    function callback() {
+        try{
+           goNav.css("right",10 + "px");
+           
+           ((document.documentElement.scrollTop + document.body.scrollTop) > sct) ? goNav.fadeIn(): goNav.fadeOut(); 
+           window.setInterval("heartBeat()", 1);
+        }
+        catch (e){}
+    }
+    jQuery(".toTop").click(function() {
+        jQuery("html, body").animate({ scrollTop: 0 }, 120);
+    })
+    callback();
+
+jQuery(".rightWx").hover(function() {
+        jQuery(".weixinImg").fadeIn();
+    }, function() {
+        jQuery(".weixinImg").stop().fadeOut();
+    });
+</script>
+<br class="clear">
+
+ <script type="text/javascript" src="{DT_SKIN}js/chemmember.js"></script>
+<script type="text/javascript">
+{if $destoon_task}
+show_task('{$destoon_task}');
+{else}
+{php include DT_ROOT.'/api/task.inc.php';}
+{/if}
+{if $lazy}$(function(){$("img").lazyload();});{/if}
+</script>
+<script type="text/javascript">
+        jQuery(document).ready(function() {
+            jQuery(".weixin").hover(function() {
+                jQuery(".weixinBot").fadeIn();
+            }, function() {
+                jQuery(".weixinBot").stop().fadeOut();
+            });
+        });
+        </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<div class="m b10"></div>
+<div class="m-footer">
+<div class="g-row">
+<div class="footer">
+
+<div id="footer">
+<p class="one">
+<a href="{$MODULE[1][linkurl]}">网站首页</a>
+	<!--{tag("table=webpage&condition=item=1&areaid=$cityid&order=listorder desc,itemid desc&template=list-webpage")}-->
+	| <a href="{$MODULE[1][linkurl]}sitemap/">网站地图</a>
+	| <a href="{$EXT[spread_url]}">排名推广</a>
+	{if $EXT[ad_enable]} | <a href="{$EXT[ad_url]}">广告服务</a>{/if}
+	{if $EXT[gift_enable]} | <a href="{$EXT[gift_url]}">积分换礼</a>{/if}
+	{if $EXT[guestbook_enable]} | <a href="{$EXT[guestbook_url]}">网站留言</a>{/if}
+	{if $EXT[feed_enable]} | <a href="{$EXT[feed_url]}">RSS订阅</a>{/if}
+	{if $DT[icpno]} | <a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow">{$DT[icpno]}</a>{/if}
+</p>
+<p class="two">
+<a class="a1" href="{$MODULE[1][linkurl]}">{$DT[sitename]}</a> 版权所有 2000-2018 服务热线：{$DT[telephone]} 
+</p>
+<p class="three">
+<a href="{$MODULE[1][linkurl]}" rel="nofollow">{$DT[sitename]}</a>
+<a href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">{$DT[copyright]}</a>
+<a href="http://www.beian.gov.cn" target="_blank" rel="nofollow">{$DT[icpno]}</a>
+</p>
+</div>
+
+</div>
+</div>
+</div>
+<div class="tool-menu"><a class="back2top" style="display: none;">返回顶部</a></div>
+<script src="{DT_SKIN}/js/jquery.effect.1.0.js"></script>
+
+<script type="text/javascript">
+$('.traderoom').hover(function (e) {
+$(this).find('.sve').addClass('active');
+$(this).find('.u-menu').show();
+}, function (e) {
+$(this).find('.sve').removeClass('active');
+$(this).find('.u-menu').hide();
+});
+jQuery(".slideBox").slide({
+mainCell: ".m-bd ul",
+autoPlay: true
+});
+jQuery(".m-agent").slide({
+mainCell: ".agentList",
+autoPage: true,
+effect: "topLoop",
+autoPlay: true,
+scroll: 1,
+vis: 9
+});
+jQuery(".m-tab").slide({
+autoPlay: false,
+trigger: "mouseover",
+easing: "swing",
+delayTime: 500,
+pnLoop: false
+});
+jQuery(".m-tab2").slide({
+autoPlay: false,
+trigger: "mouseover",
+easing: "swing",
+delayTime: 500,
+pnLoop: false
+});
+/* 使用js分组，每8个li放到一个ul里面 */
+jQuery("#multipleColumn .bdc li").each(function (i) { jQuery("#multipleColumn .bdc li").slice(i * 8, i * 8 + 8).wrapAll("<ul></ul>"); });
+/* 调用SuperSlide，每次滚动一个ul，相当于每次滚动8个li */
+jQuery("#multipleColumn").slide({ titCell: ".hd ul", mainCell: ".bdc .Tg_140x90", vis: "3", autoPage: true, effect: "topLoop", autoPlay: true });
+$(function () {
+$(window).scroll(function () {
+if ($(window).scrollTop() > 300) {
+$(".tool-menu .scrollTop").css({ display: 'block' });
+} else {
+$(".tool-menu .scrollTop").css({ display: 'none' });
+}
+});
+$(".tool-menu .scrollTop").click(function () {
+$('body,html').animate({ scrollTop: 0 }, 1000);
+})
+});
+</script>
+<!--[以下为系统关键代码，请勿删除]-->
+
+<script type="text/javascript">
+{if $destoon_task}
+show_task('{$destoon_task}');
+{else}
+{php include DT_ROOT.'/api/task.inc.php';}
+{/if}
+{if $lazy}$(function(){$("img").lazyload();});{/if}
+</script>
+</body>
+</html>

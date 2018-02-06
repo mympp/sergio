@@ -1,0 +1,547 @@
+{php $CSS = array('index');}
+{template 'header'}
+<div id="ipad_tips" style="display:none;"></div>
+<div class="m">
+	<div class="top_info_l" id="trades2">
+		<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&pagesize=4&order=addtime desc&template=null");}-->
+		<div class="lb_l">
+			{loop $tags $i $t}
+			{php $ii = $i+1;}
+			<div id="top_info_c_{$ii}" class="itrade" style="display:{if $i==0}{else}none{/if}">
+				<div class="picshow_img"><a href="{$t[linkurl]}" target="_blank"><img src="{$t[thumb]}"></a></div>
+				<div class="picshow_tx"><p><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></p></div>
+			</div>
+			{/loop}
+		</div>
+		<div class="lb_r">
+			<ul>
+			{loop $tags $i $t}
+			{php $ii = $i+1;}
+				<li class="top_info_{if $i==0}2{else}1{/if}" id="top_info_t_{$ii}" onmouseover="Tb({$ii}, 4, 'top_info', 'top_info');"{if $i==0} style="border:none;height: 66px;"{/if}><a href="{$t[linkurl]}" target="_blank"><img src="{$t[thumb]}"></a></li>
+			{/loop}
+			</ul>
+		</div>
+	</div>
+	<div class="top_info_r">
+		<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&pagesize=4&order=addtime desc&template=null");}-->
+		<ul>
+			{loop $tags $i $t}
+        	<li><p><a href="{$t[linkurl]}" title="{$t[alt]}">{dsubstr($t[title],36)}</a></p>{dsubstr($t[introduce], 100, '...')}</li>
+			{/loop}
+		</ul>
+	</div>
+</div>
+<div class="m b10">&nbsp;</div>
+<div class="m">{ad()}</div><!-- 90*980 -->
+<div class="m b10">&nbsp;</div>
+<div class="m">
+	<div class="index_l">
+		<div class="main f_l">    
+			<div class="comNews">
+            	<div class="t1"><a href="{$MODULE[21][linkurl]}list.php?catid=170">更多&gt;&gt;</a></div>
+				<!--{php $tags=tag("moduleid=21&condition=status=3&pagesize=20&order=addtime desc&template=null")}-->
+				<ul>
+					{loop $tags $t}
+					<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+					{/loop}
+				</ul>
+            </div>
+        </div>
+		<div class="m_n f_l">&nbsp;</div>
+		<div class="main f_r">    
+			<div class="comNews">
+            	<div class="t2"><a href="{$MODULE[21][linkurl]}list.php?catid=171">更多&gt;&gt;</a></div>
+				<!--{php $tags=tag("moduleid=21&condition=status=3&pagesize=20&order=addtime desc&template=null")}-->
+				<ul>
+					{loop $tags $t}
+					<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+					{/loop}
+				</ul>
+            </div>
+        </div>
+		<div class="c_b b10">&nbsp;</div>
+		<div>{ad()}</div><!-- 710*90 -->
+		<div class="c_b b10">&nbsp;</div>
+		<div class="main f_l">
+        	<div class="newsBox">
+            	<div class="tabMenu" id="caption">
+                	<ul>
+						<li class="tab2_2" id="info1_t_1" onmouseover="Tb(1, 3, 'info1', 'tab2');"><a href="{$MODULE[21][linkurl]}">经济</a></li>
+						<li class="tab2_1" id="info1_t_2" onmouseover="Tb(2, 3, 'info1', 'tab2');"><a href="{$MODULE[21][linkurl]}">社会</a></li>
+                    </ul>
+                </div>
+                <div class="news">
+                    <div id="info1_c_1" style="display:">
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&catid=170&pagesize=1&order=addtime desc&template=null")}-->
+						{loop $tags $t}
+						<div class="topNews">
+							<div class="topImg"><a href="{$t[linkurl]}"><img src="{$t[thumb]}"></a></div>
+							<div class="topTitle"><p><a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></p>{dsubstr($t[introduce], 100, '...')}</div>
+						</div>
+						{/loop}
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&catid=170&pagesize=6&order=addtime desc&template=null")}-->
+						<ul>
+							{loop $tags $t}
+							<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+							{/loop}
+						</ul>
+                    </div>
+                    <div id="info1_c_2" style="display:none">
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&catid=171&pagesize=1&order=addtime desc&template=null")}--> 
+						{loop $tags $t}
+							<div class="topNews">
+								<div class="topImg"><a href="{$t[linkurl]}"><img src="{$t[thumb]}"></a></div>
+								<div class="topTitle"><p><a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></p>{dsubstr($t[introduce], 100, '...')}</div>
+							</div>
+						{/loop}
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&catid=171&pagesize=6&order=addtime desc&template=null")}-->
+						<ul>
+							{loop $tags $t}
+							<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+							{/loop}
+						</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="m_n f_l">&nbsp;</div>
+		<div class="main f_l">
+        	<div class="newsBox">
+            	<div class="tabMenu" id="caption">
+                	<ul>
+						<li class="tab2_2" id="info2_t_1" onmouseover="Tb(1, 3, 'info2', 'tab2');"><a href="{$MODULE[21][linkurl]}">法制</a></li>
+						<li class="tab2_1" id="info2_t_2" onmouseover="Tb(2, 3, 'info2', 'tab2');"><a href="{$MODULE[21][linkurl]}">消费</a></li>
+                    </ul>
+                </div>
+                <div class="news">
+                    <div id="info2_c_1" style="display:">
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&catid=171&pagesize=1&order=addtime desc&template=null")}-->
+						{loop $tags $t}
+						<div class="topNews">
+							<div class="topImg"><a href="{$t[linkurl]}"><img src="{$t[thumb]}"></a></div>
+							<div class="topTitle"><p><a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></p>{dsubstr($t[introduce], 100, '...')}</div>
+						</div>
+						{/loop}
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&catid=171&pagesize=6&order=addtime desc&template=null")}-->
+						<ul>
+						{loop $tags $t}
+						<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+						{/loop}
+						</ul>
+                    </div>
+                    <div id="info2_c_2" style="display:none">
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&catid=170&pagesize=1&order=addtime desc&template=null")}--> 
+						{loop $tags $t}
+						<div class="topNews">
+							<div class="topImg"><a href="{$t[linkurl]}"><img src="{$t[thumb]}"></a></div>
+							<div class="topTitle"><p><a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></p>{dsubstr($t[introduce], 100, '...')}</div>
+						</div>
+						{/loop}
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&catid=170&pagesize=6&order=addtime desc&template=null")}-->
+						<ul>
+						{loop $tags $t}
+						<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+						{/loop}
+						</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="c_b b10">&nbsp;</div>
+		<div class="main f_l">
+        	<div class="newsBox">
+            	<div class="tabMenu" id="caption">
+                	<ul>
+						<li class="tab2_2" id="info3_t_1" onmouseover="Tb(1, 3, 'info3', 'tab2');"><a href="{$MODULE[21][linkurl]}">实时</a></li>
+						<li class="tab2_1" id="info3_t_2" onmouseover="Tb(2, 3, 'info3', 'tab2');"><a href="{$MODULE[21][linkurl]}">评论</a></li>
+                    </ul>
+                </div>
+                <div class="news">
+                    <div id="info3_c_1" style="display:">
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&catid=165&pagesize=1&order=addtime desc&template=null")}--> 
+						{loop $tags $t}
+						<div class="topNews">
+							<div class="topImg"><a href="{$t[linkurl]}"><img src="{$t[thumb]}"></a></div>
+							<div class="topTitle"><p><a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></p>{dsubstr($t[introduce], 100, '...')}</div>
+						</div>
+						{/loop}
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&catid=165&pagesize=6&order=addtime desc&template=null")}-->
+						<ul>
+						{loop $tags $t}
+						<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+						{/loop}
+						</ul>
+                    </div>
+                    <div id="info3_c_2" style="display:none">
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&catid=171&pagesize=1&order=addtime desc&template=null")}-->
+						{loop $tags $t}
+						<div class="topNews">
+							<div class="topImg"><a href="{$t[linkurl]}"><img src="{$t[thumb]}"></a></div>
+							<div class="topTitle"><p><a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></p>{dsubstr($t[introduce], 100, '...')}</div>
+						</div>
+						{/loop}
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&catid=171&pagesize=6&order=addtime desc&template=null")}-->
+						<ul>
+							{loop $tags $t}
+							<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+							{/loop}
+							</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="m_n f_l">&nbsp;</div>
+		<div class="main f_l">
+        	<div class="newsBox">
+            	<div class="tabMenu" id="caption">
+                	<ul>
+						<li class="tab2_2" id="info4_t_1" onmouseover="Tb(1, 3, 'info4', 'tab2');"><a href="{$MODULE[21][linkurl]}">团购</a></li>
+						<li class="tab2_1" id="info4_t_2" onmouseover="Tb(2, 3, 'info4', 'tab2');"><a href="{$MODULE[21][linkurl]}">人物</a></li>
+                    </ul>
+                </div>
+                <div class="news">
+                    <div id="info4_c_1" style="display:">
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&catid=166&pagesize=1&order=addtime desc&template=null")}--> 
+						{loop $tags $t}
+						<div class="topNews">
+							<div class="topImg"><a href="{$t[linkurl]}"><img src="{$t[thumb]}"></a></div>
+							<div class="topTitle"><p><a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></p>{dsubstr($t[introduce], 100, '...')}</div>
+						</div>
+						{/loop}
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&catid=166&pagesize=6&order=addtime desc&template=null")}-->
+						<ul>
+						{loop $tags $t}
+						<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+						{/loop}
+						</ul>
+                    </div>
+                    <div id="info4_c_2" style="display:none">
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&catid=170&pagesize=1&order=addtime desc&template=null")}--> 
+						{loop $tags $t}
+							<div class="topNews">
+								<div class="topImg"><a href="{$t[linkurl]}"><img src="{$t[thumb]}"></a></div>
+								<div class="topTitle"><p><a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></p>{dsubstr($t[introduce], 100, '...')}</div>
+							</div>
+							{/loop}
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&catid=170&pagesize=6&order=addtime desc&template=null")}-->
+						<ul>
+						{loop $tags $t}
+						<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+						{/loop}
+						</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="c_b b10">&nbsp;</div>
+		<div>{ad()}</div><!-- 710*90 -->
+		<div class="c_b b10">&nbsp;</div>
+		<div class="main f_l">
+        	<div class="newsBox">
+            	<div class="tabMenu" id="caption">
+                	<ul>
+						<li class="tab2_2" id="info5_t_1" onmouseover="Tb(1, 3, 'info5', 'tab2');"><a href="{$MODULE[21][linkurl]}">艺术</a></li>
+						<li class="tab2_1" id="info5_t_2" onmouseover="Tb(2, 3, 'info5', 'tab2');"><a href="{$MODULE[21][linkurl]}">青梅</a></li>
+                    </ul>
+                </div>
+                <div class="news">
+                    <div id="info5_c_1" style="display:">
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&catid=171&pagesize=1&order=addtime desc&template=null")}-->
+						{loop $tags $t}
+						<div class="topNews">
+							<div class="topImg"><a href="{$t[linkurl]}"><img src="{$t[thumb]}"></a></div>
+							<div class="topTitle"><p><a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></p>{dsubstr($t[introduce], 100, '...')}</div>
+						</div>
+						{/loop}
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&catid=171&pagesize=6&order=addtime desc&template=null")}-->
+						<ul>
+						{loop $tags $t}
+						<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+						{/loop}
+						</ul>
+                    </div>
+                    <div id="info5_c_2" style="display:none">
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&catid=170&pagesize=1&order=addtime desc&template=null")}-->
+						{loop $tags $t}
+						<div class="topNews">
+							<div class="topImg"><a href="{$t[linkurl]}"><img src="{$t[thumb]}"></a></div>
+							<div class="topTitle"><p><a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></p>{dsubstr($t[introduce], 100, '...')}</div>
+						</div>
+						{/loop}
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&catid=170&pagesize=6&order=addtime desc&template=null")}-->
+						<ul>
+						{loop $tags $t}
+						<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+						{/loop}
+						</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="m_n f_l">&nbsp;</div>
+		<div class="main f_l">
+        	<div class="newsBox">
+            	<div class="tabMenu" id="caption">
+                	<ul>
+						<li class="tab2_2" id="info6_t_1" onmouseover="Tb(1, 3, 'info6', 'tab2');"><a href="{$MODULE[21][linkurl]}">娱乐</a></li>
+						<li class="tab2_1" id="info6_t_2" onmouseover="Tb(2, 3, 'info6', 'tab2');"><a href="{$MODULE[21][linkurl]}">体育</a></li>
+                    </ul>
+                </div>
+                <div class="news">
+                    <div id="info6_c_1" style="display:">
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&catid=170&pagesize=1&order=addtime desc&template=null")}-->
+						{loop $tags $t}
+						<div class="topNews">
+							<div class="topImg"><a href="{$t[linkurl]}"><img src="{$t[thumb]}"></a></div>
+							<div class="topTitle"><p><a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></p>{dsubstr($t[introduce], 100, '...')}</div>
+						</div>
+						{/loop}
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&catid=170&pagesize=6&order=addtime desc&template=null")}-->
+						<ul>
+						{loop $tags $t}
+						<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+						{/loop}
+						</ul>
+                    </div>
+                    <div id="info6_c_2" style="display:none">
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&catid=171&pagesize=1&order=addtime desc&template=null")}--> 
+						{loop $tags $t}
+						<div class="topNews">
+							<div class="topImg"><a href="{$t[linkurl]}"><img src="{$t[thumb]}"></a></div>
+							<div class="topTitle"><p><a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></p>{dsubstr($t[introduce], 100, '...')}</div>
+						</div>
+						{/loop}
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&catid=171&pagesize=6&order=addtime desc&template=null")}-->
+						<ul>
+						{loop $tags $t}
+						<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+						{/loop}
+						</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="c_b b10">&nbsp;</div>
+		<div class="main f_l">
+        	<div class="newsBox">
+            	<div class="tabMenu" id="caption">
+                	<ul>
+						<li class="tab2_2" id="info7_t_1" onmouseover="Tb(1, 3, 'info7', 'tab2');"><a href="{$MODULE[21][linkurl]}">生活</a></li>
+						<li class="tab2_1" id="info7_t_2" onmouseover="Tb(2, 3, 'info7', 'tab2');"><a href="{$MODULE[21][linkurl]}">健康</a></li>
+                    </ul>
+                </div>
+                <div class="news">
+                    <div id="info7_c_1" style="display:">
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&catid=166&pagesize=1&order=addtime desc&template=null")}-->
+						{loop $tags $t}
+						<div class="topNews">
+							<div class="topImg"><a href="{$t[linkurl]}"><img src="{$t[thumb]}"></a></div>
+							<div class="topTitle"><p><a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></p>{dsubstr($t[introduce], 100, '...')}</div>
+						</div>
+						{/loop}
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&catid=165&pagesize=6&order=addtime desc&template=null")}-->
+						<ul>
+						{loop $tags $t}
+						<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+						{/loop}
+						</ul>
+                    </div>
+                    <div id="info7_c_2" style="display:none">
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&catid=171&pagesize=1&order=addtime desc&template=null")}-->  
+						{loop $tags $t}
+						<div class="topNews">
+							<div class="topImg"><a href="{$t[linkurl]}"><img src="{$t[thumb]}"></a></div>
+							<div class="topTitle"><p><a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></p>{dsubstr($t[introduce], 100, '...')}</div>
+						</div>
+						{/loop}
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&catid=171&pagesize=6&order=addtime desc&template=null")}-->
+						<ul>
+						{loop $tags $t}
+						<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+						{/loop}
+						</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="m_n f_l">&nbsp;</div>
+		<div class="main f_l">
+        	<div class="newsBox">
+            	<div class="tabMenu" id="caption">
+                	<ul>
+						<li class="tab2_2" id="info8_t_1" onmouseover="Tb(1, 3, 'info8', 'tab2');"><a href="{$MODULE[21][linkurl]}">房产</a></li>
+						<li class="tab2_1" id="info8_t_2" onmouseover="Tb(2, 3, 'info8', 'tab2');"><a href="{$MODULE[21][linkurl]}">汽车</a></li>
+                    </ul>
+                </div>
+                <div class="news">
+                    <div id="info8_c_1" style="display:">
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&catid=165&pagesize=1&order=addtime desc&template=null")}--> 
+						{loop $tags $t}
+						<div class="topNews">
+							<div class="topImg"><a href="{$t[linkurl]}"><img src="{$t[thumb]}"></a></div>
+							<div class="topTitle"><p><a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></p>{dsubstr($t[introduce], 100, '...')}</div>
+						</div>
+						{/loop}
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&catid=166&pagesize=6&order=addtime desc&template=null")}-->
+						<ul>
+						{loop $tags $t}
+						<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+						{/loop}
+						</ul>
+                    </div>
+                    <div id="info8_c_2" style="display:none">
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&catid=170&pagesize=1&order=addtime desc&template=null")}--> 
+						{loop $tags $t}
+						<div class="topNews">
+							<div class="topImg"><a href="{$t[linkurl]}"><img src="{$t[thumb]}"></a></div>
+							<div class="topTitle"><p><a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></p>{dsubstr($t[introduce], 100, '...')}</div>
+						</div>
+						{/loop}
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&catid=170&pagesize=6&order=addtime desc&template=null")}-->
+						<ul>
+						{loop $tags $t}
+						<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+						{/loop}
+						</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+	<div class="index_r">
+		<div class="t3"><a href="{$MODULE[11][linkurl]}">更多&gt;&gt;</a></div>
+		<div class="zt">
+        	<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&catid=170&pagesize=1&order=addtime desc&template=null")}-->
+			{loop $tags $t}
+			<div class="zt-title"><a href="{$t[linkurl]}">{$t[title]}</a></div>
+			<div class="zt-img"><img src="{$t[thumb]}">{dsubstr($t[introduce], 100, '...')}</div>
+			{/loop}
+            <div class="zt-li"><!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&catid=170&pagesize=4&order=addtime desc&template=null")}-->
+			<ul>
+			{loop $tags $t}
+			<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+			{/loop}
+			</ul>
+			</div>
+        </div>
+		<div class="zt">
+        	<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&catid=171&pagesize=1&order=addtime desc&template=null")}-->
+			{loop $tags $t}
+			<div class="zt-title"><a href="{$t[linkurl]}">{$t[title]}</a></div>
+			<div class="zt-img"><img src="{$t[thumb]}">{dsubstr($t[introduce], 100, '...')}</div>
+			{/loop}
+            <div class="zt-li">
+			<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&catid=171&pagesize=4&order=addtime desc&template=null")}-->
+			<ul>
+			{loop $tags $t}
+			<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+			{/loop}
+			</ul>
+			</div>
+        </div>
+		<div class="zt">
+        	<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&catid=165&pagesize=1&order=addtime desc&template=null")}--> 
+			{loop $tags $t}
+			<div class="zt-title"><a href="{$t[linkurl]}">{$t[title]}</a></div>
+			<div class="zt-img"><img src="{$t[thumb]}">{dsubstr($t[introduce], 100, '...')}</div>
+			{/loop}
+            <div class="zt-li"><!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&catid=170&pagesize=4&order=addtime desc&template=null")}-->
+			<ul>
+			{loop $tags $t}
+			<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+			{/loop}
+			</ul>
+			</div>
+        </div>
+		<div class="zt">
+        	<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&catid=166&pagesize=1&order=addtime desc&template=null")}--> 
+			{loop $tags $t}
+			<div class="zt-title"><a href="{$t[linkurl]}">{$t[title]}</a></div>
+			<div class="zt-img"><img src="{$t[thumb]}">{dsubstr($t[introduce], 100, '...')}</div>
+			{/loop}
+            <div class="zt-li"><!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&catid=171&pagesize=4&order=addtime desc&template=null")}-->
+			<ul>
+			{loop $tags $t}
+			<li>·<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+			{/loop}
+			</ul>
+			</div>
+        </div>
+		<div class="b10">&nbsp;</div>
+		<div>{ad()}</div><!-- 260*180 -->
+		<div class="b10">&nbsp;</div>
+		<div>{ad()}</div><!-- 260*120 -->
+		<div class="b10">&nbsp;</div>
+		<div class="t4"><a href="{$MODULE[4][linkurl]}">更多&gt;&gt;</a></div>
+		<div class="m_compnay"><!--{php $tags=tag("moduleid=4&condition=vip>0 and catids<>''&areaid=$cityid&pagesize=".$DT[page_com]."&order=fromtime desc&template=null")}-->
+		<ul>
+		{loop $tags $t}
+		<li><span class="f_r f_gray">{area_pos($t[areaid], '/', 1)}</span>·<a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></li>
+		{/loop}
+		</ul>
+		</div>
+		<div class="b10">&nbsp;</div>
+		<div>{ad()}</div><!-- 260*180 -->
+		<div class="b10">&nbsp;</div>
+		<div>{ad()}</div><!-- 260*180 -->
+		<div class="ewmList">
+        	<ul>
+                <li><img src="{DT_SKIN}image/xinlang.png"><br>新浪微博</li>
+                <li><img src="{DT_SKIN}image/xinlang.png"><br>微信</li>
+            </ul>
+        </div>
+	</div>
+</div>
+<div class="m b10">&nbsp;</div>
+<div class="m">
+	<div class="indexPic">
+        <div class="hd"><p>图片</p><span><a href="{$MODULE[12][linkurl]}">更多</a></span></div>
+        <div class="bd2">
+            <!--{php $tags=tag("moduleid=12&condition=status=3 and open=3 and level>0&pagesize=6&order=addtime desc&target=_blank&lazy=$lazy&template=null")}-->
+			<ul>
+			{loop $tags $t}
+			<li><a href="{$t[linkurl]}" title="{$t[alt]}"><img src="{$t[thumb]}"><br>{$t[title]}</a></li>
+			{/loop}
+        </div>
+    </div>
+</div>
+<div class="m b10">&nbsp;</div>
+<div class="m">
+	<div>{ad()}</div><!-- 980*90 -->
+</div>
+<div class="m b10"></div>
+{if $DT[page_logo] || $DT[page_text]}
+<div class="m">
+	<div class="tab_head">
+	<span class="f_r f_n px12"><a href="{$MODULE[3][linkurl]}shortcut.php" rel="nofollow" class="g">保存本站桌面快捷方式 &darr;</a>&nbsp;&nbsp;&nbsp;</span>
+	<ul>
+		<li class="tab_2"><a href="{$EXT[link_url]}">友情链接</a></li>
+		<li class="tab_1"><a href="{$EXT[link_url]}{rewrite('index.php?action=reg')}">申请链接</a></li>
+	</ul>
+	</div>
+	<div class="box_body">
+	{if $DT[page_logo]}
+	<!--{tag("table=link&condition=status=3 and level>0 and thumb<>'' and username=''&areaid=$cityid&pagesize=".$DT['page_logo']."&order=listorder desc,itemid desc&lazy=$lazy&template=list-link&cols=9")}-->
+	{/if}
+	{if $DT[page_text]}
+	<!--{tag("table=link&condition=status=3 and level>0 and thumb='' and username=''&areaid=$cityid&pagesize=".$DT['page_text']."&order=listorder desc,itemid desc&template=list-link&cols=9")}-->
+	{/if}
+	</div>
+</div>
+{/if}
+<script type="text/javascript" src="{DT_STATIC}file/script/index.js"></script>
+<script type="text/javascript" src="{DT_SKIN}index2.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/marquee.js"></script>
+<script type="text/javascript">
+new dmarquee(22, 10, 3000, 'gd_info');
+new dmarquee(22, 30, 3000, 'company');
+if(get_cookie('auth')) {
+	$('.iuser_l')[0].title = '商务中心';
+	$('.iuser_l')[0].href = '{$MODULE[2][linkurl]}';
+	$('.iuser_l')[0].className = 'iuser_u';
+	$('.iuser_r')[0].title = '完善我的会员资料';
+	$('.iuser_r')[0].href = '{$MODULE[2][linkurl]}edit.php';
+	$('.iuser_r')[0].className = 'iuser_e';
+}
+</script>
+{template 'footer'}

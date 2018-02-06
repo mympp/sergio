@@ -1,0 +1,18 @@
+.four_zero{ margin: 0 auto; width: 650px; height: auto; overflow:hidden;}
+.four_zero ul{ padding-left: 158px;}
+.four_zero ul li a{ display: block; position:relative; padding-left: 10px;}
+.four_zero ul li a:before{ content: ""; border-right: 5px solid #3089E7; border-top: 5px solid transparent; border-bottom: 5px solid transparent; width: 0px; height: 0px; display: block; position: absolute;left: 0px; top: 10px;}
+.four_zero .longtime{ border-top: 1px solid #dcdcdc; padding-top: 10px; text-align: center;}
+
+.RelatedList{ padding-bottom: 20px;}
+.RelatedList h3.title{font-size: 16px;text-indent: 20px;line-height: 40px;background: #f5f5f5;border-bottom: 1px solid #f1f1f1;}
+.RelatedList ul{margin-top: 10px;}
+.RelatedList li{ line-height: 18px; float: left;width: 20%;padding: 0 5px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+.RelatedList li .RelatedListA{display: block;border: 1px solid #ddd;}
+.RelatedList li .imgBox{height: 228px;overflow:hidden;}
+.RelatedList li .name{padding: 0 5px; margin-top: 5px; color: #333;font-weight: bold;font-size: 12px;}
+.RelatedList li .price{line-height: 22px;padding: 0 5px;}
+.RelatedList li p{padding:5px;}
+.RelatedList li .time{border-top:1px dashed #ddd;line-height: 30px;height: 30px; padding: 0 10px;}
+.RelatedList li .IconBox,.RelatedList li .nameBox{padding: 0 5px;line-height: 30px;height: 30px;overflow: hidden;}
+.RelatedList li .businessProduct{height: 43px;overflow: hidden;}

@@ -1,0 +1,60 @@
+<div class="m b10"></div>
+<div class="footer jcqmcf">
+<dl><dt><a href="{$MODULE[1][linkurl]}"><img src="{if $MODULE[$moduleid][logo]}{DT_SKIN}image/logo_{$moduleid}.gif{elseif $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" alt="{$DT[sitename]}"/></a></dt>
+<dd>
+<div class="footer-c1 jcqmcf">
+<ul class="footer-lm">
+<li><h3>新手指南</h3></li>
+<li><a href="{$MODULE[2][linkurl]}{$DT[file_register]}" target="_blank">新用户注册</a></li>
+<li><a href="{$MODULE[2][linkurl]}{$DT[file_login]}" target="_blank">账户登录</a></li>
+<li><a href="{$MODULE[2][linkurl]}send.php" target="_blank">找回密码</a></li>
+<li><a href="#" target="_blank" rel="nofollow">会员服务</a></li>
+</ul>
+<ul class="footer-lm">
+<li><h3>品牌商服务</h3></li>
+<li><a href="{$EXT[ad_url]}"target="_blank" rel="nofollow">招商服务</a></li>
+<li><a href="{$EXT[ad_url]}"target="_blank" rel="nofollow">广告服务</a></li>
+<li><a href="{$EXT[gift_url]}">积分换礼</a></li>
+<li><a href="{$EXT[feed_url]}">RSS订阅</a></li>
+
+</ul>
+<ul class="footer-lm">
+<li><h3>网站服务</h3></li>
+<li><a href="{$MODULE[1][linkurl]}about/index.html" target="_blank" rel="nofollow">关于我们</a></li>
+<li><a href="{$EXT[guestbook_url]}" target="_blank" rel="nofollow">网站留言</a></li>
+<li><a href="{$MODULE[1][linkurl]}about/contact.html" target="_blank" rel="nofollow">联系我们</a></li>
+<li><a href="{$MODULE[1][linkurl]}sitemap/" target="_blank" rel="nofollow">网站地图</a></li>
+</ul>
+<ul class="footer-lm">
+<li><h3>其他内容</h3></li>
+<li><a href="{$EXT[link_url]}"target="_blank">友情链接</a></li>
+<li><a href="{$MODULE[1][linkurl]}about/agreement.html"target="_blank" rel="nofollow">使用协议</a></li>
+<li><a href="{$MODULE[1][linkurl]}about/copyright.html"target="_blank" rel="nofollow">版权隐私</a></li>
+</ul>
+<ul class="footer-ewm">
+<li><h3>手机登录</h3></li>
+<li><img src="{DT_SKIN}image/ewm01.jpg"></li>
+</ul>
+<ul class="footer-ewm">
+<li><h3>关注官方微信</h3></li>
+<li><img src="{DT_SKIN}image/ewm01.jpg"></li>
+</ul>
+</div>
+    <div class="footer-c2">
+        <p>{$DT[copyright]}&nbsp;&nbsp;&nbsp;&nbsp;版权所有：{$DT[icpno]}广告热线：{$DT[telephone]}</p>
+    </div>
+</dd>
+</dl>
+</div> 
+<!--工具栏中登录-->
+<script type="text/javascript">
+{if $destoon_task}
+show_task('{$destoon_task}');
+{else}
+{php include DT_ROOT.'/api/task.inc.php';}
+{/if}
+{if $lazy}$(function(){$("img").lazyload();});{/if}
+</script>
+<!--工具栏中登录-->
+</body>
+</html>

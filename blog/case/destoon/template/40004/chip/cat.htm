@@ -1,0 +1,38 @@
+{php $child = get_maincat(0, $mid, 1);}
+<ul>
+{loop $child $i $c}
+{if $i<13 && $c[child]}
+<li class="cat_one {if $i!=0}cat_one_nofirst{/if}" onmouseover="$(this).addClass('cat_one_hover');"onmouseout="$(this).removeClass('cat_one_hover');">
+	<span class="cat_one_s">
+		<div class="cat_one_lk"><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank">{set_style($c[catname], $c[style])}</a></div><s {if $i==0}class="cat_s"{/if} {if $i==12}class="cat_s2"{/if}></s>
+	</span>
+	{php $sub = get_maincat($c[catid], $mid, 1);}
+	<div class="cat-mc" {if $i==11 || $i==12}style="top: 38px;"{else}style="top: 3px;"{/if}>
+		<div onclick="$(this).parent().parent().removeClass('cat_one_hover')" class="close">×</div>
+		<div class="subitem">
+			<ul>
+			{loop $sub $j $s}
+			{if $j<11}
+				<li class="cat_two {if $j!=0}cat_two_nofirst{/if}">
+					<div class="cat_two_i"><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank"><span class="cat_two_i_a">{set_style($s[catname], $s[style])}<span></a></div>
+					<div class="cat_three">
+					{php $three = get_maincat($s[catid], $mid, 1);}
+						<ul>
+						{loop $three $n $v}
+							<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($v[catname], $v[style])}</a></li>
+						{/loop}
+						</ul>
+					</div>
+					<div class="c_b"></div>
+				</li>
+			{/if}
+			{/loop}
+			</ul>
+		</div>
+		{php $ii=$i+1;}
+		<div class="f_r">{template 'cat_'.$ii,'cat'}</div>
+	</div>
+</li>
+{/if}
+{/loop}
+</ul>

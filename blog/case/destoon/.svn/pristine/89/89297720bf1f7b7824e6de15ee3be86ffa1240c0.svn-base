@@ -1,0 +1,8 @@
+@charset "gb2312";
+/* CSS Document */
+/* ฤฺาณ bottom */
+.footer{padding:15px 0px 15px;color:#CACACA;line-height:25px;font-size:12px;text-align:center;}
+.footer a{color:#CACACA;font-size:12px;}
+.footer span{margin:0px 7px;}
+
+/* ฤฺาณ bottom end */

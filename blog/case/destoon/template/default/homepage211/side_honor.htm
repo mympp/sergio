@@ -1,0 +1,20 @@
+{if $file != 'honor'}
+<div class="body_left_product border_box">
+	<h4 class="overflow Themebg iconfont icon-shangpu"><strong>{$side_name[$HS]}</strong>
+	<span class="f_r"><a href="{userurl($username, 'file=honor', $domain)}">更多+</a></span>
+	</h4>
+	</div>
+</div>
+<div class="side_body">
+<!--{php $tags=tag("table=honor&condition=status=3 and username='$username'&pagesize=".$side_num[$HS]."&order=addtime desc&template=null")}-->
+<ul>
+{if $tags}
+{loop $tags $t}
+<li><a href="{userurl($username, 'file=honor&itemid='.$t['itemid'], $domain)}" title="{$t[alt]}">{$t[title]}</a></li>
+{/loop}
+{else}
+<li>暂未上传</li>
+{/if}
+</ul>
+</div>
+{/if}

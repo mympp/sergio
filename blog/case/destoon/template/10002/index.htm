@@ -1,0 +1,499 @@
+{php $CSS = array('index');}
+{template 'header'}
+<div id="ipad_tips" style="display:none;"></div>
+<div class="m">
+<table width="100%" cellspacing="0" cellpadding="0">
+<tr align="center">
+<td>{ad(20)}</td>
+<td>{ad(21)}</td>
+<td>{ad(22)}</td>
+<td>{ad(23)}</td>
+<td>{ad(24)}</td>
+<td>{ad(25)}</td>
+</tr>
+</table>
+</div>
+<div class="m b10">&nbsp;</div>
+<div class="m">
+	<div class="qy_l">
+		<div class="qy_help">
+			<div class="qy_help_t"><span>公告&amp;帮助</span><a href="{$EXT[announce_url]}">更多公告</a></div>
+			<div class="qy_help_b">
+				<div class="qy_body_1 li_dot">
+					<!--{tag("table=announce&condition=totime=0 or totime>$today_endtime-86400&areaid=$cityid&pagesize=5&datetype=2&order=listorder desc,addtime desc&target=_blank")}-->
+				</div>
+				<div class="t_h_1">
+					<span id="one_t_1" onmouseover="Tb(1, 2, 'one', 'tab_one');" class="tab_one_2">卖家入门</span>
+					<span id="one_t_2" onmouseover="Tb(2, 2, 'one', 'tab_one');" class="tab_one_1">买家入门</span>
+				</div>
+				<div class="qy_body_1 li_dot">
+					<img src="{DT_SKIN}image/help.gif" style="">
+					<div id="one_c_1">
+						<!--{tag("table=announce&condition=totime=0 or totime>$today_endtime-86400&areaid=$cityid&pagesize=5&order=listorder desc,addtime desc&target=_blank")}-->
+					</div>
+					<div id="one_c_2" style="display:none;">
+						<!--{tag("table=announce&condition=totime=0 or totime>$today_endtime-86400&areaid=$cityid&pagesize=5&order=listorder desc,addtime desc&target=_blank")}-->
+					</div>
+				</div>
+				<div class="qy_guide">
+					<div class="qy_guide_t">发布<br>导航</div>
+					<div class="qy_guide_b">
+						<span><a href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid=5&action=add">供应</a></span>
+						<span><a href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid=6&amp;action=add">求购</a></span>
+						<span><a href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid=22&amp;action=add">招商</a></span>
+						<span><a href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid=9&amp;action=add">招聘</a></span>
+						<span><a href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid=10&amp;action=add">知道</a></span>
+						<span><a href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid=13&amp;action=add">品牌</a></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="qy_r_2">
+		<div class="qy_m qy_flash"><!-- 520*180 -->{ad(14)}</div>
+		<div class="qy_r">
+			<div class="qy_login"><ul><li><a href="{$MODULE[2][linkurl]}{$DT[file_login]}" rel="nofollow" class="qy_btn_1" title="登录">登录</a></li><li><a href="{$MODULE[2][linkurl]}{$DT[file_register]}" rel="nofollow" class="qy_btn_2" title="注册">注册</a></li><li><a href="{$MODULE[5][linkurl]}" rel="nofollow" class="qy_btn_3" title="供应中心">供应中心</a></li></div>
+			<div class="qy_ico"><a href="{if $_username}{DT_PATH}index.php?homepage={$_username}{/if}"><span class="qy_ico_1"></span><em>我的商铺</em></a><a href="{$MODULE[2][linkurl]}message.php"><span class="qy_ico_2"></span><em>最新留言</em></a><a href="{$MODULE[2][linkurl]}record.php"><span class="qy_ico_3"></span><em>资金流向</em></a><a href="{DT_PATH}spread/"><span class="qy_ico_4"></span><em>排名推广</em></a><a href="{$MODULE[2][linkurl]}ad.php"><span class="qy_ico_5"></span><em>广告预定</em></a><a href="{$MODULE[2][linkurl]}grade.php"><span class="qy_ico_6"></span><em>升级会员</em></a>
+			</div>
+		</div>
+		<div class="c_b b10">&nbsp;</div>
+		<div class="qy_r_2 qy_vip">
+			<!--{php $tags=tag("moduleid=5&condition=status=3 and vip>0&areaid=$cityid&pagesize=7&datetype=2&target=_blank&order=addtime desc&template=null")}-->
+			<ul>
+				{loop $tags $t}
+				<li><span>[VIP]</span> <a href="{$t[linkurl]}">{$t[title]}</a> {if $datetype}<em>{timetodate($t[addtime], $datetype)}</em>{/if}</li>
+				{/loop}
+			</ul>
+			<!--{php $tags=tag("moduleid=5&condition=status=3 and vip>0&areaid=$cityid&pagesize=7&datetype=2&target=_blank&order=addtime desc&template=null&offset=7")}-->
+			<ul>
+				{loop $tags $t}
+				<li><span>[VIP]</span> <a href="{$t[linkurl]}">{$t[title]}</a> {if $datetype}<em>{timetodate($t[addtime], $datetype)}</em>{/if}</li>
+				{/loop}
+			</ul>
+			<div class="qy_vip_pic">
+			<!--{php $tags=tag("moduleid=5&condition=status=3 and vip>0 and thumb<>''&areaid=$cityid&pagesize=2&target=_blank&order=addtime desc&template=null")}-->
+			{loop $tags $t}
+				<dl>
+					<a href="{$t[linkurl]}"><img src="{$t[thumb]}" alt="{$t[alt]}"></a>
+					<dt><a href="{$t[linkurl]}">{$t[title]}</a></dt>
+					<dd>{if $t[price]>0}{$t[price]}{$DT[money_unit]}/{$t[unit]}{else}价格面议{/if}</dd>
+				</dl>
+			{/loop}
+			</div>
+		</div>
+	</div>
+</div>
+<div class="m b10">&nbsp;</div>
+<div class="m">
+	<div class="zyqj">
+		{php $mid = 5;}
+		{php $child = get_maincat(0, $mid, 1);}
+			{loop $child $i $c}
+			<div class="zyqj_a">
+				<div class="zyqj_a_t"><strong><span>{set_style($c[catname], $c[style])}</span></strong></div>
+				{if $c[child]}
+				{php $sub = get_maincat($c[catid], $mid, 1);}
+				<div class="zyqj_a_b">
+					 <ul>
+					 {loop $sub $j $s}
+						<li><a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}">{set_style($s[catname], $s[style])}</a>&nbsp;|&nbsp;</li>
+					 {/loop}
+					 </ul>
+				</div>
+				{/if}
+			</div>
+			{/loop}
+			{php $child2 = get_maincat(0, $mid, 2);}
+			<div class="zyqj_b">
+				<div class="zyqj_c_b">
+					<ul>
+						{loop $child2 $i2 $c2}
+						<li><a href="{$MODULE[$mid][linkurl]}{$c2[linkurl]}">{set_style($c2[catname], $c2[style])}</a>&nbsp;|&nbsp;</li>
+						{/loop}
+					</ul>
+				</div>
+			</div>
+
+	</div>
+	<div class="qy_r_2">
+		<div class="qy_m">
+			<div class="qy_tab_h2">
+				<ul>
+					<li id="sell_t_1" onmouseover="Tb(1, 3, 'sell', 'three');" class="three_2"><a href="{$MODULE[5][linkurl]}">供应产品</a></li>
+					<li id="sell_t_2" onmouseover="Tb(2, 3, 'sell', 'three');" class="three_1"><a href="{$MODULE[6][linkurl]}">产品求购</a></li>
+					<li id="sell_t_3" onmouseover="Tb(3, 3, 'sell', 'three');" class="three_1"><a href="{$MODULE[22][linkurl]}">招商加盟</a></li>
+				</ul>
+				<span id="f_three"><a href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid=5&amp;action=add">点击发布信息</a></span>
+			</div>
+			<div id="sell_c_1" class="qy_tab_b current" style="display:;">
+				<div class="qy_tab_l">
+					<ul class="qy_tab_ul1">
+						<!--{php $tags=tag("moduleid=5&condition=status=3&areaid=$cityid&pagesize=".$DT['page_trade']."&datetype=2&target=_blank&order=addtime desc&template=null")}-->
+						{loop $tags $i $t}
+							<li>{if $datetype}<span class="f_r">&nbsp;{timetodate($t[addtime], $datetype)}</span>{/if}<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+							{/loop}
+					</ul>
+				</div>
+				<div class="qy_tab_l qy_bg">
+					<ul class="qy_tab_ul3">
+						<!--{php $tags=tag("moduleid=5&condition=status=3 and level>0&areaid=$cityid&pagesize=".$DT['page_trade']."&datetype=2&target=_blank&order=addtime desc&template=null")}-->
+						{loop $tags $i $t}
+							<li>{if $datetype}<span class="f_r">&nbsp;{timetodate($t[addtime], $datetype)}</span>{/if}<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+						{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="sell_c_2" class="qy_tab_b" style="display:none">
+				<div class="qy_tab_l">
+					<ul class="qy_tab_ul1">
+						<!--{php $tags=tag("moduleid=6&condition=status=3&areaid=$cityid&pagesize=".$DT['page_trade']."&datetype=2&target=_blank&order=addtime desc&template=null")}-->
+						{loop $tags $i $t}
+							<li>{if $datetype}<span class="f_r">&nbsp;{timetodate($t[addtime], $datetype)}</span>{/if}<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+						{/loop}
+					</ul>
+				</div>
+				<div class="qy_tab_l qy_bg">
+					<ul class="qy_tab_ul3">
+						<!--{php $tags=tag("moduleid=6&condition=status=3 and level>0&areaid=$cityid&pagesize=".$DT['page_trade']."&datetype=2&target=_blank&order=addtime desc&template=null")}-->
+						{loop $tags $i $t}
+							<li>{if $datetype}<span class="f_r">&nbsp;{timetodate($t[addtime], $datetype)}</span>{/if}<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+						{/loop}
+					</ul>
+				</div>
+			</div>
+			<div id="sell_c_3" class="qy_tab_b" style="display:none">
+				<div class="qy_tab_l">
+					<ul class="qy_tab_ul4">
+						<!--{php $tags=tag("moduleid=22&condition=status=3&areaid=$cityid&pagesize=".$DT['page_trade']."&datetype=2&target=_blank&order=addtime desc&template=null")}-->
+						{loop $tags $i $t}
+							<li>{if $datetype}<span class="f_r">&nbsp;{timetodate($t[addtime], $datetype)}</span>{/if}<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+						{/loop}
+					</ul>
+				</div>
+				<div class="qy_tab_l qy_bg">
+					<ul class="qy_tab_ul5">
+						<!--{php $tags=tag("moduleid=22&condition=status=3 and level>0&areaid=$cityid&pagesize=".$DT['page_trade']."&datetype=2&target=_blank&order=addtime desc&template=null")}-->
+						{loop $tags $i $t}
+							<li>{if $datetype}<span class="f_r">&nbsp;{timetodate($t[addtime], $datetype)}</span>{/if}<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+						{/loop}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="qy_r">
+			<div class="box_head">
+				<div><span class="f_r"><a href="{$MODULE[4][linkurl]}{rewrite('search.php?vip=1')}" rel="nofollow">更多..</a></span><a href="{$MOD[linkurl]}{rewrite('search.php?vip=1')}" rel="nofollow"><strong>VIP企业</strong></a></div>
+			</div>
+			<div class="qy_body f_gray">
+				<ul class="qy_quote li_dot">
+					<!--{php $tags=tag("moduleid=4&condition=vip>0 and catids<>''&areaid=$cityid&pagesize=".$DT[page_com]."&order=fromtime desc&template=null")}-->
+					{loop $tags $t}
+						<li><span class="f_r f_gray">{area_pos($t[areaid], '/', 1)}</span><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></li>
+					{/loop}
+				</ul>
+				<div class="qy_price li_nodot">
+					<ul id="qyprice" style="height:96px;overflow:hidden;">
+						<!--{php $tags=tag("moduleid=4&condition=vip>0 and catids<>''&areaid=$cityid&pagesize=8&offset=".$DT[page_com]."&order=fromtime desc&template=null")}-->
+						{loop $tags $t}
+							<li><span class="f_r f_gray">{area_pos($t[areaid], '/', 1)}</span><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></li>
+						{/loop}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="c_b b10"></div>
+		<div>
+			<table width="100%" cellspacing="0" cellpadding="0">
+			<tr align="center">
+			<td>{ad(20)}</td>
+			<td>{ad(21)}</td>
+			<td>{ad(22)}</td>
+			<td>{ad(23)}</td>
+			</tr>
+			</table>
+		</div>
+		<div class="c_b b10"></div>
+		<div class="qy_tab_h2">
+			<ul>
+			<li id="mall_t_1" onmouseover="Tb(1, 3, 'mall', 'three');" class="three_2">推荐产品</li>
+			<li id="mall_t_2" onmouseover="Tb(2, 3, 'mall', 'three');" class="three_1">热门商品</li>
+			<li id="mall_t_3" onmouseover="Tb(3, 3, 'mall', 'three');" class="three_1">最新产品</li>
+			</ul>
+			<span><a href="#">文字广告位置</a></span>
+		</div>
+		<div id="mall_c_1" class="qy_tab_b qy_pic current" style="display:;">
+			<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and level>0 and thumb<>''&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&target=_blank&lazy=$lazy&template=null")}-->
+			{loop $tags $t}
+				<dl>
+				<a href="{$t[linkurl]}"><img src="{$t[thumb]}" alt="{$t[alt]}"></a>
+				<dt><a href="{$t[linkurl]}">{$t[title]}</a></dt>
+				<dd>价格：¥<span class="em">{$t[price]}</span></dd>
+				</dl>
+			{/loop}
+		</div>
+		<div id="mall_c_2" class="qy_tab_b qy_pic" style="display:none;">
+			<!--{php $tags=tag("moduleid=16&length=36&condition=status=3&areaid=$cityid&pagesize=".$DT['page_mall']."&order=orders desc&target=_blank&lazy=$lazy&template=null")}-->
+			{loop $tags $t}
+				<dl>
+				<a href="{$t[linkurl]}"><img src="{$t[thumb]}" alt="{$t[alt]}"></a>
+				<dt><a href="{$t[linkurl]}">{$t[title]}</a></dt>
+				<dd>价格：¥<span class="em">{$t[price]}</span></dd>
+				</dl>
+			{/loop}
+		</div>
+		<div id="mall_c_3" class="qy_tab_b qy_pic" style="display:none;">
+			<!--{php $tags=tag("moduleid=5&length=36&condition=status=3 and thumb<>''&areaid=$cityid&pagesize=".$DT['page_sell']."&order=addtime desc&target=_blank&lazy=$lazy&template=null")}-->
+			{loop $tags $t}
+				<dl>
+				<a href="{$t[linkurl]}"><img src="{$t[thumb]}" alt="{$t[alt]}"></a>
+				<dt><a href="{$t[linkurl]}">{$t[title]}</a></dt>
+				<dd>价格：¥<span class="em">{$t[price]}</span></dd>
+				</dl>
+			{/loop}
+		</div>
+		<div class="b10">&nbsp;</div>
+		<table width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+		<td>{ad(20)}</td>
+		<td>{ad(21)}</td>
+		<td>{ad(22)}</td>
+		</tr>
+		</table>
+	</div>
+</div>
+<div class="m b10">&nbsp;</div>
+<div class="m">
+	<div class="qy_l mr10">
+		<div class="box_head"><div><span class="f_r"><a href="{$MODULE[7][linkurl]}">更多..</a></span><a href="{$MODULE[7][linkurl]}"><strong>行情快递</strong></a></div></div>
+		<div class="qy_body li_dot f_gray">
+			<!--{tag("moduleid=7&condition=status=3&areaid=$cityid&pagesize=".$DT[page_quote]."&order=addtime desc&target=_blank")}-->
+		</div>
+		<div class="c_b b10"></div>
+		<div class="ad220">{ad(22)}</div>
+	</div>
+	<div class="qy_m">
+		<div class="qy_tab_h2">
+			<ul>
+				<li id="info_t_1" onmouseover="Tb(1, 4, 'info', 'five');" class="five_2"><a href="{$MODULE[8][linkurl]}"><strong>展会信息</strong></a></li>
+				<li id="info_t_2" onmouseover="Tb(2, 4, 'info', 'five');" class="five_1"><a href="{$MODULE[22][linkurl]}"><strong>招商加盟</strong></a></li>
+				<li id="info_t_3" onmouseover="Tb(3, 4, 'info', 'five');" class="five_1"><a href="{$MODULE[21][linkurl]}"><strong>招标信息</strong></a></li>
+				<li id="info_t_4" onmouseover="Tb(4, 4, 'info', 'five');" class="five_1"><a href="{$MODULE[10][linkurl]}"><strong>信息知识</strong></a></li>
+			</ul>
+			<span id="f_five"><a href="{$MODULE[2][linkurl]}{$DT[file_my]}?mid=5&amp;action=add">点击发布信息</a></span>
+		</div>
+		<div class="qy_tab_b current h241" id="info_c_1" style="display:;">
+			<div class="qy_body_3">
+				<!--{php $tags=tag("moduleid=8&condition=status=3 and level>0&areaid=$cityid&pagesize=".$DT['page_exhibit']."&order=addtime desc&template=null")}-->
+				{loop $tags $k $t}
+					<ul>
+					{php $cat = get_cat($t[catid]);}
+					<li title="{$t[alt]}" {if $k%2==0}class="qy_bg"{/if}><span class="f_r">[{$t[city]}]　　　{timetodate($t[fromtime], 3)}</span><a href="{$cat[linkurl]}">[{$cat[catname]}]</a> <a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></li>
+					</ul>
+				{/loop}		
+			</div>
+		</div>
+		<div class="qy_tab_b h241" id="info_c_2" style="display:none;">
+			<div class="qy_tab_l">
+				<ul class="qy_tab_ul4">
+					<!--{php $tags=tag("moduleid=22&condition=status=3&areaid=$cityid&pagesize=9&datetype=2&target=_blank&order=addtime desc&template=null")}-->
+					{loop $tags $i $t}
+						<li>{if $datetype}<span class="f_r">&nbsp;{timetodate($t[addtime], $datetype)}</span>{/if}<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="qy_tab_l qy_bg ">
+				<ul class="qy_tab_ul5">
+					<!--{php $tags=tag("moduleid=22&condition=status=3 and level>0&areaid=$cityid&pagesize=9&datetype=2&target=_blank&order=addtime desc&template=null")}-->
+					{loop $tags $i $t}
+						<li>{if $datetype}<span class="f_r">&nbsp;{timetodate($t[addtime], $datetype)}</span>{/if}<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+					{/loop}
+				</ul>
+			</div>
+		</div>
+		<div class="qy_tab_b h241" id="info_c_3" style="display:none;">
+			<div class="qy_tab_l">
+				<ul class="qy_tab_ul1">
+					<!--{php $tags=tag("moduleid=21&condition=status=3&areaid=$cityid&pagesize=9&datetype=2&target=_blank&order=addtime desc&template=null")}-->
+					{loop $tags $i $t}
+						<li>{if $datetype}<span class="f_r">&nbsp;{timetodate($t[addtime], $datetype)}</span>{/if}<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="qy_tab_l qy_bg">
+				<ul class="qy_tab_ul3">
+					<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&areaid=$cityid&pagesize=9&datetype=2&target=_blank&order=addtime desc&template=null")}-->
+					{loop $tags $i $t}
+						<li>{if $datetype}<span class="f_r">&nbsp;{timetodate($t[addtime], $datetype)}</span>{/if}<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+					{/loop}
+				</ul>
+			</div>
+		</div>
+		<div class="qy_tab_b h241" id="info_c_4" style="display:none;">
+			<div class="qy_tab_l">
+				<ul class="qy_tab_ul1">
+					<!--{php $tags=tag("moduleid=10&condition=status=3&areaid=$cityid&pagesize=9&datetype=2&target=_blank&order=addtime desc&template=null")}-->
+					{loop $tags $i $t}
+						<li>{if $datetype}<span class="f_r">&nbsp;{timetodate($t[addtime], $datetype)}</span>{/if}<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+					{/loop}
+				</ul>
+			</div>
+			<div class="qy_tab_l qy_bg">
+				<ul class="qy_tab_ul3">
+					<!--{php $tags=tag("moduleid=10&condition=status=3 and level>0&areaid=$cityid&pagesize=9&datetype=2&target=_blank&order=addtime desc&template=null")}-->
+					{loop $tags $i $t}
+						<li>{if $datetype}<span class="f_r">&nbsp;{timetodate($t[addtime], $datetype)}</span>{/if}<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+					{/loop}
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="qy_r">
+		<div class="box_head"><div><span class="f_r"><a href="{DT_PATH}about/13.html">积分有什么用？</a></span><strong>会员积分排行</strong></div></div>
+		<div class="qy_body f_gray qy_body_num">
+			<!--{php $tags=tag("table=member&prefix=destoon_&condition=groupid>5&areaid=$cityid&pagesize=9&order=credit desc&template=null")}-->
+			<ul>
+				{loop $tags $t}
+					<li><span class="f_r f_gray">{$t[credit]}分</span><a href="{$t[linkurl]}" target="_blank">{$t[company]}</a></li>
+				{/loop}
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="m b10">&nbsp;</div>
+<div class="m">
+<table width="100%" cellspacing="0" cellpadding="0">
+	<tr align="center">
+		<td>{ad(20)}</td>
+		<td>{ad(21)}</td>
+		<td>{ad(22)}</td>
+		<td>{ad(23)}</td>
+		<td>{ad(24)}</td>
+	</tr>
+	<tr height="5px"></tr>
+	<tr align="center">
+		<td>{ad(20)}</td>
+		<td>{ad(21)}</td>
+		<td>{ad(22)}</td>
+		<td>{ad(23)}</td>
+		<td>{ad(24)}</td>
+	</tr>
+</table>
+</div>
+<div class="m b10">&nbsp;</div>
+<div class="m">
+<!-- 滚动图片 S -->
+	<div class="qy_brand">
+		<a class="LeftBotton" onmousedown="ISL_GoUp()" onmouseup="ISL_StopUp()" onmouseout="ISL_StopUp()" href="javascript:void(0);" target="_self"></a>
+		<div class="Cont" id="ISL_Cont">
+			<div class="ScrCont">
+				<div id="List1">
+				<!--{php $tags=tag("moduleid=13&condition=status=3 and thumb<>''&areaid=$cityid&pagesize=20&order=edittime desc&template=null&length=15");}-->
+				{loop $tags $k $t}
+				<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}"><img src="{$t[thumb]}" alt="{$t[alt]}"></a>
+				{/loop}
+				</div>
+				<div id="List2"></div>
+			</div>
+		</div>
+		<a class="RightBotton" onmousedown="ISL_GoDown()" onmouseup="ISL_StopDown()" onmouseout="ISL_StopDown()" href="javascript:void(0);" target="_self"></a>
+	</div>
+<!-- 滚动图片 e -->	
+<script type="text/javascript" src="{DT_SKIN}inrollBox.js"></script>
+</div>
+<div class="m b10">&nbsp;</div>
+<div class="m">
+	<div class="qy_news_t">
+		<span class="f_r">
+			<a href="{$MODULE[7][linkurl]}">行业动态</a>　<a href="{$MODULE[8][linkurl]}">展会资讯</a>　<a href="{$MODULE[21][linkurl]}">政策法规</a>　<a href="{$MODULE[4][linkurl]}{rewrite('news.php?more=1')}">企业新闻</a>
+		</span>
+		<strong><a href="{$MODULE[21][linkurl]}">新闻资讯</a></strong>
+	</div>
+	<div class="qy_news_b">
+		<div class="qy_news_l qy_bg2">
+			<div class="qy_news_lt"><span class="f_r">更多</span><strong>推荐图文</strong></div>
+			<div class="qy_news_lb qy_pt">
+				<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&areaid=$cityid&pagesize=4&order=addtime desc&target=_blank&lazy=$lazy&template=null")}-->
+				{loop $tags $t}
+					<dl><a href="{$t[linkurl]}"><img src="{$t[thumb]}" alt="{$t[alt]}"></a><span><a href="{$t[linkurl]}">{$t[title]}</a></span></dl>
+				{/loop}
+			</div>
+		</div>
+		<div class="qy_news_m">
+			<h2><!--{php $tags=tag("moduleid=21&condition=status=3 and level>3&areaid=$cityid&pagesize=1&target=_blank&order=addtime desc&length=40&template=null")}--></h2>
+				{loop $tags $t}
+				<a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a>
+				{/loop}
+			<ul class="qy_border_b">
+				<!--{php $tags=tag("moduleid=21&condition=status=3&areaid=$cityid&pagesize=3&datetype=3&target=_blank&order=addtime desc&template=null")}-->
+				{loop $tags $t}
+				<li>{if $datetype}<span class="f_r">&nbsp;{timetodate($t[addtime], $datetype)}</span>{/if}<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+				{/loop}
+			</ul>
+			<ul>
+				<!--{php $tags=tag("moduleid=21&condition=status=3&areaid=$cityid&pagesize=4&datetype=3&offset=3&target=_blank&order=addtime desc&template=null")}-->
+				{loop $tags $t}
+				<li>{if $datetype}<span class="f_r">&nbsp;{timetodate($t[addtime], $datetype)}</span>{/if}<a href="{$t[linkurl]}" title="{$t[alt]}">{$t[title]}</a></li>
+				{/loop}
+			</ul>
+		</div>
+		<div class="qy_news_r qy_bg">
+			<div class="qy_news_rt"><span class="f_r"><a href="">更多..</a></span><strong>新闻</strong></div>
+			<div class="qy_news_sp qy_pt">
+				<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0 and thumb<>''&areaid=$cityid&pagesize=2&order=addtime desc&target=_blank&lazy=$lazy&template=null")}-->
+				{loop $tags $i $t}
+					<dl><a href="{$t[linkurl]}"><img src="{$t[thumb]}" alt="{$t[alt]}"></a><span><a href="{$t[linkurl]}">{$t[title]}</a></span></dl>
+				{/loop}
+			</div>
+			<div class="qy_news_rt"><span class="f_r"><a href="{$MODULE[4][linkurl]}{rewrite('news.php?more=1')}">更多..</a></span><strong>企业新闻</strong></div>
+			<!--{tag("table=news&condition=status=3 and level>0&pagesize=".$DT[page_comnews]."&order=addtime desc&target=_blank")}-->
+		</div>
+	</div>
+</div>
+<div class="m b10">&nbsp;</div>
+{if $DT[page_logo] || $DT[page_text]}
+<div class="m">
+	<div class="qy_flink">
+		<div>
+			<h4>重点合作：</h4>
+				<!--{php $tags=tag("table=link&condition=status=3 and level>0 and thumb<>'' and username=''&areaid=$cityid&pagesize=".$DT['page_logo']."&order=listorder desc,itemid desc&lazy=$lazy&template=null")}-->
+				<span>
+					{loop $tags $t}
+						<a href="{$t[linkurl]}" target="_blank" title=""><img src="{$t[thumb]}" width="100" height="40" alt="{$t[alt]}"></a>
+					{/loop}
+				</span>
+				<!--{php $tags=tag("table=link&condition=status=3 and level>1 and thumb='' and username=''&areaid=$cityid&pagesize=".$DT['page_text']."&order=listorder desc,itemid desc&template=null")}-->
+				<ul>
+					{loop $tags $t}
+						<li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
+					{/loop}
+				</ul>
+			</div>
+		<div>
+			<h4>友情链接：</h4>
+			<!--{php $tags=tag("table=link&condition=status=3 and level>0 and thumb='' and username=''&areaid=$cityid&pagesize=".$DT['page_text']."&order=listorder desc,itemid desc&template=null")}-->
+			<ul>
+				{loop $tags $t}
+					<li><a href="{$t[linkurl]}" target="_blank" title="{$t[alt]}">{$t[title]}</a></li>
+				{/loop}
+			</ul>
+		</div>
+		<div class="noborder"><h4>申请链接：</h4>&nbsp;&nbsp;需做好本站链接，PR&gt;1&nbsp;&nbsp;<a href="{$EXT[link_url]}{rewrite('index.php?action=reg')}">在线申请链接</a></div>
+	</div>
+</div>
+{/if}
+<script type="text/javascript" src="{DT_STATIC}file/script/index.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/marquee.js"></script>
+<script type="text/javascript">
+new dmarquee(25, 30, 3000, 'qyprice');
+if(get_cookie('auth')) {
+	$('.qy_btn_1')[0].title = '商务中心';
+	$('.qy_btn_1')[0].innerHTML = '商务中心';
+	$('.qy_btn_1')[0].href = '{$MODULE[2][linkurl]}';
+	$('.qy_btn_1')[0].className = 'qy_btn_1';
+	$('.qy_btn_2')[0].title = '完善我的会员资料';
+	$('.qy_btn_2')[0].innerHTML = '资料';
+	$('.qy_btn_2')[0].href = '{$MODULE[2][linkurl]}edit.php';
+	$('.qy_btn_2')[0].className = 'qy_btn_2';
+}
+</script>
+{template 'footer'}

@@ -1,0 +1,117 @@
+<div class="m">&nbsp;</div>
+<div class="footer">
+  <div class="container">
+    <div class="quick-nav">
+		  <ul class="icon clearfix">
+			<li class="i1"><img src="{DT_SKIN}image/quick-nav-icon-1.gif" alt="资源多">
+			  <p><span>资源多</span><span>海量信息免费发</span></p>
+			</li>
+			<li  class="i2"><img src="{DT_SKIN}image/quick-nav-icon-2.gif" alt="优惠大">
+			  <p><span>优惠大</span><span>挑战市场超低价</span></p>
+			</li>
+			<li  class="i3"><img src="{DT_SKIN}image/quick-nav-icon-3.gif" alt="销售广">
+			  <p><span>销售广</span><span>采购便捷一站式</span></p>
+			</li>
+			<li  class="i4"><img src="{DT_SKIN}image/quick-nav-icon-4.gif" alt="更安全">
+			  <p><span>更安全</span><span>实名认证更安心</span></p>
+			</li>
+		  </ul>
+    </div>
+    <div class="ptb20 clearfix">
+      <div class="foot-qr clearfix">
+        <div class="qrcode"><img src="{DT_SKIN}image/qrcode.png.png" alt="手机惠农网">
+          <p><span>扫一扫下载</span><span>手机直卖网</span></p>
+        </div>
+        <div class="qrcode"><img src="{DT_SKIN}image/qrcode.png.png" alt="惠农官方微信">
+          <p><span>扫码关注</span><span>官方微信</span></p>
+        </div>
+      </div>
+      <ul class="foot-nav clearfix">
+			<li><a href="{$MODULE[1][linkurl]}">网站首页</a></li>
+			<!--{tag("table=webpage&condition=item=1&areaid=$cityid&order=listorder desc,itemid desc&template=list-webpage")}-->
+			<li><a href="{$MODULE[1][linkurl]}sitemap/">网站地图</a></li>
+			<li><a href="{$EXT[spread_url]}">排名推广</a></li>
+			{if $EXT[ad_enable]} <li><a href="{$EXT[ad_url]}">广告服务</a></li>{/if}
+			{if $EXT[gift_enable]} <li><a href="{$EXT[gift_url]}">积分换礼</a></li>{/if}
+			{if $EXT[guestbook_enable]}<li><a href="{$EXT[guestbook_url]}">网站留言</a></li>{/if}
+			{if $EXT[feed_enable]} <li><a href="{$EXT[feed_url]}">RSS订阅</a></li>{/if}
+			{if $DT[icpno]}<li><a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow">{$DT[icpno]}</a></li>{/if}
+      </ul>
+      <div class="copyright">
+		<p>湘ICP备13007354号-1 | Powered by Cnhnb 2.1 | 服务热线：400-008-8688</p>
+        <p id="copyright">{$DT[copyright]}</p>
+		<!--{if DT_DEBUG}<p class="px11">{debug()}</p>{/if}-->
+		<p id="powered"><a href="http://www.destoon.com/" target="_blank"><img src="{DT_STATIC}file/image/powered.gif" width="136" height="10" alt="Powered by DESTOON"/></a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--[if IE 6]>
+    <script type="text/javascript" src="//static.cnhnb.com/4.0/libs/DD_belatedPNG/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix('.pngfix, a.pngfix:hover');</script>
+<![endif]-->
+    <div id="J-floor-nav" class="floor-nav">
+      <ul>
+        <li class="nav-1"><a href="#floor1" data-floor="1"></a></li>
+        <li class="nav-2"><a href="#floor2" data-floor="2"></a></li>
+        <li class="nav-3"><a href="#floor3" data-floor="3"></a></li>
+        <li class="nav-4"><a href="#floor4" data-floor="4"></a></li>
+        <li class="nav-5"><a href="#floor5" data-floor="5"></a></li>
+        <li class="nav-6"><a href="#floor6" data-floor="6"></a></li>
+        <li class="nav-7"><a href="#floor7" data-floor="7"></a></li>
+        <li class="nav-8"><a href="#floor8" data-floor="8"></a></li>
+        <li class="nav-9"><a href="#floor9" data-floor="9"></a></li>
+        <li class="nav-10"><a href="#floor10" data-floor="10"></a></li>
+        <li class="nav-11"><a href="#floor11" data-floor="11"></a></li>
+      </ul>
+    </div>
+	<div class="toolbar">
+   <a href="javascript:;" class="toolbar-item toolbar-item-weixin"><span class="toolbar-layer"></span></a>
+   <a href="javascript:;" class="toolbar-item toolbar-item-app"><span class="toolbar-layer"></span></a>
+   <a href="javascript:scroll(0,0)" id="top" class="toolbar-item toolbar-item-top"></a>
+</div>
+    <!--/.floor-nav-->
+	 <script type="text/javascript">
+		{if $destoon_task}
+		show_task('{$destoon_task}');
+		{else}
+		{php include DT_ROOT.'/api/task.inc.php';}
+		{/if}
+		{if $lazy}$(function(){$("img").lazyload();});{/if}
+	</script>
+	<script>
+		$(function(){
+			//商品分类
+			$('.all-goods .item').hover(function(){
+				$(this).addClass('active').find('s').hide();
+				$(this).find('.product-wrap').show();
+			},function(){
+				$(this).removeClass('active').find('s').show();
+				$(this).find('.product-wrap').hide();
+			});
+			});
+	</script>
+	<script type="text/javascript">
+		Date.prototype.Format = function (fmt) { //javascript时间日期函数
+			var o = {
+				"M+": this.getMonth() + 1, //月份 
+				"d+": this.getDate(), //日 
+				"h+": this.getHours(), //小时 
+				"m+": this.getMinutes(), //分 
+				"s+": this.getSeconds(), //秒 
+				"q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+				"S": this.getMilliseconds() //毫秒 
+			};
+			if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+			for (var k in o)
+			if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+			return fmt;
+		};
+			var time1 = new Date().Format("MM");   //获取日期，格式： 年-月-日
+			var time2 = new Date().Format("yyyy-MM-dd hh:mm:ss");  //获取日期，格式： 年-月-日 时-分-秒
+			
+			document.getElementById('mouth1').innerHTML = time1; //将时间赋值给t1
+			document.getElementById('title1').innerHTML = time2;  //将时间赋值给t2
+</script>
+  </body>
+</html>

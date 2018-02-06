@@ -1,0 +1,7 @@
+            <li id="sub_" {if !$job}class="active"{/if}><a href="?mid={$mid}">我的帖子</a></li>
+            <li id="sub_group" {if $job=='group'}class="active"{/if}><a href="?mid={$mid}&job=group">我的商圈</a></li>
+            <li id="sub_reply" {if $job=='reply'}class="active"{/if}><a href="?mid={$mid}&job=reply">我的回复</a></li>
+            <li id="sub_join" {if $job=='join'}class="active"{/if}><a href="?mid={$mid}&job=join">加入商圈</a></li>
+            <li id="sub_fans" {if $job=='fans'}class="active"{/if}><a href="?mid={$mid}&job=fans">粉丝管理</a></li>
+            <li id="sub_manage" {if $job=='manage'}class="active"{/if}><a href="?mid={$mid}&job=manage">商圈管理</a></li>
+            {if $EXT['gl_clubradio']}<li id="sub_manage" {if $job=='radio'}class="active"{/if}><a href="?mid={$mid}">商圈广播</a></li>{/if}

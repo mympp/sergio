@@ -1,0 +1,280 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+{if $itemid}
+<link rel="stylesheet" type="text/css" href="script/swiper/swiper-3.3.1.min.css"/>
+<script type="text/javascript" src="script/swiper/swiper-3.3.1.jquery.min.js"></script>
+{/if}
+<link rel="stylesheet" type="text/css" href="css/mall_v2.css"/>
+<header class="aui-bar aui-bar-nav" id="aui-header">
+       {if $itemid || $catid || $areaid || $kw}
+        <a class="aui-pull-left aui-btn" href="{$back_link}">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+       {else}
+        <a class="aui-pull-left aui-btn" href="channel.php">
+           <span class="aui-iconfont aui-icon-left"></span>频道
+        </a>
+       {/if}
+        <div class="aui-title">{if $itemid}{$MOD[name]}详情{else}{$head_name}{/if}</div>
+        <a class="aui-pull-right">
+        <span class="dt-iconfont dt-icon-caidan" onclick="showPopup();"></span>
+        </a>
+        <span class="aui-pull-right" style="margin:0; padding:0">
+        <a class="aui-pull-left" href="user.php?mid={$moduleid}&action=add&backpath=1"><i class="dt-iconfont dt-icon-edit"></i></a>
+        <a class="aui-pull-right"><i class="dt-iconfont dt-icon-search" onclick="showsearchbar();"></i></a>
+</span>
+</header>
+
+<div class="aui-bar-fix"></div>
+
+{if $itemid}
+<section class="aui-content">
+<div class="aui-card-list-content">
+ {if $thumb}{template 'dtchip-album', 'mobile'}{/if}
+</div>
+</section>
+<section class="aui-content mall-price-show dt-border-b-none">
+    <div class="aui-card-list dt-border-b-none">
+        <div class="aui-card-list-header">{$title}</div>
+        <div class="aui-card-list-footer">
+        <div class="dt-text-red">{$DT[money_sign]} <span class="aui-font-size-18">{floatval($price)}</span></div><div>人气:{$hits}&nbsp;&nbsp;销量:{$sales}&nbsp;&nbsp;评价:{$comments}</div>
+        </div>
+{if $express_name_1 == '包邮'}
+<div class="aui-card-list-footer">
+        <div>物流：{if $fee_start_1>0}
+{if $fee_start_2>0} {$express_name_2}:{$fee_start_2}&nbsp;&nbsp;{/if}
+{if $fee_start_3>0} {$express_name_3}:{$fee_start_3}&nbsp;&nbsp;{/if}
+满{$fee_start_1}包邮
+{else}
+包邮
+{/if}</div>
+        </div>
+
+{elseif $fee_start_1>0 || $fee_start_2>0 || $fee_start_3>0}
+<div class="aui-card-list-footer">
+        <div>物流：{if $fee_start_1>0} {$express_name_1}:{$fee_start_1}&nbsp;&nbsp;{/if}
+{if $fee_start_2>0} {$express_name_2}:{$fee_start_2}&nbsp;&nbsp;{/if}
+{if $fee_start_3>0} {$express_name_3}:{$fee_start_3}&nbsp;&nbsp;{/if}
+</div>
+        </div>
+        {/if}
+{if $cod}
+        <div class="aui-card-list-footer">
+        <div>到付：支持货到付款</div>
+        </div>
+        {/if}
+        <div class="aui-card-list-footer">
+        <div>库存：{$amount}{$unit}</div>
+        </div>
+        <div class="aui-card-list-footer">
+        <div>品牌：{if $brand}{$brand}{else}未填写{/if}</div>
+        </div>
+{if $RL}
+<tr>
+<td class="tl">{$relate_name}</td>
+<td>
+{loop $RL $v}
+<div class="relate_{if $itemid==$v[itemid]}2{else}1{/if}">{if $itemid==$v[itemid]}<em></em>{/if}<a href="{mobileurl($moduleid, 0, $v[itemid])}"><img src="{$v[thumb]}" alt="" title="{$v[relate_title]}"/></a></div>
+{/loop}				
+</td>
+</tr>
+{/if}
+{if $P1}
+        <div class="aui-card-list-footer">
+        <div id="p1">{$n1}：{loop $P1 $i $v}
+        <div class="aui-label nv_{if $i==0}2{else}1{/if}">{$v}</div>
+{/loop}</div>
+        </div>
+{/if}
+{if $P2}
+        <div class="aui-card-list-footer">
+        <div id="p2">{$n2}：{loop $P2 $i $v}
+        <div class="aui-label nv_{if $i==0}2{else}1{/if}">{$v}</div>
+{/loop}</div>
+        </div>
+{/if}
+{if $P3}
+        <div class="aui-card-list-footer">
+        <div id="p3">{$n3}：{loop $P3 $i $v}
+        <div class="aui-label nv_{if $i==0}2{else}1{/if}">{$v}</div>
+{/loop}</div>
+        </div>
+{/if}
+{if $amount}
+{if $status == 3}
+{else}
+        <div class="aui-card-list-footer">
+        <div>该商品已下架</div>
+        </div>
+{/if}
+{else}
+        <div class="aui-card-list-footer">
+        <div>该商品库存不足</div>
+        </div>
+{/if}
+       
+    </div>
+</section>
+ {template 'dtchip-company', 'mobile'}
+<section class="aui-content mall-content-list">
+<div class="aui-bar aui-bar-btn" style="width:90%;">
+    <div class="aui-bar-btn-item aui-active" id="t_0" onclick="Mshow(0)">商品详情</div>
+    <div class="aui-bar-btn-item" id="t_1" onclick="Mshow(1)">评价详情({$comments})</div>
+    <div class="aui-bar-btn-item" id="t_2" onclick="Mshow(2)">交易记录({$orders})</div>
+</div>
+
+	<div id="c_2" style="display:none;"><div class="list-empty">正在加载交易记录...</div></div>
+	<div id="c_1" style="display:none;"><div class="list-empty">正在加载评价详情...</div></div>
+	<div class="content dtchip-contact aui-padded-l-10 aui-padded-r-10 aui-padded-t-10" id="c_0">{$content}</div>
+</section>
+<script type="text/javascript">
+var s_s = {'1':0,'2':0,'3':0};
+function Mshow(k) {
+	if($('#t_'+k).attr('class') == 'aui-bar-btn-item aui-active') return;
+	for(var i = 0; i < 3; i++) {
+		if(i == k) {
+			$('#t_'+i).attr('class', 'aui-bar-btn-item aui-active');
+			$('#c_'+i).show();
+			if(k == 1) load_comment(0);
+			if(k == 2) load_order(0);
+		} else {
+			$('#t_'+i).attr('class', 'aui-bar-btn-item');
+			$('#c_'+i).hide();
+		}
+	}
+}
+function addE(i) {
+	$('#p'+i+' div').click(function() {
+		$('#p'+i+' div')[s_s[i]].className = 'nv_1';
+		this.className = 'nv_2';
+		s_s[i] = $(this).index();
+	});
+}
+function BuyNow() {
+	Go('purchase.php?moduleid={$moduleid}&itemid={$itemid}&s1='+s_s[1]+'&s2='+s_s[2]+'&s3='+s_s[3]+'&a=1');
+}
+function AddCart() {
+	$.get(AJPath+'?action=mall&job=cart&moduleid={$moduleid}&itemid={$itemid}&s1='+s_s[1]+'&s2='+s_s[2]+'&s3='+s_s[3]+'&a=1', function(data) {
+		if(data > 0) {
+			laymsg('商品已成功加入购物车');
+			if($('.my-cart').html().indexOf('em') != -1) {
+				var t = parseInt($('.my-cart em').html());
+				$('.my-cart').html('<em>'+(t+1)+'</em>');
+			} else {
+				$('.my-cart').html('<em>1</em>');
+			}
+			setTimeout(function() {
+				towindow('<a href="cart.php?reload={$DT_TIME}"><span>查看购物车</span></a>|<a href="javascript:;" onclick="towindow(0);"><span>继续购物</span></a>', '取消', '商品已成功加入购物车');
+			}, 1000);
+		} else if(data == '-2') {
+			laymsg('购物车已存在此商品');
+		} else if(data == '-4') {
+			laymsg('不能添加自己的商品');
+		} else if(data == '-5') {
+			towindow('<a href="login.php"><span>立即登录</span></a>', '取消', '请先登录');
+		} else {
+			laymsg('操作失败，请重试'+data);
+		}
+	});
+}
+function load_comment(p) {
+	if($('#c_1').html().indexOf('list-empty') != -1 || p) {
+		$('#c_1').load('mall.php?itemid={$itemid}&action=comment&page='+p);
+	}
+}
+function load_order(p) {
+	if($('#c_2').html().indexOf('list-empty') != -1 || p) {
+		$('#c_2').load('mall.php?itemid={$itemid}&action=order&page='+p);
+	}
+}
+//$(document).on("pagecreate",function() {
+	{if $P1}addE(1);{/if}
+	{if $P2}addE(2);{/if}
+	{if $P3}addE(3);{/if}
+//});
+</script>
+{template 'dtchip-other', 'mobile'}
+<div class="aui-footer-fix mall-footer-cart"></div>
+    <footer class="aui-bar aui-bar-tab" id="itemfoot">
+        <div class="aui-bar-tab-item aui-active" onclick="window.location.href='chat.php?touser={$username}'">
+            <i class="dt-iconfont dt-icon-kefu1"></i>
+            <div class="aui-bar-tab-label">客服</div>
+        </div>
+        <div class="aui-bar-tab-item aui-active" onclick="window.location.href='index.php?moduleid={$moduleid}&username={$username}'">
+            <i class="dt-iconfont dt-icon-shangjia"></i>
+            <div class="aui-bar-tab-label">商家</div>
+        </div>
+        <div class="aui-bar-tab-item aui-active" onclick="glfavorite({$moduleid},{$itemid});">
+            <i class="dt-iconfont dt-icon-star"></i>
+            <div class="aui-bar-tab-label">收藏</div>
+        </div>
+        <div class="aui-bar-tab-item aui-active" style="width:25%; border-right:0; background-color:#FF9402" onclick="AddCart();">
+            <div class="dt-bar-tab-contact">加入购物车</div>
+        </div>
+        <div class="aui-bar-tab-item aui-active" style="width:20%; border-right:0; background-color:#F91546" onclick="BuyNow();"><div class="dt-bar-tab-contact">购买</div>
+        </div>
+    </footer>
+{else}
+{template 'dtchip-deals', 'mobile'}
+{template 'dt-results-bar', 'mobile'}
+	{if $lists}
+      {if $listview==1}
+      <div class="aui-content aui-margin-b-15" id="content">
+        <ul class="aui-list aui-media-list dt-media-sell" id="slistdiv">
+     {loop $lists $v}
+     {php if($EXT['gl_img_echo'] && isset($v['thumb']) && $v['thumb']) $v['thumb'] =  'image/echoblank.gif" data-echo="'.$v['thumb'];}
+                 <li class="aui-list-item aui-padded-t-5 aui-padded-b-5">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media">
+                     <a href="{mobileurl($moduleid, 0, $v['itemid'])}"><img src="{if $v[thumb]}{$v[thumb]}{else}image/nopic-120.png{/if}" class="dt-img-cover" height="90" /></a>{if $v[vip]}<span class="" style="position:absolute; top:0rem; left:0rem; color:#FFF"><i class="dt-iconfont dt-icon-tuijian dt-text-orange"></i></span>{/if}
+                    </div>
+                    <div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title aui-ellipsis-2"><a href="{mobileurl($moduleid, 0, $v['itemid'])}" id="gl{$v[itemid]}-titles">{$v[title]}</a>{if $EXT['gl_edit_items'] && $_userid && ($_username==''.$v[username].'' || $_groupid==1)}<i class="dt-iconfont dt-icon-pencil aui-font-size-18 dt-margin-l-3 aui-text-info" onclick="showItems({$moduleid},{$v[itemid]});"></i><i class="dt-iconfont dt-icon-pencil aui-font-size-18 dt-margin-l-3 aui-text-info" onclick="gledititems({$moduleid},{$v[itemid]},'refresh');"></i>{/if}</div>
+                        </div>
+                        <div class="aui-list-item-text dt-margin-t-5"><div class="aui-ellipsis-2" style="width:95%">{$v[company]}</div>{if $v[mobile]}<div><a href="tel:{$v[mobile]}"><i class="dt-iconfont dt-icon-dianhua aui-font-size-18 aui-margin-l-10 aui-text-info"></i></a></div>{/if}</div>
+                       <div class="aui-list-item-text dt-margin-t-5 aui-font-size-12"><div><span class="aui-font-size-12">{$DT[money_sign]}</span><span class="aui-font-size-16 dt-text-red" id="gl{$v[itemid]}-price">{floatval($v[price])}</span></div><span class="">{gl_area_name($v[areaid])}</span></div>
+                    </div>
+                </div>
+               </li>
+
+    {/loop}
+    </ul>
+    </div>
+     {else}
+<div class="aui-content" id="content">
+            <ul class="aui-list aui-media-list dt-sell-list dt-border-none" >
+            <li class="aui-list-item dt-sell-list-item dt-bg-gray">
+                <div class="aui-list-item-inner">
+                    <div class="aui-row aui-row-padded">
+                    {loop $lists $v}
+                    {php if($EXT['gl_img_echo'] && isset($v['thumb']) && $v['thumb']) $v['thumb'] =  'image/echoblank.gif" data-echo="'.$v['thumb'];}
+                        <div class="aui-col-xs-6">
+                            <div class="" style="height:8rem; background-color:#fff"><a href="{mobileurl($moduleid, 0, $v[itemid])}"><img src="{if $v[thumb]}{str_replace('.thumb.'.file_ext($v['thumb']), '.middle.'.file_ext($v['thumb']), $v['thumb'])}{else}image/nopic-80.png{/if}" class="dt-img-contain" height="100%"/></a></div>
+               <div class="aui-img-body">
+                <div class="aui-waterfall-body">
+                    <a href="{mobileurl($moduleid, 0, $v[itemid])}"><span class="aui-ellipsis-2">{$v[title]}</span></a>
+                </div>
+                    <div class="aui-pull-left">
+                    {if $v[price]>0}<span class="aui-font-size-12">{$DT[money_sign]}</span><span class="aui-font-size-16">{floatval($v[price])}</span>{/if}
+                    </div>
+                    <div class="aui-pull-right">
+                    <i class="dt-iconfont dt-icon-hot1 aui-margin-r-5 aui-font-size-12"></i>{$v[sales]}&nbsp;已售
+                    </div>
+                </div>
+                        </div>
+                     {/loop}
+                    </div>
+                </div>
+            </li>
+    <p class="dt-bg-white aui-text-center aui-font-size-16" style="height:2.25rem; line-height:2.25rem;"><a href="index.php?moduleid={$moduleid}&listview=1">更多{$MODULE[$moduleid]['name']}</a></p>
+</ul>
+</div>
+{/if}
+{else}
+	{template 'dtchip-empty', 'mobile'}
+	{/if}
+{/if}
+
+{if $listview==1}{if $pages}<div class="aui-content aui-margin-b-15 aui-text-center pageslist"><div class="pages">{$pages}</div></div>{/if}{/if}
+{template 'footer_v2', 'mobile'}

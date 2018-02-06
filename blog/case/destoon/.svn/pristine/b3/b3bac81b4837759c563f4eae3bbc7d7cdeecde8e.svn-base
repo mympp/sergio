@@ -1,0 +1,28 @@
+<!--图片开始-->
+<div class="gray_bg">
+	<div class="wrap h_pro_list h_new_pro">
+    	<div class="hd">
+            <h2>{$main_name[$HM]}</h2>
+        </div>
+        <div class="bd">
+            <ul class="picList clearfix">
+            <!--{php $tags=tag("moduleid=12&condition=status>2 and username='$username'&pagesize=4&order=addtime desc&fields=itemid,title,linkurl,thumb,addtime,items,open&template=null");}-->
+				{loop $tags $i $t}
+            		<li>
+	                    <div class="pic">
+	                    	<a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=photo&itemid='.$t['itemid'], $domain)}{/if}" target="_blank">
+	                    		<img src="{imgurl($t[thumb])}">
+	                    	</a>
+	                    </div>
+	                    <div class="text"><a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=photo&itemid='.$t['itemid'], $domain)}{/if}" target="_blank">{$t[title]}</a></div>
+	                    <div class="tc">{$t[items]}张图片</div>
+	                </li>
+            	{/loop}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--图片结束-->
+
+

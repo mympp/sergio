@@ -1,0 +1,21 @@
+{if $file != 'honor'}
+<!--荣誉资质-->
+       <div class="blk1_br spH">
+            <div class="ttl">
+                <h3>{$side_name[$HS]}</h3>
+            </div>
+            <div class="cnt line">
+			<!--{php $tags=tag("table=honor&condition=status=3 and username='$username'&pagesize=".$side_num[$HS]."&order=addtime desc&template=null")}-->
+            <ul class="cat">
+				{if $tags}
+				{loop $tags $t}
+				<li><a href="{userurl($username, 'file=honor&itemid='.$t['itemid'], $domain)}" title="{$t[alt]}">{$t[title]}</a></li>
+				{/loop}
+				{else}
+				<li>暂未上传</li>
+				{/if}
+            </ul>
+            </div>
+        </div>
+<!--荣誉资质/-->
+{/if}

@@ -1,0 +1,420 @@
+{template 'header_member', 'mobile'}
+{template 'cssjs', 'mobile'}
+<style>
+.tb {background:#FFFFFF;width:100%;}
+.tl {background:#F7F7F7;width:115px;text-align:left; letter-spacing:1px;}
+.tr {background:#FFFFFF;}
+#area-select { max-width:80px !important;}
+#type { margin-left:15px;}
+.aui-content-padded {
+    margin-top: 15px;
+}
+.aui-content {
+    margin-bottom: 0px;
+}
+.aui-tab {
+    margin-bottom: 15px;
+}
+.aui-tab li.active { color:#FFF !important;}
+.aui-btn-row:after {
+	border-bottom: 0px;
+}
+.aui-btn-rows input[type="text"] { font-size: 14px;
+    margin: 0;
+    display: table-cell;
+    position: relative;
+    float: left;
+    width: 50% !important;
+    border:none;
+    border-radius: 0;
+}
+.aui-btn-rows { padding:10px; word-break:break-all;}
+.home-menu-title { line-height:35px; font-size:16px; margin-top:10px;}
+ /*table 自适应*/
+
+table {
+      border: 1px;
+    }
+
+table thead {
+      display: none;
+    }
+table th {
+	  line-height:45px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #ddd;
+    }
+table tr {
+      margin-bottom: 10px;
+      border-bottom: 2px solid #ddd;
+    }
+
+table td {
+      font-size: 13px;
+      border-bottom: 1px dotted #ccc;
+    }
+	
+table input  { position:relative; margin-top:15px; height:35px; line-height:35px;
+    }
+table select  { position:relative; width:80px; max-width:80px;
+    }
+table label { position:relative;left:5px;top:-13px; }
+</style>
+<script type="text/javascript" src="script/iScroll5/iscroll.js"></script>
+
+<header class="aui-bar aui-bar-nav aui-bar-info" id="aui-header">
+        <a class="aui-btn aui-btn-info aui-pull-left" href="my.php?action=home">
+            <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+    <div class="aui-title">{$head_name}</div>
+    <a href="my.php" class="aui-pull-right">我的</a>
+</header>
+<div class="aui-bar-fix"></div>
+<div class="aui-content aui-mb-15" style="background-color:#FFF;">
+			<div class="bbs-wrapper">
+				<div id="scroller">
+					<ul>
+            <li class="active" id="Tab0" onclick="javascript:Tab(0);">常用设置</li>
+            <li id="Tab1" onclick="javascript:Tab(1);">导航菜单</li>
+            <li id="Tab2" onclick="javascript:Tab(2);">侧边栏</li>
+            <li id="Tab3" onclick="javascript:Tab(3);">首页设置</li>
+            <li id="Tab4" onclick="javascript:Tab(4);">其他设置</li>
+					</ul>
+				</div>
+			</div>
+<script type="text/javascript">
+myScroll = new IScroll('.bbs-wrapper', {
+eventPassthrough : false,
+scrollX : true,
+scrollY : false,
+preventDefault : true,
+click:true
+});
+myScroll.scrollToElement(Dd('Tab{$tab}'), 800);
+</script>
+</div>
+
+<form method="post" action="?" id="dform">
+<input type="hidden" name="tab" id="tab" value="{$tab}"/>
+<div id="Tabs0" style="display:;">
+<div class="aui-content">
+<div class="aui-form">
+    <div class="aui-input-row">
+     <span class="aui-input-addon">自定义背景色</span>
+      <input type="text" class="aui-input" name="setting[bgcolor]" id="bgcolor" value="{$bgcolor}" placeholder="例如红色为 red 或者 #FF0000"/>
+
+    </div>
+<div class="aui-input-row">
+<span class="aui-input-addon">自定义背景图</span>
+<input type="hidden" class="aui-input" name="setting[background]" id="background" value="{$background}">
+<div class="pic-list" id="thumbdbackground">
+{if $background}<li id="thumb-background"><a href="{$background}"><img src="{$background}"></a><span class="thumb-del" onclick="Delthumb('background')"><i class="aui-iconfont aui-icon-close aui-text-white fz22"></i></span></li>{/if}
+<li id="thumba-background" data="background" onclick="fupthumbs({$moduleid},'background',0,0,1)"><img src="image/add.jpg"></li>
+</div>
+</div>
+<div class="aui-input-row">
+<span class="aui-input-addon">自定义LOGO</span>
+<input type="hidden" class="aui-input" name="setting[logo]" id="logo" value="{$logo}">
+<div class="pic-list" id="thumbdlogo">
+{if $logo}<li id="thumb-logo"><a href="{$logo}"><img src="{$logo}"></a><span class="thumb-del" onclick="Delthumb('logo')"><i class="aui-iconfont aui-icon-close aui-text-white fz22"></i></span></li>{/if}
+<li id="thumba-logo" data="logo"  onclick="fupthumbs({$moduleid},'logo',0,0,1)"><img src="image/add.jpg"></li>
+</div>
+</div>
+    <div class="aui-input-row">
+     <span class="aui-input-addon">网站公告</span>
+      <textarea name="setting[announce]" id="announce" class="H-textarea H-form-text H-flex-item" >{$announce}</textarea>
+    </div>
+    <div class="aui-input-row">
+     <span class="aui-input-addon">访问次数</span>
+     <span class="aui-input-radio aui-padded-l-10">
+      <input type="radio" name="setting[show_stats]" value="1" id="s_s_1"{if $show_stats==1} checked{/if} class="aui-checkbox aui-checkbox-info" /><label class="aui-input-addon" for="s_s_1">显示</label>
+<input type="radio" name="setting[show_stats]" value="0" id="s_s_0"{if $show_stats==0} checked{/if} class="aui-checkbox aui-checkbox-info"/><label class="aui-input-addon" for="s_s_0">不显示</label></span>
+    </div>
+<script src="user/dist/lrz.bundle.js"></script>
+<input accept="image/*" type="file" id="upthumbimg" class="displaynone"/>
+<div class="displaynone aui-text-center" id="upthumbing" style=" position: absolute; top:40%; left:25%;"><svg id="containerf"></svg></div>
+<script type="text/javascript" id="upthumbjs" src="script/upthumb.js" data="{$moduleid}"></script>
+<script type="text/javascript" src="script/addpan.js" charset="utf-8"></script>
+ </div>
+</div>
+</div>
+
+<div id="Tabs1" style="display:none;">
+<div class="aui-content aui-bg-white" style="padding:5px 0 10px 0">
+<p class="aui-text-center home-menu-title" style="display:{if $MG[home_menu]}{else}none{/if};">菜单设置&nbsp;&nbsp;<a href="?action=reset&item=menu" onclick="return confirm('确定要恢复菜单设置为默认吗？');">恢复默认</a></p>
+<table cellspacing="1" cellpadding="6" class="tb">
+<tr style="display:{if $MG[home_menu]}{else}none{/if};">
+<td class="tr">
+<table cellpadding="3" cellspacing="3">
+<tr align="center">
+<td width="50">显示</td>
+<td width="50">排序</td>
+<td width="100">名称</td>
+<td width="50">分页</td>
+</tr>
+{loop $HMENU $k $v}
+{if strpos($menu_f, ','.$menu_file[$k].',') !== false}
+<tr align="center">
+<td>
+<input type="checkbox" name="menu_show_tmp" value="{$k}"{if $menu_show[$k]} checked{/if} onclick="Dd('menu_show_{$k}').value=this.checked ? 1 : 0;"/><input type="hidden" name="setting[menu_show][{$k}]" value="{$menu_show[$k]}" id="menu_show_{$k}"/>
+</td>
+<td><input type="text" name="setting[menu_order][{$k}]" size="3" value="{$menu_order[$k]}"/></td>
+<td><input type="text" name="setting[menu_name][{$k}]" size="20" value="{$menu_name[$k]}"/></td>
+<td><input type="text" name="setting[menu_num][{$k}]" size="3" value="{$menu_num[$k]}"/>
+<input type="hidden" name="setting[menu_file][{$k}]" value="{$menu_file[$k]}"/></td>
+</tr>
+{else}
+<tr style="display:none;">
+<td>
+<input type="checkbox" name="menu_show_tmp" value="{$k}"/><input type="hidden" name="setting[menu_show][{$k}]" value="0" id="menu_show_{$k}"/>
+</td>
+<td><input type="text" name="setting[menu_order][{$k}]" size="3" value="{$menu_order[$k]}"/></td>
+<td><input type="text" name="setting[menu_name][{$k}]" size="20" value="{$menu_name[$k]}"/></td>
+<td><input type="text" name="setting[menu_num][{$k}]" size="3" value="{$menu_num[$k]}"/>
+<input type="hidden" name="setting[menu_file][{$k}]" value="{$menu_file[$k]}"/></td>
+</tr>
+{/if}
+{/loop}
+</table>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div id="Tabs2" style="display:none;">
+<div class="aui-content aui-bg-white">
+    <div class="aui-input-row">
+     <span class="aui-input-addon">侧栏宽度</span>
+      <input type="text" class="aui-input" name="setting[side_width]" id="side_width" value="{$side_width}" placeholder="侧栏宽度"/>
+      <span class="aui-input-addon">px</span>
+
+    </div>
+    <div class="aui-input-row">
+     <span class="aui-input-addon">侧栏宽度</span>
+      <table>
+<tr align="center">
+<td width="100"><img src="{DT_STATIC}{$MODULE[2][moduledir]}/image/side_l.gif" title="侧栏在左" onclick="Dd('s_p_0').checked=true;"/></td>
+<td width="100"><img src="{DT_STATIC}{$MODULE[2][moduledir]}/image/side_r.gif" title="侧栏在右" onclick="Dd('s_p_1').checked=true;"/></td>
+</tr>
+<tr align="center">
+<td><div style="position:relative"><input type="radio" name="setting[side_pos]" value="0" id="s_p_0"{if $side_pos==0} checked{/if}/><label for="s_p_0">侧栏在左</label></div></td>
+<td><input type="radio" name="setting[side_pos]" value="1" id="s_p_1"{if $side_pos==1} checked{/if}/><label for="s_p_1">侧栏在右</label></td>
+</tr>
+</table>
+
+    </div>
+
+<table cellspacing="1" cellpadding="6" class="tb">
+<p class="aui-text-center home-menu-title" style="display:{if $MG[home_side]}{else}none{/if};">侧栏设置&nbsp;&nbsp;<a href="?action=reset&item=side" onclick="return confirm('确定要恢复侧栏位置为默认吗？');">恢复默认</a></p>
+<tr style="display:{if $MG[home_side]}{else}none{/if};">
+<td class="tr">
+<table cellpadding="3" cellspacing="3">
+<tr align="center">
+<td width="50">显示</td>
+<td width="50">排序</td>
+<td width="100">名称</td>
+<td width="50">数量</td>
+</tr>
+{loop $HSIDE $k $v}
+{if strpos($side_f, ','.$side_file[$k].',') !== false}
+<tr align="center">
+<td>
+<input type="checkbox" name="side_show_tmp" value="{$k}"{if $side_show[$k]} checked{/if} onclick="Dd('side_show_{$k}').value=this.checked ? 1 : 0;"/><input type="hidden" name="setting[side_show][{$k}]" value="{$side_show[$k]}" id="side_show_{$k}"/></td>
+<td><input type="text" name="setting[side_order][{$k}]" size="3" value="{$side_order[$k]}"/></td>
+<td><input type="text" name="setting[side_name][{$k}]" size="20" value="{$side_name[$k]}"/></td>
+<td><input type="text" name="setting[side_num][{$k}]" size="3" value="{$side_num[$k]}"/>
+<input type="hidden" name="setting[side_file][{$k}]" size="3" value="{$side_file[$k]}"/></td>
+</tr>
+{else}
+<tr style="display:none;">
+<td>
+<input type="checkbox" name="side_show_tmp" value="{$k}"/><input type="hidden" name="setting[side_show][{$k}]" value="0" id="side_show_{$k}"/></td>
+<td><input type="text" name="setting[side_order][{$k}]" size="3" value="{$side_order[$k]}"/></td>
+<td><input type="text" name="setting[side_name][{$k}]" size="20" value="{$side_name[$k]}"/></td>
+<td><input type="text" name="setting[side_num][{$k}]" size="3" value="{$side_num[$k]}"/>
+<input type="hidden" name="setting[side_file][{$k}]" size="3" value="{$side_file[$k]}"/></td>
+</tr>
+{/if}
+{/loop}
+</table>
+</td>
+</tr>
+</table>
+</div>
+</div>
+
+<div id="Tabs3" style="display:none;">
+<div class="aui-content aui-bg-white" style="padding:5px 0 10px 0">
+<p class="aui-text-center home-menu-title" style="display:{if $MG[home_main]}{else}none{/if};">首页主栏设置&nbsp;&nbsp;<a href="?action=reset&item=main" class="t" onclick="return confirm('确定要恢复首页主栏为默认吗？');">恢复默认</a></p>
+
+<table cellspacing="1" cellpadding="6" class="tb"><tr style="display:{if $MG[home_main]}{else}none{/if};">
+<td class="tr">
+<table cellpadding="3" cellspacing="3">
+<tr align="center">
+<td width="50">显示</td>
+<td width="50">排序</td>
+<td width="100">名称</td>
+<td width="50">数量</td>
+</tr>
+{loop $HMAIN $k $v}
+{if strpos($main_f, ','.$main_file[$k].',') !== false}
+<tr align="center">
+<td>
+<input type="checkbox" name="main_show_tmp" value="{$k}"{if $main_show[$k]} checked{/if} onclick="Dd('main_show_{$k}').value=this.checked ? 1 : 0;"/><input type="hidden" name="setting[main_show][{$k}]" value="{$main_show[$k]}" id="main_show_{$k}"/></td>
+<td><input type="text" name="setting[main_order][{$k}]" size="3" value="{$main_order[$k]}"/></td>
+<td><input type="text" name="setting[main_name][{$k}]" size="20" value="{$main_name[$k]}"/></td>
+<td><input type="text" name="setting[main_num][{$k}]" size="3" value="{$main_num[$k]}"/>
+<input type="hidden" name="setting[main_file][{$k}]" size="3" value="{$main_file[$k]}"/></td>
+</tr>
+{else}
+<tr style="display:none;">
+<td>
+<input type="checkbox" name="main_show_tmp" value="{$k}"/><input type="hidden" name="setting[main_show][{$k}]" value="0" id="main_show_{$k}"/></td>
+<td><input type="text" name="setting[main_order][{$k}]" size="3" value="{$main_order[$k]}"/></td>
+<td><input type="text" name="setting[main_name][{$k}]" size="20" value="{$main_name[$k]}"/></td>
+<td><input type="text" name="setting[main_num][{$k}]" size="3" value="{$main_num[$k]}"/>
+<input type="hidden" name="setting[main_file][{$k}]" size="3" value="{$main_file[$k]}"/></td>
+</tr>
+{/if}
+{/loop}
+</table>
+</td>
+</tr>
+</table>
+    <div class="aui-input-row">
+     <span class="aui-input-addon">公司简介显示LOGO</span>
+      <input type="text" class="aui-input" name="setting[intro_length]" id="intro_length" value="{$intro_length}" placeholder="公司简介显示"/>
+      <span class="aui-input-addon">字符</span>
+
+    </div>
+
+</div>
+</div>
+
+<div id="Tabs4" style="display:none;">
+<div class="aui-content aui-bg-white">
+<div class="aui-form">
+    <div class="aui-input-row">
+     <span class="aui-input-addon">首页SEO标题</span>
+      <input type="text" class="aui-input" name="setting[seo_title]" id="seo_title" value="{$seo_title}" placeholder="留空则显示公司名称"/>
+
+    </div>
+    <div class="aui-input-row">
+     <span class="aui-input-addon">网站关键词</span>
+      <input type="text" class="aui-input" name="setting[seo_keywords]" id="seo_keywords" value="{$seo_keywords}" placeholder="网站关键词"/>
+
+    </div>
+    <div class="aui-input-row">
+     <span class="aui-input-addon">网站描述</span>
+      <input type="text" class="aui-input" name="setting[seo_description]" id="seo_description" value="{$seo_description}" placeholder="网站描述"/>
+
+    </div>
+{if $api_map && $MG[map]}
+    <div class="aui-input-row">
+     <span class="aui-input-addon">地图标注</span>
+      <input type="text" class="aui-input" name="setting[map]" id="map" value="{$map}" placeholder="公司地图标注" readonly="readonly"/>
+<span class="aui-input-addon" style="font-size:12px !important;">获取位置</span>
+    </div>
+{/if}
+</div>
+{if $api_stats && $MG[stats]}
+<table cellspacing="1" cellpadding="6" class="tb" style="word-break:break-all; padding:10px;">
+{php include DT_ROOT.'/api/stats/these.name.php';}
+<div class="aui-form">
+    <div class="aui-input-row">
+     <span class="aui-input-addon">统计类型</span>
+<select name="setting[stats_type]" id="stats_type_s" class="aui-ml-10" onchange="stats_type(this.value)">
+{loop $api_stats $v}
+<option value="{$v}">{$names[$v]}</option>
+{/loop}
+</select>
+    </div>
+    </div>
+{loop $api_stats $v}
+{php include DT_ROOT.'/api/stats/'.$v.'/post.inc.php';}
+{/loop}
+</table>
+{/if}
+{if $api_kf && $MG[kf]}
+<table cellspacing="1" cellpadding="6" class="tb" style="word-break:break-all; padding:10px;">
+{php include DT_ROOT.'/api/kf/these.name.php';}
+<div class="aui-form">
+    <div class="aui-input-row">
+     <span class="aui-input-addon">客服类型</span>
+<select name="setting[kf_type]" id="kf_type_s" class="aui-ml-10" onchange="kf_type(this.value)">
+{loop $api_kf $v}
+<option value="{$v}">{$names[$v]}</option>
+{/loop}
+</select>
+    </div>
+   </div>
+{loop $api_kf $v}
+{php include DT_ROOT.'/api/kf/'.$v.'/post.inc.php';}
+{/loop}
+</table>
+{/if}
+
+</div>
+</div>
+
+<div class="aui-btn-row" style="background-color:#FFF;">
+ <input type="submit" name="submit" value=" 保存设置 " class="aui-btn aui-btn-danger fz16"/>&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="submit" value=" 清空设置 " class="aui-btn aui-btn-info fz16" onclick="if(confirm('确定要清空设置吗？商铺所有设置将被清空')){this.form.action='?reset=1';}else{return false;}"/>
+</div>
+
+</div>
+</form>    
+
+<script type="text/javascript">
+s('homepage');
+{if $tab}
+Tab({$tab});
+{else}
+tabbar('Tab0');
+{/if}
+{if $api_stats && $MG[stats]}
+function stats_type(type) {
+	var stats_types = [{loop $api_stats $k $v}{if $k},{/if}'{$v}'{/loop}];
+	var stats_pass = 0;
+	for(var i = 0; i < stats_types.length; i++) {
+		if(type == stats_types[i]) {
+			stats_pass = 1;
+			break;
+		}
+	}
+	if(stats_pass == 0) type = stats_types[0];
+	for(var i = 0; i < stats_types.length; i++) {
+		if(type == stats_types[i]) {
+			Ds('stats_post_'+stats_types[i]);
+		} else {
+			Dh('stats_post_'+stats_types[i]);
+		}
+	}
+	$('#stats_type_s').val(type);
+}
+stats_type('{$stats_type}');
+{/if}
+{if $api_kf && $MG[kf]}
+function kf_type(type) {
+	var kf_types = [{loop $api_kf $k $v}{if $k},{/if}'{$v}'{/loop}];
+	var kf_pass = 0;
+	for(var i = 0; i < kf_types.length; i++) {
+		if(type == kf_types[i]) {
+			kf_pass = 1;
+			break;
+		}
+	}
+	if(kf_pass == 0) type = kf_types[0];
+	for(var i = 0; i < kf_types.length; i++) {
+		if(type == kf_types[i]) {
+			Ds('kf_post_'+kf_types[i]);
+		} else {
+			Dh('kf_post_'+kf_types[i]);
+		}
+		$('#kf_type_s').val(type);
+	}
+}
+kf_type('{$kf_type}');
+{/if}
+</script>
+{template 'footer_member', 'mobile'}

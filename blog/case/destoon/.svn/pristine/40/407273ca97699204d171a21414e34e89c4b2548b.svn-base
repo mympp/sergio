@@ -1,0 +1,505 @@
+{php $CSS = array('index');}
+{template 'header'}
+	<div id="ipad_tips" style="display:none;"></div>
+	<div class="m">
+		<div class="m_l f_l">
+			<div class="topr">
+				<div class="TopNew"> 
+					<div id="item_21748">
+						<!--{php $tags=tag("moduleid=21&condition=status=3 and level>0&length=34&areaid=$cityid&pagesize=1&showcat=1&datetype=2&order=addtime desc&target=_blank&template=null")}-->
+						 {loop $tags $i $t}
+						 <div class="topnew_title"><span class="topnewj">topnew</span><a href="{$t[linkurl]}" title="{$t[title]}" target="_blank"><strong>{$t[title]}</strong></a></div>
+						<div class="topnew_introduce">{dsubstr($t[introduce], 160, '...')}...<a href="{$t[linkurl]}" target="_blank">[详细]</a></div>
+						 {/loop}
+					</div>
+				</div>
+				<div id="trades">
+					<div class="tab_head">
+						<ul>
+						  <li class="tab_2" id="trade_t_1" onmouseover="Tb(1, 4, 'trade', 'tab');">今日推荐</a></li>
+						  <li class="tab_1" id="trade_t_2" onmouseover="Tb(2, 4, 'trade', 'tab');"><a href="#">标识标牌</a></li>
+						  <li class="tab_1" id="trade_t_3" onmouseover="Tb(3, 4, 'trade', 'tab');"><a href="#">印刷包装</a></li>
+						  <li class="tab_1" id="trade_t_4" onmouseover="Tb(4, 4, 'trade', 'tab');"><a href="#">广告加工</a></li>
+						</ul>
+					</div>
+					<div class="trade_body ">
+						<div id="trade_c_1" class="itrade" style="display:"> 
+							<!--{tag("moduleid=21&condition=status=3>0&length=36&areaid=$cityid&pagesize=11&showcat=1&datetype=2&order=addtime desc&target=_blank&template=list")}-->
+						</div>
+						<div id="trade_c_2" class="itrade" style="display:none;"> 
+							<!--{tag("moduleid=21&catid=749&condition=status=3>0&length=36&areaid=$cityid&pagesize=11&showcat=1&datetype=2&order=addtime desc&target=_blank&template=list")}-->
+						</div>
+						<div id="trade_c_3" class="itrade" style="display:none"> 
+							<!--{tag("moduleid=21&catid=757&condition=status=3>0&length=36&areaid=$cityid&pagesize=11&showcat=1&datetype=2&order=addtime desc&target=_blank&template=list")}-->
+						</div>
+						<div id="trade_c_4" class="itrade" style="display:none"> 
+							<!--{tag("moduleid=21&catid=3097&condition=status=3>0&length=36&areaid=$cityid&pagesize=11&showcat=1&datetype=2&order=addtime desc&target=_blank&template=list")}-->     
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="topl">
+				{if $DT[page_catalog]}
+				<div class="icatalog_head"><div><span class="f_r c_p" onclick="Go('{DT_PATH}sitemap/{rewrite('index.php?mid=5')}');">展开全部</span><strong>行业分类</strong></div></div>
+				<div class="icatalog_body">
+					<div class="icatalog">
+						{php $mid = 5;}
+						{php $child = get_maincat(0, $mid, 1);}
+						{loop $child $i $c}
+						{if $i<12 && $c[child]}
+						{php $sub = get_maincat($c[catid], $mid, 1);}
+						<ul>
+						<li><a href="{$MODULE[$mid][linkurl]}{$c[linkurl]}" target="_blank"><strong>{set_style($c[catname], $c[style])}</strong></a></li>
+						<div style="height:14px;line-height:14px;overflow:hidden;">
+						{loop $sub $j $s}
+						{if $j<4}<a href="{$MODULE[$mid][linkurl]}{$s[linkurl]}" target="_blank">{set_style($s[catname], $s[style])}</a></li> | {/if}
+						{/loop}
+						</div>
+						</ul>
+						{/if}
+						{/loop}
+					</div>
+				</div>
+				{/if}
+				<div class="b3">　</div>
+                <div class="qiugou">
+					<div class="qiugou_head">
+						<div><span class="f_r c_p" onclick="Go('{$MODULE[2][linkurl]}{$DT[file_my]}?mid=6&action=add');">发布求购</span><a target="_blank" href="{$MODULE[6][linkurl]}?typeid=5">招标信息</a></div>
+					</div>
+					<div class="qiugou_body"> 
+						<!--{tag("moduleid=6&condition=status=3>0&length=24&areaid=$cityid&pagesize=7&showcat=1&datetype=2&order=addtime desc&target=_blank&template=list")}-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="m_n f_l">　</div>
+		<div class="m_r f_l">
+			<div class="iuser"><a href="{$MODULE[2][linkurl]}{$DT[file_login]}" rel="nofollow" class="iuser_l" title="登录">登录</a><a href="{$MODULE[2][linkurl]}{$DT[file_register]}" rel="nofollow" class="iuser_r" title="注册">注册</a><a href="{$MODULE[2][linkurl]}{$DT[file_my]}" rel="nofollow" class="iuser_m" title="发布信息">发布信息</a></div>
+			<div class="b3">　</div>
+			<div class="Dynamic_head">
+				<ul>
+				  <li class="Dynamic_2" id="Dynamic_t_1" onmouseover="Tb(1, 2, 'Dynamic', 'Dynamic');"><a href="{$EXT[announce_url]}">网站动态</a></li>
+				  <li class="Dynamic_1" id="Dynamic_t_2" onmouseover="Tb(2, 2, 'Dynamic', 'Dynamic');"><a href="#">网站服务</a></li>
+				</ul>
+				<div id="site_stats">
+				  <ul>
+					<li>产品总数:<span>{php echo $db->count($DT_PRE.'sell_5', 'status=3', 1800);}</span></li>
+					<li>求购总数:<span>{php echo $db->count($DT_PRE.'buy_6', 'status=3', 1800);}</span></li>
+					<li>企业总数:<span>{php echo $db->count($DT_PRE.'company', '1', 1800);}</span></li>
+					<li>在线会员:<span>{php echo $db->count($DT_PRE.'online', '1', 1800);}</span></li>
+				  </ul>
+				</div>
+			</div>
+			<div class="box_body ">
+				<div id="Dynamic_c_1" class="Dynamic li_dot" style="display:">
+					<div class="announce">
+						<!--{tag("table=announce&condition=totime=0 or totime>$today_endtime-86400&listorder=3&areaid=$cityid&pagesize=3&datetype=2&order=listorder desc,addtime desc&target=_blank")}-->
+					</div>
+				</div>
+				<div id="Dynamic_c_2" class="Dynamic" style="display:none">
+					<div class="announce li_dot">
+						<!--{tag("table=announce&condition=totime=0 or totime>$today_endtime-86400&listorder=1&areaid=$cityid&pagesize=3&datetype=2&order=listorder desc,addtime desc&target=_blank")}-->
+					</div>
+				</div>
+				<div class="Marketing">
+					<div class="marketing_l"></div>
+					<div class="marketing_r">
+						<div class="Marketing_td">  
+							<tr><td><a href="#" title="女性创业做什么：女性创业好项目推荐">女性创业做什么：</a>;</td>
+							<tr><td><a href="#" title="创业分享:创业团队怎样留人">创业分享:创业团队</a>;</td>
+						</div>
+						<div class="Marketing_td">  
+							<tr><td><a href="#" title="厂家：如何做好渠道“盟主”">厂家：如何做好渠</a>;</td>
+							<tr><td><a href="#" title="加速成功的6大好习惯！">加速成功的6大好习</a>;</td>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="b3">　</div>
+			<div class="b3">　</div>
+			<div class="box_head"> <span class="f_r"><a href="{$MODULE[2][linkurl]}grade.php" rel="nofollow" class="g">我也要出现在这里&raquo;</a></span> <a href="{$MODULE[4][linkurl]}"><strong>企业展示</strong></a> </div>
+			<div class="box_body li_cen">
+				<div style="height:217px;overflow:hidden;" id="company">
+					<!--{tag("moduleid=4&condition=vip>0 and catids<>''&areaid=$cityid&pagesize=".$DT[page_com]."&order=fromtime desc&template=list-com")}-->
+				</div>
+			</div>
+		</div>
+  <div class="c_b"></div>
+  </div>
+  <div class="m">
+      <div class="m b5">　</div>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td></td>
+        <td width="7"></td>
+        <td></td>
+        <td width="7"></td>
+        <td></td>
+      </tr>
+    </table>
+    <div class="m b5">　</div>
+    <div class="RProduct_head">
+		<span class="f_r f_gray">
+		<a href="#">指示标识</a> |
+		<a href="#">标牌铭牌</a> |
+		<a href="#">丝印彩印</a> |
+		<a href="#">包装收纳</a> |
+		<a href="#">文化用品</a>|
+		<a href="#">广告制作</a> |
+		<a href="#">广告材料</a> |
+		<a href="#">广告设备</a> |
+		<a href="#">机械设备</a> |
+		<a href="#">工艺礼品</a>
+		</span>
+	<a href="{$MODULE[5][linkurl]}"><strong>供应信息</strong></a>
+	</div>
+    <div class="RProduct_body">
+      <div class="m_l f_l">
+        <div class="RProduct_L">
+          <div class="RProduct_L_head">
+            <div class="RProduct_2" id="RProduct_t_1"> <a href="{$MODULE[5][linkurl]}">推荐产品</a></div>
+            <div><span class="cp10"> <a href="{$MODULE[2][linkurl]}grade.php" rel="nofollow" class="g">我也要出现在这里</a> </span></div>
+             </div>
+          <div id="RProduct_c_1" class="isell_s" style="display:"> 
+<!--{php $tags=tag("moduleid=5&condition=status=3 and level>0 and thumb<>''&areaid=$cityid&pagesize=12&order=addtime desc&width=90&height=80&cols=4&target=_blank&lazy=$lazy&template=null")}--> 
+            <table width="100%">
+			{loop $tags $i $t}
+			{if $i%$cols==0}
+			<tr align="center">{/if}
+			<td width="25%" valign="top">
+			<a href="{$t[linkurl]}" target="_blank"><img src="{$t[thumb]}" class="lazy" original="{$t[thumb]}" width="{$width}" height="{$height}" alt="{$t[alt]}"/></a>
+			<ul><li><a href="{$t[linkurl]}" title="{$t[alt]}" target="_blank">{$t[title]}</a></li></ul></td>
+			{if $i%$cols==($cols-1)}</tr>{/if}
+			{/loop}
+			</table>
+          </div>
+           </div>
+        <div class="RProduct_R">
+          <div class="RProduct_R_head">
+            <div class="RProduct_3"><a href="{$MODULE[5][linkurl]}">产品列表</a></div>
+          </div>
+    <div class="isell_p li_dot">
+<!--{tag("moduleid=5&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=16&length=40&target=_blank&template=list")}-->
+	</div>
+        </div>
+      </div>
+      <div class="m_r f_l">
+        <div class="w280">           
+		<div class="pinpai_head"> <a href="{$MODULE[13][linkurl]}"><strong>优质品牌</strong></a> </div>
+          <div class="thumb">
+		  <!--{tag("moduleid=13&condition=status=3 and level>0&areaid=$cityid&pagesize=8&order=addtime desc&width=120&height=50&cols=2&target=_blank&lazy=$lazy&template=thumb-brand")}-->
+		</div>
+           </div>
+      </div>
+    </div>
+    <div class="c_b"></div>
+      
+    <!--资讯中心-->
+    <div class="m b10"></div>
+    <div class="m">
+		<div class="RProduct_head">
+			<span class="f_r f_gray"> 
+				<!--{php $tags=tag("table=category&condition=moduleid=21&parentid=0&pagesize=10&order=listorder,catid&template=null");}-->
+				{loop $tags $i $t}{if $i} &nbsp;|&nbsp; {/if}<a href="{$MODULE[23][linkurl]}{$t[linkurl]}">{$t[catname]}</a>{/loop}
+			</span>
+			<a href="{$MODULE[23][linkurl]}"><strong>技术学院</strong></a>
+		</div>
+		<div class="m_l f_l">
+			<div class="homeinfo_l">
+				<div class="Homeinfo_head">
+					<div class="HomeinfotbA_2" id="HomeinfotbA_t_1" onmouseover="Tb(1, 2, 'HomeinfotbA', 'HomeinfotbA');"><a href="#">PHOTOSHOP</a></div>
+					<div class="HomeinfotbA_1" id="HomeinfotbA_t_2" onmouseover="Tb(2, 2, 'HomeinfotbA', 'HomeinfotbA');"><a href="#">CORELDRAW</a></div>
+				</div>
+				<div class="Homeinfo_box">
+					<div id="HomeinfotbA_c_1"  style="display:">
+						<div class="boxinfo"> 
+							<!--{php $tags=tag("moduleid=21&datetype=2&condition=status=3 and thumb<>''&areaid=$cityid&order=addtime desc&pagesize=1&length=38&target=_blank&template=null")}-->
+							{loop $tags $i $t}
+							<div class="boxinfotuwen" id="item_{$t[catid]}">
+							  <div class="boxinfoimg"><a href="{$t[linkurl]}" target="_blank" alt="{$t[alt]}"><img src="{$t[thumb]}" width="80" height="65" alt="{$t[alt]}"/></a></div>
+							  <div class="boxinfotitle">
+								<ul>
+								   <li><strong><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></strong><span>{dsubstr($t[introduce], 62, '...')}<a href="{$t[linkurl]}" target="_blank">[详细]</a></span> </li>
+								</ul>
+							  </div>
+							</div>
+							 {/loop}
+							<div class="boxinfolist li_dot">
+								<!--{tag("moduleid=21&datetype=2&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=5&length=38&target=_blank&template=list")}-->
+							</div>
+						</div>
+					</div>
+					<div id="HomeinfotbA_c_2" style="display:none">
+						<div class="boxinfo"> 
+							<!--{php $tags=tag("moduleid=21&datetype=2&condition=status=3 and thumb<>''&areaid=$cityid&order=addtime desc&pagesize=1&length=38&target=_blank&template=null")}-->
+							{loop $tags $i $t}
+							<div class="boxinfotuwen" id="item_{$t[catid]}">
+							  <div class="boxinfoimg"><a href="{$t[linkurl]}" target="_blank" alt="{$t[alt]}"><img src="{$t[thumb]}" width="80" height="65" alt="{$t[alt]}"/></a></div>
+							  <div class="boxinfotitle">
+								<ul>
+								   <li><strong><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></strong><span>{dsubstr($t[introduce], 62, '...')}<a href="{$t[linkurl]}" target="_blank">[详细]</a></span> </li>
+								</ul>
+							  </div>
+							</div>
+							 {/loop}
+							<div class="boxinfolist li_dot">
+							<!--{tag("moduleid=21&datetype=2&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=5&length=38&target=_blank&template=list")}-->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="b5"></div>
+				<div class="Homeinfo_head">
+					<div class="HomeinfotbB_2" id="HomeinfotbB_t_1" onmouseover="Tb(1, 2, 'HomeinfotbB', 'HomeinfotbB');"><a href="#">印刷常识</a></div>
+					<div class="HomeinfotbB_1" id="HomeinfotbB_t_2" onmouseover="Tb(2, 2, 'HomeinfotbB', 'HomeinfotbB');"><a href="#">丝网印刷</a></div>
+				</div>
+				<div class="Homeinfo_box">
+					<div id="HomeinfotbB_c_1" style="display:">
+						<div class="boxinfo"> 
+							<!--{php $tags=tag("moduleid=21&datetype=2&condition=status=3 and thumb<>''&areaid=$cityid&order=addtime desc&pagesize=1&length=38&target=_blank&template=null")}-->
+							{loop $tags $i $t}
+							<div class="boxinfotuwen" id="item_{$t[catid]}">
+							  <div class="boxinfoimg"><a href="{$t[linkurl]}" target="_blank" alt="{$t[alt]}"><img src="{$t[thumb]}" width="80" height="65" alt="{$t[alt]}"/></a></div>
+							  <div class="boxinfotitle">
+								<ul>
+								   <li><strong><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></strong><span>{dsubstr($t[introduce], 62, '...')}<a href="{$t[linkurl]}" target="_blank">[详细]</a></span> </li>
+								</ul>
+							  </div>
+							</div>
+							 {/loop}
+							<div class="boxinfolist li_dot">
+								<!--{tag("moduleid=21&datetype=2&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=5&length=38&target=_blank&template=list")}-->
+							</div>
+						</div>
+					</div>
+					<div id="HomeinfotbB_c_2"  style="display:none">
+						<div class="boxinfo"> 
+							<!--{php $tags=tag("moduleid=23&catid=3111&datetype=2&condition=status=3 and thumb<>''&areaid=$cityid&order=addtime desc&pagesize=1&length=38&target=_blank&template=null")}-->
+							{loop $tags $i $t}
+							<div class="boxinfotuwen" id="item_{$t[catid]}">
+							  <div class="boxinfoimg"><a href="{$t[linkurl]}" target="_blank" alt="{$t[alt]}"><img src="{$t[thumb]}" width="80" height="65" alt="{$t[alt]}"/></a></div>
+							  <div class="boxinfotitle">
+								<ul>
+								   <li><strong><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></strong><span>{dsubstr($t[introduce], 62, '...')}<a href="{$t[linkurl]}" target="_blank">[详细]</a></span> </li>
+								</ul>
+							  </div>
+							</div>
+							 {/loop}
+							<div class="boxinfolist li_dot">
+								<!--{tag("moduleid=23&catid=3111&datetype=2&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=5&length=38&target=_blank&template=list")}-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="Homeinfo_r">
+				<div class="Homeinfo_head">
+					<div class="HomeinfotbC_2" id="HomeinfotbC_t_1" onmouseover="Tb(1, 2, 'HomeinfotbC', 'HomeinfotbC');"><a href="#">包装设计</a></div>
+					<div class="HomeinfotbC_1" id="HomeinfotbC_t_2" onmouseover="Tb(2, 2, 'HomeinfotbC', 'HomeinfotbC');"><a href="#">设计理论</a></div>
+				</div>
+				<div class="Homeinfo_box">
+					<div id="HomeinfotbC_c_1"  style="display:">
+						<div class="boxinfo"> 
+							<!--{php $tags=tag("moduleid=21&datetype=2&condition=status=3 and thumb<>''&areaid=$cityid&order=addtime desc&pagesize=1&length=38&target=_blank&template=null")}-->
+							{loop $tags $i $t}
+							<div class="boxinfotuwen" id="item_{$t[catid]}">
+							  <div class="boxinfoimg"><a href="{$t[linkurl]}" target="_blank" alt="{$t[alt]}"><img src="{$t[thumb]}" width="80" height="65" alt="{$t[alt]}"/></a></div>
+							  <div class="boxinfotitle">
+								<ul>
+								   <li><strong><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></strong><span>{dsubstr($t[introduce], 62, '...')}<a href="{$t[linkurl]}" target="_blank">[详细]</a></span> </li>
+								</ul>
+							  </div>
+							</div>
+							 {/loop}
+							<div class="boxinfolist li_dot">
+								<!--{tag("moduleid=21&datetype=2&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=5&length=38&target=_blank&template=list")}-->
+							</div>
+						</div>
+					</div>
+					<div id="HomeinfotbC_c_2"  style="display:none">
+						<div class="boxinfo"> 
+							<!--{php $tags=tag("moduleid=21&datetype=2&condition=status=3 and thumb<>''&areaid=$cityid&order=addtime desc&pagesize=1&length=38&target=_blank&template=null")}-->
+							{loop $tags $i $t}
+							<div class="boxinfotuwen" id="item_{$t[catid]}">
+							  <div class="boxinfoimg"><a href="{$t[linkurl]}" target="_blank" alt="{$t[alt]}"><img src="{$t[thumb]}" width="80" height="65" alt="{$t[alt]}"/></a></div>
+							  <div class="boxinfotitle">
+								<ul>
+								   <li><strong><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></strong><span>{dsubstr($t[introduce], 62, '...')}<a href="{$t[linkurl]}" target="_blank">[详细]</a></span> </li>
+								</ul>
+							  </div>
+							</div>
+							 {/loop}
+							<div class="boxinfolist li_dot">
+								<!--{tag("moduleid=21&datetype=2&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=5&length=38&target=_blank&template=list")}-->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="b5"></div>
+				<div class="Homeinfo_head">
+					<div class="HomeinfotbD_2" id="HomeinfotbD_t_1" onmouseover="Tb(1, 2, 'HomeinfotbD', 'HomeinfotbD');"><a href="#">广告雕刻</a></div>
+					<div class="HomeinfotbD_1" id="HomeinfotbD_t_2" onmouseover="Tb(2, 2, 'HomeinfotbD', 'HomeinfotbD');"><a href="#">广告制作</a></div>
+				</div>
+				<div class="Homeinfo_box">
+					<div id="HomeinfotbD_c_1" style="display:">
+						<div class="boxinfo"> 
+							<!--{php $tags=tag("moduleid=21&datetype=2&condition=status=3 and thumb<>''&areaid=$cityid&order=addtime desc&pagesize=1&length=38&target=_blank&template=null")}-->
+							{loop $tags $i $t}
+							<div class="boxinfotuwen" id="item_{$t[catid]}">
+							  <div class="boxinfoimg"><a href="{$t[linkurl]}" target="_blank" alt="{$t[alt]}"><img src="{$t[thumb]}" width="80" height="65" alt="{$t[alt]}"/></a></div>
+							  <div class="boxinfotitle">
+								<ul>
+								   <li><strong><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></strong><span>{dsubstr($t[introduce], 62, '...')}<a href="{$t[linkurl]}" target="_blank">[详细]</a></span> </li>
+								</ul>
+							  </div>
+							</div>
+							 {/loop}
+							<div class="boxinfolist li_dot">
+								<!--{tag("moduleid=21&datetype=2&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=5&length=38&target=_blank&template=list")}-->
+							</div>
+						</div>
+					</div>
+					<div id="HomeinfotbD_c_2"  style="display:none">
+						<div class="boxinfo"> 
+							<!--{php $tags=tag("moduleid=21&datetype=2&condition=status=3 and thumb<>''&areaid=$cityid&order=addtime desc&pagesize=1&length=38&target=_blank&template=null")}-->
+							{loop $tags $i $t}
+							<div class="boxinfotuwen" id="item_{$t[catid]}">
+							  <div class="boxinfoimg"><a href="{$t[linkurl]}" target="_blank" alt="{$t[alt]}"><img src="{$t[thumb]}" width="80" height="65" alt="{$t[alt]}"/></a></div>
+							  <div class="boxinfotitle">
+								<ul>
+								   <li><strong><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></strong><span>{dsubstr($t[introduce], 62, '...')}<a href="{$t[linkurl]}" target="_blank">[详细]</a></span> </li>
+								</ul>
+							  </div>
+							</div>
+							 {/loop}
+							<div class="boxinfolist li_dot">
+								<!--{tag("moduleid=21&datetype=2&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=5&length=38&target=_blank&template=list")}-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div class="Homeinfo_box f_r" style="width:303px;">
+			<div class="pinpai_head"><a href="#"><strong>郊果处理</strong></a></div>
+			<div class="boxinfo">
+				<div class="boxinfotuwen" id="item_21562">
+					<!--{php $tags=tag("moduleid=21&datetype=2&condition=status=3 and thumb<>''&areaid=$cityid&order=addtime desc&pagesize=1&length=38&target=_blank&template=null")}-->
+					{loop $tags $i $t}
+					<div class="boxinfoimg"><a href="{$t[linkurl]}" target="_blank" alt="{$t[alt]}"><img src="{$t[thumb]}" width="80" height="65" alt="{$t[alt]}"/></a></div>
+					<div class="boxinfotitle-renwu">
+						<ul>
+						   <li><strong><a href="{$t[linkurl]}" target="_blank">{$t[title]}</a></strong> <span>{dsubstr($t[introduce], 80, '...')}</span> </li>
+						</ul>
+					</div>
+					{/loop}
+				</div>
+				<div class="boxinfolist li_dot">
+					<!--{tag("moduleid=21&datetype=2&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=6&length=38&target=_blank&template=list")}-->
+				</div>
+				<div class="b10"></div>	
+			</div>
+			<div class="b10"></div>
+			<div class="pinpai_head"><a href="#"><strong>喷绘写真</strong></a></div>
+			<div class="boxinfolist li_dot">
+				<!--{tag("moduleid=21&datetype=2&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=9&length=38&target=_blank&template=list")}-->
+			</div>
+		</div>
+	</div>
+  <div class="m b5">　</div>
+    <div class="RProduct_head">
+			  <span class="f_r f_gray"> 
+         <!--{php $tags=tag("table=category&condition=moduleid=15 and parentid=0&pagesize=10&order=listorder,catid&template=null");}-->
+			{loop $tags $i $t}{if $i} &nbsp;|&nbsp; {/if}<a href="{$MODULE[15][linkurl]}{$t[linkurl]}">{$t[catname]}</a>{/loop}
+			</span>	<a href="{$MODULE[15][linkurl]}"><strong>资源下载</strong></a>
+	</div>
+    <div class="RProduct_body">
+      <div class="m_l f_l">
+        <div class="RProduct_L">
+          <div class="RProduct_L_head">
+			<div class="RProduct_2" id="RProduct_t_1"><a href="{$MODULE[15][linkurl]}">推荐资源</a></div>
+			<div><span class="cp10"><a href="{$MODULE[2][linkurl]}grade.php" rel="nofollow" class="g">我也要出现在这里</a></span></div>
+          </div>
+          <div id="RProduct_c_1" class="isell_s" style="display:"> 
+			<!--{php $tags=tag("moduleid=15&condition=status=3 and level>0 and thumb<>''&areaid=$cityid&pagesize=12&order=addtime desc&width=90&height=80&cols=4&target=_blank&lazy=$lazy&template=null")}-->
+			<table width="100%">
+			{loop $tags $i $t}
+			{if $i%$cols==0}
+			<tr align="center">{/if}
+			<td width="25%" valign="top">
+			<a href="{$t[linkurl]}" target="_blank"><img src="{$t[thumb]}" class="lazy" original="{$t[thumb]}" width="{$width}" height="{$height}" alt="{$t[alt]}"/></a>
+			<ul><li><a href="{$t[linkurl]}" title="{$t[alt]}" target="_blank">{$t[title]}</a></li></ul></td>
+			{if $i%$cols==($cols-1)}</tr>{/if}
+			{/loop}
+			</table>
+          </div>
+           </div>
+        <div class="RProduct_R">
+          <div class="RProduct_R_head">
+            <div class="RProduct_3"><a href="{$MODULE[15][linkurl]}">下载列表</a></div>
+          </div>
+    <div class="isell_p li_dot">
+<!--{tag("moduleid=15&condition=status=3&areaid=$cityid&order=addtime desc&pagesize=16&length=40&target=_blank&template=list")}-->
+	</div>
+        </div>
+      </div>
+      <div class="m_r f_l">
+        <div class="w280">           
+		<div class="pinpai_head"> <a href="{$MODULE[13][linkurl]}"><strong>
+			打包推荐</strong></a> </div>
+          <div class="thumb">
+		  <!--{tag("moduleid=15&condition=status=3 and level>0&areaid=$cityid&pagesize=6&order=addtime desc&width=120&height=80&cols=2&target=_blank&lazy=$lazy&template=thumb-brand")}-->
+		</div>
+           </div>
+      </div>
+    </div>
+    <div class="c_b"></div>
+    <!--展会开始-->
+    <div class="c_b"></div>
+    <div class="m b5"></div>
+    <!--展馆介绍-->
+    <div class="c_b"></div>
+    <div class="m b5"></div>
+    
+    <!--服务开始-->
+    <div class="c_b"></div>
+    <div class="m b5"></div>
+  </div>
+  
+  <!--友情链接-->
+  <div class="c_b"></div>
+  <div class="m b5"></div>
+    <div class="m">
+    <div class="tab_head"> <span class="f_r f_n px12"><a href="{$MODULE[3][linkurl]}shortcut.php" rel="nofollow" class="g">保存本站桌面快捷方式 &darr;;</a>&nbsp;&nbsp;&nbsp;</span>
+      <ul>
+        <li class="tab_2"><a href="{$EXT[link_url]}">友情链接</a></li>
+        <li class="tab_1"><a href="{$EXT[link_url]}{rewrite('index.php?action=reg')}">申请链接</a></li>
+      </ul>
+    </div>
+	<div class="box_body">
+	{if $DT[page_text]}
+	<!--{tag("table=link&condition=status=3 and level>0 and thumb='' and username=''&areaid=$cityid&pagesize=".$DT['page_text']."&order=listorder desc,itemid desc&template=list-link&cols=9")}-->
+	{/if}
+	</div>
+	</div>
+   
+  
+  <!--网页底部服务内容-->
+  <div class="c_b"></div>
+  <div class="m b5"></div>
+</div>
+<script type="text/javascript" src="{DT_STATIC}file/script/index.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/marquee.js"></script>
+<script type="text/javascript">
+new dmarquee(22, 10, 3000, 'site_stats');
+new dmarquee(22, 30, 3000, 'company');
+if(get_cookie('auth')) {
+	$('.iuser_l')[0].title = '商务中心';
+	$('.iuser_l')[0].href = '{$MODULE[2][linkurl]}';
+	$('.iuser_l')[0].className = 'iuser_u';
+	$('.iuser_r')[0].title = '完善我的会员资料';
+	$('.iuser_r')[0].href = '{$MODULE[2][linkurl]}edit.php';
+	$('.iuser_r')[0].className = 'iuser_e';
+}
+</script>
+{template 'footer'}

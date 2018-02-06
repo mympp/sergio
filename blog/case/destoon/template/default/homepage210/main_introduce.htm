@@ -1,0 +1,13 @@
+<div class="main_head"><div><span class="f_r"><a href="{userurl($username, 'file=introduce', $domain)}">更多+</a></span><strong>{$main_name[$HM]}</strong></div></div>
+<div class="main_body">
+	<div class="lh18 px13 pd10">
+	{if $video}
+	{load('player.js')}
+	<div style="width:250px;height:210px;text-align:right;float:right;"><script type="text/javascript">document.write(player('{$video}',240,200,'',1));</script></div>
+	{else}
+	<img src="{$COM[thumb]}" style="width:100%;height:300px;"/>
+	{/if}
+	<p style="line-height:30px;font-size:14px;margin:0;padding:0;float:left;margin-top:5px;">{dsubstr($COM[intro],100)}...[<a style="line-height:30px;font-size:14px;" href="{userurl($username, 'file=introduce', $domain)}" class="t">详细介绍</a>]</p> 
+	<div class="c_b"></div>
+	</div>
+</div>

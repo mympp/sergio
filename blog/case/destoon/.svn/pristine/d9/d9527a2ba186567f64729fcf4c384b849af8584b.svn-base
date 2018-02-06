@@ -1,0 +1,111 @@
+<div class="m">&nbsp;</div>
+<div class="index_footer">
+	<div class="footer">
+		<a href="{$MODULE[1][linkurl]}">网站首页</a>
+		<!--{tag("table=webpage&condition=item=1&areaid=$cityid&order=listorder desc,itemid desc&template=list-webpage")}-->
+		| <a href="{$MODULE[1][linkurl]}sitemap/">网站地图</a>
+		| <a href="{$EXT[spread_url]}">排名推广</a>
+		{if $EXT[ad_enable]} | <a href="{$EXT[ad_url]}">广告服务</a>{/if}
+		{if $EXT[gift_enable]} | <a href="{$EXT[gift_url]}">积分换礼</a>{/if}
+		{if $EXT[guestbook_enable]} | <a href="{$EXT[guestbook_url]}">网站留言</a>{/if}
+		{if $EXT[feed_enable]} | <a href="{$EXT[feed_url]}">RSS订阅</a>{/if}
+		{if $DT[icpno]} | <a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow">{$DT[icpno]}</a>{/if}
+		<div id="copyright">{$DT[copyright]}</div>
+		{if DT_DEBUG}<div class="px11">{debug()}</div>{/if}
+		<div id="powered"><a href="http://www.destoon.com/" target="_blank"><img src="{DT_STATIC}file/image/powered.gif" width="136" height="10" alt="Powered by DESTOON"/></a></div>
+	</div><!--footer-->
+</div>	
+<!-- 右侧漂浮信息 -->
+<link href="{DT_SKIN}validationEngine.jquery.css" rel="stylesheet" type="text/css" />
+<link href="{DT_SKIN}menu-right.css" rel="stylesheet" type="text/css" />
+<div class="float_right">
+	<div class="float_r_top">
+		<img src="{DT_SKIN}image/float_r_top.png" />
+	</div><!--float_r_top-->
+	<ul>
+		<div class="float_right_two">
+			<div class="loat_rt loat_rth" style="display:none;">
+				<div class="lo_at_rt2">
+					<span>求购热线: </span><i>029-88893679</i>
+				</div><!--lo_at_rt2-->
+				<div class="lo_at_rt3">
+					<span>QQ客服</span>
+					<a target=_blank href="http://wpa.qq.com/msgrd?v=3&uin=906172833&site=qq&menu=yes">
+					<img src="{DT_SKIN}image/qq_talk.jpg" /></a>
+				</div><!--lo_at_rt3-->
+			</div><!--loat_rt-->
+		</div><!--float_right_two-->
+		<li><a href="#">在线<br/>客服</a>
+			<div class="float_right_two">
+				<dl>
+					<dd><span>求购热线</span><i><strong>029-88893679</strong></i></dd>
+					<dd><em>QQ</em><a href="http://wpa.qq.com/msgrd?v=3&uin=906172833&site=qq&menu=yes">
+					<img src="{DT_SKIN}image/qq_talk.jpg" /></a>
+					</dd>
+					<dd class="bbh_lce"><span>工作时间</span><i>周一到周五 <font>9:00-18:00</font></i>
+					</dd>
+				</dl>
+		   </div><!--float_right_two-->
+		</li>
+	   <li class="ku_plr"><a href="#">官方<br/>微信</a>
+		   <div class="float_right_two">
+				<img src="{DT_SKIN}image/top_ewm.jpg" />
+		   </div><!--float_right_two-->
+	   </li>
+	</ul>
+	<div class="back_to">
+		<a href="javascript:void(0)"><img src="{DT_SKIN}image/float_r_btm.png" /></a>
+	</div><!--back_to-->
+</div><!--float_right-->
+</body>
+</html>
+<script type="text/javascript">
+ $("form").live("submit",function(){
+		$(this).find("[placeholder]").each(function(){
+			var placeholder = $(this).attr("placeholder");
+			if(placeholder== null || placeholder=="") return;
+			if($.trim($(this).val()) == placeholder) this.value="";
+		});
+	});
+if($('#marquee li').length > 1)
+{
+	$('#marquee').kxbdSuperMarquee({distance:645,time:4,navId:'#marNav',direction:'left'});
+}
+if($(".scroll_prt dd").length > 4)
+{
+	$(".mr_frbox").slide({
+		titCell:"",
+		mainCell:".scroll_prt dl",
+		autoPage:true,
+		effect:"leftLoop",
+		autoPlay:true,
+		vis:4
+	 });
+}
+window.onload = function () 
+{
+	getafter();
+};
+function getafter()
+{
+	var now = new Date();
+	var hours = now.getHours();
+	var p = hours>=12 ? "下午":"上午";
+	$("#divnologin #noon").html(p);		
+	$("#divlogin #noon").html(p);		
+}
+</script>
+
+<script type="text/javascript">
+{if $destoon_task}
+show_task('{$destoon_task}');
+{else}
+{php include DT_ROOT.'/api/task.inc.php';}
+{/if}
+{if $lazy}$(function(){$("img").lazyload();});{/if}
+</script>
+<link href="{DT_SKIN}footer.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+	var _purllogin_status_top = "/include/login_status_top.jsp?url_randparamsr=" + Math.floor(Math.random()*1000000)+"_"+ Math.floor(Math.random()*1000000) ;
+	document.write("<script src=\""+_purllogin_status_top+"\"><" + "/" + "sc" + "ript" + ">" );	
+</script>

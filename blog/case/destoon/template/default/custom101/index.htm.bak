@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中秋节月饼</title>
+    <link rel="stylesheet" href="css/empty.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div id="box">
+    <a class="url01" href="http://jieyang.5276mall.com/mall/index.php?itemid=6"></a>
+    <a class="url02" href="http://jieyang.5276mall.com/mall/index.php?itemid=7"></a>
+    <a class="url03" href="http://jieyang.5276mall.com/mall/index.php?itemid=9"></a>
+    <a class="url04" href="http://jieyang.5276mall.com/mall/index.php?itemid=10"></a>
+    <a class="url05" href="http://jieyang.5276mall.com/mall/index.php?itemid=11"></a>
+    <a class="url06" href="http://jieyang.5276mall.com/mall/index.php?itemid=13"></a>
+    <a class="url07" href="http://jieyang.5276mall.com/mall/index.php?itemid=14"></a>
+    <a class="url08" href="http://jieyang.5276mall.com/mall/index.php?itemid=16"></a>
+    <a class="url09" href="http://jieyang.5276mall.com/mall/index.php?itemid=19"></a>
+    <a class="url10" href="http://jieyang.5276mall.com/mall/index.php?itemid=20"></a>
+    <img class="top" src="images/0.jpg" >
+    <img class="center" src="images/1.jpg" >
+    <a href="http://jieyang.5276mall.com/mall/index.php?itemid=15"><img src="images/2.jpg" ></a>
+    <a href="http://jieyang.5276mall.com/mall/index.php?itemid=5"><img src="images/3.jpg" ></a>
+    <img src="images/4.jpg" >
+    <a href="http://jieyang.5276mall.com/mall/index.php?itemid=8"><img src="images/5.jpg" ></a>
+    <img src="images/6.jpg" >
+    <a href="http://jieyang.5276mall.com/mall/index.php?itemid=12"><img src="images/7.jpg" ></a>
+    <img src="images/8.jpg" >
+  <img class="center01" src="images/9.jpg" >
+    <a href="http://jieyang.5276mall.com/mall/index.php?itemid=17"><img src="images/10.jpg" ></a>
+    <a href="http://jieyang.5276mall.com/mall/index.php?itemid=18"><img src="images/11.jpg" ></a>
+    <img src="{DT_STATIC}template/default/custom100/images/12.jpg" >
+
+</div>
+
+<!--<script>-->
+    <!--var ul = document.getElementById("box");-->
+    <!--for(var i=0;i<14;i++){-->
+
+        <!--var img = document.createElement("img");-->
+        <!--img.setAttribute("id", "newImg");-->
+        <!--img.src = "images"+"/"+i+".jpg";-->
+        <!--ul.appendChild(img);-->
+
+    <!--}-->
+
+<!--</script>-->
+</body>
+</html>

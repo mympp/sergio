@@ -1,0 +1,126 @@
+.navigation .nav-sub{display:block!important}.grid1{overflow:hidden;padding-left:210px}
+.grid1 .slideBox{position:relative;width:698px;height:348px;margin:10px 0 0 10px;overflow:hidden;border:1px solid #ddd}
+.grid1 .slideBox .hd{position:absolute;z-index:1;bottom:10px;right:30px}.grid1 .slideBox .hd li{float:left;width:15px;height:15px;line-height:15px;margin-right:10px;text-align:center;color:#fff;background:gray;border-radius:50%}
+.grid1 .slideBox .hd li.on{background:#f70}.grid1 .slideBox .bd{overflow:hidden}
+.grid1 .slideBox .bd img{display:block;width:698px;height:348px}
+.grid1 .s3{width:270px;height:348px;border:1px solid #ddd;overflow:hidden}
+.grid1 .s3 .tab-tit{height:35px;margin-right:-2px;border-bottom:#ddd solid 1px}
+.grid1 .s3 .tab-tit span{float:left;position:relative;background:#f5f5f5;width:135px;height:35px;line-height:35px;border-right:1px solid #ddd;text-align:center;cursor:pointer}
+.grid1 .s3 .tab-tit span.on{height:36px;line-height:36px;background:#fff}.grid1 .s3 .tab-con .cell{display:none;overflow:hidden}
+.grid1 .s3 .tab-con .cell.on{display:block}.grid1 .s3 .tab-con .cell ul{margin-bottom:-1px}
+.grid1 .s3 .tab-con .cell li{height:35px;line-height:35px;padding:0 15px;text-align:left;border-bottom:1px solid #f6f6f6;zoom:1;word-break:keep-all;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow:hidden}
+.grid1 .s3 .hot-news .tit{height:22px;line-height:22px;padding:40px 0 10px}
+.grid1 .s3 .hot-news .tit .time{float:left;width:44px;color:#fff;background:#e5316a;text-align:center}
+.grid1 .s3 .hot-news .tit .txt{float:left;width:196px}
+.grid1 .s3 .hot-news .con .pic{position:relative;width:98px;height:64px;overflow:hidden}
+.grid1 .s3 .hot-news .con .pic a{width:98px;height:64px;display:table-cell;vertical-align:middle;text-align:center;*display:block;*font-size:55.872px}
+.grid1 .s3 .hot-news .con .pic a img{max-width:98px!important;max-height:64px!important;vertical-align:middle}
+.grid1 .s3 .hot-news .con .txt{width:140px;height:60px;overflow:hidden;line-height:20px;overflow:hidden}
+.grid1 .s3 .news-list li{height:35px;line-height:35px;padding-left:10px;border-top:1px solid #ddd;word-break:keep-all;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow:hidden}
+.grid2 .corp{width:918px;border:1px solid #ddd;overflow:hidden}
+.grid2 .corp ul{overflow:hidden;margin-right:-2px;margin-bottom:-1px}
+.grid2 .corp .pic{position:relative;width:183px;height:90px;overflow:hidden}
+.grid2 .corp .pic a{width:183px;height:90px;display:table-cell;vertical-align:middle;text-align:center;*display:block;*font-size:78.57px}
+.grid2 .corp .pic a img{max-width:183px!important;max-height:90px!important;vertical-align:middle}
+.grid2 .corp li{float:left;border-right:#ddd solid 1px;border-bottom:#ddd solid 1px}
+.grid2 .corp li a:hover img{transform:scale(1.1)}.grid2 .corp li a img{transition:all .6s ease 0s}
+.grid2 .notice{width:270px;height:181px;border:1px solid #ddd;overflow:hidden}
+.grid2 .notice .tab-tit{height:35px;line-height:35px;margin-right:-2px;border-bottom:1px solid #ddd;background:#f5f5f5}
+.grid2 .notice .tab-tit span{float:left;width:135px;height:35px;line-height:35px;border-right:1px solid #ddd;text-align:center;cursor:pointer}
+.grid2 .notice .tab-tit span.on{height:36px;background:#fff}.grid2 .notice .tab-con{padding:0 8px}
+.grid2 .notice .tab-con .cell{display:none}
+.grid2 .notice .tab-con .cell li{float:left;width:117px;margin:0 0 10px 10px;word-break:keep-all;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow:hidden}
+.grid3 .list-box{float:left;width:622px}.grid3 .list-box .hd h2{float:left;padding-left:8px;height:22px;line-height:22px;border-left:#317ee7 solid 6px;font-weight:400}
+.grid3 .list-box .bd{height:311px;padding-top:3px;border:#ddd solid 1px}
+.grid3 .list-box dl{position:relative;padding:5px 10px;border-bottom:dotted 1px #ddd;overflow:hidden}
+.grid3 .list-box dl:last-child{border-bottom:0}.grid3 .list-box dl dt{float:left;width:125px;font-weight:700;color:#333}
+.grid3 .list-box dl dd{float:left;width:350px}.grid3 .list-box dl dd a{float:left;color:#777;margin-right:20px;margin-bottom:5px}
+.grid3 .list-box dl dd a:hover{color:#317ee7}.grid3 .list-box dl dd a.more{position:absolute;right:0;top:5px;display:block;border:1px solid #ddd;width:35px;height:15px;line-height:15px;text-align:center}
+.grid3 .list-box.brand .hd h2{border-left:#fab928 solid 6px}.grid3 .list-box.brand dl{padding:15px 10px}
+.grid3 .list-box.brand dl dt{width:80px}.grid3 .list-box.brand dl dd{width:465px}
+.grid3 .list-box.brand dl dd a{margin-right:16px}.grid3 .list-box.brand dl dd a.more{top:15px}
+.grid3 .ad-list{margin-top:27px;border-top:#ddd solid 1px}
+.grid3 .ad-list li a{display:block;width:218px;height:104px;overflow:hidden;border-bottom:#ddd solid 1px;text-align:center}
+.grid3 .ad-list li a:hover img{transform:scale(1.1)}.grid3 .ad-list li img{transition:all .6s ease 0s}
+.grid3 .msg-list .hd{margin-bottom:5px;height:22px;line-height:22px}.grid3 .msg-list .hd h3{font-weight:400}
+.grid3 .msg-list .bd{width:358px;height:314px;overflow:hidden;border:#ddd solid 1px}
+.grid3 .msg-list .list{margin:10px 5px}.grid3 .msg-list .list .tit{background:#eee}
+.grid3 .msg-list .list .tit span{display:inline-block;padding:3px 5px}
+.grid3 .msg-list .list .con span{display:inline-block;padding:8px 5px 7px;color:#555}
+.grid3 .msg-list .list .con .num,.grid3 .msg-list .list .con .time{color:#999}
+.grid3 .msg-list .list .con p:hover{background:#F8F8F8}.grid3 .msg-list .list .name{width:210px}
+.grid3 .msg-list .list .num{width:50px}.grid3 .msg-list .list .pro{width:258px}
+.fbox .hd{position:relative;height:45px;border-bottom:3px solid #317ee7}
+.fbox .hd h2{line-height:45px;font-size:20px}
+.fbox .hd .rec{position:absolute;bottom:5px;left:228px;height:20px;line-height:20px}.fbox .hd .rec a{margin:0 5px}
+.fbox .hd .more{position:absolute;bottom:5px;right:10px;height:20px;line-height:20px;padding:0 5px;color:#fff}
+.fbox .bd{border:1px solid #dcdcdc;border-top:0;height:315px}
+.fbox .category1{width:228px;text-align:center}
+.fbox .category1 .c-list{border-top:1px solid #ddd;width:210px;margin:25px auto 9px}
+.fbox .category1 .c-list .tit{color:#fff;position:relative;margin:-13px auto 0;border-radius:3px;width:80px;height:21px;line-height:21px}
+.fbox .category1 .c-list ul{margin-top:8px}
+.fbox .category1 .c-list ul li{float:left;width:95px;padding:0 5px;line-height:26px;word-break:keep-all;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow:hidden}
+.fbox .category1 .c-rec{border-top:1px solid #ddd;padding-left:40px}
+.fbox .category1 .c-rec .tab-tit p{float:left;cursor:pointer;width:64px;margin-right:20px;text-align:center;line-height:33px;position:relative;color:#999}
+.fbox .category1 .c-rec .tab-tit p.on{color:#333}
+.fbox .category1 .c-rec .tab-tit p.on .arrow-box{display:block}
+.fbox .category1 .c-rec .tab-con .cell{display:none;width:168px}
+.fbox .category1 .c-rec .tab-con li{float:left;width:64px;margin-right:20px}
+.fbox .category1 .c-rec .tab-con li .pic{position:relative;width:64px;height:64px;overflow:hidden}
+.fbox .category1 .c-rec .tab-con li .pic a{width:64px;height:64px;display:table-cell;vertical-align:middle;text-align:center;*display:block;*font-size:55.872px}
+.fbox .category1 .c-rec .tab-con li .pic a img{max-width:64px!important;max-height:64px!important;vertical-align:middle}
+.fbox .prod{width:710px;height:315px;border-left:1px solid #ddd;border-right:1px solid #ddd}.fbox .prod .p1{position:relative;height:37px;overflow:hidden}
+.fbox .prod .p1 h4{float:left;padding-left:20px;line-height:37px;font-size:16px;font-weight:400}
+.fbox .formula{width:258px;overflow:hidden}.fbox .formula .tit{height:37px;line-height:37px;border-bottom:1px solid #dcdcdc;background:#f8f8f8}
+.fbox .formula ul{list-style:disc inside;margin-bottom:-1px}
+.fbox .formula li{width:243px;height:39px;line-height:39px;padding-left:15px;text-align:left;border-bottom:1px solid #f6f6f6;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;*margin-left:15px;*padding-left:0;_margin-left:0;zoom:1}
+.fbox .adv{height:78px;padding-left:94px;border:1px solid #dcdcdc;border-top:0;background-repeat: no-repeat;}
+.fbox .adv a{float:left;width:184px;height:78px;overflow:hidden}.fbox .adv a:hover img{transform:scale(1.1)}
+.fbox .adv a img{transition:all .6s ease 0s}
+.fbox .arrow-box{display:none;border-top:1px solid #00b1ee;position:absolute;top:-1px;left:0;width:64px}
+.fbox .arrow-box .arrow{display:block;position:absolute;left:28px;top:0;border-width:4px;border-color:#00b1ee transparent transparent;border-style:solid dashed dashed;width:0;height:0;line-height:0}.fbox .p2{height:278px;overflow:hidden}
+.fbox .list-grid .s1{width:103px}.fbox .list-grid .s2{width:199px}.fbox .list-grid .s3{width:109px}.fbox .list-grid .s4{width:122px}
+.fbox .list-grid .s5{width:103px}.fbox .list-grid .s6{width:57px}
+.fbox .list-grid .g-hd{background:#f8f8f8;height:39px;line-height:39px}
+.fbox .list-grid .g-hd span{display:inline-block;text-align:center}
+.fbox .list-grid .g-bd li{height:39px;line-height:39px}
+.fbox .list-grid .g-bd span{display:inline-block;text-align:center;word-break:keep-all;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow:hidden}
+.fbox .t-table{width:100%;text-align:center}.fbox .t-table thead{background:#f8f8f8}
+.fbox .t-table tbody tr{height:39px;overflow:hidden}.fbox .t-table td,.fbox .t-table th{height:39px}
+.fbox .t-table td span,.fbox .t-table th span{display:block;width:100%;height:37px;line-height:37px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.fbox .t-table .td_w90{width:90px}
+.fbox .t-table .td_w85{width:80px;padding-left:5px}.fbox .t-table .td_w100{width:100px}
+.fbox .t-table .td_w65{width:65px}.fbox .t-table .td_w105{width:60px}.fbox .t-table .td_w160{width:164px}
+.fbox .t-table .td_w160 span{width:12em;margin:0 auto}.grid4 .font-color{color:#FA301D}
+.grid4 .border-color{border-color:#FA301D}.grid4 .bg-color{background:#FA301D}
+.grid4 .arrow-box{border-top-color:#FA301D}.grid4 .arrow-box .arrow{border-top-color:#FA301D}
+.grid4 .formula ul{color:#FA301D}.grid5 .font-color{color:#369dfc}.grid5 .border-color{border-color:#369dfc}
+.grid5 .bg-color{background:#369dfc}.grid5 .arrow-box{border-top-color:#369dfc}
+.grid5 .arrow-box .arrow{border-top-color:#369dfc}.grid5 .formula ul{color:#369dfc}
+.grid6 .font-color{color:#06ba8a}.grid6 .border-color{border-color:#06ba8a}
+.grid6 .bg-color{background:#06ba8a}.grid6 .arrow-box{border-top-color:#06ba8a}
+.grid6 .arrow-box .arrow{border-top-color:#06ba8a}.grid6 .formula ul{color:#06ba8a}
+.grid-news{overflow:hidden}.grid-news .hd{height:45px;line-height:45px;border-bottom:3px solid #ff7300}
+.grid-news .bd .focus{position:relative;width:639px;height:220px;margin-right:6px;margin-bottom:20px}
+.grid-news .bd .focus .pic{width:410px;height:220px;overflow:hidden}
+.grid-news .bd .focus .pic a img{display:block;width:410px;height:220px}
+.grid-news .bd .focus .text{width:228px;height:218px;border-top:1px solid #ddd;border-right:1px solid #ddd;border-bottom:1px solid #ddd;background:#f8f8f8;overflow:hidden}
+.grid-news .bd .focus .text .tit{font-size:16px;font-weight:700;width:197px;height:3em;text-align:left;margin:20px 7px 0 16px;overflow:hidden}
+.grid-news .bd .focus .text .con{margin:0;padding:4px 19px 4px 14px;text-indent:25px;line-height:24px}
+.grid-news .news-tab{width:552px;height:220px}
+.grid-news .news-tab .tab-tit{width:100%;height:36px;border-bottom:1px solid #ddd;border-left:1px solid #ddd;background:#f8f8f8}
+.grid-news .news-tab .tab-tit li{float:left;width:136px;height:36px;line-height:36px;border-top:1px solid #ddd;border-right:1px solid #ddd;font-size:16px;text-align:center;cursor:pointer}
+.grid-news .news-tab .tab-tit li.on{background:#fff}.grid-news .news-tab .tab-tit li a{display:block;width:100%;height:100%}
+.grid-news .news-tab .tab-con .cell{display:none;width:100%;height:184px;overflow:hidden}
+.grid-news .news-tab .tab-con .cell .list{float:left;height:162px;margin-top:22px;margin-right:-2px}
+.grid-news .news-tab .tab-con .cell .list li{float:left;width:270px;height:32px;line-height:32px;border-right:1px dashed #ddd}
+.grid-news .news-tab .tab-con .cell .list a{float:left;width:153px;margin-left:26px;word-break:keep-all;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow:hidden}
+.grid-news .news-tab .tab-con .cell .list span{float:right;margin-right:26px;color:#666}
+.grid-corpRec .hd h2{padding-left:8px;height:22px;line-height:22px;border-left:#317ee7 solid 6px;font-weight:400}
+.grid-corpRec .bd{border:1px solid #ddd;overflow:hidden}
+.grid-corpRec .bd ul{overflow:hidden;margin-right:-2px;margin-bottom:-1px}
+.grid-corpRec .bd ul .pic{position:relative;width:120px;height:85px;overflow:hidden}
+.grid-corpRec .bd ul .pic a{width:120px;height:85px;display:table-cell;vertical-align:middle;text-align:center;*display:block;*font-size:74.205px}
+.grid-corpRec .bd ul .pic a img{max-width:120px!important;max-height:85px!important;vertical-align:middle}
+.grid-corpRec .bd ul .pic{float:left;padding:0 14px 0 15px;border-right:#ddd solid 1px;border-bottom:#ddd solid 1px}
+.grid-corpRec .bd ul a:hover img{transform:scale(1.1)}.grid-corpRec .bd ul img{transition:all .6s ease 0s}
+.fbox .adv{background-position:0px 0px}.fbox .adv{background-image: url(http://img4.zhaoyl.com/dist/css/index_v2_z.png)}

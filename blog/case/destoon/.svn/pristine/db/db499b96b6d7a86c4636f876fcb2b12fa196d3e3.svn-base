@@ -1,0 +1,769 @@
+{template 'header_member', 'mobile'}
+{template 'cssjs', 'mobile'}
+<header class="aui-bar aui-bar-nav aui-bar-danger" id="aui-header">
+        <a class="aui-btn aui-btn-danger aui-pull-left" href="{if $action}javascript:history.go(-1);{else}my.php{/if}">
+            <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+    <div class="aui-title">{$head_name}</div>
+            {if $_userid}<a href="my.php" class="aui-pull-right">我的</a>{/if}
+
+</header>
+<div class="aui-bar-fix"></div>
+
+{if $action == 'check'}
+<div class="aui-content">
+<div class="aui-tab" id="aui-tab">
+        <ul class="aui-tab-nav" id="sell_info">
+                <li id="tabbar0"><a href="?action={$action}"><span>1、重发邮件</span></a></li>
+                <li id="tabbar1"><a href="?action={$action}"><span>2、邮件验证</span></a></li>
+                <li id="tabbar2"><a href="?action={$action}"><span>3、注册成功</span></a></li>
+        </ul>
+</div>
+</div>
+{if $step == 2}
+<div class="aui-content">
+<div class="aui-input-row">
+<span class="aui-ellipsis-2 aui-ml-10 aui-padded-t5 fz14">恭喜！会员 {$username} 注册成功，您现在可以<a href="{$DT[file_login]}?username={$username}&forward={urlencode($MOD[linkurl])}" class="t">登录网站</a>了</span>
+</div>
+</div>
+{elseif $step == 1}
+<div class="aui-content">
+<form method="post" action="msend.php" onsubmit="return check();" id="dform">
+<input type="hidden" name="action" value="{$action}"/>
+<input type="hidden" name="step" value="2"/>
+        <div class="aui-form">
+
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">邮件验证码</label>
+                <input type="text" name="code" id="code" class="aui-input" value="" placeholder="短信验证码"/>
+            </div>
+
+            <div class="aui-input-row">
+            <div class="aui-input-addon">提示</div>
+            <span class="aui-ellipsis-2 aui-ml-10 aui-padded-t5 fz14">系统已发送一封验证邮件至{$email}，请<a href="goto.php?email={$email}" class="t" target="_blank">查收邮件</a>获取验证码完成注册</span>
+            </div>
+</div>
+<div class="aui-btn-row aui-borderb-no" id="btn-main">
+                <input type="submit" name="submit"  value=" 下一步 " class="aui-btn aui-btn-danger" style="width:30%;"/> &nbsp; 
+	<input type="button" value=" 重新发送 " class="aui-btn" style="width:30%;" onclick="Go('?action={$action}&email={$email}');"/>
+            </div>
+</form>
+</div>
+
+<script type="text/javascript">
+function check() {
+	if(Dd('code').value.length < 6) {
+		laymsg('请填写您收到的邮件验证码', 'code');
+		return false;
+	}
+	return true;
+}
+</script>
+{else}
+<div class="aui-content">
+<form method="post" action="msend.php" onsubmit="return check();" id="dform">
+<input type="hidden" name="action" value="{$action}"/>
+<input type="hidden" name="step" value="1"/>
+
+        <div class="aui-form">
+
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">邮件地址</label>
+                <input type="text" name="email" id="email" class="aui-input" value="{$email}" placeholder="注册时填写的Email地址"/>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">验证码</label>
+<div class="aui-list-item" id="captcha-bar">{template 'captcha', 'chip'}</div>
+            </div>
+            <div class="aui-input-row">
+            <div class="aui-input-addon">提示</div>
+            <span class="aui-ellipsis-2 aui-ml-10 aui-padded-t5 fz14">提交后，系统将发送一封验证邮件至您的注册Email，请接收邮件完成验证</span>
+            </div>
+            <div class="aui-btn-row aui-borderb-no" id="btn-main">
+                <input type="submit" name="submit"  value=" 下一步 " class="aui-btn aui-btn-danger" style="width:40%;"/> &nbsp; 
+	<input type="button" value=" 返 回 " class="aui-btn" style="width:40%;" onclick="history.back(-1);"/>
+            </div>
+           
+</div>
+</form>
+</div>
+<script type="text/javascript">
+function check() {
+	if(Dd('email').value.length < 7) {
+		laymsg('', 'email');
+		return false;
+	}
+	if(!is_captcha(Dd('captcha').value)) {
+		laymsg('请填写正确的验证码', 'captcha');
+		return false;
+	}
+	return true;
+}
+</script>
+{/if}
+<script type="text/javascript">tabbar('tabbar{$step}');</script>
+{elseif $action == 'passport'}
+<!--<div class="aui-content">
+<div class="aui-tab" id="aui-tab">
+        <ul class="aui-tab-nav" id="sell_info">
+                <li id="tabbar0"><a href="?action={$action}"><span>修改昵称</span></a></li>
+        </ul>
+</div>
+</div>
+-->
+<div class="aui-content">
+<form method="post" action="msend.php" onsubmit="return check();" id="dform">
+<input type="hidden" name="action" value="{$action}"/>
+<div class="aui-form">
+
+            <div class="aui-input-row">
+                <div class="aui-input-addon">当前昵称</div>
+                <input type="text" class="aui-input" value="{$_passport}"  readonly="readonly"/>
+            </div>
+            <div class="aui-input-row">
+                <span class="aui-input-addon aui-text-red">新昵称</span>
+                <input type="text" class="aui-input" name="npassport" id="npassport" placeholder="新昵称" onblur="validator();"/>
+                <span class="aui-input-addon" id="dnpassport"></span>
+            </div>
+            <div class="aui-input-row">
+            <div class="aui-input-addon">提示</div>
+            <span class="aui-padded-t5 fz14" style="position:relative; left:10px;">可以使用中文，仅可修改一次</span>
+            </div>
+            <div class="aui-btn-row aui-borderb-no" id="btn-main">
+                <input type="submit" name="submit"  value=" 修改 " class="aui-btn aui-btn-danger" style="width:40%;"/> &nbsp; 
+	<input type="button" value=" 返 回 " class="aui-btn" style="width:40%;" onclick="history.back(-1);"/>
+            </div>
+           
+</div>
+</form>
+</div>
+<script type="text/javascript">
+function validator() {
+	if(Dd('npassport').value.length < 2) return;
+	$.post(AJPath, 'moduleid=2&action=member&job=passport&value='+Dd('npassport').value+'&userid={$_userid}', function(data) {
+		$('#dnpassport').html('<img src="{DT_SKIN}image/check_'+(data ? 'error' : 'right')+'.gif" align="absmiddle"/> '+data);
+	});
+}
+function check() {
+	if(Dd('npassport').value.length < 2) {
+		laymsg('请填写新昵称', 'npassport');
+		return false;
+	}
+	if(Dd('dnpassport').innerHTML.indexOf('error') != -1) {
+		laymsg('请填写正确的昵称', 'npassport');
+		return false;
+	}
+	return confirm('确定要修改昵称为'+Dd('npassport').value+'吗？修改后将不可再更改');
+}
+</script>
+{elseif $action == 'payword'}
+<div class="aui-content">
+<div class="aui-tab" id="aui-tab">
+        <ul class="aui-tab-nav" id="sell_info">
+                <li id="tabbar0"><a href="?action={$action}"><span>1、支付密码</span></a></li>
+                <li id="tabbar1"><a href="?action={$action}"><span>2、邮件验证</span></a></li>
+                <li id="tabbar2"><a href="?action={$action}"><span>3、修改成功</span></a></li>
+        </ul>
+</div>
+</div>
+
+{if $step == 2}
+<div class="aui-content">
+<span class="aui-ml-10 aui-padded-t5 fz14 f_green">支付密码修改成功</span>
+</div>
+{elseif $step == 1}
+<div class="aui-content">
+<form method="post" action="msend.php" onsubmit="return check();" id="dform">
+<input type="hidden" name="action" value="{$action}"/>
+<input type="hidden" name="step" value="2"/>
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">邮件验证码</label>
+                <input type="text" name="code" id="code" class="aui-input"  placeholder="您的手机号码"/>
+            </div>
+            <div class="aui-input-row">
+            <div class="aui-input-addon">提示</div>
+            <span class="aui-ellipsis-2 aui-ml-10 aui-padded-t5 fz14">系统已发送一封验证邮件至{$email}，请<a href="goto.php?email={$email}" class="t" target="_blank">查收邮件</a>获取验证码</span>
+            </div>
+            <div class="aui-btn-row aui-borderb-no" id="btn-main">
+                <input type="submit" name="submit"  value=" 下一步 " class="aui-btn aui-btn-danger" style="width:40%;"/> &nbsp; 
+	<input type="button" value=" 重新发送 " class="aui-btn" style="width:40%;" onclick="Go('?action={$action}&email={$email}');"/>
+            </div>
+           
+</div>
+</form>
+</div>
+<script type="text/javascript">
+function check() {
+	if(Dd('code').value.length < 6) {
+		laymsg('请填写您收到的邮件验证码', 'code');
+		return false;
+	}
+	return true;
+}
+</script>
+{else}
+<div class="aui-content">
+<form method="post" action="msend.php" onsubmit="return check();" id="dform">
+<input type="hidden" name="action" value="{$action}"/>
+<input type="hidden" name="step" value="1"/>
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">新支付密码</label>
+                <input type="password" name="npassword" id="npassword" class="aui-input" placeholder="新支付密码"/>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">重复新密码</label>
+                <input type="password" name="cpassword" id="cpassword" class="aui-input" placeholder="重复新密码"/>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">登录密码</label>
+<div class="aui-list-item" id="captcha-bar">{template 'password', 'chip'}</div>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">验证码</label>
+<div class="aui-list-item" id="captcha-bar">{template 'captcha', 'chip'}</div>
+            </div>
+            <div class="aui-input-row">
+            <div class="aui-input-addon">提示</div>
+            <span class="aui-padded-t5 fz14" style="position:relative; left:10px;">系统将发送一封验证邮件至{$email}，请接收邮件完成验证<br/>如果没有修改过支付密码，支付密码默认和注册时设置的登录密码相同<br/>登录密码请填写当前登录密码，以便系统验证当前操作为本人</span>
+            </div>
+            <div class="aui-btn-row aui-borderb-no" id="btn-main">
+                <input type="submit" name="submit"  value=" 下一步 " class="aui-btn aui-btn-danger" style="width:40%;"/> &nbsp; 
+	<input type="button" value=" 返 回 " class="aui-btn" style="width:40%;" onclick="history.back(-1);"/>
+            </div>
+           
+</div>
+</form>
+</div>
+
+<script type="text/javascript">
+function check() {
+	if(Dd('npassword').value.length > {$MOD[maxpassword]} || Dd('npassword').value.length < {$MOD[minpassword]}) {
+		laymsg('密码长度应为{$MOD[minpassword]}-{$MOD[maxpassword]}字符', 'npassword');
+		return false;
+	}
+	if(Dd('npassword').value != Dd('cpassword').value) {
+		laymsg('两次输入的密码不一致', 'cpassword');
+		return false;
+	}
+	if(Dd('password').value.length < 6) {
+		laymsg('请填写登录密码', 'password');
+		return false;
+	}
+	if(!is_captcha(Dd('captcha').value)) {
+		laymsg('请填写正确的验证码', 'captcha');
+		return false;
+	}
+	return true;
+}
+</script>
+{/if}
+<script type="text/javascript">tabbar('tabbar{$step}');</script>
+{elseif $action == 'email'}
+<div class="aui-content">
+<div class="aui-tab" id="aui-tab">
+        <ul class="aui-tab-nav" id="sell_info">
+                <li id="tabbar0"><a href="?action={$action}"><span>1、修改邮件</span></a></li>
+                <li id="tabbar1"><a href="?action={$action}"><span>2、邮件验证</span></a></li>
+                <li id="tabbar2"><a href="?action={$action}"><span>3、修改成功</span></a></li>
+        </ul>
+</div>
+</div>
+{if $step == 2}
+<div class="aui-content">
+<div class="aui-input-row">
+<span class="aui-ml-10 aui-padded-t5 fz14">邮件地址修改成功，新邮件地址为：{$email}</span>
+</div>
+</div>
+
+{elseif $step == 1}
+<div class="aui-content">
+<form method="post" action="msend.php" onsubmit="return check();" id="dform">
+<input type="hidden" name="action" value="{$action}"/>
+<input type="hidden" name="step" value="2"/>
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">邮件验证码</label>
+                <input type="text" name="code" id="code" class="aui-input" placeholder="邮件验证码"/>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">验证码</label>
+<div class="aui-list-item" id="captcha-bar">{template 'captcha', 'chip'}</div>
+            </div>
+            <div class="aui-input-row">
+            <div class="aui-input-addon">提示</div>
+            <span class="aui-padded-t5 fz14" style="position:relative; left:10px;">系统已发送一封验证邮件至{$email}，请<a href="goto.php?email={$email}" class="t" target="_blank">查收邮件</a>获取验证码</span>
+            </div>
+            <div class="aui-btn-row aui-borderb-no" id="btn-main">
+                <input type="submit" name="submit"  value=" 下一步 " class="aui-btn aui-btn-danger" style="width:40%;"/> &nbsp; 
+	<input type="button" value=" 返 回 " class="aui-btn" style="width:40%;" onclick="Go('?action={$action}&email={$email}');"/>
+            </div>
+           
+</div>
+</form>
+</div>
+
+<script type="text/javascript">
+function check() {
+	if(Dd('code').value.length < 6) {
+		laymsg('请填写您收到的邮件验证码', 'code');
+		return false;
+	}
+	return true;
+}
+</script>
+{else}
+<div class="aui-content">
+<form method="post" action="msend.php" onsubmit="return check();" id="dform">
+<input type="hidden" name="action" value="{$action}"/>
+<input type="hidden" name="step" value="1"/>
+<div class="aui-form">
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">新Email</label>
+                <input type="text" name="email" id="email" value="{$email}" class="aui-input" placeholder="新Email"/>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">登录密码</label>
+<div class="aui-list-item" id="captcha-bar">{template 'password', 'chip'}</div>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">验证码</label>
+<div class="aui-list-item" id="captcha-bar">{template 'captcha', 'chip'}</div>
+            </div>
+            <div class="aui-input-row">
+            <div class="aui-input-addon">提示</div>
+            <span class="aui-padded-t5 fz14" style="position:relative; left:10px;">提交后，系统将发送一封验证邮件至新Email地址，请接收邮件完成验证<br/>登录密码请填写当前登录密码，以便系统验证当前操作为本人<br/>当前Email地址为：{$_email}</span>
+            </div>
+            <div class="aui-btn-row aui-borderb-no" id="btn-main">
+                <input type="submit" name="submit"  value=" 下一步 " class="aui-btn aui-btn-danger" style="width:40%;"/> &nbsp; 
+	<input type="button" value=" 返 回 " class="aui-btn" style="width:40%;" onclick="history.back(-1);"/>
+            </div>
+           
+</div>
+</form>
+</div>
+
+<script type="text/javascript">
+function check() {
+	if(Dd('email').value.length < 7) {
+		laymsg('请填写新Email地址', 'email');
+		return false;
+	}
+	if(Dd('email').value == '{$_email}') {
+		laymsg('新Email地址不能与当前Email地址相同', 'email');
+		return false;
+	}
+	if(Dd('password').value.length < 6) {
+		laymsg('请填写登录密码', 'password');
+		return false;
+	}
+	if(!is_captcha(Dd('captcha').value)) {
+		laymsg('请填写正确的验证码', 'captcha');
+		return false;
+	}
+	return true;
+}
+</script>
+{/if}
+<script type="text/javascript">tabbar('tabbar{$step}');</script>
+{elseif $action == 'mobile'}
+<div class="aui-content">
+<div class="aui-tab" id="aui-tab">
+        <ul class="aui-tab-nav" id="sell_info">
+                <li id="tabbar0"><a href="?action={$action}"><span>1、修改手机</span></a></li>
+                <li id="tabbar1"><a href="?action={$action}"><span>2、验证手机</span></a></li>
+                <li id="tabbar2"><a href="?action={$action}"><span>3、修改成功</span></a></li>
+        </ul>
+</div>
+</div>
+{if $step == 2}
+<div class="aui-content">
+<div class="aui-input-row">
+<span class="aui-ellipsis-2 aui-ml-10 aui-padded-t5 fz14">手机号码修改成功，新手机号码为：{$mobile}</span>
+</div>
+</div>
+{elseif $step == 1}
+<div class="aui-content">
+<form method="post" action="msend.php" onsubmit="return check();" id="dform">
+<input type="hidden" name="action" value="{$action}"/>
+<input type="hidden" name="step" value="2"/>
+<div class="aui-form">
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">短信验证码</label>
+                <input type="text" name="code" id="code" class="aui-input" value="" placeholder="短信验证码"/>
+            </div>
+
+            <div class="aui-input-row">
+            <div class="aui-input-addon">提示</div>
+            <span class="aui-ellipsis-2 aui-ml-10 aui-padded-t5 fz14">系统已发送一条验证短信至{$mobile}，请查收短信获取验证码</span>
+            </div>
+            </div>
+<div class="aui-btn-row aui-borderb-no" id="btn-main">
+                <input type="submit" name="submit"  value=" 下一步 " class="aui-btn aui-btn-danger" style="width:30%;"/> &nbsp; 
+	<input type="button" value=" 重新发送 " class="aui-btn" style="width:30%;" onclick="Go('?action={$action}&mobile={$mobile}');"/>
+            </div>
+
+</form>
+</div>
+<script type="text/javascript">
+function check() {
+	if(Dd('code').value.length < 6) {
+		laymsg('请填写您收到的短信验证码', 'code');
+		return false;
+	}
+	return true;
+}
+</script>
+{else}
+<div class="aui-content">
+<form method="post" action="msend.php" onsubmit="return check();" id="dform">
+<input type="hidden" name="action" value="{$action}"/>
+<input type="hidden" name="step" value="1"/>
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">新手机号</label>
+                <input type="text" name="mobile" id="mobile" class="aui-input" value="{$mobile}" placeholder="新手机号"/>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">登录密码</label>
+                <div class="aui-list-item" id="captcha-bar">{template 'password', 'chip'}</div>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">验证码</label>
+<div class="aui-list-item" id="captcha-bar">{template 'captcha', 'chip'}</div>
+            </div>
+            <div class="aui-input-row">
+            <div class="aui-input-addon">提示信息</div>
+            <span class="aui-padded-t5 fz14" style="position:relative; left:10px;">提交后，系统将发送一条验证短信至您的手机号码，请注意接收<br/>登录密码请填写当前登录密码，以便系统验证当前操作为本人<br/>当前手机号码为：{$_mobile}</span>
+            </div>
+            <div class="aui-btn-row aui-borderb-no" id="btn-main">
+                <input type="submit" name="submit"  value=" 下一步 " class="aui-btn aui-btn-danger" style="width:40%;"/> &nbsp; 
+	<input type="button" value=" 返 回 " class="aui-btn" style="width:40%;" onclick="history.back(-1);"/>
+            </div>
+           
+</div>
+</form>
+</div>
+<script type="text/javascript">
+function check() {
+	if(Dd('mobile').value.length < 11) {
+		laymsg('请填写新手机号码', 'mobile');
+		return false;
+	}
+	if(Dd('mobile').value == '{$_mobile}') {
+		laymsg('新手机号码不能与当前号码相同', 'mobile');
+		return false;
+	}
+	if(Dd('password').value.length < 6) {
+		laymsg('请填写登录密码', 'password');
+		return false;
+	}
+	if(!is_captcha(Dd('captcha').value)) {
+		laymsg('请填写正确的验证码', 'captcha');
+		return false;
+	}
+	return true;
+}
+</script>
+{/if}
+<script type="text/javascript">tabbar('tabbar{$step}');</script>
+{elseif $action == 'contact'}
+<div class="aui-content">
+<div class="aui-tab" id="aui-tab">
+        <ul class="aui-tab-nav">
+                <li id="tabbar2"><a href="?action=index"><span>找回密码</span></a></li>
+                <li id="tabbar1"><a href="?action=index"><span>人工申诉</span></a></li>
+        </ul>
+</div>
+</div>
+
+        <div class="aui-form">
+            <div class="aui-input-row">
+            <div class="aui-input-addon">提示信息</div>
+            <span class="aui-padded-t5 fz14" style="position:relative; left:10px;">请联系网站客服，并提供相关信息，由客服人工协助找回</span>
+            </div>
+            <div class="aui-btn-row aui-borderb-no" id="btn-main">
+                <input type="submit" name="submit"  value=" 联系客服 " class="aui-btn aui-btn-danger" style="width:40%;"/> &nbsp; 
+	<input type="button" value=" 返 回 " class="aui-btn" style="width:40%;" onclick="Go('?action=index');"/>
+            </div>
+           
+</div>
+<script type="text/javascript">Dh('side');Dh('side_oh');</script>
+{elseif $action == 'sms'}
+<div class="aui-content">
+<div class="aui-tab" id="aui-tab">
+        <ul class="aui-tab-nav" id="sell_info">
+                <li id="tabbar0"><a href="?action={$action}"><span>1、填写手机</span></a></li>
+                <li id="tabbar1"><a href="?action={$action}"><span>2、验证短信</span></a></li>
+                <li id="tabbar2"><a href="?action={$action}"><span>3、修改成功</span></a></li>
+        </ul>
+</div>
+</div>
+{if $step == 2}
+<div class="aui-content">
+<div class="aui-input-row">
+<span class="aui-ellipsis-2 aui-ml-10 aui-padded-t5 fz14">会员 {$username} 密码找回成功，请使用新密码<a href="{$DT[file_login]}?username={$username}&forward={urlencode($MOD[linkurl])}" class="t">登录网站</a></span>
+</div>
+</div>
+{elseif $step == 1}
+<div class="aui-content">
+<form method="post" action="msend.php" onsubmit="return check();" id="dform">
+<input type="hidden" name="action" value="{$action}"/>
+<input type="hidden" name="step" value="2"/>
+
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">新登录密码</label>
+                <input type="password" name="password" id="password" class="aui-input" placeholder="新登录密码"/>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">重复新密码</label>
+                <input type="password" name="cpassword" id="cpassword" class="aui-input" placeholder="重复新密码"/>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">短信验证码</label>
+                <input type="text" name="code" id="code" class="aui-input" placeholder="短信验证码"/>
+            </div>
+            <div class="aui-input-row">
+            <div class="aui-input-addon">提示</div>
+            <span class="aui-padded-t5 fz14" style="position:relative; left:10px;">系统已发送一条验证短信至{$mobile}，请查收短信获取验证码</span>
+            </div>
+            <div class="aui-btn-row aui-borderb-no" id="btn-main">
+                <input type="submit" name="submit"  value=" 下一步 " class="aui-btn aui-btn-danger" style="width:40%;"/> &nbsp; 
+	<input type="button" value=" 返 回 " class="aui-btn" style="width:40%;" onclick="Go('?action={$action}&mobile={$mobile}');"/>
+            </div>
+           
+</div>
+</form>
+</div>
+<script type="text/javascript">
+function check() {
+	if(Dd('password').value.length > {$MOD[maxpassword]} || Dd('password').value.length < {$MOD[minpassword]}) {
+		laymsg('密码长度应为{$MOD[minpassword]}-{$MOD[maxpassword]}字符', 'password');
+		return false;
+	}
+	if(Dd('password').value != Dd('cpassword').value) {
+		laymsg('两次输入的密码不一致', 'cpassword');
+		return false;
+	}
+	if(Dd('code').value.length < 6) {
+		laymsg('请填写您收到的短信验证码', 'code');
+		return false;
+	}
+	return true;
+}
+</script>
+{else}
+<div class="aui-content">
+<form method="post" action="msend.php" onsubmit="return check();" id="dform">
+<input type="hidden" name="action" value="{$action}"/>
+<input type="hidden" name="step" value="1"/>
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">手机号码</label>
+                <input type="text" name="mobile" id="mobile" class="aui-input" value="{$mobile}" placeholder="已经认证的手机号码"/>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">验证码</label>
+<div class="aui-list-item" id="captcha-bar">{template 'captcha', 'chip'}</div>
+            </div>
+            <div class="aui-input-row">
+            <div class="aui-input-addon">提示</div>
+            <span class="aui-padded-t5 fz14" style="position:relative; left:10px;">提交后，系统将发送一条验证短信至您的手机，请接收短信完成验证</span>
+            </div>
+            <div class="aui-btn-row aui-borderb-no" id="btn-main">
+                <input type="submit" name="submit"  value=" 下一步 " class="aui-btn aui-btn-danger" style="width:40%;"/> &nbsp; 
+	<input type="button" value=" 返 回 " class="aui-btn" style="width:40%;" onclick="Go('?action=index');"/>
+            </div>
+           
+</div>
+</form>
+</div>
+
+<script type="text/javascript">
+function check() {
+	if(Dd('mobile').value.length < 11) {
+		laymsg('', 'mobile');
+		return false;
+	}
+	if(!is_captcha(Dd('captcha').value)) {
+		laymsg('请填写正确的验证码', 'captcha');
+		return false;
+	}
+	return true;
+}
+{if $seconds}
+Dd('send_code').disabled = true;
+var i = {$seconds};
+var interval=window.setInterval(
+	function() {
+		if(i == 0) {
+			Dd('send_code').value = '下一步';
+			Dd('send_code').disabled = false;
+			clearInterval(interval);
+		} else {
+			Dd('send_code').value = '下一步('+i+'秒)';
+			i--;
+		}
+	},
+1000);
+{/if}
+</script>
+{/if}
+<script type="text/javascript">Dh('side');Dh('side_oh');tabbar('tabbar{$step}');</script>
+{elseif $action == 'mail'}
+<div class="aui-content">
+<div class="aui-tab" id="aui-tab">
+        <ul class="aui-tab-nav" id="sell_info">
+                <li id="tabbar0"><a href="?action={$action}"><span>1、填写邮件</span></a></li>
+                <li id="tabbar1"><a href="?action={$action}"><span>2、验证邮件</span></a></li>
+                <li id="tabbar2"><a href="?action={$action}"><span>3、修改成功</span></a></li>
+        </ul>
+</div>
+</div>
+
+{if $step == 2}
+<div class="aui-content">
+<div class="aui-input-row">
+<span class="aui-ellipsis-2 aui-ml-10 aui-padded-t5 fz14">会员 {$username} 密码找回成功，请使用新密码<a href="{$DT[file_login]}?username={$username}&forward={urlencode($MOD[linkurl])}" class="t">登录网站</a></span>
+</div>
+</div>
+
+{elseif $step == 1}
+<form method="post" action="msend.php" onsubmit="return check();" id="dform">
+<input type="hidden" name="action" value="{$action}"/>
+<input type="hidden" name="step" value="2"/>
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">新登录密码</label>
+                <input type="password" name="password" id="password" class="aui-input" placeholder="新登录密码"/>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">重复新密码</label>
+                <input type="password" name="cpassword" id="cpassword" class="aui-input" placeholder="重复新密码"/>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">邮件验证码</label>
+                <input type="text" name="code" id="code" class="aui-input" placeholder="邮件验证码"/>
+            </div>
+            <div class="aui-input-row">
+            <div class="aui-input-addon">提示</div>
+            <span class="aui-padded-t5 fz14" style="position:relative; left:10px;">系统已发送一封验证邮件至{$email}，请<a href="goto.php?email={$email}" class="t" target="_blank">查收邮件</a>获取验证码</span>
+            </div>
+            <div class="aui-btn-row aui-borderb-no" id="btn-main">
+                <input type="submit" name="submit"  value=" 下一步 " class="aui-btn aui-btn-danger" style="width:40%;"/> &nbsp; 
+	<input type="button" value=" 返 回 " class="aui-btn" style="width:40%;" onclick="Go('?action={$action}&email={$email}');"/>
+            </div>
+           
+</div>
+</form>
+</div>
+
+<script type="text/javascript">
+function check() {
+	if(Dd('password').value.length > {$MOD[maxpassword]} || Dd('password').value.length < {$MOD[minpassword]}) {
+		laymsg('密码长度应为{$MOD[minpassword]}-{$MOD[maxpassword]}字符', 'password');
+		return false;
+	}
+	if(Dd('password').value != Dd('cpassword').value) {
+		laymsg('两次输入的密码不一致', 'cpassword');
+		return false;
+	}
+	if(Dd('code').value.length < 6) {
+		laymsg('请填写您收到的邮件验证码', 'code');
+		return false;
+	}
+	return true;
+}
+</script>
+{else}
+<form method="post" action="msend.php" onsubmit="return check();" id="dform">
+<input type="hidden" name="action" value="{$action}"/>
+<input type="hidden" name="step" value="1"/>
+
+        <div class="aui-form">
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">邮件地址</label>
+                <input type="text" name="email" id="email" class="aui-input" value="{$email}" placeholder="注册时填写的Email"/>
+            </div>
+            <div class="aui-input-row">
+                <label class="aui-input-addon aui-text-red">验证码</label>
+<div class="aui-list-item" id="captcha-bar">{template 'captcha', 'chip'}</div>
+            </div>
+            <div class="aui-input-row">
+            <div class="aui-input-addon">提示</div>
+            <span class="aui-ellipsis-2 aui-ml-10 aui-padded-t5 fz14">提交后，系统将发送一封验证邮件至您的注册Email，请接收邮件完成验证</span>
+            </div>
+            <div class="aui-btn-row aui-borderb-no" id="btn-main">
+                <input type="submit" name="submit"  value=" 下一步 " class="aui-btn aui-btn-danger" style="width:40%;"/> &nbsp; 
+	<input type="button" value=" 返 回 " class="aui-btn" style="width:40%;" onclick="Go('?action=index');"/>
+            </div>
+           
+</div>
+</form>
+</div>
+
+<script type="text/javascript">
+function check() {
+	if(Dd('email').value.length < 7) {
+		laymsg('', 'email');
+		return false;
+	}
+	if(!is_captcha(Dd('captcha').value)) {
+		laymsg('请填写正确的验证码', 'captcha');
+		return false;
+	}
+	return true;
+}
+{if $seconds}
+Dd('send_code').disabled = true;
+var i = {$seconds};
+var interval=window.setInterval(
+	function() {
+		if(i == 0) {
+			Dd('send_code').value = '下一步';
+			Dd('send_code').disabled = false;
+			clearInterval(interval);
+		} else {
+			Dd('send_code').value = '下一步('+i+'秒)';
+			i--;
+		}
+	},
+1000);
+{/if}
+</script>
+{/if}
+<script type="text/javascript">Dh('side');Dh('side_oh');tabbar('tabbar{$step}');</script>
+{else}
+<div class="aui-content">
+<div class="aui-tab" id="aui-tab">
+        <ul class="aui-tab-nav" id="sell_info">
+                <li id="tabbar0"><a href="?action=index"><span>请选择找回方式</span></a></li>
+        </ul>
+</div>
+</div>
+    <div class="aui-content">
+        <ul class="aui-list-view">
+            {if $could_email}
+            <li class="aui-list-view-cell">
+                <a href="?action=mail" class="aui-arrow-right">通过电子邮件找回</a>
+            </li>
+            {/if}
+            {if $could_mobile}
+            <li class="aui-list-view-cell">
+                <a href="?action=sms" class="aui-arrow-right">通过手机短信找回</a>
+            </li>
+            {/if}
+            <li class="aui-list-view-cell">
+                <a href="?action=contact" class="aui-arrow-right">联系客服人工申诉</a>
+            </li>
+        </ul>
+    </div>
+
+<script type="text/javascript">
+Dh('side');Dh('side_oh');
+</script>
+{/if}
+
+{template 'footer_member', 'mobile'}

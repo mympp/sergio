@@ -1,0 +1,20 @@
+<!--站内搜索-->
+        <div class="blk1_br spH">
+            <div class="ttl">
+                <h3>{$side_name[$HS]}</h3>
+            </div>
+            <form action="{$MODULE[4][linkurl]}home.php" onsubmit="return check_kw();">
+            <div class="cnt line">
+			<input type="hidden" name="action" value="search"/>
+			<input type="hidden" name="homepage" value="{$username}"/>
+			<input type="text" name="kw" value="{if $kw}{$kw}{else}输入关键词{/if}" size="25" id="kw"class="form-control" onfocus="if(this.value=='输入关键词')this.value='';"/>
+				<select name="file">
+				{loop $MENU $k $v}
+				{if in_array($menu_file[$k], array('sell', 'buy', 'news', 'credit', 'job', 'photo', 'info', 'brand', 'video', 'mall'))}<option value="{$menu_file[$k]}"{if $file==$menu_file[$k]} selected{/if}>{$v[name]}</option>{/if}
+				{/loop}
+				</select>
+			 <input type="submit" value=" 搜 索 " class="btn btn-primary spH"/>
+            </div>
+            </form>
+        </div>
+	<!--站内搜索-->

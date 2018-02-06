@@ -1,0 +1,106 @@
+﻿@charset "utf-8";
+/* CSS Document */
+.Hgt210{ height:210px;}
+.cc-180 img{ width:180px; height:180px;}
+.title-ha3 h3{ margin-top:8px; height:42px; line-height:42px; font-size:20px; font-weight:bold;}
+.banerBtn-top355{ top:355px;}
+.indexAdv{  margin: 0 auto; text-align:center; display:block;}
+.Buyers-Guide{ float:right; margin-top:20px; width:235px; height:386px; font-family:Arial, Helvetica, sans-serif; border:2px solid #eee;}
+.BuyG-wrap{ float:left; padding:20px; width:195px; height:279px;}
+.BuyG-title{ margin-bottom:14px; font-size:22px; font-weight:bold; color:#333; display:block;}
+.BuyG-UL li{ float:left; margin-bottom:5px; width:100%;}
+.BuyG-UL li a{ font-size:14px; color:#777;}
+.BuyG-img{ float:left; margin-top:25px; width:100%;}
+
+.BuyG-img img{ width:195px;}
+.convBusiness{ float:left; margin-top:10px; width:100%; }
+.convBusiness a{ font-size:14px; color:#aaa;}
+.BuyG-UL li a:hover,.convBusiness a:hover,.BuyG-join a:hover,.sucStory-userFont a:hover,.contO-lisMore a:hover{ text-decoration:underline;}
+
+.BuyG-join{ float:left; margin-top:14px; padding:13px 20px; text-align:center; width:195px; height:27px; background:#eee;}
+.BuyG-join span{ margin-right:8px;}
+.Icon-user{ width:27px; height:21px; background:url(../../Content/images/Icon-user.jpg) no-repeat; display:inline-block;}
+.BuyG-join a{ font-weight:bold; font-size:13px; color:#2c5b87;}
+.BuyG-join em{ margin:0 4px;}
+
+.Special img{ float:left; margin:19px 13px 19px 12px; width:200px; height:130px;}
+.Specil-Pos{ position:absolute; left:0px; top:0px; width:1200px;}
+.Specil-Pos ul li{ float:left; position:relative; width:240px; height:200px;}
+.Specil-Pos ul li .hover{ position:absolute; left:0px; top:0px; padding:18px 15px; width:210px; height:164px; background:url(../../Content/images/OrigePng1px.png) repeat; display:none;}
+.Specil-Pos ul li img{ width:215px; height:162px;}
+.Specil-Pos ul li .hover li{ float:left; width:100%; height:20px; line-height:20px;}
+.Specil-Pos ul li .hover span{ margin-bottom:10px; color:#fff; font-size:20px; display:block;}
+.Specil-Pos ul li .hover a{ color:#fff; font-size:13px;}
+.Specil-Pos ul li .hover a:hover{ text-decoration:underline;}
+
+.showPro-Box{ float:left; width:1198px; background:#fff; border:1px solid #dcdcdc;}
+.showBx-Left{ float:left; padding:20px 0 20px 20px; width:263px; border-right:1px solid #dcdcdc;}
+.sbLeft-fSty1 h3,.sbLeft-fSty2 h3,.sP-title{ margin-bottom:8px; font-size:22px; font-weight:bold; display:block;}
+.sbLeft-fSty1 p{ width:80%; line-height:20px; font-size:12px; color:#777;}
+
+
+.showBx-Right{ float:right; padding-right:35px; width:839px;}
+.showBx-ULa li{ float:right; margin-right:20px; padding:4px; text-align:center; width:170px;}
+.showBx-ULa li:hover{ padding:3px; border:1px solid #ececec;}
+.showBx-ULa img{ width:120px; height:120px;}
+.showBx-ULa strong{ margin-bottom:6px; width:100%; font-size:14px; font-weight:100; display:block;}
+.showBx-ULa span{ width:100%; color:#777; display:block;}
+
+.CountryD-UL{ margin-top:20px;}
+.CountryD-UL li{ float:left; margin-bottom:12px; width:100%;}
+.Country-UL li img{ float:left; margin-right:6px; width:30px; height:20px;}
+.Country-UL li a{ float:left; height:20px; line-height:20px;}
+.CountryP-UL{ margin-top:15px;}
+.CountryP-UL li{ float:left; margin-bottom:12px; width:160px;}
+
+.hotPro-UL li{ float:left; margin-top:10px; width:279px;}
+.hotPro-UL li .hot-proleft{ float:left; width:95px; height:95px; border:1px solid #fff;}
+.hotPro-UL li .hot-proleft:hover{ border:1px solid #aaa;}
+.hotPro-UL li .hot-prorigt{ float:left; padding-left:10px; width:172px;}
+.hot-prorigt span{ margin-bottom:6px; font-size:13px; display:block;}
+.hot-prorigt a{ margin-bottom:2px; display:block; color:#777;}
+.hot-prorigt a:hover{ color:#fe5300;}
+.Country-Pos{ position:absolute; left:283px; top:-1px; padding:20px; max-width:914px; height:142px; background:#fff; border:1px solid #dcdcdc; z-index:1; overflow:hidden; display:none;}
+
+.sucStory-left{ float:left; padding-left:20px; width:325px;}
+.sucStory-right{ float:right; width:810px;}
+.sucStory-left h3{ margin-bottom:6px; font-size:18px; display:block;}
+.sucStory-left .story{ margin-bottom:6px; font-size:18px; display:block;}
+
+.sucStory-user{ float:left; width:110px;}
+.sucStory-userFont{ float:left; width:215px;}
+.sucStory-userFont p{ margin-top:8px; padding-left:15px; width:200px; height:60px; line-height:20px; font-size:13px; overflow:hidden;}
+.sucStory-userFont a{ margin:20px 0 0 15px; color:#888; display:block;}
+.sucStory-right a{ float:left; margin-right:10px;}
+
+.sP-srcollwrap{ padding:20px; width:1158px;}
+.sP-srcollMain{ margin:20px auto 0 auto; position:relative; width:1040px; height:182px; overflow:hidden; display:block;}
+.sP-srcollPos{ position:absolute; left:0px; top:0px; width:auto; height:182px;}
+.sP-srcollPos li{ float:left;}
+.sP-Boxli{ float:left; margin:0 24px; width:160px;}
+.cc-120 img{ width:120px; height:120px;}
+
+.sP-Perv{ position:absolute; left:35px; top:110px; padding:10px; width:13px; height:27px; background:url(../../Content/images/sP-Prev.png) center center no-repeat; display:block;}
+.sP-Next{ position:absolute; right:35px; top:110px; padding:10px; width:13px; height:27px; background:url(../../Content/images/sP-Next.png) center center no-repeat; display:block;}
+
+.sP-Perv:hover{ background:url(../../Content/images/sP-PrevHv.png) center center no-repeat;}
+.sP-Next:hover{ background:url(../../Content/images/sP-NextHv.png) center center no-repeat;}
+
+.contO-lisMore{ float:left; margin-top:15px; padding:7px; width:234px;}
+.contO-lisMore a{ font-size:16px; color:#868686;}
+
+.Cotd-box{*+float:left; *+margin-left:15px; text-align:left; height:80px; display:inline-block;}
+.Cotd-box a:hover,.Cotd-box a:hover span,.Cotd-box a:hover p{ color:#444; text-decoration:underline;cursor:pointer;}
+.Cotd-left{ float:left; padding:12px 0 0 12px; height:68px;}
+.Cotd-right{ float:left; width:130px; height:80px;}
+.Cotd-left span{ float:left; width:100%; font-size:14px; font-weight:bold; color:#fa4f00;}
+.Cotd-left p{ float:left; width:100%; height:32px; line-height:16px; overflow:hidden;}
+.Cotd-right img{ float:right; width:130px; height:80px;}
+.pg-idx{ width:668px; height:390px;}
+.pg-idx img{ width:668px; height:390px;}
+
+.sP-title a:hover{ text-decoration:underline;}
+.featureCompanyName span{color:#777;width:100%;display:block;}
+
+
+

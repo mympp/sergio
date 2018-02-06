@@ -1,0 +1,38 @@
+<!---脚部--->
+<div class="footer">
+    <p class="aboutus">
+		<a href="{$MODULE[1][linkurl]}">网站首页</a>
+		<!--{tag("table=webpage&condition=item=1&areaid=$cityid&order=listorder desc,itemid desc&template=list-webpage")}-->
+		| <a href="{$MODULE[1][linkurl]}sitemap/">网站地图</a>
+		| <a href="{$EXT[spread_url]}">排名推广</a>
+		{if $EXT[ad_enable]} | <a href="{$EXT[ad_url]}">广告服务</a>{/if}
+		{if $EXT[gift_enable]} | <a href="{$EXT[gift_url]}">积分换礼</a>{/if}
+		{if $EXT[guestbook_enable]} | <a href="{$EXT[guestbook_url]}">网站留言</a>{/if}
+		{if $EXT[feed_enable]} | <a href="{$EXT[feed_url]}">RSS订阅</a>{/if}
+		{if $DT[icpno]} | <a href="http://www.miibeian.gov.cn" target="_blank" rel="nofollow">{$DT[icpno]}</a>{/if}
+	</p>
+    © 2017
+	<a rel="nofollow" href="{$MODULE[1][linkurl]}" target="_blank">{$DT[sitename]}</a>
+	版权所有 <a href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">{$DT[copyright]}</a> 
+	{if DT_DEBUG}<div class="px11">{debug()}</div>{/if}
+</div>
+
+
+<!---脚部END--->
+<!---JS--->
+
+<script type="text/javascript" src="{DT_SKIN}js/jquery.js"></script>
+<script type="text/javascript" src="{DT_SKIN}js/base.js"></script>
+<script type="text/javascript" src="{DT_SKIN}js/index.js"></script>
+
+<!---JS--->
+<script type="text/javascript">
+{if $destoon_task}
+show_task('{$destoon_task}');
+{else}
+{php include DT_ROOT.'/api/task.inc.php';}
+{/if}
+{if $lazy}$(function(){$("img").lazyload();});{/if}
+</script>
+</body>
+</html>

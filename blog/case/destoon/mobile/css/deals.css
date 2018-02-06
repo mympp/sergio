@@ -1,0 +1,389 @@
+﻿/* 流式布局 开始 */
+.de_wraper .webkit-box {
+	display: -webkit-box;
+}
+.de_wraper .webkit-box-flex {
+	display: block;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+}
+.de_wraper .half {
+	width: 50%;
+	overflow: hidden;
+}
+.de_wraper .thirds {
+	width: 33.333%;
+	overflow: hidden;
+}
+
+
+.de_wraper {
+	position:fixed;
+	width: 100%;
+	margin: 0 auto;
+	-webkit-box-sizing: border-box;
+	z-index:900;
+}
+.de_wraper .mod_main {
+	width: 100%;
+	padding: 20px 10px;
+	overflow: hidden;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.de_wraper .hide {
+	display: none;
+}
+hr {
+	border: none;
+	border-top: 1px solid #eaeaea;
+}
+
+.de_wraper .navbar {
+	height: 45px;
+	color: #fff;
+	position: relative;
+}
+
+.de_wraper .screen {
+	line-height: 1;
+	text-align: center;
+	padding: 3px 5px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
+	color: #afd1eb;
+	font-size: 22px;
+	border-radius: 2px;
+}
+.screen1 {
+	background-color: #3e7fc1;
+}
+
+/* index 结束 */
+/* 筛选框 开始*/
+.selectbox1 {
+	position: absolute;
+	width: 100%;
+	display: none;
+	z-index: 5;
+}
+.selectbox {
+	position: fixed;
+	z-index: 8;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	filter: alpha(Opacity=30);
+	-moz-opacity: 0.3;
+	opacity: 0.3;
+}
+.selectbj {
+	position: relative;
+	z-index: 9;
+	background: #eeedeb;
+	margin: 0px auto;
+}
+.selectlist {
+	position: relative;
+	width: 80%;
+	margin: 0px auto;
+	padding: 5px 0;
+	text-align: center;
+}
+.selectbox1 form {
+	width: 100%;
+	height: 35px;
+	margin: 15px auto;
+	overflow: hidden;
+}
+.seach_submit {
+	width: 33px;
+	height: 33px;
+	background: none;
+	cursor: pointer;
+	color: #acacac;
+	font-size: 17px;
+	border: 0;
+	margin: 0;
+	text-align: center;
+	line-height: 33px;
+}
+.seach_text {
+	height: 33px;
+	background: #f9f9f9;
+	border: 0;
+	color: #9f9f9f;
+	font-size: 12px;
+	-webkit-box-flex: 1;
+}
+.seach_text input {
+	width: 100%;
+	height: 100%;
+	line-height: 150%;
+	background: #f9f9f9;
+	padding-left: 8px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.selectbox1 .search {
+	border-radius: 3px;
+	border: #ccc solid 1px;
+	background-color: #f9f9f9;
+	display: -webkit-box;
+	overflow: hidden;
+}
+.searchbox {
+	height: 60px;
+	margin: 0px auto;
+	padding: 0 10px;
+	overflow: hidden;
+}
+.selectbox1 dl {
+	height: auto;
+	margin: 0px auto;
+	padding: 0 10px 15px 10px;
+	overflow: hidden;
+}
+.selectbox1 dl dt {
+	height: 30px;
+	line-height: 30px;
+	color: #777;
+	font-size: 13px;
+	text-align: left;
+	overflow: hidden;
+	padding-left: 10px;
+}
+.selectbox1 dl dd {
+	width: 33%;
+	float: left;
+	margin: 3px 0;
+	text-align: center;
+	overflow: hidden;
+}
+.selectbox1 dl dd.c24 {
+	text-align: center;
+}
+.selectbox1 dl dd.c23 {
+	padding-left: 0px;
+}
+.selectbox1 .cl {
+	width: 100%;
+	height: 1px;
+	background: #e0e0df;
+	display: block;
+	vertical-align: text-bottom;
+}
+.selectbox1 dl dd a {
+	border-radius: 3px;
+	width: 70px;
+	height: 30px;
+	line-height: 30px;
+	background: #f9f9f9;
+	color: #585858;
+	display: inline-block;
+	font-size: 1.2rem;
+	text-align: center;
+}
+.selectbox1 dl dd a: {
+background:#e1e0dd;
+}/* 筛选框 结束*//* 登录注册页 开始*/
+
+
+.de_mainlist {
+	height: 42px;
+	line-height: 42px;
+	padding: 0 15px;
+	background: #ffffff;
+	border-bottom: 1px solid #dfdfdf;
+	font-size: 1em;
+}
+.de_mainlist.return_cont {
+	height: auto;
+}
+.de_mainlist.return_cont textarea {
+	padding: 10px 0;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.de_mainlist span {
+	color: #444;
+}
+.de_mainlist .l_list {
+	height: 40px;
+	line-height: 40px;
+	color: #b7b7b7;
+	display: block;
+	margin-right: 10px;
+	text-align: right;
+}
+.de_mainlist .r_list {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	overflow: hidden;
+}
+.de_mainlist .r_list input, .mainlist .r_list textarea {
+	width: 100%;
+}
+.de_mainlist input {
+	color: #b7b7b7;
+	border: none;
+	vertical-align: top;
+}
+
+
+/* deals_index 开始 */
+.deals_index .de_main_list .de_mall-cate {
+	border-bottom: 1px solid #e6e6e6;
+}
+.deals_index .de_main_list .de_mall-cate li {
+	max-width:33.33333%;
+	height: 42px;
+	line-height: 42px;
+	border-right: 1px solid #e6e6e6;
+	background: #fff;
+	font-size:0.75rem;
+	padding-left:0.25rem; padding-right:0.25rem;
+	color: #8f8f8f;
+	text-align: center;
+}
+.deals_index .de_main_list .de_mall-cate li.curr {
+	color: #fc8600;
+}
+.deals_index .de_main_list .de_mall-cate li.cur {
+	color: #fc8600;
+}
+.deals_index .de_main_list .de_mall-cate li.cur .fa-sort-desc {
+	top: 1px;
+	-webkit-transform: rotate(0deg) scale(0.5);
+	-moz-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+}
+.deals_index .de_main_list .de_mall-cate i.fa {
+	position: relative;
+	top: -3px;
+	line-height: inherit;
+}
+.deals_index .de_hide_list {
+	position: fixed;
+	top: 88px;
+	left: 0px;
+	z-index: 99902;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.5);
+	display: none;
+}
+.deals_index .de_abbr {
+	width: 100%;
+	display: none;
+	background: #fff;
+}
+.deals_index .de_abbr .first_list {
+	width: 45%;
+	max-height: 300px;
+	overflow: hidden;
+	overflow-y: auto;
+}
+.deals_index .de_abbr .second_list {
+	width: 45%;
+	max-height: 300px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.deals_index .de_abbr a {
+	width: 100%;
+	display: block;
+}
+.deals_index .webkit-box {
+	display: -webkit-box;
+}
+.deals_index .all_list {
+	width: 100%;
+}
+.deals_index .directory {
+	line-height: 43px;
+	padding-left: 20px;
+	border-bottom: 1px solid #e6e6e6;
+	border-right: 1px solid #e6e6e6;
+	color: #4a4a4a;
+	font-size: 13px;
+	background: #fff;
+}
+.deals_index .select.directory {
+	border-right: 1px solid #f2f2f2;
+	background: #f2f2f2;
+}
+.deals_index .two_directory {
+	border-bottom: 1px solid #e6e6e6;
+	line-height: 43px;
+	padding-left: 20px;
+	font-size: 13px;
+	color: #4a4a4a;
+	background: #f2f2f2;
+}
+.second_list {
+	overflow: hidden;
+	background: #f2f2f2;
+}
+.second_list ul {
+	display: none;
+}
+/* deals_index 结束 */
+
+
+
+
+
+
+/* 全部分类 开始 */
+.category-con h2 {
+	font-size: 14px;
+	border-left-width: 3px;
+	border-left-style: solid;
+	padding-left: 4px;
+}
+.category-table {
+	box-sizing: border-box;
+	width: 100%;
+	border-left: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+	background-color: #f9f9f9;
+	font-size: 12px;
+	margin: 10px 0 20px 0;
+	overflow: hidden;
+}
+.category-table li {
+	box-sizing: border-box;
+	width: 25%;
+	float: left;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+.category-table li a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	color: #666;
+}
+.category_bg1 {
+	color: #ffbe32;
+}
+.category_bg2 {
+	color: #7995c9;
+}
+.category_bg3 {
+	color: #55caba;
+}
+.category_bg4 {
+	color: #fea295;
+}
+/* 全部分类 结束 */

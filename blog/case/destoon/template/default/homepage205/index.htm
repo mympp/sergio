@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset={DT_CHARSET}"/>
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{$COM[company]}{/if}</title>
+{if $head_keywords}<meta name="keywords" content="{$head_keywords}"/>{/if}
+{if $head_description}<meta name="description" content="{$head_description}"/>{/if}
+<meta name="generator" content="DESTOON B2B - www.destoon.com"/>
+<meta name="template" content="{$template}"/>
+{if $head_mobile}
+<meta http-equiv="mobile-agent" content="format=html5;url={$head_mobile}">
+{/if}
+{if $head_canonical}
+<link rel="canonical" href="{$head_canonical}"/>
+{/if}
+<link rel="stylesheet" type="text/css" href="{DT_STATIC}{$MODULE[4][moduledir]}/skin/common.css"/>
+<link rel="stylesheet" type="text/css" href="{$HSPATH}style.css"/>
+{if !DT_DEBUG}<script type="text/javascript">window.onerror= function(){return true;}</script>{/if}
+<script type="text/javascript" src="{DT_STATIC}lang/{DT_LANG}/lang.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/config.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/page.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/homepage.js"></script>
+{if $lazy}<script type="text/javascript" src="{DT_STATIC}file/script/jquery.lazyload.js"></script>{/if}
+<script type="text/javascript">
+{if $head_mobile && $EXT[mobile_goto]}
+GoMobile('{$head_mobile}');
+{/if}
+{if $itemid && $DT[anticopy]}
+document.oncontextmenu=function(e){return false;};
+document.onselectstart=function(e){return false;};
+{/if}
+</script>
+{if $css}<style type="text/css">{$css}</style>{/if}
+<link href="{$HSPATH}base.css" rel="stylesheet" />
+<link href="{$HSPATH}blue.css" rel="stylesheet" />    
+</head>
+<body>
+    <div class="head_bar">
+        <div class="w1190">
+            <div class="fl_l hide_yc">
+				<script type="text/javascript">addFav('收藏本页');</script> | 
+			<a href="{$COM[linkurl]}" onclick="javascript:try{this.style.behavior='url(#default#homepage)';this.setHomePage(location.href);}catch(e){}return false;">设为主页</a>
+		| <a href="{DT_PATH}api/shortcut.php?itemid={$userid}" rel="nofollow">保存桌面</a>
+		{if $EXT[mobile_enable]} | <a href="javascript:Go('{$EXT[mobile_url]}index.php?moduleid=4&username={$username}');">手机版</a>{/if}{if $head_mobile} | <a href="javascript:Dqrcode();">二维码</a>{/if}
+			</div>
+			      {if $head_mobile}<div id="destoon_qrcode" style="display:none;"></div>{/if}
+        </div>
+    </div>
+  
+    <div class="top_search_wrap">
+        <div class="w1200">
+            <h1>
+			{if $logo}
+			<a href="{$COM[linkurl]}" class="main_logo"><img src="{$logo}" alt="{$COM[company]}" width="80px" height="60px"/></a>
+			{/if} 
+		</h1>
+            <div class="top_comp">
+                <h2>{$COM[company]}</h2>
+                <span class="xxt"><i>{$COM[year]}</i>年</span>
+                <span class="line">|</span>
+                {if $COM[qq] && $DT[im_qq]}{im_qq($COM[qq])}{else}{im_web($COM[username])}{/if}
+            </div>
+
+            <div class="mem_search">
+		<form action="{$MODULE[4][linkurl]}home.php" onsubmit="return check_kw();">
+			<input type="hidden" name="action" value="search"/>
+			<input type="hidden" name="homepage" value="{$username}"/>
+			<div class="search_box">
+			<input type="text" name="kw" value="{if $kw}{$kw}{else}输入关键词{/if}"  class="text" id="kw"  onfocus="if(this.value=='输入关键词')this.value='';"  maxlength="30" />
+			<input type="submit" value=" 站内搜索 "   class="submit border_line"/>
+			</div>
+			<div style="position:absolute;top:66px;right:135px;">
+			<select name="file">
+			{loop $MENU $k $v}
+			{if in_array($menu_file[$k], array('sell', 'buy', 'news', 'credit', 'job', 'photo', 'info', 'brand', 'video', 'mall'))}<option value="{$menu_file[$k]}"{if $file==$menu_file[$k]} selected{/if}>{$v[name]}</option>{/if}
+			{/loop}
+			</select>
+			</div>
+		</form>
+		
+            </div>
+        </div>
+    </div>
+<!-- 导航 -->
+
+<div class="mem_nav">
+    <div class="w1200">
+        <ul>
+		<li class="{if $file=='homepage'}active{/if}"><a href="{$COM[linkurl]}">首页</a></li>
+		{loop $MENU $k $v}
+		<li class="{if $file==$menu_file[$k]}active{/if}"><a href="{$v[linkurl]}">{$v[name]}</a></li>
+		{/loop}
+       </ul>
+    </div>
+</div>
+<!-- 轮播 -->
+<!------------------------------->
+{if $bannert || $banner}
+<div class="bannerlist-container" data-inset="bannrShow" data-height="500" id="focusPicDIV">
+  <ul>
+  	{if $bannert == 2}
+  		<li><a href='javascript:void(0);'><img src="{$banner1}" width="100%"height="500px" alt=""/></a></li>
+		<li><a href='javascript:void(0);'><img src="{$banner2}" width="100%"height="500px"  alt=""/></a></li>
+  		{if $banner3}<li><a href='javascript:void(0);'><img src="{$banner3}" width="100%"  height="500px" alt=""/></a></li>{/if}
+		{if $banner4}<li><a href='javascript:void(0);'><img src="{$banner4}" width="100%"  height="500px" alt=""/></a></li>{/if}
+		{if $banner5}<li><a href='javascript:void(0);'><img src="{$banner5}" width="100%"  height="500px" alt=""/></a></li>{/if}
+  		{elseif $bannert == 1}
+		<embed src="{$bannerf}" quality="high" loop="true" extendspage="http://get.adobe.com/flashplayer/" type="application/x-shockwave-flash" width="{$bannerw}" height="{$bannerh}" allowscriptaccess="never"></embed>
+		{elseif $banner}
+		<li><a href='javascript:void(0);'><img src="{$banner}" width="100%" height="500px"/></a></li>
+		{/if}
+  </ul>
+</div>
+{/if}
+<div class="m_b30"></div>
+<!-------------------------------->
+<div class="w1200 m_b30 clearfix">
+
+	 <!-- 右侧 -->
+<div class="right_side">
+	{loop $HMAIN $HM $MAIN}
+		{template 'main_'.$main_file[$HM], $template}
+	{/loop}
+</div>
+<!-- right_side end -->
+
+{template 'footer', $template}

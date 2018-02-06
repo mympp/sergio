@@ -1,0 +1,22 @@
+body{ border-top:6px solid #ffaf00;}
+/*--头部--*/
+.header{ width:100%;}
+.header-nav{ width:1210px;margin:0 auto; line-height:44px; background-image:url('.header-nav-bg.jpg'); background-repeat:repeat-x; padding-bottom:6px;overflow: hidden;}
+.header-nav-welcome{ width:265px;}
+.header-nav ul{ float:left;}
+
+.left{ width:250px;}
+.left-nav{ width:198px; height:40px; line-height:40px; font-size:14px; font-weight:bold; color:#fff; letter-spacing: 3px; background-image:url(/User/images/Red/left-nav-bg.jpg); background-repeat:repeat-x; padding:0 26px;}
+.left-con{ width:208px; border:1px solid #ECECEC; border-top:0px; background-color:#fff; padding:20px;}
+
+#menu a {text-decoration:none;}
+.menu {height:49px;overflow:hidden;font-size:14px;font-weight:bold;}
+.menu_li { width:121px;text-align:center; float:left;height: 44px;line-height: 44px;text-decoration: none;font-size: 14px;font-weight: bold;color: #fff;background-image: url('header-nav-2.jpg');}
+.menu_on { width:121px; text-align:center;float:left;float: left;height: 44px;line-height: 44px;text-decoration: none; font-size:14px;font-weight: bold;color: #fff;background:#green;background-image: url('header-nav-1.jpg');}
+.nav li a.navMenu{float: left;height: 44px;line-height: 44px;text-decoration: none;font-size: 14px;font-weight: bold;color: #fff;display:block;background-image: url('header-nav-2.jpg');}
+.menu_li a, .menu_on a{color:#ffffff;display:block;}
+.menu_li a:hover{background-image: url('header-nav-1.jpg');}
+
+.mainBox .title1{border-bottom: 1px solid #e4e4e4; padding: 0 10px 0 15px; height: 40px; line-height: 40px;background-image: url('left-nav-bg.jpg');background-repeat: repeat-x;}
+.mainBox .title1 h2{ float: left; color: #ffffff; font-size: 14px;}
+.mainBox .title1 .more{ float: right; font-size: 12px; text-decoration: none; color: #ffffff;}

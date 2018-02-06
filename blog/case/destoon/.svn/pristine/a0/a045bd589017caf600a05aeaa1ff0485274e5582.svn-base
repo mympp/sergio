@@ -1,0 +1,19 @@
+<div class="articleLabel">
+	<div class="articleLabelBox">
+		<div class="tpl_title">
+		  <p class="">{$main_name[$HM]}</p>
+		</div> 
+		<ul class="clearfix">
+		<!--{php $tags=tag("moduleid=13&condition=status>2 and username='$username'&pagesize=5&order=edittime desc&fields=itemid,title,linkurl,thumb,edittime&template=null");}-->
+		{loop $tags $i $t}
+			<li class="border_box border_ddd fl">
+				<a title="{$t[title]}" href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=brand&itemid='.$t['itemid'], $domain)}{/if}" style="height:60px;"/>
+					<img src="{$t[thumb]}" alt="{$t[alt]}" height="60" style="margin-top:0;" ></a>
+				<p class="overflow Themefont">{$t[title]}</p>
+				<p class="overflow Themefont">{timetodate($t[edittime], 3)}</p>
+			</li>
+		{/loop}
+		</ul> 
+		<a title="查看更多" href="{userurl($username, 'file=brand', $domain)}" target="_blank" class="F36fontH F36borderH more border_ddd">更多</a>
+	</div>
+</div>

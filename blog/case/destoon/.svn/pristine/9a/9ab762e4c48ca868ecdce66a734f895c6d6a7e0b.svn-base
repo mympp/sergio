@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset={DT_CHARSET}"/>
+<title>{if $seo_title}{$seo_title}{else}{if $head_title}{$head_title}{$DT[seo_delimiter]}{/if}{$COM[company]}{/if}</title>
+{if $head_keywords}<meta name="keywords" content="{$head_keywords}"/>{/if}
+{if $head_description}<meta name="description" content="{$head_description}"/>{/if}
+<meta name="generator" content="DESTOON B2B - www.destoon.com"/>
+<meta name="template" content="{$template}"/>
+{if $head_mobile}
+<meta http-equiv="mobile-agent" content="format=html5;url={$head_mobile}">
+{/if}
+{if $head_canonical}
+<link rel="canonical" href="{$head_canonical}"/>
+{/if}
+<link rel="stylesheet" type="text/css" href="{$HSPATH}common.css"/>
+<link rel="stylesheet" type="text/css" href="{$HSPATH}style.css"/>
+<link rel="stylesheet" type="text/css" href="{$HSPATH}css1-3cad5338.css"/>
+{if !DT_DEBUG}<script type="text/javascript">window.onerror= function(){return true;}</script>{/if}
+<script type="text/javascript" src="{DT_STATIC}lang/{DT_LANG}/lang.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/config.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/jquery.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/common.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/page.js"></script>
+<script type="text/javascript" src="{DT_STATIC}file/script/homepage.js"></script>
+{if $lazy}<script type="text/javascript" src="{DT_STATIC}file/script/jquery.lazyload.js"></script>{/if}
+<script type="text/javascript">
+{if $head_mobile && $EXT[mobile_goto]}
+GoMobile('{$head_mobile}');
+{/if}
+{if $itemid && $DT[anticopy]}
+document.oncontextmenu=function(e){return false;};
+document.onselectstart=function(e){return false;};
+{/if}
+</script>
+{if $css}<style type="text/css">{$css}</style>{/if}
+</head>
+<body{if $bgcolor || $background} style="background:{if $bgcolor}{$bgcolor}{/if}{if $background}url('{$background}') no-repeat center 0{/if};"{/if}>
+<div class="sitebar">
+	<div class="wrap">
+		<div class="top" id="top">
+			<script type="text/javascript">addFav('收藏本页');</script>&nbsp;&nbsp;|&nbsp;&nbsp; 
+			<a href="{$COM[linkurl]}" onclick="javascript:try{this.style.behavior='url(#default#homepage)';this.setHomePage(location.href);}catch(e){}return false;">设为主页</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
+			<a href="{DT_PATH}api/shortcut.php?itemid={$userid}" rel="nofollow">保存桌面</a>{if $EXT[mobile_enable]}&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="javascript:Go('{$EXT[mobile_url]}index.php?moduleid=4&username={$username}');">手机版</a>{/if}{if $head_mobile}&nbsp;&nbsp;|&nbsp;&nbsp; 
+			<a href="javascript:Dqrcode();">二维码</a>{/if}
+		</div>
+	</div>
+</div>
+{if $head_mobile}<div id="destoon_qrcode" style="display:none;"></div>{/if}
+  <div class="search-top">
+    <div class="wrap">
+		<div class="logo f_l"><a href="{$MODULE[1][linkurl]}"><img src="{if $MODULE[$moduleid][logo]}{DT_SKIN}image/logo_{$moduleid}.gif{elseif $DT[logo]}{$DT[logo]}{else}{DT_SKIN}image/logo.gif{/if}" alt="{$DT[sitename]}"/></a></div>
+				<div class="head_search" style="float:right;height:60px;line-height:40px;margin-top:7px;">
+			<form action="{$MODULE[4][linkurl]}home.php" onsubmit="return check_kw();">
+			<input type="hidden" name="action" value="search"/>
+			<input type="hidden" name="homepage" value="{$username}"/>
+			<input type="text" name="kw" value="{if $kw}{$kw}{else}输入关键词{/if}" size="25" id="kw" class="inp" onfocus="if(this.value=='输入关键词')this.value='';" style="border:#99C4D5 1px solid;color:#666666;    border: #99C4D5 1px solid;line-height: 40px;font-size: 14px;padding-left: 10px;width: 500px;"/>
+			<div style="float:right;">
+			<select name="file" style="line-height:40px;height:46px;border:1px solid #99C4D5;font-size:14px;border-left:none;">
+			{loop $MENU $k $v}
+			{if in_array($menu_file[$k], array('sell', 'buy', 'news', 'credit', 'job', 'photo', 'info', 'brand', 'video', 'mall'))}
+			<option value="{$menu_file[$k]}"{if $file==$menu_file[$k]} selected{/if}>{$v[name]}</option>{/if}
+			{/loop}
+			</select>
+			<input type="submit" value=" 搜 索 " class="sbm" style="height:44px;font-size:14px;width:100px;border:none;color:#fff;background:#E25250;font-weight:bold;"/>
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="grid">
+	<div class="header">
+	    <div class="companyName">
+			<div id="logoM">
+				<div class="vam">
+					<div class="vam-out">
+						<div class="vam-in">
+							{if $logo}
+							<div class="logo">
+								<a href="{$COM[linkurl]}"><img src="{$logo}" alt="{$COM[company]}" onload="if(this.width>300)this.width=300;"/></a>
+							</div>
+							{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class=""></div>
+			<div class="company-info">
+				<div class="company-hd yyy clear">
+					<h1>{$COM[company]}</h1>
+					<div class="company-cert">
+						<span class="cert-sign"><i class="icon icon-senior"></i>百销通高级版</span>
+					</div>
+				</div>
+				<p>{$COM[intro]}</p>
+			</div>
+			<div class="company-qrcode">
+				<div class="sign">
+					{if $COM[vip]}
+					<div><strong>{$COM[year]}</strong></div>
+					{else}
+					<img src="{DT_STATIC}{$MODULE[4][moduledir]}/image/free_bg.gif" alt="普通会员"/>
+					{/if}
+				</div>
+			</div>
+	    </div>
+	  </div>
+  </div>
+
+<div class="nav-wrap">
+	<div class="grid">
+  		<ul class="top_nav">
+			<li class="{if $file=='homepage'}menu_on{else}menu_li{/if}"><a href="{$COM[linkurl]}"><span>网站首页</span></a></li>
+			{loop $MENU $k $v}
+			<li class="{if $file==$menu_file[$k]}menu_on{else}menu_li{/if}"><a href="{$v[linkurl]}"><span>{$v[name]}</span></a></li>
+			{/loop}
+    	</ul>
+    </div>
+</div>
+
+{if $bannert || $banner}
+<div class="side">
+	<div class="banner">
+	{if $bannert == 2}
+	<div id="slide_banner" style="width:{$bannerw}px;height:{$bannerh}px;background:#FAFAFA;overflow:hidden;">
+	<a href="###"><img src="{$banner1}" width="{$bannerw}" height="{$bannerh}" alt=""/></a>
+	<a href="###"><img src="{$banner2}" width="{$bannerw}" height="{$bannerh}" alt=""/></a>
+	{if $banner3}<a href="###"><img src="{$banner3}" width="{$bannerw}" height="{$bannerh}" alt=""/></a>{/if}
+	{if $banner4}<a href="###"><img src="{$banner4}" width="{$bannerw}" height="{$bannerh}" alt=""/></a>{/if}
+	{if $banner5}<a href="###"><img src="{$banner5}" width="{$bannerw}" height="{$bannerh}" alt=""/></a>{/if}
+	</div>
+	{load('slide.js')}
+	<script type="text/javascript">new dslide('slide_banner');</script>
+	{elseif $bannert == 1}
+	<embed src="{$bannerf}" quality="high" loop="true" extendspage="http://get.adobe.com/flashplayer/" type="application/x-shockwave-flash" width="{$bannerw}" height="{$bannerh}" allowscriptaccess="never"></embed>
+	{elseif $banner}
+	<img src="{$banner}" width="100%"/>
+	{/if}
+	</div>
+</div>
+{/if}
+
+<div class="container">
+	<div class="main-wrap">
+		<div class="grid  main">
+			<table cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+			{if $side_pos==0}
+			<td width="{$side_width}" valign="top" id="side">{template 'side', $template}</td>
+			<td width="10" id="split"></td>
+			{/if}
+			<td valign="top" id="main">

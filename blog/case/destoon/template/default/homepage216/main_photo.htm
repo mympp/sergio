@@ -1,0 +1,25 @@
+<div class="mainBox ">
+	<div class="title"><a href="{userurl($username, 'file=photo', $domain)}" target="_blank" class="more">更多</a><h2>{$main_name[$HM]}</h2></div>
+	<div class="con">
+		<div class="shopRecommend">
+			<div style=" _position: relative; width: 880px; overflow: hidden; height: 246px">
+				<ul style="left:0">
+				<!--{php $tags=tag("moduleid=12&condition=status>2 and username='$username'&pagesize=".$main_num[$HM]."&order=addtime desc&fields=itemid,title,linkurl,thumb,addtime,items,open&template=null");}-->
+				{loop $tags $i $t}
+					<li>
+						<div>
+							<span class="imgBox">
+								<a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=photo&itemid='.$t['itemid'], $domain)}{/if}" target="_blank">
+								<img src="{$t[thumb]}" onerror="this.src='/images/templateOne/common/r_nopic.gif'"></a>
+							</span>
+							<h3><a href="{if $homeurl}{$t[linkurl]}{else}{userurl($username, 'file=photo&itemid='.$t['itemid'], $domain)}{/if}" target="_blank">{$t[title]}</a></h3>
+							<p class="p1">{$t[items]}图{if $t[open]<3} <img src="{$MODULE[2][linkurl]}image/ico_lock.gif" style="border:none;padding:0;" align="absmiddle" title="访问受限"/>{/if}</p>
+							<p class="p1">{timetodate($t[addtime], 3)}</p>
+						</div>
+					</li>
+				{/loop}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

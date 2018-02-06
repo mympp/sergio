@@ -1,0 +1,322 @@
+{if $EXT[gl_pinglun_index]}
+{if in_array($moduleid, explode(',', $EXT['comment_module']))}
+	{if $EXT[comment_api] == 'changyan'}
+<div class="aui-content aui-margin-t-15">
+		<p style="padding:10px 0; color:#F00; font-size:0.8rem">相关评论</p>    <!--WAP版-->
+<div id="SOHUCS" sid="{$moduleid}-{$itemid}" ></div>
+<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" 
+src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id={$EXT[comment_api_id]}&conf={$EXT[comment_api_key]}">
+</script>
+</div>
+    {elseif $EXT[comment_api] == 'duoshuo'}
+<div class="aui-content aui-margin-t-15">
+		<p style="padding:10px 0; color:#F00; font-size:0.8rem">相关评论</p>    <!--WAP版-->
+			<div class="ds-thread" data-thread-key="{$moduleid}-{$itemid}" data-title="{$title}" data-url="{$linkurl}" data-image="{if $thumb}{str_replace('.thumb.'.file_ext($thumb), '', $thumb)}{/if}"></div>
+			<script type="text/javascript">
+			var duoshuoQuery = {short_name:"{$EXT[comment_api_id]}"};
+				(function() {
+					var ds = document.createElement('script');
+					ds.type = 'text/javascript';ds.async = true;
+					ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+					ds.charset = 'UTF-8';
+					(document.getElementsByTagName('head')[0] 
+					 || document.getElementsByTagName('body')[0]).appendChild(ds);
+				})();
+			</script>
+	</div>
+{else}
+<style>
+.dt-comment-title { color: #f30701; font-size: 16px; text-align: left; font-weight: normal; margin:0px; padding:0.65rem 0 0.65rem 0.5rem;}
+.dt-comment-list { margin-bottom:0; margin-top:0;}
+.dt-comment-list .aui-card-list { padding-top:0;}
+.dt-comment-list .aui-card-list-user-avatar { width: 1.75rem;}
+.dt-comment-list .aui-card-list-content-padded { padding: 0.25rem 0.75rem; padding-left:2.5rem;}
+.dt-comment-list .aui-card-list-content-padded img { max-height:7.5rem;object-fit: contain;}
+.dt-comment-list .dt-comment-introduce { font-size:0.75rem;}
+.dt-comment-dh .dt-label { margin-left:0.15rem; top:-0.1rem; background:#FFF; padding:0.15rem 0.25rem;}	
+.dt-comment-zan { padding:0 0.75rem 0.5rem 0;}
+.dt-comment-zan .dt-iconfont { font-size:0.6rem; margin-right:0.15rem;}
+
+.replay-list { overflow: hidden; margin-left: -34px!important; margin-top:10px;}
+.replay-list img { width: 30px; height: 30px; float: left; border-radius: 50%; }
+.replay-list .replay-detail { margin-top: 0; margin-left: 7px; overflow: hidden; float: right; width: 87%; }
+.replay-list h4 { text-align: left; overflow: hidden; overflow: hidden; height: 25px; line-height: 25px; }
+.replay-list h4 b, .replay-list h4 span { font-weight: normal; color: #39f; font-size: 14px; vertical-align: middle; }
+.replay-list h4 i, .replay-list h4 span, .replay-list h4 em { display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: middle; text-overflow: ellipsis; }
+.replay-list h4 i { color: #ff8b3d; margin-right: 5px; font-size: 14px; max-width: 90px; }
+.replay-list h4 span { max-width: 90px; }
+.replay-list h4 em { float: right; color: #999; }
+.load-more-list { display:block;height:30px;width:100%;text-align:center;line-height:30px;background:#f3f3f3;margin:10px auto 0;color:#fff;border-radius:5px;font-size:14px;}
+
+@media (max-width: 320px) {
+ .replay-list h4 i {max-width:75px; }
+ .replay-list h4 span {max-width:74px; }
+}
+@media (min-width: 414px) {
+ .replay-list .replay-detail { width: 90%; }
+}
+/*评论输入框*/
+.bottom-comment { background: #f3f3f3; width: 100%; position: relative; transition: all .2s; z-index: 8888; overflow: hidden; text-align: left; padding: 10px 0 8px; }
+.bottom-comment.cur { position: fixed; left: 0; bottom: 0; }
+.bottom-comment.fixed { position: fixed; left: 0; bottom: 0; width: 90%; height: auto; }
+.bottom-comment textarea { width: 48%; height: 5px; min-height: 35px; border-radius: 20px; background: #fff; border: 1px solid #f1f1f1; resize: none; text-indent: 5px; padding-top:3px; outline: none; -weikit-transition: all .5s; transition: all .5s; vertical-align: middle; margin-left: 10px; }
+.bottom-comment textarea.curFocus { width: 94%; height: 95px; line-height: 20px; border-radius: 2px; }
+.bottom-comment .pl-zan { position: absolute; top: 50%; margin-top: -25px; right: 10px; height: 40px; line-height: 40px; }
+.bottom-comment .pl-zan span { display: inline-block; padding: 0 5px; cursor: pointer; position: relative; margin-top: 5px;-webkit-tap-highlight-color:rgba(255,255,255,0); }
+.bottom-comment .pl-zan span.pl em { display: inline-block;
+	text-align: center;
+	min-width: 0.9rem;
+	height: 0.8rem;
+    line-height: 0.8rem;
+    padding: 0 4px;
+    font-size: 0.6rem;
+    color: #ffffff;
+    background-color: #ff2600;
+    border-radius: 0.4rem;
+    position: absolute;
+    top: 0.2rem;
+    left: 60%;
+    z-index: 99;
+
+ }
+.bottom-comment .pl-zan span.share {}
+.bottom-comment .pl-zan span.zan { margin: 0 5px 0 10px; }
+.bottom-comment .pl-zan span i { padding-right: 5px; color:#666; font-size:1.1rem !important}
+.bottom-comment .pl-zan span a { color:#666;}
+.bottom-comment .pl-zan span i.curZan + em {color:#ff6700; }
+.curZan,.curZan em  { color: #ff6700!important; }
+.bottom-comment .btn-group { display: none; text-align: left; padding-left: 10px; }
+.bottom-comment .btn-group a { display: inline-block; width: 30%; height: 30px; line-height: 30px; text-align: center; border-radius: 5px; margin-top: 10px; font-size: 14px; }
+.bottom-comment .add-comment { background: #ff6700; color: #fff; margin-right: 8px; }
+.bottom-comment .cancel { background: #3caaff; color: #fff; }
+
+.comment-bar-fix { height:50px;clear:both;}
+</style>
+<script id="liveviewc" type="text/html">
+{{# for(var i = 0, len = d.length; i < len; i++){ }}
+<div class="aui-card-list dt-comment-list" id="comment-items{{d[i].itemid}}">
+        <div class="aui-card-list-header aui-card-list-user">
+            <div class="aui-card-list-user-avatar">
+                <img src="{{d[i].useravatar}}" class="aui-img-round" />
+            </div>
+            <div class="aui-card-list-user-name">
+                <div class="dt-comment-dh">{{d[i].truename}}</div>
+                <small>举报</small>
+            </div>
+            <div class="aui-card-list-user-info">{{d[i].adddate}}&nbsp;{{d[i].livearea}}</div>
+        </div>
+            <div class="aui-card-list-content-padded dt-comment-introduce">
+            {{d[i].content}}
+        </div>
+		<div class="aui-text-right dt-comment-zan">
+            <div class="aui-label aui-label-outlined aui-margin-r-10"><i class="dt-iconfont dt-icon-zanzan"></i>123</div><div class="aui-label aui-label-outlined"><i class="dt-iconfont dt-icon-comment"></i>123</div>
+        </div>
+
+		<div class="aui-hr"></div>
+		</div>
+{{# } }}
+</script>
+<div class="aui-content dt-bg-white">
+<div class="dt-comment-title">热门评论</div>
+<div class="aui-hr"></div>
+</div>
+<div id="laytpl-viewc"></div>
+<div id="commentList"></div>
+<div id="commmore" class="aui-btn aui-btn-block aui-btn-sm" style="padding: 10px 15px; color:#424242 !important;background-color:#fff;">加载更多……</div>
+{if $DT_MOB[browser] == 'weixin' ||  $DT_MOB[browser] == 'qq'}
+<div style="width:100%;height:100%;min-height:1000px;background:#000000;opacity:0.75;position:fixed;z-index:99;left:0;top:0;right:0;text-align:right;display:none;" onclick="$(this).fadeOut('fast');" id="share-tips"><img src="static/img/share-tips.png" width="165"/></div>
+<script type="text/javascript">function share_tips() {$('#share-tips').fadeIn('fast');}</script>
+{/if}
+</div>
+<div class="comment-bar-fix"></div>
+	<form method="post" id="comment-post">
+	<input type="hidden" name="action" value="post"/>
+	<input type="hidden" name="mid" value="{$moduleid}"/>
+	<input type="hidden" name="itemid" value="{$itemid}"/>
+	<input type="hidden" name="star" value="3" id="star"/>
+
+<div class="bottom-comment cur" id="comment-area" style="position: fixed;">
+  <textarea placeholder="在此输入评论" name="content" id="content" style="color: rgb(153, 153, 153);" class=""></textarea>
+  <div class="pl-zan" style="display: block;"> <span class="pl"><i class="dt-iconfont dt-icon-comment"></i><em>0</em></span><span class="zan"><i class="dt-iconfont dt-icon-zanzan"></i><em>1</em></span><a {if $DT_MOB[browser]=='weixin' || $DT_MOB[browser]=='qq'}href="javascript:share_tips();"{elseif $GL_MOB['browser']=='aqq'}href="javascript:share_tips();"{elseif $GL_MOB}onclick="shareappbar()"{else}onclick="gotoTop('dt-share')"{/if}><span><i class="dt-iconfont dt-icon-fenxiang" style="margin-top:0.15rem; font-size:1rem !important;"></i></span></a></div>
+  <div class="btn-group" style="display: none;">
+  {php $NCAP = cache_read('module-3.php');$need_captcha = $NCAP['comment_captcha_add'] == 2 ? $MG['captcha'] : $NCAP['comment_captcha_add'];}
+	{if $need_captcha}
+	<div style="width:100%;height:2.25rem;font-size:0.8rem; margin-left:0.25rem;" id="box-captcha">{template 'captcha', 'chip'}</div>
+	{/if}
+
+  <a href="javascript:;" class="add-comment" onclick="Dcomment();">评论</a><a href="javascript:;" class="cancel">取消</a> </div>
+</div>
+</form>
+<script>
+var userid ="{$_userid}";
+var mid ='{$moduleid}';
+var itemid ='{$itemid}';
+var cid ='{$catid}';
+var pageLoad = true;
+var pageIndex = 1;
+
+$(".bottom-comment .pl-zan span.pl").on("click",function () {
+	$(".bottom-comment textarea").trigger("focus");
+	});
+$(".bottom-comment .cancel").on("click",function () {
+	$(this).parent().hide().parent().find("textarea").val("").removeClass("curFocus").next(".pl-zan").show();
+	});
+$(".bottom-comment textarea").on("focus",function () {
+	if ($(this).hasClass("curFocus")) 
+	{return;}
+$(".bottom-comment .pl-zan").hide(200);$(this).addClass("curFocus");$(".bottom-comment .btn-group").show(300);
+});
+//$(document).on("click",".replay-btn a",function () {
+//	var _this =$(this);var curUser =_this.attr("data-user");if (curUser ==userid) {layer.open({content:'自己不能回复自己哦',btn:['确定']
+//});
+//return;
+//}
+//_this.parent().next(".replay-area").slideDown();console.log(_this.parent().find("textarea"));
+//var nowComPeople =_this.parent().next(".replay-area").find("a").data("name");
+//_this.parent().next(".replay-area").find("textarea").val('@' + nowComPeople + '').css({"color":"#39f" });
+//});
+
+$(document).on("focus","textarea",function () {
+	$(this).val("").css({"color":"#999" });
+	{if $need_captcha}
+	showcaptcha();
+{/if}
+})
+$(document).on("click","a.cancel-btn",function () {
+	var _this =$(this);
+	if (_this.parents(".replay-area").find("textarea").val().length >0) {_this.parents(".replay-area").find("textarea").val("");
+	}
+_this.parents(".replay-area").slideUp();
+})
+
+
+function commlists(pageIndex,mid,itemid,psize){
+$.get('glajax.php?action=glloadpl',{"moduleid":3,"page": pageIndex,"mid":mid,"itemid":itemid,"psize":psize}, function(ret){
+					itemNum = ret.totalCount;
+                    pageNum = ret.totalPages;
+                    if(ret.data){
+                    if(pageIndex > pageNum){
+						pageLoad = false;
+							$("#commmore").html('已全部加载完成');
+						}else{
+			                var gettpl = document.getElementById('liveviewc').innerHTML;
+                            laytpl(gettpl).render(ret.data, function(html){
+           //$('.comment-lists').append(html);
+
+							$("#commentList").append(html);
+							$('.pl').find("em").html(itemNum);
+							});
+							$("#commmore").html('加载更多');
+                            //pageIndex++;
+							pageLoad = true;
+
+						}
+
+}
+},'json'); 
+
+}
+
+$(document).on("click","#commmore",function () {
+	pageIndex++;
+	$("#commmore").html('数据加载中...');
+	commlists(pageIndex,mid,itemid,5);
+});
+
+function Dcomment() {
+	if(userid == 0) {
+		openDialog('goto','尚未登录','您还没有登录,是否现在登录?','login.php?forward={rawurlencode($DT_URL)}');
+		return false;
+	}
+    var len,va;
+	len = $('#content').val().length;
+	if(len < 3) {
+		laymsg('评论最少个3字，已填写'+len+'个字');
+		return false;
+	}
+	if(len > 100) {
+		laymsg('评论最多个100字，已填写'+len+'个字');
+		return false;
+	}
+	{if $need_captcha}
+	val = $('#captcha').val();
+	if(!is_captcha(val)) {
+		laymsg('请填写验证码');
+		return false;
+	}
+	{/if}
+	$.post('comment.php', $('#comment-post').serialize(), function(data) {
+		if(data == 'ok') {
+			laymsg('评论成功');
+			setTimeout(function() {
+				if($('#page-last').length > 0) {
+					Go($('#page-last').attr('href'));
+				} else {
+					window.location.reload();
+				}
+			}, 1000);
+		} else if(data == 'check') {
+			laymsg('评论成功，请等待审核');
+			setTimeout(function() {
+				window.location.reload();
+			}, 1000);
+		} else if(data == 'captcha') {
+			laymsg('验证码错误');
+			reloadcaptcha();
+		} else if(data == 'self') {
+			laymsg('不能评论自己');
+		} else if(data == 'permission') {
+			laymsg('无评论权限');
+		} else if(data == 'login') {
+			laymsg('暂无权限，请登录再试');
+		} else if(data == 'max') {
+			laymsg('今日评论次数过多');
+			{if $need_captcha}reloadcaptcha();{/if}
+		} else if(data == 'fast') {
+			laymsg('评论发表过快');
+			{if $need_captcha}reloadcaptcha();{/if}
+		} else {
+			laymsg('评论失败，请重试');
+		}
+	});
+	return;
+}
+
+$(document).ready(function(){
+	commlists(pageIndex,mid,itemid,5)
+});
+
+</script>
+	{/if}
+{/if}
+{else}
+{if in_array($moduleid, explode(',', $EXT['comment_module']))}
+<style>
+.comment-bar-fix {height:48px;clear:both;}
+.comment-bar { width:100%;height:48px;overflow:hidden; position:fixed !important;z-index:9;left:0;bottom:0;}
+.comment-bar .aui-list .aui-list-item { min-height:2.4rem;}
+.comment-bar .aui-list .aui-list-item:active { background-color:#FFF;}
+.comment-bar .comment-bar-title { float:left; width:6rem;height:33px; line-height:33px; margin-top:0.1rem; background-color:#F2F2F2; border-radius:1rem; text-indent:0.75rem;  font-size:0.7rem;}
+.comment-bar .aui-list-item-title .dt-iconfont { color:#666; font-size:1.2rem !important;}
+</style>
+<div class="comment-bar-fix"></div>
+<div class="aui-content comment-bar">
+    <ul class="aui-list dt-border-b-none" style="padding:0 !important">
+        <li class="aui-list-item">
+            <div class="aui-list-item-inner">
+                <div class="aui-list-item-title"><i class="aui-pull-left dt-iconfont dt-icon-fanhui" style="margin-left:0.5rem; margin-right:1rem;" onclick="javascript:history.go(-1);"></i><div class="comment-bar-title" onclick="Go('comment.php?mid={$moduleid}&itemid={$itemid}');">我来说两句</div><div class="aui-pull-left" style="position:relative;" onclick="Go('comment.php?mid={$moduleid}&itemid={$itemid}');"><i class="aui-pull-left dt-iconfont dt-icon-comment" style="margin-left:1.25rem; margin-right:0.5rem;"></i><div class="aui-badge" id="comment-count">0</div></div><a {if $DT_MOB[browser]=='weixin' || $DT_MOB[browser]=='qq'}href="javascript:share_tips();"{elseif $GL_MOB['browser']=='aqq'}href="javascript:share_tips();"{elseif $GL_MOB}onclick="shareappbar()"{else}onclick="gotoTop('dt-share')"{/if}><i class="aui-pull-left dt-iconfont dt-icon-fenxiang" style="margin-left:0.65rem; margin-top:0.15rem; font-size:1rem !important;"></i></a></div>
+            </div>
+        </li>
+</ul>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$.get('comment.php?mid={$moduleid}&itemid={$itemid}&action=count', function(data) {
+		data = parseInt(data);
+		if(!data) data = 0;
+		$('#comment-count').html(data);
+	});
+});
+</script>
+{/if}
+{/if}

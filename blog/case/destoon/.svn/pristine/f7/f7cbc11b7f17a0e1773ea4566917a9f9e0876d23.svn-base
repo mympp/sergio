@@ -1,0 +1,40 @@
+.aui-bar-nav.skin-header{background:url(../image/bg-header.png) no-repeat 50% 0;-webkit-background-size:auto 2.5rem;background-size:auto 2.5rem;}
+.tit{padding:0.25rem 0;font-size:0.9rem;font-weight:700;}
+.tit:before{content:'';display:inline-block;width:0.2rem;height:0.75rem;background:#fa4756;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px;margin-right:0.25rem;vertical-align:-0.1rem}
+
+.dt-article-list .aui-list-item-text .dt-label { margin-right:0.25rem; background:#FFF;}
+.dt-article-list span { font-size:0.55rem !important;}
+.dt-article-list .aui-list-item-title { font-size:0.8rem !important;}
+.dt-article-times span,.dt-article-times i { font-size:0.6rem !important;}
+.live-lists {
+    margin-bottom: 0;
+	padding-top:0.5rem;
+	background-color:#FFF;
+}
+.aui-tab:after { height:1px;}
+.aui-label-info { padding:0.25rem 0.35rem;}
+.dt-live-list { margin-bottom:0; margin-top:0;}
+.dt-live-list .aui-card-list { padding-top:0;}
+.dt-live-list .aui-card-list-user-avatar { width: 1.5rem;}
+.dt-live-list .aui-card-list-content-padded { padding: 0.25rem 0.75rem; padding-left:2.5rem;}
+.dt-live-list .aui-card-list-content-padded img { max-height:7.5rem;object-fit: contain;}
+.dt-live-list .dt-live-introduce { font-size:0.75rem;}
+.dt-live-dh .dt-label { margin-left:0.15rem; top:-0.1rem; background:#FFF; padding:0.15rem 0.25rem;}	
+.dt-live-dh .aui-bar-tab-item { width:33.3333%; border-right:#e7e7e7 1px solid;}	
+.dt-live-dh .aui-popup {position:absolute; min-width: 5.25rem; min-height: 0.25rem;}
+.dt-live-dh .aui-popup-content { min-height: 2.5rem; height:2.5rem; margin:0;}
+.dt-live-dh .dt-daohang-bottom { left: 50%;
+    margin-left: -2.65rem; bottom: 1.3rem;}
+.dt-live-dh .dt-daohang-bottom .aui-popup-arrow {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    bottom: 0.2rem;
+}
+.dt-live-dh .dt-daohang-bottom .aui-popup-arrow {
+    left: 50%;
+    margin-left: -0.25rem;
+    margin-bottom: -0.4rem;
+}
+.dt-live-dh .aui-col-xs-4 { padding-top:0.35rem}
+.dt-live-dh .aui-grid-label { font-size:0.6rem; color:#000; padding:0 0.1rem;}
+.returnTop .live-refresh { margin-bottom:0.25rem; background: #039be5; border: #039be5 1px solid; color:#FFF;}

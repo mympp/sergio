@@ -1,0 +1,27 @@
+
+<!--公司介绍-->
+<div class="blk2_br spH">
+    <div class="ttl">
+        <h3>{$main_name[$HM]}</h3>
+        <span class="more"><a href="{userurl($username, 'file=introduce', $domain)}" rel="nofollow">更多公司介绍 &gt;&gt;</a></span> 
+    </div>
+<div class="cnt clearfix line">
+	  <div class="row clearfix">    
+			 <div class="col-md-4">
+				<a href="{userurl($username, 'file=introduce', $domain)}" class="img-thumbnail">
+				{if $video}
+				{load('player.js')}
+				<div style="width:250px;height:210px;text-align:right;float:right;"><script type="text/javascript">document.write(player('{$video}',240,200,'',1));</script></div>
+				{else}
+				<img src="{$COM[thumb]}" class="img-responsive">
+				{/if}
+				</a>
+			</div>
+			<div class="col-md-8" id="about">
+		   <p>{dsubstr($COM[intro],600,'…')} </p>
+			<a href="{userurl($username, 'file=introduce', $domain)}" rel="nofollow" class="btn btn-primary btn-sm active">查看详细 &gt;&gt; </a>
+		 </div>
+	</div>    
+</div>
+</div>
+<!--公司介绍/-->

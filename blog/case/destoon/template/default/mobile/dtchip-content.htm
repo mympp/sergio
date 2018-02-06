@@ -1,0 +1,23 @@
+{if $user_status == 3}
+{$content}
+{elseif $user_status == 2}
+<ul class="aui-list aui-media-list aui-text-center dt-border-none aui-margin-t-10 aui-padded-b-10">
+<p>{if $description}{$description}{/if}</p>
+       <li>
+查看联系方式需支付 <strong>{$fee}</strong> {$fee_unit}<br/>
+{$fee_name}余额:{if $currency == 'money'}{$_money}{else}{$_credit}{/if}{$fee_unit} <a href="my.php?action=member">我的账户</a> <br/>
+<a href="pay.php?auth={encrypt($moduleid.'|'.$itemid.'|'.$currency.'|'.$fee.'|'.$title, DT_KEY.'PAY')}"><div class="aui-text-success">立即支付</div></a>
+</li>
+</ul>
+{elseif $user_status == 1}
+<ul class="aui-list aui-media-list aui-text-center dt-border-none aui-margin-t-10 aui-padded-b-10">
+       <li>
+无权查看，请升级会员级别<br/>
+{if $DT[telephone]}咨询电话:<a href="tel:{$DT[telephone]}">{$DT[telephone]}</a>{/if}
+</li>
+</ul>
+{elseif $user_status == 0}
+<ul class="aui-list aui-media-list aui-text-center dt-border-none aui-margin-t-10 aui-padded-b-10">
+       <li><a href="login.php">联系方式请登录查看</a></li>
+</ul>
+{/if}

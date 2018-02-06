@@ -1,0 +1,122 @@
+body{
+    background: url("../images/bg.jpg") no-repeat;
+    background-size:100% 100%;
+}
+#box{
+    text-align:center;
+    position: relative;
+}
+#box img{
+    width:70%;
+}
+
+#box .top{
+    width:100%;
+}
+
+#box .center{
+    width: 75.8%;
+}
+#box .center01{
+    width: 75.8%;
+}
+.url01{
+
+    width: 28%;
+    height: 9.5%;
+
+    position: absolute;
+    top:29%;
+    left: 20%;
+}
+.url02{
+
+    width: 28%;
+    height: 9.5%;
+
+    position: absolute;
+    top:29%;
+    left: 52%;
+}
+.url03{
+    width: 20.3%;
+    height: 9%;
+
+    position: absolute;
+    top: 45%;
+    left: 19%;
+}
+.url04{
+
+    width: 19.5%;
+    height: 9%;
+
+    position: absolute;
+    top: 45%;
+    left: 39.9%;
+}
+.url05{
+
+    width: 20.3%;
+    height: 9%;
+
+    position: absolute;
+    top: 45%;
+    left: 60%;
+}
+
+.url06{
+    width: 20.3%;
+    height: 8.7%;
+
+    position: absolute;
+    top: 62%;
+    left: 19%;
+}
+.url07{
+
+    width: 19.5%;
+    height: 8.7%;
+
+    position: absolute;
+    top: 62%;
+    left: 39.9%;
+}
+.url08{
+
+    width: 20.3%;
+    height: 8.7%;
+
+    position: absolute;
+    top: 62%;
+    left: 60%;
+}
+.url09{
+
+    width: 29%;
+    height: 10.7%;
+
+    position: absolute;
+    top: 87.9%;
+    left: 19.9%;
+}
+.url10{
+
+    width: 29%;
+    height: 10.7%;
+
+    position: absolute;
+    top: 87.9%;
+    left: 51%;
+}
+
+
+
+
+
+a:hover{
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+

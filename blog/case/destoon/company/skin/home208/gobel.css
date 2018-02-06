@@ -1,0 +1,136 @@
+@charset "gb2312";
+/* CSS Document */
+body { font:12px/1.5 "宋体", Arial, Helvetica, sans-serif;  text-align:center; color:#666; -webkit-text-size-adjust: none; background-color:#FFF;}
+body, table, td, div, p { word-wrap:break-word; word-break:break-all; word-break:normal; -webkit-text-size-adjust:none; }
+body, div, dl, dt, ul,dd, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td { margin:0; padding:0; }
+div { text-align:left; }
+button, input, select, textarea { font:100% "宋体", Arial, Helvetica, sans-serif;}
+select {border:none;}
+em,i { font-style:normal; }
+del { font-family:simsun; }
+ul,li,ol{ list-style:none; }
+fieldset, img { border:0; }
+sup { vertical-align:text-top; }
+sub { vertical-align:text-bottom; }
+.cf:after { content:"."; display:block; height:0; clear:both; visibility:hidden; }
+.cf { *zoom:1;}/* css reset end */
+.clear{ clear:both;}
+.dis{ display:block;} .undis{ display:none;}
+a { color:#666; text-decoration:none; outline:none; }
+a:hover { color:#ff6600; text-decoration:underline; }
+
+
+.left{ float:left;}
+.right{ float:right;}
+
+.w1238{ width:1238px; margin:0px auto;}
+.w248{ width:248px;}
+.w990{ width:990px;}
+.w940{ width:940px;}
+.w500{ width:500px;} 
+
+.p25{ padding:25px 25px 0px;}
+.mtop15{ margin-top:15px;}
+
+dl.logo dt,dl.logo dt b,.leftcompany li.grade,.leftcompany p a,dl.logo dd span{ background-image:url('vipbg.png');}
+/* 公用头部 */
+.header{ height:150px ; background:url('headerbg.jpg') no-repeat left top; position:relative;}
+.header .peidan{ width:124px; height:55px; background-image:url(http://img3.dzsc.com/img/web/ic/peidan.png); position:absolute ; right:540px;top: 16px;}
+
+dl.logo { width:600px; padding:25px 0px 0px 18px; overflow:hidden;}
+dl.logo dt{ width:64px; height:64px; float:left; position:relative; padding:3px 3px 6px 3px;}
+dl.logo dt span{ width:64px; display:table-cell; height:64px; text-align:center; vertical-align:middle; *font-size:56px; *display:block; }
+dl.logo dt span img{ vertical-align:middle;}
+dl.logo dt b{ display:block; position:absolute; width:35px; height:34px; background-position:-75px top; top:-2px; right:-2px;}
+dl.logo dd{ width:518px; float:right; font:24px/30px "微软雅黑"; color:#fff; padding-left:12px;}
+dl.logo dd span{ display:block; font-size:18px; line-height:40px; background-position:-185px -112px; background-repeat:no-repeat; padding-left:33px; margin-top:2px;}
+
+.righttop{ overflow:hidden;}
+.menus{ overflow:hidden; position:absolute; right:80px; bottom:0px;}
+.menus li{ margin-right:2px; float:left;}
+.menus li a{ color:#fff; display:block; font:15px/45px "微软雅黑"; float:left; padding:0px 5px; }
+.menus li a:hover,.menus li a.on{ color:#ab0100; background-color:#FFF;}
+.menus li a.on{ border:1px solid #8e0100; border-bottom:0px; border-top:2px solid #8e0100;}
+.search{ width:314px; height:26px; float:left;  padding:0px 5px 0px 0px; margin:30px 0px 0px 0; position:relative; margin-right:6px; background:url('searchbg.png') no-repeat left top;}
+.search_btn {width:62px; height:26px; margin-top:30px; float:left;}
+.search_btn button{ width:63px; height:26px; text-align:center; line-height:26px; color:#cf3736; font-weight:bold; border:0; cursor:pointer; background:url('searchbg.png') no-repeat -328px top;}
+.search input.s_text{ border:0px; width:200px; height:26px; line-height:26px; background-color:transparent; color:#333; padding-left:32px;}
+.choose{position:absolute; top:4px; right:10px;}
+.choose label{ margin-right:10px; float:left;}
+.choose input{}
+
+.tongpai,.yinpai,.vip,.jinpai{  width:71px; height:45px; right:-12px; top:-4px; text-align:center; color:#be0700; padding-top:45px; background-image:url('vipbg.png'); float:right; margin-right:13px; font-weight:bold; display:inline;}
+.vip{ background-position:0px -112px;}
+.jinpai{ background-position:-75px -112px;}
+.yinpai{ background-position:0px -210px;}
+.tongpai{ background-position:-75px 210px; }
+
+/* 首页左侧公司信息 */
+.leftcompany{ height:300px; background-image:url('laboutbg.jpg'); color:#cbd0d4; padding:0px 10px 0px 15px; width:223px; position:relative;}
+.leftcompany div{ position:absolute; bottom:15px;}
+.leftcompany h2{ font-size:14px;}
+.leftcompany a{ color:#cbd0d4; }
+.leftcompany li a.bzj{ background:url(http://www.dzsc.com/img/images/fic/bond.gif) no-repeat;width:30px; height:15px; text-align:center;padding:1px 5px 0px 30px;color:#FF0000;text-decoration:none; font-size:11px; display:inline-block; line-height:15px;}
+.leftcompany li a{ text-decoration:underline;}
+.leftcompany li{ line-height:20px;}
+.leftcompany li.grade{ color:#eee; vertical-align:top; width:148px; height:22px; background-position:left -381px; margin:5px 0px;}
+.leftcompany li.grade span{ margin:0px 3px; vertical-align:middle;}
+.leftcompany p{ line-height:21px; padding-top:8px;}
+.leftcompany p a{ display:block; width:71px; height:21px; text-align:center; line-height:21px; color:#000; background-position:-116px top; float:left; margin-right:20px;}
+.dengji05{ background-image:url(../images/grade.png); background-repeat:no-repeat; display:inline-block; width:16px; height:14px;}
+.dengji05{ background-position:-110px top;}
+
+.vip03{ background-image:url(../images/grade.png); background-repeat:no-repeat; width:17px; height:16px; display:inline-block;}
+.vip03{ background-position:-44px -24px;  }
+
+.bsym{ background:url(../images/grade.png) no-repeat left -52px; width:16px; height:17px; display:inline-block;}
+.hjmj{ background:url(../images/grade.png) no-repeat -29px -52px; width:56px; height:17px; display:inline-block;}
+
+/* 切换banner */
+.banner{ height:300px; position:relative; overflow:hidden;}
+.f990x300{width:990px;height:300px;overflow:hidden}
+.f990x300 img{width:990px;height:300px}
+
+.rslides{width:100%;position:relative;list-style:none;padding:0}
+.rslides_nav{height:60px;width:61px;position:absolute;-webkit-tap-highlight-color:rgba(0,0,0,0);top:50%;left:0px;opacity:0.5;text-indent:-9999px;overflow:hidden;text-decoration:none;margin-top:-28px; background:url('vipbg.png') no-repeat left -317px;}
+.rslides_nav:hover{opacity:1.0}
+.rslides_nav.next{left:auto;background-position:-65px -317px;right:0px}
+.rslides_tabs{margin:12px auto;clear:both;text-align:center}
+.rslides_tabs li{display:inline;float:none;_float:left;*float:left;margin-right:5px}
+.rslides_tabs a{text-indent:-9999px;overflow:hidden;-webkit-border-radius:15px;-moz-border-radius:15px;border-radius:15px;background:rgba(0,0,0, .2);background:#DDD;display:inline-block;_display:block;*display:block;width:9px;height:9px}
+.rslides_tabs .rslides_here a{background:rgba(0,0,0, .6);background:#390}
+
+
+.hotpro{ border:1px solid #e7e7e7; border-left:0px; border-right:0px; background-color:#fcfdfd; padding:35px 0px 35px 25px; margin-top:30px; overflow:hidden; margin-left:-25px; width:940px;}
+.hotpro div{ width:100%; float:left; clear:both;}
+.hotpro dl{ width:300px; float:left; line-height:18px; margin-bottom:20px;}
+.hotpro dl dt{ font-size:14px; font-weight:bold; color:#707070; margin-bottom:20px;}
+.hotpro dl dd{ width:50%; float:left;}
+.hotpro dl.contact{ width:580px; float:right;}
+.hotpro dl.full{ width:100%;}
+.hotpro dl.contact dd{ width:50%;}
+
+
+.footer{ padding:10px 0px; overflow:hidden;}
+.footer p{ color:#999;}
+.footer p a{ margin:0px 8px;}
+.footer p a.noml{ margin-left:0px;}
+
+/*上下页*/
+.page{overflow:hidden;text-align:center; width:100%;padding:15px 0}
+.page ul{ float:none; margin:0 auto;}
+.page li{display:inline;float:none;}
+.page li a{border: 1px solid #ccc; display:inline-block;padding:4px 12px; font-family:"宋体", Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold; color:#585858; margin-left:-1px;}  
+.page li a:hover{ text-decoration:none;}
+.page .page_active{ background:#9da1a6;border: 1px solid #ccc; font-weight:bold; color:#fff; font-size:14px;}
+.page .width_40{width:40px;margin:0 4px} 
+
+
+.leftcontact li{ vertical-align:top;}
+.leftcontact li img,.leftcontact li span{ vertical-align:middle;}
+.leftcontact em{ background:url(../images/shop/zan.png) no-repeat left -1px; padding-left:15px;}
+.vipicon,.jinpaiicon,.yinpaiicon,.tongpaiicon{ display:inline-block; width:26px; height:20px; background:url(../images/shop/dj.png) no-repeat left top;}
+.jinpaiicon{ background-position:left -85px;}
+.yinpaiicon{ background-position:left -56px;}
+.tongpaiicon{ background-position:left -27px;}
+.xinhuo{ position:absolute; display:block; font-size:11px; color:#CBD0D4; background:url(../images/shop/xianhuo.gif) no-repeat left top; padding-top:62px; top:55px; right:15px; width:62px; font-family:"微软雅黑"; text-align:center;}

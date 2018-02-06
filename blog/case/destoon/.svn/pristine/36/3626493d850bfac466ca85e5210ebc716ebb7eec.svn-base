@@ -1,0 +1,46 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+
+<header class="aui-bar aui-bar-nav" id="aui-header">
+        <a class="aui-pull-left aui-btn" href="javascript:Dback('index.php');">
+           <span class="aui-iconfont aui-icon-left"></span>返回
+        </a>
+        <div class="aui-title">搜索</div>
+        <a class="aui-pull-right" href="channel.php">
+        <i class="dt-iconfont dt-icon-menu"></i>
+        </a>
+</header>
+<div class="aui-bar-fix"></div>
+
+<div class="aui-content aui-margin-b-15 aui-text-center" id="content">
+<div style=" background-color:#FFF;padding:0.5rem;">
+	<form action="search.php" method="post" id="dform">
+	<input type="hidden" name="ok" value="1"/>
+	<select name="action" style="-webkit-appearance:none;width:100%;height:30px;border:#D8D8D8 1px solid;font-size:16px;background:#FFFFFF; border-radius:0.15rem; text-indent:0.25rem;">
+	{loop $MOB_MODULE $i $m}
+	<option value="mod{$m[moduleid]}"{if $action=='mod'.$m[moduleid]} selected{/if}>{$m[name]}</option>
+	{/loop}
+	<option value="message"{if $action=='message'} selected{/if}>消息</option>
+	{if $club_post}<option value="{$action}" selected>帖子</option>{/if}
+	</select>
+	<div style="margin:16px 0;padding:2px 6px; border:#ddd 1px solid !important; border-radius:4px;"><input name="wd" id="wd" type="search" style="width:100%;height:28px;line-height:28px;border:none;font-size:14px;padding:0;" placeholder="请输入关键词" onblur="window.scrollTo(0,0);" autofocus="autofocus"/></div>
+    <div style=" height:50px;">
+    <div class="aui-list-item-input">
+                
+    {loop $sfields $k $v}
+    <label style="width:25%"><input class="aui-radio" type="radio" name="fields" value="{$k}" id="fd_{$k}"{if $fields==$k} checked{/if}> {$v}</label>&nbsp;
+			{/loop}	</div></div>
+            <div class="aui-btn aui-btn-info aui-btn-sm aui-font-size-16" style="width:100%;" onclick="Dsearch();">搜 索</div>		
+	</form>
+</div>
+</div>
+<script type="text/javascript">
+function Dsearch() {
+	if(Dd('wd').value.length < 2) {
+		laymsg('请输入关键词');
+		return false;
+	}
+	Dd('dform').submit();
+}
+</script>
+{template 'footer_v2', 'mobile'}

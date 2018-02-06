@@ -1,0 +1,169 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+{template 'header_company_v2', 'mobile'}
+<style>
+body { background-color:#f5f5f5}
+</style>
+{template 'homepage-navlist', 'mobile'}
+
+<div class="aui-content aui-margin-t-5 aui-margin-b-15" style="position:relative;">
+{if $action == 'video'}
+<ul class="aui-list aui-media-list dt-sell-list dt-border-none" >
+            <li class="aui-list-item dt-sell-list-item dt-bg-gray">
+                <div class="aui-list-item-inner">
+                    <div class="aui-row aui-row-padded">
+                    {else}
+        <ul class="aui-list aui-media-list dt-border-t-none">
+        {/if}
+{if $lists}
+{loop $lists $v}
+{php if($EXT['gl_img_echo'] && isset($v['thumb']) && $v['thumb']) $v['thumb'] =  ''.$glmobileurl.'image/echoblank.gif" data-echo="'.$v['thumb'];}
+{if $action == 'mall'}
+<div class="aui-col-xs-6" style="padding-left:0.25rem; padding-right:0.25rem; padding-top:0.5rem; position:relative; z-index:99; background-color:#FFF;">
+                            <a href="{$glmobileurl}{mobileurl($moduleid, 0, $v['itemid'])}"><img src="{if $v[thumb]}{str_replace('.thumb.'.file_ext($v['thumb']), '.middle.'.file_ext($v['thumb']), $v['thumb'])}{else}{$glmobileurl}image/nopic-80.png{/if}" style="width: 100%; height: 7.5rem;" class="dt-img-contain"/>
+                            <p class="aui-text-left aui-margin-t-10 aui-margin-b-5" style="height:2.25rem; width:98%; border-bottom:#E8E8E8 1px dashed"><span class="aui-ellipsis-2">{$v[title]}</span></p>
+                    <div class="aui-info aui-border-b" style="padding:0 0 0.25rem 0;">
+                    <div class="aui-info-item">
+                        <span class="dt-text-red">{$DT[money_sign]}{$v[price]}</span>
+                        </div>
+                    <!--<div class="aui-info-item">成交<span class="dt-text-red">{$v[sales]}</span>笔</div>--></div>
+</div>
+
+{elseif $action == 'sell'}
+            <li class="aui-list-item">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media">
+                        <a href="{$glmobileurl}{mobileurl($moduleid, 0, $v['itemid'])}"><img src="{if $v[thumb]}{$v[thumb]}{else}{$glmobileurl}static/img/nopic-60.png{/if}" width="60" height="60"></a>
+                    </div>
+                    <a href="{$glmobileurl}{mobileurl($moduleid, 0, $v['itemid'])}"><div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">{$v[title]}</div>
+                        </div>
+                        <div class="aui-list-item-text aui-ellipsis-2" style="max-height:2.5rem">
+                            <span class="aui-ellipsis-2">{$v[introduce]}</span>
+                        </div>
+                    </div></a>
+                </div>
+                <div class="aui-info" style="padding-top:0">
+                    <div class="aui-info-item">
+                        <span class="aui-margin-l-5">{$v[date]}</span>
+                        </div>
+                    <div class="aui-info-item"><i class="aui-iconfont aui-icon-attention aui-margin-r-5 aui-font-size-12"></i>{$hits}</div>
+                </div>
+            </li>
+{elseif $action == 'buy'}
+            <li class="aui-list-item">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media">
+                        <a href="{$glmobileurl}{mobileurl($moduleid, 0, $v['itemid'])}"><img src="{if $v[thumb]}{$v[thumb]}{else}{$glmobileurl}static/img/nopic-60.png{/if}" width="60" height="60"></a>
+                    </div>
+                    <a href="{$glmobileurl}{mobileurl($moduleid, 0, $v['itemid'])}"><div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">{$v[title]}</div>
+                        </div>
+                        <div class="aui-list-item-text aui-ellipsis-2" style="max-height:2.5rem">
+                            <span class="aui-ellipsis-2">{$v[introduce]}</span>
+                        </div>
+                    </div></a>
+                </div>
+                <div class="aui-info" style="padding-top:0">
+                    <div class="aui-info-item">
+                        <span class="aui-margin-l-5">{$v[date]}</span>
+                        </div>
+                    <div class="aui-info-item"><i class="aui-iconfont aui-icon-attention aui-margin-r-5 aui-font-size-12"></i>{$hits}</div>
+                </div>
+            </li>
+{elseif $action == 'job'}
+            <li class="aui-list-item">
+                <div class="aui-media-list-item-inner">
+                    <a href="{$glmobileurl}{mobileurl($moduleid, 0, $v['itemid'])}"><div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">{$v[title]}</div>
+                        </div>
+                        <div class="aui-list-item-text aui-margin-t-10">
+                            <span class="dt-text-orange">{if $v[minsalary] && $v[maxsalary]}
+		{$v[minsalary]}-{$v[maxsalary]}{$DT[money_unit]}/月
+	{elseif $v[minsalary]}
+		{$v[minsalary]}{$DT[money_unit]}/月以上
+	{elseif $v[maxsalary]}
+		{$v[maxsalary]}{$DT[money_unit]}/月以内
+	{else}
+		面议
+	{/if}</span><div class="aui-list-item-right">{$v[date]}</div>
+                        </div>
+                    </div></a>
+                </div>
+            </li>
+
+{elseif $action == 'photo'}
+
+<div class="aui-col-xs-6" style="padding-left:0.25rem; padding-right:0.25rem; padding-top:0.5rem; position:relative; z-index:99; background-color:#FFF">
+                            <a href="{$glmobileurl}{mobileurl($moduleid, 0, $v['itemid'])}"><img src="{if $v[thumb]}{$v[thumb]}{else}{$glmobileurl}image/nopic-60.png{/if}" style="width: 100%; height: 7.5rem;" class="dt-img-cover"/></a>
+                            <p class="aui-text-left aui-margin-t-10 aui-margin-b-5" style="width:98%; border-bottom:#E8E8E8 1px dashed"><span class="dt-text-ellipsis"><a href="{$glmobileurl}{mobileurl($moduleid, 0, $v['itemid'])}">{$v[title]}</a></span></p>
+                    <div class="aui-info aui-border-b" style="padding:0 0 0.25rem 0;">
+                    <div class="aui-info-item">
+                        <span class="dt-text-red">{$v[items]} 张图片</span>
+                        </div>
+                    <div class="aui-info-item">{timetodate($v[addtime],3)}</div></div>
+</div>
+{elseif $action == 'info'}
+            <li class="aui-list-item">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media">
+                        <a href="{$glmobileurl}{mobileurl($moduleid, 0, $v['itemid'])}"><img src="{if $v[thumb]}{$v[thumb]}{else}{$glmobileurl}static/img/nopic-60.png{/if}" width="60" height="60"></a>
+                    </div>
+                    <a href="{$glmobileurl}{mobileurl($moduleid, 0, $v['itemid'])}"><div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">{$v[title]}</div>
+                        </div>
+                        <div class="aui-list-item-text">
+                            <span class="">{$v[date]}</span>
+                        </div>
+                        <div class="aui-list-item-text aui-margin-t-5"><span class="dt-text-ellipsis">{$v[introduce]}</span></div>
+                    </div></a>
+                </div>
+            </li>
+{elseif $action == 'brand'}
+            <li class="aui-list-item">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media">
+                        <a href="{$glmobileurl}{mobileurl($moduleid, 0, $v['itemid'])}"><img src="{if $v[thumb]}{$v[thumb]}{else}{$glmobileurl}image/nopic-120.png{/if}" width="120" height="40" alt="" onerror="this.src='static/img/nopic-120.png';"/></a>
+                    </div>
+                    <a href="{$glmobileurl}{mobileurl($moduleid, 0, $v['itemid'])}"><div class="aui-list-item-inner">
+                        <div class="aui-list-item-text">
+                            <div class="aui-list-item-title">{$v[title]}</div>
+                        </div>
+                        <div class="aui-list-item-text">
+                            <span class="">{$v[date]}</span>
+                        </div>
+                    </div></a>
+                </div>
+            </li>
+
+{elseif $action == 'video'}
+                        <div class="aui-col-xs-6">
+
+                            <div class="" style="height:8rem; background-color:#fff"><a href="{mobileurl($moduleid, 0, $v[itemid])}"><img src="{if $v[thumb]}{str_replace('.thumb.'.file_ext($v['thumb']), '.middle.'.file_ext($v['thumb']), $v['thumb'])}{else}{$glmobileurl}image/nopic-80.png{/if}" class="dt-img-contain" height="100%"/><span class="dt-hor-center" style=" top:25%;color:#FFF; opacity:0.9"><i class="dt-iconfont dt-icon-video dt-fz34 dt-text-white"></i></span></a></div>
+               <div class="aui-img-body">
+                <div class="aui-waterfall-body">
+                    <a href="{mobileurl($moduleid, 0, $v[itemid])}"><span class="aui-ellipsis-2">{$v[title]}</span></a>
+                </div>
+                    <div class="aui-pull-left">
+                    <i class="dt-iconfont dt-icon-eyes aui-margin-r-5 aui-font-size-12"></i>{$v[hits]}
+                    </div>
+                </div>
+                        </div>
+{/if}
+{/loop}
+{if $action=='video'}
+</div>
+</div>
+</li>
+{/if}
+</ul>
+</div>
+{if $pages}<div class="aui-content aui-margin-b-15 aui-text-center pageslist aui-pull-left" style=" width:100%;position: relative; top:0.5rem;"><div class="pages">{$pages}</div></div>{/if}
+{else}
+<div class="aui-content dt-bg-white"><br/><br/><center>暂无相关数据</center><br/><br/></div></div>
+{/if}
+{template 'footer_company_v2', 'mobile'}

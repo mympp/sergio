@@ -1,0 +1,55 @@
+{template 'header_v2', 'mobile'}
+{template 'cssjs_v2', 'mobile'}
+{template 'header_company_v2', 'mobile'}
+{if $itemid}
+<div class="main">
+	<div class="title"><strong>{$title}</strong></div>
+	<div class="info">{$date}&nbsp;&nbsp;点击:{$hits}</div>
+	{if $content}<div class="content">{$content}</div>{/if}
+</div>
+{else}
+<div class="aui-content aui-margin-b-15 aui-padded-b-10">
+    <ul class="aui-list aui-media-list">
+        <li class="aui-list-item">
+            <div class="aui-media-list-item-inner">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-text aui-margin-b-10">
+                        <div class="aui-list-item-title aui-text-center aui-font-size-20">{$COM[company]}</div>
+                    </div>
+                    {if $video}
+                    <div class="aui-content"><center>{video5_player($video, 280, 210)}</center></div>
+	{/if}
+                    {if $thumb}<div class="aui-content"><center><img src="{$thumb}"/></center></div>{/if}
+                    <div class="aui-content aui-padded-t-10 dt-chip-content dt-text-black aui-font-size-16">
+	{$content}
+                    </div>
+                </div>
+            </div>
+        </li>
+ </ul>
+</div>
+
+<div class="aui-content aui-margin-b-15">
+    <ul class="aui-list aui-list-in">
+        <li class="aui-list-item" onclick="window.location.href='{$HURL}&action=credit'">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title">公司档案</div>
+            </div>
+        </li>
+        <li class="aui-list-item" onclick="window.location.href='{$HURL}&action=contact'">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title">联系方式</div>
+            </div>
+        </li>
+{loop $lists $k $v}
+        <li class="aui-list-item" onclick="window.location.href='{$HURL}&action={$action}&itemid={$v[itemid]}'">
+            <div class="aui-list-item-inner aui-list-item-arrow">
+                <div class="aui-list-item-title">{$v[title]}</div>
+            </div>
+        </li>
+        {/loop} 
+ </ul>
+</div>
+{/if}
+{if $pages}<div class="aui-content aui-margin-b-15 aui-text-center pageslist"><div class="pages">{$pages}</div></div>{/if}
+{template 'footer_company_v2', 'mobile'}

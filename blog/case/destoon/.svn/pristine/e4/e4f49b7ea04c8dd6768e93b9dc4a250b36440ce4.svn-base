@@ -1,0 +1,320 @@
+body { background:url(../image/companybg.png) top no-repeat;}
+#company-header { width:100%; overflow:hidden; position:fixed;z-index:999;left:0;top:0;}
+#company-header a:hover { color:#FFF; text-decoration:none; background-color: none;}
+.aui-bar-nav .company-title {
+	min-height: 2.25rem;
+	position: absolute;
+	margin: 0;
+	text-align: center;
+	white-space: nowrap;
+	right: 2.5rem;
+	left: 3.5rem;
+	width: auto;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	z-index: 2;
+}
+
+#aui-header .white {
+    -webkit-animation: fadeIn .8s ease both;
+    animation: fadeIn .8s ease both;
+	}
+#aui-header.nowhite {
+        -webkit-animation: fadeOut .8s ease both;
+         animation: fadeOut .8s ease both;
+	}
+	@-webkit-keyframes bodyFadeIn {
+        from { opacity: 0}
+        to { opacity: 1}
+    }
+	@-webkit-keyframes fadeIn {
+        from { background: rgba(62,100,145,0);}
+        to { background: #3bafda;}
+    }
+    @-webkit-keyframes fadeOut {
+    	from { background: #3bafda;}
+        to { background: rgba(62,100,145,0);}
+        
+    }
+    @-webkit-keyframes showIn {
+        0% { opacity: 0;top: -20px;}
+        30% { opacity: 0;top: -20px;}
+        100% { opacity: 1;top: 8px;}
+    }
+    @-webkit-keyframes hideIn {
+        0% { opacity: 1;top: 8px;}
+        70% { opacity: 0;top: -20px;}
+        100% { opacity: 0;top: -20px;}
+    }
+
+.dt-index-title {
+	width: 100%;
+	position: relative;
+	font-size:0.9rem;
+}
+.dt-index-title .box-title {
+            margin-left: 0.25rem;
+            height: 0.8rem;
+            line-height: 0.8rem;
+            border-left: 0.25rem solid #ff9900;
+            color: #666;
+            font-weight: 700;
+            padding-left: 0.5rem;
+        }
+
+.dt-index-title .aui-right-cate {
+	font-size:0.75rem;
+	position: absolute;
+	top: 50%;
+	right: 3.75rem;
+	-webkit-transform: translateY(-50%);
+	      transform: translateY(-50%);
+}
+.dt-index-title .aui-right-more {
+	font-size:0.75rem;
+	position: absolute;
+	top: 50%;
+	right: 1.25rem;
+	-webkit-transform: translateY(-50%);
+	      transform: translateY(-50%);
+}
+/*带有箭头的列表*/
+.aui-arrow-right:after {
+	font-family: 'auiicon';
+	font-size: inherit;
+	line-height: 1;
+	color: #bbbbbb;
+	text-decoration: none;
+	position: absolute;
+	top: 50%;
+	display: inline-block;
+	-webkit-transform: translateY(-50%);
+	      transform: translateY(-50%);
+	-webkit-font-smoothing: antialiased;
+}
+.aui-arrow-right:after {
+	font-family:"auiicon" !important;
+	right: 15px;
+	content: '\e6a3';
+}
+.aui-left-kuaibao .swiper-container {
+        width: 100%;
+        height: 1.5rem;
+		margin-left: auto;
+        margin-right: auto;
+
+    }
+.aui-left-kuaibao .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+.banner-container .swiper-container {
+        width: 100%;
+        height: 150px;
+        margin: 0px auto 0px auto;
+		padding:0 ;
+		overflow:hidden;
+    }
+.banner-container .swiper-slide {
+        text-align: center;
+        background: #fff;
+		margin:0;
+		padding:0;
+    }
+.banner-container .swiper-slide img { margin:0; padding:0; border:0; height:100%;}
+.banner-container .swiper-slide a { display:inline; text-decoration:none; margin:0; padding:0;}
+.banner-container .swiper-pagination { height:1.7rem; line-height:1.6rem; bottom: 0px !important; text-align:right !important;}	
+.banner-container .swiper-slide span {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  z-index: 10;
+  height: 1.7rem;
+  background: rgba(0,0,0,0.1);
+  filter: progid:DXImageTransform.Microsoft.gradient( GradientType = 0,startColorstr = '#80000000',endColorstr = '#80000000')\9;
+  display: block;
+  line-height: 1.7rem;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  overflow: hidden;
+  text-align: left;
+  text-indent:10px;
+  padding:0; margin:0;
+}
+.box {
+            /*padding-top: 15px;*/
+        }
+.box-title {
+            margin: 15px 10px 5px 10px;
+            /*margin-bottom: 5px;*/
+            height: 20px;
+            line-height: 20px;
+            border-left: 5px solid #ff9900;
+            color: #666;
+            font-weight: 700;
+            padding-left: 10px;
+        }
+.box .aui-list-view {
+            margin-bottom: 0; padding-bottom:0px;
+}
+
+			.bbs-wrapper {
+				position: relative;
+				z-index: 1;
+				height: 51px;
+				width: 100%;
+				background: #fff;
+				overflow: hidden;
+				-ms-touch-action: none;
+			}
+			.bbs-wrapper:after {
+				border-bottom: 1px solid #d7d7d7;
+				content: "";
+				position: absolute;
+				bottom: 0px;
+				left: 0px;
+				right: 0px;
+				-webkit-transform: scaleY(.5);
+				-webkit-transform-origin: 0 0;
+			}
+			.menu-bar {
+				position: absolute;
+				z-index: 1;
+				height: 50px;
+			}
+			.menu-bar ul {
+				width: 100%;
+				display: -webkit-box;
+				-webkit-box-orient: horizontal;
+				box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+				position: relative;
+			}
+			.menu-bar li {
+				min-width: 90px;
+				padding:0 0.35rem;
+				height: 50px;
+				line-height:normal;
+				font-size: 16px;
+				overflow: hidden;
+				text-align: center;
+				color: #000;
+				box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+				display: -webkit-box;
+				-webkit-box-orient: horizontal;
+				-webkit-box-pack: center;
+				-webkit-box-align: center;
+				display: box;
+				box-orient: horizontal;
+				box-pack: center;
+				box-align: center;
+			}
+			.menu-bar li a { color:#666;}
+			.menu-bar li .aui-badge-info{
+				background: #E1E1E1;
+			}
+
+			.menu-bar li.active {
+				color: #3498db !important;
+				border-bottom: 2px solid #3498db;
+			}
+			.menu-bar li.active a { color: #000; }
+			.menu-bar li.active .aui-badge-info{
+				background:#3498db;
+			}
+#home-slist p a { color:#666;}
+.company-popup-bottom-right { bottom:2.95rem; right:0.25rem; width:8.5rem;}
+.company-popup-bottom-right .aui-popup-arrow {
+	bottom: 0.2rem;
+	-webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    right:0.5rem;
+	margin-bottom: -0.4rem;
+}
+.company-popup-bottom-right .aui-content {
+    background-color: #ffffff;
+    border-radius: 0.2rem;
+    overflow: hidden;
+    min-height: 4.5rem;
+    height: 100%;
+}
+
+.company-popup-top-right { top:2.5rem; right:0.4rem; width:8.5rem;}
+.company-popup-top-right .aui-popup-arrow {
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    right: 0.35rem;
+	margin-top: -0.2rem;
+}
+.company-popup-top-right .aui-content {
+    background-color: #ffffff;
+    border-radius: 0.2rem;
+    overflow: hidden;
+    min-height: 4.5rem;
+    height: 100%;
+}
+#itemfoot { z-index:992;}
+
+.dt-sell-list .dt-sell-list-item .aui-list-item { padding-left:0.25rem !important;}
+.dt-sell-list .dt-sell-list-item .aui-list-item-inner { padding-right:0.25rem !important;}
+.dt-sell-list .aui-list-item { padding-left:0.25rem !important;}
+.dt-sell-list-item .aui-col-xs-6 {
+height:11.5rem; margin-bottom:0.5rem;	
+}
+.dt-sell-list-item .aui-img {
+background: #fff;	
+}
+.dt-sell-list-item .aui-img img {
+	width:100%;
+	height:8rem;
+	overflow:hidden;
+}
+.dt-sell-list-item .aui-img-body { padding: 0 0.35rem; background: #fff; height:3.5rem; font-size: 0.7rem;}
+.dt-sell-list-item .aui-img-body .aui-waterfall-body {
+    background: #fff;
+    color: #666;
+	height:1.9rem;
+    font-size: 0.7rem;
+	margin-bottom:0.25rem;
+	text-align:left;
+	overflow:hidden;
+}
+.dt-sell-list-item .aui-img-body .aui-iconfont { font-size: 0.6rem; color:#999}
+.dt-sell-list-item .aui-img-body .aui-pull-left { margin-top:0.15rem; font-size: 0.6rem; color:#999}
+.dt-sell-list-item .aui-img-body .aui-pull-right { font-size: 0.7rem; color:#ff0000}
+.dt-sell-list-item .aui-img-body .aui-waterfall-body span { font-size:0.7rem;color:#000;}
+
+.dt-sell-list-item .aui-list .aui-list-item {
+	padding-left: 0.5rem;
+}
+.dt-sell-list-item .aui-list .aui-list-item-media {
+	width: 6rem;
+	height:5.5rem;
+	padding: 0.25rem 0;
+    padding-right: 0.5rem;
+	border:#000 0px solid;
+}
+
+.dt-media-sell .aui-list-item-text .dt-label { padding:0.3rem 0.35rem; margin-right:0.5rem; background:#039be5; color:#FFF; font-size:0.65rem;}
+.sell-list-item-btn .aui-label { border-radius:0.25rem; padding:0.35rem 0; font-size:0.7rem; color:#039be5; width:45%; margin:0 0.25rem;}
+.sell-list-item-btn .aui-label a { color:#039be5;}

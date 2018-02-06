@@ -1,0 +1,41 @@
+<div class="displaynone" id="bottomup" style="position:fixed; left:0; bottom:0; width:100%; z-index:99">
+<div class="aui-content" style="margin:0; padding:0;">
+    <ul class="aui-list-view" style="margin:0; padding:0;">
+        <li class="aui-list-view-cell" style="background-color: #F6F6F6; padding:10px 15px;">
+            <span class="aui-text-info">{$MODULE[$mid][name]}分类管理</span>
+            <span class="aui-pull-right aui-text-default" onclick="showTypef(1)">关闭</span>
+            
+        </li>
+    </ul>
+</div> 
+<div class="aui-content" style=" background-color:#FFF; margin:0; padding:0;"><div id="iframe-wrap">
+        <iframe id="iframe" src="mtype.php?item={$itemname}&mid={$mid}" frameborder="0"  width="100%" height="250">
+        </iframe>
+    </div>
+
+</div>
+<script>
+var dtshowTypef=0,type_item='{$itemname}-{$_userid}',type_name='post[mycatid]',type_default='{$L[type_default]}',type_id={$mycatid},type_interval=setInterval('type_reload()',500);
+	function showTypef(type){
+		if(type){
+        $("#bottomup").hide();
+		var dtshowTypef = 1;
+		type_reload();
+		$('.ui-mask').fadeOut('fast');
+		}else{
+		laymsg('数据加载中...');
+		var dtshowTypef = 0;
+        $("#bottomup").show();
+		$('.ui-mask').fadeIn('fast');
+		}
+    }
+	
+function type_reload() {
+		$.get('glajax.php?action=type&item='+type_item+'&name='+type_name+'&default='+type_default+'&itemid='+type_id,function(data,status){
+			$('#type_box').html(data);
+		});
+		clearInterval(type_interval);
+}
+</script>
+
+</div>
