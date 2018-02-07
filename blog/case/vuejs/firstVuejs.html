@@ -12,6 +12,7 @@
         <p v-bind:title="titleMessage">v-bind绑定DOM属性：鼠标悬停显示title</p>
         <p v-if="ifMessage">v-if判断：true可以看到</p>
         <p v-for="forM in forMessage">v-fol循环列表：{{forM.text}}</p>
+        <!--  控制台，输入 app2.message = '新消息' 进行调试 -->
 
         <p>{{onMessage}}</p>
         <button v-on:click="reverseMessage">逆转信息</button>

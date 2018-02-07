@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板语法</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 在底层的实现上，Vue 将模板编译成虚拟 DOM 渲染函数。结合响应系统，Vue 能够智能地计算出最少需要重新渲染多少组件，并把 DOM 操作次数减到最少。也可以不用模板，直接写渲染 (render) 函数，使用可选的 JSX 语法。 -->
+    <div id="app">
+        <!-- 文本 -->
+        <span>Message: {{ msg }}</span>
+        <!-- v-once 一次性的插值 -->
+        <span v-once>这个将不会改变：{{ msg }}</span>
+         <!-- 控制台，输入 app.msg = '新消息' 调试 -->
+
+        <!-- v-html="" 原始HTML字段 -->
+        <p>Using mustaches: {{ rawHtml }}</p>
+        <p>Using mustaches: <span v-html= "rawHtml"></span></p>
+
+        <!-- Mustache 语法。 -->
+        <a href="https://cn.vuejs.org/v2/guide/syntax.html">未解。</a>
+        <div v-bind:id="bynamicId"></div>
+        <button v-bind:disabled="isButtonDisabled">Button</button>
+
+        <!-- 使用表达式 -->
+        <a href="https://cn.vuejs.org/v2/guide/syntax.html">未解。</a>
+        {{ number + 1 }}
+        {{ ok ? 'YES' : 'NO' }}
+        {{ message.split('').reverse().join('') }}
+        <div v-bind:id="'list-' + id"></div>
+
+        <p v-if="seen">v-if="seen" 为true是能看得到我</p>
+        <a v-bind:href="url">v-bind 绑定参数</a>
+
+        <!-- .修饰符。未解。 -->
+        <p>用于指出一个指令应该以特殊方式绑定。例如.prevent 修饰符告诉v-on指令对于触发的事件调用event.preventDefault()：</p>
+        <form v-on:submit.prevent="onSubmit">...</form>
+
+        <!-- 缩写 -->
+        <p>v-bing:href="url" 等同于 :href="url"</p>
+        <p>v-on:click="dosomething" 等同于 @click="dosomething"</p>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#app",
+            data: {
+                msg: '文本插值',
+                rawHtml: '<span style="color: red">原始HTML</span>'
+            }
+        });
+    </script>
+</body>
+</html>
