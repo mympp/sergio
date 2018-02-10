@@ -1,4 +1,4 @@
-// 使用Node创建Web客户端。未解。客户端还要搭建？
+// 使用Node创建Web客户端。并对服务器发送请求。
 var http = require('http');
 
 // 用于请求的选项

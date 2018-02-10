@@ -1,6 +1,8 @@
 1. nodejs通过server.js搭建web服务器，包含请求和相应的基本应用。
 2. 而路由决定了由谁(指定脚本)去响应客户端请求。
 
+---
+
 - 1Nonblocking 解释什么是非阻塞代码
 - 2EventTmitter 事件触发器
 - 3Buffer 缓冲区
@@ -11,7 +13,7 @@
 - 7golbal 全局变量
 - 90Files 文件操作
 - 91GetPost post请求
-- 92WebMudule 搭建web服务器，并指定首页。其他页面都有首页跳转。
+- 92WebMudule 搭建web服务器，并指定首页。其他页面都由首页跳转。
 - 93Express Express是一个nodejs web应用框架。搭配body-parser、cookie-parser、multer模块使用。
     - node_modules+package-lock.json Express框架的文件
 
