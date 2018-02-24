@@ -75,6 +75,37 @@
                 }
             });
         });
+        function Class1(){
+            //self(self被附加到了对象上) self只对私有成员可见(能.点出来 i aa() .点不出来public_dd())
+            var self = this;
+            this.i = 1;
+            this.aa = function(){
+                this.i ++;
+                alert(this.i);
+            }
+            var private_bb = function(){
+                alert(self.i);
+                //self.public_dd();//错误 self无法从外部访问,同时self也无法被这个对象的公共方法所访问
+                //aa();//错误  私有方法要通过self调用
+                public_dd();//可以直接调用 不能用self.public_dd();
+                self.aa();
+            }
+            this.cc = function(){
+                private_bb();//私有函数
+            }
+            
+            //可以直接调用
+            //  对象的公共方法
+            function public_dd()
+            {
+                self.aa();
+                alert("dd");
+            }
+        }
+        var o = new Class1();//调用Class1构造函数不运行++(初始化没有调用不运行)
+        o.cc();//运行++
+        document.write(o.i);//return 2
+
     </script>
 
 </head>
